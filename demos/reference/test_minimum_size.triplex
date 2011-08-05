@@ -1,0 +1,133 @@
+# Sequence-ID	TFO start	TFO end	TTS-ID	TTS start	TTS end	Score	Error-rate	Errors	Motif	strand	orientation
+	2	16		10	24	13	0.071	t8	Y	-	P
+     5'- TCCTTCCTTTTCCC -3'
+TTS: 3'- AGGAAGGAAAAGGG -5'
+         ||||||||*|||||
+TFO: 3'- TCCTTCCTCTTCCC -5'
+
+	8	22		4	18	13	0.071	t5	Y	-	P
+     5'- CCCTTCTCCTTCCT -3'
+TTS: 3'- GGGAAGAGGAAGGA -5'
+         |||||*||||||||
+TFO: 3'- CCCTTTTCCTTCCT -5'
+
+	8	22		4	18	13	0.071	o5	Y	-	P
+     5'- CCCTTCTCCTTCCT -3'
+TTS: 3'- GGGAAGAGGAAGGA -5'
+         |||||*||||||||
+TFO: 3'- CCCTTgTCCTTCCT -5'
+
+	2	22		4	24	20	0		R	-	A
+     5'- CCCTTCTCCTTCCTTTTCCC -3'
+TTS: 3'- GGGAAGAGGAAGGAAAAGGG -5'
+         ||||||||||||||||||||
+TFO: 5'- GGGAAGAGGAAGGAAAAGGG -3'
+
+	7	22		9	24	14	0.067	o9	R	-	A
+     5'- CTCCTTCCTTTTCCC -3'
+TTS: 3'- GAGGAAGGAAAAGGG -5'
+         |||||||||*|||||
+TFO: 5'- GAGGAAGGAcAAGGG -3'
+
+	2	16		4	18	13	0.071	o4	R	-	A
+     5'- CCCTTCTCCTTCCT -3'
+TTS: 3'- GGGAAGAGGAAGGA -5'
+         ||||*|||||||||
+TFO: 5'- GGGAcGAGGAAGGA -3'
+
+	2	16		10	24	13	0.071	t8	M	-	P
+     5'- TCCTTCCTTTTCCC -3'
+TTS: 3'- AGGAAGGAAAAGGG -5'
+         ||||||||*|||||
+TFO: 3'- TGGTTGGTGTTGGG -5'
+
+	8	22		4	18	13	0.071	t5	M	-	P
+     5'- CCCTTCTCCTTCCT -3'
+TTS: 3'- GGGAAGAGGAAGGA -5'
+         |||||*||||||||
+TFO: 3'- GGGTTTTGGTTGGT -5'
+
+	2	22		4	24	20	0		M	-	A
+     5'- CCCTTCTCCTTCCTTTTCCC -3'
+TTS: 3'- GGGAAGAGGAAGGAAAAGGG -5'
+         ||||||||||||||||||||
+TFO: 5'- GGGTTGTGGTTGGTTTTGGG -3'
+
+	5	22		7	24	16	0.059	o14	M	-	A
+     5'- TTCTCCTTCCTTTTCCC -3'
+TTS: 3'- AAGAGGAAGGAAAAGGG -5'
+         ||||||||||||||*||
+TFO: 5'- TTGTGGTTGGTTTTcGG -3'
+
+	2	19		4	21	16	0.059	o2	M	-	A
+     5'- CCCTTCTCCTTCCTTTT -3'
+TTS: 3'- GGGAAGAGGAAGGAAAA -5'
+         ||*||||||||||||||
+TFO: 5'- GGcTTGTGGTTGGTTTT -3'
+
+	2	22		3	23	20	0		Y	-	P
+     5'- CCCTTTTCCTTCCTCTTCCC -3'
+TTS: 3'- GGGAAAAGGAAGGAGAAGGG -5'
+         ||||||||||||||||||||
+TFO: 3'- CCCTTTTCCTTCCTCTTCCC -5'
+
+	2	16		9	23	13	0.071	o9	Y	-	P
+     5'- TCCTTCCTCTTCCC -3'
+TTS: 3'- AGGAAGGAGAAGGG -5'
+         |||||||||*||||
+TFO: 3'- TCCTTCCTCgTCCC -5'
+
+	7	22		3	18	14	0.067	o5	Y	-	P
+     5'- CCCTTTTCCTTCCTC -3'
+TTS: 3'- GGGAAAAGGAAGGAG -5'
+         |||||*|||||||||
+TFO: 3'- CCCTTgTCCTTCCTC -5'
+
+	8	22		9	23	13	0.071	t8	R	-	A
+     5'- TCCTTCCTCTTCCC -3'
+TTS: 3'- AGGAAGGAGAAGGG -5'
+         ||||||||*|||||
+TFO: 5'- AGGAAGGAAAAGGG -3'
+
+	2	16		3	17	13	0.071	t5	R	-	A
+     5'- CCCTTTTCCTTCCT -3'
+TTS: 3'- GGGAAAAGGAAGGA -5'
+         |||||*||||||||
+TFO: 5'- GGGAAGAGGAAGGA -3'
+
+	8	22		9	23	13	0.071	o8	R	-	A
+     5'- TCCTTCCTCTTCCC -3'
+TTS: 3'- AGGAAGGAGAAGGG -5'
+         ||||||||*|||||
+TFO: 5'- AGGAAGGAcAAGGG -3'
+
+	2	22		3	23	20	0		M	-	P
+     5'- CCCTTTTCCTTCCTCTTCCC -3'
+TTS: 3'- GGGAAAAGGAAGGAGAAGGG -5'
+         ||||||||||||||||||||
+TFO: 3'- GGGTTTTGGTTGGTGTTGGG -5'
+
+	8	22		9	23	13	0.071	t8	M	-	A
+     5'- TCCTTCCTCTTCCC -3'
+TTS: 3'- AGGAAGGAGAAGGG -5'
+         ||||||||*|||||
+TFO: 5'- TGGTTGGTTTTGGG -3'
+
+	2	16		3	17	13	0.071	t5	M	-	A
+     5'- CCCTTTTCCTTCCT -3'
+TTS: 3'- GGGAAAAGGAAGGA -5'
+         |||||*||||||||
+TFO: 5'- GGGTTGTGGTTGGT -3'
+
+	2	19		6	23	16	0.059	o14	M	-	P
+     5'- TTTTCCTTCCTCTTCCC -3'
+TTS: 3'- AAAAGGAAGGAGAAGGG -5'
+         ||||||||||||||*||
+TFO: 3'- TTTTGGTTGGTGTTcGG -5'
+
+	5	22		3	20	16	0.059	o2	M	-	P
+     5'- CCCTTTTCCTTCCTCTT -3'
+TTS: 3'- GGGAAAAGGAAGGAGAA -5'
+         ||*||||||||||||||
+TFO: 3'- GGcTTTTGGTTGGTGTT -5'
+

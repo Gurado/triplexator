@@ -1,0 +1,19 @@
+Name: triplexator
+Author: Fabian Buske <f.buske@uq.edu.au>
+Maintainer: Fabian Buske <f.buske@uq.edu.au>
+License: see LICENCE
+Copyright: 2011, University of Queensland, Australia
+Status: under development
+Description: 
+ Triplexator investigates the potential of two sequences to engage in
+ nucleic acid triple-helix formation with each other.
+ .
+ Triplexator runs in different modes depending on the supplied input. 
+ If one sequence set is provided that acts as the putative third strand
+ Triplexator searches for putative triplex-forming oligonucleotides in 
+ this set. Conversely, putative triplex-target sites are detected if a 
+ sequence set providing the duplex is input. In case both kinds of sequences
+ are input Triplexator will search for putative TFO-TTS pairs (triple-helices)
+ between these sequences, i.e. matches between the triplex-forming 
+ oligonucleotides of the single-stranded set and the triplex target sites of 
+ the duplex set.

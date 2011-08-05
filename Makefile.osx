@@ -1,0 +1,51 @@
+
+# Makefile for Mac osx 
+# run with make -f Makefile.osx
+
+# indicate location of BOOST include files
+BOOST=
+#BOOST=-I/opt/local/var/macports/software/boost/1.46.1_0/opt/local/include -DBOOST=1
+
+# indicate location of BOOST libraries
+BOOSTLIB=
+#BOOSTLIB=/usr/lib/libz.dylib /usr/lib/libbz2.dylib /opt/local/lib/libboost_iostreams-mt.dylib
+
+# whether to use openMP
+OPENMP=
+# comment the next line if OpenMP is not supported by the compiler
+OPENMP=-fopenmp -DSEQAN_ENABLE_PARALLELISM=1
+
+# Compiler of choice (tested with g++ v4.2 on Mac OSX)
+CXX=/usr/bin/g++-4.2
+
+CXXFLAGS+=-Ilibrary -dynamic
+CXXFLAGS+=$(OPENMP) $(BOOST) 
+CXXFLAGS+=-O3 -DNDEBUG -DSEQAN_ENABLE_TESTING=0 -DSEQAN_ENABLE_DEBUG=0
+CXXFLAGS+= -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5
+
+LDFLAGS+=$(OPENMP) $(BOOSTLIB)
+LDFLAGS+= -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5
+LDFLAGS+= -Wl,-search_paths_first -headerpad_max_install_names -lgcc
+
+SRC=src
+
+default: all
+
+all: main test
+
+main: triplexator.o
+	$(CXX) $(LDFLAGS) -o bin/triplexator $(SRC)/triplexator.o
+
+triplexator.o: $(SRC)/triplexator.cpp
+	$(CXX) $(CXXFLAGS) -c -o $(SRC)/triplexator.o $(SRC)/triplexator.cpp
+
+test: main
+	./demos/smoketest_triplexator.sh ./bin/triplexator
+	
+clean:
+	rm -f triplexator.o triplexator 
+	rm -r -f ./demos/examples
+	rm -r -f ./demos/tests
+
+.PHONY: default all  clean
+

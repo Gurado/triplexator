@@ -1,0 +1,7 @@
+# Sequence-ID	TFO start	TFO end	TTS-ID	TTS start	TTS end	Score	Error-rate	Errors	Motif	strand	orientation
+Seq4-R-noErrors	2	22	Duplex2_R	3	23	20	0		R	+	A
+TFO: 3'- GGGAAAAGGAAGGAGAAGGG -5'
+         ||||||||||||||||||||
+TTS: 5'- GGGAAAAGGAAGGAGAAGGG -3'
+     3'- CCCTTTTCCTTCCTCTTCCC -5'
+
