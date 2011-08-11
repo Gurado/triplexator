@@ -643,17 +643,17 @@ struct QGramAlg;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqa
 //____________________________________________________________________________
 // QGramLessNoCheckOffset_
 
-template <typename TSAValue, typename TText > struct QGramLessNoCheckOffset_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(801)
+template <typename TSAValue, typename TText > struct QGramLessNoCheckOffset_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(813)
 
 //____________________________________________________________________________
 // QGramLessNoCheck_
 
-template <typename TSAValue, typename TText > struct QGramLessNoCheck_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(719)
+template <typename TSAValue, typename TText > struct QGramLessNoCheck_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(740)
 
 //____________________________________________________________________________
 // QGramLessOffset_
 
-template <typename TSAValue, typename TText > struct QGramLessOffset_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(655)
+template <typename TSAValue, typename TText > struct QGramLessOffset_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(667)
 
 //____________________________________________________________________________
 // QGramLess_
@@ -917,12 +917,12 @@ template <typename InType, typename TLimitsString, typename Result > struct _map
 //____________________________________________________________________________
 // _qgramComp
 
-template <typename InType, typename Result > struct _qgramComp;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1641)
+template <typename InType, typename Result > struct _qgramComp;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1654)
 
 //____________________________________________________________________________
 // _qgramHash
 
-template <typename TValue, typename TResult > struct _qgramHash;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1676)
+template <typename TValue, typename TResult > struct _qgramHash;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1689)
 
 //____________________________________________________________________________
 // _skew3ExtendComp
@@ -1478,8 +1478,8 @@ namespace SEQAN_NAMESPACE_MAIN {
 //____________________________________________________________________________
 // _adjustRightBorder
 
-template <typename TText, typename TSpec > inline void _adjustRightBorder( Iter< Index<TText, IndexWotd<WotdOriginal> >, VSTree< TopDown<TSpec> > > &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(635)
-template <typename TText, typename TIndexSpec, typename TSpec > inline void _adjustRightBorder( Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree< TopDown<TSpec> > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(641)
+template <typename TText, typename TSpec > inline void _adjustRightBorder( Iter< Index<TText, IndexWotd<WotdOriginal> >, VSTree< TopDown<TSpec> > > &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(643)
+template <typename TText, typename TIndexSpec, typename TSpec > inline void _adjustRightBorder( Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree< TopDown<TSpec> > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(649)
 
 //____________________________________________________________________________
 // _approximateStringSearch
@@ -1494,9 +1494,9 @@ template <bool enumerateA, bool enumerateB, typename TOnFoundFunctor, typename T
 //____________________________________________________________________________
 // _bucketLcp
 
-template <typename TSA, typename TText > typename Size<TText>::Type _bucketLcp(TSA const &sa, TText const &text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1448)
-template <typename TSA, typename TText, typename TSize > typename Size<TText>::Type _bucketLcp(TSA const &sa, TText const &text, TSize prefixLen);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1482)
-template <typename TSA, typename TText, typename TSpec, typename TSize > typename Size<TText>::Type _bucketLcp(TSA const &sa, StringSet<TText, TSpec> const &stringSet, TSize prefixLen);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1514)
+template <typename TSA, typename TText > typename Size<TText>::Type _bucketLcp(TSA const &sa, TText const &text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1456)
+template <typename TSA, typename TText, typename TSize > typename Size<TText>::Type _bucketLcp(TSA const &sa, TText const &text, TSize prefixLen);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1490)
+template <typename TSA, typename TText, typename TSpec, typename TSize > typename Size<TText>::Type _bucketLcp(TSA const &sa, StringSet<TText, TSpec> const &stringSet, TSize prefixLen);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1522)
 
 //____________________________________________________________________________
 // _childtabProcess
@@ -1602,13 +1602,13 @@ template <typename TValue, typename TSpec> inline void _deallocateStorage( Strin
 //____________________________________________________________________________
 // _dfsClear
 
-template <typename TIndex, class TSpec > inline void _dfsClear(Iter<TIndex, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1767)
+template <typename TIndex, class TSpec > inline void _dfsClear(Iter<TIndex, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1768)
 
 //____________________________________________________________________________
 // _dfsLcp
 
-template <typename TIndex, class TSpec > inline typename Size<TIndex>::Type & _dfsLcp(Iter< TIndex, VSTree< BottomUp<TSpec> > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2279)
-template <typename TIndex, class TSpec > inline typename Size<TIndex>::Type _dfsLcp(Iter< TIndex, VSTree< BottomUp<TSpec> > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2285)
+template <typename TIndex, class TSpec > inline typename Size<TIndex>::Type & _dfsLcp(Iter< TIndex, VSTree< BottomUp<TSpec> > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2280)
+template <typename TIndex, class TSpec > inline typename Size<TIndex>::Type _dfsLcp(Iter< TIndex, VSTree< BottomUp<TSpec> > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2286)
 
 //____________________________________________________________________________
 // _dfsOnLeaf
@@ -1631,8 +1631,8 @@ template <typename TIndex, typename TSpec, typename TElement > inline void _dfsO
 //____________________________________________________________________________
 // _dfsRange
 
-template <typename TIndex, class TSpec > inline Pair<typename Size<TIndex>::Type> & _dfsRange(Iter< TIndex, VSTree< BottomUp<TSpec> > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2266)
-template <typename TIndex, class TSpec > inline Pair<typename Size<TIndex>::Type> const & _dfsRange(Iter< TIndex, VSTree< BottomUp<TSpec> > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2273)
+template <typename TIndex, class TSpec > inline Pair<typename Size<TIndex>::Type> & _dfsRange(Iter< TIndex, VSTree< BottomUp<TSpec> > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2267)
+template <typename TIndex, class TSpec > inline Pair<typename Size<TIndex>::Type> const & _dfsRange(Iter< TIndex, VSTree< BottomUp<TSpec> > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2274)
 
 //____________________________________________________________________________
 // _dfsReversedOrder
@@ -1644,7 +1644,7 @@ template <typename TIndex, typename TSpec > inline bool _dfsReversedOrder(Iter<T
 
 template <typename TText, typename TPredHull, typename TPred> inline void _dump(Index<TText, IndexWotd< Dfi<TPredHull, TPred> > > &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_dfi.h"(523)
 template <typename TText, typename TSpec> inline void _dump(Index<TText, IndexEsa<TSpec> > &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(351)
-template <typename TText, typename TSpec> inline void _dump(Index<TText, IndexWotd<TSpec> > &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1788)
+template <typename TText, typename TSpec> inline void _dump(Index<TText, IndexWotd<TSpec> > &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1796)
 
 //____________________________________________________________________________
 // _dumpFreq
@@ -1711,7 +1711,7 @@ template <typename TObject, typename TShapeSpec> inline __int64 _fullDirLength(I
 //____________________________________________________________________________
 // _getDown
 
-template <typename TSize, typename TIndex > inline TSize _getDown(TSize i, TIndex const &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2255)
+template <typename TSize, typename TIndex > inline TSize _getDown(TSize i, TIndex const &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2256)
 
 //____________________________________________________________________________
 // _getErrorPatternIndex
@@ -1723,10 +1723,10 @@ template <typename TPatternStore, typename TPattern> inline int _getErrorPattern
 
 template <typename TSize > inline typename Id< VertexEsa<TSize> const >::Type _getId(VertexEsa<TSize> const &desc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(754)
 template <typename TSize > inline typename Id< VertexEsa<TSize> >::Type _getId(VertexEsa<TSize> &desc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(768)
-template <typename TSize > inline typename Id< VertexWotdOriginal_<TSize> const >::Type _getId(VertexWotdOriginal_<TSize> const &desc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(377)
-template <typename TSize > inline typename Id< VertexWotdOriginal_<TSize> >::Type _getId(VertexWotdOriginal_<TSize> &desc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(384)
-template <typename TSize > inline typename Id< VertexWotdModified_<TSize> const >::Type _getId(VertexWotdModified_<TSize> const &desc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(391)
-template <typename TSize > inline typename Id< VertexWotdModified_<TSize> >::Type _getId(VertexWotdModified_<TSize> &desc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(398)
+template <typename TSize > inline typename Id< VertexWotdOriginal_<TSize> const >::Type _getId(VertexWotdOriginal_<TSize> const &desc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(385)
+template <typename TSize > inline typename Id< VertexWotdOriginal_<TSize> >::Type _getId(VertexWotdOriginal_<TSize> &desc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(392)
+template <typename TSize > inline typename Id< VertexWotdModified_<TSize> const >::Type _getId(VertexWotdModified_<TSize> const &desc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(399)
+template <typename TSize > inline typename Id< VertexWotdModified_<TSize> >::Type _getId(VertexWotdModified_<TSize> &desc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(406)
 
 //____________________________________________________________________________
 // _getLastPatternProb
@@ -1737,7 +1737,7 @@ template <typename TState, typename TPattern > inline void _getLastPatternProb(T
 //____________________________________________________________________________
 // _getNextl
 
-template <typename TSize, typename TIndex > inline TSize _getNextl(TSize i, TIndex const &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2240)
+template <typename TSize, typename TIndex > inline TSize _getNextl(TSize i, TIndex const &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2241)
 
 //____________________________________________________________________________
 // _getNodeByChar
@@ -1747,7 +1747,7 @@ template <typename TText, class TIndexSpec, class TSpec, typename TValue > inlin
 //____________________________________________________________________________
 // _getNodeLP
 
-template <typename TText, typename TSpec, typename TPos> inline TPos _getNodeLP( Index<TText, IndexWotd<TSpec> > const &index, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1565)
+template <typename TText, typename TSpec, typename TPos> inline TPos _getNodeLP( Index<TText, IndexWotd<TSpec> > const &index, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1573)
 
 //____________________________________________________________________________
 // _getProb
@@ -1757,49 +1757,49 @@ template <typename TLogErrorDistr > typename Value<TLogErrorDistr>::Type _getPro
 //____________________________________________________________________________
 // _getUp
 
-template <typename TSize, typename TIndex > inline TSize _getUp(TSize i, TIndex const &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2246)
+template <typename TSize, typename TIndex > inline TSize _getUp(TSize i, TIndex const &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2247)
 
 //____________________________________________________________________________
 // _goDown
 
-template <typename TText, class TIndexSpec, class TSpec, typename TDfsOrder > inline bool _goDown( Iter< Index<TText, IndexEsa<TIndexSpec> >, VSTree< TopDown<TSpec> > > &it, VSTreeIteratorTraits<TDfsOrder, False> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1391)
-template <typename TText, class TIndexSpec, class TSpec, typename TDfsOrder > inline bool _goDown( Iter< Index<TText, IndexEsa<TIndexSpec> >, VSTree< TopDown<TSpec> > > &it, VSTreeIteratorTraits<TDfsOrder, True> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1411)
-template <typename TText, typename TSpec, typename TDfsOrder, typename THideEmptyEdges > inline bool _goDown( Iter< Index<TText, IndexWotd<WotdOriginal> >, VSTree< TopDown<TSpec> > > &it, VSTreeIteratorTraits<TDfsOrder, THideEmptyEdges> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(666)
-template <typename TText, typename TIndexSpec, typename TSpec, typename TDfsOrder, typename THideEmptyEdges > inline bool _goDown( Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree< TopDown<TSpec> > > &it, VSTreeIteratorTraits<TDfsOrder, THideEmptyEdges> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(702)
+template <typename TText, class TIndexSpec, class TSpec, typename TDfsOrder > inline bool _goDown( Iter< Index<TText, IndexEsa<TIndexSpec> >, VSTree< TopDown<TSpec> > > &it, VSTreeIteratorTraits<TDfsOrder, False> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1392)
+template <typename TText, class TIndexSpec, class TSpec, typename TDfsOrder > inline bool _goDown( Iter< Index<TText, IndexEsa<TIndexSpec> >, VSTree< TopDown<TSpec> > > &it, VSTreeIteratorTraits<TDfsOrder, True> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1412)
+template <typename TText, typename TSpec, typename TDfsOrder, typename THideEmptyEdges > inline bool _goDown( Iter< Index<TText, IndexWotd<WotdOriginal> >, VSTree< TopDown<TSpec> > > &it, VSTreeIteratorTraits<TDfsOrder, THideEmptyEdges> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(674)
+template <typename TText, typename TIndexSpec, typename TSpec, typename TDfsOrder, typename THideEmptyEdges > inline bool _goDown( Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree< TopDown<TSpec> > > &it, VSTreeIteratorTraits<TDfsOrder, THideEmptyEdges> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(710)
 
 //____________________________________________________________________________
 // _goDownChar
 
-template <typename TIndex, class TSpec, typename TValue > inline bool _goDownChar(Iter< TIndex, VSTree< TopDown<TSpec> > > &it, TValue c);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1456)
-template <typename TText, class TSpec, typename TValue > inline bool _goDownChar( Iter<Index<TText, IndexWotd<WotdOriginal> >, VSTree< TopDown<TSpec> > > &it, TValue c);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1817)
-template <typename TText, class TIndexSpec, class TSpec, typename TValue > inline bool _goDownChar( Iter<Index<TText, IndexWotd<TIndexSpec> >, VSTree< TopDown<TSpec> > > &it, TValue c);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1839)
+template <typename TIndex, class TSpec, typename TValue > inline bool _goDownChar(Iter< TIndex, VSTree< TopDown<TSpec> > > &it, TValue c);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1457)
+template <typename TText, class TSpec, typename TValue > inline bool _goDownChar( Iter<Index<TText, IndexWotd<WotdOriginal> >, VSTree< TopDown<TSpec> > > &it, TValue c);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1825)
+template <typename TText, class TIndexSpec, class TSpec, typename TValue > inline bool _goDownChar( Iter<Index<TText, IndexWotd<TIndexSpec> >, VSTree< TopDown<TSpec> > > &it, TValue c);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1847)
 
 //____________________________________________________________________________
 // _goDownObject
 
-template <typename TIndex, typename TSpec, typename TObject > inline bool _goDownObject( Iter< TIndex, VSTree< TopDown<TSpec> > > &it, TObject const &obj, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1524)
-template <typename TIndex, typename TSpec, typename TObject > inline bool _goDownObject( Iter< TIndex, VSTree< TopDown<TSpec> > > &it, TObject const &obj, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1534)
+template <typename TIndex, typename TSpec, typename TObject > inline bool _goDownObject( Iter< TIndex, VSTree< TopDown<TSpec> > > &it, TObject const &obj, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1525)
+template <typename TIndex, typename TSpec, typename TObject > inline bool _goDownObject( Iter< TIndex, VSTree< TopDown<TSpec> > > &it, TObject const &obj, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1535)
 
 //____________________________________________________________________________
 // _goDownString
 
-template <typename TIndex, typename TSpec, typename TString, typename TSize > inline bool _goDownString( Iter< TIndex, VSTree< TopDown<TSpec> > > &node, TString const &pattern, TSize &lcp);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1474)
+template <typename TIndex, typename TSpec, typename TString, typename TSize > inline bool _goDownString( Iter< TIndex, VSTree< TopDown<TSpec> > > &node, TString const &pattern, TSize &lcp);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1475)
 
 //____________________________________________________________________________
 // _goRight
 
-template <typename TText, class TIndexSpec, class TSpec, typename TDfsOrder, typename THideEmptyEdges > inline bool _goRight( Iter< Index<TText, IndexEsa<TIndexSpec> >, VSTree< TopDown<TSpec> > > &it, VSTreeIteratorTraits<TDfsOrder, THideEmptyEdges> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1660)
-template <typename TText, typename TSpec, typename TDfsOrder, typename THideEmptyEdges > inline bool _goRight( Iter< Index<TText, IndexWotd<WotdOriginal> >, VSTree< TopDown<TSpec> > > &it, VSTreeIteratorTraits<TDfsOrder, THideEmptyEdges> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(738)
-template <typename TText, typename TIndexSpec, typename TSpec, typename TDfsOrder, typename THideEmptyEdges > inline bool _goRight( Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree< TopDown<TSpec> > > &it, VSTreeIteratorTraits<TDfsOrder, THideEmptyEdges> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(762)
+template <typename TText, class TIndexSpec, class TSpec, typename TDfsOrder, typename THideEmptyEdges > inline bool _goRight( Iter< Index<TText, IndexEsa<TIndexSpec> >, VSTree< TopDown<TSpec> > > &it, VSTreeIteratorTraits<TDfsOrder, THideEmptyEdges> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1661)
+template <typename TText, typename TSpec, typename TDfsOrder, typename THideEmptyEdges > inline bool _goRight( Iter< Index<TText, IndexWotd<WotdOriginal> >, VSTree< TopDown<TSpec> > > &it, VSTreeIteratorTraits<TDfsOrder, THideEmptyEdges> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(746)
+template <typename TText, typename TIndexSpec, typename TSpec, typename TDfsOrder, typename THideEmptyEdges > inline bool _goRight( Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree< TopDown<TSpec> > > &it, VSTreeIteratorTraits<TDfsOrder, THideEmptyEdges> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(770)
 
 //____________________________________________________________________________
 // _goUp
 
-template <typename TIndex, class TSpec > inline bool _goUp(Iter< TIndex, VSTree< TopDown<TSpec> > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1576)
-template <typename TIndex, class TSpec > inline bool _goUp(Iter< TIndex, VSTree< TopDown< ParentLinks<TSpec> > > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1588)
-template <typename TText, typename TWotdSpec, typename TSpec > inline bool _goUp(Iter< Index<TText, IndexWotd<TWotdSpec> >, VSTree< TopDown<TSpec> > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(787)
-template <typename TText, typename TSpec > inline bool _goUp(Iter< Index<TText, IndexWotd<WotdOriginal> >, VSTree< TopDown< ParentLinks<TSpec> > > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(799)
-template <typename TText, typename TIndexSpec, typename TSpec > inline bool _goUp(Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree< TopDown< ParentLinks<TSpec> > > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(816)
+template <typename TIndex, class TSpec > inline bool _goUp(Iter< TIndex, VSTree< TopDown<TSpec> > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1577)
+template <typename TIndex, class TSpec > inline bool _goUp(Iter< TIndex, VSTree< TopDown< ParentLinks<TSpec> > > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1589)
+template <typename TText, typename TWotdSpec, typename TSpec > inline bool _goUp(Iter< Index<TText, IndexWotd<TWotdSpec> >, VSTree< TopDown<TSpec> > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(795)
+template <typename TText, typename TSpec > inline bool _goUp(Iter< Index<TText, IndexWotd<WotdOriginal> >, VSTree< TopDown< ParentLinks<TSpec> > > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(807)
+template <typename TText, typename TIndexSpec, typename TSpec > inline bool _goUp(Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree< TopDown< ParentLinks<TSpec> > > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(824)
 
 //____________________________________________________________________________
 // _hashFixedShape
@@ -1829,17 +1829,18 @@ template <typename TValue, typename TSize> int _haveMaximalRepeats( FractionComp
 //____________________________________________________________________________
 // _historyClear
 
-template <typename TIndex, class TSpec > inline void _historyClear(Iter< TIndex, VSTree<TSpec> > &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1337)
-template <typename TIndex, class TSpec > inline void _historyClear(Iter< TIndex, VSTree< TopDown< ParentLinks<TSpec> > > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1342)
+template <typename TIndex, class TSpec > inline void _historyClear(Iter< TIndex, VSTree<TSpec> > &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1338)
+template <typename TIndex, class TSpec > inline void _historyClear(Iter< TIndex, VSTree< TopDown< ParentLinks<TSpec> > > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1343)
 
 //____________________________________________________________________________
 // _historyPush
 
-template <typename TText, class TIndexSpec, class TSpec > inline void _historyPush(Iter< Index<TText, IndexEsa<TIndexSpec> >, VSTree< TopDown<TSpec> > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1355)
-template <typename TText, class TIndexSpec, class TSpec > inline void _historyPush(Iter< Index<TText, IndexEsa<TIndexSpec> >, VSTree< TopDown< ParentLinks<TSpec> > > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1362)
-template <typename TText, typename TIndexSpec, typename TSpec > inline void _historyPush(Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree< TopDown<TSpec> > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(322)
-template <typename TText, typename TSpec > inline void _historyPush(Iter< Index<TText, IndexWotd<WotdOriginal> >, VSTree< TopDown< ParentLinks<TSpec> > > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(331)
-template <typename TText, typename TIndexSpec, typename TSpec > inline void _historyPush(Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree< TopDown< ParentLinks<TSpec> > > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(342)
+template <typename TText, class TIndexSpec, class TSpec > inline void _historyPush(Iter< Index<TText, IndexEsa<TIndexSpec> >, VSTree< TopDown<TSpec> > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1356)
+template <typename TText, class TIndexSpec, class TSpec > inline void _historyPush(Iter< Index<TText, IndexEsa<TIndexSpec> >, VSTree< TopDown< ParentLinks<TSpec> > > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1363)
+template <typename TText, typename TSpec > inline void _historyPush(Iter< Index<TText, IndexWotd<WotdOriginal> >, VSTree< TopDown<TSpec> > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(322)
+template <typename TText, typename TIndexSpec, typename TSpec > inline void _historyPush(Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree< TopDown<TSpec> > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(330)
+template <typename TText, typename TSpec > inline void _historyPush(Iter< Index<TText, IndexWotd<WotdOriginal> >, VSTree< TopDown< ParentLinks<TSpec> > > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(339)
+template <typename TText, typename TIndexSpec, typename TSpec > inline void _historyPush(Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree< TopDown< ParentLinks<TSpec> > > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(350)
 
 //____________________________________________________________________________
 // _indexRequireBottomUpIteration
@@ -1875,23 +1876,23 @@ template <typename TArray, typename TValue > inline void _insertXorBetween( TArr
 //____________________________________________________________________________
 // _isLeaf
 
-template <typename TSize > inline bool _isLeaf(VertexEsa<TSize> const &vDesc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2166)
-template <typename TIndex, class TSpec, typename TDfsOrder > inline bool _isLeaf( Iter<TIndex, VSTree<TSpec> > const &it, VSTreeIteratorTraits<TDfsOrder, False> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2177)
-template <typename TIndex, class TSpec, typename TDfsOrder > inline bool _isLeaf( Iter<TIndex, VSTree<TSpec> > const &it, VSTreeIteratorTraits<TDfsOrder, True> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2186)
-template <typename TText, typename TIndexSpec, typename TSpec, typename TDfsOrder > inline bool _isLeaf( Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree<TSpec> > const &it, VSTreeIteratorTraits<TDfsOrder, False> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(421)
-template <typename TText, typename TIndexSpec, typename TSpec, typename TDfsOrder > inline bool _isLeaf( Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree<TSpec> > const &it, VSTreeIteratorTraits<TDfsOrder, True> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(433)
+template <typename TSize > inline bool _isLeaf(VertexEsa<TSize> const &vDesc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2167)
+template <typename TIndex, class TSpec, typename TDfsOrder > inline bool _isLeaf( Iter<TIndex, VSTree<TSpec> > const &it, VSTreeIteratorTraits<TDfsOrder, False> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2178)
+template <typename TIndex, class TSpec, typename TDfsOrder > inline bool _isLeaf( Iter<TIndex, VSTree<TSpec> > const &it, VSTreeIteratorTraits<TDfsOrder, True> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2187)
+template <typename TText, typename TIndexSpec, typename TSpec, typename TDfsOrder > inline bool _isLeaf( Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree<TSpec> > const &it, VSTreeIteratorTraits<TDfsOrder, False> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(429)
+template <typename TText, typename TIndexSpec, typename TSpec, typename TDfsOrder > inline bool _isLeaf( Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree<TSpec> > const &it, VSTreeIteratorTraits<TDfsOrder, True> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(441)
 
 //____________________________________________________________________________
 // _isNextl
 
-template <typename TSize, typename TIndex > inline bool _isNextl(TSize i, TIndex const &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2222)
+template <typename TSize, typename TIndex > inline bool _isNextl(TSize i, TIndex const &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2223)
 
 //____________________________________________________________________________
 // _isRoot
 
-template <typename TSize > inline bool _isRoot(VertexEsa<TSize> const &value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1909)
-template <typename TSize > inline bool _isRoot(VertexWotdOriginal_<TSize> const &value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(405)
-template <typename TSize > inline bool _isRoot(VertexWotdModified_<TSize> const &value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(411)
+template <typename TSize > inline bool _isRoot(VertexEsa<TSize> const &value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1910)
+template <typename TSize > inline bool _isRoot(VertexWotdOriginal_<TSize> const &value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(413)
+template <typename TSize > inline bool _isRoot(VertexWotdModified_<TSize> const &value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(419)
 
 //____________________________________________________________________________
 // _isSizeInval
@@ -1901,7 +1902,7 @@ template <typename TValue> inline bool _isSizeInval(TValue const &v);       	// 
 //____________________________________________________________________________
 // _isUp
 
-template <typename TSize, typename TIndex > inline bool _isUp(TSize i, TIndex const &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2231)
+template <typename TSize, typename TIndex > inline bool _isUp(TSize i, TIndex const &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2232)
 
 //____________________________________________________________________________
 // _lcpProcess
@@ -1952,17 +1953,17 @@ template <typename TFinder, typename TIndex, typename TSpec> inline bool _nextNo
 //____________________________________________________________________________
 // _onGoDown
 
-template <typename TIndex, typename TSpec > inline void _onGoDown(Iter<TIndex, VSTree< TopDown<TSpec> > > &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1374)
+template <typename TIndex, typename TSpec > inline void _onGoDown(Iter<TIndex, VSTree< TopDown<TSpec> > > &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1375)
 
 //____________________________________________________________________________
 // _onGoRight
 
-template <typename TIndex, typename TSpec > inline void _onGoRight(Iter<TIndex, VSTree< TopDown<TSpec> > > &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1377)
+template <typename TIndex, typename TSpec > inline void _onGoRight(Iter<TIndex, VSTree< TopDown<TSpec> > > &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1378)
 
 //____________________________________________________________________________
 // _onGoUp
 
-template <typename TIndex, typename TSpec > inline void _onGoUp(Iter<TIndex, VSTree< TopDown< ParentLinks<TSpec> > > > &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1380)
+template <typename TIndex, typename TSpec > inline void _onGoUp(Iter<TIndex, VSTree< TopDown< ParentLinks<TSpec> > > > &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1381)
 
 //____________________________________________________________________________
 // _patternInit
@@ -2014,35 +2015,35 @@ template <typename TValue> inline TValue _probMul(TValue a, TValue b);       	//
 //____________________________________________________________________________
 // _qgramClearDir
 
-template <typename TDir > inline void _qgramClearDir(TDir &dir, Nothing &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(868)
+template <typename TDir > inline void _qgramClearDir(TDir &dir, Nothing &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(880)
 template <typename TDir, typename THashValue > inline void _qgramClearDir(TDir &dir, BucketMap<THashValue> &bucketMap);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram_openaddressing.h"(177)
 
 //____________________________________________________________________________
 // _qgramCountQGrams
 
-template <typename TDir, typename TBucketMap, typename TText, typename TShape, typename TStepSize > inline void _qgramCountQGrams(TDir &dir, TBucketMap &bucketMap, TText const &text, TShape shape, TStepSize stepSize);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(877)
-template <typename TDir, typename TBucketMap, typename TString, typename TSpec, typename TShape, typename TStepSize > inline void _qgramCountQGrams(TDir &dir, TBucketMap &bucketMap, StringSet<TString, TSpec> const &stringSet, TShape shape, TStepSize stepSize);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(904)
+template <typename TDir, typename TBucketMap, typename TText, typename TShape, typename TStepSize > inline void _qgramCountQGrams(TDir &dir, TBucketMap &bucketMap, TText const &text, TShape shape, TStepSize stepSize);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(889)
+template <typename TDir, typename TBucketMap, typename TString, typename TSpec, typename TShape, typename TStepSize > inline void _qgramCountQGrams(TDir &dir, TBucketMap &bucketMap, StringSet<TString, TSpec> const &stringSet, TShape shape, TStepSize stepSize);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(916)
 
 //____________________________________________________________________________
 // _qgramCummulativeSum
 
-template <typename TDir, typename TWithConstraints > inline typename Value<TDir>::Type _qgramCummulativeSum(TDir &dir, TWithConstraints);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(951)
+template <typename TDir, typename TWithConstraints > inline typename Value<TDir>::Type _qgramCummulativeSum(TDir &dir, TWithConstraints);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(963)
 
 //____________________________________________________________________________
 // _qgramCummulativeSumAlt
 
-template <typename TDir, typename TWithConstraints > inline typename Value<TDir>::Type _qgramCummulativeSumAlt(TDir &dir, TWithConstraints const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(983)
+template <typename TDir, typename TWithConstraints > inline typename Value<TDir>::Type _qgramCummulativeSumAlt(TDir &dir, TWithConstraints const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(995)
 
 //____________________________________________________________________________
 // _qgramDisableBuckets
 
-template <typename TIndex > inline bool _qgramDisableBuckets(TIndex &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1187)
+template <typename TIndex > inline bool _qgramDisableBuckets(TIndex &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1199)
 
 //____________________________________________________________________________
 // _qgramFillSuffixArray
 
-template <typename TSA, typename TText, typename TShape, typename TDir, typename TBucketMap, typename TWithConstraints, typename TStepSize > inline void _qgramFillSuffixArray( TSA &sa, TText const &text, TShape shape, TDir &dir, TBucketMap &bucketMap, TStepSize stepSize, TWithConstraints const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1023)
-template <typename TSA, typename TString, typename TSpec, typename TShape, typename TDir, typename TBucketMap, typename TStepSize, typename TWithConstraints > inline void _qgramFillSuffixArray( TSA &sa, StringSet<TString, TSpec> const &stringSet, TShape shape, TDir &dir, TBucketMap &bucketMap, TStepSize stepSize, TWithConstraints const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1080)
+template <typename TSA, typename TText, typename TShape, typename TDir, typename TBucketMap, typename TWithConstraints, typename TStepSize > inline void _qgramFillSuffixArray( TSA &sa, TText const &text, TShape shape, TDir &dir, TBucketMap &bucketMap, TStepSize stepSize, TWithConstraints const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1035)
+template <typename TSA, typename TString, typename TSpec, typename TShape, typename TDir, typename TBucketMap, typename TStepSize, typename TWithConstraints > inline void _qgramFillSuffixArray( TSA &sa, StringSet<TString, TSpec> const &stringSet, TShape shape, TDir &dir, TBucketMap &bucketMap, TStepSize stepSize, TWithConstraints const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1092)
 
 //____________________________________________________________________________
 // _qgramLemma
@@ -2052,12 +2053,12 @@ template <typename TIndex, typename TSpec, typename TSeqNo> inline int _qgramLem
 //____________________________________________________________________________
 // _qgramPostprocessBuckets
 
-template <typename TDir > inline void _qgramPostprocessBuckets(TDir &dir);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1146)
+template <typename TDir > inline void _qgramPostprocessBuckets(TDir &dir);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1158)
 
 //____________________________________________________________________________
 // _qgramQGramCount
 
-template <typename TText, typename TShapeSpec, typename TSpec> inline typename Size<Index<TText, IndexQGram<TShapeSpec, TSpec> > >::Type _qgramQGramCount(Index<TText, IndexQGram<TShapeSpec, TSpec> > const &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1876)
+template <typename TText, typename TShapeSpec, typename TSpec> inline typename Size<Index<TText, IndexQGram<TShapeSpec, TSpec> > >::Type _qgramQGramCount(Index<TText, IndexQGram<TShapeSpec, TSpec> > const &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1889)
 
 //____________________________________________________________________________
 // _reallocateStorage
@@ -2067,7 +2068,7 @@ template <typename TValue, typename TSpec> inline typename Value<String<TValue, 
 //____________________________________________________________________________
 // _refineQGramIndex
 
-template <typename TSA, typename TDir, typename TText, typename TSize1, typename TSize2 > void _refineQGramIndex( TSA &sa, TDir &dir, TText const &text, TSize1 oldQ, TSize2 newQ);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1393)
+template <typename TSA, typename TDir, typename TText, typename TSize1, typename TSize2 > void _refineQGramIndex( TSA &sa, TDir &dir, TText const &text, TSize1 oldQ, TSize2 newQ);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1406)
 
 //____________________________________________________________________________
 // _repeatMaskValue
@@ -2124,23 +2125,23 @@ template <typename TSA, typename TText, typename TSize> void _sortBucketQuickSor
 // _sortFirstWotdBucket
 
 template <typename TText, typename TSpec, typename TPredHull, typename TPred > typename Size< Index<StringSet<TText, TSpec>, IndexWotd<Dfi<TPredHull, TPred> > > >::Type _sortFirstWotdBucket(Index<StringSet<TText, TSpec>, IndexWotd<Dfi<TPredHull, TPred> > > &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_dfi.h"(206)
-template <typename TIndex > typename Size<TIndex>::Type _sortFirstWotdBucket(TIndex &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1078)
-template <typename TText, typename TSpec, typename TIndexSpec > typename Size< Index<StringSet<TText, TSpec>, TIndexSpec> >::Type _sortFirstWotdBucket(Index<StringSet<TText, TSpec>, TIndexSpec> &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1123)
+template <typename TIndex > typename Size<TIndex>::Type _sortFirstWotdBucket(TIndex &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1086)
+template <typename TText, typename TSpec, typename TIndexSpec > typename Size< Index<StringSet<TText, TSpec>, TIndexSpec> >::Type _sortFirstWotdBucket(Index<StringSet<TText, TSpec>, TIndexSpec> &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1131)
 
 //____________________________________________________________________________
 // _sortWotdBucket
 
 template <typename TText, typename TSpec, typename TPredHull, typename TPred, typename TBeginPos, typename TEndPos, typename TSize > TSize _sortWotdBucket( Index<StringSet<TText, TSpec>, IndexWotd<Dfi<TPredHull, TPred> > > &index, TBeginPos left, TEndPos right, TSize prefixLen);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_dfi.h"(299)
-template <typename TText, typename TBeginPos, typename TEndPos, typename TSize > TSize _sortWotdBucket( Index<TText, IndexWotd<WotdOriginal> > &index, TBeginPos left, TEndPos right, TSize prefixLen);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1187)
-template <typename TIndex, typename TBeginPos, typename TEndPos, typename TSize > TSize _sortWotdBucket( TIndex &index, TBeginPos left, TEndPos right, TSize prefixLen);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1301)
-template <typename TText, typename TSpec, typename TIndexSpec, typename TBeginPos, typename TEndPos, typename TSize > TSize _sortWotdBucket( Index<StringSet<TText, TSpec>, TIndexSpec> &index, TBeginPos left, TEndPos right, TSize prefixLen);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1367)
+template <typename TText, typename TBeginPos, typename TEndPos, typename TSize > TSize _sortWotdBucket( Index<TText, IndexWotd<WotdOriginal> > &index, TBeginPos left, TEndPos right, TSize prefixLen);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1195)
+template <typename TIndex, typename TBeginPos, typename TEndPos, typename TSize > TSize _sortWotdBucket( TIndex &index, TBeginPos left, TEndPos right, TSize prefixLen);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1309)
+template <typename TText, typename TSpec, typename TIndexSpec, typename TBeginPos, typename TEndPos, typename TSize > TSize _sortWotdBucket( Index<StringSet<TText, TSpec>, TIndexSpec> &index, TBeginPos left, TEndPos right, TSize prefixLen);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1375)
 
 //____________________________________________________________________________
 // _storeWotdChildren
 
 template <typename TText, typename TPredHull, typename TPred, typename TSize> inline void _storeWotdChildren( Index<TText, IndexWotd<Dfi<TPredHull, TPred> > > &index, TSize dirOfs, TSize lcp);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_dfi.h"(445)
-template <typename TText, typename TPos> inline void _storeWotdChildren( Index<TText, IndexWotd<WotdOriginal> > &index, TPos dirOfs);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1584)
-template <typename TText, typename TSpec, typename TSize> inline void _storeWotdChildren( Index<TText, IndexWotd<TSpec> > &index, TSize dirOfs, TSize lcp);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1644)
+template <typename TText, typename TPos> inline void _storeWotdChildren( Index<TText, IndexWotd<WotdOriginal> > &index, TPos dirOfs);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1592)
+template <typename TText, typename TSpec, typename TSize> inline void _storeWotdChildren( Index<TText, IndexWotd<TSpec> > &index, TSize dirOfs, TSize lcp);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1652)
 
 //____________________________________________________________________________
 // _swiftBucketNo
@@ -2198,32 +2199,32 @@ template <typename TText, typename TSA, typename TSpec, typename TQuery > inline
 //____________________________________________________________________________
 // _wotdCountChars
 
-template <typename TBuckets, typename TText > inline void _wotdCountChars(TBuckets &buckets, TText const &text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(887)
-template <typename TBuckets, typename TText, typename TSpec > inline void _wotdCountChars(TBuckets &buckets, StringSet<TText, TSpec> const &stringSet);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(901)
-template <typename TBuckets, typename TText, typename TSA, typename TSize > inline typename Size<TText>::Type _wotdCountChars( TBuckets &buckets, TText const &text, TSA const &sa, TSize prefixLen);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(954)
-template <typename TBuckets, typename TText, typename TSpec, typename TSA, typename TSize > inline typename Size<TText>::Type _wotdCountChars( TBuckets &buckets, StringSet<TText, TSpec> const &stringSet, TSA const &sa, TSize prefixLen);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(990)
+template <typename TBuckets, typename TText > inline void _wotdCountChars(TBuckets &buckets, TText const &text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(895)
+template <typename TBuckets, typename TText, typename TSpec > inline void _wotdCountChars(TBuckets &buckets, StringSet<TText, TSpec> const &stringSet);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(909)
+template <typename TBuckets, typename TText, typename TSA, typename TSize > inline typename Size<TText>::Type _wotdCountChars( TBuckets &buckets, TText const &text, TSA const &sa, TSize prefixLen);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(962)
+template <typename TBuckets, typename TText, typename TSpec, typename TSA, typename TSize > inline typename Size<TText>::Type _wotdCountChars( TBuckets &buckets, StringSet<TText, TSpec> const &stringSet, TSA const &sa, TSize prefixLen);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(998)
 
 //____________________________________________________________________________
 // _wotdCountCharsWotdOriginal
 
-template <typename TBuckets, typename TText, typename TSA, typename TSize > inline typename Size<TText>::Type _wotdCountCharsWotdOriginal( TBuckets &buckets, TText const &text, TSA &sa, TSize prefixLen);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(923)
+template <typename TBuckets, typename TText, typename TSA, typename TSize > inline typename Size<TText>::Type _wotdCountCharsWotdOriginal( TBuckets &buckets, TText const &text, TSA &sa, TSize prefixLen);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(931)
 
 //____________________________________________________________________________
 // _wotdCreateFirstLevel
 
-template <typename TText, typename TSpec> inline void _wotdCreateFirstLevel(Index<TText, IndexWotd<TSpec> > &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1889)
+template <typename TText, typename TSpec> inline void _wotdCreateFirstLevel(Index<TText, IndexWotd<TSpec> > &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1897)
 
 //____________________________________________________________________________
 // _wotdCummulativeSum
 
-template <typename TBounds, typename TBuckets, typename TSize > inline typename Size<TBuckets>::Type _wotdCummulativeSum(TBounds &bounds, TBuckets const &buckets, TSize offset);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1031)
-template <typename TBounds, typename TBuckets > inline typename Size<TBuckets>::Type _wotdCummulativeSum(TBounds &bounds, TBuckets const &buckets);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1057)
+template <typename TBounds, typename TBuckets, typename TSize > inline typename Size<TBuckets>::Type _wotdCummulativeSum(TBounds &bounds, TBuckets const &buckets, TSize offset);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1039)
+template <typename TBounds, typename TBuckets > inline typename Size<TBuckets>::Type _wotdCummulativeSum(TBounds &bounds, TBuckets const &buckets);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1065)
 
 //____________________________________________________________________________
 // _wotdEvaluate
 
-template <typename TText, typename TSpec > inline typename Size< Index<TText, IndexWotd<WotdOriginal> > >::Type _wotdEvaluate(Iter< Index<TText, IndexWotd<WotdOriginal> >, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1704)
-template <typename TText, typename TIndexSpec, typename TSpec > inline typename Size< Index<TText, IndexWotd<TIndexSpec> > >::Type _wotdEvaluate(Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1745)
+template <typename TText, typename TSpec > inline typename Size< Index<TText, IndexWotd<WotdOriginal> > >::Type _wotdEvaluate(Iter< Index<TText, IndexWotd<WotdOriginal> >, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1712)
+template <typename TText, typename TIndexSpec, typename TSpec > inline typename Size< Index<TText, IndexWotd<TIndexSpec> > >::Type _wotdEvaluate(Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1753)
 
 //____________________________________________________________________________
 // alignment
@@ -2263,16 +2264,16 @@ template <typename TRepeat > inline bool atEnd(Iter<TRepeat, MaxRepeatOccurrence
 template <typename TRepeat > inline bool atEnd(Iter<TRepeat, MaxRepeatOccurrences> &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_algs.h"(922)
 template <typename TRepeat > inline bool atEnd(Iter<TRepeat, MultiMemOccurences> const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_algs_multi.h"(686)
 template <typename TRepeat > inline bool atEnd(Iter<TRepeat, MultiMemOccurences> &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_algs_multi.h"(691)
-template <typename TIndex, class TSpec > inline bool atEnd(Iter<TIndex, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1874)
-template <typename TIndex, class TSpec > inline bool atEnd(Iter<TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1880)
-template <typename TText, typename TSpec > inline bool atEnd(Iter<Index<TText, IndexWotd<WotdOriginal> >, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(619)
-template <typename TText, typename TSpec > inline bool atEnd(Iter<Index<TText, IndexWotd<WotdOriginal> >, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(625)
+template <typename TIndex, class TSpec > inline bool atEnd(Iter<TIndex, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1875)
+template <typename TIndex, class TSpec > inline bool atEnd(Iter<TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1881)
+template <typename TText, typename TSpec > inline bool atEnd(Iter<Index<TText, IndexWotd<WotdOriginal> >, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(627)
+template <typename TText, typename TSpec > inline bool atEnd(Iter<Index<TText, IndexWotd<WotdOriginal> >, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(633)
 
 //____________________________________________________________________________
 // begin
 
 template <typename TSTree, class TSpec > inline typename Iterator< Iter< TSTree, VSTree< BottomUp<MaxRepeats_<TSpec> > > > >::Type begin(Iter< TSTree, VSTree< BottomUp<MaxRepeats_<TSpec> > > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_algs.h"(647)
-template <typename TText, typename TIndexSpec, class TSpec > inline typename Iterator<Index<TText, TIndexSpec>, TSpec >::Type begin(Index<TText, TIndexSpec> &index, TSpec const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1203)
+template <typename TText, typename TIndexSpec, class TSpec > inline typename Iterator<Index<TText, TIndexSpec>, TSpec >::Type begin(Index<TText, TIndexSpec> &index, TSpec const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1204)
 template <typename TValue, typename TSpec, typename TTag> inline typename Iterator<String<TValue, PizzaChili<TSpec> >, Tag<TSpec> const>::Type begin( String<TValue, PizzaChili<TSpec> >& me, Tag<TTag> const );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_pizzachili_string.h"(479)
 template <typename TValue, typename TSpec, typename TTag> inline typename Iterator<String<TValue, PizzaChili<TSpec> > const, Tag<TSpec> const>::Type begin( String<TValue, PizzaChili<TSpec> > const& me, Tag<TTag> const );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_pizzachili_string.h"(490)
 
@@ -2308,7 +2309,7 @@ template <typename TPos, typename TIndex> inline typename Reference<typename Fib
 //____________________________________________________________________________
 // childrenAreLeaves
 
-template <typename TIndex, class TSpec > inline bool childrenAreLeaves(Iter<TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2149)
+template <typename TIndex, class TSpec > inline bool childrenAreLeaves(Iter<TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2150)
 
 //____________________________________________________________________________
 // clear
@@ -2316,11 +2317,11 @@ template <typename TIndex, class TSpec > inline bool childrenAreLeaves(Iter<TInd
 template <typename TText, typename TSpec, typename TSpecFinder > inline void clear(Finder< Index<TText, TSpec>, TSpecFinder > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_index.h"(183)
 template <typename TIndex, typename TSpec> inline void clear(Pattern<TIndex, Swift<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1274)
 template <typename TText, typename TSpec> inline void clear(Index<TText, IndexEsa<TSpec> > &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_base.h"(363)
-template <typename TIndex, class TSpec > inline void clear(Iter<TIndex, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1761)
+template <typename TIndex, class TSpec > inline void clear(Iter<TIndex, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1762)
 template <typename TText, typename TSpec> inline void clear(Index<TText, PizzaChili<TSpec> >& me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_pizzachili.h"(166)
 template <typename TValue, typename TSpec> inline void clear(String<TValue, PizzaChili<TSpec> >& me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_pizzachili_string.h"(193)
-template <typename TText, typename TShapeSpec, typename TSpec > inline void clear(Index<TText, IndexQGram<TShapeSpec, TSpec> > &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2369)
-template <typename TText, typename TSpec > inline void clear(Index<TText, IndexWotd<TSpec> > &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1938)
+template <typename TText, typename TShapeSpec, typename TSpec > inline void clear(Index<TText, IndexQGram<TShapeSpec, TSpec> > &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2382)
+template <typename TText, typename TSpec > inline void clear(Index<TText, IndexWotd<TSpec> > &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1946)
 
 //____________________________________________________________________________
 // computeExactQGramThreshold
@@ -2367,14 +2368,14 @@ template <typename TText, typename TIndexSpec, typename TSpec > inline typename 
 // countOccurrences
 
 template <typename TIndex, class TSpec > inline typename Size<TIndex>::Type countOccurrences(Iter< TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(810)
-template <typename TObject, typename TShapeSpec, typename TSpec, typename TShapeSpec2, typename TValue > inline typename Size< typename Fibre< Index< TObject, IndexQGram<TShapeSpec, TSpec> >, FibreSA>::Type const >::Type countOccurrences( Index< TObject, IndexQGram<TShapeSpec, TSpec> > const &index, Shape< TValue, TShapeSpec2 > const &shape);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2307)
-template <typename TObject, typename TShapeSpec, typename TSpec, typename TShapeSpec2, typename TValue > inline typename Size< typename Fibre< Index< TObject, IndexQGram<TShapeSpec, TSpec> >, FibreSA>::Type const >::Type countOccurrences( Index< TObject, IndexQGram<TShapeSpec, TSpec> > &index, Shape< TValue, TShapeSpec2 > const &shape);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2318)
+template <typename TObject, typename TShapeSpec, typename TSpec, typename TShapeSpec2, typename TValue > inline typename Size< typename Fibre< Index< TObject, IndexQGram<TShapeSpec, TSpec> >, FibreSA>::Type const >::Type countOccurrences( Index< TObject, IndexQGram<TShapeSpec, TSpec> > const &index, Shape< TValue, TShapeSpec2 > const &shape);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2320)
+template <typename TObject, typename TShapeSpec, typename TSpec, typename TShapeSpec2, typename TValue > inline typename Size< typename Fibre< Index< TObject, IndexQGram<TShapeSpec, TSpec> >, FibreSA>::Type const >::Type countOccurrences( Index< TObject, IndexQGram<TShapeSpec, TSpec> > &index, Shape< TValue, TShapeSpec2 > const &shape);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2331)
 
 //____________________________________________________________________________
 // countOccurrencesMultiple
 
-template <typename TObject, typename TShapeSpec, typename TSpec, typename TShapeSpec2, typename TValue > inline typename Infix< typename Fibre< Index< TObject, IndexQGram<TShapeSpec, TSpec> >, FibreCounts>::Type const >::Type countOccurrencesMultiple( Index< TObject, IndexQGram<TShapeSpec, TSpec> > const &index, Shape< TValue, TShapeSpec2 > const &shape);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2347)
-template <typename TObject, typename TShapeSpec, typename TSpec, typename TShapeSpec2, typename TValue > inline typename Infix< typename Fibre< Index< TObject, IndexQGram<TShapeSpec, TSpec> >, FibreCounts>::Type const >::Type countOccurrencesMultiple( Index< TObject, IndexQGram<TShapeSpec, TSpec> > &index, Shape< TValue, TShapeSpec2 > const &shape);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2358)
+template <typename TObject, typename TShapeSpec, typename TSpec, typename TShapeSpec2, typename TValue > inline typename Infix< typename Fibre< Index< TObject, IndexQGram<TShapeSpec, TSpec> >, FibreCounts>::Type const >::Type countOccurrencesMultiple( Index< TObject, IndexQGram<TShapeSpec, TSpec> > const &index, Shape< TValue, TShapeSpec2 > const &shape);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2360)
+template <typename TObject, typename TShapeSpec, typename TSpec, typename TShapeSpec2, typename TValue > inline typename Infix< typename Fibre< Index< TObject, IndexQGram<TShapeSpec, TSpec> >, FibreCounts>::Type const >::Type countOccurrencesMultiple( Index< TObject, IndexQGram<TShapeSpec, TSpec> > &index, Shape< TValue, TShapeSpec2 > const &shape);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2371)
 
 //____________________________________________________________________________
 // countSequences
@@ -2416,7 +2417,7 @@ template <typename TLCPTable, typename TChildTable > void createChildtabExt( TCh
 //____________________________________________________________________________
 // createCountsArray
 
-template <typename TCounts, typename TDir, typename TBucketMap, typename TString, typename TSpec, typename TShape, typename TStepSize > void createCountsArray( TCounts &counts, TDir &dir, TBucketMap &bucketMap, StringSet<TString, TSpec> const &stringSet, TShape shape, TStepSize stepSize);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1533)
+template <typename TCounts, typename TDir, typename TBucketMap, typename TString, typename TSpec, typename TShape, typename TStepSize > void createCountsArray( TCounts &counts, TDir &dir, TBucketMap &bucketMap, StringSet<TString, TSpec> const &stringSet, TShape shape, TStepSize stepSize);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1546)
 
 //____________________________________________________________________________
 // createLcpBinTree
@@ -2445,27 +2446,27 @@ template <typename TValue, typename TSpec, typename TObject, typename TSA, typen
 //____________________________________________________________________________
 // createQGramIndex
 
-template <typename TIndex > void createQGramIndex(TIndex &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1193)
-template <typename TSA, typename TDir, typename TBucketMap, typename TText, typename TShape, typename TStepSize > void createQGramIndex( TSA &sa, TDir &dir, TBucketMap &bucketMap, TText const &text, TShape &shape, TStepSize stepSize);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1244)
-template <typename TSA, typename TDir, typename TBucketMap, typename TText, typename TShape, typename TStepSize > void createQGramIndex( TSA &sa, TDir &dir, TBucketMap &bucketMap, TText const &text, TShape &shape);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1277)
+template <typename TIndex > void createQGramIndex(TIndex &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1205)
+template <typename TSA, typename TDir, typename TBucketMap, typename TText, typename TShape, typename TStepSize > void createQGramIndex( TSA &sa, TDir &dir, TBucketMap &bucketMap, TText const &text, TShape &shape, TStepSize stepSize);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1256)
+template <typename TSA, typename TDir, typename TBucketMap, typename TText, typename TShape, typename TStepSize > void createQGramIndex( TSA &sa, TDir &dir, TBucketMap &bucketMap, TText const &text, TShape &shape);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1289)
 
 //____________________________________________________________________________
 // createQGramIndexDirOnly
 
-template <typename TDir, typename TBucketMap, typename TText, typename TShape, typename TStepSize > void createQGramIndexDirOnly( TDir &dir, TBucketMap &bucketMap, TText const &text, TShape &shape, TStepSize stepSize);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1458)
-template <typename TDir, typename TBucketMap, typename TString, typename TSpec, typename TShape, typename TStepSize > void createQGramIndexDirOnly( TDir &dir, TBucketMap &bucketMap, StringSet<TString, TSpec> const &stringSet, TShape &shape, TStepSize stepSize);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1484)
+template <typename TDir, typename TBucketMap, typename TText, typename TShape, typename TStepSize > void createQGramIndexDirOnly( TDir &dir, TBucketMap &bucketMap, TText const &text, TShape &shape, TStepSize stepSize);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1471)
+template <typename TDir, typename TBucketMap, typename TString, typename TSpec, typename TShape, typename TStepSize > void createQGramIndexDirOnly( TDir &dir, TBucketMap &bucketMap, StringSet<TString, TSpec> const &stringSet, TShape &shape, TStepSize stepSize);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1497)
 
 //____________________________________________________________________________
 // createQGramIndexExt
 
-template <typename TSA, typename TDir, typename TText, typename TValue, unsigned q > void createQGramIndexExt( TSA &suffixArray, TDir &dir, TText &text, Shape<TValue, UngappedShape<q> >);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1702)
-template <typename TSA, typename TDir, typename TString, typename TSpec, typename TValue, unsigned q, typename TLimitsString > void createQGramIndexExt( TSA &suffixArray, TDir &dir, StringSet<TString, TSpec> const &stringSet, Shape<TValue, UngappedShape<q> >, TLimitsString &limits);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1791)
+template <typename TSA, typename TDir, typename TText, typename TValue, unsigned q > void createQGramIndexExt( TSA &suffixArray, TDir &dir, TText &text, Shape<TValue, UngappedShape<q> >);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1715)
+template <typename TSA, typename TDir, typename TString, typename TSpec, typename TValue, unsigned q, typename TLimitsString > void createQGramIndexExt( TSA &suffixArray, TDir &dir, StringSet<TString, TSpec> const &stringSet, Shape<TValue, UngappedShape<q> >, TLimitsString &limits);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1804)
 
 //____________________________________________________________________________
 // createQGramIndexSAOnly
 
-template <typename TSA, typename TText, typename TShape, typename TStepSize > void createQGramIndexSAOnly( TSA &sa, TText const &text, TShape &shape, TStepSize stepSize);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1307)
-template <typename TSA, typename TString, typename TSpec, typename TShape, typename TStepSize > void createQGramIndexSAOnly( TSA &sa, StringSet<TString, TSpec> const &stringSet, TShape &shape, TStepSize stepSize);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1344)
+template <typename TSA, typename TText, typename TShape, typename TStepSize > void createQGramIndexSAOnly( TSA &sa, TText const &text, TShape &shape, TStepSize stepSize);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1319)
+template <typename TSA, typename TString, typename TSpec, typename TShape, typename TStepSize > void createQGramIndexSAOnly( TSA &sa, StringSet<TString, TSpec> const &stringSet, TShape &shape, TStepSize stepSize);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1356)
 
 //____________________________________________________________________________
 // createSABTree
@@ -2487,8 +2488,8 @@ template <typename TSA, typename TText, typename TAlgSpec > inline void createSu
 template <typename TSA, typename TValue, typename TConfig > inline void createSuffixArray( TSA &SA, String< TValue, External<TConfig> > &s, Skew3 const &spec, unsigned , unsigned );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_skew3.h"(313)
 template <typename TSA, typename TText > void createSuffixArray( TSA &SA, TText &s, Skew3 const &, unsigned K, unsigned maxdepth, unsigned depth);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_skew3.h"(356)
 template <typename TSA, typename TText > inline void createSuffixArray( TSA &SA, TText &s, Skew3 const &alg, unsigned K, unsigned maxdepth);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_skew3.h"(506)
-template <typename TSA, typename TText > void createSuffixArray( TSA &SA, TText &s, Skew7 const &, unsigned K, unsigned maxdepth, unsigned depth);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_skew7.h"(491)
-template <typename TSA, typename TText > inline void createSuffixArray( TSA &SA, TText &s, Skew7 const &alg, unsigned K, unsigned maxdepth);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_skew7.h"(815)
+template <typename TSA, typename TText > void createSuffixArray( TSA &SA, TText &s, Skew7 const &, unsigned K, unsigned maxdepth, unsigned depth);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_skew7.h"(493)
+template <typename TSA, typename TText > inline void createSuffixArray( TSA &SA, TText &s, Skew7 const &alg, unsigned K, unsigned maxdepth);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_skew7.h"(817)
 
 //____________________________________________________________________________
 // createSuffixArrayPart
@@ -2497,8 +2498,8 @@ template <typename TSA, typename TText, typename TSize > inline void createSuffi
 template <typename TSA, typename TText, typename TSize > inline void createSuffixArrayPart( TSA &SA, TText &s, ManberMyers const &alg, TSize maxLCP);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_sa_mm.h"(195)
 template <typename TSA, typename TText, typename TSize > inline void createSuffixArrayPart( TSA &SA, TText &s, Skew3 const &_dummy, TSize maxLCP, unsigned K);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_skew3.h"(520)
 template <typename TSA, typename TText, typename TSize > inline void createSuffixArrayPart( TSA &SA, TText &s, Skew3 const &_dummy, TSize maxLCP);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_skew3.h"(535)
-template <typename TSA, typename TText, typename TSize > inline void createSuffixArrayPart( TSA &SA, TText &s, Skew7 const &_dummy, TSize maxLCP, unsigned K);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_skew7.h"(829)
-template <typename TSA, typename TText, typename TSize > inline void createSuffixArrayPart( TSA &SA, TText &s, Skew7 const &_dummy, TSize maxLCP);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_skew7.h"(845)
+template <typename TSA, typename TText, typename TSize > inline void createSuffixArrayPart( TSA &SA, TText &s, Skew7 const &_dummy, TSize maxLCP, unsigned K);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_skew7.h"(831)
+template <typename TSA, typename TText, typename TSize > inline void createSuffixArrayPart( TSA &SA, TText &s, Skew7 const &_dummy, TSize maxLCP);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_skew7.h"(847)
 
 //____________________________________________________________________________
 // dirAt
@@ -2511,21 +2512,21 @@ template <typename TPos, typename TIndex> inline typename Reference<typename Fib
 
 template <typename TText, typename TSpec, typename TSpecFinder > inline bool empty(Finder< Index<TText, TSpec>, TSpecFinder > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_index.h"(175)
 template <typename TIndex, typename TSpec> inline bool empty(Pattern<TIndex, Swift<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1267)
-template <typename TIndex, class TSpec > inline bool empty(Iter<TIndex, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1859)
-template <typename TIndex, class TSpec > inline bool empty(Iter<TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1865)
+template <typename TIndex, class TSpec > inline bool empty(Iter<TIndex, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1860)
+template <typename TIndex, class TSpec > inline bool empty(Iter<TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1866)
 
 //____________________________________________________________________________
 // emptyParentEdge
 
 template <typename TIndex, typename TSpec > inline bool emptyParentEdge(Iter< TIndex, VSTree<TopDown<TSpec> > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(564)
-template <typename TText, typename TIndexSpec, typename TSpec > inline bool emptyParentEdge(Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree<TopDown<TSpec> > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(567)
-template <typename TText, typename TIndexSpec, typename TSpec > inline bool emptyParentEdge(Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree<TopDown<ParentLinks<TSpec> > > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(580)
+template <typename TText, typename TIndexSpec, typename TSpec > inline bool emptyParentEdge(Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree<TopDown<TSpec> > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(575)
+template <typename TText, typename TIndexSpec, typename TSpec > inline bool emptyParentEdge(Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree<TopDown<ParentLinks<TSpec> > > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(588)
 
 //____________________________________________________________________________
 // end
 
 template <typename TSTree, class TSpec > inline typename Iterator< Iter< TSTree, VSTree< BottomUp<MaxRepeats_<TSpec> > > > >::Type end(Iter< TSTree, VSTree< BottomUp<MaxRepeats_<TSpec> > > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_algs.h"(657)
-template <typename TText, typename TIndexSpec, class TSpec > inline typename Iterator<Index<TText, TIndexSpec>, TSpec >::Type end(Index<TText, TIndexSpec> &index, TSpec const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1254)
+template <typename TText, typename TIndexSpec, class TSpec > inline typename Iterator<Index<TText, TIndexSpec>, TSpec >::Type end(Index<TText, TIndexSpec> &index, TSpec const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1255)
 template <typename TValue, typename TSpec, typename TTag> inline typename Iterator<String<TValue, PizzaChili<TSpec> >, Tag<TSpec> const>::Type end( String<TValue, PizzaChili<TSpec> >& me, Tag<TTag> const );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_pizzachili_string.h"(501)
 template <typename TValue, typename TSpec, typename TTag> inline typename Iterator<String<TValue, PizzaChili<TSpec> > const, Tag<TSpec> const>::Type end( String<TValue, PizzaChili<TSpec> > const& me, Tag<TTag> const );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_pizzachili_string.h"(512)
 
@@ -2543,8 +2544,8 @@ template <typename TIndex, typename TSpec> inline typename SAValue<TIndex>::Type
 //____________________________________________________________________________
 // eof
 
-template <typename TIndex, class TSpec > inline bool eof(Iter<TIndex, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1847)
-template <typename TIndex, class TSpec > inline bool eof(Iter<TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1853)
+template <typename TIndex, class TSpec > inline bool eof(Iter<TIndex, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1848)
+template <typename TIndex, class TSpec > inline bool eof(Iter<TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1854)
 
 //____________________________________________________________________________
 // equalRangeLcpe
@@ -2597,7 +2598,7 @@ template <typename TRepeatStore, typename TText, typename TRepeatSize, typename 
 //____________________________________________________________________________
 // getBucket
 
-template <typename THashValue > inline THashValue getBucket(Nothing const &, THashValue hash);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(859)
+template <typename THashValue > inline THashValue getBucket(Nothing const &, THashValue hash);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(871)
 template <typename THashValue, typename THashValue2 > inline THashValue getBucket(BucketMap<THashValue> const &bucketMap, THashValue2 hash);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram_openaddressing.h"(242)
 
 //____________________________________________________________________________
@@ -2634,14 +2635,14 @@ template <typename TText, typename TSpec> inline typename Fibre<Index<TText, TSp
 //____________________________________________________________________________
 // getFrequency
 
-template <typename TIndex, class TSpec, typename TSet > inline typename Size<TIndex>::Type getFrequency(Iter<TIndex, VSTree<TSpec> > const &it, TSet &set);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2100)
-template <typename TIndex, class TSpec > inline typename Size<TIndex>::Type getFrequency(Iter<TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2128)
+template <typename TIndex, class TSpec, typename TSet > inline typename Size<TIndex>::Type getFrequency(Iter<TIndex, VSTree<TSpec> > const &it, TSet &set);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2101)
+template <typename TIndex, class TSpec > inline typename Size<TIndex>::Type getFrequency(Iter<TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2129)
 
 //____________________________________________________________________________
 // getKmerSimilarityMatrix
 
-template <typename TObject, typename TShapeSpec, typename TSpec, typename TDistMatrix > inline void getKmerSimilarityMatrix( Index< TObject, IndexQGram<TShapeSpec, TSpec> > &index, TDistMatrix &distMat);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1969)
-template <typename TObject, typename TShapeSpec, typename TSpec, typename TDistMatrix, typename TSeqNoString > inline void getKmerSimilarityMatrix( Index< TObject, IndexQGram<TShapeSpec, TSpec> > &index, TDistMatrix &distMat, TSeqNoString const &seqNo);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2069)
+template <typename TObject, typename TShapeSpec, typename TSpec, typename TDistMatrix > inline void getKmerSimilarityMatrix( Index< TObject, IndexQGram<TShapeSpec, TSpec> > &index, TDistMatrix &distMat);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1982)
+template <typename TObject, typename TShapeSpec, typename TSpec, typename TDistMatrix, typename TSeqNoString > inline void getKmerSimilarityMatrix( Index< TObject, IndexQGram<TShapeSpec, TSpec> > &index, TDistMatrix &distMat, TSeqNoString const &seqNo);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2082)
 
 //____________________________________________________________________________
 // getMaxDeviationOfOrder
@@ -2652,16 +2653,16 @@ template <typename TIndex, typename TSpec> inline typename Size<TIndex>::Type ge
 // getOccurrence
 
 template <typename TIndex, class TSpec > inline typename SAValue<TIndex>::Type getOccurrence(Iter< TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(789)
-template <typename TObject, typename TShapeSpec, typename TSpec, typename TShapeSpec2, typename TValue > inline typename SAValue< Index< TObject, IndexQGram<TShapeSpec, TSpec> > >::Type getOccurrence( Index< TObject, IndexQGram<TShapeSpec, TSpec> > const &index, Shape< TValue, TShapeSpec2 > const &shape);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2236)
-template <typename TObject, typename TShapeSpec, typename TSpec, typename TShapeSpec2, typename TValue > inline typename SAValue< Index< TObject, IndexQGram<TShapeSpec, TSpec> > >::Type getOccurrence( Index< TObject, IndexQGram<TShapeSpec, TSpec> > &index, Shape< TValue, TShapeSpec2 > const &shape);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2245)
-template <typename TText, typename TSpec > inline typename SAValue<Index<TText, IndexWotd<WotdOriginal> > >::Type getOccurrence(Iter< Index<TText, IndexWotd<WotdOriginal> >, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(560)
+template <typename TObject, typename TShapeSpec, typename TSpec, typename TShapeSpec2, typename TValue > inline typename SAValue< Index< TObject, IndexQGram<TShapeSpec, TSpec> > >::Type getOccurrence( Index< TObject, IndexQGram<TShapeSpec, TSpec> > const &index, Shape< TValue, TShapeSpec2 > const &shape);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2249)
+template <typename TObject, typename TShapeSpec, typename TSpec, typename TShapeSpec2, typename TValue > inline typename SAValue< Index< TObject, IndexQGram<TShapeSpec, TSpec> > >::Type getOccurrence( Index< TObject, IndexQGram<TShapeSpec, TSpec> > &index, Shape< TValue, TShapeSpec2 > const &shape);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2258)
+template <typename TText, typename TSpec > inline typename SAValue<Index<TText, IndexWotd<WotdOriginal> > >::Type getOccurrence(Iter< Index<TText, IndexWotd<WotdOriginal> >, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(568)
 
 //____________________________________________________________________________
 // getOccurrences
 
 template <typename TIndex, class TSpec > inline typename Infix< typename Fibre<TIndex, FibreSA>::Type const >::Type getOccurrences(Iter< TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(868)
-template <typename TObject, typename TShapeSpec, typename TSpec, typename TShapeSpec2, typename TValue > inline typename Infix< typename Fibre< Index< TObject, IndexQGram<TShapeSpec, TSpec> >, FibreSA>::Type const >::Type getOccurrences( Index< TObject, IndexQGram<TShapeSpec, TSpec> > const &index, Shape< TValue, TShapeSpec2 > const &shape);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2270)
-template <typename TObject, typename TShapeSpec, typename TSpec, typename TShapeSpec2, typename TValue > inline typename Infix< typename Fibre< Index< TObject, IndexQGram<TShapeSpec, TSpec> >, FibreSA>::Type const >::Type getOccurrences( Index< TObject, IndexQGram<TShapeSpec, TSpec> > &index, Shape< TValue, TShapeSpec2 > const &shape);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2281)
+template <typename TObject, typename TShapeSpec, typename TSpec, typename TShapeSpec2, typename TValue > inline typename Infix< typename Fibre< Index< TObject, IndexQGram<TShapeSpec, TSpec> >, FibreSA>::Type const >::Type getOccurrences( Index< TObject, IndexQGram<TShapeSpec, TSpec> > const &index, Shape< TValue, TShapeSpec2 > const &shape);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2283)
+template <typename TObject, typename TShapeSpec, typename TSpec, typename TShapeSpec2, typename TValue > inline typename Infix< typename Fibre< Index< TObject, IndexQGram<TShapeSpec, TSpec> >, FibreSA>::Type const >::Type getOccurrences( Index< TObject, IndexQGram<TShapeSpec, TSpec> > &index, Shape< TValue, TShapeSpec2 > const &shape);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2294)
 
 //____________________________________________________________________________
 // getOccurrencesBwt
@@ -2689,15 +2690,15 @@ template <typename THaystack, typename TSpec> inline typename WindowFindResult<F
 
 template <typename TText, typename TSpec, typename TSpecFinder > inline void goBegin(Finder< Index<TText, TSpec>, TSpecFinder > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_index.h"(215)
 template <typename TRepeat > inline void goBegin(Iter<TRepeat, MaxRepeatOccurrences> &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_algs.h"(903)
-template <typename TText, typename TIndexSpec, class TSpec > inline void goBegin(Iter<Index<TText, TIndexSpec>, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1214)
-template <typename TText, typename TIndexSpec, class TSpec > inline void goBegin(Iter<Index<TText, IndexEsa<TIndexSpec> >, VSTree< BottomUp<TSpec> > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1233)
+template <typename TText, typename TIndexSpec, class TSpec > inline void goBegin(Iter<Index<TText, TIndexSpec>, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1215)
+template <typename TText, typename TIndexSpec, class TSpec > inline void goBegin(Iter<Index<TText, IndexEsa<TIndexSpec> >, VSTree< BottomUp<TSpec> > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1234)
 
 //____________________________________________________________________________
 // goDown
 
-template <typename TIndex, class TSpec > inline bool goDown(Iter< TIndex, VSTree< TopDown<TSpec> > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1441)
-template <typename TIndex, typename TSpec, typename TObject > inline bool goDown( Iter< TIndex, VSTree< TopDown<TSpec> > > &it, TObject const &obj);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1546)
-template <typename TIndex, typename TSpec, typename TString, typename TSize > inline bool goDown( Iter< TIndex, VSTree< TopDown<TSpec> > > &it, TString const &pattern, TSize &lcp);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1556)
+template <typename TIndex, class TSpec > inline bool goDown(Iter< TIndex, VSTree< TopDown<TSpec> > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1442)
+template <typename TIndex, typename TSpec, typename TObject > inline bool goDown( Iter< TIndex, VSTree< TopDown<TSpec> > > &it, TObject const &obj);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1547)
+template <typename TIndex, typename TSpec, typename TString, typename TSize > inline bool goDown( Iter< TIndex, VSTree< TopDown<TSpec> > > &it, TString const &pattern, TSize &lcp);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1557)
 
 //____________________________________________________________________________
 // goEnd
@@ -2705,8 +2706,8 @@ template <typename TIndex, typename TSpec, typename TString, typename TSize > in
 template <typename TText, typename TSpec, typename TSpecFinder > inline void goEnd(Finder< Index<TText, TSpec>, TSpecFinder > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_index.h"(223)
 template <typename THaystack, typename TSpec> inline void goEnd(Finder<THaystack, Swift<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(413)
 template <typename TRepeat > inline void goEnd(Iter<TRepeat, MaxRepeatOccurrences> &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_algs.h"(912)
-template <typename TText, typename TIndexSpec, class TSpec > inline void goEnd(Iter<Index<TText, IndexEsa<TIndexSpec> >, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1265)
-template <typename TText, typename TIndexSpec, class TSpec > inline void goEnd(Iter<Index<TText, IndexEsa<TIndexSpec> >, VSTree< BottomUp<TSpec> > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1272)
+template <typename TText, typename TIndexSpec, class TSpec > inline void goEnd(Iter<Index<TText, IndexEsa<TIndexSpec> >, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1266)
+template <typename TText, typename TIndexSpec, class TSpec > inline void goEnd(Iter<Index<TText, IndexEsa<TIndexSpec> >, VSTree< BottomUp<TSpec> > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1273)
 
 //____________________________________________________________________________
 // goNext
@@ -2717,54 +2718,54 @@ template <typename TSTree, typename TSpec > inline void goNext(Iter< TSTree, VST
 template <typename TRepeat > inline Iter<TRepeat, MaxRepeatOccurrences> & goNext(Iter<TRepeat, MaxRepeatOccurrences> &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_algs.h"(886)
 template <typename TSTree > inline void goNext(Iter< TSTree, VSTree< BottomUp<Mums> > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_algs_multi.h"(123)
 template <typename TRepeat > inline Iter<TRepeat, MultiMemOccurences> & goNext(Iter<TRepeat, MultiMemOccurences> &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_algs_multi.h"(672)
-template <typename TIndex, typename TSpec > inline void goNext(Iter<TIndex, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1283)
-template <typename TIndex, typename TSpec, typename TTraits > inline void goNext(Iter<TIndex, VSTree<TSpec> > &it, TTraits const traits);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1288)
+template <typename TIndex, typename TSpec > inline void goNext(Iter<TIndex, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1284)
+template <typename TIndex, typename TSpec, typename TTraits > inline void goNext(Iter<TIndex, VSTree<TSpec> > &it, TTraits const traits);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1289)
 
 //____________________________________________________________________________
 // goNextImpl
 
 template <typename TIndex, typename TSpec, typename THideEmptyEdges > inline void goNextImpl( Iter<TIndex, VSTree< BottomUp<TSpec> > > &it, VSTreeIteratorTraits<Postorder_, THideEmptyEdges> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(401)
-template <typename TIndex, typename TSpec, typename THideEmptyEdges > inline void goNextImpl( Iter< TIndex, VSTree< TopDown< ParentLinks<TSpec> > > > &it, VSTreeIteratorTraits<Preorder_, THideEmptyEdges> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1779)
-template <typename TIndex, typename TSpec, typename THideEmptyEdges > inline void goNextImpl( Iter< TIndex, VSTree< TopDown< ParentLinks<TSpec> > > > &it, VSTreeIteratorTraits<Postorder_, THideEmptyEdges> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1829)
+template <typename TIndex, typename TSpec, typename THideEmptyEdges > inline void goNextImpl( Iter< TIndex, VSTree< TopDown< ParentLinks<TSpec> > > > &it, VSTreeIteratorTraits<Preorder_, THideEmptyEdges> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1780)
+template <typename TIndex, typename TSpec, typename THideEmptyEdges > inline void goNextImpl( Iter< TIndex, VSTree< TopDown< ParentLinks<TSpec> > > > &it, VSTreeIteratorTraits<Postorder_, THideEmptyEdges> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1830)
 
 //____________________________________________________________________________
 // goNextRight
 
-template <typename TIndex, typename TSpec > inline void goNextRight(Iter<TIndex, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1293)
-template <typename TIndex, typename TSpec, typename TTraits > inline void goNextRight(Iter<TIndex, VSTree<TSpec> > &it, TTraits const traits);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1298)
+template <typename TIndex, typename TSpec > inline void goNextRight(Iter<TIndex, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1294)
+template <typename TIndex, typename TSpec, typename TTraits > inline void goNextRight(Iter<TIndex, VSTree<TSpec> > &it, TTraits const traits);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1299)
 
 //____________________________________________________________________________
 // goNextRightImpl
 
-template <typename TIndex, typename TSpec, typename THideEmptyEdges > inline void goNextRightImpl( Iter< TIndex, VSTree< TopDown< ParentLinks<TSpec> > > > &it, VSTreeIteratorTraits<Preorder_, THideEmptyEdges> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1795)
+template <typename TIndex, typename TSpec, typename THideEmptyEdges > inline void goNextRightImpl( Iter< TIndex, VSTree< TopDown< ParentLinks<TSpec> > > > &it, VSTreeIteratorTraits<Preorder_, THideEmptyEdges> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1796)
 
 //____________________________________________________________________________
 // goNextUp
 
-template <typename TIndex, typename TSpec > inline void goNextUp(Iter<TIndex, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1303)
-template <typename TIndex, typename TSpec, typename TTraits > inline void goNextUp(Iter<TIndex, VSTree<TSpec> > &it, TTraits const traits);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1308)
+template <typename TIndex, typename TSpec > inline void goNextUp(Iter<TIndex, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1304)
+template <typename TIndex, typename TSpec, typename TTraits > inline void goNextUp(Iter<TIndex, VSTree<TSpec> > &it, TTraits const traits);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1309)
 
 //____________________________________________________________________________
 // goNextUpImpl
 
-template <typename TIndex, typename TSpec, typename THideEmptyEdges > inline void goNextUpImpl( Iter< TIndex, VSTree< TopDown< ParentLinks<TSpec> > > > &it, VSTreeIteratorTraits<Preorder_, THideEmptyEdges> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1811)
+template <typename TIndex, typename TSpec, typename THideEmptyEdges > inline void goNextUpImpl( Iter< TIndex, VSTree< TopDown< ParentLinks<TSpec> > > > &it, VSTreeIteratorTraits<Preorder_, THideEmptyEdges> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1812)
 
 //____________________________________________________________________________
 // goRight
 
-template <typename TIndex, class TSpec > inline bool goRight(Iter< TIndex, VSTree< TopDown<TSpec> > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1687)
+template <typename TIndex, class TSpec > inline bool goRight(Iter< TIndex, VSTree< TopDown<TSpec> > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1688)
 
 //____________________________________________________________________________
 // goRoot
 
 template <typename TText, typename TIndexSpec, class TSpec > inline void goRoot(Iter<Index<TText, TIndexSpec>, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1191)
-template <typename TText, typename TSpec > inline void goRoot(Iter< Index<TText, IndexWotd<WotdOriginal> >, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(596)
-template <typename TText, typename TIndexSpec, typename TSpec > inline void goRoot(Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(608)
+template <typename TText, typename TSpec > inline void goRoot(Iter< Index<TText, IndexWotd<WotdOriginal> >, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(604)
+template <typename TText, typename TIndexSpec, typename TSpec > inline void goRoot(Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(616)
 
 //____________________________________________________________________________
 // goUp
 
-template <typename TIndex, class TSpec > inline bool goUp(Iter< TIndex, VSTree< TopDown< ParentLinks<TSpec> > > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1601)
+template <typename TIndex, class TSpec > inline bool goUp(Iter< TIndex, VSTree< TopDown< ParentLinks<TSpec> > > > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1602)
 
 //____________________________________________________________________________
 // hash
@@ -2866,17 +2867,17 @@ template <typename TText, typename TSpec> inline typename Fibre<Index<TText, TSp
 
 template <typename TText, typename TPredHull, typename TPred> inline bool indexCreate(Index<TText, IndexWotd<Dfi<TPredHull, TPred> > > &index, WotdDir const, Default const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_dfi.h"(579)
 template <typename TText, typename TSpec> inline bool indexCreate(Index<TText, PizzaChili<TSpec> >& me, PizzaChiliCompressed const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_pizzachili.h"(295)
-template <typename TText, typename TShapeSpec, typename TSpec> inline bool indexCreate( Index<TText, IndexQGram<TShapeSpec, TSpec> > &index, FibreSADir, Default const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1899)
-template <typename TText, typename TShapeSpec, typename TSpec> inline bool indexCreate( Index<TText, IndexQGram<TShapeSpec, TSpec> > &index, FibreSA, Default const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1916)
-template <typename TText, typename TShapeSpec, typename TSpec> inline bool indexCreate( Index<TText, IndexQGram<TShapeSpec, TSpec> > &index, FibreCounts, Default const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1927)
-template <typename TText, typename TShapeSpec, typename TSpec> inline bool indexCreate( Index<TText, IndexQGram<TShapeSpec, TSpec> > &index, FibreDir, Default const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1938)
+template <typename TText, typename TShapeSpec, typename TSpec> inline bool indexCreate( Index<TText, IndexQGram<TShapeSpec, TSpec> > &index, FibreSADir, Default const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1912)
+template <typename TText, typename TShapeSpec, typename TSpec> inline bool indexCreate( Index<TText, IndexQGram<TShapeSpec, TSpec> > &index, FibreSA, Default const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1929)
+template <typename TText, typename TShapeSpec, typename TSpec> inline bool indexCreate( Index<TText, IndexQGram<TShapeSpec, TSpec> > &index, FibreCounts, Default const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1940)
+template <typename TText, typename TShapeSpec, typename TSpec> inline bool indexCreate( Index<TText, IndexQGram<TShapeSpec, TSpec> > &index, FibreDir, Default const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1951)
 template <typename TText, typename TSpec, typename TSpecAlg> inline bool indexCreate(Index<TText, TSpec> &index, FibreSA, TSpecAlg const alg);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_shims.h"(570)
 template <typename TText, typename TSpec, typename TSpecAlg> inline bool indexCreate(Index<TText, TSpec> &index, FibreLcp, TSpecAlg const alg);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_shims.h"(578)
 template <typename TText, typename TSpec, typename TSpecAlg> inline bool indexCreate(Index<TText, TSpec> &index, FibreLcpe, TSpecAlg const alg);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_shims.h"(586)
 template <typename TText, typename TSpec> inline bool indexCreate(Index<TText, TSpec> &index, FibreBwt, Bwt const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_shims.h"(596)
 template <typename TText, typename TSpec> inline bool indexCreate(Index<TText, TSpec> &index, FibreChildtab, Childtab const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_shims.h"(604)
 template <typename TText, typename TSpec, typename TFibre> inline bool indexCreate(Index<TText, TSpec> &index, Tag<TFibre> const fibre);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_shims.h"(612)
-template <typename TText, typename TSpec> inline bool indexCreate(Index<TText, IndexWotd<TSpec> > &index, WotdDir const, Default const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1928)
+template <typename TText, typename TSpec> inline bool indexCreate(Index<TText, IndexWotd<TSpec> > &index, WotdDir const, Default const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1936)
 
 //____________________________________________________________________________
 // indexDir
@@ -2940,7 +2941,7 @@ template <typename TText, typename TSpec> inline bool indexSolveDependencies(Ind
 
 template <typename TText, typename TSpec> inline bool indexSupplied(Index<TText, PizzaChili<TSpec> >& me, PizzaChiliCompressed const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_pizzachili.h"(242)
 template <typename TText, typename TSpec> inline bool indexSupplied(Index<TText, PizzaChili<TSpec> >& me, PizzaChiliText const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_pizzachili.h"(249)
-template <typename TText, typename TSpec> inline bool indexSupplied(Index<TText, TSpec> &index, FibreSADir);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1907)
+template <typename TText, typename TSpec> inline bool indexSupplied(Index<TText, TSpec> &index, FibreSADir);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(1920)
 template <typename TText, typename TSpec, typename TFibre> inline bool indexSupplied(Index<TText, TSpec> &index, Tag<TFibre> const fibre);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_shims.h"(634)
 
 //____________________________________________________________________________
@@ -2979,35 +2980,35 @@ template <typename TStateString, typename TShape, typename TLogErrorDistr, typen
 //____________________________________________________________________________
 // isLeaf
 
-template <typename TIndex, class TSpec > inline bool isLeaf(Iter<TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2212)
+template <typename TIndex, class TSpec > inline bool isLeaf(Iter<TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2213)
 
 //____________________________________________________________________________
 // isLeftMaximal
 
-template <typename TIndex, class TSpec > inline bool isLeftMaximal(Iter<TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1952)
+template <typename TIndex, class TSpec > inline bool isLeftMaximal(Iter<TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1953)
 
 //____________________________________________________________________________
 // isPartiallyLeftExtensible
 
-template <typename TIndex, class TSpec, typename TSet > inline bool isPartiallyLeftExtensible(Iter<TIndex, VSTree<TSpec> > const &it, TSet &charSet);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2001)
-template <typename TIndex, class TSpec > inline bool isPartiallyLeftExtensible(Iter<TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2035)
+template <typename TIndex, class TSpec, typename TSet > inline bool isPartiallyLeftExtensible(Iter<TIndex, VSTree<TSpec> > const &it, TSet &charSet);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2002)
+template <typename TIndex, class TSpec > inline bool isPartiallyLeftExtensible(Iter<TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2036)
 
 //____________________________________________________________________________
 // isRightTerminal
 
-template <typename TIndex, class TSpec > inline bool isRightTerminal(Iter<TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1928)
+template <typename TIndex, class TSpec > inline bool isRightTerminal(Iter<TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1929)
 
 //____________________________________________________________________________
 // isRoot
 
-template <typename TIndex, class TSpec > inline bool isRoot(Iter<TIndex, VSTree< BottomUp<TSpec> > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1897)
-template <typename TIndex, class TSpec > inline bool isRoot(Iter<TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1903)
+template <typename TIndex, class TSpec > inline bool isRoot(Iter<TIndex, VSTree< BottomUp<TSpec> > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1898)
+template <typename TIndex, class TSpec > inline bool isRoot(Iter<TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1904)
 
 //____________________________________________________________________________
 // isUnique
 
-template <typename TIndex, class TSpec, typename TSet > inline bool isUnique(Iter<TIndex, VSTree<TSpec> > const &it, TSet &set);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2054)
-template <typename TIndex, class TSpec > inline bool isUnique(Iter<TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2077)
+template <typename TIndex, class TSpec, typename TSet > inline bool isUnique(Iter<TIndex, VSTree<TSpec> > const &it, TSet &set);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2055)
+template <typename TIndex, class TSpec > inline bool isUnique(Iter<TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(2078)
 
 //____________________________________________________________________________
 // isinf
@@ -3110,10 +3111,10 @@ template <typename TText, typename TSpec> bool nodePredicate(Iter<Index<TText, I
 //____________________________________________________________________________
 // nodeUp
 
-template <typename TIndex, class TSpec > inline typename VertexDescriptor<TIndex>::Type nodeUp(Iter< TIndex, VSTree< TopDown< ParentLinks<TSpec> > > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1626)
-template <typename TIndex, class TSpec > inline typename VertexDescriptor<TIndex>::Type const & nodeUp(Iter< TIndex, VSTree< TopDown<TSpec> > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1641)
-template <typename TText, typename TSpec > inline typename VertexDescriptor< Index<TText, IndexWotd<WotdOriginal> > >::Type nodeUp(Iter< Index<TText, IndexWotd<WotdOriginal> >, VSTree< TopDown< ParentLinks<TSpec> > > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(838)
-template <typename TText, typename TIndexSpec, typename TSpec > inline typename VertexDescriptor< Index<TText, IndexWotd<TIndexSpec> > >::Type nodeUp(Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree< TopDown< ParentLinks<TSpec> > > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(863)
+template <typename TIndex, class TSpec > inline typename VertexDescriptor<TIndex>::Type nodeUp(Iter< TIndex, VSTree< TopDown< ParentLinks<TSpec> > > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1627)
+template <typename TIndex, class TSpec > inline typename VertexDescriptor<TIndex>::Type const & nodeUp(Iter< TIndex, VSTree< TopDown<TSpec> > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1642)
+template <typename TText, typename TSpec > inline typename VertexDescriptor< Index<TText, IndexWotd<WotdOriginal> > >::Type nodeUp(Iter< Index<TText, IndexWotd<WotdOriginal> >, VSTree< TopDown< ParentLinks<TSpec> > > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(846)
+template <typename TText, typename TIndexSpec, typename TSpec > inline typename VertexDescriptor< Index<TText, IndexWotd<TIndexSpec> > >::Type nodeUp(Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree< TopDown< ParentLinks<TSpec> > > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(871)
 
 //____________________________________________________________________________
 // open
@@ -3121,8 +3122,8 @@ template <typename TText, typename TIndexSpec, typename TSpec > inline typename 
 template <typename TObject, typename TSpec > inline bool open( Index< TObject, IndexEsa<TSpec> > &index, const char *fileName, int openMode);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_base.h"(380)
 template <typename TObject, typename TSpec > inline bool open( Index< TObject, IndexEsa<TSpec> > &index, const char *fileName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_base.h"(399)
 template <typename TText, typename TSpec> inline bool open( Index<TText, PizzaChili<TSpec> >& me, char const* filename );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_pizzachili.h"(351)
-template <typename TObject, typename TShapeSpec, typename TSpec > inline bool open( Index< TObject, IndexQGram<TShapeSpec, TSpec> > &index, const char *fileName, int openMode);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2384)
-template <typename TObject, typename TShapeSpec, typename TSpec > inline bool open( Index< TObject, IndexQGram<TShapeSpec, TSpec> > &index, const char *fileName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2400)
+template <typename TObject, typename TShapeSpec, typename TSpec > inline bool open( Index< TObject, IndexQGram<TShapeSpec, TSpec> > &index, const char *fileName, int openMode);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2397)
+template <typename TObject, typename TShapeSpec, typename TSpec > inline bool open( Index< TObject, IndexQGram<TShapeSpec, TSpec> > &index, const char *fileName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2413)
 template <typename TValue, typename TSpec > inline bool open(String<TValue, TSpec> &string, const char *fileName, int openMode);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_shims.h"(721)
 template <typename TValue, typename TSpec > inline bool open(String<TValue, TSpec> &string, const char *fileName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_shims.h"(729)
 template <typename THost, typename TSpec > inline bool open(Segment<THost, TSpec> &string, const char *fileName, int openMode);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_shims.h"(735)
@@ -3130,8 +3131,8 @@ template <typename THost, typename TSpec > inline bool open(Segment<THost, TSpec
 template <typename TValue, typename TSpec, typename TSSSpec > inline bool open(StringSet<String<TValue, TSpec>, TSSSpec> &multi, const char *fileName, int openMode);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_shims.h"(752)
 template <typename TValue, typename TSpec, typename TSSSpec > inline bool open(StringSet<String<TValue, TSpec>, Owner<ConcatDirect<TSSSpec> > > &multi, const char *fileName, int openMode);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_shims.h"(776)
 template <typename TValue, typename TSpec, typename TSSSpec> inline bool open(StringSet<String<TValue, TSpec>, TSSSpec> &multi, const char *fileName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_shims.h"(796)
-template <typename TText, typename TSpec > inline bool open( Index< TText, IndexWotd<TSpec> > &index, const char *fileName, int openMode);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1951)
-template <typename TText, typename TSpec > inline bool open( Index< TText, IndexWotd<TSpec> > &index, const char *fileName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1966)
+template <typename TText, typename TSpec > inline bool open( Index< TText, IndexWotd<TSpec> > &index, const char *fileName, int openMode);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1959)
+template <typename TText, typename TSpec > inline bool open( Index< TText, IndexWotd<TSpec> > &index, const char *fileName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1974)
 
 //____________________________________________________________________________
 // operator!=
@@ -3166,28 +3167,28 @@ template <typename TValue, typename TSpec> inline void orderOccurrences(String<T
 //____________________________________________________________________________
 // parentEdgeFirstChar
 
-template <typename TIndex, class TSpec > inline typename Value<TIndex>::Type parentEdgeFirstChar(Iter< TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1751)
+template <typename TIndex, class TSpec > inline typename Value<TIndex>::Type parentEdgeFirstChar(Iter< TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1752)
 
 //____________________________________________________________________________
 // parentEdgeLabel
 
-template <typename TIndex, class TSpec > inline typename Infix< typename Fibre<TIndex, FibreText>::Type const >::Type parentEdgeLabel(Iter< TIndex, VSTree< TopDown<TSpec> > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1730)
-template <typename TText, typename TSpec > inline typename Infix< typename Fibre<Index<TText, IndexWotd<WotdOriginal> >, EsaText>::Type const >::Type parentEdgeLabel(Iter< Index<TText, IndexWotd<WotdOriginal> >, VSTree< TopDown<TSpec> > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(543)
+template <typename TIndex, class TSpec > inline typename Infix< typename Fibre<TIndex, FibreText>::Type const >::Type parentEdgeLabel(Iter< TIndex, VSTree< TopDown<TSpec> > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1731)
+template <typename TText, typename TSpec > inline typename Infix< typename Fibre<Index<TText, IndexWotd<WotdOriginal> >, EsaText>::Type const >::Type parentEdgeLabel(Iter< Index<TText, IndexWotd<WotdOriginal> >, VSTree< TopDown<TSpec> > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(551)
 
 //____________________________________________________________________________
 // parentEdgeLength
 
-template <typename TText, class TIndexSpec, class TSpec > inline typename Size< Index<TText, IndexEsa<TIndexSpec> > >::Type parentEdgeLength(Iter< Index<TText, IndexEsa<TIndexSpec> >, VSTree< TopDown< ParentLinks<TSpec> > > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1711)
-template <typename TIndex, typename TSize > inline typename Size<TIndex>::Type parentEdgeLength(TIndex const &index, VertexWotdOriginal_<TSize> &vDesc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(451)
-template <typename TIndex, typename TSize > inline typename Size<TIndex>::Type parentEdgeLength(TIndex const &index, VertexWotdModified_<TSize> &vDesc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(474)
-template <typename TText, typename TIndexSpec, typename TSpec > inline typename Size< Index<TText, IndexWotd<TIndexSpec> > >::Type parentEdgeLength(Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree< TopDown<TSpec> > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(506)
+template <typename TText, class TIndexSpec, class TSpec > inline typename Size< Index<TText, IndexEsa<TIndexSpec> > >::Type parentEdgeLength(Iter< Index<TText, IndexEsa<TIndexSpec> >, VSTree< TopDown< ParentLinks<TSpec> > > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1712)
+template <typename TIndex, typename TSize > inline typename Size<TIndex>::Type parentEdgeLength(TIndex const &index, VertexWotdOriginal_<TSize> &vDesc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(459)
+template <typename TIndex, typename TSize > inline typename Size<TIndex>::Type parentEdgeLength(TIndex const &index, VertexWotdModified_<TSize> &vDesc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(482)
+template <typename TText, typename TIndexSpec, typename TSpec > inline typename Size< Index<TText, IndexWotd<TIndexSpec> > >::Type parentEdgeLength(Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree< TopDown<TSpec> > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(514)
 
 //____________________________________________________________________________
 // parentRepLength
 
 template <typename TIndex, typename TSpec > inline typename Size<TIndex>::Type parentRepLength(Iter< TIndex, VSTree<TopDown<TSpec> > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(543)
-template <typename TText, typename TIndexSpec, typename TSpec > inline typename Size< Index<TText, IndexWotd<TIndexSpec> > >::Type parentRepLength(Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree< TopDown<TSpec> > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(516)
-template <typename TText, typename TIndexSpec, typename TSpec > inline typename Size< Index<TText, IndexWotd<TIndexSpec> > >::Type parentRepLength(Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree< TopDown< ParentLinks<TSpec> > > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(525)
+template <typename TText, typename TIndexSpec, typename TSpec > inline typename Size< Index<TText, IndexWotd<TIndexSpec> > >::Type parentRepLength(Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree< TopDown<TSpec> > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(524)
+template <typename TText, typename TIndexSpec, typename TSpec > inline typename Size< Index<TText, IndexWotd<TIndexSpec> > >::Type parentRepLength(Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree< TopDown< ParentLinks<TSpec> > > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(533)
 
 //____________________________________________________________________________
 // position
@@ -3252,8 +3253,8 @@ template <typename TSortedArray, typename TUnsortedArray, typename TCountArray, 
 
 template <typename TText, typename TSpec, typename TDesc > inline Pair<typename Size<Index<TText, TSpec> >::Type> range(Index<TText, TSpec> const &index, TDesc const &desc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(835)
 template <typename TIndex, class TSpec > inline Pair<typename Size<TIndex>::Type> range(Iter< TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(845)
-template <typename TObject, typename TShapeSpec, typename TSpec, typename TShapeSpec2, typename TValue > inline Pair<typename Size< Index< TObject, IndexQGram<TShapeSpec, TSpec> > >::Type> range( Index< TObject, IndexQGram<TShapeSpec, TSpec> > const &index, Shape< TValue, TShapeSpec2 > const &shape);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2200)
-template <typename TObject, typename TShapeSpec, typename TSpec, typename TShapeSpec2, typename TValue > inline Pair<typename Size< Index< TObject, IndexQGram<TShapeSpec, TSpec> > >::Type> range( Index< TObject, IndexQGram<TShapeSpec, TSpec> > &index, Shape< TValue, TShapeSpec2 > const &shape);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2212)
+template <typename TObject, typename TShapeSpec, typename TSpec, typename TShapeSpec2, typename TValue > inline Pair<typename Size< Index< TObject, IndexQGram<TShapeSpec, TSpec> > >::Type> range( Index< TObject, IndexQGram<TShapeSpec, TSpec> > const &index, Shape< TValue, TShapeSpec2 > const &shape);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2213)
+template <typename TObject, typename TShapeSpec, typename TSpec, typename TShapeSpec2, typename TValue > inline Pair<typename Size< Index< TObject, IndexQGram<TShapeSpec, TSpec> > >::Type> range( Index< TObject, IndexQGram<TShapeSpec, TSpec> > &index, Shape< TValue, TShapeSpec2 > const &shape);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2225)
 
 //____________________________________________________________________________
 // rawsaAt
@@ -3273,7 +3274,7 @@ template <typename TSTree, typename TSpec > inline typename Size<TSTree>::Type r
 template <typename TIndex, typename TSpec > inline typename Size<TIndex>::Type repLength(Iter< TIndex, VSTree<BottomUp<TSpec> > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(474)
 template <typename TIndex, typename TSize > inline typename Size<TIndex>::Type repLength(TIndex const &index, VertexEsa<TSize> const &vDesc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(486)
 template <typename TIndex, typename TSpec > inline typename Size<TIndex>::Type repLength(Iter< TIndex, VSTree<TopDown<TSpec> > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(502)
-template <typename TText, typename TIndexSpec, typename TSpec > inline typename Size< Index<TText, IndexWotd<TIndexSpec> > >::Type repLength(Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree< TopDown<TSpec> > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(534)
+template <typename TText, typename TIndexSpec, typename TSpec > inline typename Size< Index<TText, IndexWotd<TIndexSpec> > >::Type repLength(Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree< TopDown<TSpec> > > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(542)
 
 //____________________________________________________________________________
 // representative
@@ -3283,7 +3284,7 @@ template <typename TIndex, class TSpec > inline typename Infix< typename Fibre<T
 //____________________________________________________________________________
 // requestBucket
 
-template <typename THashValue > inline THashValue requestBucket(Nothing &, THashValue hash);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(852)
+template <typename THashValue > inline THashValue requestBucket(Nothing &, THashValue hash);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(864)
 template <typename THashValue, typename THashValue2 > inline THashValue requestBucket(BucketMap<THashValue> &bucketMap, THashValue2 hash);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram_openaddressing.h"(188)
 
 //____________________________________________________________________________
@@ -3295,7 +3296,7 @@ template <typename TValue, typename TSize> inline typename Size< Shape<TValue, S
 // resizeVertexMap
 
 template <typename TText, typename TSpec, typename TPropertyMap > inline void resizeVertexMap( Index<TText, TSpec> const& index, TPropertyMap & pm);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(737)
-template <typename TText, typename TIndexSpec, typename TPropertyMap > inline void resizeVertexMap( Index<TText, IndexWotd<TIndexSpec> > const& index, TPropertyMap & pm);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(359)
+template <typename TText, typename TIndexSpec, typename TPropertyMap > inline void resizeVertexMap( Index<TText, IndexWotd<TIndexSpec> > const& index, TPropertyMap & pm);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(367)
 
 //____________________________________________________________________________
 // reverse
@@ -3316,8 +3317,8 @@ template <typename TPos, typename TIndex> inline typename Reference<typename Fib
 template <typename TObject, typename TSpec > inline bool save( Index< TObject, IndexEsa<TSpec> > &index, const char *fileName, int openMode);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_base.h"(412)
 template <typename TObject, typename TSpec > inline bool save( Index< TObject, IndexEsa<TSpec> > &index, const char *fileName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_base.h"(428)
 template <typename TText, typename TSpec> inline bool save( Index<TText, PizzaChili<TSpec> >& me, char const* filename );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_pizzachili.h"(369)
-template <typename TObject, typename TShapeSpec, typename TSpec > inline bool save( Index< TObject, IndexQGram<TShapeSpec, TSpec> > &index, const char *fileName, int openMode);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2413)
-template <typename TObject, typename TShapeSpec, typename TSpec > inline bool save( Index< TObject, IndexQGram<TShapeSpec, TSpec> > &index, const char *fileName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2427)
+template <typename TObject, typename TShapeSpec, typename TSpec > inline bool save( Index< TObject, IndexQGram<TShapeSpec, TSpec> > &index, const char *fileName, int openMode);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2426)
+template <typename TObject, typename TShapeSpec, typename TSpec > inline bool save( Index< TObject, IndexQGram<TShapeSpec, TSpec> > &index, const char *fileName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_qgram.h"(2440)
 template <typename TValue, typename TSpec > inline bool save(String<TValue, TSpec> const &string, const char *fileName, int openMode);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_shims.h"(806)
 template <typename TValue, typename TSpec > inline bool save(String<TValue, TSpec> &string, const char *fileName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_shims.h"(816)
 template <typename THost, typename TSpec > inline bool save(Segment<THost, TSpec> const &string, const char *fileName, int openMode);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_shims.h"(822)
@@ -3325,8 +3326,8 @@ template <typename THost, typename TSpec > inline bool save(Segment<THost, TSpec
 template <typename TValue, typename TSpec, typename TSSSpec> inline bool save(StringSet<String<TValue, TSpec>, TSSSpec> const &multi, const char *fileName, int openMode);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_shims.h"(837)
 template <typename TValue, typename TSpec, typename TSSSpec > inline bool save(StringSet<String<TValue, TSpec>, Owner<ConcatDirect<TSSSpec> > > &multi, const char *fileName, int openMode);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_shims.h"(853)
 template <typename TValue, typename TSpec, typename TSSSpec> inline bool save(StringSet<String<TValue, TSpec>, TSSSpec> const &multi, const char *fileName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_shims.h"(865)
-template <typename TText, typename TSpec > inline bool save( Index< TText, IndexWotd<TSpec> > &index, const char *fileName, int openMode);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1979)
-template <typename TText, typename TSpec > inline bool save( Index< TText, IndexWotd<TSpec> > &index, const char *fileName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1993)
+template <typename TText, typename TSpec > inline bool save( Index< TText, IndexWotd<TSpec> > &index, const char *fileName, int openMode);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(1987)
+template <typename TText, typename TSpec > inline bool save( Index< TText, IndexWotd<TSpec> > &index, const char *fileName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_wotd.h"(2001)
 
 //____________________________________________________________________________
 // sequenceLength
@@ -3511,17 +3512,17 @@ namespace seqan {
 //____________________________________________________________________________
 // _copyPigeonholeHit
 
-template <typename TFinder, typename TIndex, typename TSpec> inline void _copyPigeonholeHit( TFinder &finder, Pattern<TIndex, Pigeonhole<TSpec> > &pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(842)
+template <typename TFinder, typename TIndex, typename TSpec> inline void _copyPigeonholeHit( TFinder &finder, Pattern<TIndex, Pigeonhole<TSpec> > &pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(849)
 
 //____________________________________________________________________________
 // _firstNonRepeatRange
 
-template <typename TFinder, typename TIndex, typename TSpec> inline bool _firstNonRepeatRange( TFinder &finder, Pattern<TIndex, Pigeonhole<TSpec> > &pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(812)
+template <typename TFinder, typename TIndex, typename TSpec> inline bool _firstNonRepeatRange( TFinder &finder, Pattern<TIndex, Pigeonhole<TSpec> > &pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(819)
 
 //____________________________________________________________________________
 // _nextNonRepeatRange
 
-template <typename TFinder, typename TIndex, typename TSpec> inline bool _nextNonRepeatRange( TFinder &finder, Pattern<TIndex, Pigeonhole<TSpec> > &pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(776)
+template <typename TFinder, typename TIndex, typename TSpec> inline bool _nextNonRepeatRange( TFinder &finder, Pattern<TIndex, Pigeonhole<TSpec> > &pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(783)
 
 //____________________________________________________________________________
 // _patternInit
@@ -3536,7 +3537,7 @@ template <typename TValue, typename TSpec> inline unsigned _pigeonholeMaxShapeWe
 //____________________________________________________________________________
 // _pigeonholeProcessQGram
 
-template <typename TFinder, typename TIndex, typename TSpec_, typename THValue > inline bool _pigeonholeProcessQGram( TFinder &finder, Pattern<TIndex, Pigeonhole<TSpec_> > &pattern, THValue hash);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(439)
+template <typename TFinder, typename TIndex, typename TSpec_, typename THValue > inline bool _pigeonholeProcessQGram( TFinder &finder, Pattern<TIndex, Pigeonhole<TSpec_> > &pattern, THValue hash);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(446)
 
 //____________________________________________________________________________
 // _pigeonholeUpdateShapeLength
@@ -3549,7 +3550,7 @@ template <typename TValue, typename TSize> inline bool _pigeonholeUpdateShapeLen
 //____________________________________________________________________________
 // _printDots
 
-template <typename THaystack, typename TSpec> inline void _printDots(Finder<THaystack, Pigeonhole<TSpec> > &finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(758)
+template <typename THaystack, typename TSpec> inline void _printDots(Finder<THaystack, Pigeonhole<TSpec> > &finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(765)
 
 //____________________________________________________________________________
 // atEnd
@@ -3559,43 +3560,43 @@ template <typename THaystack, typename TSpec> inline bool atEnd(Finder<THaystack
 //____________________________________________________________________________
 // beginPosition
 
-template <typename THaystack, typename TSpec> inline __int64 beginPosition(Finder<THaystack, Pigeonhole<TSpec> > const & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(545)
-template <typename THaystack, typename TSpec> inline __int64 beginPosition(Finder<THaystack, Pigeonhole<TSpec> > & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(552)
-template <typename TIndex, typename TSpec> inline typename SAValue<TIndex >::Type beginPosition(Pattern<TIndex, Pigeonhole<TSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(561)
-template <typename TIndex, typename TSpec> inline typename SAValue<TIndex>::Type beginPosition(Pattern<TIndex, Pigeonhole<TSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(570)
+template <typename THaystack, typename TSpec> inline __int64 beginPosition(Finder<THaystack, Pigeonhole<TSpec> > const & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(552)
+template <typename THaystack, typename TSpec> inline __int64 beginPosition(Finder<THaystack, Pigeonhole<TSpec> > & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(559)
+template <typename TIndex, typename TSpec> inline typename SAValue<TIndex >::Type beginPosition(Pattern<TIndex, Pigeonhole<TSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(568)
+template <typename TIndex, typename TSpec> inline typename SAValue<TIndex>::Type beginPosition(Pattern<TIndex, Pigeonhole<TSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(577)
 
 //____________________________________________________________________________
 // clear
 
-template <typename TIndex, typename TSpec> inline void clear(Pattern<TIndex, Pigeonhole<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(496)
+template <typename TIndex, typename TSpec> inline void clear(Pattern<TIndex, Pigeonhole<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(503)
 
 //____________________________________________________________________________
 // empty
 
-template <typename TIndex, typename TSpec> inline bool empty(Pattern<TIndex, Pigeonhole<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(489)
+template <typename TIndex, typename TSpec> inline bool empty(Pattern<TIndex, Pigeonhole<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(496)
 
 //____________________________________________________________________________
 // endPosition
 
-template <typename THaystack, typename TSpec> inline typename Position<Finder<THaystack, Pigeonhole<TSpec> > >::Type endPosition(Finder<THaystack, Pigeonhole<TSpec> > const & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(579)
-template <typename THaystack, typename TSpec> inline typename Position<Finder<THaystack, Pigeonhole<TSpec> > >::Type endPosition(Finder<THaystack, Pigeonhole<TSpec> > & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(587)
-template <typename TIndex, typename TSpec> inline typename SAValue<TIndex >::Type endPosition(Pattern<TIndex, Pigeonhole<TSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(596)
-template <typename TIndex, typename TSpec> inline typename SAValue<TIndex>::Type endPosition(Pattern<TIndex, Pigeonhole<TSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(606)
+template <typename THaystack, typename TSpec> inline typename Position<Finder<THaystack, Pigeonhole<TSpec> > >::Type endPosition(Finder<THaystack, Pigeonhole<TSpec> > const & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(586)
+template <typename THaystack, typename TSpec> inline typename Position<Finder<THaystack, Pigeonhole<TSpec> > >::Type endPosition(Finder<THaystack, Pigeonhole<TSpec> > & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(594)
+template <typename TIndex, typename TSpec> inline typename SAValue<TIndex >::Type endPosition(Pattern<TIndex, Pigeonhole<TSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(603)
+template <typename TIndex, typename TSpec> inline typename SAValue<TIndex>::Type endPosition(Pattern<TIndex, Pigeonhole<TSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(613)
 
 //____________________________________________________________________________
 // find
 
-template <typename THaystack, typename TIndex, typename TSpec> inline bool find( Finder<THaystack, Pigeonhole<TSpec> > &finder, Pattern<TIndex, Pigeonhole<TSpec> > &pattern, double errorRate);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(854)
+template <typename THaystack, typename TIndex, typename TSpec> inline bool find( Finder<THaystack, Pigeonhole<TSpec> > &finder, Pattern<TIndex, Pigeonhole<TSpec> > &pattern, double errorRate);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(861)
 
 //____________________________________________________________________________
 // getMaxDeviationOfOrder
 
-template <typename TIndex, typename TSpec> inline typename Size<TIndex>::Type getMaxDeviationOfOrder(Pattern<TIndex, Pigeonhole<TSpec> > &pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(1068)
+template <typename TIndex, typename TSpec> inline typename Size<TIndex>::Type getMaxDeviationOfOrder(Pattern<TIndex, Pigeonhole<TSpec> > &pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(1075)
 
 //____________________________________________________________________________
 // getWindowFindHits
 
-template <typename THaystack, typename TSpec> inline typename Finder<THaystack, Pigeonhole<TSpec> >::THitString & getWindowFindHits(Finder<THaystack, Pigeonhole<TSpec> > &finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(1057)
+template <typename THaystack, typename TSpec> inline typename Finder<THaystack, Pigeonhole<TSpec> >::THitString & getWindowFindHits(Finder<THaystack, Pigeonhole<TSpec> > &finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(1064)
 
 //____________________________________________________________________________
 // goEnd
@@ -3605,17 +3606,17 @@ template <typename THaystack, typename TSpec> inline void goEnd(Finder<THaystack
 //____________________________________________________________________________
 // infix
 
-template <typename THaystack, typename TSpec> inline typename Infix<THaystack>::Type infix(Finder<THaystack, Pigeonhole<TSpec> > &finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(696)
-template <typename THaystack, typename TSpec, typename TText> inline typename Infix<TText>::Type infix(Finder<THaystack, Pigeonhole<TSpec> > &finder, TText &text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(703)
-template <typename TIndex, typename TSpec, typename TText> inline typename Infix<TText>::Type infix(Pattern<TIndex, Pigeonhole<TSpec> > const & pattern, TText &text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(728)
-template <typename TIndex, typename TSpec> inline typename Infix< typename GetSequenceByNo< TIndex const >::Type >::Type infix(Pattern<TIndex, Pigeonhole<TSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(742)
-template <typename TIndex, typename TSpec> inline typename Infix< typename GetSequenceByNo< TIndex const >::Type >::Type infix(Pattern<TIndex, Pigeonhole<TSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(749)
+template <typename THaystack, typename TSpec> inline typename Infix<THaystack>::Type infix(Finder<THaystack, Pigeonhole<TSpec> > &finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(703)
+template <typename THaystack, typename TSpec, typename TText> inline typename Infix<TText>::Type infix(Finder<THaystack, Pigeonhole<TSpec> > &finder, TText &text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(710)
+template <typename TIndex, typename TSpec, typename TText> inline typename Infix<TText>::Type infix(Pattern<TIndex, Pigeonhole<TSpec> > const & pattern, TText &text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(735)
+template <typename TIndex, typename TSpec> inline typename Infix< typename GetSequenceByNo< TIndex const >::Type >::Type infix(Pattern<TIndex, Pigeonhole<TSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(749)
+template <typename TIndex, typename TSpec> inline typename Infix< typename GetSequenceByNo< TIndex const >::Type >::Type infix(Pattern<TIndex, Pigeonhole<TSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(756)
 
 //____________________________________________________________________________
 // infixNoClip
 
-template <typename THaystack, typename TSpec> inline typename Infix<THaystack>::Type infixNoClip(Finder<THaystack, Pigeonhole<TSpec> > &finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(712)
-template <typename THaystack, typename TSpec, typename TText> inline typename Infix<TText>::Type infixNoClip(Finder<THaystack, Pigeonhole<TSpec> > &finder, TText &text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(719)
+template <typename THaystack, typename TSpec> inline typename Infix<THaystack>::Type infixNoClip(Finder<THaystack, Pigeonhole<TSpec> > &finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(719)
+template <typename THaystack, typename TSpec, typename TText> inline typename Infix<TText>::Type infixNoClip(Finder<THaystack, Pigeonhole<TSpec> > &finder, TText &text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(726)
 
 //____________________________________________________________________________
 // maskPatternSequence
@@ -3625,48 +3626,48 @@ template <typename TIndex, typename TSpec, typename TSeqNo> inline void maskPatt
 //____________________________________________________________________________
 // pigeonholeInfix
 
-template <typename TPigeonholeHit, typename TText> inline typename Infix<TText>::Type pigeonholeInfix(TPigeonholeHit const &hit, TText &text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(678)
+template <typename TPigeonholeHit, typename TText> inline typename Infix<TText>::Type pigeonholeInfix(TPigeonholeHit const &hit, TText &text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(685)
 
 //____________________________________________________________________________
 // pigeonholeInfixNoClip
 
-template <typename TPigeonholeHit, typename TText> inline typename Infix<TText>::Type pigeonholeInfixNoClip(TPigeonholeHit const &hit, TText &text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(671)
+template <typename TPigeonholeHit, typename TText> inline typename Infix<TText>::Type pigeonholeInfixNoClip(TPigeonholeHit const &hit, TText &text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(678)
 
 //____________________________________________________________________________
 // position
 
-template <typename THaystack, typename TSpec> inline typename Position<Finder<THaystack, Pigeonhole<TSpec> > >::Type position(Finder<THaystack, Pigeonhole<TSpec> > const & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(509)
-template <typename THaystack, typename TSpec> inline typename Position<Finder<THaystack, Pigeonhole<TSpec> > >::Type position(Finder<THaystack, Pigeonhole<TSpec> > & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(517)
-template <typename TIndex, typename TSpec> inline typename SAValue<TIndex>::Type position(Pattern<TIndex, Pigeonhole<TSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(526)
-template <typename TIndex, typename TSpec> inline typename SAValue<TIndex>::Type position(Pattern<TIndex, Pigeonhole<TSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(536)
+template <typename THaystack, typename TSpec> inline typename Position<Finder<THaystack, Pigeonhole<TSpec> > >::Type position(Finder<THaystack, Pigeonhole<TSpec> > const & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(516)
+template <typename THaystack, typename TSpec> inline typename Position<Finder<THaystack, Pigeonhole<TSpec> > >::Type position(Finder<THaystack, Pigeonhole<TSpec> > & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(524)
+template <typename TIndex, typename TSpec> inline typename SAValue<TIndex>::Type position(Pattern<TIndex, Pigeonhole<TSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(533)
+template <typename TIndex, typename TSpec> inline typename SAValue<TIndex>::Type position(Pattern<TIndex, Pigeonhole<TSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(543)
 
 //____________________________________________________________________________
 // positionRange
 
-template <typename THaystack, typename TSpec> inline Pair<typename Position<Finder<THaystack, Pigeonhole<TSpec> > >::Type> positionRange(Finder<THaystack, Pigeonhole<TSpec> > const & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(636)
-template <typename THaystack, typename TSpec> inline Pair<typename Position<Finder<THaystack, Pigeonhole<TSpec> > >::Type> positionRange(Finder<THaystack, Pigeonhole<TSpec> > & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(653)
-template <typename TIndex, typename TSpec> inline Pair<typename SAValue<TIndex>::Type> positionRange(Pattern<TIndex, Pigeonhole<TSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(662)
+template <typename THaystack, typename TSpec> inline Pair<typename Position<Finder<THaystack, Pigeonhole<TSpec> > >::Type> positionRange(Finder<THaystack, Pigeonhole<TSpec> > const & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(643)
+template <typename THaystack, typename TSpec> inline Pair<typename Position<Finder<THaystack, Pigeonhole<TSpec> > >::Type> positionRange(Finder<THaystack, Pigeonhole<TSpec> > & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(660)
+template <typename TIndex, typename TSpec> inline Pair<typename SAValue<TIndex>::Type> positionRange(Pattern<TIndex, Pigeonhole<TSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(669)
 
 //____________________________________________________________________________
 // positionRangeNoClip
 
-template <typename THaystack, typename TSpec> inline Pair<typename Position<Finder<THaystack, Pigeonhole<TSpec> > >::Type> positionRangeNoClip(Finder<THaystack, Pigeonhole<TSpec> > const & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(616)
-template <typename THaystack, typename TSpec> inline Pair<typename Position<Finder<THaystack, Pigeonhole<TSpec> > >::Type> positionRangeNoClip(Finder<THaystack, Pigeonhole<TSpec> > & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(626)
+template <typename THaystack, typename TSpec> inline Pair<typename Position<Finder<THaystack, Pigeonhole<TSpec> > >::Type> positionRangeNoClip(Finder<THaystack, Pigeonhole<TSpec> > const & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(623)
+template <typename THaystack, typename TSpec> inline Pair<typename Position<Finder<THaystack, Pigeonhole<TSpec> > >::Type> positionRangeNoClip(Finder<THaystack, Pigeonhole<TSpec> > & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(633)
 
 //____________________________________________________________________________
 // windowFindBegin
 
-template <typename THaystack, typename TIndex, typename TSpec> inline bool windowFindBegin( Finder<THaystack, Pigeonhole<TSpec> > &finder, Pattern<TIndex, Pigeonhole<TSpec> > &pattern, double errorRate);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(925)
+template <typename THaystack, typename TIndex, typename TSpec> inline bool windowFindBegin( Finder<THaystack, Pigeonhole<TSpec> > &finder, Pattern<TIndex, Pigeonhole<TSpec> > &pattern, double errorRate);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(932)
 
 //____________________________________________________________________________
 // windowFindEnd
 
-template <typename THaystack, typename TIndex, typename TSpec> inline void windowFindEnd( Finder<THaystack, Pigeonhole<TSpec> > &, Pattern<TIndex, Pigeonhole<TSpec> > &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(1049)
+template <typename THaystack, typename TIndex, typename TSpec> inline void windowFindEnd( Finder<THaystack, Pigeonhole<TSpec> > &, Pattern<TIndex, Pigeonhole<TSpec> > &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(1056)
 
 //____________________________________________________________________________
 // windowFindNext
 
-template <typename THaystack, typename TIndex, typename TSpec, typename TSize> inline bool windowFindNext( Finder<THaystack, Pigeonhole<TSpec> > &finder, Pattern<TIndex, Pigeonhole<TSpec> > &pattern, TSize finderWindowLength);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(953)
+template <typename THaystack, typename TIndex, typename TSpec, typename TSize> inline bool windowFindNext( Finder<THaystack, Pigeonhole<TSpec> > &finder, Pattern<TIndex, Pigeonhole<TSpec> > &pattern, TSize finderWindowLength);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_pigeonhole.h"(960)
 
 } //namespace seqan
 

@@ -64,7 +64,7 @@ template <typename TSpec > struct KeylessHeap;       	// "/Users/f.buske/Documen
 //____________________________________________________________________________
 // LessPairI1_
 
-template <typename TWeight, typename TPair> struct LessPairI1_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(622)
+template <typename TWeight, typename TPair> struct LessPairI1_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(625)
 
 //____________________________________________________________________________
 // LessPairI2WithFunctor
@@ -97,18 +97,18 @@ template <typename TAlphabet, typename TProbability, typename TSpec, typename TS
 //____________________________________________________________________________
 // _buildResidualGraph
 
-template <typename TSpec, typename TCapMap, typename TFlowMap, typename TResidualGraph> void _buildResidualGraph(Graph<TSpec> const& g, TCapMap const& capacity, TFlowMap const& flow, TResidualGraph& rG);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1452)
+template <typename TSpec, typename TCapMap, typename TFlowMap, typename TResidualGraph> void _buildResidualGraph(Graph<TSpec> const& g, TCapMap const& capacity, TFlowMap const& flow, TResidualGraph& rG);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1455)
 
 //____________________________________________________________________________
 // _collectEdges
 
-template <typename TSpec, typename TPredecessorMap, typename TVertexDescriptor1, typename TVertexDescriptor2, typename TEdgeSet> inline bool _collectEdges(Graph<TSpec> const& g, TPredecessorMap const& predecessor, TVertexDescriptor1 const source, TVertexDescriptor2 const v, TEdgeSet& edgeSet);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(807)
-template <typename TSpec, typename TPredecessorMap, typename TVertexDescriptor, typename TEdgeSet> inline bool _collectEdges(Graph<TSpec> const& g, TPredecessorMap const& predecessor, TVertexDescriptor const source, TEdgeSet& edgeSet);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(826)
+template <typename TSpec, typename TPredecessorMap, typename TVertexDescriptor1, typename TVertexDescriptor2, typename TEdgeSet> inline bool _collectEdges(Graph<TSpec> const& g, TPredecessorMap const& predecessor, TVertexDescriptor1 const source, TVertexDescriptor2 const v, TEdgeSet& edgeSet);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(810)
+template <typename TSpec, typename TPredecessorMap, typename TVertexDescriptor, typename TEdgeSet> inline bool _collectEdges(Graph<TSpec> const& g, TPredecessorMap const& predecessor, TVertexDescriptor const source, TEdgeSet& edgeSet);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(829)
 
 //____________________________________________________________________________
 // _connectedComponentVisit
 
-template <typename TSpec, typename TVertexDescriptor, typename TTokenMap, typename TComponents, typename TVal> void _connectedComponentVisit(Graph<TSpec> const& g, TVertexDescriptor const u, TTokenMap& tokenMap, TComponents& components, TVal& label);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(409)
+template <typename TSpec, typename TVertexDescriptor, typename TTokenMap, typename TComponents, typename TVal> void _connectedComponentVisit(Graph<TSpec> const& g, TVertexDescriptor const u, TTokenMap& tokenMap, TComponents& components, TVal& label);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(412)
 
 //____________________________________________________________________________
 // _dfsVisit
@@ -118,7 +118,7 @@ template <typename TSpec, typename TVertexDescriptor, typename TTokenMap, typena
 //____________________________________________________________________________
 // _extendShortestPaths
 
-template <typename TMatrix, typename TPredecessor, typename TInfDist> void _extendShortestPaths(TMatrix& local, TMatrix& w, TPredecessor& predecessor, TInfDist const infDist);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1247)
+template <typename TMatrix, typename TPredecessor, typename TInfDist> void _extendShortestPaths(TMatrix& local, TMatrix& w, TPredecessor& predecessor, TInfDist const infDist);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1250)
 
 //____________________________________________________________________________
 // _fillHmmRandom
@@ -138,17 +138,17 @@ template <typename TAlphabet, typename TProbability, typename TSpec, typename TS
 //____________________________________________________________________________
 // _getMinimumAug
 
-template <typename TSpec, typename TPredecessorMap, typename TVertexDescriptor> inline typename Size<Graph<TSpec> >::Type _getMinimumAug(Graph<TSpec> const& rG, TPredecessorMap& predecessor, TVertexDescriptor const source, TVertexDescriptor sink);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1492)
+template <typename TSpec, typename TPredecessorMap, typename TVertexDescriptor> inline typename Size<Graph<TSpec> >::Type _getMinimumAug(Graph<TSpec> const& rG, TPredecessorMap& predecessor, TVertexDescriptor const source, TVertexDescriptor sink);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1495)
 
 //____________________________________________________________________________
 // _initializeAllPairs
 
-template <typename TSpec, typename TWeightMap, typename TMatrix, typename TPredecessor> void _initializeAllPairs(Graph<TSpec> const& g, TWeightMap const& weight, TMatrix& matrix, TPredecessor& predecessor);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1203)
+template <typename TSpec, typename TWeightMap, typename TMatrix, typename TPredecessor> void _initializeAllPairs(Graph<TSpec> const& g, TWeightMap const& weight, TMatrix& matrix, TPredecessor& predecessor);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1206)
 
 //____________________________________________________________________________
 // _initializeSingleSource
 
-template <typename TSpec, typename TVertexDescriptor, typename TWeightMap, typename TPredecessorMap, typename TDistanceMap> inline void _initializeSingleSource(Graph<TSpec> const& g, TVertexDescriptor const source, TWeightMap const& weight, TPredecessorMap& predecessor, TDistanceMap& distance);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(848)
+template <typename TSpec, typename TVertexDescriptor, typename TWeightMap, typename TPredecessorMap, typename TDistanceMap> inline void _initializeSingleSource(Graph<TSpec> const& g, TVertexDescriptor const source, TWeightMap const& weight, TPredecessorMap& predecessor, TDistanceMap& distance);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(851)
 
 //____________________________________________________________________________
 // _insertObject
@@ -184,18 +184,18 @@ template <typename TSortedSequence, typename TKey> inline typename TSortedSequen
 //____________________________________________________________________________
 // _printAllPairsShortestPath
 
-template <typename TSpec, typename TPredecessor, typename TVertexDescriptor> inline void _printAllPairsShortestPath(Graph<TSpec> const& g, TPredecessor& predecessor, TVertexDescriptor const i, TVertexDescriptor const j);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1181)
+template <typename TSpec, typename TPredecessor, typename TVertexDescriptor> inline void _printAllPairsShortestPath(Graph<TSpec> const& g, TPredecessor& predecessor, TVertexDescriptor const i, TVertexDescriptor const j);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1184)
 
 //____________________________________________________________________________
 // _printPath
 
-template <typename TSpec, typename TPredecessorMap, typename TVertexDescriptor, typename TNameMap> inline void _printPath(Graph<TSpec> const& g, TPredecessorMap const& predecessor, TVertexDescriptor const source, TVertexDescriptor const v, TNameMap const& nameMap);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(768)
-template <typename TSpec, typename TPredecessorMap, typename TVertexDescriptor1, typename TVertexDescriptor2> inline void _printPath(Graph<TSpec> const& g, TPredecessorMap const& predecessor, TVertexDescriptor1 const source, TVertexDescriptor2 const v);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(787)
+template <typename TSpec, typename TPredecessorMap, typename TVertexDescriptor, typename TNameMap> inline void _printPath(Graph<TSpec> const& g, TPredecessorMap const& predecessor, TVertexDescriptor const source, TVertexDescriptor const v, TNameMap const& nameMap);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(771)
+template <typename TSpec, typename TPredecessorMap, typename TVertexDescriptor1, typename TVertexDescriptor2> inline void _printPath(Graph<TSpec> const& g, TPredecessorMap const& predecessor, TVertexDescriptor1 const source, TVertexDescriptor2 const v);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(790)
 
 //____________________________________________________________________________
 // _relax
 
-template <typename TSpec, typename TWeightMap, typename TPredecessorMap, typename TDistanceMap, typename TVertexDescriptor, typename TEdgeDescriptor> inline void _relax(Graph<TSpec> const& g, TWeightMap const& weight, TPredecessorMap& predecessor, TDistanceMap& distance, TVertexDescriptor const u, TEdgeDescriptor const e);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(874)
+template <typename TSpec, typename TWeightMap, typename TPredecessorMap, typename TDistanceMap, typename TVertexDescriptor, typename TEdgeDescriptor> inline void _relax(Graph<TSpec> const& g, TWeightMap const& weight, TPredecessorMap& predecessor, TDistanceMap& distance, TVertexDescriptor const u, TEdgeDescriptor const e);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(877)
 
 //____________________________________________________________________________
 // _right
@@ -211,12 +211,12 @@ template <typename TKey, typename TValue, typename TPredicate, typename TSpec, t
 //____________________________________________________________________________
 // _weightedBipartiteMatching
 
-template <typename TSpec, typename TVertexMap, typename TWeightMap, typename TEdges> inline typename Value<TWeightMap>::Type _weightedBipartiteMatching(Graph<TSpec>& g, TVertexMap& vertMap, TWeightMap& weightMap, String<TEdges>& edges);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1775)
+template <typename TSpec, typename TVertexMap, typename TWeightMap, typename TEdges> inline typename Value<TWeightMap>::Type _weightedBipartiteMatching(Graph<TSpec>& g, TVertexMap& vertMap, TWeightMap& weightMap, String<TEdges>& edges);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1778)
 
 //____________________________________________________________________________
 // allPairsShortestPath
 
-template <typename TSpec, typename TWeightMap, typename TMatrix, typename TPredecessor> void allPairsShortestPath(Graph<TSpec> const& g, TWeightMap const& weight, TMatrix& distMatrix, TPredecessor& predecessor);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1305)
+template <typename TSpec, typename TWeightMap, typename TMatrix, typename TPredecessor> void allPairsShortestPath(Graph<TSpec> const& g, TWeightMap const& weight, TMatrix& distMatrix, TPredecessor& predecessor);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1308)
 
 //____________________________________________________________________________
 // backwardAlgorithm
@@ -231,12 +231,12 @@ template <typename TAlphabet, typename TProbability, typename TSpec, typename TS
 //____________________________________________________________________________
 // bellmanFordAlgorithm
 
-template <typename TSpec, typename TVertexDescriptor, typename TWeightMap, typename TPredecessorMap, typename TDistanceMap> bool bellmanFordAlgorithm(Graph<TSpec> const& g, TVertexDescriptor const source, TWeightMap const& weight, TPredecessorMap& predecessor, TDistanceMap& distance);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(981)
+template <typename TSpec, typename TVertexDescriptor, typename TWeightMap, typename TPredecessorMap, typename TDistanceMap> bool bellmanFordAlgorithm(Graph<TSpec> const& g, TVertexDescriptor const source, TWeightMap const& weight, TPredecessorMap& predecessor, TDistanceMap& distance);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(984)
 
 //____________________________________________________________________________
 // bipartiteMatching
 
-template <typename TSpec, typename TVertexMap, typename TEdges> inline typename Size<Graph<TSpec> >::Type bipartiteMatching(Graph<TSpec>& g, TVertexMap& vertMap, String<TEdges>& edges);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1721)
+template <typename TSpec, typename TVertexMap, typename TEdges> inline typename Size<Graph<TSpec> >::Type bipartiteMatching(Graph<TSpec>& g, TVertexMap& vertMap, String<TEdges>& edges);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1724)
 
 //____________________________________________________________________________
 // breadthFirstSearch
@@ -257,12 +257,12 @@ template <typename TKey, typename TValue, typename TPredicate, typename TSpec> i
 //____________________________________________________________________________
 // connectedComponents
 
-template <typename TSpec, typename TComponents> typename Size<Graph<TSpec> >::Type connectedComponents(Graph<TSpec> const& g_source, TComponents& components);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(444)
+template <typename TSpec, typename TComponents> typename Size<Graph<TSpec> >::Type connectedComponents(Graph<TSpec> const& g_source, TComponents& components);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(447)
 
 //____________________________________________________________________________
 // dagShortestPath
 
-template <typename TSpec, typename TVertexDescriptor, typename TWeightMap, typename TPredecessorMap, typename TDistanceMap> void dagShortestPath(Graph<TSpec> const& g, TVertexDescriptor const source, TWeightMap const& weight, TPredecessorMap& predecessor, TDistanceMap& distance);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(917)
+template <typename TSpec, typename TVertexDescriptor, typename TWeightMap, typename TPredecessorMap, typename TDistanceMap> void dagShortestPath(Graph<TSpec> const& g, TVertexDescriptor const source, TWeightMap const& weight, TPredecessorMap& predecessor, TDistanceMap& distance);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(920)
 
 //____________________________________________________________________________
 // depthFirstSearch
@@ -272,7 +272,7 @@ template <typename TSpec, typename TPredecessorMap, typename TDiscoveryTimeMap, 
 //____________________________________________________________________________
 // dijkstra
 
-template <typename TSpec, typename TVertexDescriptor, typename TWeightMap, typename TPredecessorMap, typename TDistanceMap> void dijkstra(Graph<TSpec> const& g, TVertexDescriptor const source, TWeightMap const& weight, TPredecessorMap& predecessor, TDistanceMap& distance);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1054)
+template <typename TSpec, typename TVertexDescriptor, typename TWeightMap, typename TPredecessorMap, typename TDistanceMap> void dijkstra(Graph<TSpec> const& g, TVertexDescriptor const source, TWeightMap const& weight, TPredecessorMap& predecessor, TDistanceMap& distance);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1057)
 
 //____________________________________________________________________________
 // empty
@@ -287,12 +287,12 @@ template <typename TAlphabet, typename TProbability, typename TSpec, typename TS
 //____________________________________________________________________________
 // floydWarshallAlgorithm
 
-template <typename TSpec, typename TWeightMap, typename TMatrix, typename TPredecessor> void floydWarshallAlgorithm(Graph<TSpec> const& g, TWeightMap const& weight, TMatrix& distMatrix, TPredecessor& predecessor);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1355)
+template <typename TSpec, typename TWeightMap, typename TMatrix, typename TPredecessor> void floydWarshallAlgorithm(Graph<TSpec> const& g, TWeightMap const& weight, TMatrix& distMatrix, TPredecessor& predecessor);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1358)
 
 //____________________________________________________________________________
 // fordFulkersonAlgorithm
 
-template <typename TSpec, typename TVertexDescriptor, typename TCapMap, typename TFlowMap> typename Value<TFlowMap>::Type fordFulkersonAlgorithm(Graph<TSpec> const& g, TVertexDescriptor const source, TVertexDescriptor const sink, TCapMap const& capacity, TFlowMap& flow);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1552)
+template <typename TSpec, typename TVertexDescriptor, typename TCapMap, typename TFlowMap> typename Value<TFlowMap>::Type fordFulkersonAlgorithm(Graph<TSpec> const& g, TVertexDescriptor const source, TVertexDescriptor const sink, TCapMap const& capacity, TFlowMap& flow);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1555)
 
 //____________________________________________________________________________
 // forwardAlgorithm
@@ -356,7 +356,7 @@ template <typename TString, typename TWeightMap, typename TPositions> inline typ
 //____________________________________________________________________________
 // kruskalsAlgorithm
 
-template <typename TSpec, typename TVertexDescriptor, typename TWeightMap, typename TEdges> void kruskalsAlgorithm(Graph<TSpec> const & g, TVertexDescriptor const, TWeightMap const & weight, TEdges & edges);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(652)
+template <typename TSpec, typename TVertexDescriptor, typename TWeightMap, typename TEdges> void kruskalsAlgorithm(Graph<TSpec> const & g, TVertexDescriptor const, TWeightMap const & weight, TEdges & edges);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(655)
 
 //____________________________________________________________________________
 // length
@@ -376,17 +376,17 @@ template <typename TString, typename TPositions> inline void longestIncreasingSu
 //____________________________________________________________________________
 // pathGrowingAlgorithm
 
-template <typename TSpec, typename TWeightMap, typename TEdgeMap> typename Value<TWeightMap>::Type pathGrowingAlgorithm(Graph<TSpec>& g, TWeightMap const& weightMap, TEdgeMap& edgeMap1);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1643)
+template <typename TSpec, typename TWeightMap, typename TEdgeMap> typename Value<TWeightMap>::Type pathGrowingAlgorithm(Graph<TSpec>& g, TWeightMap const& weightMap, TEdgeMap& edgeMap1);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1646)
 
 //____________________________________________________________________________
 // primsAlgorithm
 
-template <typename TSpec, typename TVertexDescriptor, typename TWeightMap, typename TPredecessorMap> void primsAlgorithm(Graph<TSpec> const& g, TVertexDescriptor const source, TWeightMap const& weight, TPredecessorMap& predecessor);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(508)
+template <typename TSpec, typename TVertexDescriptor, typename TWeightMap, typename TPredecessorMap> void primsAlgorithm(Graph<TSpec> const& g, TVertexDescriptor const source, TWeightMap const& weight, TPredecessorMap& predecessor);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(511)
 
 //____________________________________________________________________________
 // primsAlgorithmSpaceEfficient
 
-template <typename TSpec, typename TVertexDescriptor, typename TWeightMap, typename TPredecessorMap> void primsAlgorithmSpaceEfficient(Graph<TSpec> const& g, TVertexDescriptor const source, TWeightMap const& weight, TPredecessorMap& predecessor);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(565)
+template <typename TSpec, typename TVertexDescriptor, typename TWeightMap, typename TPredecessorMap> void primsAlgorithmSpaceEfficient(Graph<TSpec> const& g, TVertexDescriptor const source, TWeightMap const& weight, TPredecessorMap& predecessor);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(568)
 
 //____________________________________________________________________________
 // randomizeHmm
@@ -396,17 +396,17 @@ template <typename TAlphabet, typename TProbability, typename TSpec, typename TR
 //____________________________________________________________________________
 // stronglyConnectedComponents
 
-template <typename TSpec, typename TComponents> typename Size<Graph<TSpec> >::Type stronglyConnectedComponents(Graph<TSpec> const& g_source, TComponents& components);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(328)
+template <typename TSpec, typename TComponents> typename Size<Graph<TSpec> >::Type stronglyConnectedComponents(Graph<TSpec> const& g_source, TComponents& components);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(331)
 
 //____________________________________________________________________________
 // topologicalSort
 
-template <typename TSpec, typename TVertexDescriptor> void topologicalSort(Graph<TSpec> const& g, String<TVertexDescriptor>& topSort);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(274)
+template <typename TSpec, typename TVertexDescriptor> void topologicalSort(Graph<TSpec> const & g, String<TVertexDescriptor> & topSort);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(274)
 
 //____________________________________________________________________________
 // transitiveClosure
 
-template <typename TSpec, typename TMatrix> void transitiveClosure(Graph<TSpec> const& g, TMatrix& closure);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1406)
+template <typename TSpec, typename TMatrix> void transitiveClosure(Graph<TSpec> const& g, TMatrix& closure);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1409)
 
 //____________________________________________________________________________
 // viterbiAlgorithm
@@ -416,12 +416,12 @@ template <typename TAlphabet, typename TProbability, typename TSpec, typename TS
 //____________________________________________________________________________
 // weaklyConnectedComponents
 
-template <typename TSpec, typename TComponents> typename Size<Graph<TSpec> >::Type weaklyConnectedComponents(Graph<TSpec> const & g, TComponents & components);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(714)
+template <typename TSpec, typename TComponents> typename Size<Graph<TSpec> >::Type weaklyConnectedComponents(Graph<TSpec> const & g, TComponents & components);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(717)
 
 //____________________________________________________________________________
 // weightedBipartiteMatching
 
-template <typename TSpec, typename TVertexMap, typename TWeightMap, typename TEdges> inline typename Value<TWeightMap>::Type weightedBipartiteMatching(Graph<TSpec>& g, TVertexMap& vertMap, TWeightMap& weightMap, String<TEdges>& edges);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1941)
+template <typename TSpec, typename TVertexMap, typename TWeightMap, typename TEdges> inline typename Value<TWeightMap>::Type weightedBipartiteMatching(Graph<TSpec>& g, TVertexMap& vertMap, TWeightMap& weightMap, String<TEdges>& edges);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_algorithms/graph_algorithm.h"(1944)
 
 } //namespace SEQAN_NAMESPACE_MAIN
 

@@ -1,3 +1,5 @@
 # Duplex-ID	Start	End	TTS-ID	Score	Strand	Error-rate	Errors	Duplicates	TTS	Duplicate locations
+Duplex1_Y_+	4	32	0_1	26	+	0.071	d20d22	-1	GGGAAGAGGAAGGAAAAGGGtGtAAAAA	-
+Duplex2_R_+	1	23	1_1	21	+	0.045	d1	-1	GtGGGAAAAGGAAGGAGAAGGG	-
 Duplex3_R_-	4	26	2_1	21	-	0.045	d20	-1	GtGGGAAAAGGAAGGAGAAGGG	-
 Duplex4_Y_-	1	23	3_1	21	-	0.045	d1	-1	GGGAAGAGGAAGGAAAAGGGtG	-

@@ -468,13 +468,15 @@ namespace SEQAN_NAMESPACE_MAIN
 
 
 	//////////////////////////////////////////////////////////////////////////////
-	// Alternative Skew Implementation
-	// find the suffix array SA of s[0..n-1] in {0..K}^n
+	// Skew algorithm with difference cover of Z_7
 	//
-	// the following algorithm divides the suffixes in seven residue classes
-	// that results in a more space and time efficient division
-	// 
-	// difference cover is {3,5,6} and corresponds to {1,2,4}'
+	// Construct the suffix array SA of s[0..n-1], where s is a string over
+	// the alphabet {0..K}.
+	//
+	// The following algorithm divides the suffixes in seven residue classes
+	// according to their lengths and uses a difference cover {1,2,4}. 
+	// That approach results in an algorithm that is more space and time efficient
+	// than the original skew algorithm with a difference cover {1,2} of Z_3.
 	//
 	// * no trailing 0's required
 	// * no dummy triples in special cases
@@ -567,7 +569,7 @@ namespace SEQAN_NAMESPACE_MAIN
 			TSize ofs[7] = {0, _n24, _n[4], 0, 0, 0, 0};
 			bool differ = true;
 			TValue c0 = TValue(), c1 = TValue(), c2 = TValue(), c3 = TValue(), c4 = TValue(), c5 = TValue(), c6 = TValue();
-			for (TSize i = 0, clip = n - 6, l;  i < _n124;  i++) {
+			for (TSize i = 0, clip = _max(n, (TSize)6) - 6, l;  i < _n124;  i++) {
 				if ((l = SA124[i]) < clip) {
 					if (differ || s[l] != c0 || s[l+1] != c1 || s[l+2] != c2 || s[l+3] != c3 ||
 												s[l+4] != c4 || s[l+5] != c5 || s[l+6] != c6) {

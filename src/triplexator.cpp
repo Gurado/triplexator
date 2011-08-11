@@ -118,28 +118,32 @@ void _populateLogFile(int argc, const char *argv[], Options	&options)
 		default:
 			break;
 	}
-	options.logFileHandle << "- tts id naming : ";
-	switch (options.ttsNaming) {
-		case 0:
-			options.logFileHandle << 0 << " = use Fasta id" << ::std::endl;
-			break;
-		case 1:
-			options.logFileHandle << 1 << " = enumerate beginning with 1" << ::std::endl;
-			break;
-		default:
-			break;
+	if (options.runmode == TRIPLEX_TRIPLEX_SEARCH || options.runmode == TRIPLEX_TTS_SEARCH){
+		options.logFileHandle << "- tts id naming : ";
+		switch (options.ttsNaming) {
+			case 0:
+				options.logFileHandle << 0 << " = use Fasta id" << ::std::endl;
+				break;
+			case 1:
+				options.logFileHandle << 1 << " = enumerate beginning with 1" << ::std::endl;
+				break;
+			default:
+				break;
+		}
 	}
-	options.logFileHandle << "- tfo id naming : ";
-	switch (options.tfoNaming) {
-		case 0:
-			options.logFileHandle << 0 << " = use Fasta id" << ::std::endl;
-			break;
-		case 1:
-			options.logFileHandle << 1 << " = enumerate beginning with 1" << ::std::endl;
-			break;
-		default:
-			break;
-	}	
+	if (options.runmode == TRIPLEX_TRIPLEX_SEARCH || options.runmode == TRIPLEX_TFO_SEARCH){
+		options.logFileHandle << "- tfo id naming : ";
+		switch (options.tfoNaming) {
+			case 0:
+				options.logFileHandle << 0 << " = use Fasta id" << ::std::endl;
+				break;
+			case 1:
+				options.logFileHandle << 1 << " = enumerate beginning with 1" << ::std::endl;
+				break;
+			default:
+				break;
+		}	
+	}
 	options.logFileHandle << "- report duplicate locations : " << (options.reportDuplicateLocations?"Yes":"No") << ::std::endl;
 #ifdef BOOST
 	options.logFileHandle << "- compress output : " << (options.compressOutput?"Yes":"No") << ::std::endl;
@@ -161,9 +165,11 @@ void _populateLogFile(int argc, const char *argv[], Options	&options)
 	
 
 	options.logFileHandle << "- maximum number of tolerated consecutive pyrimidine interruptions in a target: " << options.maxInterruptions << ::std::endl;
-	options.logFileHandle << "- include GT-motif : " << (options.motifGT_a || options.motifGT_p?"Yes":"No") << ::std::endl;
-	options.logFileHandle << "- include GA-motif : " << (options.motifGA?"Yes":"No") << ::std::endl;
-	options.logFileHandle << "- include TC-motif : " << (options.motifTC?"Yes":"No") << ::std::endl;
+	if (options.runmode == TRIPLEX_TRIPLEX_SEARCH || options.runmode == TRIPLEX_TFO_SEARCH){
+		options.logFileHandle << "- include GT-motif : " << (options.motifGT_a || options.motifGT_p?"Yes":"No") << ::std::endl;
+		options.logFileHandle << "- include GA-motif : " << (options.motifGA?"Yes":"No") << ::std::endl;
+		options.logFileHandle << "- include TC-motif : " << (options.motifTC?"Yes":"No") << ::std::endl;
+	}
 	options.logFileHandle << "- detect duplicates : ";
 	switch (options.detectDuplicates) {
 		case DETECT_DUPLICATES_OFF:
@@ -188,17 +194,17 @@ void _populateLogFile(int argc, const char *argv[], Options	&options)
 	options.logFileHandle << "- minimum repeat length : " << options.minRepeatLength << ::std::endl;
 	options.logFileHandle << "- maximum repeat period : " << options.maxRepeatPeriod << ::std::endl;
 	options.logFileHandle << "- duplicate cutoff : " << options.duplicatesCutoff << ::std::endl;
-
-	if (options.filterMode == FILTERING_GRAMS){
-		options.logFileHandle << "- filtering : qgrams" << ::std::endl;
-		options.logFileHandle << "- weight(qgram) : " << length(options.shape) << ::std::endl;
-		// w+1−(k+1)q | w=minimum length, k=errors, q=weight(q-grams)
-		unsigned minSeedsThreshold = unsigned(options.minLength+1-(ceil(options.errorRate*options.minLength)+1)*length(options.shape));
-		options.logFileHandle << "- threshold(qgram) : " << minSeedsThreshold << ::std::endl;
-	} else {
-		options.logFileHandle << "- filtering : none - greedy algorithm" << ::std::endl;
+	if (options.runmode == TRIPLEX_TRIPLEX_SEARCH){
+		if (options.filterMode == FILTERING_GRAMS){
+			options.logFileHandle << "- filtering : qgrams" << ::std::endl;
+			options.logFileHandle << "- weight(qgram) : " << length(options.shape) << ::std::endl;
+			// w+1−(k+1)q | w=minimum length, k=errors, q=weight(q-grams)
+			unsigned minSeedsThreshold = unsigned(options.minLength+1-(ceil(options.errorRate*options.minLength)+1)*length(options.shape));
+			options.logFileHandle << "- threshold(qgram) : " << minSeedsThreshold << ::std::endl;
+		} else {
+			options.logFileHandle << "- filtering : none - greedy algorithm" << ::std::endl;
+		}
 	}
-	
 	options.logFileHandle << "*************************************************************" << ::std::endl;
 	options.logFileHandle << "*** Runtime mode:" << ::std::endl;
 	options.logFileHandle << "- OpenMP support : ";

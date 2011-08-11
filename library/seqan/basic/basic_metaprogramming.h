@@ -599,6 +599,29 @@ struct MakeSigned_<T const>
 };
 
 // ----------------------------------------------------------------------------
+// Metafunction RemoveReference_
+// ----------------------------------------------------------------------------
+
+// TODO(holtgrew): Make public, complete documentation.
+
+/**
+.Internal.RemoveReference_:
+..signature:RemoveReference_<T>
+..returns:$t$ if $T$ is $t &$, otherwise $T$.
+*/
+
+template <typename T>
+struct RemoveReference_
+{
+	typedef T Type;
+};
+
+template <typename T>
+struct RemoveReference_<T &>
+        : public RemoveReference_<T> {};
+
+
+// ----------------------------------------------------------------------------
 // Metafunction RemoveConst_
 // ----------------------------------------------------------------------------
 

@@ -408,7 +408,7 @@ namespace SEQAN_NAMESPACE_MAIN
 
         bool differ = true;
 		TValue c0 = TValue(), c1 = TValue(), c2 = TValue();
-		for (TSize i = 0, clip = n - 2, l;  i < n12;  i++) {
+		for (TSize i = 0, clip = _max(n, (TSize)2) - 2, l;  i < n12;  i++) {
 			if ((l = SA12[i]) < clip) {
 				if (differ || s[l] != c0 || s[l+1] != c1 || s[l+2] != c2) {
 					name++;  c0 = s[l];  c1 = s[l+1];  c2 = s[l+2];

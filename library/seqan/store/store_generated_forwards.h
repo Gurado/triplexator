@@ -64,7 +64,7 @@ template <typename TFragStore> struct AlignedMateLess_;       	// "/Users/f.busk
 //____________________________________________________________________________
 // AlignedReadLayout
 
-struct AlignedReadLayout;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1413)
+struct AlignedReadLayout;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1414)
 
 //____________________________________________________________________________
 // AlignedReadStoreElement
@@ -515,12 +515,12 @@ template <typename TFile, typename TChar> inline void _parseSkipWhiteComma(TFile
 //____________________________________________________________________________
 // _printContig
 
-template <typename TStream, typename TFormatTag, typename TContigGaps, typename TContigName> inline void _printContig( TStream &stream, Tag<TFormatTag> const &format, AlignedReadLayout &, TContigGaps &contigGaps, TContigName const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1509)
+template <typename TStream, typename TFormatTag, typename TContigGaps, typename TContigName> inline void _printContig( TStream &stream, Tag<TFormatTag> const &format, AlignedReadLayout &, TContigGaps &contigGaps, TContigName const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1510)
 
 //____________________________________________________________________________
 // _printRead
 
-template <typename TStream, typename TFormatTag, typename TContigGaps, typename TReadGaps, typename TAlignedRead, typename TLine> inline void _printRead( TStream &stream, Tag<TFormatTag> const &format, AlignedReadLayout &, TContigGaps &, TReadGaps &readGaps, TAlignedRead &, TLine);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1498)
+template <typename TStream, typename TFormatTag, typename TContigGaps, typename TReadGaps, typename TAlignedRead, typename TLine> inline void _printRead( TStream &stream, Tag<TFormatTag> const &format, AlignedReadLayout &, TContigGaps &, TReadGaps &readGaps, TAlignedRead &, TLine);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1499)
 
 //____________________________________________________________________________
 // _readAlignments
@@ -782,12 +782,12 @@ template <typename TFragmentStore, typename TSpec> inline TFragmentStore & conta
 //____________________________________________________________________________
 // convertMatchesToGlobalAlignment
 
-template <typename TSpec, typename TConfig, typename TScore, typename TShrinkMatches> void convertMatchesToGlobalAlignment(FragmentStore<TSpec, TConfig> &store, TScore const & score, TShrinkMatches const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1670)
+template <typename TSpec, typename TConfig, typename TScore, typename TShrinkMatches> void convertMatchesToGlobalAlignment(FragmentStore<TSpec, TConfig> &store, TScore const & score, TShrinkMatches const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1671)
 
 //____________________________________________________________________________
 // convertPairWiseToGlobalAlignment
 
-template <typename TSpec, typename TConfig, typename TContigGapsString> void convertPairWiseToGlobalAlignment(FragmentStore<TSpec, TConfig> &store, TContigGapsString &gaps);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1989)
+template <typename TSpec, typename TConfig, typename TContigGapsString> void convertPairWiseToGlobalAlignment(FragmentStore<TSpec, TConfig> &store, TContigGapsString &gaps);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1990)
 
 //____________________________________________________________________________
 // countGaps
@@ -1024,7 +1024,7 @@ template <typename TGaps, typename TGapAnchors> inline bool isUnknown(Iter<TGaps
 //____________________________________________________________________________
 // layoutAlignment
 
-template <typename TSpec, typename TConfig> void layoutAlignment(AlignedReadLayout &layout, FragmentStore<TSpec, TConfig> &store);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1438)
+template <typename TSpec, typename TConfig> void layoutAlignment(AlignedReadLayout &layout, FragmentStore<TSpec, TConfig> &store);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1439)
 
 //____________________________________________________________________________
 // length
@@ -1151,7 +1151,7 @@ template <typename TSource, typename TGapAnchors, typename TPosition> inline TPo
 //____________________________________________________________________________
 // printAlignment
 
-template <typename TStream, typename TFormatTag, typename TSpec, typename TConfig, typename TContigId, typename TPos, typename TNum> void printAlignment( TStream &stream, Tag<TFormatTag> const &format, AlignedReadLayout &layout, FragmentStore<TSpec, TConfig> &store, TContigId contigId, TPos posBegin, TPos posEnd, TNum lineBegin, TNum lineEnd);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1546)
+template <typename TStream, typename TFormatTag, typename TSpec, typename TConfig, typename TContigId, typename TPos, typename TNum> void printAlignment( TStream &stream, Tag<TFormatTag> const &format, AlignedReadLayout &layout, FragmentStore<TSpec, TConfig> &store, TContigId contigId, TPos posBegin, TPos posEnd, TNum lineBegin, TNum lineEnd);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1547)
 
 //____________________________________________________________________________
 // read

@@ -1122,7 +1122,7 @@ template <typename TValue, typename THostspec, typename TSize> inline void _setL
 //____________________________________________________________________________
 // _tell
 
-template <typename TStringSet, typename TSpec> inline typename Size<typename Value<TStringSet>::Type >::Type _tell(Iter<TStringSet, ConcatVirtual<TSpec> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(319)
+template <typename TStringSet, typename TSpec> inline typename Size<typename Value<TStringSet>::Type >::Type _tell(Iter<TStringSet, ConcatVirtual<TSpec> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(320)
 
 //____________________________________________________________________________
 // _toCStringImpl
@@ -1271,24 +1271,24 @@ template <typename TChar, typename TAlloc, typename TSource> inline void assign_
 //____________________________________________________________________________
 // atBegin
 
-template <typename TSSet, typename TSpec> inline bool atBegin(Iter<TSSet, ConcatVirtual<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(442)
-template <typename TSSet, typename TSpec> inline bool atBegin(Iter<TSSet, ConcatVirtual<TSpec> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(449)
+template <typename TSSet, typename TSpec> inline bool atBegin(Iter<TSSet, ConcatVirtual<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(443)
+template <typename TSSet, typename TSpec> inline bool atBegin(Iter<TSSet, ConcatVirtual<TSpec> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(450)
 
 //____________________________________________________________________________
 // atEnd
 
 template <typename TValue> inline bool atEnd(TValue * pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(307)
 template <typename TValue> inline bool atEnd(TValue const * pos, TValue const * );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(316)
-template <typename TSSet, typename TSpec> inline bool atEnd(Iter<TSSet, ConcatVirtual<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(460)
-template <typename TSSet, typename TSpec> inline bool atEnd(Iter<TSSet, ConcatVirtual<TSpec> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(467)
+template <typename TSSet, typename TSpec> inline bool atEnd(Iter<TSSet, ConcatVirtual<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(461)
+template <typename TSSet, typename TSpec> inline bool atEnd(Iter<TSSet, ConcatVirtual<TSpec> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(468)
 template <typename TValue, unsigned int SPACE, typename TIteratorSpec> inline bool atEnd( Iter<String<TValue, Block<SPACE> >, TIteratorSpec>& it, String<TValue, Block<SPACE> >& container);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_block.h"(287)
 
 //____________________________________________________________________________
 // atEndOfSequence
 
-template <typename TIterator> inline bool atEndOfSequence(TIterator const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(491)
-template <typename TSSet, typename TSpec> inline bool atEndOfSequence(Iter<TSSet, ConcatVirtual<TSpec> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(498)
-template <typename TIterator> inline bool atEndOfSequence(TIterator & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(509)
+template <typename TIterator> inline bool atEndOfSequence(TIterator const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(492)
+template <typename TSSet, typename TSpec> inline bool atEndOfSequence(Iter<TSSet, ConcatVirtual<TSpec> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(499)
+template <typename TIterator> inline bool atEndOfSequence(TIterator & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(510)
 
 //____________________________________________________________________________
 // back
@@ -1382,8 +1382,8 @@ template <typename TString, typename TSpec> inline typename Concatenator<StringS
 //____________________________________________________________________________
 // container
 
-template <typename TSSet, typename TSpec> inline typename Concatenator<TSSet>::Type container(Iter<TSSet, ConcatVirtual<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(424)
-template <typename TSSet, typename TSpec> inline typename Concatenator<TSSet>::Type container(Iter<TSSet, ConcatVirtual<TSpec> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(431)
+template <typename TSSet, typename TSpec> inline typename Concatenator<TSSet>::Type container(Iter<TSSet, ConcatVirtual<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(425)
+template <typename TSSet, typename TSpec> inline typename Concatenator<TSSet>::Type container(Iter<TSSet, ConcatVirtual<TSpec> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(432)
 template <typename TContainer, typename THostspec> inline typename Parameter_<TContainer>::Type container(Iter<TContainer, Packed<THostspec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(918)
 template <typename TContainer, typename THostspec> inline typename Parameter_<TContainer>::Type container(Iter<TContainer, Packed<THostspec> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(926)
 
@@ -1534,13 +1534,13 @@ template <typename TString, typename TSpec, typename TId> inline typename Refere
 //____________________________________________________________________________
 // goNext
 
-template <typename TStringSet, typename TSpec> inline void goNext(Iter<TStringSet, ConcatVirtual<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(257)
+template <typename TStringSet, typename TSpec> inline void goNext(Iter<TStringSet, ConcatVirtual<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(258)
 template <typename TContainer, typename THostspec> inline void goNext(Iter<TContainer, Packed<THostspec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(1244)
 
 //____________________________________________________________________________
 // goPrevious
 
-template <typename TStringSet, typename TSpec> inline void goPrevious(Iter<TStringSet, ConcatVirtual<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(286)
+template <typename TStringSet, typename TSpec> inline void goPrevious(Iter<TStringSet, ConcatVirtual<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(287)
 template <typename TContainer, typename THostspec> inline void goPrevious(Iter<TContainer, Packed<THostspec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(1265)
 
 //____________________________________________________________________________
@@ -1688,7 +1688,7 @@ template <typename TContainer, typename THostspec, typename TValue> inline void 
 //____________________________________________________________________________
 // operator!=
 
-template <typename TSSetL, typename TSpecL, typename TSSetR, typename TSpecR> inline bool operator!=( Iter<TSSetL, ConcatVirtual<TSpecL> > const & L, Iter<TSSetR, ConcatVirtual<TSpecR> > const & R);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(388)
+template <typename TSSetL, typename TSpecL, typename TSSetR, typename TSpecR> inline bool operator!=( Iter<TSSetL, ConcatVirtual<TSpecL> > const & L, Iter<TSSetR, ConcatVirtual<TSpecR> > const & R);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(389)
 template <typename TLeftValue, typename TLeftSpec, typename TRight > inline bool operator!=(String<TLeftValue, TLeftSpec> const & left, TRight const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(1759)
 template <typename TLeftValue, typename TRightValue, typename TRightSpec > inline bool operator!=(TLeftValue * left, String<TRightValue, TRightSpec> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(1769)
 template <typename TContainer, typename THostspec> inline bool operator!=(Iter<TContainer, Packed<THostspec> > const & left, Iter<TContainer, Packed<THostspec> > const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(1180)
@@ -1696,22 +1696,22 @@ template <typename TContainer, typename THostspec> inline bool operator!=(Iter<T
 //____________________________________________________________________________
 // operator*
 
-template <typename TStringSet, typename TSpec> inline typename Reference<Iter<TStringSet, ConcatVirtual<TSpec> > const>::Type operator*(Iter<TStringSet, ConcatVirtual<TSpec> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(239)
-template <typename TStringSet, typename TSpec> inline typename Reference<Iter<TStringSet, ConcatVirtual<TSpec> > >::Type operator*(Iter<TStringSet, ConcatVirtual<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(246)
+template <typename TStringSet, typename TSpec> inline typename Reference<Iter<TStringSet, ConcatVirtual<TSpec> > const>::Type operator*(Iter<TStringSet, ConcatVirtual<TSpec> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(240)
+template <typename TStringSet, typename TSpec> inline typename Reference<Iter<TStringSet, ConcatVirtual<TSpec> > >::Type operator*(Iter<TStringSet, ConcatVirtual<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(247)
 
 //____________________________________________________________________________
 // operator+
 
-template <typename TStringSet, typename TSpec, typename TDelta> inline Iter<TStringSet, ConcatVirtual<TSpec> > operator+(Iter<TStringSet, ConcatVirtual<TSpec> > const & me, TDelta delta);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(332)
-template <typename TStringSet, typename TSpec, typename T1, typename T2, typename TCompression> inline Iter<TStringSet, ConcatVirtual<TSpec> > operator+(Iter<TStringSet, ConcatVirtual<TSpec> > const & me, Pair<T1, T2, TCompression> delta);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(341)
+template <typename TStringSet, typename TSpec, typename TDelta> inline Iter<TStringSet, ConcatVirtual<TSpec> > operator+(Iter<TStringSet, ConcatVirtual<TSpec> > const & me, TDelta delta);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(333)
+template <typename TStringSet, typename TSpec, typename T1, typename T2, typename TCompression> inline Iter<TStringSet, ConcatVirtual<TSpec> > operator+(Iter<TStringSet, ConcatVirtual<TSpec> > const & me, Pair<T1, T2, TCompression> delta);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(342)
 template <typename TContainer, typename THostspec, typename TIntegral> inline Iter<TContainer, Packed<THostspec> > operator+(Iter<TContainer, Packed<THostspec> > const & left, TIntegral const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(1287)
 template <typename TContainer, typename THostspec, typename TIntegral> inline Iter<TContainer, Packed<THostspec> > operator+(TIntegral const & left, Iter<TContainer, Packed<THostspec> > const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(1296)
 
 //____________________________________________________________________________
 // operator++
 
-template <typename TStringSet, typename TSpec> inline Iter<TStringSet, ConcatVirtual<TSpec> > const & operator++(Iter<TStringSet, ConcatVirtual<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(265)
-template <typename TStringSet, typename TSpec> inline Iter<TStringSet, ConcatVirtual<TSpec> > const & operator++(Iter<TStringSet, ConcatVirtual<TSpec> > & me, int);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(273)
+template <typename TStringSet, typename TSpec> inline Iter<TStringSet, ConcatVirtual<TSpec> > const & operator++(Iter<TStringSet, ConcatVirtual<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(266)
+template <typename TStringSet, typename TSpec> inline Iter<TStringSet, ConcatVirtual<TSpec> > const & operator++(Iter<TStringSet, ConcatVirtual<TSpec> > & me, int);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(274)
 
 //____________________________________________________________________________
 // operator+=
@@ -1722,16 +1722,16 @@ template <typename TContainer, typename THostspec, typename TIntegral> inline It
 //____________________________________________________________________________
 // operator-
 
-template <typename TSSetL, typename TSpecL, typename TSSetR, typename TSpecR> typename Difference<Iter<TSSetL, ConcatVirtual<TSpecL> > >::Type operator-( Iter<TSSetL, ConcatVirtual<TSpecL> > const & L, Iter<TSSetR, ConcatVirtual<TSpecR> > const & R);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(356)
-template <typename TStringSet, typename TSpec, typename TDelta> inline Iter<TStringSet, ConcatVirtual<TSpec> > operator-(Iter<TStringSet, ConcatVirtual<TSpec> > const & me, TDelta delta);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(363)
+template <typename TSSetL, typename TSpecL, typename TSSetR, typename TSpecR> typename Difference<Iter<TSSetL, ConcatVirtual<TSpecL> > >::Type operator-( Iter<TSSetL, ConcatVirtual<TSpecL> > const & L, Iter<TSSetR, ConcatVirtual<TSpecR> > const & R);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(357)
+template <typename TStringSet, typename TSpec, typename TDelta> inline Iter<TStringSet, ConcatVirtual<TSpec> > operator-(Iter<TStringSet, ConcatVirtual<TSpec> > const & me, TDelta delta);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(364)
 template <typename TContainer, typename THostspec, typename TIntegral> inline Iter<TContainer, Packed<THostspec> > operator-(Iter<TContainer, Packed<THostspec> > const & left, TIntegral const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(1323)
 template <typename TContainer, typename THostspec> inline typename Difference<Iter<TContainer, Packed<THostspec> > >::Type operator-(Iter<TContainer, Packed<THostspec> > const & left, Iter<TContainer, Packed<THostspec> > const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(1350)
 
 //____________________________________________________________________________
 // operator--
 
-template <typename TStringSet, typename TSpec> inline Iter<TStringSet, ConcatVirtual<TSpec> > const & operator--(Iter<TStringSet, ConcatVirtual<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(298)
-template <typename TStringSet, typename TSpec> inline Iter<TStringSet, ConcatVirtual<TSpec> > const & operator--(Iter<TStringSet, ConcatVirtual<TSpec> > & me, int);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(306)
+template <typename TStringSet, typename TSpec> inline Iter<TStringSet, ConcatVirtual<TSpec> > const & operator--(Iter<TStringSet, ConcatVirtual<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(299)
+template <typename TStringSet, typename TSpec> inline Iter<TStringSet, ConcatVirtual<TSpec> > const & operator--(Iter<TStringSet, ConcatVirtual<TSpec> > & me, int);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(307)
 
 //____________________________________________________________________________
 // operator-=
@@ -1741,7 +1741,7 @@ template <typename TContainer, typename THostspec, typename TIntegral> inline It
 //____________________________________________________________________________
 // operator<
 
-template <typename TSSetL, typename TSpecL, typename TSSetR, typename TSpecR> inline bool operator<( Iter<TSSetL, ConcatVirtual<TSpecL> > const & L, Iter<TSSetR, ConcatVirtual<TSpecR> > const & R);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(402)
+template <typename TSSetL, typename TSpecL, typename TSSetR, typename TSpecR> inline bool operator<( Iter<TSSetL, ConcatVirtual<TSpecL> > const & L, Iter<TSSetR, ConcatVirtual<TSpecR> > const & R);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(403)
 template <typename TLeftValue, typename TLeftSpec, typename TRight> inline bool operator<(String<TLeftValue, TLeftSpec> const & left, TRight const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(1783)
 template <typename TLeftValue, typename TRightValue, typename TRightSpec > inline bool operator<(TLeftValue * left, String<TRightValue, TRightSpec> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(1792)
 template <typename TContainer, typename THostspec> inline bool operator<(Iter<TContainer, Packed<THostspec> > const & left, Iter<TContainer, Packed<THostspec> > const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(1219)
@@ -1761,7 +1761,7 @@ template <typename TContainer, typename THostspec> inline bool operator<= (Iter<
 //____________________________________________________________________________
 // operator==
 
-template <typename TSSetL, typename TSpecL, typename TSSetR, typename TSpecR> inline bool operator==( Iter<TSSetL, ConcatVirtual<TSpecL> > const & L, Iter<TSSetR, ConcatVirtual<TSpecR> > const & R);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(378)
+template <typename TSSetL, typename TSpecL, typename TSSetR, typename TSpecR> inline bool operator==( Iter<TSSetL, ConcatVirtual<TSpecL> > const & L, Iter<TSSetR, ConcatVirtual<TSpecR> > const & R);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(379)
 template <typename TLeftValue, typename TLeftSpec, typename TRight > inline bool operator==(String<TLeftValue, TLeftSpec> const & left, TRight const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(1735)
 template <typename TLeftValue, typename TRightValue, typename TRightSpec > inline bool operator==(TLeftValue * left, String<TRightValue, TRightSpec> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(1745)
 template <typename TContainer, typename THostspec> inline bool operator==(Iter<TContainer, Packed<THostspec> > const & left, Iter<TContainer, Packed<THostspec> > const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(1167)
@@ -1769,7 +1769,7 @@ template <typename TContainer, typename THostspec> inline bool operator==(Iter<T
 //____________________________________________________________________________
 // operator>
 
-template <typename TSSetL, typename TSpecL, typename TSSetR, typename TSpecR> inline bool operator> ( Iter<TSSetL, ConcatVirtual<TSpecL> > const & L, Iter<TSSetR, ConcatVirtual<TSpecR> > const & R);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(412)
+template <typename TSSetL, typename TSpecL, typename TSSetR, typename TSpecR> inline bool operator> ( Iter<TSSetL, ConcatVirtual<TSpecL> > const & L, Iter<TSSetR, ConcatVirtual<TSpecR> > const & R);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(413)
 template <typename TLeftValue, typename TLeftSpec, typename TRight> inline bool operator>(String<TLeftValue, TLeftSpec> const & left, TRight const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(1827)
 template <typename TLeftValue, typename TRightValue, typename TRightSpec > inline bool operator>(TLeftValue * left, String<TRightValue, TRightSpec> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(1835)
 template <typename TContainer, typename THostspec> inline bool operator>(Iter<TContainer, Packed<THostspec> > const & left, Iter<TContainer, Packed<THostspec> > const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(1193)
@@ -2072,8 +2072,8 @@ template <typename TChar, typename TCharTraits, typename TAlloc, typename TPos> 
 template <typename TChar, typename TCharTraits, typename TAlloc, typename TPos> inline typename GetValue< ::std::basic_string<TChar, TCharTraits, TAlloc> const>::Type value(::std::basic_string<TChar, TCharTraits, TAlloc> const & me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_string.h"(245)
 template <typename TChar, typename TAlloc, typename TPos> inline typename GetValue< ::std::vector<TChar, TAlloc> >::Type value(::std::vector<TChar, TAlloc> & me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_vector.h"(220)
 template <typename TChar, typename TAlloc, typename TPos> inline typename GetValue< ::std::vector<TChar, TAlloc> const>::Type value(::std::vector<TChar, TAlloc> const & me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_vector.h"(228)
-template <typename TStringSet, typename TSpec> inline typename Reference<Iter<TStringSet, ConcatVirtual<TSpec> > const>::Type value(Iter<TStringSet, ConcatVirtual<TSpec> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(225)
-template <typename TStringSet, typename TSpec> inline typename Reference<Iter<TStringSet, ConcatVirtual<TSpec> > >::Type value(Iter<TStringSet, ConcatVirtual<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(232)
+template <typename TStringSet, typename TSpec> inline typename Reference<Iter<TStringSet, ConcatVirtual<TSpec> > const>::Type value(Iter<TStringSet, ConcatVirtual<TSpec> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(226)
+template <typename TStringSet, typename TSpec> inline typename Reference<Iter<TStringSet, ConcatVirtual<TSpec> > >::Type value(Iter<TStringSet, ConcatVirtual<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(233)
 template <typename TStringSet, typename TPos > inline typename Reference<ConcatenatorManyToOne<TStringSet> >::Type value(ConcatenatorManyToOne<TStringSet> & me, TPos globalPos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_concatenator.h"(189)
 template <typename TStringSet, typename TPos > inline typename Reference<ConcatenatorManyToOne<TStringSet> const >::Type value(ConcatenatorManyToOne<TStringSet> const & me, TPos globalPos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_concatenator.h"(198)
 template <typename T, typename TPos> inline typename Reference<T>::Type value(T & me, TPos );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(622)

@@ -316,6 +316,14 @@ namespace SEQAN_NAMESPACE_MAIN
 	};
 
 
+	template < typename TText, typename TSpec >
+	inline void 
+	_historyPush(Iter< Index<TText, IndexWotd<WotdOriginal> >, VSTree< TopDown<TSpec> > > &it) 
+	{
+		it._parentDesc = value(it);
+		value(it).parentRepLen += parentEdgeLength(it);
+	}
+
 	template < typename TText, typename TIndexSpec, typename TSpec >
 	inline void 
 	_historyPush(Iter< Index<TText, IndexWotd<TIndexSpec> >, VSTree< TopDown<TSpec> > > &it) 

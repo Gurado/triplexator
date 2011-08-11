@@ -606,8 +606,10 @@ To take effect of changing the $stepSize$ the q-gram index should be empty or re
 	struct QGramLess_<TSAValue, StringSet<TString, TSpec> const> : 
 		public ::std::binary_function < TSAValue, TSAValue, bool >
     {
-		typedef typename Iterator<TString, Standard>::Type TIter;
-		StringSet<TString, TSpec> const &_stringSet;
+		typedef typename Iterator<TString, Standard>::Type  TIter;
+		typedef typename Size<TString>::Type				TSize;
+        typedef StringSet<TString, TSpec>                   TStringSet;
+		TStringSet const &_stringSet;
 		typename Size<TString>::Type _q;
 
 		template <typename TSize>
@@ -618,29 +620,39 @@ To take effect of changing the $stepSize$ the q-gram index should be empty or re
 		inline bool operator() (TSAValue const &a, TSAValue const &b) const 
 		{
 			if (a == b) return false;
-			TIter itA = begin(_stringSet[getValueI1(a)], Standard()) + getValueI2(a);
-			TIter itB = begin(_stringSet[getValueI1(b)], Standard()) + getValueI2(b);
-			if (suffixLength(a, _stringSet) > suffixLength(b, _stringSet)) {
-				TIter _end = end(_stringSet[getValueI1(b)], Standard());
-				TIter itEnd = itB + _q;
-				if (itEnd > _end)
-					itEnd = _end;
-				for(; itB != itEnd; ++itB, ++itA) {
-					if (lexLess(*itA, *itB)) return true;
-					if (lexLess(*itB, *itA)) return false;
-				}
-				return false;
-			} else {
-				TIter _end = end(_stringSet[getValueI1(a)], Standard());
-				TIter itEnd = itA + _q;
-				if (itEnd > _end)
-					itEnd = _end;
-				for(; itA != itEnd; ++itA, ++itB) {
-					if (lexLess(*itA, *itB)) return true;
-					if (lexLess(*itB, *itA)) return false;
-				}
-				return true;
-			}
+            
+            typename Size<TStringSet>::Type seqNoA = getSeqNo(a, stringSetLimits(_stringSet));
+            typename Size<TStringSet>::Type seqNoB = getSeqNo(b, stringSetLimits(_stringSet));
+			TIter itA = begin(_stringSet[seqNoA], Standard()) + getSeqOffset(a, stringSetLimits(_stringSet));
+			TIter itB = begin(_stringSet[seqNoB], Standard()) + getSeqOffset(b, stringSetLimits(_stringSet));
+            TIter itAEnd = end(_stringSet[seqNoA], Standard());
+            TIter itBEnd = end(_stringSet[seqNoB], Standard());
+            
+            if (itAEnd - itA < itBEnd - itB)
+            {
+                TIter itQEnd = itA + _q;
+                TIter itEnd = _min(itQEnd, itAEnd);
+                for(; itA < itEnd; ++itA, ++itB) {
+                    if (lexLess(*itA, *itB)) return true;
+                    if (lexLess(*itB, *itA)) return false;
+                }
+                // if qgram a is shorter than b => a < b
+                if (itA != itQEnd) return true;
+            }
+            else
+            {
+                TIter itQEnd = itB + _q;
+                TIter itEnd = _min(itQEnd, itBEnd);
+                for(; itB < itEnd; ++itA, ++itB) {
+                    if (lexLess(*itA, *itB)) return true;
+                    if (lexLess(*itB, *itA)) return false;
+                }
+                // if qgram b is shorter or equal than a => a >= b
+                if (itB != itQEnd) return false;
+            }
+            if (seqNoA < seqNoB) return true;
+            if (seqNoA > seqNoB) return false;
+			return suffixLength(a, _stringSet) > suffixLength(b, _stringSet);
 		}
 	};
 
@@ -664,7 +676,8 @@ To take effect of changing the $stepSize$ the q-gram index should be empty or re
     {
 		typedef typename Iterator<TString, Standard>::Type	TIter;
 		typedef typename Size<TString>::Type				TSize;
-		StringSet<TString, TSpec> const &_stringSet;
+        typedef StringSet<TString, TSpec>                   TStringSet;
+		TStringSet const &_stringSet;
 		typename Size<TString>::Type _q, _offset;
 
 		template <typename TSize1, typename TSize2>
@@ -676,35 +689,43 @@ To take effect of changing the $stepSize$ the q-gram index should be empty or re
 		inline bool operator() (TSAValue const &a, TSAValue const &b) const 
 		{
 			if (a == b) return false;
-			TString const &sA = _stringSet[getValueI1(a)];
-			TString const &sB = _stringSet[getValueI1(b)];
-			TIter itA = begin(sA, Standard()) + getValueI2(a) + _offset;
-			TIter itB = begin(sB, Standard()) + getValueI2(b) + _offset;
-			TSize restA = length(sA) - getValueI2(a);
-			TSize restB = length(sB) - getValueI2(b);
-			if (restA > restB) {
-				TIter itEnd;
-				if (restB >= _q)
-					itEnd = itB + _q;
-				else
-					itEnd = end(sB, Standard());
-				for(; itB != itEnd; ++itB, ++itA) {
-					if (lexLess(*itA, *itB)) return true;
-					if (lexLess(*itB, *itA)) return false;
-				}
-				return false;
-			} else {
-				TIter itEnd;
-				if (restA >= _q)
-					itEnd = itA + _q;
-				else
-					itEnd = end(sA, Standard());
-				for(; itA != itEnd; ++itA, ++itB) {
-					if (lexLess(*itA, *itB)) return true;
-					if (lexLess(*itB, *itA)) return false;
-				}
-				return true;
-			}
+            
+            typename Size<TStringSet>::Type seqNoA = getSeqNo(a, stringSetLimits(_stringSet));
+            typename Size<TStringSet>::Type seqNoB = getSeqNo(b, stringSetLimits(_stringSet));
+			TIter itA = begin(_stringSet[seqNoA], Standard()) + getSeqOffset(a, stringSetLimits(_stringSet));
+			TIter itB = begin(_stringSet[seqNoB], Standard()) + getSeqOffset(b, stringSetLimits(_stringSet));
+            TIter itAEnd = end(_stringSet[seqNoA], Standard());
+            TIter itBEnd = end(_stringSet[seqNoB], Standard());
+            
+            if (itAEnd - itA < itBEnd - itB)
+            {
+                itA += _offset;
+                itB += _offset;
+                TIter itQEnd = itA + _q;
+                TIter itEnd = _min(itQEnd, itAEnd);
+                for(; itA < itEnd; ++itA, ++itB) {
+                    if (lexLess(*itA, *itB)) return true;
+                    if (lexLess(*itB, *itA)) return false;
+                }
+                // if qgram a is shorter than b => a < b
+                if (itA != itQEnd) return true;
+            }
+            else
+            {
+                itA += _offset;
+                itB += _offset;
+                TIter itQEnd = itB + _q;
+                TIter itEnd = _min(itQEnd, itBEnd);
+                for(; itB < itEnd; ++itA, ++itB) {
+                    if (lexLess(*itA, *itB)) return true;
+                    if (lexLess(*itB, *itA)) return false;
+                }
+                // if qgram b is shorter or equal than a => a >= b
+                if (itB != itQEnd) return false;
+            }
+            if (seqNoA < seqNoB) return true;
+            if (seqNoA > seqNoB) return false;
+			return suffixLength(a, _stringSet) > suffixLength(b, _stringSet);
 		}
 	};
 
@@ -737,21 +758,13 @@ To take effect of changing the $stepSize$ the q-gram index should be empty or re
 			if (a == b) return false;
 			TIter itA = _begin + a;
 			TIter itB = _begin + b;
-			if (a <= b) {
-				TIter itEnd = itB + _q;
-				for(; itB != itEnd; ++itB, ++itA) {
-					if (lexLess(*itA, *itB)) return true;
-					if (lexLess(*itB, *itA)) return false;
-				}
-				return false;
-			} else {
-				TIter itEnd = itA + _q;
-				for(; itA != itEnd; ++itA, ++itB) {
-					if (lexLess(*itA, *itB)) return true;
-					if (lexLess(*itB, *itA)) return false;
-				}
-				return true;
-			}
+
+            TIter itEnd = itA + _q;
+            for(; itA != itEnd; ++itA, ++itB) {
+                if (lexLess(*itA, *itB)) return true;
+                if (lexLess(*itB, *itA)) return false;
+            }
+			return a < b;
 		}
 	};
 
@@ -759,8 +772,9 @@ To take effect of changing the $stepSize$ the q-gram index should be empty or re
 	struct QGramLessNoCheck_<TSAValue, StringSet<TString, TSpec> const> : 
 		public ::std::binary_function < TSAValue, TSAValue, bool >
     {
-		typedef typename Iterator<TString, Standard>::Type TIter;
-		StringSet<TString, TSpec> const &_stringSet;
+		typedef typename Iterator<TString, Standard>::Type  TIter;
+        typedef StringSet<TString, TSpec>                   TStringSet;
+		TStringSet const &_stringSet;
 		typename Size<TString>::Type _q;
 
 		template <typename TSize>
@@ -771,23 +785,21 @@ To take effect of changing the $stepSize$ the q-gram index should be empty or re
 		inline bool operator() (TSAValue const &a, TSAValue const &b) const 
 		{
 			if (a == b) return false;
-			TIter itA = begin(_stringSet[getValueI1(a)], Standard()) + getValueI2(a);
-			TIter itB = begin(_stringSet[getValueI1(b)], Standard()) + getValueI2(b);
-			if (suffixLength(a, _stringSet) > suffixLength(b, _stringSet)) {
-				TIter itEnd = itB + _q;
-				for(; itB != itEnd; ++itB, ++itA) {
-					if (lexLess(*itA, *itB)) return true;
-					if (lexLess(*itB, *itA)) return false;
-				}
-				return false;
-			} else {
-				TIter itEnd = itA + _q;
-				for(; itA != itEnd; ++itA, ++itB) {
-					if (lexLess(*itA, *itB)) return true;
-					if (lexLess(*itB, *itA)) return false;
-				}
-				return true;
-			}
+            
+            typename Size<TStringSet>::Type seqNoA = getSeqNo(a, stringSetLimits(_stringSet));
+            typename Size<TStringSet>::Type seqNoB = getSeqNo(b, stringSetLimits(_stringSet));
+            
+			TIter itA = begin(_stringSet[seqNoA], Standard()) + getSeqOffset(a, stringSetLimits(_stringSet));
+			TIter itB = begin(_stringSet[seqNoB], Standard()) + getSeqOffset(b, stringSetLimits(_stringSet));
+            
+            TIter itEnd = itA + _q;
+            for(; itA != itEnd; ++itA, ++itB) {
+                if (lexLess(*itA, *itB)) return true;
+                if (lexLess(*itB, *itA)) return false;
+            }
+            if (seqNoA < seqNoB) return true;
+            if (seqNoA > seqNoB) return false;
+			return suffixLength(a, _stringSet) > suffixLength(b, _stringSet);
 		}
 	};
 
@@ -1363,6 +1375,7 @@ The resulting tables must have appropriate size before calling this function.
 				}
 			}
 		}
+        SEQAN_ASSERT_EQ(it, end(sa, Standard()));
 
 		// 2. Sort suffix array with quicksort
 		TSize q = length(shape);

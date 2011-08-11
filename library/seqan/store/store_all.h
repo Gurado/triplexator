@@ -1388,6 +1388,7 @@ calculateMateIndices(TMateIndexString &mateIndices, FragmentStore<TSpec, TConfig
 		if (id == TAlignedRead::INVALID_ID) continue;
 		if (length(mateIndices) < 2*id + 2)
 			resize(mateIndices, 2*id + 2, TAlignedRead::INVALID_ID, Generous());
+		SEQAN_ASSERT_NEQ(getMateNo(me, (*it).readId), -1);
 		mateIndices[2*id + 1 - getMateNo(me, (*it).readId)] = idx;
 	}
 }

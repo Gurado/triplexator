@@ -403,6 +403,13 @@ inline void _patternInit(Pattern<TIndex, Pigeonhole<TSpec> > &pattern, TFloat er
         if (minQ < 3) minQ = maxQ;
 		
         TIndex &index = host(pattern);
+		
+		if (minQ == MaxValue<TSize>::VALUE)
+		{
+			// disable index
+			minQ = pattern.maxSeqLen + 1;
+		}
+		
         if (_pigeonholeUpdateShapeLength(pattern.shape, minQ + pattern.params.overlap) || getStepSize(index) != minQ)
         {
             clear(index);

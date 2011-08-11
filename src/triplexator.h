@@ -2921,9 +2921,9 @@ namespace SEQAN_NAMESPACE_MAIN
 	void
 	setupCommandLineParser(CommandLineParser & parser, Options & options)
 	{
-		::std::string rev = "$Revision: 10216 $";
-		addVersionLine(parser, "Version 1.0 (01/08/2011) SeqAn Revision: " + rev.substr(11, 4) + "");
-		append(options.version, "Version 1.0 (01/08/2011) SeqAn Revision: " + rev.substr(11, 4) + "");
+		::std::string rev = "$Revision: 10258 $";
+		addVersionLine(parser, "Version 1.0.1 (11/08/2011) SeqAn Revision: " + rev.substr(11, 4) + "");
+		append(options.version, "Version 1.0.1 (11/08/2011) SeqAn Revision: " + rev.substr(11, 4) + "");
 		
 		addTitleLine(parser, "**********************************************************************");
 		addTitleLine(parser, "*** Triplexator - Finding triple helices with approximate matching ***");
@@ -3031,7 +3031,7 @@ namespace SEQAN_NAMESPACE_MAIN
 		getOptionValueLong(parser, "error-rate", options.errorRate);
 		getOptionValueLong(parser, "maximal-error", options.maximalError);
 		getOptionValueLong(parser, "percent-guanine", options.guanineRate);
-		getOptionValueLong(parser, "relax-guanine-constraint", options.forward);
+		getOptionValueLong(parser, "relax-guanine-constraint", options.relaxGuanineRate);
 		::std::string tmpVal;
 		//getOptionValueLong(parser, "relax-guanine-constraint", tmpVal);
 //		if (tmpVal == "off"){

@@ -1191,7 +1191,8 @@ If $iterator$'s container type is $TIndex$, the return type is $Size<TIndex>::Ty
 	{
 		_historyClear(it);
 		clear(it);							// start in root node with range (0,infty)
-		_setSizeInval(value(it).range.i2);	// infty is equivalent to length(index) and faster to compare
+		if (!empty(indexSA(container(it))))
+            _setSizeInval(value(it).range.i2);	// infty is equivalent to length(index) and faster to compare
 	}
 
 //____________________________________________________________________________

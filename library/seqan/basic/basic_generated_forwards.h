@@ -289,7 +289,7 @@ template <size_t SIZE, size_t MAX_COUNT , typename TParentAllocator > struct Chu
 //____________________________________________________________________________
 // ClassIdentifier_
 
-template <typename T> struct ClassIdentifier_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(701)
+template <typename T> struct ClassIdentifier_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(724)
 
 //____________________________________________________________________________
 // CompareType
@@ -326,7 +326,7 @@ template <typename TTarget, typename TSource > struct Convert;       	// "/Users
 //____________________________________________________________________________
 // CopyConst_
 
-template <typename TFrom, typename TTo> struct CopyConst_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(651)
+template <typename TFrom, typename TTo> struct CopyConst_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(674)
 
 //____________________________________________________________________________
 // DeepestSpec
@@ -447,7 +447,7 @@ template <typename T> struct IsCharType;       	// "/Users/f.buske/Documents/bio
 //____________________________________________________________________________
 // IsConst_
 
-template <typename T> struct IsConst_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(675)
+template <typename T> struct IsConst_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(698)
 
 //____________________________________________________________________________
 // IsIntegral
@@ -590,12 +590,12 @@ template <typename T> struct MaximumValueUnsigned_;       	// "/Users/f.buske/Do
 //____________________________________________________________________________
 // MemsetConstValueWorker
 
-template <unsigned SIZE, bool direct, unsigned char c> struct MemsetConstValueWorker;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(810)
+template <unsigned SIZE, bool direct, unsigned char c> struct MemsetConstValueWorker;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(833)
 
 //____________________________________________________________________________
 // MemsetWorker
 
-template <unsigned SIZE, bool direct> struct MemsetWorker;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(743)
+template <unsigned SIZE, bool direct> struct MemsetWorker;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(766)
 
 //____________________________________________________________________________
 // MinValue
@@ -737,7 +737,12 @@ template <typename T> struct Reference;       	// "/Users/f.buske/Documents/bios
 //____________________________________________________________________________
 // RemoveConst_
 
-template <typename T> struct RemoveConst_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(615)
+template <typename T> struct RemoveConst_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(638)
+
+//____________________________________________________________________________
+// RemoveReference_
+
+template <typename T> struct RemoveReference_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(615)
 
 //____________________________________________________________________________
 // Rooted_
@@ -1961,8 +1966,8 @@ template <typename T> inline T const & maxValue(T);       	// "/Users/f.buske/Do
 //____________________________________________________________________________
 // memset
 
-template <unsigned SIZE> finline void memset(void* ptr, unsigned char c);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(802)
-template <unsigned SIZE, unsigned char c> finline void memset(void* ptr);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(865)
+template <unsigned SIZE> finline void memset(void* ptr, unsigned char c);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(825)
+template <unsigned SIZE, unsigned char c> finline void memset(void* ptr);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(888)
 
 //____________________________________________________________________________
 // minValue

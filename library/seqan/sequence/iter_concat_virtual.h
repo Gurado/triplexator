@@ -128,7 +128,8 @@ public:
             _testEnd();
         } else {
             objNo = length(_host) - 1;
-            _begin = _cur = _end = end(_host[objNo]);
+            _begin = begin(_host[objNo]);
+            _cur = _end = end(_host[objNo]);
         }
     }
 

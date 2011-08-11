@@ -262,44 +262,47 @@ depthFirstSearch(Graph<TSpec> const& g,
 ..signature:topologicalSort(g, topSort)
 ..param.g:In-parameter:A directed acyclic graph.
 ...type:Spec.Directed Graph
-..param.topSort:Out-parameter:A linear ordering of the vertices.
+..param.topSort:Out-parameter:A topological ordering of the vertices.
 ...type:Class.String
 ..returns:void.
 ..include:seqan/graph_algorithms.h
 */
 template<typename TSpec, typename TVertexDescriptor>
 void
-topologicalSort(Graph<TSpec> const& g,
-				 String<TVertexDescriptor>& topSort)
+topologicalSort(Graph<TSpec> const & g,
+				 String<TVertexDescriptor> & topSort)
 {
-	SEQAN_CHECKPOINT
 	typedef typename Size<Graph<TSpec> >::Type TSize;
 
-	// Initialization
+	// Variable definition.
 	String<TSize> predMap;
 	String<TSize> discoveryTimeMap;
 	String<TSize> finishingTimeMap;
 	
-	// Dfs
+	// Perform DFS.
 	depthFirstSearch(g, predMap, discoveryTimeMap, finishingTimeMap);
+    SEQAN_ASSERT_EQ(numVertices(g), length(predMap));
+    SEQAN_ASSERT_EQ(numVertices(g), length(discoveryTimeMap));
+    SEQAN_ASSERT_EQ(numVertices(g), length(finishingTimeMap));
 
-	// Order vertices
+	// Order vertices.
 	typedef ::std::pair<TSize, TVertexDescriptor> TTimeVertexPair;
 	std::priority_queue<TTimeVertexPair> q;
 	typedef typename Iterator<Graph<TSpec>, VertexIterator>::Type TVertexIterator;
 	TVertexIterator it(g);
-	for(;!atEnd(it);++it) {
+	for (; !atEnd(it); goNext(it))
 		q.push(std::make_pair(getProperty(finishingTimeMap, getValue(it)), getValue(it)));
-	}
 
-	// Create topological order
-	resize(topSort,numVertices(g));
-	TSize count=0;
-	while(!q.empty()) {
+	// Create topological order.
+	resize(topSort, numVertices(g));
+	TSize count = 0;
+	while (!q.empty())
+    {
 		assignValue(topSort, count, q.top().second);
 		q.pop();
 		++count;
 	}
+    SEQAN_ASSERT_EQ(length(topSort), numVertices(g));
 }
 
 //////////////////////////////////////////////////////////////////////////////

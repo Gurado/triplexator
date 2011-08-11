@@ -30,7 +30,7 @@ default: all
 
 all: main test
 
-main: triplexator.o
+main: $(SRC)/triplexator.o
 	$(CXX) $(LDFLAGS) -o bin/triplexator $(SRC)/triplexator.o
 
 triplexator.o: $(SRC)/triplexator.cpp
@@ -40,7 +40,7 @@ test: main
 	./demos/smoketest_triplexator.sh ./bin/triplexator
 	
 clean:
-	rm -f triplexator.o triplexator 
+	rm -f $(SRC)/triplexator.o bin/triplexator 
 	rm -r -f ./demos/examples
 	rm -r -f ./demos/tests
 
