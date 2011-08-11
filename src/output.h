@@ -828,13 +828,13 @@ namespace SEQAN_NAMESPACE_MAIN
 			switch (options.outputFormat)
 			{
 				case 0:	// brief Triplex Format
-					filehandle << (options.tfoNaming==0? tfoNames[seqNo]:seqNo+1) << _sep_ << match.oBegin << _sep_ << match.oEnd << _sep_ ;
+					filehandle << tfoNames[seqNo] << _sep_ << match.oBegin << _sep_ << match.oEnd << _sep_ ;
 					filehandle << duplexId << _sep_ << match.dBegin << _sep_ << match.dEnd << _sep_ ;
 					filehandle << match.mScore << _sep_ << ::std::setprecision(2) << (1.0-match.mScore/(match.dEnd-match.dBegin)) << _sep_ ;
 					filehandle << _errorString(match, duplex, tfoSet) << _sep_ << match.motif << _sep_ << match.strand << _sep_ <<  (match.parallel?'P':'A') << ::std::endl;
 					break;
 				case 1:	// extended Triplex Format
-					filehandle << (options.tfoNaming==0? tfoNames[seqNo]:seqNo+1) << _sep_ << match.oBegin << _sep_ << match.oEnd << _sep_ ;
+					filehandle << tfoNames[seqNo] << _sep_ << match.oBegin << _sep_ << match.oEnd << _sep_ ;
 					filehandle << duplexId << _sep_ << match.dBegin << _sep_ << match.dEnd << _sep_ ;
 					filehandle << match.mScore << _sep_ << ::std::setprecision(2) << (1.0-match.mScore/(match.dEnd-match.dBegin)) << _sep_ ;
 					filehandle << _errorString(match, duplex, tfoSet) << _sep_ << match.motif << _sep_ << match.strand << _sep_ <<  (match.parallel?'P':'A') << ::std::endl;

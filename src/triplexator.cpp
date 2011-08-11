@@ -118,7 +118,7 @@ void _populateLogFile(int argc, const char *argv[], Options	&options)
 		default:
 			break;
 	}
-	if (options.runmode == TRIPLEX_TRIPLEX_SEARCH || options.runmode == TRIPLEX_TTS_SEARCH){
+	if (options.runmode == TRIPLEX_TTS_SEARCH){
 		options.logFileHandle << "- tts id naming : ";
 		switch (options.ttsNaming) {
 			case 0:
@@ -131,7 +131,7 @@ void _populateLogFile(int argc, const char *argv[], Options	&options)
 				break;
 		}
 	}
-	if (options.runmode == TRIPLEX_TRIPLEX_SEARCH || options.runmode == TRIPLEX_TFO_SEARCH){
+	if (options.runmode == TRIPLEX_TFO_SEARCH){
 		options.logFileHandle << "- tfo id naming : ";
 		switch (options.tfoNaming) {
 			case 0:

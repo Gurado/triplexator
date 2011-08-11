@@ -2241,7 +2241,6 @@ namespace SEQAN_NAMESPACE_MAIN
 		sfName = _fName.substr(lastPos);
 	}
 	
-	
 	//////////////////////////////////////////////////////////////////////////////
 	// Load multi-Fasta sequences
 	template <typename TSequenceSet, typename TNameSet, typename TOptions>
@@ -2251,7 +2250,7 @@ namespace SEQAN_NAMESPACE_MAIN
 				     TOptions const	&options)
 	{
 		
-		MultiFasta multiFasta;
+		MultiSeqFile multiFasta;
 		if (!open(multiFasta.concat, fileName, OPEN_RDONLY)) return false;
 		
 		AutoSeqFormat format;
@@ -2265,8 +2264,8 @@ namespace SEQAN_NAMESPACE_MAIN
 		TriplexString seq;
 		for(unsigned i = 0; i < seqCount; ++i)
 		{
-			assignSeqId(fastaIDs[i], multiFasta[i], format);	// read Fasta id
-			assignSeq(seq, multiFasta[i], format);					// read Read sequence
+			assignCroppedSeqId(fastaIDs[i], multiFasta[i], format);	// read Fasta id
+			assignSeq(seq, multiFasta[i], format);				// read third strand
 			assign(sequences[i], seq, Exact());
 		}
 		if (options._debugLevel > 1 )
@@ -2274,7 +2273,6 @@ namespace SEQAN_NAMESPACE_MAIN
 		return (seqCount > 0);
 	}
 	
-
 	//////////////////////////////////////////////////////////////////////////////
 	// Applies maximum length constraint to watson strand in duplex motif
 	template<
@@ -2587,10 +2585,8 @@ namespace SEQAN_NAMESPACE_MAIN
 			TMatches matches;
 			TDuplex	duplexString;
 			CharString duplexId;
-			if (options.ttsNaming == 0){
-				//readID(file, id, Fasta());			// read Fasta id
-				readShortID(file, duplexId, Fasta());	// read Fasta id up to first whitespace
-			}
+			//readID(file, id, Fasta());			// read Fasta id
+			readShortID(file, duplexId, Fasta());	// read Fasta id up to first whitespace
 			if (options._debugLevel >= 2)
 				::std::cerr << "Processing:\t" << duplexId << "\t(seq " << duplexSeqNoWithinFile << ")\r" << ::std::flush;
 			
@@ -2922,8 +2918,8 @@ namespace SEQAN_NAMESPACE_MAIN
 	setupCommandLineParser(CommandLineParser & parser, Options & options)
 	{
 		::std::string rev = "$Revision: 10258 $";
-		addVersionLine(parser, "Version 1.0.1 (11/08/2011) SeqAn Revision: " + rev.substr(11, 4) + "");
-		append(options.version, "Version 1.0.1 (11/08/2011) SeqAn Revision: " + rev.substr(11, 4) + "");
+		addVersionLine(parser, "Version 1.0.2 (11/08/2011) SeqAn Revision: " + rev.substr(11, 4) + "");
+		append(options.version, "Version 1.0.2 (11/08/2011) SeqAn Revision: " + rev.substr(11, 4) + "");
 		
 		addTitleLine(parser, "**********************************************************************");
 		addTitleLine(parser, "*** Triplexator - Finding triple helices with approximate matching ***");

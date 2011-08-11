@@ -2,6 +2,13 @@
 * Changelog
 *******************
 
+
+2011-08-11  Fabian Buske	v1.0.2
+	Crop sequence ids of single-stranded sequences at first whitespace
+	Fixed but for TFO/TTS-naming in output when run in triplex search mode
+	Replaced deprecated MultiFasta class with MultiSeqFile
+
+
 2011-08-11  Fabian Buske	v1.0.1
 	Fixed bug in duplex processing
 	Adjusted log output to report relevant parameters only

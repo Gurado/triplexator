@@ -1,263 +1,263 @@
 # Sequence-ID	TFO start	TFO end	TTS-ID	TTS start	TTS end	Score	Error-rate	Errors	Motif	strand	orientation
-	2	22		4	24	20	0		Y	+	P
+Seq1-Y-noErrors	2	22	Duplex1_Y_+	4	24	20	0		Y	+	P
 TFO: 5'- CCCTTCTCCTTCCTTTTCCC -3'
          ||||||||||||||||||||
 TTS: 5'- GGGAAGAGGAAGGAAAAGGG -3'
      3'- CCCTTCTCCTTCCTTTTCCC -5'
 
-	2	16		4	18	13	0.071	o4	Y	+	P
+Seq2-Y-2disErrors	2	16	Duplex1_Y_+	4	18	13	0.071	o4	Y	+	P
 TFO: 5'- CCCTgCTCCTTCCT -3'
          ||||*|||||||||
 TTS: 5'- GGGAAGAGGAAGGA -3'
      3'- CCCTTCTCCTTCCT -5'
 
-	7	22		9	24	14	0.067	o9	Y	+	P
+Seq2-Y-2disErrors	7	22	Duplex1_Y_+	9	24	14	0.067	o9	Y	+	P
 TFO: 5'- CTCCTTCCTgTTCCC -3'
          |||||||||*|||||
 TTS: 5'- GAGGAAGGAAAAGGG -3'
      3'- CTCCTTCCTTTTCCC -5'
 
-	8	22		4	18	13	0.071	t5	R	+	A
+Seq4-R-noErrors	8	22	Duplex1_Y_+	4	18	13	0.071	t5	R	+	A
 TFO: 3'- GGGAAAAGGAAGGA -5'
          |||||*||||||||
 TTS: 5'- GGGAAGAGGAAGGA -3'
      3'- CCCTTCTCCTTCCT -5'
 
-	2	16		10	24	13	0.071	t8	R	+	A
+Seq4-R-noErrors	2	16	Duplex1_Y_+	10	24	13	0.071	t8	R	+	A
 TFO: 3'- AGGAAGGAGAAGGG -5'
          ||||||||*|||||
 TTS: 5'- AGGAAGGAAAAGGG -3'
      3'- TCCTTCCTTTTCCC -5'
 
-	8	22		4	18	13	0.071	o5	R	+	A
+Seq5-R-2disErrors	8	22	Duplex1_Y_+	4	18	13	0.071	o5	R	+	A
 TFO: 3'- GGGAAcAGGAAGGA -5'
          |||||*||||||||
 TTS: 5'- GGGAAGAGGAAGGA -3'
      3'- CCCTTCTCCTTCCT -5'
 
-	2	22		4	24	20	0		M	+	P
+Seq7-M-noErrors	2	22	Duplex1_Y_+	4	24	20	0		M	+	P
 TFO: 5'- GGGTTGTGGTTGGTTTTGGG -3'
          ||||||||||||||||||||
 TTS: 5'- GGGAAGAGGAAGGAAAAGGG -3'
      3'- CCCTTCTCCTTCCTTTTCCC -5'
 
-	8	22		4	18	13	0.071	t5	M	+	A
+Seq7-M-noErrors	8	22	Duplex1_Y_+	4	18	13	0.071	t5	M	+	A
 TFO: 3'- GGGTTTTGGTTGGT -5'
          |||||*||||||||
 TTS: 5'- GGGAAGAGGAAGGA -3'
      3'- CCCTTCTCCTTCCT -5'
 
-	2	16		10	24	13	0.071	t8	M	+	A
+Seq7-M-noErrors	2	16	Duplex1_Y_+	10	24	13	0.071	t8	M	+	A
 TFO: 3'- TGGTTGGTGTTGGG -5'
          ||||||||*|||||
 TTS: 5'- AGGAAGGAAAAGGG -3'
      3'- TCCTTCCTTTTCCC -5'
 
-	2	19		4	21	16	0.059	o2	M	+	P
+Seq8-M-2disErrors	2	19	Duplex1_Y_+	4	21	16	0.059	o2	M	+	P
 TFO: 5'- GGcTTGTGGTTGGTTTT -3'
          ||*||||||||||||||
 TTS: 5'- GGGAAGAGGAAGGAAAA -3'
      3'- CCCTTCTCCTTCCTTTT -5'
 
-	5	22		7	24	16	0.059	o14	M	+	P
+Seq8-M-2disErrors	5	22	Duplex1_Y_+	7	24	16	0.059	o14	M	+	P
 TFO: 5'- TTGTGGTTGGTTTTcGG -3'
          ||||||||||||||*||
 TTS: 5'- AAGAGGAAGGAAAAGGG -3'
      3'- TTCTCCTTCCTTTTCCC -5'
 
-	2	16		3	17	13	0.071	t5	Y	+	P
+Seq1-Y-noErrors	2	16	Duplex2_R_+	3	17	13	0.071	t5	Y	+	P
 TFO: 5'- CCCTTCTCCTTCCT -3'
          |||||*||||||||
 TTS: 5'- GGGAAAAGGAAGGA -3'
      3'- CCCTTTTCCTTCCT -5'
 
-	8	22		9	23	13	0.071	t8	Y	+	P
+Seq1-Y-noErrors	8	22	Duplex2_R_+	9	23	13	0.071	t8	Y	+	P
 TFO: 5'- TCCTTCCTTTTCCC -3'
          ||||||||*|||||
 TTS: 5'- AGGAAGGAGAAGGG -3'
      3'- TCCTTCCTCTTCCC -5'
 
-	8	22		9	23	13	0.071	o8	Y	+	P
+Seq2-Y-2disErrors	8	22	Duplex2_R_+	9	23	13	0.071	o8	Y	+	P
 TFO: 5'- TCCTTCCTgTTCCC -3'
          ||||||||*|||||
 TTS: 5'- AGGAAGGAGAAGGG -3'
      3'- TCCTTCCTCTTCCC -5'
 
-	2	22		3	23	20	0		R	+	A
+Seq4-R-noErrors	2	22	Duplex2_R_+	3	23	20	0		R	+	A
 TFO: 3'- GGGAAAAGGAAGGAGAAGGG -5'
          ||||||||||||||||||||
 TTS: 5'- GGGAAAAGGAAGGAGAAGGG -3'
      3'- CCCTTTTCCTTCCTCTTCCC -5'
 
-	7	22		3	18	14	0.067	o5	R	+	A
+Seq5-R-2disErrors	7	22	Duplex2_R_+	3	18	14	0.067	o5	R	+	A
 TFO: 3'- GGGAAcAGGAAGGAG -5'
          |||||*|||||||||
 TTS: 5'- GGGAAAAGGAAGGAG -3'
      3'- CCCTTTTCCTTCCTC -5'
 
-	2	16		9	23	13	0.071	o9	R	+	A
+Seq5-R-2disErrors	2	16	Duplex2_R_+	9	23	13	0.071	o9	R	+	A
 TFO: 3'- AGGAAGGAGcAGGG -5'
          |||||||||*||||
 TTS: 5'- AGGAAGGAGAAGGG -3'
      3'- TCCTTCCTCTTCCC -5'
 
-	2	16		3	17	13	0.071	t5	M	+	P
+Seq7-M-noErrors	2	16	Duplex2_R_+	3	17	13	0.071	t5	M	+	P
 TFO: 5'- GGGTTGTGGTTGGT -3'
          |||||*||||||||
 TTS: 5'- GGGAAAAGGAAGGA -3'
      3'- CCCTTTTCCTTCCT -5'
 
-	8	22		9	23	13	0.071	t8	M	+	P
+Seq7-M-noErrors	8	22	Duplex2_R_+	9	23	13	0.071	t8	M	+	P
 TFO: 5'- TGGTTGGTTTTGGG -3'
          ||||||||*|||||
 TTS: 5'- AGGAAGGAGAAGGG -3'
      3'- TCCTTCCTCTTCCC -5'
 
-	2	22		3	23	20	0		M	+	A
+Seq7-M-noErrors	2	22	Duplex2_R_+	3	23	20	0		M	+	A
 TFO: 3'- GGGTTTTGGTTGGTGTTGGG -5'
          ||||||||||||||||||||
 TTS: 5'- GGGAAAAGGAAGGAGAAGGG -3'
      3'- CCCTTTTCCTTCCTCTTCCC -5'
 
-	5	22		3	20	16	0.059	o2	M	+	A
+Seq8-M-2disErrors	5	22	Duplex2_R_+	3	20	16	0.059	o2	M	+	A
 TFO: 3'- GGcTTTTGGTTGGTGTT -5'
          ||*||||||||||||||
 TTS: 5'- GGGAAAAGGAAGGAGAA -3'
      3'- CCCTTTTCCTTCCTCTT -5'
 
-	2	19		6	23	16	0.059	o14	M	+	A
+Seq8-M-2disErrors	2	19	Duplex2_R_+	6	23	16	0.059	o14	M	+	A
 TFO: 3'- TTTTGGTTGGTGTTcGG -5'
          ||||||||||||||*||
 TTS: 5'- AAAAGGAAGGAGAAGGG -3'
      3'- TTTTCCTTCCTCTTCCC -5'
 
-	2	16		10	24	13	0.071	t8	Y	-	P
+Seq1-Y-noErrors	2	16	Duplex3_R_-	10	24	13	0.071	t8	Y	-	P
      5'- TCCTTCCTTTTCCC -3'
 TTS: 3'- AGGAAGGAAAAGGG -5'
          ||||||||*|||||
 TFO: 3'- TCCTTCCTCTTCCC -5'
 
-	8	22		4	18	13	0.071	t5	Y	-	P
+Seq1-Y-noErrors	8	22	Duplex3_R_-	4	18	13	0.071	t5	Y	-	P
      5'- CCCTTCTCCTTCCT -3'
 TTS: 3'- GGGAAGAGGAAGGA -5'
          |||||*||||||||
 TFO: 3'- CCCTTTTCCTTCCT -5'
 
-	8	22		4	18	13	0.071	o5	Y	-	P
+Seq2-Y-2disErrors	8	22	Duplex3_R_-	4	18	13	0.071	o5	Y	-	P
      5'- CCCTTCTCCTTCCT -3'
 TTS: 3'- GGGAAGAGGAAGGA -5'
          |||||*||||||||
 TFO: 3'- CCCTTgTCCTTCCT -5'
 
-	2	22		4	24	20	0		R	-	A
+Seq4-R-noErrors	2	22	Duplex3_R_-	4	24	20	0		R	-	A
      5'- CCCTTCTCCTTCCTTTTCCC -3'
 TTS: 3'- GGGAAGAGGAAGGAAAAGGG -5'
          ||||||||||||||||||||
 TFO: 5'- GGGAAGAGGAAGGAAAAGGG -3'
 
-	7	22		9	24	14	0.067	o9	R	-	A
+Seq5-R-2disErrors	7	22	Duplex3_R_-	9	24	14	0.067	o9	R	-	A
      5'- CTCCTTCCTTTTCCC -3'
 TTS: 3'- GAGGAAGGAAAAGGG -5'
          |||||||||*|||||
 TFO: 5'- GAGGAAGGAcAAGGG -3'
 
-	2	16		4	18	13	0.071	o4	R	-	A
+Seq5-R-2disErrors	2	16	Duplex3_R_-	4	18	13	0.071	o4	R	-	A
      5'- CCCTTCTCCTTCCT -3'
 TTS: 3'- GGGAAGAGGAAGGA -5'
          ||||*|||||||||
 TFO: 5'- GGGAcGAGGAAGGA -3'
 
-	2	16		10	24	13	0.071	t8	M	-	P
+Seq7-M-noErrors	2	16	Duplex3_R_-	10	24	13	0.071	t8	M	-	P
      5'- TCCTTCCTTTTCCC -3'
 TTS: 3'- AGGAAGGAAAAGGG -5'
          ||||||||*|||||
 TFO: 3'- TGGTTGGTGTTGGG -5'
 
-	8	22		4	18	13	0.071	t5	M	-	P
+Seq7-M-noErrors	8	22	Duplex3_R_-	4	18	13	0.071	t5	M	-	P
      5'- CCCTTCTCCTTCCT -3'
 TTS: 3'- GGGAAGAGGAAGGA -5'
          |||||*||||||||
 TFO: 3'- GGGTTTTGGTTGGT -5'
 
-	2	22		4	24	20	0		M	-	A
+Seq7-M-noErrors	2	22	Duplex3_R_-	4	24	20	0		M	-	A
      5'- CCCTTCTCCTTCCTTTTCCC -3'
 TTS: 3'- GGGAAGAGGAAGGAAAAGGG -5'
          ||||||||||||||||||||
 TFO: 5'- GGGTTGTGGTTGGTTTTGGG -3'
 
-	5	22		7	24	16	0.059	o14	M	-	A
+Seq8-M-2disErrors	5	22	Duplex3_R_-	7	24	16	0.059	o14	M	-	A
      5'- TTCTCCTTCCTTTTCCC -3'
 TTS: 3'- AAGAGGAAGGAAAAGGG -5'
          ||||||||||||||*||
 TFO: 5'- TTGTGGTTGGTTTTcGG -3'
 
-	2	19		4	21	16	0.059	o2	M	-	A
+Seq8-M-2disErrors	2	19	Duplex3_R_-	4	21	16	0.059	o2	M	-	A
      5'- CCCTTCTCCTTCCTTTT -3'
 TTS: 3'- GGGAAGAGGAAGGAAAA -5'
          ||*||||||||||||||
 TFO: 5'- GGcTTGTGGTTGGTTTT -3'
 
-	2	22		3	23	20	0		Y	-	P
+Seq1-Y-noErrors	2	22	Duplex4_Y_-	3	23	20	0		Y	-	P
      5'- CCCTTTTCCTTCCTCTTCCC -3'
 TTS: 3'- GGGAAAAGGAAGGAGAAGGG -5'
          ||||||||||||||||||||
 TFO: 3'- CCCTTTTCCTTCCTCTTCCC -5'
 
-	2	16		9	23	13	0.071	o9	Y	-	P
+Seq2-Y-2disErrors	2	16	Duplex4_Y_-	9	23	13	0.071	o9	Y	-	P
      5'- TCCTTCCTCTTCCC -3'
 TTS: 3'- AGGAAGGAGAAGGG -5'
          |||||||||*||||
 TFO: 3'- TCCTTCCTCgTCCC -5'
 
-	7	22		3	18	14	0.067	o5	Y	-	P
+Seq2-Y-2disErrors	7	22	Duplex4_Y_-	3	18	14	0.067	o5	Y	-	P
      5'- CCCTTTTCCTTCCTC -3'
 TTS: 3'- GGGAAAAGGAAGGAG -5'
          |||||*|||||||||
 TFO: 3'- CCCTTgTCCTTCCTC -5'
 
-	8	22		9	23	13	0.071	t8	R	-	A
+Seq4-R-noErrors	8	22	Duplex4_Y_-	9	23	13	0.071	t8	R	-	A
      5'- TCCTTCCTCTTCCC -3'
 TTS: 3'- AGGAAGGAGAAGGG -5'
          ||||||||*|||||
 TFO: 5'- AGGAAGGAAAAGGG -3'
 
-	2	16		3	17	13	0.071	t5	R	-	A
+Seq4-R-noErrors	2	16	Duplex4_Y_-	3	17	13	0.071	t5	R	-	A
      5'- CCCTTTTCCTTCCT -3'
 TTS: 3'- GGGAAAAGGAAGGA -5'
          |||||*||||||||
 TFO: 5'- GGGAAGAGGAAGGA -3'
 
-	8	22		9	23	13	0.071	o8	R	-	A
+Seq5-R-2disErrors	8	22	Duplex4_Y_-	9	23	13	0.071	o8	R	-	A
      5'- TCCTTCCTCTTCCC -3'
 TTS: 3'- AGGAAGGAGAAGGG -5'
          ||||||||*|||||
 TFO: 5'- AGGAAGGAcAAGGG -3'
 
-	2	22		3	23	20	0		M	-	P
+Seq7-M-noErrors	2	22	Duplex4_Y_-	3	23	20	0		M	-	P
      5'- CCCTTTTCCTTCCTCTTCCC -3'
 TTS: 3'- GGGAAAAGGAAGGAGAAGGG -5'
          ||||||||||||||||||||
 TFO: 3'- GGGTTTTGGTTGGTGTTGGG -5'
 
-	8	22		9	23	13	0.071	t8	M	-	A
+Seq7-M-noErrors	8	22	Duplex4_Y_-	9	23	13	0.071	t8	M	-	A
      5'- TCCTTCCTCTTCCC -3'
 TTS: 3'- AGGAAGGAGAAGGG -5'
          ||||||||*|||||
 TFO: 5'- TGGTTGGTTTTGGG -3'
 
-	2	16		3	17	13	0.071	t5	M	-	A
+Seq7-M-noErrors	2	16	Duplex4_Y_-	3	17	13	0.071	t5	M	-	A
      5'- CCCTTTTCCTTCCT -3'
 TTS: 3'- GGGAAAAGGAAGGA -5'
          |||||*||||||||
 TFO: 5'- GGGTTGTGGTTGGT -3'
 
-	2	19		6	23	16	0.059	o14	M	-	P
+Seq8-M-2disErrors	2	19	Duplex4_Y_-	6	23	16	0.059	o14	M	-	P
      5'- TTTTCCTTCCTCTTCCC -3'
 TTS: 3'- AAAAGGAAGGAGAAGGG -5'
          ||||||||||||||*||
 TFO: 3'- TTTTGGTTGGTGTTcGG -5'
 
-	5	22		3	20	16	0.059	o2	M	-	P
+Seq8-M-2disErrors	5	22	Duplex4_Y_-	3	20	16	0.059	o2	M	-	P
      5'- CCCTTTTCCTTCCTCTT -3'
 TTS: 3'- GGGAAAAGGAAGGAGAA -5'
          ||*||||||||||||||
