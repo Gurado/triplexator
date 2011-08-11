@@ -2671,10 +2671,7 @@ namespace SEQAN_NAMESPACE_MAIN
 			TMatches matches;
 			TDuplex	duplexString;
 			CharString duplexId;
-			if (options.ttsNaming == 0){
-				//readID(file, id, Fasta());			// read Fasta id
-				readShortID(file, duplexId, Fasta());	// read Fasta id up to first whitespace
-			}
+			readShortID(file, duplexId, Fasta());	// read Fasta id up to first whitespace
 			if (options._debugLevel >= 2)
 				::std::cerr << "Processing:\t" << duplexId << "\t(seq " << duplexSeqNoWithinFile << ")\r" << ::std::flush;
 			
