@@ -1,3 +1,3 @@
-# Sequence-ID	Start	End	TFO-ID	Score	Motif	Error-rate	Errors	Duplicates	TFO	Duplicate locations
-Seq7-M-noErrors	2	22	7_1	20	M	0		-1	GGGTTGTGGTTGGTTTTGGG	-
-Seq8-M-2disErrors	5	19	8_2	14	M	0		-1	TTGTGGTTGGTTTT	-
+# Sequence-ID	Start	End	Score	Motif	Error-rate	Errors	Duplicates	TFO	Duplicate locations
+Seq7-M-noErrors	2	22	20	M	0		-1	GGGTTGTGGTTGGTTTTGGG	-
+Seq8-M-2disErrors	5	19	14	M	0		-1	TTGTGGTTGGTTTT	-

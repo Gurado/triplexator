@@ -1,4 +1,4 @@
-# Sequence-ID	TFO start	TFO end	TTS-ID	TTS start	TTS end	Score	Error-rate	Errors	Motif	strand	orientation
+# Sequence-ID	TFO start	TFO end	Duplex-ID	TTS start	TTS end	Score	Error-rate	Errors	Motif	strand	orientation
 Seq1-Y-noErrors	2	22	Duplex1_Y_+	4	24	20	0		Y	+	P
 TFO: 5'- CCCTTCTCCTTCCTTTTCCC -3'
          ||||||||||||||||||||
@@ -16,12 +16,6 @@ TFO: 3'- GGGAAAAGGAAGGAGAAGGG -5'
          |||||*||||||||*|||||
 TTS: 5'- GGGAAGAGGAAGGAAAAGGG -3'
      3'- CCCTTCTCCTTCCTTTTCCC -5'
-
-Seq5-R-2disErrors	8	22	Duplex1_Y_+	4	18	13	0.071	o5	R	+	A
-TFO: 3'- GGGAAcAGGAAGGA -5'
-         |||||*||||||||
-TTS: 5'- GGGAAGAGGAAGGA -3'
-     3'- CCCTTCTCCTTCCT -5'
 
 Seq7-M-noErrors	2	22	Duplex1_Y_+	4	24	20	0		M	+	P
 TFO: 5'- GGGTTGTGGTTGGTTTTGGG -3'
@@ -46,12 +40,6 @@ TFO: 5'- CCCTTCTCCTTCCTTTTCCC -3'
          |||||*||||||||*|||||
 TTS: 5'- GGGAAAAGGAAGGAGAAGGG -3'
      3'- CCCTTTTCCTTCCTCTTCCC -5'
-
-Seq2-Y-2disErrors	8	22	Duplex2_R_+	9	23	13	0.071	o8	Y	+	P
-TFO: 5'- TCCTTCCTgTTCCC -3'
-         ||||||||*|||||
-TTS: 5'- AGGAAGGAGAAGGG -3'
-     3'- TCCTTCCTCTTCCC -5'
 
 Seq4-R-noErrors	2	22	Duplex2_R_+	3	23	20	0		R	+	A
 TFO: 3'- GGGAAAAGGAAGGAGAAGGG -5'
@@ -88,12 +76,6 @@ Seq1-Y-noErrors	2	22	Duplex3_R_-	4	24	18	0.1	t5t14	Y	-	P
 TTS: 3'- GGGAAGAGGAAGGAAAAGGG -5'
          |||||*||||||||*|||||
 TFO: 3'- CCCTTTTCCTTCCTCTTCCC -5'
-
-Seq2-Y-2disErrors	8	22	Duplex3_R_-	4	18	13	0.071	o5	Y	-	P
-     5'- CCCTTCTCCTTCCT -3'
-TTS: 3'- GGGAAGAGGAAGGA -5'
-         |||||*||||||||
-TFO: 3'- CCCTTgTCCTTCCT -5'
 
 Seq4-R-noErrors	2	22	Duplex3_R_-	4	24	20	0		R	-	A
      5'- CCCTTCTCCTTCCTTTTCCC -3'
@@ -142,12 +124,6 @@ Seq4-R-noErrors	2	22	Duplex4_Y_-	3	23	18	0.1	t5t14	R	-	A
 TTS: 3'- GGGAAAAGGAAGGAGAAGGG -5'
          |||||*||||||||*|||||
 TFO: 5'- GGGAAGAGGAAGGAAAAGGG -3'
-
-Seq5-R-2disErrors	8	22	Duplex4_Y_-	9	23	13	0.071	o8	R	-	A
-     5'- TCCTTCCTCTTCCC -3'
-TTS: 3'- AGGAAGGAGAAGGG -5'
-         ||||||||*|||||
-TFO: 5'- AGGAAGGAcAAGGG -3'
 
 Seq7-M-noErrors	2	22	Duplex4_Y_-	3	23	20	0		M	-	P
      5'- CCCTTTTCCTTCCTCTTCCC -3'

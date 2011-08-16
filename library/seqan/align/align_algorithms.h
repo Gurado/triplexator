@@ -116,7 +116,7 @@ template <typename TSource1, typename TSpec1, typename TSource2, typename TSpec2
 void
 integrateAlign(Align<TSource1, TSpec1> & align,
 			   Align<TSource2, TSpec2> const & infixAlign,
-			   String<TPos> viewPos) {
+			   String<TPos> const & viewPos) {
 SEQAN_CHECKPOINT
 	typedef Align<TSource1, TSpec1> TAlign;
 	typedef Align<TSource2, TSpec2> TInfixAlign;

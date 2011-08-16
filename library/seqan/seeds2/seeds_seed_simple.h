@@ -49,7 +49,7 @@ namespace seqan {
 ..cat:Seed Handling
 ..general:Class.Seed
 ..signature:Seed<TPosition, SimpleSeed>
-..param.TPosition:The type number that schuld be used. Must have negative numbers (e.g. int/long).
+..param.TPosition:The type number that should be used. Must have negative numbers (e.g. int/long).
 .Memfunc.SimpleSeed#Seed:
 ..class:Spec.SimpleSeed
 ..summary:Constructor

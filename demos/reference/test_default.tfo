@@ -1,7 +1,7 @@
-# Sequence-ID	Start	End	TFO-ID	Score	Motif	Error-rate	Errors	Duplicates	TFO	Duplicate locations
-Seq1-Y-noErrors	2	22	1_1	20	Y	0		-1	CCCTTCTCCTTCCTTTTCCC	-
-Seq2-Y-2disErrors	2	22	2_2	18	Y	0.1	o4o14	-1	CCCTgCTCCTTCCTgTTCCC	-
-Seq4-R-noErrors	2	22	4_3	20	R	0		-1	GGGAAGAGGAAGGAAAAGGG	-
-Seq5-R-2disErrors	2	22	5_4	18	R	0.1	o4o14	-1	GGGAcGAGGAAGGAcAAGGG	-
-Seq7-M-noErrors	2	22	7_5	20	M	0		-1	GGGTTGTGGTTGGTTTTGGG	-
-Seq8-M-2disErrors	2	22	8_6	18	M	0.1	o2o17	-1	GGcTTGTGGTTGGTTTTcGG	-
+# Sequence-ID	Start	End	Score	Motif	Error-rate	Errors	Duplicates	TFO	Duplicate locations
+Seq1-Y-noErrors	2	22	20	Y	0		-1	CCCTTCTCCTTCCTTTTCCC	-
+Seq2-Y-2disErrors	2	22	18	Y	0.1	o4o14	-1	CCCTgCTCCTTCCTgTTCCC	-
+Seq4-R-noErrors	2	22	20	R	0		-1	GGGAAGAGGAAGGAAAAGGG	-
+Seq5-R-2disErrors	2	22	18	R	0.1	o4o14	-1	GGGAcGAGGAAGGAcAAGGG	-
+Seq7-M-noErrors	2	22	20	M	0		-1	GGGTTGTGGTTGGTTTTGGG	-
+Seq8-M-2disErrors	2	22	18	M	0.1	o2o17	-1	GGcTTGTGGTTGGTTTTcGG	-

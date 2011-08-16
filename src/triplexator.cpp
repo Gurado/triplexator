@@ -118,32 +118,6 @@ void _populateLogFile(int argc, const char *argv[], Options	&options)
 		default:
 			break;
 	}
-	if (options.runmode == TRIPLEX_TTS_SEARCH){
-		options.logFileHandle << "- tts id naming : ";
-		switch (options.ttsNaming) {
-			case 0:
-				options.logFileHandle << 0 << " = use Fasta id" << ::std::endl;
-				break;
-			case 1:
-				options.logFileHandle << 1 << " = enumerate beginning with 1" << ::std::endl;
-				break;
-			default:
-				break;
-		}
-	}
-	if (options.runmode == TRIPLEX_TFO_SEARCH){
-		options.logFileHandle << "- tfo id naming : ";
-		switch (options.tfoNaming) {
-			case 0:
-				options.logFileHandle << 0 << " = use Fasta id" << ::std::endl;
-				break;
-			case 1:
-				options.logFileHandle << 1 << " = enumerate beginning with 1" << ::std::endl;
-				break;
-			default:
-				break;
-		}	
-	}
 	options.logFileHandle << "- report duplicate locations : " << (options.reportDuplicateLocations?"Yes":"No") << ::std::endl;
 #ifdef BOOST
 	options.logFileHandle << "- compress output : " << (options.compressOutput?"Yes":"No") << ::std::endl;
@@ -198,9 +172,7 @@ void _populateLogFile(int argc, const char *argv[], Options	&options)
 		if (options.filterMode == FILTERING_GRAMS){
 			options.logFileHandle << "- filtering : qgrams" << ::std::endl;
 			options.logFileHandle << "- weight(qgram) : " << length(options.shape) << ::std::endl;
-			// w+1−(k+1)q | w=minimum length, k=errors, q=weight(q-grams)
-			unsigned minSeedsThreshold = unsigned(options.minLength+1-(ceil(options.errorRate*options.minLength)+1)*length(options.shape));
-			options.logFileHandle << "- threshold(qgram) : " << minSeedsThreshold << ::std::endl;
+			options.logFileHandle << "- threshold(qgram) : " << options.qgramThreshold << ::std::endl;
 		} else {
 			options.logFileHandle << "- filtering : none - greedy algorithm" << ::std::endl;
 		}

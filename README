@@ -238,27 +238,6 @@ runs in different operative modes depending on which data are input.
 
   Pretty output indicates matches with capital letters and deviations from 
   the triplex-formation rules by small letters.
-
-  [ -rn NUM ],  [ --read-naming NUM ]
-  
-  Select how reads are named in the output file. If NUM is 0, the Fasta ids
-  of the reads are used (default). If NUM is 1, the reads are enumerated
-  beginning with 1. If NUM is 2, the read sequence itself is used.
-
-  [ -dn NUM ],  [ --tts-naming NUM ]
-  
-  Specifies the way how the putative triplex target sites are named.
-  
-  0 = use Fasta id
-  1 = enumerate beginning with 1
-  
-  [ -rn NUM ],  [ --tfo-naming NUM ]
-  
-  Specifies the way how the putative triplex-forming oligonucleotides 
-  are named.
-    
-  0 = use Fasta id
-  1 = enumerate beginning with 1
   
 ---------------------------------------------------------------------------
 3.3. Filtration Options
@@ -268,13 +247,23 @@ runs in different operative modes depending on which data are input.
   
   Method to quickly discard non-hits (default 1). 
   
-  0 = greedy approach           use no filtering, go the extra mile
+  0 = brute-force approach      use no filtering, go the extra mile
   1 = q-gram filtering          filter hits using qgrams
   
   G-gram filtering will use more memory but can improve runtime.
   The greedy approach, however, will catch up on runtime
   when the q-grams get very small, due to an high error-rate,
   small minimum triplex length or disabled repeat filtering.
+
+  The qgram weight is calculated as followed:
+  min(11.0,floor((qgramThreshold -1 -minLength)/-(ceil(errorRate*minLength)+1)))
+
+  [ -t NUM ],  [ --qgram-threshold NUM ]
+  
+  Minimal number of q-grams required per potential hit (default 2).
+  A higher threshold means more stringent filtering therefore requiring
+  fewer validations but also leads to shorter qgrams, which increases the
+  number of lookups.
                                              
   [ -fr ],  [ --filter-repeats NUM ]
   
@@ -381,13 +370,13 @@ runs in different operative modes depending on which data are input.
   of a triplex feature (TFO/TTS) or triplex match.
 
   Searching putative triplex-forming oligonucleotides:
-    Sequence-ID|Start|End|TFO-ID|Score|Motif|Error-rate|Errors|Duplicates|TFO
+    Sequence-ID|Start|End|Score|Motif|Error-rate|Errors|Duplicates|TFO
 	
   Searching putative triplex target sites:
-	Duplex-ID|Start|End|TTS-ID|Score|Strand|Error-rate|Errors|Duplicates|TTS
+	Duplex-ID|Start|End|Score|Strand|Error-rate|Errors|Duplicates|TTS
 	
   Searching putative triplexes:
-	Sequence-ID|TFO start|TFO end|TTS-ID|TTS start|TTS end|Score|Error-rate|
+	Sequence-ID|TFO start|TFO end|Duplex-ID|TTS start|TTS end|Score|Error-rate|
 	            ...Motif|strand|orientation
 	
   with the following meaning:
@@ -395,7 +384,6 @@ runs in different operative modes depending on which data are input.
   - Duplex-ID       : id of the double-stranded sequence providing the TTS
   - Start [TFO/TTS] : start index of the feature
   - End [TFO/TTS]   : end index of the feature
-  - TFO-ID/TTS-ID   : identifier for the particular TFO/TTS
   - Score           : score of the feature/triplex (number of matches)
   - Motif           : Binding motif of the canonical triplex rules used  
                       to find this TFO (R|Y|M)

@@ -766,7 +766,7 @@ template <typename TGaps, typename TCount> inline void insertGaps(Iter<TGaps, Ga
 //____________________________________________________________________________
 // integrateAlign
 
-template <typename TSource1, typename TSpec1, typename TSource2, typename TSpec2, typename TPos> void integrateAlign(Align<TSource1, TSpec1> & align, Align<TSource2, TSpec2> const & infixAlign, String<TPos> viewPos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_algorithms.h"(119)
+template <typename TSource1, typename TSpec1, typename TSource2, typename TSpec2, typename TPos> void integrateAlign(Align<TSource1, TSpec1> & align, Align<TSource2, TSpec2> const & infixAlign, String<TPos> const & viewPos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_algorithms.h"(119)
 template <typename TSource, typename TSpec1, typename TSpec2> void integrateAlign(Align<TSource, TSpec1> & align, Align<typename Infix<TSource>::Type, TSpec2> const & infixAlign);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_algorithms.h"(179)
 
 //____________________________________________________________________________

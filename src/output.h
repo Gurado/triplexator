@@ -397,10 +397,10 @@ namespace SEQAN_NAMESPACE_MAIN
 		switch (options.outputFormat)
 		{
 			case 0:	// brief Triplex Format
-				filehandle << "# Sequence-ID" << _sep_ << "TFO start" << _sep_ << "TFO end" << _sep_ << "TTS-ID" << _sep_ << "TTS start" << _sep_ << "TTS end" << _sep_ << "Score" << _sep_ << "Error-rate" << _sep_ << "Errors" << _sep_ << "Motif" << _sep_ << "strand" << _sep_ << "orientation" << ::std::endl;
+				filehandle << "# Sequence-ID" << _sep_ << "TFO start" << _sep_ << "TFO end" << _sep_ << "Duplex-ID" << _sep_ << "TTS start" << _sep_ << "TTS end" << _sep_ << "Score" << _sep_ << "Error-rate" << _sep_ << "Errors" << _sep_ << "Motif" << _sep_ << "strand" << _sep_ << "orientation" << ::std::endl;
 				break;
 			case 1:	// brief Triplex Format
-				filehandle << "# Sequence-ID" << _sep_ << "TFO start" << _sep_ << "TFO end" << _sep_ << "TTS-ID" << _sep_ << "TTS start" << _sep_ << "TTS end" << _sep_ << "Score" << _sep_ << "Error-rate" << _sep_ << "Errors" << _sep_ << "Motif" << _sep_ << "strand" << _sep_ << "orientation" << ::std::endl;
+				filehandle << "# Sequence-ID" << _sep_ << "TFO start" << _sep_ << "TFO end" << _sep_ << "Duplex-ID" << _sep_ << "TTS start" << _sep_ << "TTS end" << _sep_ << "Score" << _sep_ << "Error-rate" << _sep_ << "Errors" << _sep_ << "Motif" << _sep_ << "strand" << _sep_ << "orientation" << ::std::endl;
 				break;	
 			default:
 				break;
@@ -419,7 +419,7 @@ namespace SEQAN_NAMESPACE_MAIN
 		switch (options.outputFormat)
 		{
 			case 0:	// TFO Format
-				filehandle << "# Sequence-ID" << _sep_ << "Start" << _sep_ << "End" << _sep_ << "TFO-ID" << _sep_ << "Score" << _sep_ << "Motif" << _sep_ << "Error-rate" << _sep_ << "Errors" << _sep_ <<  "Duplicates"  << _sep_ <<  "TFO"  << _sep_ <<  "Duplicate locations" << ::std::endl;
+				filehandle << "# Sequence-ID" << _sep_ << "Start" << _sep_ << "End" << _sep_ << "Score" << _sep_ << "Motif" << _sep_ << "Error-rate" << _sep_ << "Errors" << _sep_ <<  "Duplicates"  << _sep_ <<  "TFO"  << _sep_ <<  "Duplicate locations" << ::std::endl;
 				break;
 			case 1:	// FASTA
 				break;
@@ -441,7 +441,7 @@ namespace SEQAN_NAMESPACE_MAIN
 		switch (options.outputFormat)
 		{
 			case 0:	// TTS Format
-				filehandle << "# Duplex-ID" << _sep_ << "Start" << _sep_ << "End" << _sep_ << "TTS-ID" << _sep_ << "Score" << _sep_ << "Strand" << _sep_ << "Error-rate" << _sep_ << "Errors" << _sep_ <<  "Duplicates"  << _sep_ << "TTS"  << _sep_ << "Duplicate locations"  << ::std::endl;
+				filehandle << "# Duplex-ID" << _sep_ << "Start" << _sep_ << "End" << _sep_ << "Score" << _sep_ << "Strand" << _sep_ << "Error-rate" << _sep_ << "Errors" << _sep_ <<  "Duplicates"  << _sep_ << "TTS"  << _sep_ << "Duplicate locations"  << ::std::endl;
 				break;
 			case 1:	// FASTA
 				break;
@@ -911,17 +911,6 @@ namespace SEQAN_NAMESPACE_MAIN
 		char _sep_ = '\t';
 		if (options.outputFormat == 0){ //  Triplex Format
 			filehandle << ttsIDs[getSequenceNo(entry)] << _sep_ << beginPosition(entry) << _sep_ <<  endPosition(entry) << _sep_ ;
-			switch (options.ttsNaming)
-			{
-				case 0:
-					filehandle << ttsIDs[getSequenceNo(entry)] << "_" << counter << _sep_;
-					break;
-					// 1..enumerate
-				case 1:
-					filehandle << seqNoInFile << "_" << counter << _sep_;
-					break;
-					
-			}
 			filehandle << score(entry) << _sep_ << entry.motif << _sep_ << ::std::setprecision(2) << (1.0-score(entry)/(endPosition(entry)-beginPosition(entry))) << _sep_ << errorString(entry) << _sep_ << duplicates(entry) << _sep_ ;
 			if (options.prettyString)
 				filehandle << prettyString(entry) << _sep_ ;
@@ -939,16 +928,7 @@ namespace SEQAN_NAMESPACE_MAIN
 			
 		} else if (options.outputFormat == 1){ // FASTA
 			filehandle << ">" ;
-			switch (options.ttsNaming)
-			{
-				case 0:
-					filehandle << ttsIDs[getSequenceNo(entry)] << "_" << counter << _sep_;
-					break;
-					// 1..enumerate
-				case 1:
-					filehandle << seqNoInFile << "_" << counter << _sep_;
-					break;
-			}
+			filehandle << ttsIDs[getSequenceNo(entry)] << "_" << counter << _sep_;
 			filehandle << beginPosition(entry) << "-" <<  endPosition(entry) << " " << entry.motif << _sep_  << score(entry) << _sep_ << errorString(entry) << _sep_ << duplicates(entry) << _sep_ ;
 			
 			
@@ -983,14 +963,6 @@ namespace SEQAN_NAMESPACE_MAIN
 		char _sep_ = '\t';
 		if (options.outputFormat == 0){ // Triplex Format
 			filehandle << tfoIDs[getSequenceNo(entry)] << _sep_ << beginPosition(entry) << _sep_ <<  endPosition(entry) << _sep_ ;
-			switch (options.tfoNaming){
-				case 0:
-					filehandle << tfoIDs[getSequenceNo(entry)] << "_" << counter << _sep_;
-					break;
-				case 1:// 1..enumerate
-					filehandle << getSequenceNo(entry) + 1 << "_" << counter << _sep_;
-					break;
-			}
 			filehandle << score(entry) << _sep_ << entry.motif << _sep_ << ::std::setprecision(2) << (1.0-score(entry)/(endPosition(entry)-beginPosition(entry))) << _sep_ << errorString(entry) << _sep_ << duplicates(entry) << _sep_ ;
  			
 			if (options.prettyString)
@@ -1010,14 +982,7 @@ namespace SEQAN_NAMESPACE_MAIN
 			
 		} else if (options.outputFormat == 1){ // FASTA
 			filehandle << ">" ;
-			switch (options.tfoNaming){
-				case 0:
-					filehandle  << tfoIDs[getSequenceNo(entry)] << "_" << counter << _sep_;
-					break;
-				case 1: // 1..enumerate
-					filehandle << getSequenceNo(entry) + 1 << "_" << counter << _sep_;
-					break;
-			}
+			filehandle  << tfoIDs[getSequenceNo(entry)] << "_" << counter << _sep_;
 			filehandle << beginPosition(entry) << "-" <<  endPosition(entry) << " " << entry.motif << _sep_ << score(entry) << _sep_ << errorString(entry) << _sep_ << duplicates(entry) << _sep_ ;
 			
 			if (!options.reportDuplicateLocations || duplicates(entry) < 1 || options.duplicatesCutoff <= duplicates(entry) ){

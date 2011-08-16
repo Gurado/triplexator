@@ -465,11 +465,7 @@ namespace SEQAN_NAMESPACE_MAIN
 		bool		prettyString;		// indicate matching/mismatching characters with upper/lower case if true
 		unsigned	outputFormat;		// 0..FASTA format
 		// 1..Triplex format
-		// 2..XML format
-		unsigned	ttsNaming;			// 0..use Fasta id
-		// 1..enumerate reads beginning with 1
-		unsigned	tfoNaming;			// 0..use Fasta id
-		// 1..enumerate reads beginning with 1
+		// 2..summary only
 		const char	*runID;				// runID needed for gff output	
 #ifdef BOOST
 		bool		compressOutput;
@@ -526,7 +522,7 @@ namespace SEQAN_NAMESPACE_MAIN
 			runtimeMode = RUN_SERIAL;
 			filterMode = FILTERING_GRAMS;
 			processors= -1;
-			minLength = 14;
+			minLength = 16;
 			maxLength = -1;
 			tolError = 0;
 			maxInterruptions = 1;
@@ -536,14 +532,12 @@ namespace SEQAN_NAMESPACE_MAIN
 			
 			prettyString = false;
 			outputFormat = 0;
-			ttsNaming = 1;
-			tfoNaming = 1;
 			runID = "s"; 	
 #ifdef BOOST
 			compressOutput = false;
 #endif
 			version = "";
-			shape = "111";
+			shape = "11111";
 			logFileName = "triplex_search.log";
 			summaryFileName = "triplex_search.summary";
 			
@@ -572,7 +566,7 @@ namespace SEQAN_NAMESPACE_MAIN
 		resize(options.shape,qgramWeight);
 		for (int i=0;i<qgramWeight;++i){
 			options.shape[i]='1';
-		}
+		}		
 #ifdef TRIPLEX_DEBUG
 		::std::cout << "qgram-threshold:" << options.qgramThreshold << " weight(qgram):" << qgramWeight << ::std::endl;
 #endif
@@ -2770,10 +2764,8 @@ namespace SEQAN_NAMESPACE_MAIN
 		for(; !_streamEOF(file); ++duplexSeqNo,++duplexSeqNoWithinFile){
 			TDuplex	duplexString;
 			CharString duplexId;
-			if (options.ttsNaming == 0){
-				readShortID(file, duplexId, Fasta());	// read Fasta id up to first whitespace
-			}
-			read(file, duplexString, Fasta());			// read Fasta sequence
+			readShortID(file, duplexId, Fasta());	// read Fasta id up to first whitespace
+			read(file, duplexString, Fasta());		// read Fasta sequence
 			
 			// find low complexity regions and mask sequences if requested
 			TRepeatString	data_repeats;
@@ -2914,9 +2906,9 @@ namespace SEQAN_NAMESPACE_MAIN
 	void
 	setupCommandLineParser(CommandLineParser & parser, Options & options)
 	{
-		::std::string rev = "$Revision: 10258 $";
-		addVersionLine(parser, "Version 1.0.2 (11/08/2011) SeqAn Revision: " + rev.substr(11, 4) + "");
-		append(options.version, "Version 1.0.2 (11/08/2011) SeqAn Revision: " + rev.substr(11, 4) + "");
+		::std::string rev = "$Revision: 10289 $";
+		addVersionLine(parser, "Version 1.0.3 (16/08/2011) SeqAn Revision: " + rev.substr(11, 4) + "");
+		append(options.version, "Version 1.0.3 (16/08/2011) SeqAn Revision: " + rev.substr(11, 4) + "");
 		
 		addTitleLine(parser, "**********************************************************************");
 		addTitleLine(parser, "*** Triplexator - Finding triple helices with approximate matching ***");
@@ -2961,7 +2953,8 @@ namespace SEQAN_NAMESPACE_MAIN
 		addOption(parser, CommandLineOption("fm", "filtering-mode",		"filtering mode - method to quickly discard non-hits", OptionType::Int | OptionType::Label, options.filterMode));
 		addHelpLine(parser, "0 = brute-force approach      use no filtering, go the extra mile");
 		addHelpLine(parser, "1 = q-gram filtering          filter hits using qgrams");
-		
+		addOption(parser, CommandLineOption("t", "qgram-threshold",		"number of q-grams (must be > 0)", OptionType::Int | OptionType::Label, options.qgramThreshold));
+		addHelpLine(parser, "A higher threshold means more stringent filtering therefore requiring fewer validations but also leads to shorter qgrams, which increases the number of lookups.");
 		addOption(parser, addArgumentText(CommandLineOption("fr",  "filter-repeats",         "if enabled, disregards repeat and low-complex regions ", OptionType::String | OptionType::Label, (options.filterRepeats?"on":"off")), "[on|off]"));
 		addOption(parser, CommandLineOption("mrl",  "minimum-repeat-length","minimum length requirement for low-complex regions to be filtered", OptionType::Int | OptionType::Label, options.minRepeatLength));
 		addOption(parser, CommandLineOption("mrp",  "maximum-repeat-period","maximum repeat period for low-complex regions to be filtered", OptionType::Int | OptionType::Label, options.maxRepeatPeriod));
@@ -2979,12 +2972,6 @@ namespace SEQAN_NAMESPACE_MAIN
 		addHelpLine(parser, "1 = Triplexator format (contains sequence/alignment)");
 		addHelpLine(parser, "2 = Summary only");
 		addOption(parser, CommandLineOption("po", "pretty-output",		"indicate matching/mismatching characters with upper/lower case", OptionType::Boolean));
-		addOption(parser, CommandLineOption("dn", "tts-naming",			"select how triplex target sites are named", OptionType::Int | OptionType::Label, options.ttsNaming));
-		addHelpLine(parser, "0 = use Fasta id");
-		addHelpLine(parser, "1 = enumerate beginning with 1");
-		addOption(parser, CommandLineOption("rn", "tfo-naming",			"select how triplex forming oligonucleotides are named", OptionType::Int | OptionType::Label, options.tfoNaming));
-		addHelpLine(parser, "0 = use Fasta id");
-		addHelpLine(parser, "1 = enumerate beginning with 1");
 #if SEQAN_ENABLE_PARALLELISM
 		addSection(parser, "Performance Options:");
 		addOption(parser, CommandLineOption("rm", "runtime-mode",		"execution mode - any parallel runtime mode requires OpenMP support during compilation", OptionType::Int | OptionType::Label, options.runtimeMode));
@@ -3025,20 +3012,11 @@ namespace SEQAN_NAMESPACE_MAIN
 		getOptionValueLong(parser, "maximal-error", options.maximalError);
 		getOptionValueLong(parser, "percent-guanine", options.guanineRate);
 		getOptionValueLong(parser, "relax-guanine-constraint", options.relaxGuanineRate);
+		if (isSetLong(parser, "consecutive-errors")){
+			getOptionValueLong(parser, "consecutive-errors", options.maxInterruptions);
+		}
+				
 		::std::string tmpVal;
-		//getOptionValueLong(parser, "relax-guanine-constraint", tmpVal);
-//		if (tmpVal == "off"){
-//			options.relaxGuanineRate = false;
-//		} else if (tmpVal == "on"){
-//			options.relaxGuanineRate = true;
-//		} else {
-//			cerr << "Unknown specification for the option relax-guanine-constraint." << endl;
-//			stop = true;
-//		}
-//		
-		getOptionValueLong(parser, "output", options.output);
-		getOptionValueLong(parser, "output-directory", options.outputFolder);
-		
 		getOptionValueLong(parser, "filter-repeats", tmpVal);
 		if (tmpVal == "off"){
 			options.filterRepeats = false;
@@ -3056,6 +3034,9 @@ namespace SEQAN_NAMESPACE_MAIN
 			getOptionValueLong(parser, "maximum-repeat-period", options.maxRepeatPeriod);
 		}
 		
+		getOptionValueLong(parser, "output", options.output);
+		getOptionValueLong(parser, "output-directory", options.outputFolder);
+		
 		if (empty(options.outputFolder)){
 			options.outputFolder = "./";
 		} else {
@@ -3068,18 +3049,12 @@ namespace SEQAN_NAMESPACE_MAIN
 		if (isSetLong(parser, "lower-length-bound")){
 			getOptionValueLong(parser, "lower-length-bound", options.minLength);
 		}
-		if (isSetLong(parser, "upper-length-bound")){
-			getOptionValueLong(parser, "upper-length-bound", options.maxLength);
-		}
-		if(options.maxLength >= options.minLength){
-			options.applyMaximumLengthConstraint = true;
-		}
-		
-		if (isSetLong(parser, "consecutive-errors")){
-			getOptionValueLong(parser, "consecutive-errors", options.maxInterruptions);
-		}
-		getOptionValueLong(parser, "tts-naming", options.ttsNaming);
-		getOptionValueLong(parser, "tfo-naming", options.tfoNaming);
+//		if (isSetLong(parser, "upper-length-bound")){
+//			getOptionValueLong(parser, "upper-length-bound", options.maxLength);
+//		}
+//		if(options.maxLength >= options.minLength){
+//			options.applyMaximumLengthConstraint = true;
+//		}
 		
 #if SEQAN_ENABLE_PARALLELISM	
 		getOptionValueLong(parser, "processors", options.processors);
@@ -3098,6 +3073,7 @@ namespace SEQAN_NAMESPACE_MAIN
 #endif 
 		
 		getOptionValueLong(parser, "filtering-mode", options.filterMode);
+		getOptionValueLong(parser, "qgram-threshold", options.qgramThreshold);
 			
 		if (isSetLong(parser, "help") || isSetLong(parser, "version")) return 0;	// print help or version and exit
 		if (isSetLong(parser, "verbose")) options._debugLevel = max(options._debugLevel, 1);
@@ -3105,11 +3081,11 @@ namespace SEQAN_NAMESPACE_MAIN
 		if (isSetLong(parser, "pretty-output")) options.prettyString = true;	
 //		getOptionValueLong(parser, "forward-strand", options.forward);
 //		getOptionValueLong(parser, "reverse-strand", options.reverse);		
-		if (!options.forward && !options.reverse)  // enable both per default
-		{
-			options.forward = true;
-			options.reverse = true;
-		}
+//		if (!options.forward && !options.reverse)  // enable both per default
+//		{
+//			options.forward = true;
+//			options.reverse = true;
+//		}
 
 		getOptionValueLong(parser, "single-strand-file", tmpVal);
 		if (tmpVal.length()>0){
@@ -3232,16 +3208,14 @@ namespace SEQAN_NAMESPACE_MAIN
 			cerr << "Maximum consecutive interruptions needs to be smaller or equal than 3." << options.maxInterruptions << endl;
 		if ((options.outputFormat > 2) && (stop = true))
 			cerr << "Invalid output format option." << endl;
-		if ((options.ttsNaming > 1) && (stop = true))
-			cerr << "Invalid tts naming options." << endl;
-		if ((options.tfoNaming > 1) && (stop = true))
-			cerr << "Invalid tfo naming options." << endl;
 		if (! (options.runtimeMode==RUN_SERIAL || options.runtimeMode==RUN_PARALLEL_DUPLEX || options.runtimeMode==RUN_PARALLEL_TRIPLEX || options.runtimeMode==RUN_PARALLEL_STRANDS) && (stop = true))
 			cerr << "Runtime mode not known" << endl;
 		if (options.duplicatesCutoff >= 0 && options.detectDuplicates == DETECT_DUPLICATES_OFF && (stop = true))
 			cerr << "Duplicate filtering with specified cutoff requires duplicate detection mode to be enabled" << endl;
 		if (! (options.filterMode==BRUTE_FORCE || options.filterMode==FILTERING_GRAMS) && (stop = true))
 			cerr << "Filtering mode not known" << endl;
+		if (options.qgramThreshold <= 0 && (stop = true))
+			cerr << "qgram theshhold needs to be positive, otherwise filtering is void" << endl;
 		
 		
 		
@@ -3252,9 +3226,12 @@ namespace SEQAN_NAMESPACE_MAIN
 		
 		
 		//	optimizing shape/q-gram for threshold >= 2 
-		int qgram = _calculateShape(options);
-		if (qgram < 3 && (stop = true)){
-			cerr << "Error-rate and length setting do not allow for efficient filtering with q-grams > 2" << endl;
+		if (options.filterMode == FILTERING_GRAMS){
+			int qgram = _calculateShape(options);
+			if (qgram <= 4 && (stop = true)){
+				cerr << "Error-rate, minimum length and qgram-threshold settings do not allow for efficient filtering with q-grams of weight >= 5 (currently " << qgram << ")." << endl;
+				cerr << "Consider disabling filtering-mode (brute-force approach)" << endl;
+			}
 		}
 		
 		if (options.errorRate == 0 || options.maximalError == 0)

@@ -2,6 +2,10 @@
 * Changelog
 *******************
 
+2011-08-16  Fabian Buske	v1.0.3
+	Adjusted default minimum triplex length to 16 nucleotides
+	Allow user to specify q-gram threshold 
+	Removed TTS-ID and TFO-ID columns from output
 
 2011-08-11  Fabian Buske	v1.0.2
 	Crop sequence ids of single-stranded sequences at first whitespace

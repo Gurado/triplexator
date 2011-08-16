@@ -1,2 +1,2 @@
-# Sequence-ID	Start	End	TFO-ID	Score	Motif	Error-rate	Errors	Duplicates	TFO	Duplicate locations
-Seq4-R-noErrors	2	22	4_1	20	R	0		-1	GGGAAGAGGAAGGAAAAGGG	-
+# Sequence-ID	Start	End	Score	Motif	Error-rate	Errors	Duplicates	TFO	Duplicate locations
+Seq4-R-noErrors	2	22	20	R	0		-1	GGGAAGAGGAAGGAAAAGGG	-

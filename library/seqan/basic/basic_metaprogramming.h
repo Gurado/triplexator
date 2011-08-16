@@ -192,11 +192,11 @@ struct And<True, True>
 .Metafunction.If
 ..cat:Metaprogramming
 ..summary:Metaprogramming "if".
-..signature:Or<b, T1, T2>::Type
+..signature:If<b, T1, T2>::Type
 ..param.b:The condition to evaluate.
 ...type:nolink:$bool$
-..param.T1:Left-hand argument.
-..param.T2:Right-hand argument.
+..param.T1:Result if $b$.
+..param.T2:Result if not $b$.
 ..returns:If $b$ is $true$ then $T1$, otherwise $T2$.
 ..include:seqan/basic.h
 */
@@ -284,7 +284,7 @@ struct IsSameType<Type1, Type1>
 ..include:seqan/basic.h
 ..see:Tag.NilCase
 ..see:Tag.Case
-..examples.code:
+..example.code:
 int switchTest(Nothing const &) { return -1; }
 int switchTest(False const &) { return 0; }
 int switchTest(True const &) { return 1; }

@@ -1,4 +1,4 @@
-# Sequence-ID	TFO start	TFO end	TTS-ID	TTS start	TTS end	Score	Error-rate	Errors	Motif	strand	orientation
+# Sequence-ID	TFO start	TFO end	Duplex-ID	TTS start	TTS end	Score	Error-rate	Errors	Motif	strand	orientation
 Seq1-Y-noErrors	2	22	Duplex1_Y_+	4	24	20	0		Y	+	P
 TFO: 5'- CCCTTCTCCTTCCTTTTCCC -3'
          ||||||||||||||||||||

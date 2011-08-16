@@ -78,7 +78,7 @@ typedef Tag<TagAmos_> const Amos;
 
 /**
 .Function.getClrRange
-..sec:Fragment Store
+..cat:Fragment Store
 ..summary:Get the "clear" range of a read alignment.
 ..remarks:The clear range of a read alignment is the range of the part of the alignment that is not clipped.
 ..signature:getClrRange(fragStore, alignEl, begClr, endClr)

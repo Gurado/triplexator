@@ -1,2 +1,2 @@
-# Sequence-ID	Start	End	TFO-ID	Score	Motif	Error-rate	Errors	Duplicates	TFO	Duplicate locations
-Seq1-Y-noErrors	2	22	1_1	20	Y	0		-1	CCCTTCTCCTTCCTTTTCCC	-
+# Sequence-ID	Start	End	Score	Motif	Error-rate	Errors	Duplicates	TFO	Duplicate locations
+Seq1-Y-noErrors	2	22	20	Y	0		-1	CCCTTCTCCTTCCTTTTCCC	-
