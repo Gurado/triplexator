@@ -888,7 +888,9 @@ namespace SEQAN_NAMESPACE_MAIN
 			TMatchListP mvecp = bgvalue.i3;
 			// compute size range to cover
 			::std::vector<double>pot(4);
-			_getTriplexPotential(*mvecp, duplexlength, oligolength, pot, options);
+			if (options.computeTpot){
+				_getTriplexPotential(*mvecp, duplexlength, oligolength, pot, options);
+			}
 			options.summaryFileHandle << duplexId << _sep_ << tfoNames[bgkey] << _sep_ << (counts.i1+counts.i2+counts.i3) << _sep_ << ::std::setprecision(3) << value(pot,0) << _sep_;
 			options.summaryFileHandle << counts.i1 << _sep_ << ::std::setprecision(3) << value(pot,1) << _sep_;
 			options.summaryFileHandle << counts.i2 << _sep_ << ::std::setprecision(3) << value(pot,2) << _sep_;
@@ -904,7 +906,6 @@ namespace SEQAN_NAMESPACE_MAIN
 							  TEntry						&entry,
 							  unsigned						&counter,
 							  TDuplexNames const			&ttsIDs,	// duplex names (read from Fasta file, currently unused)
-							  int							seqNoInFile,
 							  Options const					&options
 							  ){
 		
@@ -1013,7 +1014,6 @@ namespace SEQAN_NAMESPACE_MAIN
 	void dumpTtsMatches(TFile					&filehandle,
 						TDuplexSet				&ttsSet,
 						TDuplexNames const		&ttsIDs,	// duplex names (read from Fasta file, currently unused)
-						unsigned const			seqNoInFile,
 						Options					&options)
 	{	
 		typedef typename Value<TDuplexSet>::Type				TModDuplex;
@@ -1040,14 +1040,14 @@ namespace SEQAN_NAMESPACE_MAIN
 			case 0:	// brief Triplex Format
 				counter = 1;
 				for(TIter it = begin(ttsSet, Standard()); it != itEnd; ++it){
-					printTtsEntry(filehandle, *it, counter, ttsIDs, seqNoInFile, options);
+					printTtsEntry(filehandle, *it, counter, ttsIDs, options);
 				}
 				break;
 				
 			case 1:	// extended Triplex Format
 				counter = 1;
 				for(TIter it = begin(ttsSet, Standard()); it != itEnd; ++it){
-					printTtsEntry(filehandle, *it, counter, ttsIDs, seqNoInFile, options);
+					printTtsEntry(filehandle, *it, counter, ttsIDs, options);
 				}
 				break;
 			default:
@@ -1056,6 +1056,8 @@ namespace SEQAN_NAMESPACE_MAIN
 		
 		// summary file
 		char _sep_ = '\t';
+		
+			
 		for(TIter it = begin(ttsSet, Standard()); it != itEnd; ++it){
 			TModDuplex entry = *it;
 			
@@ -1085,7 +1087,9 @@ namespace SEQAN_NAMESPACE_MAIN
 			TMatchList hvec = ttsvalue.i3;
 			
 			::std::vector<double>pot(1);
-			_getSequencePotential(hvec, duplexlength, pot);
+			if (options.computeTpot){		
+				_getSequencePotential(hvec, duplexlength, pot);
+			}
 			options.summaryFileHandle << ttsIDs[ttskey] << _sep_ << counts << _sep_ << ::std::setprecision(2) << value(pot,0) << ::std::endl;
 		}	
 		options.summaryFileHandle.flush();
@@ -1195,7 +1199,9 @@ namespace SEQAN_NAMESPACE_MAIN
 			TMatchList hvec = tfovalue.i3;
 			
 			::std::vector<double>pot(4);
-			_getSequencePotential(hvec, oligolength, pot);
+			if (options.computeTpot){
+				_getSequencePotential(hvec, oligolength, pot);
+			}
 			options.summaryFileHandle << tfoIDs[tfokey] << _sep_ << (counts.i1+counts.i2+counts.i3) << _sep_ << ::std::setprecision(2) << value(pot,0) << _sep_;
 			options.summaryFileHandle << counts.i1 << _sep_ << ::std::setprecision(2) << value(pot,1) << _sep_;
 			options.summaryFileHandle << counts.i2 << _sep_ << ::std::setprecision(2) << value(pot,2) << _sep_;

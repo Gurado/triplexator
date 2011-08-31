@@ -89,6 +89,11 @@ runs in different operative modes depending on which data are input.
   
   Specifies the minimum length of a TFO, TTS or triplex (TTS-TFO pair)
   
+  [ -u NUM ],  [ --upper-length-bound NUM ]
+  
+  Specifies the maximum length of a TFO, TTS or triplex (TTS-TFO pair), 
+  -1 = unrestricted  (default -1)
+  
   [ -m ],  [ --triplex-motifs MOTIF1,MOTIF2,... ]
   
   Specifies the motifs from the canonical triplex-formation rules to be 
@@ -108,7 +113,7 @@ runs in different operative modes depending on which data are input.
 
   [ -e NUM ],  [ --error-rate NUM ]
 
-  Set the maximal error-rate in % tolerated (default 10). 
+  Set the maximal error-rate in % tolerated (default 5). 
   Triplexator searches for matches with an error-rate percent 
   of at most NUM. A match of a feature R with E errors has 
   error-rate of 100*(E/|R|), whereby |R| is the feature length. 
@@ -133,38 +138,11 @@ runs in different operative modes depending on which data are input.
   [ -g NUM ],  [ --percent-guanine NUM ]
   
   Set the percent guanine rate in the triplex features. NUM must be a value
-  between 0 and 100 (default is 0). 
+  between 0 and 100 (default is 10). 
   The guanine rate controls the minimum ratio of guanines required in the 
   any triplex target site. For triplex-forming oligonucleotide this  
   constraint will be applied to their respective target. 
-  
-  [ -G ] ,  [--relax-guanine-constraint ]
-  
-  Only effective when percent-guanine ratio is set > 0.
-  If enabled, a core hit will be extended by adjacent position that abide 
-  triplex formation rules but violate the guanine-ratio constraint.
-  
-  For example, searching for TTSs using "-g 50" applied on:
-  
-  	AGTCAAAAGAGAGGGAGAGAAAATCT
-  
-  results in hits covering to following region: 
-  
-		 ***G*G*GGG*G*G      1 (without relaxGuanineRate)
-	      **G*G*GGG*G*G*     2 (without relaxGuanineRate)
-	       *G*G*GGG*G*G**    3 (without relaxGuanineRate)
-	        G*G*GGG*G*G***   4 (without relaxGuanineRate)
-  
-  with "-g 50 -G" are collapsed and extended to:
-  
-        ****G*G*GGG*G*G****  1 (with relaxGuanineRate)
-  
-  having a final guanine ratio of ~37%, which falls short of the requested
-  guanine ratio. One may think of this match as one that contains a "core"
-  match, which complies to all the requested constraints but also shows the
-  neighborhood that could accommodate a longer triplex according to the 
-  binding ruleset.
-		
+  		
   [ -dd NUM],  [ --detect-duplicates NUM ]
 
   Indiates whether and how duplicates should be detected (default 0). 
@@ -214,10 +192,15 @@ runs in different operative modes depending on which data are input.
   Compress output with gzip on-the-fly.
   Requires gzip and boost libraries during compilation.
   
-  [ -dl ],  --duplicate-locations ]
+  [ -dl ],  [ --duplicate-locations ]
   
   If enabled, the locations of duplicates are reported for individual
   triplex features. Requires the setting of --duplicates-cutoff to > 0.
+
+  [ -ns [on|off] ], [ --normalized-score [on|off] ]
+  
+  Whether to compute the triplex potenial normalized over the sequences 
+  (default off).
 
   [ -o FILE ],  [ --output FILE ]
 
@@ -256,7 +239,7 @@ runs in different operative modes depending on which data are input.
   small minimum triplex length or disabled repeat filtering.
 
   The qgram weight is calculated as followed:
-  min(11.0,floor((qgramThreshold -1 -minLength)/-(ceil(errorRate*minLength)+1)))
+  min(14.0,floor((qgramThreshold -1 -minLength)/-(ceil(errorRate*minLength)+1)))
 
   [ -t NUM ],  [ --qgram-threshold NUM ]
   

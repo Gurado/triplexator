@@ -480,12 +480,14 @@ template <typename TGaps, typename TSpec, typename TValue> inline void assignVal
 // atBegin
 
 template <typename TGaps> inline bool atBegin(Iter<TGaps, GapsIterator<ArrayGaps> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(971)
+template <typename TGaps> inline bool atBegin(Iter<TGaps, GapsIterator<ArrayGaps> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(979)
 template <typename TGaps> inline bool atBegin(Iter<TGaps, GapsIterator<SumlistGaps> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(766)
 
 //____________________________________________________________________________
 // atEnd
 
-template <typename TGaps> inline bool atEnd(Iter<TGaps, GapsIterator<ArrayGaps> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(981)
+template <typename TGaps> inline bool atEnd(Iter<TGaps, GapsIterator<ArrayGaps> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(989)
+template <typename TGaps> inline bool atEnd(Iter<TGaps, GapsIterator<ArrayGaps> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(997)
 template <typename TGaps> inline bool atEnd(Iter<TGaps, GapsIterator<SumlistGaps> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(776)
 
 //____________________________________________________________________________
@@ -759,7 +761,7 @@ template <typename TGaps, typename TSpec> inline void insertGap(Iter<TGaps, Gaps
 //____________________________________________________________________________
 // insertGaps
 
-template <typename TGaps, typename TCount> inline void insertGaps(Iter<TGaps, GapsIterator<ArrayGaps> > const & me, TCount size);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(992)
+template <typename TGaps, typename TCount> inline void insertGaps(Iter<TGaps, GapsIterator<ArrayGaps> > const & me, TCount size);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(1008)
 template <typename TSource, typename TSpec, typename TPosition, typename TSize> inline void insertGaps(Gaps<TSource, TSpec> & me, TPosition _view_pos, TSize _size);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(465)
 template <typename TGaps, typename TCount> inline void insertGaps(Iter<TGaps, GapsIterator<SumlistGaps> > const & me, TCount size);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(787)
 
@@ -861,10 +863,10 @@ template <typename TAlign1, typename TAlign2, typename TSpec> inline bool operat
 template <typename TAlign1, typename TAlign2, typename TSpec> inline bool operator!=(Iter<TAlign1, AlignColIterator<TSpec> > const & _left, Iter<TAlign2, AlignColIterator<TSpec> > & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_iterator_base.h"(283)
 template <typename TAlign1, typename TAlign2, typename TSpec> inline bool operator!=(Iter<TAlign1, AlignColIterator<TSpec> > & _left, Iter<TAlign2, AlignColIterator<TSpec> > const & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_iterator_base.h"(291)
 template <typename TAlign1, typename TAlign2, typename TSpec> inline bool operator!=(Iter<TAlign1, AlignColIterator<TSpec> > const & _left, Iter<TAlign2, AlignColIterator<TSpec> > const & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_iterator_base.h"(299)
-template <typename TGaps1, typename TGaps2> inline bool operator!= (Iter<TGaps1, GapsIterator<ArrayGaps> > & _left, Iter<TGaps2, GapsIterator<ArrayGaps> > & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(1158)
-template <typename TGaps1, typename TGaps2> inline bool operator!= (Iter<TGaps1, GapsIterator<ArrayGaps> > const & _left, Iter<TGaps2, GapsIterator<ArrayGaps> > & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(1166)
-template <typename TGaps1, typename TGaps2> inline bool operator!= (Iter<TGaps1, GapsIterator<ArrayGaps> > & _left, Iter<TGaps2, GapsIterator<ArrayGaps> > const & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(1174)
-template <typename TGaps1, typename TGaps2> inline bool operator!= (Iter<TGaps1, GapsIterator<ArrayGaps> > const & _left, Iter<TGaps2, GapsIterator<ArrayGaps> > const & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(1182)
+template <typename TGaps1, typename TGaps2> inline bool operator!= (Iter<TGaps1, GapsIterator<ArrayGaps> > & _left, Iter<TGaps2, GapsIterator<ArrayGaps> > & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(1174)
+template <typename TGaps1, typename TGaps2> inline bool operator!= (Iter<TGaps1, GapsIterator<ArrayGaps> > const & _left, Iter<TGaps2, GapsIterator<ArrayGaps> > & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(1182)
+template <typename TGaps1, typename TGaps2> inline bool operator!= (Iter<TGaps1, GapsIterator<ArrayGaps> > & _left, Iter<TGaps2, GapsIterator<ArrayGaps> > const & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(1190)
+template <typename TGaps1, typename TGaps2> inline bool operator!= (Iter<TGaps1, GapsIterator<ArrayGaps> > const & _left, Iter<TGaps2, GapsIterator<ArrayGaps> > const & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(1198)
 template <typename TLeftSource, typename TLeftSpec, typename TRightSource, typename TRightSpec > inline bool operator!= (Gaps<TLeftSource, TLeftSpec> const & left, Gaps<TRightSource, TRightSpec> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(1201)
 template <typename TLeftSource, typename TLeftSpec, typename TRight > inline bool operator!=(Gaps<TLeftSource, TLeftSpec> const & left, TRight const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(1210)
 template <typename TLeft, typename TRightSource, typename TRightSpec > inline bool operator!= (TLeft const & left, Gaps<TRightSource, TRightSpec> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(1219)
@@ -939,10 +941,10 @@ template <typename TAlign1, typename TAlign2, typename TSpec> inline bool operat
 template <typename TAlign1, typename TAlign2, typename TSpec> inline bool operator==(Iter<TAlign1, AlignColIterator<TSpec> > const & _left, Iter<TAlign2, AlignColIterator<TSpec> > & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_iterator_base.h"(248)
 template <typename TAlign1, typename TAlign2, typename TSpec> inline bool operator==(Iter<TAlign1, AlignColIterator<TSpec> > & _left, Iter<TAlign2, AlignColIterator<TSpec> > const & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_iterator_base.h"(256)
 template <typename TAlign1, typename TAlign2, typename TSpec> inline bool operator==(Iter<TAlign1, AlignColIterator<TSpec> > const & _left, Iter<TAlign2, AlignColIterator<TSpec> > const & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_iterator_base.h"(264)
-template <typename TGaps1, typename TGaps2> inline bool operator== (Iter<TGaps1, GapsIterator<ArrayGaps> > & _left, Iter<TGaps2, GapsIterator<ArrayGaps> > & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(1124)
-template <typename TGaps1, typename TGaps2> inline bool operator== (Iter<TGaps1, GapsIterator<ArrayGaps> > const & _left, Iter<TGaps2, GapsIterator<ArrayGaps> > & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(1132)
-template <typename TGaps1, typename TGaps2> inline bool operator== (Iter<TGaps1, GapsIterator<ArrayGaps> > & _left, Iter<TGaps2, GapsIterator<ArrayGaps> > const & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(1140)
-template <typename TGaps1, typename TGaps2> inline bool operator== (Iter<TGaps1, GapsIterator<ArrayGaps> > const & _left, Iter<TGaps2, GapsIterator<ArrayGaps> > const & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(1148)
+template <typename TGaps1, typename TGaps2> inline bool operator== (Iter<TGaps1, GapsIterator<ArrayGaps> > & _left, Iter<TGaps2, GapsIterator<ArrayGaps> > & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(1140)
+template <typename TGaps1, typename TGaps2> inline bool operator== (Iter<TGaps1, GapsIterator<ArrayGaps> > const & _left, Iter<TGaps2, GapsIterator<ArrayGaps> > & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(1148)
+template <typename TGaps1, typename TGaps2> inline bool operator== (Iter<TGaps1, GapsIterator<ArrayGaps> > & _left, Iter<TGaps2, GapsIterator<ArrayGaps> > const & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(1156)
+template <typename TGaps1, typename TGaps2> inline bool operator== (Iter<TGaps1, GapsIterator<ArrayGaps> > const & _left, Iter<TGaps2, GapsIterator<ArrayGaps> > const & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(1164)
 template <typename TLeftSource, typename TLeftSpec, typename TRightSource, typename TRightSpec > inline bool operator== (Gaps<TLeftSource, TLeftSpec> const & left, Gaps<TRightSource, TRightSpec> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(1171)
 template <typename TLeftSource, typename TLeftSpec, typename TRight > inline bool operator== (Gaps<TLeftSource, TLeftSpec> const & left, TRight const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(1180)
 template <typename TLeft, typename TRightSource, typename TRightSpec > inline bool operator== (TLeft const & left, Gaps<TRightSource, TRightSpec> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(1189)
@@ -989,7 +991,7 @@ template <typename TGaps, typename TSpec> inline void removeGap(Iter<TGaps, Gaps
 //____________________________________________________________________________
 // removeGaps
 
-template <typename TGaps, typename TCount> inline void removeGaps(Iter<TGaps, GapsIterator<ArrayGaps> > const & me, TCount _size);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(1054)
+template <typename TGaps, typename TCount> inline void removeGaps(Iter<TGaps, GapsIterator<ArrayGaps> > const & me, TCount _size);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(1070)
 template <typename TSource, typename TSpec, typename TPosition, typename TSize> inline void removeGaps(Gaps<TSource, TSpec> & me, TPosition _view_pos, TSize _size);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(517)
 template <typename TGaps, typename TCount> inline void removeGaps(Iter<TGaps, GapsIterator<SumlistGaps> > const & me, TCount _size);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(825)
 

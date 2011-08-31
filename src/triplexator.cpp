@@ -119,6 +119,7 @@ void _populateLogFile(int argc, const char *argv[], Options	&options)
 			break;
 	}
 	options.logFileHandle << "- report duplicate locations : " << (options.reportDuplicateLocations?"Yes":"No") << ::std::endl;
+	options.logFileHandle << "- compute normalized score : " << (options.computeTpot?"Yes":"No") << ::std::endl;
 #ifdef BOOST
 	options.logFileHandle << "- compress output : " << (options.compressOutput?"Yes":"No") << ::std::endl;
 #endif	
@@ -127,15 +128,18 @@ void _populateLogFile(int argc, const char *argv[], Options	&options)
 //	options.logFileHandle << "- consider forward strand in duplex : " << (options.forward?"Yes":"No") << ::std::endl;
 //	options.logFileHandle << "- consider reverse strand in duplex : " << (options.reverse?"Yes":"No") << ::std::endl;
 	options.logFileHandle << "- maximum error-rate : " << (options.errorRate*100) << "%" << ::std::endl;
-	options.logFileHandle << "- maximum total error : " << (options.maximalError) << ::std::endl;	
+	if (options.maximalError>=0)
+		options.logFileHandle << "- maximum total error : " << (options.maximalError) << ::std::endl;	
+	else
+		options.logFileHandle << "- maximum total error : " << "not specified" << ::std::endl;	
+	
 	options.logFileHandle << "- minimum guanine-ratio with respect to the target : " << (options.guanineRate*100) << "%" << ::std::endl;
-	options.logFileHandle << "- relax guanine-ratio at flanks : " << (options.relaxGuanineRate?"Yes":"No") << ::std::endl;
 	
 	options.logFileHandle << "- minimum length : " << options.minLength << " nucleotides" << ::std::endl;
-//	if (options.maxLength<options.minLength)
-//		options.logFileHandle << "- maximum length : omitted" << ::std::endl;
-//	else 
-//		options.logFileHandle << "- maximum length : " << options.maxLength << " nucleotides" << ::std::endl;
+	if (!options.applyMaximumLengthConstraint)
+		options.logFileHandle << "- maximum length : omitted" << ::std::endl;
+	else 
+		options.logFileHandle << "- maximum length : " << options.maxLength << " nucleotides" << ::std::endl;
 	
 
 	options.logFileHandle << "- maximum number of tolerated consecutive pyrimidine interruptions in a target: " << options.maxInterruptions << ::std::endl;
@@ -165,14 +169,18 @@ void _populateLogFile(int argc, const char *argv[], Options	&options)
 	options.logFileHandle << "*** Filtration Options :" << ::std::endl;
 
 	options.logFileHandle << "- filter repeats : " << (options.filterRepeats?"Yes":"No") << ::std::endl;
-	options.logFileHandle << "- minimum repeat length : " << options.minRepeatLength << ::std::endl;
-	options.logFileHandle << "- maximum repeat period : " << options.maxRepeatPeriod << ::std::endl;
+	if (options.filterRepeats){
+		options.logFileHandle << "- minimum repeat length : " << options.minRepeatLength << ::std::endl;
+		options.logFileHandle << "- maximum repeat period : " << options.maxRepeatPeriod << ::std::endl;
+	}
 	options.logFileHandle << "- duplicate cutoff : " << options.duplicatesCutoff << ::std::endl;
 	if (options.runmode == TRIPLEX_TRIPLEX_SEARCH){
 		if (options.filterMode == FILTERING_GRAMS){
 			options.logFileHandle << "- filtering : qgrams" << ::std::endl;
-			options.logFileHandle << "- weight(qgram) : " << length(options.shape) << ::std::endl;
-			options.logFileHandle << "- threshold(qgram) : " << options.qgramThreshold << ::std::endl;
+			options.logFileHandle << "- weight : " << length(options.shape) << ::std::endl;
+			options.logFileHandle << "- min. threshold specified: " << options.qgramThreshold << ::std::endl;
+			int minSeedsThreshold = static_cast<int>(options.minLength+1-(ceil(options.errorRate*options.minLength)+1)*length(options.shape));
+			options.logFileHandle << "- min. threshold actual: " << minSeedsThreshold << ::std::endl;			
 		} else {
 			options.logFileHandle << "- filtering : none - greedy algorithm" << ::std::endl;
 		}
@@ -540,7 +548,7 @@ inline void _investigateTTSconsecutively(TDuplexName filename,
 		if (options._debugLevel > 1 )
 			options.logFileHandle << _getTimeStamp() << "   ... Started outputing results " << ::std::endl;
 
-		dumpTtsMatches(outputhandle, ttsSet, duplexNames, seqNoWithinFile, options);				
+		dumpTtsMatches(outputhandle, ttsSet, duplexNames, options);				
 		
 		if (options._debugLevel > 1 )
 			options.logFileHandle << _getTimeStamp() << "   ... Finished outputing results " << ::std::endl;
@@ -691,7 +699,7 @@ inline void _investigateTTSsimultaneous(TDuplexName filename,
 	
 	options.logFileHandle << _getTimeStamp() << " * Finished detecting targets "  << ::std::endl;
 		
-	dumpTtsMatches(outputhandle, ttsSet, duplexNames, seqNoWithinFile, options);	
+	dumpTtsMatches(outputhandle, ttsSet, duplexNames, options);	
 	
 	file.close();	
 }

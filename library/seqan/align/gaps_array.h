@@ -70,7 +70,7 @@ public:
 public:
 	String<TSize> data_arr; //a list of gap and non-gap region lengths
 	TViewPosition data_end_position;
-	TViewPosition data_unclipped_end_position;
+	TViewPosition data_unclipped_end_position;  // TODO(holtgrew): Wrong name? Simply number of trailing gaps?
 
 	Holder<TSource> data_source;
 	TSourcePosition clipped_source_begin;
@@ -973,14 +973,30 @@ SEQAN_CHECKPOINT
 	return ((me.data_block == 1) && (me.data_sub == 0));
 }
 
+template <typename TGaps>
+inline bool 
+atBegin(Iter<TGaps, GapsIterator<ArrayGaps> > & me)
+{
+SEQAN_CHECKPOINT
+	return ((me.data_block == 1) && (me.data_sub == 0));
+}
+
 //____________________________________________________________________________
 
 template <typename TGaps>
 inline bool 
 atEnd(Iter<TGaps, GapsIterator<ArrayGaps> > const & me)
 {
-SEQAN_CHECKPOINT
-	return ((me.data_block == length(_dataArr(container(me)))) && (me.data_sub == 0));
+    SEQAN_CHECKPOINT;
+    return ((me.data_block == length(_dataArr(container(me)))) && (me.data_sub == container(me).data_unclipped_end_position));
+}
+
+template <typename TGaps>
+inline bool 
+atEnd(Iter<TGaps, GapsIterator<ArrayGaps> > & me)
+{
+    SEQAN_CHECKPOINT;
+    return ((me.data_block == length(_dataArr(container(me)))) && (me.data_sub == container(me).data_unclipped_end_position));
 }
 
 //____________________________________________________________________________

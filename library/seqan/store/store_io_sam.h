@@ -161,8 +161,8 @@ getMDString(
 	TGaps2 &gaps2)
 {
     typedef typename Value<TMDString>::Type TMDChar;
-	typename Iterator<TGaps1>::Type it1 = begin(gaps1);
-	typename Iterator<TGaps2>::Type it2 = begin(gaps2);
+	typename Iterator<TGaps1>::Type it1 = iter(gaps1, 0);
+	typename Iterator<TGaps2>::Type it2 = iter(gaps2, 0);
 	char op, lastOp = ' ';
 	unsigned numOps = 0;
 
@@ -227,8 +227,8 @@ getCigarString(
 	TGaps2 &gaps2,
 	TThresh splicedGapThresh)
 {
-	typename Iterator<TGaps1>::Type it1 = begin(gaps1);
-	typename Iterator<TGaps2>::Type it2 = begin(gaps2);
+	typename Iterator<TGaps1>::Type it1 = iter(gaps1, 0);
+	typename Iterator<TGaps2>::Type it2 = iter(gaps2, 0);
 	clear(cigar);
 	char op, lastOp = ' ';
 	unsigned numOps = 0;
@@ -316,10 +316,10 @@ getCigarString(
         TGaps2 &gaps2,
         TThresh splicedGapThresh)
 {
-	typename Iterator<TGaps1>::Type it1 = begin(gaps1);
-	typename Iterator<TGaps2>::Type it2 = begin(gaps2);
+	typename Iterator<TGaps1>::Type it1 = iter(gaps1, 0);
+	typename Iterator<TGaps2>::Type it2 = iter(gaps2, 0);
 	clear(cigar);
-	char op, lastOp = ' ';
+	char op = '?', lastOp = ' ';
 	unsigned numOps = 0;
 
 //	std::cout << gaps1 << std::endl;

@@ -144,7 +144,7 @@ gapValueImpl(char *)
 	static char const _gap = '-';
 	return _gap;
 }
-    
+
 inline char const &
 gapValueImpl(char const *)
 {

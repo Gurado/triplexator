@@ -1506,8 +1506,8 @@ template <typename TLCPInput, typename TDest > inline void _childtabProcess(TLCP
 //____________________________________________________________________________
 // _copySwiftHit
 
-template <typename TFinder, typename TIndex, typename TSpec> inline void _copySwiftHit( TFinder &finder, Pattern<TIndex, Swift<TSpec> > &pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1698)
-template <typename TFinder, typename TIndex, typename TSpec> inline void _copySwiftHit( TFinder &finder, Pattern<TIndex, Swift<Tag<SwiftSemiGlobal_<TSpec> > > > &pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1709)
+template <typename TFinder, typename TIndex, typename TSpec> inline void _copySwiftHit( TFinder &finder, Pattern<TIndex, Swift<TSpec> > &pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1702)
+template <typename TFinder, typename TIndex, typename TSpec> inline void _copySwiftHit( TFinder &finder, Pattern<TIndex, Swift<Tag<SwiftSemiGlobal_<TSpec> > > > &pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1713)
 
 //____________________________________________________________________________
 // _createBWTableWrapper
@@ -1518,7 +1518,7 @@ template <typename TBWT, typename TText, typename TSA > inline void _createBWTab
 //____________________________________________________________________________
 // _createHit
 
-template <typename THaystack, typename TIndex, typename TSpec, typename TBucket, typename TBucketParams, typename TSize > inline void _createHit( Finder<THaystack, Swift<TSpec> > & finder, Pattern<TIndex, Swift<TSpec> > & pattern, TBucket & bkt, TBucketParams & bucketParams, __int64 diag, TSize ndlSeqNo);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(874)
+template <typename THaystack, typename TIndex, typename TSpec, typename TBucket, typename TBucketParams, typename TSize > inline void _createHit( Finder<THaystack, Swift<TSpec> > & finder, Pattern<TIndex, Swift<TSpec> > & pattern, TBucket & bkt, TBucketParams & bucketParams, __int64 diag, TSize ndlSeqNo);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(878)
 
 //____________________________________________________________________________
 // _createLCPTablePipelining
@@ -1689,7 +1689,7 @@ template <typename TArray, typename TValue > inline void _findNewCharInsertionPo
 //____________________________________________________________________________
 // _firstNonRepeatRange
 
-template <typename TFinder, typename TIndex, typename TSpec> inline bool _firstNonRepeatRange( TFinder &finder, Pattern<TIndex, Swift<TSpec> > &pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1668)
+template <typename TFinder, typename TIndex, typename TSpec> inline bool _firstNonRepeatRange( TFinder &finder, Pattern<TIndex, Swift<TSpec> > &pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1672)
 
 //____________________________________________________________________________
 // _fractionMerge
@@ -1804,8 +1804,8 @@ template <typename TText, typename TIndexSpec, typename TSpec > inline bool _goU
 //____________________________________________________________________________
 // _hashFixedShape
 
-template <typename THValue, typename TValue, typename TIter> inline THValue _hashFixedShape(THValue hash, TIter &, TValue const, UngappedShape<1> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(358)
-template <typename THValue, typename TValue, typename TIter, unsigned q> inline THValue _hashFixedShape(THValue hash, TIter &it, TValue const, UngappedShape<q> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(364)
+template <typename THValue, typename TValue, typename TIter> inline THValue _hashFixedShape(THValue hash, TIter &, TValue const, UngappedShape<1> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(360)
+template <typename THValue, typename TValue, typename TIter, unsigned q> inline THValue _hashFixedShape(THValue hash, TIter &it, TValue const, UngappedShape<q> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(366)
 
 //____________________________________________________________________________
 // _hashHardwiredShape
@@ -1817,8 +1817,8 @@ template <int P00, int P01, int P02, int P03, int P04, int P05, int P06, int P07
 //____________________________________________________________________________
 // _hashTuple2FixedShape
 
-template <typename THValue, typename TValue, typename TTValue, unsigned SIZE, typename TCompressed> inline THValue _hashTuple2FixedShape( THValue const, Tuple<TTValue, SIZE, TCompressed> const &tuple, TValue const, UngappedShape<1> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(439)
-template <typename THValue, typename TValue, typename TTValue, unsigned SIZE, typename TCompressed, unsigned q> inline THValue _hashTuple2FixedShape( THValue const, Tuple<TTValue, SIZE, TCompressed> const &tuple, TValue const, UngappedShape<q> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(450)
+template <typename THValue, typename TValue, typename TTValue, unsigned SIZE, typename TCompressed> inline THValue _hashTuple2FixedShape( THValue const, Tuple<TTValue, SIZE, TCompressed> const &tuple, TValue const, UngappedShape<1> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(441)
+template <typename THValue, typename TValue, typename TTValue, unsigned SIZE, typename TCompressed, unsigned q> inline THValue _hashTuple2FixedShape( THValue const, Tuple<TTValue, SIZE, TCompressed> const &tuple, TValue const, UngappedShape<q> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(452)
 
 //____________________________________________________________________________
 // _haveMaximalRepeats
@@ -1948,7 +1948,7 @@ template <typename TText, typename TSA, typename TSpec, typename TQuery > inline
 //____________________________________________________________________________
 // _nextNonRepeatRange
 
-template <typename TFinder, typename TIndex, typename TSpec> inline bool _nextNonRepeatRange( TFinder &finder, Pattern<TIndex, Swift<TSpec> > &pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1632)
+template <typename TFinder, typename TIndex, typename TSpec> inline bool _nextNonRepeatRange( TFinder &finder, Pattern<TIndex, Swift<TSpec> > &pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1636)
 
 //____________________________________________________________________________
 // _onGoDown
@@ -1984,7 +1984,7 @@ template <typename TValue, typename TSpec> inline typename Value<String<TValue, 
 //____________________________________________________________________________
 // _printDots
 
-template <typename THaystack, typename TSpec> inline void _printDots(Finder<THaystack, Swift<TSpec> > &finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1614)
+template <typename THaystack, typename TSpec> inline void _printDots(Finder<THaystack, Swift<TSpec> > &finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1618)
 
 //____________________________________________________________________________
 // _printSwiftBuckets
@@ -2156,14 +2156,14 @@ template <typename TIndex, typename TSpec, typename TSize> inline typename Patte
 //____________________________________________________________________________
 // _swiftMultiFlushBuckets
 
-template <typename TFinder, typename TIndex, typename TSpec > inline bool _swiftMultiFlushBuckets( TFinder & finder, Pattern<TIndex, Swift<TSpec> > & pattern );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1201)
-template <typename TFinder, typename TIndex, typename TSpec_ > inline bool _swiftMultiFlushBuckets( TFinder &, Pattern<TIndex, Swift<Tag<SwiftSemiGlobal_<TSpec_> > > > &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1259)
+template <typename TFinder, typename TIndex, typename TSpec > inline bool _swiftMultiFlushBuckets( TFinder & finder, Pattern<TIndex, Swift<TSpec> > & pattern );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1205)
+template <typename TFinder, typename TIndex, typename TSpec_ > inline bool _swiftMultiFlushBuckets( TFinder &, Pattern<TIndex, Swift<Tag<SwiftSemiGlobal_<TSpec_> > > > &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1263)
 
 //____________________________________________________________________________
 // _swiftMultiProcessQGram
 
-template <typename TFinder, typename TIndex, typename TSpec, typename THashValue > inline bool _swiftMultiProcessQGram( TFinder & finder, Pattern<TIndex, Swift<TSpec> > & pattern, THashValue hash);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(921)
-template <typename TFinder, typename TIndex, typename TSpec_, typename THValue > inline bool _swiftMultiProcessQGram( TFinder &finder, Pattern<TIndex, Swift<Tag<SwiftSemiGlobal_<TSpec_> > > > &pattern, THValue hash);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1055)
+template <typename TFinder, typename TIndex, typename TSpec, typename THashValue > inline bool _swiftMultiProcessQGram( TFinder & finder, Pattern<TIndex, Swift<TSpec> > & pattern, THashValue hash);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(925)
+template <typename TFinder, typename TIndex, typename TSpec_, typename THValue > inline bool _swiftMultiProcessQGram( TFinder &finder, Pattern<TIndex, Swift<Tag<SwiftSemiGlobal_<TSpec_> > > > &pattern, THValue hash);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1059)
 
 //____________________________________________________________________________
 // _transform
@@ -2282,11 +2282,11 @@ template <typename TValue, typename TSpec, typename TTag> inline typename Iterat
 
 template <typename TText, typename TSpec, typename TSpecFinder > inline typename Position< Finder< Index<TText, TSpec>, TSpecFinder > >::Type beginPosition(Finder< Index<TText, TSpec>, TSpecFinder > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_index.h"(233)
 template <typename TText, typename TSpec, typename TSpecFinder > inline typename Position< Finder< Index<TText, TSpec>, TSpecFinder > >::Type beginPosition(Finder< Index<TText, TSpec>, TSpecFinder > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_index.h"(242)
-template <typename THaystack, typename TSpec> inline __int64 beginPosition(Finder<THaystack, Swift<TSpec> > const & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1338)
-template <typename THaystack, typename TSpec> inline __int64 beginPosition(Finder<THaystack, Swift<TSpec> > & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1345)
-template <typename TIndex, typename TSpec> inline typename SAValue<TIndex>::Type beginPosition(Pattern<TIndex, Swift<TSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1354)
-template <typename TIndex, typename TSpec> inline typename SAValue<TIndex >::Type beginPosition(Pattern<TIndex, Swift<Tag<SwiftSemiGlobal_<TSpec> > > > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1366)
-template <typename TIndex, typename TSpec> inline typename SAValue<TIndex>::Type beginPosition(Pattern<TIndex, Swift<TSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1375)
+template <typename THaystack, typename TSpec> inline __int64 beginPosition(Finder<THaystack, Swift<TSpec> > const & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1342)
+template <typename THaystack, typename TSpec> inline __int64 beginPosition(Finder<THaystack, Swift<TSpec> > & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1349)
+template <typename TIndex, typename TSpec> inline typename SAValue<TIndex>::Type beginPosition(Pattern<TIndex, Swift<TSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1358)
+template <typename TIndex, typename TSpec> inline typename SAValue<TIndex >::Type beginPosition(Pattern<TIndex, Swift<Tag<SwiftSemiGlobal_<TSpec> > > > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1370)
+template <typename TIndex, typename TSpec> inline typename SAValue<TIndex>::Type beginPosition(Pattern<TIndex, Swift<TSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1379)
 
 //____________________________________________________________________________
 // bwtAt
@@ -2315,7 +2315,7 @@ template <typename TIndex, class TSpec > inline bool childrenAreLeaves(Iter<TInd
 // clear
 
 template <typename TText, typename TSpec, typename TSpecFinder > inline void clear(Finder< Index<TText, TSpec>, TSpecFinder > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_index.h"(183)
-template <typename TIndex, typename TSpec> inline void clear(Pattern<TIndex, Swift<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1274)
+template <typename TIndex, typename TSpec> inline void clear(Pattern<TIndex, Swift<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1278)
 template <typename TText, typename TSpec> inline void clear(Index<TText, IndexEsa<TSpec> > &index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_base.h"(363)
 template <typename TIndex, class TSpec > inline void clear(Iter<TIndex, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1762)
 template <typename TText, typename TSpec> inline void clear(Index<TText, PizzaChili<TSpec> >& me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_pizzachili.h"(166)
@@ -2511,7 +2511,7 @@ template <typename TPos, typename TIndex> inline typename Reference<typename Fib
 // empty
 
 template <typename TText, typename TSpec, typename TSpecFinder > inline bool empty(Finder< Index<TText, TSpec>, TSpecFinder > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_index.h"(175)
-template <typename TIndex, typename TSpec> inline bool empty(Pattern<TIndex, Swift<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1267)
+template <typename TIndex, typename TSpec> inline bool empty(Pattern<TIndex, Swift<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1271)
 template <typename TIndex, class TSpec > inline bool empty(Iter<TIndex, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1860)
 template <typename TIndex, class TSpec > inline bool empty(Iter<TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(1866)
 
@@ -2535,11 +2535,11 @@ template <typename TValue, typename TSpec, typename TTag> inline typename Iterat
 
 template <typename TText, typename TSpec, typename TSpecFinder > inline typename Position< Finder< Index<TText, TSpec>, TSpecFinder > >::Type endPosition(Finder< Index<TText, TSpec>, TSpecFinder > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_index.h"(253)
 template <typename TText, typename TSpec, typename TSpecFinder > inline typename Position< Finder< Index<TText, TSpec>, TSpecFinder > >::Type endPosition(Finder< Index<TText, TSpec>, TSpecFinder > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_index.h"(261)
-template <typename THaystack, typename TSpec> inline typename Position<Finder<THaystack, Swift<TSpec> > >::Type endPosition(Finder<THaystack, Swift<TSpec> > const & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1384)
-template <typename THaystack, typename TSpec> inline typename Position<Finder<THaystack, Swift<TSpec> > >::Type endPosition(Finder<THaystack, Swift<TSpec> > & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1392)
-template <typename TIndex, typename TSpec> inline typename SAValue<TIndex>::Type endPosition(Pattern<TIndex, Swift<TSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1401)
-template <typename TIndex, typename TSpec> inline typename SAValue<TIndex >::Type endPosition(Pattern<TIndex, Swift<Tag<SwiftSemiGlobal_<TSpec> > > > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1414)
-template <typename TIndex, typename TSpec> inline typename SAValue<TIndex>::Type endPosition(Pattern<TIndex, Swift<TSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1424)
+template <typename THaystack, typename TSpec> inline typename Position<Finder<THaystack, Swift<TSpec> > >::Type endPosition(Finder<THaystack, Swift<TSpec> > const & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1388)
+template <typename THaystack, typename TSpec> inline typename Position<Finder<THaystack, Swift<TSpec> > >::Type endPosition(Finder<THaystack, Swift<TSpec> > & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1396)
+template <typename TIndex, typename TSpec> inline typename SAValue<TIndex>::Type endPosition(Pattern<TIndex, Swift<TSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1405)
+template <typename TIndex, typename TSpec> inline typename SAValue<TIndex >::Type endPosition(Pattern<TIndex, Swift<Tag<SwiftSemiGlobal_<TSpec> > > > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1418)
+template <typename TIndex, typename TSpec> inline typename SAValue<TIndex>::Type endPosition(Pattern<TIndex, Swift<TSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1428)
 
 //____________________________________________________________________________
 // eof
@@ -2584,9 +2584,9 @@ template <typename TText, typename TSA, typename TQuery > inline Pair< typename 
 template <typename TText, typename TSpec, typename TSpecFinder, typename TPattern > inline bool find( Finder<Index<TText, TSpec>, TSpecFinder> &finder, TPattern const &pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_index.h"(291)
 template <typename TText, typename TSpec, typename TSpecFinder > inline bool find(Finder<Index<TText, TSpec>, TSpecFinder> &finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_index.h"(304)
 template <typename TFinder, typename TNeedle> inline bool find(TFinder & finder, Pattern<TNeedle, Quasar> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_quasar.h"(152)
-template <typename TFinder, typename TIndex, typename TSpec> inline bool find( TFinder &finder, Pattern<TIndex, Swift<Tag<SwiftSemiGlobal_<TSpec> > > > &pattern, double errorRate);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1721)
-template <typename THaystack, typename TIndex, typename TSpec, typename TSize> inline bool find( Finder<THaystack, Swift<TSpec> > &finder, Pattern<TIndex, Swift<TSpec> > &pattern, double errorRate, TSize minLength);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1732)
-template <typename THashes, typename TPipeSpec, typename TIndex, typename TSpec> inline bool find( Finder<Pipe<THashes, TPipeSpec>, Swift<TSpec> > &finder, Pattern<TIndex, Swift<TSpec> > &pattern, double errorRate);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1808)
+template <typename TFinder, typename TIndex, typename TSpec> inline bool find( TFinder &finder, Pattern<TIndex, Swift<Tag<SwiftSemiGlobal_<TSpec> > > > &pattern, double errorRate);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1725)
+template <typename THaystack, typename TIndex, typename TSpec, typename TSize> inline bool find( Finder<THaystack, Swift<TSpec> > &finder, Pattern<TIndex, Swift<TSpec> > &pattern, double errorRate, TSize minLength);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1736)
+template <typename THashes, typename TPipeSpec, typename TIndex, typename TSpec> inline bool find( Finder<Pipe<THashes, TPipeSpec>, Swift<TSpec> > &finder, Pattern<TIndex, Swift<TSpec> > &pattern, double errorRate);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1812)
 
 //____________________________________________________________________________
 // findRepeats
@@ -2647,7 +2647,7 @@ template <typename TObject, typename TShapeSpec, typename TSpec, typename TDistM
 //____________________________________________________________________________
 // getMaxDeviationOfOrder
 
-template <typename TIndex, typename TSpec> inline typename Size<TIndex>::Type getMaxDeviationOfOrder(Pattern<TIndex, Swift<TSpec> > &pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(2028)
+template <typename TIndex, typename TSpec> inline typename Size<TIndex>::Type getMaxDeviationOfOrder(Pattern<TIndex, Swift<TSpec> > &pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(2032)
 
 //____________________________________________________________________________
 // getOccurrence
@@ -2683,7 +2683,7 @@ template <typename TText, typename TShapeSpec, typename TSpec> inline typename S
 //____________________________________________________________________________
 // getWindowFindHits
 
-template <typename THaystack, typename TSpec> inline typename WindowFindResult<Finder<THaystack, Swift<TSpec> >, void>::Type & getWindowFindHits(Finder<THaystack, Swift<TSpec> > &finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(2009)
+template <typename THaystack, typename TSpec> inline typename WindowFindResult<Finder<THaystack, Swift<TSpec> >, void>::Type & getWindowFindHits(Finder<THaystack, Swift<TSpec> > &finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(2013)
 
 //____________________________________________________________________________
 // goBegin
@@ -2770,11 +2770,11 @@ template <typename TIndex, class TSpec > inline bool goUp(Iter< TIndex, VSTree< 
 //____________________________________________________________________________
 // hash
 
-template <typename TValue, typename TIter> inline typename Value< Shape<TValue, SimpleShape> >::Type hash(Shape<TValue, SimpleShape> &me, TIter it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(319)
-template <typename TValue, unsigned q, typename TIter> inline typename Value< Shape<TValue, UngappedShape<q> > >::Type hash(Shape<TValue, UngappedShape<q> > &me, TIter it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(375)
-template <typename TValue, typename TSpec, typename TIter, typename TSize> inline typename Value< Shape<TValue, TSpec> >::Type hash(Shape<TValue, TSpec> &me, TIter it, TSize charsLeft);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(404)
-template <typename TValue, typename TTValue, unsigned SIZE, unsigned q> typename Value< Shape<TValue, UngappedShape<q> > >::Type hash( Shape<TValue, UngappedShape<q> > &me, Tuple<TTValue, SIZE, Compressed> const &tuple);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(465)
-template <typename TValue, typename TTValue, unsigned SIZE, typename TCompressed, unsigned q> typename Value< Shape<TValue, UngappedShape<q> > >::Type hash( Shape<TValue, UngappedShape<q> > &me, Tuple<TTValue, SIZE, TCompressed> const &tuple);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(486)
+template <typename TValue, typename TIter> inline typename Value< Shape<TValue, SimpleShape> >::Type hash(Shape<TValue, SimpleShape> &me, TIter it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(321)
+template <typename TValue, unsigned q, typename TIter> inline typename Value< Shape<TValue, UngappedShape<q> > >::Type hash(Shape<TValue, UngappedShape<q> > &me, TIter it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(377)
+template <typename TValue, typename TSpec, typename TIter, typename TSize> inline typename Value< Shape<TValue, TSpec> >::Type hash(Shape<TValue, TSpec> &me, TIter it, TSize charsLeft);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(406)
+template <typename TValue, typename TTValue, unsigned SIZE, unsigned q> typename Value< Shape<TValue, UngappedShape<q> > >::Type hash( Shape<TValue, UngappedShape<q> > &me, Tuple<TTValue, SIZE, Compressed> const &tuple);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(467)
+template <typename TValue, typename TTValue, unsigned SIZE, typename TCompressed, unsigned q> typename Value< Shape<TValue, UngappedShape<q> > >::Type hash( Shape<TValue, UngappedShape<q> > &me, Tuple<TTValue, SIZE, TCompressed> const &tuple);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(488)
 template <typename TValue, typename TIter> inline typename Value< Shape<TValue, GenericShape> >::Type hash(Shape<TValue, GenericShape> &me, TIter it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_gapped.h"(401)
 template <typename TValue, typename TSpec, typename TIter, typename TSize> inline typename Value< Shape<TValue, GappedShape<TSpec> > >::Type hash(Shape<TValue, GappedShape<TSpec> > &me, TIter it, TSize charsLeft);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_gapped.h"(420)
 template <int P00, int P01, int P02, int P03, int P04, int P05, int P06, int P07, int P08, int P09, int P10, int P11, int P12, int P13, int P14, int P15, int P16, int P17, int P18, int P19, typename TValue, typename TIter > inline typename Value< Shape<TValue, GappedShape< HardwiredShape< P00,P01,P02,P03,P04, P05,P06,P07,P08,P09, P10,P11,P12,P13,P14, P15,P16,P17,P18,P19 > > > >::Type hash(Shape<TValue, GappedShape< HardwiredShape< P00,P01,P02,P03,P04, P05,P06,P07,P08,P09, P10,P11,P12,P13,P14, P15,P16,P17,P18,P19 > > > &me, TIter it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_gapped.h"(562)
@@ -2784,37 +2784,37 @@ template <typename TValue, typename TIter, typename TSize> inline typename Value
 //____________________________________________________________________________
 // hash2
 
-template <typename TValue, typename TSpec, typename TIter, typename TSize> inline typename Value< Shape<TValue, TSpec> >::Type hash2(Shape<TValue, TSpec> &me, TIter it, TSize charsLeft);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(586)
+template <typename TValue, typename TSpec, typename TIter, typename TSize> inline typename Value< Shape<TValue, TSpec> >::Type hash2(Shape<TValue, TSpec> &me, TIter it, TSize charsLeft);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(588)
 
 //____________________________________________________________________________
 // hash2Next
 
-template <typename TValue, typename TSpec, typename TIter, typename TSize> inline typename Value< Shape<TValue, TSpec> >::Type hash2Next(Shape<TValue, TSpec> &me, TIter &it, TSize charsLeft);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(682)
+template <typename TValue, typename TSpec, typename TIter, typename TSize> inline typename Value< Shape<TValue, TSpec> >::Type hash2Next(Shape<TValue, TSpec> &me, TIter &it, TSize charsLeft);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(684)
 
 //____________________________________________________________________________
 // hash2Upper
 
-template <typename TValue, typename TSpec, typename TIter, typename TSize> inline typename Value< Shape<TValue, TSpec> >::Type hash2Upper(Shape<TValue, TSpec> &me, TIter it, TSize charsLeft);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(630)
+template <typename TValue, typename TSpec, typename TIter, typename TSize> inline typename Value< Shape<TValue, TSpec> >::Type hash2Upper(Shape<TValue, TSpec> &me, TIter it, TSize charsLeft);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(632)
 
 //____________________________________________________________________________
 // hashInit
 
-template <typename TValue, typename TIter> inline void hashInit(Shape<TValue, SimpleShape> &me, TIter it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(337)
-template <typename TValue, unsigned q, typename TIter> inline typename Value< Shape<TValue, UngappedShape<q> > >::Type hashInit(Shape<TValue, UngappedShape<q> > &me, TIter it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(387)
+template <typename TValue, typename TIter> inline void hashInit(Shape<TValue, SimpleShape> &me, TIter it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(339)
+template <typename TValue, unsigned q, typename TIter> inline typename Value< Shape<TValue, UngappedShape<q> > >::Type hashInit(Shape<TValue, UngappedShape<q> > &me, TIter it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(389)
 template <typename TValue, typename TSpec, typename TIter> inline void hashInit(Shape<TValue, GappedShape<TSpec> > &, TIter &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_gapped.h"(581)
 template <typename TValue, typename TIter> inline typename Value< Shape<TValue, OneGappedShape> >::Type hashInit(Shape<TValue, OneGappedShape> &me, TIter it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_onegapped.h"(194)
 
 //____________________________________________________________________________
 // hashNext
 
-template <typename TValue, typename TSpec, typename TIter> inline typename Value< Shape<TValue, TSpec> >::Type hashNext(Shape<TValue, TSpec> &me, TIter const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(553)
+template <typename TValue, typename TSpec, typename TIter> inline typename Value< Shape<TValue, TSpec> >::Type hashNext(Shape<TValue, TSpec> &me, TIter const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(555)
 template <typename TValue, typename TSpec, typename TIter> inline typename Value< Shape<TValue, GappedShape<TSpec> > >::Type hashNext(Shape<TValue, GappedShape<TSpec> > &me, TIter &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_gapped.h"(587)
 template <typename TValue, typename TIter> inline typename Value< Shape<TValue, OneGappedShape> >::Type hashNext(Shape<TValue, OneGappedShape> &me, TIter &_it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_onegapped.h"(304)
 
 //____________________________________________________________________________
 // hashUpper
 
-template <typename TValue, typename TSpec, typename TIter, typename TSize> inline typename Value< Shape<TValue, TSpec> >::Type hashUpper(Shape<TValue, TSpec> &me, TIter it, TSize charsLeft);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(509)
+template <typename TValue, typename TSpec, typename TIter, typename TSize> inline typename Value< Shape<TValue, TSpec> >::Type hashUpper(Shape<TValue, TSpec> &me, TIter it, TSize charsLeft);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(511)
 template <typename TValue, typename TSpec, typename TIter, typename TSize> inline typename Value< Shape<TValue, GappedShape<TSpec> > >::Type hashUpper(Shape<TValue, GappedShape<TSpec> > &me, TIter it, TSize charsLeft);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_gapped.h"(452)
 template <typename TValue, typename TIter, typename TSize> inline typename Value< Shape<TValue, OneGappedShape> >::Type hashUpper(Shape<TValue, OneGappedShape> &me, TIter it, TSize charsLeft);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_onegapped.h"(260)
 
@@ -2955,12 +2955,12 @@ template <typename TText, typename TSpec> inline typename Fibre<Index<TText, Piz
 //____________________________________________________________________________
 // infix
 
-template <typename THaystack, typename TSpec> inline typename Infix<THaystack>::Type infix(Finder<THaystack, Swift<TSpec> > &finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1545)
-template <typename THaystack, typename TSpec, typename TText> inline typename Infix<TText>::Type infix(Finder<THaystack, Swift<TSpec> > &finder, TText &text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1552)
-template <typename TIndex, typename TSpec, typename TText> inline typename Infix<TText>::Type infix(Pattern<TIndex, Swift<TSpec> > const & pattern, TText &text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1577)
-template <typename TIndex, typename TSpec> inline typename Infix< typename GetSequenceByNo< TIndex const >::Type >::Type infix(Pattern<TIndex, Swift<TSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1591)
-template <typename TIndex, typename TSpec> inline typename Infix< typename GetSequenceByNo< TIndex const >::Type >::Type infix(Pattern<TIndex, Swift<Tag<SwiftSemiGlobal_<TSpec> > > > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1598)
-template <typename TIndex, typename TSpec> inline typename Infix< typename GetSequenceByNo< TIndex const >::Type >::Type infix(Pattern<TIndex, Swift<TSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1605)
+template <typename THaystack, typename TSpec> inline typename Infix<THaystack>::Type infix(Finder<THaystack, Swift<TSpec> > &finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1549)
+template <typename THaystack, typename TSpec, typename TText> inline typename Infix<TText>::Type infix(Finder<THaystack, Swift<TSpec> > &finder, TText &text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1556)
+template <typename TIndex, typename TSpec, typename TText> inline typename Infix<TText>::Type infix(Pattern<TIndex, Swift<TSpec> > const & pattern, TText &text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1581)
+template <typename TIndex, typename TSpec> inline typename Infix< typename GetSequenceByNo< TIndex const >::Type >::Type infix(Pattern<TIndex, Swift<TSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1595)
+template <typename TIndex, typename TSpec> inline typename Infix< typename GetSequenceByNo< TIndex const >::Type >::Type infix(Pattern<TIndex, Swift<Tag<SwiftSemiGlobal_<TSpec> > > > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1602)
+template <typename TIndex, typename TSpec> inline typename Infix< typename GetSequenceByNo< TIndex const >::Type >::Type infix(Pattern<TIndex, Swift<TSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1609)
 template <typename TText, typename TSpec, typename TPosBegin, typename TPosEnd> inline typename Infix<TText>::Type infix(Index<TText, TSpec> &index, TPosBegin pos_begin, TPosEnd pos_end);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_base.h"(851)
 template <typename TText, typename TSpec, typename TPosBegin, typename TPosEnd> inline typename Infix<TText>::Type infix(Index<TText, TSpec> const &index, TPosBegin pos_begin, TPosEnd pos_end);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_base.h"(858)
 template <typename TValue, typename TSpec, typename TPosBegin, typename TPosEnd> inline typename Infix<String<TValue, PizzaChili<TSpec> > >::Type infix( String<TValue, PizzaChili<TSpec> > const& me, TPosBegin begin, TPosEnd end );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_pizzachili_string.h"(739)
@@ -2969,8 +2969,8 @@ template <typename TValue, typename TSpec, typename TPosBegin, typename TPosEnd>
 //____________________________________________________________________________
 // infixNoClip
 
-template <typename THaystack, typename TSpec> inline typename Infix<THaystack>::Type infixNoClip(Finder<THaystack, Swift<TSpec> > &finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1561)
-template <typename THaystack, typename TSpec, typename TText> inline typename Infix<TText>::Type infixNoClip(Finder<THaystack, Swift<TSpec> > &finder, TText &text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1568)
+template <typename THaystack, typename TSpec> inline typename Infix<THaystack>::Type infixNoClip(Finder<THaystack, Swift<TSpec> > &finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1565)
+template <typename THaystack, typename TSpec, typename TText> inline typename Infix<TText>::Type infixNoClip(Finder<THaystack, Swift<TSpec> > &finder, TText &text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1572)
 
 //____________________________________________________________________________
 // initPatterns
@@ -3056,7 +3056,7 @@ template <typename TInput > inline typename Size< Pipe< TInput, LarssonSadakane 
 template <typename TInput > inline typename Size< Pipe< TInput, Merger3 > >::Type length(Pipe< TInput, Merger3 > const &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/pipe_merger3.h"(159)
 template <typename TInput > inline typename Size< Pipe< TInput, Merger7 > >::Type length(Pipe< TInput, Merger7 > const &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/pipe_merger7.h"(478)
 template <typename TInput, typename TLimitsString > inline typename Size< Pipe< TInput, Merger7Multi<TLimitsString> > >::Type length(Pipe< TInput, Merger7Multi<TLimitsString> > const &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/pipe_merger7.h"(508)
-template <typename TValue, typename TSpec> inline typename Size< Shape<TValue, TSpec> >::Type length(Shape<TValue, TSpec> const &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(259)
+template <typename TValue, typename TSpec> inline typename Size< Shape<TValue, TSpec> >::Type length(Shape<TValue, TSpec> const &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(261)
 template <typename TValue> inline typename Size< Shape<TValue, OneGappedShape> >::Type length(Shape<TValue, OneGappedShape> const &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_onegapped.h"(151)
 
 //____________________________________________________________________________
@@ -3195,24 +3195,24 @@ template <typename TText, typename TIndexSpec, typename TSpec > inline typename 
 
 template <typename TText, typename TSpec, typename TSpecFinder > inline typename Position< Finder< Index<TText, TSpec>, TSpecFinder > >::Type position(Finder< Index<TText, TSpec>, TSpecFinder > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_index.h"(271)
 template <typename TText, typename TSpec, typename TSpecFinder > inline typename Position< Finder< Index<TText, TSpec>, TSpecFinder > >::Type position(Finder< Index<TText, TSpec>, TSpecFinder > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_index.h"(279)
-template <typename THaystack, typename TSpec> inline typename Position<Finder<THaystack, Swift<TSpec> > >::Type position(Finder<THaystack, Swift<TSpec> > const & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1289)
-template <typename THaystack, typename TSpec> inline typename Position<Finder<THaystack, Swift<TSpec> > >::Type position(Finder<THaystack, Swift<TSpec> > & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1297)
-template <typename TIndex, typename TSpec> inline typename SAValue<TIndex>::Type position(Pattern<TIndex, Swift<TSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1306)
-template <typename TIndex, typename TSpec> inline typename SAValue<TIndex>::Type position(Pattern<TIndex, Swift<Tag<SwiftSemiGlobal_<TSpec> > > > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1319)
-template <typename TIndex, typename TSpec> inline typename SAValue<TIndex>::Type position(Pattern<TIndex, Swift<TSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1329)
+template <typename THaystack, typename TSpec> inline typename Position<Finder<THaystack, Swift<TSpec> > >::Type position(Finder<THaystack, Swift<TSpec> > const & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1293)
+template <typename THaystack, typename TSpec> inline typename Position<Finder<THaystack, Swift<TSpec> > >::Type position(Finder<THaystack, Swift<TSpec> > & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1301)
+template <typename TIndex, typename TSpec> inline typename SAValue<TIndex>::Type position(Pattern<TIndex, Swift<TSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1310)
+template <typename TIndex, typename TSpec> inline typename SAValue<TIndex>::Type position(Pattern<TIndex, Swift<Tag<SwiftSemiGlobal_<TSpec> > > > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1323)
+template <typename TIndex, typename TSpec> inline typename SAValue<TIndex>::Type position(Pattern<TIndex, Swift<TSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1333)
 
 //____________________________________________________________________________
 // positionRange
 
-template <typename THaystack, typename TSpec> inline Pair<typename Position<Finder<THaystack, Swift<TSpec> > >::Type> positionRange(Finder<THaystack, Swift<TSpec> > const & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1484)
-template <typename THaystack, typename TSpec> inline Pair<typename Position<Finder<THaystack, Swift<TSpec> > >::Type> positionRange(Finder<THaystack, Swift<TSpec> > & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1501)
-template <typename TIndex, typename TSpec> inline Pair<typename SAValue<TIndex>::Type> positionRange(Pattern<TIndex, Swift<TSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1510)
+template <typename THaystack, typename TSpec> inline Pair<typename Position<Finder<THaystack, Swift<TSpec> > >::Type> positionRange(Finder<THaystack, Swift<TSpec> > const & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1488)
+template <typename THaystack, typename TSpec> inline Pair<typename Position<Finder<THaystack, Swift<TSpec> > >::Type> positionRange(Finder<THaystack, Swift<TSpec> > & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1505)
+template <typename TIndex, typename TSpec> inline Pair<typename SAValue<TIndex>::Type> positionRange(Pattern<TIndex, Swift<TSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1514)
 
 //____________________________________________________________________________
 // positionRangeNoClip
 
-template <typename THaystack, typename TSpec> inline Pair<typename Position<Finder<THaystack, Swift<TSpec> > >::Type> positionRangeNoClip(Finder<THaystack, Swift<TSpec> > const & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1449)
-template <typename THaystack, typename TSpec> inline Pair<typename Position<Finder<THaystack, Swift<TSpec> > >::Type> positionRangeNoClip(Finder<THaystack, Swift<TSpec> > & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1459)
+template <typename THaystack, typename TSpec> inline Pair<typename Position<Finder<THaystack, Swift<TSpec> > >::Type> positionRangeNoClip(Finder<THaystack, Swift<TSpec> > const & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1453)
+template <typename THaystack, typename TSpec> inline Pair<typename Position<Finder<THaystack, Swift<TSpec> > >::Type> positionRangeNoClip(Finder<THaystack, Swift<TSpec> > & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1463)
 
 //____________________________________________________________________________
 // prefix
@@ -3290,7 +3290,7 @@ template <typename THashValue, typename THashValue2 > inline THashValue requestB
 //____________________________________________________________________________
 // resize
 
-template <typename TValue, typename TSize> inline typename Size< Shape<TValue, SimpleShape> >::Type resize(Shape<TValue, SimpleShape> & me, TSize new_length);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(290)
+template <typename TValue, typename TSize> inline typename Size< Shape<TValue, SimpleShape> >::Type resize(Shape<TValue, SimpleShape> & me, TSize new_length);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(292)
 
 //____________________________________________________________________________
 // resizeVertexMap
@@ -3301,7 +3301,7 @@ template <typename TText, typename TIndexSpec, typename TPropertyMap > inline vo
 //____________________________________________________________________________
 // reverse
 
-template <typename TValue, typename TSpec> inline void reverse(Shape<TValue, TSpec> &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(811)
+template <typename TValue, typename TSpec> inline void reverse(Shape<TValue, TSpec> &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(813)
 template <typename TValue, typename TSpec> inline void reverse(Shape<TValue, GappedShape<TSpec> > &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_gapped.h"(676)
 template <typename TValue> inline void reverse(Shape<TValue, OneGappedShape> &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_onegapped.h"(396)
 
@@ -3364,7 +3364,7 @@ template <typename TText, typename TShapeSpec, typename TSpec, typename TSize> i
 //____________________________________________________________________________
 // shapeToString
 
-template <typename TShapeString, typename TValue, unsigned q> inline void shapeToString( TShapeString &bitmap, Shape<TValue, UngappedShape<q> > const &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(797)
+template <typename TShapeString, typename TValue, unsigned q> inline void shapeToString( TShapeString &bitmap, Shape<TValue, UngappedShape<q> > const &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(799)
 template <typename TShapeString, typename TValue, typename TSpec> inline void shapeToString( TShapeString &bitmap, Shape<TValue, GappedShape<TSpec> > const &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_gapped.h"(654)
 template <typename TShapeString, typename TValue> inline void shapeToString( TShapeString &bitmap, Shape<TValue, OneGappedShape> const &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_onegapped.h"(381)
 
@@ -3397,7 +3397,7 @@ template <typename TString, typename TSSetSpec, typename TSpec> inline typename 
 //____________________________________________________________________________
 // stringToShape
 
-template <typename TValue, typename TShapeString> inline bool stringToShape( Shape<TValue, SimpleShape> &me, TShapeString const &bitmap);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(760)
+template <typename TValue, typename TShapeString> inline bool stringToShape( Shape<TValue, SimpleShape> &me, TShapeString const &bitmap);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(762)
 template <typename TValue, typename TSpec, typename TShapeString> inline bool stringToShape( Shape<TValue, GappedShape<TSpec> > &me, TShapeString const &bitmap);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_gapped.h"(601)
 template <typename TValue, typename TShapeString> inline bool stringToShape( Shape<TValue, OneGappedShape> &me, TShapeString const &bitmap);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_onegapped.h"(343)
 
@@ -3415,12 +3415,12 @@ template <typename TPos, typename TText, typename TSpec> inline typename Size<In
 //____________________________________________________________________________
 // swiftInfix
 
-template <typename TSwiftHit, typename TText> inline typename Infix<TText>::Type swiftInfix(TSwiftHit const &hit, TText &text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1526)
+template <typename TSwiftHit, typename TText> inline typename Infix<TText>::Type swiftInfix(TSwiftHit const &hit, TText &text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1530)
 
 //____________________________________________________________________________
 // swiftInfixNoClip
 
-template <typename TSwiftHit, typename TText> inline typename Infix<TText>::Type swiftInfixNoClip(TSwiftHit const &hit, TText &text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1519)
+template <typename TSwiftHit, typename TText> inline typename Infix<TText>::Type swiftInfixNoClip(TSwiftHit const &hit, TText &text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1523)
 
 //____________________________________________________________________________
 // textAt
@@ -3437,7 +3437,7 @@ template <typename TSize > inline unsigned treeLevelsSAB(TSize saSize, unsigned 
 //____________________________________________________________________________
 // unhash
 
-template <typename TString, typename THash> inline void unhash(TString &result, THash hash, unsigned q);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(726)
+template <typename TString, typename THash> inline void unhash(TString &result, THash hash, unsigned q);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(728)
 
 //____________________________________________________________________________
 // upperBoundLcpe
@@ -3474,30 +3474,30 @@ template <typename TRepeat > inline typename Value< Iter<TRepeat, MultiMemOccure
 template <typename TRepeat > inline typename Value< Iter<TRepeat, MultiMemOccurences> >::Type & value(Iter<TRepeat, MultiMemOccurences> &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_algs_multi.h"(665)
 template <typename TIndex, class TSpec > inline typename VertexDescriptor<TIndex>::Type & value(Iter< TIndex, VSTree<TSpec> > &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(710)
 template <typename TIndex, class TSpec > inline typename VertexDescriptor<TIndex>::Type const & value(Iter< TIndex, VSTree<TSpec> > const &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/index_esa_stree.h"(716)
-template <typename TValue, typename TSpec> inline typename Value< Shape<TValue, TSpec> >::Type value(Shape<TValue, TSpec> &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(241)
-template <typename TValue, typename TSpec> inline typename Value< Shape<TValue, TSpec> >::Type value(Shape<TValue, TSpec> const &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(248)
+template <typename TValue, typename TSpec> inline typename Value< Shape<TValue, TSpec> >::Type value(Shape<TValue, TSpec> &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(243)
+template <typename TValue, typename TSpec> inline typename Value< Shape<TValue, TSpec> >::Type value(Shape<TValue, TSpec> const &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(250)
 
 //____________________________________________________________________________
 // weight
 
-template <typename TValue, typename TSpec> inline typename Size< Shape<TValue, TSpec> >::Type weight(Shape<TValue, TSpec> const &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(279)
+template <typename TValue, typename TSpec> inline typename Size< Shape<TValue, TSpec> >::Type weight(Shape<TValue, TSpec> const &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_base.h"(281)
 template <typename TValue, typename TSpec> inline typename Size< Shape<TValue, GappedShape<TSpec> > >::Type weight(Shape<TValue, GappedShape<TSpec> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_gapped.h"(391)
 template <typename TValue> inline typename Size< Shape<TValue, OneGappedShape> >::Type weight(Shape<TValue, OneGappedShape> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/shape_onegapped.h"(161)
 
 //____________________________________________________________________________
 // windowFindBegin
 
-template <typename THaystack, typename TIndex, typename TSpec> inline bool windowFindBegin( Finder<THaystack, Swift<TSpec> > &finder, Pattern<TIndex, Swift<TSpec> > &pattern, double errorRate);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1887)
+template <typename THaystack, typename TIndex, typename TSpec> inline bool windowFindBegin( Finder<THaystack, Swift<TSpec> > &finder, Pattern<TIndex, Swift<TSpec> > &pattern, double errorRate);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1891)
 
 //____________________________________________________________________________
 // windowFindEnd
 
-template <typename THaystack, typename TIndex, typename TSpec> inline void windowFindEnd( Finder<THaystack, Swift<TSpec> > & finder, Pattern<TIndex, Swift<TSpec> > &pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1990)
+template <typename THaystack, typename TIndex, typename TSpec> inline void windowFindEnd( Finder<THaystack, Swift<TSpec> > & finder, Pattern<TIndex, Swift<TSpec> > &pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1994)
 
 //____________________________________________________________________________
 // windowFindNext
 
-template <typename THaystack, typename TIndex, typename TSpec, typename TSize> inline bool windowFindNext( Finder<THaystack, Swift<TSpec> > &finder, Pattern<TIndex, Swift<TSpec> > &pattern, TSize finderWindowLength );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1929)
+template <typename THaystack, typename TIndex, typename TSpec, typename TSize> inline bool windowFindNext( Finder<THaystack, Swift<TSpec> > &finder, Pattern<TIndex, Swift<TSpec> > &pattern, TSize finderWindowLength );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/index/find_swift.h"(1933)
 
 //____________________________________________________________________________
 // write

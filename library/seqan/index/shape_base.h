@@ -163,7 +163,8 @@ namespace SEQAN_NAMESPACE_MAIN
 			hValue(0),
 			XValue(0),
 			leftFactor(0),
-			leftFactor2(0) {}
+			leftFactor2(0),
+            leftChar(0) {}
 		
 		Shape(unsigned _span):
 			hValue(0),
@@ -227,7 +228,8 @@ namespace SEQAN_NAMESPACE_MAIN
 //____________________________________________________________________________
 		Shape():
 			hValue(0),
-			XValue(0) {}
+			XValue(0),
+            leftChar(0) {}
 	};
 
 

@@ -2,6 +2,15 @@
 * Changelog
 *******************
 
+2011-08-26  Fabian Buske	v1.1.0
+	Default error-rate adjusted to 5%
+	Minimum guanine rate adjusted to 10%
+	Q-gram weight set to maximum of 14 nt.
+	Allow user to specify whether to compute the length-normalised triplex potential
+	Bugfix that affected a small proportion of predicted targets when guanine rate is set > 0
+	Allow user to specify maximum feature length.
+	
+
 2011-08-16  Fabian Buske	v1.0.3
 	Adjusted default minimum triplex length to 16 nucleotides
 	Allow user to specify q-gram threshold 

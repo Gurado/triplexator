@@ -247,6 +247,42 @@ struct Value<SimpleType<TValue, TSpec> const>
 };
 
 // ----------------------------------------------------------------------------
+// Metafunction MinValue
+// ----------------------------------------------------------------------------
+
+template <typename TValue, typename TSpec>
+struct MinValue<SimpleType<TValue, TSpec> > : MinimumValueUnsigned_<TValue> {};
+
+template <typename TValue, typename TSpec>
+inline SimpleType<TValue, TSpec>
+infimumValueImpl(SimpleType<TValue, TSpec> *)
+{
+	SEQAN_CHECKPOINT;
+	return MinValue<SimpleType<TValue, TSpec> >::VALUE;
+}
+
+// ----------------------------------------------------------------------------
+// Metafunction MaxValue
+// ----------------------------------------------------------------------------
+
+template <typename TValue, typename TSpec>
+struct MaxValue<SimpleType<TValue, TSpec> >
+{
+    static const TValue VALUE;
+};
+
+template <typename TValue, typename TSpec>
+const TValue MaxValue<SimpleType<TValue, TSpec> >::VALUE = ((TValue)ValueSize<SimpleType<TValue, TSpec> >::VALUE - 1);
+
+template <typename TValue, typename TSpec>
+inline SimpleType<TValue, TSpec>
+supremumValueImpl(SimpleType<TValue, TSpec> *)
+{
+	SEQAN_CHECKPOINT;
+	return MaxValue<SimpleType<TValue, TSpec> >::VALUE;
+}
+
+// ----------------------------------------------------------------------------
 // Metafunction Spec
 // ----------------------------------------------------------------------------
 

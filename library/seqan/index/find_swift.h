@@ -731,7 +731,11 @@ inline void _patternInit(Pattern<TIndex, Swift<TSpec> > &pattern, TFloat errorRa
 			{
 				// get pattern length and max. allowed errors
 				TBucketParams &bucketParams = _swiftBucketParams(pattern, seqNo);
-				TSize length = sequenceLength(seqNo, host(pattern));
+				TSize length = 0;
+                if (minLengthForAll != static_cast<TSize_>(0))
+                    length = minLengthForAll;
+                else
+                    length = sequenceLength(seqNo, host(pattern));
 				TSize errors = (TSize) floor(errorRate * length);
 				TSize errorsWC = errors / (1 + Swift<TSpec>::QGRAM_ERRORS);
 

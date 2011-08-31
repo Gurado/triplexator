@@ -191,9 +191,9 @@ namespace SEQAN_NAMESPACE_MAIN
 		}
 		
 		void print(){
-			::std::cout << "Match:" << tfoSeqNo << " ("<< oBegin << ":" << oEnd << ")\t";
-			::std::cout << ttsSeqNo << " ("<< dBegin << ":" << dEnd << ")\tD:"<< (dBegin-oBegin)<< "\t";
-			::std::cout << motif << " " << strand << " " << (parallel?"P":"A") << " " << mScore << ::std::endl;
+			::std::cerr << "Match:" << tfoSeqNo << " ("<< oBegin << ":" << oEnd << ")\t";
+			::std::cerr << ttsSeqNo << " ("<< dBegin << ":" << dEnd << ")\tD:"<< (dBegin-oBegin)<< "\t";
+			::std::cerr << motif << " " << strand << " " << (parallel?"P":"A") << " " << mScore << ::std::endl;
 		}
 	};	
 	
@@ -266,7 +266,7 @@ namespace SEQAN_NAMESPACE_MAIN
 		}
 		
 		void print(){
-			::std::cout << "SeqPos:" << seqnr << ":"<< position << ::std::endl;
+			::std::cerr << "SeqPos:" << seqnr << ":"<< position << ::std::endl;
 		}
 	};	
 	
@@ -429,7 +429,6 @@ namespace SEQAN_NAMESPACE_MAIN
 		double		errorRate;			// Criteria 1 threshold (max)
 		int			maximalError;		// maximal absolute error tolerated
 		double		guanineRate;		// Criteria 2 threshold (min)
-		bool		relaxGuanineRate;	// indicates whether core hits should be extended by flanking positions complying to triplex formation rules
 		bool		motifTC;			// use triplex TC motifs
 		bool		motifGA;			// use triplex AG motifs
 		bool		motifGT_p;			// use triplex GT motifs (parallel configuration)
@@ -462,6 +461,7 @@ namespace SEQAN_NAMESPACE_MAIN
 		::std::ofstream summaryFileHandle;
 		
 		// output format options
+		bool		computeTpot;
 		bool		prettyString;		// indicate matching/mismatching characters with upper/lower case if true
 		unsigned	outputFormat;		// 0..FASTA format
 		// 1..Triplex format
@@ -501,10 +501,9 @@ namespace SEQAN_NAMESPACE_MAIN
 			runmode = TRIPLEX_TRIPLEX_SEARCH;
 			forward = true;
 			reverse = true;
-			errorRate = 0.1;
+			errorRate = 0.05;
 			maximalError = -1;
-			guanineRate = 0.0;
-			relaxGuanineRate = false;
+			guanineRate = 0.1;
 			motifTC = true;
 			motifGA = true;
 			motifGT_p = true;
@@ -530,6 +529,7 @@ namespace SEQAN_NAMESPACE_MAIN
 			minRepeatLength = 10;
 			maxRepeatPeriod = 4;
 			
+			computeTpot = false;
 			prettyString = false;
 			outputFormat = 0;
 			runID = "s"; 	
@@ -562,13 +562,18 @@ namespace SEQAN_NAMESPACE_MAIN
 	//////////////////////////////////////////////////////////////////////////////
 	// produce a timestamp for the log file
 	inline int _calculateShape(Options &options){	
-		int qgramWeight =(int)min(11.0,floor((options.qgramThreshold-1-options.minLength)/-(ceil(options.errorRate*options.minLength)+1)));		
+		// number of errors when using error-rate
+		int errors = static_cast<int>(ceil(options.errorRate*options.minLength));
+		// check if this number is capped by a specified maximum
+		if (options.maximalError >=0)
+			errors  = min(errors, options.maximalError);
+		int qgramWeight =static_cast<int>(min(14.0,floor((options.qgramThreshold-1-options.minLength)/-(errors+1))));
 		resize(options.shape,qgramWeight);
 		for (int i=0;i<qgramWeight;++i){
 			options.shape[i]='1';
 		}		
 #ifdef TRIPLEX_DEBUG
-		::std::cout << "qgram-threshold:" << options.qgramThreshold << " weight(qgram):" << qgramWeight << ::std::endl;
+		::std::cerr << "qgram-threshold:" << options.qgramThreshold << " weight(qgram):" << qgramWeight << ::std::endl;
 #endif
 		return qgramWeight;
 	}
@@ -735,7 +740,7 @@ namespace SEQAN_NAMESPACE_MAIN
 		// process one segment at a time
 		for (TSegStringIter it = begin(seqString, Standard()); it != end(seqString, Standard()); ++it){
 #ifdef TRIPLEX_DEBUG
-			::std::cout << "pTTS:" << *it << ::std::endl;
+			::std::cerr << "pTTS:" << *it << ::std::endl;
 #endif
 			if (plusstrand){
 				TTtsMotif ttsfilter(*it, true, seqNo, false, '+');
@@ -1072,7 +1077,7 @@ namespace SEQAN_NAMESPACE_MAIN
 			for (TPattIter itO = begin(tfoSet);itO != end(tfoSet); ++itO, ++tfoNo){
 #ifdef TRIPLEX_DEBUG
 				TPattern pat = *itO;
-				::std::cout << "tfo candidate: " << pat << ::std::endl << "--- candidate: " << tfoString(*itO) << " " << getMotif(*itO) <<  " " << isParallel(*itO) << :: std::endl;
+				::std::cerr << "tfo candidate: " << pat << ::std::endl << "--- candidate: " << tfoString(*itO) << " " << getMotif(*itO) <<  " " << isParallel(*itO) << :: std::endl;
 #endif
 				TTfo tfoCandidate = ttsString(*itO);
 				Finder<TTfo > finder(tfoCandidate);
@@ -1080,7 +1085,7 @@ namespace SEQAN_NAMESPACE_MAIN
 				for (TTtsIter itD = begin(ttsSet); itD != end(ttsSet); ++itD){
 					TDuplex ttsCandidate = ttsString(*itD);
 #ifdef TRIPLEX_DEBUG
-					::std::cout << "tts candidate: " << ttsCandidate << ::std::endl;
+					::std::cerr << "tts candidate: " << ttsCandidate << ::std::endl;
 #endif
 					// iterate all suitable (>= minLength) diagonals
 					for (int diag = -(length(ttsCandidate)-options.minLength); diag <= length(tfoCandidate)-options.minLength; ++diag){
@@ -1095,8 +1100,8 @@ namespace SEQAN_NAMESPACE_MAIN
 						TDuplex triplex(infix(ttsCandidate, offsetTts, offsetTts+lenS));
 						TTfo tfo(infix(tfoCandidate, offsetTfo, offsetTfo+lenS));
 #ifdef TRIPLEX_DEBUG
-						::std::cout << "tts: " << triplex << ::std::endl;
-						::std::cout << "tfo: " << tfo << ::std::endl;
+						::std::cerr << "tts: " << triplex << ::std::endl;
+						::std::cerr << "tfo: " << tfo << ::std::endl;
 #endif	
 						int m = 0; //matches between the sequences
 						for (int k=0; k<lenS; ++k){
@@ -1107,7 +1112,7 @@ namespace SEQAN_NAMESPACE_MAIN
 							}
 						}
 #ifdef TRIPLEX_DEBUG	
-						::std::cout << "tts: " << triplex <<  " " << (m < minScore?"discarded":"to verify") << ::std::endl;
+						::std::cerr << "tts: " << triplex <<  " " << (m < minScore?"discarded":"to verify") << ::std::endl;
 #endif					
 						// check for minimum requirement of matching positions
 						if (m >= minScore){
@@ -1127,7 +1132,7 @@ namespace SEQAN_NAMESPACE_MAIN
 							// process one segment at a time
 							for (TSegStringIter it = begin(seqString, Standard()); it != end(seqString, Standard()); ++it){
 #ifdef TRIPLEX_DEBUG
-								::std::cout << "pTriplex:" << *it << ::std::endl;
+								::std::cerr << "pTriplex:" << *it << ::std::endl;
 #endif
 								TTts ttsfilter(*it, true, getSequenceNo(*itD), false, '+');
 								bool reduceSet = false; // don't merge overlapping triplexes	
@@ -1184,11 +1189,11 @@ namespace SEQAN_NAMESPACE_MAIN
 								appendValue(matches, match);
 								
 #ifdef TRIPLEX_DEBUG
-								::std::cout << "tts: " << ttsString(*itr) << " length: "<< length(*itr) <<  " position: "<< beginPosition(*itr) << "-" <<endPosition(*itr) << " " << infix(triplex, beginPosition(*itr), endPosition(*itr)) << ::std::endl;
+								::std::cerr << "tts: " << ttsString(*itr) << " length: "<< length(*itr) <<  " position: "<< beginPosition(*itr) << "-" <<endPosition(*itr) << " " << infix(triplex, beginPosition(*itr), endPosition(*itr)) << ::std::endl;
 								TSegment ftfo = infix(host(*itO), tfoStart, tfoEnd);
 								TSegment ftts = infix(host(*itD), ttsStart, ttsEnd);
-								::std::cout << "ttsC: " << tfoCandidate << ::std::endl << "tfoC: "<< tfoCandidate << ::std::endl;
-								::std::cout << "tts: " << ftts << ::std::endl << "tfo: "<< ftfo << ::std::endl;
+								::std::cerr << "ttsC: " << tfoCandidate << ::std::endl << "tfoC: "<< tfoCandidate << ::std::endl;
+								::std::cerr << "tts: " << ftts << ::std::endl << "tfo: "<< ftfo << ::std::endl;
 #endif
 							}
 							
@@ -1282,9 +1287,9 @@ namespace SEQAN_NAMESPACE_MAIN
 					} 
 #ifdef TRIPLEX_DEBUG	
 					else {
-						::std::cout << "Found duplicate " << getSequenceNo(ts) << " " << beginPosition(ts)+position(finder_esa).i2 << ::std::endl;
+						::std::cerr << "Found duplicate " << getSequenceNo(ts) << " " << beginPosition(ts)+position(finder_esa).i2 << ::std::endl;
 					}
-					::std::cout << ttsString(*it) << " " << position(finder_esa) << " " << getSequenceNo(ts) << " " << getMotif(ts) << ":" << beginPosition(ts)+position(finder_esa).i2 << " " << infix(host(ts), beginPosition(ts)+position(finder_esa).i2, beginPosition(ts)+position(finder_esa).i2+length(*it)) << ::std::endl;
+					::std::cerr << ttsString(*it) << " " << position(finder_esa) << " " << getSequenceNo(ts) << " " << getMotif(ts) << ":" << beginPosition(ts)+position(finder_esa).i2 << " " << infix(host(ts), beginPosition(ts)+position(finder_esa).i2, beginPosition(ts)+position(finder_esa).i2+length(*it)) << ::std::endl;
 #endif
 				} else {
 					TKey key(getSequenceNo(ts), endPosition(ts)-position(finder_esa).i2-length(*it));
@@ -1294,9 +1299,9 @@ namespace SEQAN_NAMESPACE_MAIN
 					} 
 #ifdef TRIPLEX_DEBUG	
 					else {
-						::std::cout << "Found duplicate " << getSequenceNo(ts) << " " << beginPosition(ts)+position(finder_esa).i2 << ::std::endl;
+						::std::cerr << "Found duplicate " << getSequenceNo(ts) << " " << beginPosition(ts)+position(finder_esa).i2 << ::std::endl;
 					}
-					::std::cout << ttsString(*it) << " " << position(finder_esa) << " " << getSequenceNo(ts) << " " << getMotif(ts) << ":" << endPosition(ts)-position(finder_esa).i2 << " " << infix(host(ts), endPosition(ts)-position(finder_esa).i2-length(*it), endPosition(ts)-position(finder_esa).i2) << ::std::endl;
+					::std::cerr << ttsString(*it) << " " << position(finder_esa) << " " << getSequenceNo(ts) << " " << getMotif(ts) << ":" << endPosition(ts)-position(finder_esa).i2 << " " << infix(host(ts), endPosition(ts)-position(finder_esa).i2-length(*it), endPosition(ts)-position(finder_esa).i2) << ::std::endl;
 #endif
 				}
 				if (options._debugLevel > 2 && occ>0 && occ % 10000 == 0)
@@ -1449,7 +1454,7 @@ namespace SEQAN_NAMESPACE_MAIN
 			TMap lociMap;
 			int occ = 0;
 #ifdef TRIPLEX_DEBUG	
-				::std::cout << "Detecting duplicates of " << outputString(*it) << "\t" << ttsString(*it) << ":";
+				::std::cerr << "Detecting duplicates of " << outputString(*it) << "\t" << ttsString(*it) << ":";
 #endif			
 			Finder<TIndex> finder_esa(index_esa);
 			TKey identity(getSequenceNo(*it), beginPosition(*it) );
@@ -1470,9 +1475,9 @@ namespace SEQAN_NAMESPACE_MAIN
 					} 
 #ifdef TRIPLEX_DEBUG	
 					else {
-						::std::cout << "Found duplicate " << getSequenceNo(ts) << " " << beginPosition(ts)+position(finder_esa).i2 << ::std::endl;
+						::std::cerr << "Found duplicate " << getSequenceNo(ts) << " " << beginPosition(ts)+position(finder_esa).i2 << ::std::endl;
 					}
-					::std::cout << ttsString(*it) << " " << position(finder_esa) << " " << getSequenceNo(ts) << " " << getMotif(ts) << ":" << beginPosition(ts)+position(finder_esa).i2 << " " << infix(host(ts), beginPosition(ts)+position(finder_esa).i2, beginPosition(ts)+position(finder_esa).i2+length(*it)) << ::std::endl;
+					::std::cerr << ttsString(*it) << " " << position(finder_esa) << " " << getSequenceNo(ts) << " " << getMotif(ts) << ":" << beginPosition(ts)+position(finder_esa).i2 << " " << infix(host(ts), beginPosition(ts)+position(finder_esa).i2, beginPosition(ts)+position(finder_esa).i2+length(*it)) << ::std::endl;
 #endif
 				} else { 
 					TKey key(getSequenceNo(ts), endPosition(ts)-position(finder_esa).i2-length(*it));
@@ -1482,9 +1487,9 @@ namespace SEQAN_NAMESPACE_MAIN
 					} 
 #ifdef TRIPLEX_DEBUG
 					else {
-						::std::cout << "Found duplicate " << getSequenceNo(ts) << " " << beginPosition(ts)+position(finder_esa).i2 << ::std::endl;
+						::std::cerr << "Found duplicate " << getSequenceNo(ts) << " " << beginPosition(ts)+position(finder_esa).i2 << ::std::endl;
 					}
-					::std::cout << ttsString(*it) << " " << position(finder_esa) << " " << getSequenceNo(ts) << " " << getMotif(ts) << ":" << endPosition(ts)-position(finder_esa).i2-length(*it) << " " << infix(host(ts), endPosition(ts)-position(finder_esa).i2-length(*it), endPosition(ts)-position(finder_esa).i2)  << ::std::endl;
+					::std::cerr << ttsString(*it) << " " << position(finder_esa) << " " << getSequenceNo(ts) << " " << getMotif(ts) << ":" << endPosition(ts)-position(finder_esa).i2-length(*it) << " " << infix(host(ts), endPosition(ts)-position(finder_esa).i2-length(*it), endPosition(ts)-position(finder_esa).i2)  << ::std::endl;
 #endif					
 				}				
 				// stop iterating if duplicatesCutoff is set and already exceeded
@@ -1501,7 +1506,7 @@ namespace SEQAN_NAMESPACE_MAIN
 				}
 			}
 #ifdef TRIPLEX_DEBUG
-				::std::cout << " duplicates found for " << getSequenceNo(*it) << " : " << occ << ::std::endl;
+				::std::cerr << " duplicates found for " << getSequenceNo(*it) << " : " << occ << ::std::endl;
 #endif
 			
 		}
@@ -1544,28 +1549,110 @@ namespace SEQAN_NAMESPACE_MAIN
 	}
 	
 	//////////////////////////////////////////////////////////////////////////////
+	// Increase left handsite iterator 
+	template< typename TNum, typename TArray, typename TPos>
+	inline void _increaseLeft(TArray	&encoded_seq,
+							  TPos	&pos,
+							  TNum	&filter_chars,
+							  TNum	&interrupt_chars,
+							  TNum	&nonfilter_char
+							  ){
+		// increase leftmost pointer
+		filter_chars -= encoded_seq[0][pos];
+		interrupt_chars -= encoded_seq[1][pos];
+		nonfilter_char -= encoded_seq[2][pos];
+		++pos;
+	}
+	
+	//////////////////////////////////////////////////////////////////////////////
+	// Increase right handsite iterator
+	template< typename TNum, typename TArray, typename TPos>
+	inline void _increaseRight(TArray	&encoded_seq,
+							   TPos &pos,
+							   TNum	&filter_chars,
+							   TNum	&interrupt_chars,
+							   TNum	&nonfilter_char
+							   ){
+		// increase right pointer
+		filter_chars += encoded_seq[0][pos];
+		interrupt_chars += encoded_seq[1][pos];
+		nonfilter_char += encoded_seq[2][pos];
+		++pos;
+	}
+	
+	//////////////////////////////////////////////////////////////////////////////
+	// Return whether pposition corresponds to interrupting character
+	template<typename TArray, typename TPos>
+	inline bool _isInterruptingChar(TArray	&encoded_seq,
+									TPos	pos
+									){
+		return encoded_seq[1][pos];
+	}
+	
+	//////////////////////////////////////////////////////////////////////////////
+	// Encodes a sequence in a 2D array of dim [3][length(sequence)] where
+	// where the first row contains a one at positions containing the filter char
+	// the second row contains a 1 where a interrupt char 
+	template <
+	typename TString,
+	typename TChar
+	>
+	inline bool** _encodeSeq(TString		&sequence,
+							  TChar const	&filter_char,
+							  TChar const	&interrupting_char
+							  ){
+		typedef typename Iterator<TString>::Type	TIter;
+		
+		int rows = 3;
+		int cols = length(sequence);
+
+		// declaration
+		bool** encoded_seq;
+		
+		// allocation
+		encoded_seq = new bool*[rows];
+		for(int i = 0; i < rows; i++){
+			encoded_seq[i] = new bool[cols];
+		}
+		
+		// initialization
+		for(int i = 0; i < rows; ++i){
+			for(int j = 0; j < cols; ++j){
+				encoded_seq[i][j] = false;
+			}
+		}
+		
+		int counter = 0;
+		for (TIter it = begin(sequence); it != end(sequence); ++it, ++counter){
+			if (*it == filter_char)
+				encoded_seq[0][counter] = true;
+			else if (*it == interrupting_char){
+				encoded_seq[1][counter] = true;
+				encoded_seq[2][counter] = true;
+			} else
+				encoded_seq[2][counter] = true;
+		}
+		return encoded_seq;
+	}
+	
+	
+	//////////////////////////////////////////////////////////////////////////////
 	// Filter a string with the requested guanine rate AND the error rate
 	template <typename TMotifSet, typename TTag>
 	inline int _filterWithGuanineAndErrorRate(TMotifSet							&patternString,
 											  typename Value<TMotifSet>::Type	&pattern,
 											  char								filter_char,
-											  char const						interrupting_char,
-											  bool const						reduceSet,
+											  char								interrupting_char,
+											  bool								reduceSet,
 											  Options const						&options,
 											  TTag const & 
 											  ){
 		typedef typename Value<TMotifSet>::Type			TPattern;
 		typedef typename Host<TPattern>::Type			TString;
 		typedef typename Iterator<TString>::Type		TStringIter;
-		typedef std::vector<QueueBlock>					TQueueBlocks;	// sequence of queue blocks
 		typedef ModifiedString<TString, ModView< FunctorRYFilter > >  	TFilter;
 		typedef typename Iterator<TFilter>::Type		TFilterIter;
-		
-		// mask all patterns with the filter pattern
-		// all patterns are already in the TTS conform form
-		TQueueBlocks queue;
-		unsigned queue_size_restricted = 0;
-		
+		typedef short									TEncode;
 		
 		TMotifSet tmp_pattern_set;
 		TMotifSet* ptr_pattern_set;
@@ -1574,7 +1661,8 @@ namespace SEQAN_NAMESPACE_MAIN
 		} else {
 			ptr_pattern_set = &patternString;
 		}
-		
+
+		bool** encoded_seq;
 		
 		// if no guanine rate restriction, then collapse filter and tolerated chars
 		if (options.guanineRate <= 0.0){
@@ -1583,199 +1671,143 @@ namespace SEQAN_NAMESPACE_MAIN
 				filter_char='R';
 			else
 				filter_char='Y';
-			queue_size_restricted = _makeBlockQueue(filter_seq,queue,options);
+			encoded_seq = _encodeSeq(filter_seq, filter_char, interrupting_char);
 		} else {
-			queue_size_restricted = _makeBlockQueue(pattern,queue,options);
+			encoded_seq = _encodeSeq(pattern, filter_char, interrupting_char);
 		}
-
-#ifdef TRIPLEX_DEBUG		
-		::std::cout << pattern << ::std::endl;
-		_printQueue(queue);
+	
+#ifdef TRIPLEX_DEBUG
+		::std::cerr << pattern << ::std::endl;
+		for (int r=0; r<3;++r){
+			for (unsigned i=0; i<length(pattern) ; ++i){
+				::std::cerr << encoded_seq[r][i] ;
+			}
+			::std::cerr << ::std::endl;
+		}
 #endif		
-		// calculate constraints
-		unsigned max_error = static_cast<unsigned>(floor(length(pattern)*options.errorRate));
+		
+		double max_error = floor(length(pattern)*options.errorRate);
 		if (options.maximalError >= 0)
-			max_error = min(max_error, static_cast<unsigned>(options.maximalError));
-		unsigned max_tolerated = static_cast<unsigned>(floor(length(pattern)*(1.0-options.guanineRate)));
-		unsigned min_g = static_cast<unsigned>(ceil(options.minLength*(options.guanineRate)));
+			max_error = min(max_error, double(options.maximalError));
+		double max_tolerated = (floor(length(pattern)*(1.0-options.guanineRate)));
 		
-		// verify any matches
-		unsigned int sum_filter = 0; 	// sums all guanines
-		unsigned int sum_interrupt = 0;	// sums all interrupting chars
-		unsigned int sum_interrupt_save = 0;	// saves interrupting chars when match_end has been (re-)set
-		unsigned int sum_tolerated = 0;	// sums all tolerated chars
-		unsigned int match_start = 0;	// start of a match
-		unsigned int match_end = 0;		// end of a match
 		
-		unsigned int preceding_tolerated = 0;	// match preceding tolerated chars
-		unsigned int succeeding_tolerated = 0;	// match succeeding tolerated chars
-		unsigned int tmp_start = 0;		// tmp match start
-		unsigned int tmp_end = 0;		// tmp match end
-		unsigned int tmp_sum_filter = 0; // tmp sums all guanines
-		bool foundMatch = false;	// indicates that a match was found
-		unsigned int coveredPosition = 0;
+		double cnt_filter_chars = 0.0;
+		double cnt_interrupt_chars = 0.0;
+		double cnt_nonfilter_chars = 0.0;
+		bool is_match = false;
+		int max_length = length(pattern);
+		if (options.maxLength >= options.minLength)
+			max_length = options.maxLength;
 		
-		unsigned int itCurrent;
-		for (unsigned int itProcess=0; itProcess < queue_size_restricted; ++itProcess){
-			foundMatch = false;
-			tmp_sum_filter = 0;
-			sum_filter = 0;
-			sum_interrupt = 0;
-			sum_interrupt_save = 0;
-			sum_tolerated = 0;
-			succeeding_tolerated = 0;
-			
-			// search next guanine tract; trace preceeding tolerated chars
-			while(itProcess < queue_size_restricted && queue[itProcess].blockClass != filter_char){
-				if (queue[itProcess].blockClass == interrupting_char)
-					preceding_tolerated = 0;
-				else
-					preceding_tolerated = queue[itProcess].blockSize;
-				tmp_start += queue[itProcess].blockSize;
-				++itProcess;
-			}
-			// got a guanine
-			if (itProcess < queue.size()){
-				match_start = tmp_start;
-//				if (options.guanineRate>0.0 && options.relaxGuanineRate)
-//					match_start -= -preceding_tolerated;
-
-				tmp_end = tmp_start;
-				tmp_start += queue[itProcess].blockSize;
+		double tmp_error = 0.0;
+		unsigned tmp_start = 0;
+		unsigned tmp_end = 0;
+		unsigned covered_end= 0;
+		
+		unsigned itLeft = 0;
+		unsigned itRight = 0;
+		while (itLeft+options.minLength <= length(pattern)){
+			// obey minimum length 
+			while (itRight-itLeft < options.minLength && itRight < length(pattern) ){
+				while (itRight-itLeft < options.minLength && itRight < length(pattern) ){
+					_increaseRight(encoded_seq, itRight, cnt_filter_chars, cnt_interrupt_chars, cnt_nonfilter_chars);
+				}
+				
+				// obey maximum error
+				while (cnt_interrupt_chars > max_error){
+					_increaseLeft(encoded_seq, itLeft, cnt_filter_chars, cnt_interrupt_chars, cnt_nonfilter_chars);
+				}
+				// obey maximum filterchars 
+				while (cnt_nonfilter_chars > max_tolerated){
+					_increaseLeft(encoded_seq, itLeft, cnt_filter_chars, cnt_interrupt_chars, cnt_nonfilter_chars);
+				}
+				// hit cannot start with interrupting char
+				while (itLeft < length(pattern) && _isInterruptingChar(encoded_seq, itLeft))
+					_increaseLeft(encoded_seq, itLeft, cnt_filter_chars, cnt_interrupt_chars, cnt_nonfilter_chars);
+				
+				if (itRight < itLeft){
+					itRight = itLeft;
+					cnt_filter_chars = 0.0;
+					cnt_interrupt_chars = 0.0;
+					cnt_nonfilter_chars = 0.0;	
+				}
 			}
 			
-			for (itCurrent = itProcess; itCurrent != queue.size(); ++itCurrent){
-				tmp_end += queue[itCurrent].blockSize;
-				// handle interruption
-				if (queue[itCurrent].blockClass == interrupting_char){
-					sum_interrupt += queue[itCurrent].blockSize;
-					// shift left pointer
-					if (sum_interrupt > max_error){
-						if (foundMatch){
-							_addMatch(*ptr_pattern_set, pattern,match_start, preceding_tolerated, match_end, succeeding_tolerated, sum_filter, sum_interrupt_save, interrupting_char, options, TTag());
-							foundMatch = false;
-						}
-						break;
+			// cannot fulfil minimum length constraint
+			if (itRight-itLeft < options.minLength){
+				break;
+				
+			} else {
+				is_match = false;
+				// got a minimum length segment that does not violate maximum constraints
+				// extend to the left as far as possible
+				while (cnt_interrupt_chars <= max_error && cnt_nonfilter_chars <= max_tolerated && itRight-itLeft <= max_length){
+					if (!_isInterruptingChar(encoded_seq, itRight-1) && cnt_interrupt_chars/(itRight-itLeft) <= options.errorRate && cnt_filter_chars/(itRight-itLeft) >= options.guanineRate){
+						is_match = true;
+						tmp_start = itLeft;
+						tmp_end = itRight;
+						tmp_error = cnt_interrupt_chars;
 					}
-					
-				// handle guanine
-				} else if (queue[itCurrent].blockClass == filter_char){
-					tmp_sum_filter += queue[itCurrent].blockSize;
-					// check if we have a match
-					if (tmp_sum_filter >= min_g){
-						unsigned tmp_succeeding_tolerated = 0;
-						if (itCurrent < queue.size()-1 && queue[itCurrent+1].blockClass != interrupting_char)
-							tmp_succeeding_tolerated = queue[itCurrent+1].blockSize;
-
-						unsigned flanking_tolerated = preceding_tolerated+tmp_succeeding_tolerated;
-						
-						float total_sum = tmp_sum_filter+sum_interrupt+sum_tolerated;
-						if (options.guanineRate>0.0 && options.relaxGuanineRate){
-							total_sum += max(0.0,min(double(flanking_tolerated), tmp_sum_filter/options.guanineRate - total_sum));
-							// not additional flanking positions tolerated by guanine rate
-							flanking_tolerated = 0;
-						}
-
-						// a match can be found on two ways
-						// first the minimum length constraint is fulfilled and the guanine rate as well as the error rate are obeyed
-						// second the minimum length constraint is violated, then adding tolerated characters from the border may be sufficient
-						// for any accounts the covered sequence should exceed what has been covered already
-						if ((coveredPosition < tmp_end+succeeding_tolerated) && ((total_sum >= options.minLength && double(tmp_sum_filter)/total_sum >= options.guanineRate && double(sum_interrupt)/total_sum <= options.errorRate ) || 
-																				 (total_sum < options.minLength && options.minLength-(total_sum) <= flanking_tolerated  && double(tmp_sum_filter)/total_sum >= options.guanineRate && double(sum_interrupt)/(total_sum+flanking_tolerated) <= options.errorRate))){
-#ifdef TRIPLEX_DEBUG		
-							::std::cout << "Condition 1:" << (total_sum >= options.minLength && double(tmp_sum_filter)/total_sum >= options.guanineRate && double(sum_interrupt)/total_sum <= options.errorRate ) << ::std::endl;
-							::std::cout << "Condition 2:" << (total_sum < options.minLength && options.minLength-(total_sum) <= flanking_tolerated  && double(tmp_sum_filter)/total_sum >= options.guanineRate && double(sum_interrupt)/(total_sum+flanking_tolerated) <= options.errorRate) << ::std::endl;
-#endif		
-							foundMatch = true;
-							succeeding_tolerated = tmp_succeeding_tolerated;
-							match_end = min(tmp_end,length(pattern));
-							sum_interrupt_save = sum_interrupt;
-							sum_filter = tmp_sum_filter;
-							coveredPosition = tmp_end+succeeding_tolerated;
-						}
-					}
-					
-				// there is only so much tolerance...
-				} else {
-					sum_tolerated += queue[itCurrent].blockSize;
-					if (sum_tolerated > max_tolerated){
-						if (foundMatch){
-							_addMatch(*ptr_pattern_set, pattern, match_start, preceding_tolerated, match_end, succeeding_tolerated, sum_filter, sum_interrupt_save, interrupting_char, options,  TTag());
-							foundMatch = false;
-						}
+					if (itRight < length(pattern)){
+						_increaseRight(encoded_seq, itRight, cnt_filter_chars, cnt_interrupt_chars, cnt_nonfilter_chars);
+					} else {
 						break;
 					}
 				}
-			}
-			// add longest match found
-			if (foundMatch){
-				_addMatch(*ptr_pattern_set, pattern, match_start, preceding_tolerated, match_end, succeeding_tolerated, sum_filter, sum_interrupt_save, interrupting_char, options, TTag());
-				if (match_end == length(pattern))
-					break;
+				if (is_match && tmp_end > covered_end){
+#ifdef TRIPLEX_DEBUG		
+					::std::cerr << "add match:" << infix(pattern,tmp_start,tmp_end) << ::std::endl;
+					double tmp_cnt_filter_chars = 0.0;
+					double tmp_cnt_interrupt_chars = 0.0;
+					double tmp_cnt_nonfilter_char = 0.0;
+					unsigned it=tmp_start;
+					while(it<tmp_end){
+						_increaseRight(encoded_seq, it, tmp_cnt_filter_chars, tmp_cnt_interrupt_chars, tmp_cnt_nonfilter_char);
+					}
+					::std::cerr << "len : " << (tmp_end-tmp_start) << ::std::endl;
+					::std::cerr << "err : " << (tmp_cnt_interrupt_chars/(tmp_end-tmp_start)) << ::std::endl;
+					::std::cerr << "gua : " << (tmp_cnt_nonfilter_char/(tmp_end-tmp_start)) << ::std::endl;
+#endif	
+					_addMatch(*ptr_pattern_set, pattern, tmp_start, tmp_end, tmp_error, TTag());
+					covered_end = tmp_end;
+					// leave loop if there cannot be a subsequent hit
+					if (tmp_end >= length(pattern))
+						break;
+				}
+				is_match = false;
+				// increase leftmost pointer & skip errors
+				++itLeft;
+				while (itLeft < length(pattern) && _isInterruptingChar(encoded_seq, itLeft))
+					++itLeft;
+				
+				itRight = itLeft;
+				cnt_filter_chars = 0.0;
+				cnt_interrupt_chars = 0.0;
+				cnt_nonfilter_chars = 0.0;
+				while (itRight < tmp_end){
+					_increaseRight(encoded_seq, itRight, cnt_filter_chars, cnt_interrupt_chars, cnt_nonfilter_chars);
+				}
 			}
 		}
-				
+		
+		for (int r=0; r<3;++r)
+			delete [] encoded_seq[r];
+		delete [] encoded_seq;
+		
 		// reduce motif set for triplex search
 		if (reduceSet){
 #ifdef TRIPLEX_DEBUG	
-			::std::cout << "# Elements before merging:" << length(patternString) << ::std::endl;
+			::std::cerr << "# Elements before merging:" << length(tmp_pattern_set) << ::std::endl;
 #endif			
 			_reduceMotifSet(patternString, tmp_pattern_set);
 		} 
 #ifdef TRIPLEX_DEBUG
-		::std::cout << "# Elements final patterns:" << length(patternString) << ::std::endl;
+		::std::cerr << "# Elements final patterns:" << length(patternString) << ::std::endl;
 #endif			
 		return 0;
 	}
 	
-	//////////////////////////////////////////////////////////////////////////////
-	// Add new matches to the result set subject to the guanine ratio constraint
-	template <typename TMotifSet, typename TTag>
-	inline void _addMatch(TMotifSet							&patternString,
-						  typename Value<TMotifSet>::Type	&pattern,
-						  unsigned							match_start,
-						  unsigned							preceding_tolerated,
-						  unsigned							match_end,
-						  unsigned							succeeding_tolerated,
-						  unsigned							guanines,
-						  unsigned							errors,
-						  char								interrupting_char,
-						  Options const						&options,
-						  TTag const & 
-						  ){
-#ifdef TRIPLEX_DEBUG		
-		::std::cout << "add match:" << infix(pattern,match_start,match_end) << " (core " << match_start << "-" << match_end << ")" << ::std::endl;
-#endif		
-		if (options.guanineRate==0.0 || options.relaxGuanineRate || (preceding_tolerated==0 && succeeding_tolerated==0)){
-			_addMatch(patternString, pattern, match_start-preceding_tolerated, match_end+succeeding_tolerated, errors, TTag());
-#ifdef TRIPLEX_DEBUG		
-			int sl = (match_end+succeeding_tolerated)-(match_start-preceding_tolerated);
-			::std::cout <<  " start:" << (match_start-preceding_tolerated) << " length:" << sl << " errors:" << errors << " error-rate:" << double(errors)/sl << " guanines:" << guanines << " guanine-rate:" << double(guanines)/sl <<  ::std::endl;
-			::std::cout <<  infix(pattern, match_start-preceding_tolerated, match_end+succeeding_tolerated) << " #patterns:" << length(patternString) << ::std::endl;
-#endif
-		} else {
-			unsigned max_positions_available = static_cast<unsigned>(guanines/options.guanineRate - (match_end-match_start));
-			unsigned offset_l = min(preceding_tolerated, max_positions_available);
-			unsigned offset_r = min(succeeding_tolerated, max_positions_available-offset_l);
-			unsigned shifts = min(max_positions_available-offset_r, succeeding_tolerated-offset_r);
-			for (unsigned i=0; i <= shifts; ++i){
-				// don't report a match if it has a mismatch at either end
-				if (value(pattern, match_start-offset_l+i)==interrupting_char || value(pattern, match_end-1+offset_r+i)==interrupting_char){
-#ifdef TRIPLEX_DEBUG		
-					::std::cout << "flanking error: at begin (" << value(pattern, match_start-offset_l+i) << ") or end (" << value(pattern, match_end-1+offset_r+i) << ")" << ::std::endl;
-#endif		
-					continue;
-				}
-				_addMatch(patternString, pattern, match_start-offset_l+i, match_end+offset_r+i, errors, TTag());								
-#ifdef TRIPLEX_DEBUG		
-				int sl = (match_end+offset_r+i)-(match_start-offset_l+i);
-				::std::cout <<  " start:" << (match_start-offset_l+i) << " length:" << sl << " errors:" << errors << " error-rate:" << double(errors)/sl << " guanines:" << guanines << " guanine-rate:" << double(guanines)/sl <<  ::std::endl;
-				::std::cout <<  infix(pattern, match_start-offset_l+i, match_end+offset_r+i) << " #patterns:" << length(patternString) << ::std::endl;
-#endif
-			}
-		}
-
-	}
 	
 	//////////////////////////////////////////////////////////////////////////////
 	// Add a new TFO match to the result set
@@ -2020,8 +2052,8 @@ namespace SEQAN_NAMESPACE_MAIN
 		
 #ifdef TRIPLEX_DEBUG
 		if (options._debugLevel > 2 ){
-			::std::cout << "Parser: vertices=" << numVertices(parser) << " edges=" << numEdges(parser) << ".\n";
-			write(::std::cout, parser, DotDrawing());
+			::std::cerr << "Parser: vertices=" << numVertices(parser) << " edges=" << numEdges(parser) << ::std::endl;
+//			write(::std::cerr, parser, DotDrawing());
 		}
 #endif
 		
@@ -2075,7 +2107,7 @@ namespace SEQAN_NAMESPACE_MAIN
 				THost tfo = infix(ttsString(getSequenceByNo(hit.getNdlSeqNo(),needle(pattern))), hit.getNdlPos(), hit.getNdlPos() + hit.getHitLength());
 				THost triplex(infix(ttsString(value(ttsSet,hit.getHstId())), hit.getHstkPos(), hit.getHstkPos()+hit.getHitLength()));
 #ifdef TRIPLEX_DEBUG
-				::std::cout << "transform: " << triplex << :: std::endl;
+				::std::cerr << "transform: " << triplex << :: std::endl;
 #endif
 				THostIter itTTS=begin(triplex);
 				for (THostIter itTFO=begin(tfo); itTFO!=end(tfo); ++itTFO,++itTTS){
@@ -2084,7 +2116,7 @@ namespace SEQAN_NAMESPACE_MAIN
 					}	
 				}
 #ifdef TRIPLEX_DEBUG
-				::std::cout << "to       : " << triplex << :: std::endl;
+				::std::cerr << "to       : " << triplex << :: std::endl;
 #endif
 				
 				// run through TTS parser
@@ -2103,7 +2135,7 @@ namespace SEQAN_NAMESPACE_MAIN
 				// process one segment at a time
 				for (TSegStringIter it = begin(seqString, Standard()); it != end(seqString, Standard()); ++it){
 #ifdef TRIPLEX_DEBUG
-					::std::cout << "pTriplex:" << *it << ::std::endl;
+					::std::cerr << "pTriplex:" << *it << ::std::endl;
 #endif
 					TString ttsfilter(*it, true, hit.getHstId(), false, '+');
 					bool reduceSet = false; // don't merge overlapping triplexes	
@@ -2155,10 +2187,10 @@ namespace SEQAN_NAMESPACE_MAIN
 					appendValue(matches, match);
 					
 #ifdef TRIPLEX_DEBUG
- 					::std::cout << "tts: " << ttsString(*itr) << " length: "<< length(*itr) <<  " position: "<< beginPosition(*itr) << "-" <<endPosition(*itr) << " " << infix(triplex, beginPosition(*itr), endPosition(*itr)) << ::std::endl;
+ 					::std::cerr << "tts: " << ttsString(*itr) << " length: "<< length(*itr) <<  " position: "<< beginPosition(*itr) << "-" <<endPosition(*itr) << " " << infix(triplex, beginPosition(*itr), endPosition(*itr)) << ::std::endl;
 					THost ftfo = infix(ttsString(getSequenceByNo(hit.getNdlSeqNo(),needle(pattern))), tfoStart, tfoEnd);
 					THost ftts = infix(ttsString(value(ttsSet,hit.getHstId())), ttsStart, ttsEnd);
-					::std::cout << "tts: " << ftts << ::std::endl << "tfo: "<< ftfo << ::std::endl;
+					::std::cerr << "tts: " << ftts << ::std::endl << "tfo: "<< ftfo << ::std::endl;
 #endif
 					
 				}
@@ -2266,271 +2298,7 @@ namespace SEQAN_NAMESPACE_MAIN
 			::std::cerr << "read " << length(sequences) << " sequences.\n";
 		return (seqCount > 0);
 	}
-	
-	//////////////////////////////////////////////////////////////////////////////
-	// Applies maximum length constraint to watson strand in duplex motif
-	template<
-	typename TMatches,
-	typename TMotifSet,
-	typename TString
-	>
-	inline void _applyMaximumLengthConstraintWatson(TMatches						&matches, 
-													typename Value<TMatches>::Type	&match,														
-													TMotifSet						&tfoSet,
-													TString							&duplex,
-													Options							&options
-	){
-		typedef typename Value<TMatches>::Type				TMatch;
-		typedef typename Value<TMotifSet>::Type				TMotif;
-		typedef typename Iterator<TString, Standard>::Type	TIter;
 		
-		TMotif tts_(duplex, match.dBegin, match.dEnd, match.parallel, match.ttsSeqNo, false, match.strand);		
-		TMotif tfo_(host(value(tfoSet,match.tfoSeqNo)), match.oBegin, match.oEnd, match.parallel, value(tfoSet,match.tfoSeqNo).seqNo, true, match.motif);		
-		TIter itTts = begin(tts_); // current position 
-		TIter itTfo = begin(tfo_);
-		TIter itTtsEnd = end(tts_); // end position 
-		TIter itTtsLeftPos = begin(tts_); // leftmost match seen
-		TIter itTfoLeftPos = begin(tfo_);
-		TIter itTtsRightPos = begin(tts_)+1;// rightmost match seen
-		TIter itTfoRightPos = begin(tfo_)+1;
-		double score = 0.0;
-		TMatch lastsubmatch;
-		while(itTts != itTtsEnd){
-			// move leftmost match pointer to stay in length range
-			while (itTts-itTtsLeftPos >= options.maxLength){
-				// if leftmost position is hit
-				if (*itTtsLeftPos == *itTfoLeftPos){
-					// leftmost entry is match and rightmost entry has not been saved yet but comply to error rate
-					if (lastsubmatch.dEnd != match.dBegin+(itTtsRightPos-begin(tts_)) 
-						and (itTtsRightPos-itTtsLeftPos)>=options.minLength 
-						and score/(itTtsRightPos-itTtsLeftPos) >= 1.0-options.errorRate)
-					{
-						//output new submatch
-						TMatch submatch(match.tfoSeqNo,
-										(match.parallel?match.oBegin+(itTfoLeftPos-begin(tfo_)):match.oEnd-(itTfoRightPos-begin(tfo_))),
-										(match.parallel?match.oBegin+(itTfoRightPos-begin(tfo_)):match.oEnd-(itTfoLeftPos-begin(tfo_))), //end
-										match.ttsSeqNo,
-										match.dBegin+(itTtsLeftPos-begin(tts_)),
-										match.dBegin+(itTtsRightPos-begin(tts_)), //end
-										score,
-										match.parallel,
-										match.motif,
-										match.strand
-										);
-						appendValue(matches, submatch);
-						lastsubmatch = submatch;
-					}
-					--score;
-				}
-				++itTtsLeftPos;
-				++itTfoLeftPos;
-			}
-			// move leftmost pointer over mismatches
-			while (*itTtsLeftPos != *itTfoLeftPos){
-				++itTtsLeftPos;
-				++itTfoLeftPos;
-			}
-			// found match
-			if (*itTts == *itTfo){
-				++score;
-				// point behind hit
-				itTfoRightPos=itTfo;
-				itTtsRightPos=itTts;
-				++itTfoRightPos;
-				++itTtsRightPos;
-			}
-			++itTts;
-			++itTfo;		
-		}
-		// final entry - rightmost match might not have been considered yet
-		if (lastsubmatch.dEnd != match.dBegin+(itTtsRightPos-begin(tts_))) {
-			// don't violate minLength constraint
-			while (itTts-itTtsLeftPos >= options.minLength){
-				// is this position out hit?
-				if (*itTtsLeftPos == *itTfoLeftPos){
-					// comply to minimum length and error rate
-					if ((itTtsRightPos-itTtsLeftPos)>=options.minLength and score/(itTtsRightPos-itTtsLeftPos) >= 1.0-options.errorRate){
-						TMatch submatch(match.tfoSeqNo,
-										(match.parallel?match.oBegin+(itTfoLeftPos-begin(tfo_)):match.oEnd-(itTfoRightPos-begin(tfo_))),
-										(match.parallel?match.oBegin+(itTfoRightPos-begin(tfo_)):match.oEnd-(itTfoLeftPos-begin(tfo_))), //end
-										match.ttsSeqNo,
-										match.dBegin+(itTtsLeftPos-begin(tts_)),
-										match.dBegin+(itTtsRightPos-begin(tts_)), //end
-										score,
-										match.parallel,
-										match.motif,
-										match.strand
-										);
-						appendValue(matches, submatch);
-						break;
-					} else {
-						--score;
-					}
-				}
-				++itTtsLeftPos;
-				++itTfoLeftPos;	
-			}
-		}
-	}
-	
-	//////////////////////////////////////////////////////////////////////////////
-	// Applies maximum length constraint to crick strand in duplex motif
-	template<
-	typename TMatches,
-	typename TMotifSet,
-	typename TString
-	>
-	inline void _applyMaximumLengthConstraintCrick(TMatches							&matches, 
-												   typename Value<TMatches>::Type	&match,
-												   TMotifSet						&tfoSet,
-												   TString							&duplex,
-												   Options							&options
-												   ){
-		typedef typename Value<TMatches>::Type				TMatch;
-		typedef typename Value<TMotifSet>::Type				TMotif;
-		typedef typename Iterator<TString, Standard>::Type	TIter;
-		
-		TMotif tts_(duplex, match.dBegin, match.dEnd, match.parallel, match.ttsSeqNo, false, match.strand);		
-		TMotif tfo_(host(value(tfoSet,match.tfoSeqNo)), match.oBegin, match.oEnd, match.parallel, value(tfoSet,match.tfoSeqNo).seqNo, true, match.motif);		
-		TIter itTts = begin(tts_); // current position 
-		TIter itTfo = begin(tfo_);
-		TIter itTtsEnd = end(tts_); // end position 
-		TIter itTtsLeftPos = begin(tts_); // leftmost match seen
-		TIter itTfoLeftPos = begin(tfo_);
-		TIter itTtsRightPos = begin(tts_)+1;// rightmost match seen
-		TIter itTfoRightPos = begin(tfo_)+1;
-		double score = 0.0;
-		TMatch lastsubmatch;
-		while(itTts != itTtsEnd){
-			// move leftmost match pointer to stay in length range
-			while (itTts-itTtsLeftPos >= options.maxLength){
-				// if leftmost position is hit
-				if (*itTtsLeftPos == *itTfoLeftPos){
-					// leftmost entry is match and rightmost entry has not been saved yet but comply to error rate
-					if (lastsubmatch.dBegin != match.dEnd-(itTtsRightPos-begin(tts_)) 
-						and (itTtsRightPos-itTtsLeftPos)>=options.minLength 
-						and score/(itTtsRightPos-itTtsLeftPos) >= 1.0-options.errorRate)
-					{
-						//output new submatch
-						TMatch submatch(match.tfoSeqNo,
-										(match.parallel?match.oBegin+(itTfoLeftPos-begin(tfo_)):match.oEnd-(itTfoRightPos-begin(tfo_))),
-										(match.parallel?match.oBegin+(itTfoRightPos-begin(tfo_)):match.oEnd-(itTfoLeftPos-begin(tfo_))), //end
-										match.ttsSeqNo,
-										match.dEnd-(itTtsRightPos-begin(tts_)),
-										match.dEnd-(itTtsLeftPos-begin(tts_)), //end
-										score,
-										match.parallel,
-										match.motif,
-										match.strand
-										);
-						appendValue(matches, submatch);
-						lastsubmatch = submatch;
-					}
-					--score;
-				}
-				++itTtsLeftPos;
-				++itTfoLeftPos;
-			}
-			// move leftmost pointer over mismatches
-			while (*itTtsLeftPos != *itTfoLeftPos){
-				++itTtsLeftPos;
-				++itTfoLeftPos;
-			}
-			// found match
-			if (*itTts == *itTfo){
-				++score;
-				// point behind hit
-				itTfoRightPos=itTfo;
-				itTtsRightPos=itTts;
-				++itTfoRightPos;
-				++itTtsRightPos;
-			} 					
-			++itTts;
-			++itTfo;		
-		}
-		// final entry - rightmost match might not have been considered yet
-		if (lastsubmatch.dEnd != match.dBegin+(itTtsRightPos-begin(tts_))) {
-			// don't violate minLength constraint
-			while (itTts-itTtsLeftPos >= options.minLength){
-				// is this position out hit?
-				if (*itTtsLeftPos == *itTfoLeftPos){
-					// comply to minimum length and error rate
-					if ((itTtsRightPos-itTtsLeftPos)>=options.minLength and score/(itTtsRightPos-itTtsLeftPos) >= 1.0-options.errorRate){
-						TMatch submatch(match.tfoSeqNo,
-										(match.parallel?match.oBegin+(itTfoLeftPos-begin(tfo_)):match.oEnd-(itTfoRightPos-begin(tfo_))),
-										(match.parallel?match.oBegin+(itTfoRightPos-begin(tfo_)):match.oEnd-(itTfoLeftPos-begin(tfo_))), //end
-										match.ttsSeqNo,
-										match.dEnd-(itTtsRightPos-begin(tts_)),
-										match.dEnd-(itTtsLeftPos-begin(tts_)), //end
-										score,
-										match.parallel,
-										match.motif,
-										match.strand
-										);
-						appendValue(matches, submatch);
-						break;
-					} else {
-						--score;
-					}
-				}
-				++itTtsLeftPos;
-				++itTfoLeftPos;	
-			}
-		}
-	}
-	
-	//////////////////////////////////////////////////////////////////////////////
-	// Applies maximum length constraint, splitting longer matches into smaller
-	// subsets.
-	template<
-	typename TMatches,
-	typename TMotifSet,
-	typename TString
-	>
-	void _applyMaximumLengthConstraint(TMatches					&matches, 
-									   TMotifSet				&tfoSet,
-									   TString					&duplex,
-									   Options	&options
-									   ){
-		typedef typename Iterator<TMatches, Standard>::Type	MIter;
-		typedef typename Value<TMatches>::Type				TMatch;
-		
-		TMatches newset;
-		MIter it = begin(matches, Standard());
-		while(it != end(matches, Standard())){
-			TMatch match = *it;
-			// constraint not violated
-			if (length(match)<=options.maxLength){
-				appendValue(newset,match);
-				// otherwise split match into subsets
-			} else {
-				if (match.strand == '+'){
-					_applyMaximumLengthConstraintWatson(newset, match, tfoSet, duplex, options);
-				} else {
-					_applyMaximumLengthConstraintCrick(newset, match, tfoSet, duplex, options);
-				}
-
-			}
-			++it;
-		}
-		clear(matches);
-		matches = newset;
-	}
-								
-	
-	//////////////////////////////////////////////////////////////////////////////
-	// Convert sequence to a given motif format
-	template <typename TString, typename TFunctor>
-	bool convertToMotif(TString &source, 
-						StringSet<TString> &targetset
-						){
-		ModifiedString< TString, ModView<TFunctor> > target(source);
-		appendValue(targetset,target);
-		return true;
-	}
-
-	
-	
 	//////////////////////////////////////////////////////////////////////////////
 	// Find triplexes in many duplex sequences (import from Fasta) in parallel
 	// by reading in all duplex sequences and storing the results on memory
@@ -2603,11 +2371,6 @@ namespace SEQAN_NAMESPACE_MAIN
 				// otherwise go for serial processing
 #endif	
 			_detectTriplex(matches, pattern, duplexString, duplexSeqNoWithinFile, options, TGardener());
-			
-			// consider maximum triplex length if requested
-			if (options.applyMaximumLengthConstraint){
-				_applyMaximumLengthConstraint(matches, tfoMotifSet, duplexString, options);
-			}
 			
 			// output all entries
 			printTriplexEntry(matches, duplexId, duplexString, tfoMotifSet, tfoNames, outputfile, options);
@@ -2691,11 +2454,6 @@ namespace SEQAN_NAMESPACE_MAIN
 			// otherwise go for serial processing
 #endif	
 			_detectTriplex(matches, tfoMotifSet, duplexString, duplexSeqNoWithinFile, options, BruteForce());
-			
-			// consider maximum triplex length if requested
-			if (options.applyMaximumLengthConstraint){
-				_applyMaximumLengthConstraint(matches, tfoMotifSet, duplexString, options);
-			}
 			
 			// output all entries
 			printTriplexEntry(matches, duplexId, duplexString, tfoMotifSet, tfoNames, outputfile, options);
@@ -2840,11 +2598,6 @@ namespace SEQAN_NAMESPACE_MAIN
 				
 				_detectTriplex(matches, pattern, duplex, duplexCounter, options, TGardener());
 
-				// consider maximum triplex length if requested
-				if (options.applyMaximumLengthConstraint){
-					_applyMaximumLengthConstraint(matches, tfoSet, duplex, options);
-				}
-				
 				if (length(matches)>0){
 					SEQAN_OMP_PRAGMA(omp critical(printTriplexEntry) )
 					printTriplexEntry(matches, duplexId, duplex, tfoSet, tfoNames, outputfile, options);
@@ -2888,11 +2641,6 @@ namespace SEQAN_NAMESPACE_MAIN
 				
 				_detectTriplex(matches, tfoSet, duplex, duplexCounter, options, BruteForce());
 				
-				// consider maximum triplex length if requested
-				if (options.applyMaximumLengthConstraint){
-					_applyMaximumLengthConstraint(matches, tfoSet, duplex, options);
-				}
-				
 				if (length(matches)>0){
 					SEQAN_OMP_PRAGMA(omp critical(printTriplexEntry) )
 					printTriplexEntry(matches, duplexId, duplex, tfoSet, tfoNames, outputfile, options);
@@ -2906,9 +2654,9 @@ namespace SEQAN_NAMESPACE_MAIN
 	void
 	setupCommandLineParser(CommandLineParser & parser, Options & options)
 	{
-		::std::string rev = "$Revision: 10289 $";
-		addVersionLine(parser, "Version 1.0.3 (16/08/2011) SeqAn Revision: " + rev.substr(11, 4) + "");
-		append(options.version, "Version 1.0.3 (16/08/2011) SeqAn Revision: " + rev.substr(11, 4) + "");
+		::std::string rev = "$Revision: 10318 $";
+		addVersionLine(parser, "Version 1.1.0 (30/08/2011) SeqAn Revision: " + rev.substr(11, 4) + "");
+		append(options.version, "Version 1.1.0 (30/08/2011) SeqAn Revision: " + rev.substr(11, 4) + "");
 		
 		addTitleLine(parser, "**********************************************************************");
 		addTitleLine(parser, "*** Triplexator - Finding triple helices with approximate matching ***");
@@ -2930,16 +2678,13 @@ namespace SEQAN_NAMESPACE_MAIN
 		addHelpLine(parser, "Triplex Target Sites (TTSs) only");
 		addSection(parser, "Main Options:");
 		addOption(parser, CommandLineOption("l",  "lower-length-bound",    "minimum triplex feature length required", OptionType::Int| OptionType::Label, options.minLength));
-//		addOption(parser, CommandLineOption("u",  "upper-length-bound",    "maximum triplex feature length permitted, -1 = unrestricted ", OptionType::Int | OptionType::Label, options.maxLength ));
+		addOption(parser, CommandLineOption("u",  "upper-length-bound",    "maximum triplex feature length permitted, -1 = unrestricted ", OptionType::Int | OptionType::Label, options.maxLength ));
 		addOption(parser, addArgumentText(CommandLineOption("m", "triplex-motifs", 			"Triplex motifs allowed [R,Y,M,P,A] (default all)", OptionType::String), "MOTIF1,MOTIF2,..."));
 		addHelpLine(parser, "R = purine (G and A), Y = pyrimidine (C and T), M = mixed (G and T), P = parallel (Hoogsteen bonds), A = anti-parallel (reverse Hoogsteen bonds)");
 		addOption(parser, CommandLineOption("e",  "error-rate",        "set the maximal error-rate in % tolerated", OptionType::Double | OptionType::Label, (100.0 * options.errorRate)));
 		addOption(parser, CommandLineOption("E",  "maximal-error",     "set the maximal overall error tolerated, disable with -1 ", OptionType::Int | OptionType::Label, options.maximalError));
 		addOption(parser, CommandLineOption("c",  "consecutive-errors",    "maximum number of consecutive errors", OptionType::Int | OptionType::Label, options.maxInterruptions));
 		addOption(parser, CommandLineOption("g",  "percent-guanine",   "set the minimum guanine proportion in % required", OptionType::Double | OptionType::Label, 100.0 * options.guanineRate));
-		addOption(parser, CommandLineOption("G",  "relax-guanine-constraint",   "extend a core hit by adjacent position that abide triplex formation rules but violate the --percent-guanine constaint", OptionType::Boolean));
-		addHelpLine(parser, "This option can be useful when designing TFOs to the locus of interest.");
-		addHelpLine(parser, "Only effective when percent-guanine ratio is set > 0.");
 		addOption(parser, CommandLineOption("dd", "detect-duplicates",    "indiates whether and how duplicates should be detected", OptionType::Int | OptionType::Label, options.detectDuplicates));
 		addHelpLine(parser, "0 = off         do not detect duplicates");
 		addHelpLine(parser, "1 = permissive  detect duplicates in feature space, e.g. AGGGAcGAGGA != AGGGAtGAGGA");	
@@ -2963,8 +2708,9 @@ namespace SEQAN_NAMESPACE_MAIN
 #ifdef BOOST
 		addOption(parser, CommandLineOption("z", "zip",            "compress output with gzip (requires gzip & boost)", OptionType::Boolean));
 #endif
-		addOption(parser, CommandLineOption("dl", "duplicate-locations","Report the location of duplicates.", OptionType::Boolean));
+		addOption(parser, CommandLineOption("dl", "duplicate-locations","Report the location of duplicates", OptionType::Boolean));
 		addHelpLine(parser, "Only works when duplicate cutoff is set to greater than 0.");
+		addOption(parser, addArgumentText(CommandLineOption("ns", "normalized-score","Whether to compute the triplex potenial normalized over the sequences", OptionType::String | OptionType::Label, (options.computeTpot?"on":"off")), "[on|off]"));
 		addOption(parser, addArgumentText(CommandLineOption("o", "output",	"output filename (default standard out)", OptionType::String), "FILE"));
 		addOption(parser, addArgumentText(CommandLineOption("od", "output-directory", 	"directory where all the output will be directed to", OptionType::String), "FILEDIR"));
 		addOption(parser, CommandLineOption("of", "output-format",     "set output format", OptionType::Int | OptionType::Label, options.outputFormat));
@@ -3011,7 +2757,6 @@ namespace SEQAN_NAMESPACE_MAIN
 		getOptionValueLong(parser, "error-rate", options.errorRate);
 		getOptionValueLong(parser, "maximal-error", options.maximalError);
 		getOptionValueLong(parser, "percent-guanine", options.guanineRate);
-		getOptionValueLong(parser, "relax-guanine-constraint", options.relaxGuanineRate);
 		if (isSetLong(parser, "consecutive-errors")){
 			getOptionValueLong(parser, "consecutive-errors", options.maxInterruptions);
 		}
@@ -3023,7 +2768,7 @@ namespace SEQAN_NAMESPACE_MAIN
 		} else if (tmpVal == "on"){
 			options.filterRepeats = true;
 		} else {
-			cerr << "Unknown specification for the option filter repeats." << endl;
+			cerr << "Unknown specification for the option filter repeats." << ::std::endl;
 			stop = true;
 		}
 				
@@ -3032,6 +2777,16 @@ namespace SEQAN_NAMESPACE_MAIN
 		}
 		if (isSetLong(parser, "maximum-repeat-period")){
 			getOptionValueLong(parser, "maximum-repeat-period", options.maxRepeatPeriod);
+		}
+		
+		getOptionValueLong(parser, "normalized-score", tmpVal);
+		if (tmpVal == "off"){
+			options.computeTpot = false;
+		} else if (tmpVal == "on"){
+			options.computeTpot = true;
+		} else {
+			cerr << "Unknown specification for the option normalized-score." << ::std::endl;
+			stop = true;
 		}
 		
 		getOptionValueLong(parser, "output", options.output);
@@ -3049,12 +2804,12 @@ namespace SEQAN_NAMESPACE_MAIN
 		if (isSetLong(parser, "lower-length-bound")){
 			getOptionValueLong(parser, "lower-length-bound", options.minLength);
 		}
-//		if (isSetLong(parser, "upper-length-bound")){
-//			getOptionValueLong(parser, "upper-length-bound", options.maxLength);
-//		}
-//		if(options.maxLength >= options.minLength){
-//			options.applyMaximumLengthConstraint = true;
-//		}
+		if (isSetLong(parser, "upper-length-bound")){
+			getOptionValueLong(parser, "upper-length-bound", options.maxLength);
+		}
+		if(options.maxLength >= options.minLength){
+			options.applyMaximumLengthConstraint = true;
+		}
 		
 #if SEQAN_ENABLE_PARALLELISM	
 		getOptionValueLong(parser, "processors", options.processors);
@@ -3079,13 +2834,6 @@ namespace SEQAN_NAMESPACE_MAIN
 		if (isSetLong(parser, "verbose")) options._debugLevel = max(options._debugLevel, 1);
 		if (isSetLong(parser, "vverbose")) options._debugLevel = max(options._debugLevel, 3);
 		if (isSetLong(parser, "pretty-output")) options.prettyString = true;	
-//		getOptionValueLong(parser, "forward-strand", options.forward);
-//		getOptionValueLong(parser, "reverse-strand", options.reverse);		
-//		if (!options.forward && !options.reverse)  // enable both per default
-//		{
-//			options.forward = true;
-//			options.reverse = true;
-//		}
 
 		getOptionValueLong(parser, "single-strand-file", tmpVal);
 		if (tmpVal.length()>0){
@@ -3137,7 +2885,7 @@ namespace SEQAN_NAMESPACE_MAIN
 		} else if (tmpVal == "on"){
 			options.sameSequenceDuplicates = true;
 		} else {
-			cerr << "Unknown specification for the option same-sequence-duplicates." << endl;
+			::std::cerr << "Unknown specification for the option same-sequence-duplicates." << ::std::endl;
 			stop = true;
 		}
 		
@@ -3192,30 +2940,30 @@ namespace SEQAN_NAMESPACE_MAIN
 		//////////////////////////////////////////////////////////////////////////////
 		// Check options
 		if (options.runmode == 0){
-			cerr << "At least one type of input files has to be supplied." << endl << "Run 'triplexator --help' for more information." << endl;
+			::std::cerr << "At least one type of input files has to be supplied." << endl << "Run 'triplexator --help' for more information." << ::std::endl;
 			options.showHelp = true;
 			return 0;
 		}
 		if ((options.errorRate > 20 || options.errorRate < 0) && (stop = true))
-			cerr << "Error-rate must be a value between 0 and 20" << endl;
+			::std::cerr << "Error-rate must be a value between 0 and 20" << ::std::endl;
 		if ((options.guanineRate < 0 || options.guanineRate > 100) && (stop = true))
-			cerr << "Guanine proportion in the triplex target site must be a value between 0 and 100" << endl;
+			::std::cerr << "Guanine proportion in the triplex target site must be a value between 0 and 100" << ::std::endl;
 		if ((options.minLength < 10) && (stop = true))
-			cerr << "Minimum triplex length should be greater or equal than 10. " << options.minLength << endl;
+			::std::cerr << "Minimum triplex length should be greater or equal than 10. " << options.minLength << ::std::endl;
 		if ((options.maxLength > 1000) && (stop = true))
-			cerr << "Maximum triplex length needs to be smaller or equal than 1000. " << options.maxLength << endl;
+			::std::cerr << "Maximum triplex length needs to be smaller or equal than 1000. " << options.maxLength << ::std::endl;
 		if ((options.maxInterruptions > 3) && (stop = true))
-			cerr << "Maximum consecutive interruptions needs to be smaller or equal than 3." << options.maxInterruptions << endl;
+			::std::cerr << "Maximum consecutive interruptions needs to be smaller or equal than 3." << options.maxInterruptions << ::std::endl;
 		if ((options.outputFormat > 2) && (stop = true))
-			cerr << "Invalid output format option." << endl;
+			::std::cerr << "Invalid output format option." << ::std::endl;
 		if (! (options.runtimeMode==RUN_SERIAL || options.runtimeMode==RUN_PARALLEL_DUPLEX || options.runtimeMode==RUN_PARALLEL_TRIPLEX || options.runtimeMode==RUN_PARALLEL_STRANDS) && (stop = true))
-			cerr << "Runtime mode not known" << endl;
+			::std::cerr << "Runtime mode not known" << ::std::endl;
 		if (options.duplicatesCutoff >= 0 && options.detectDuplicates == DETECT_DUPLICATES_OFF && (stop = true))
-			cerr << "Duplicate filtering with specified cutoff requires duplicate detection mode to be enabled" << endl;
+			::std::cerr << "Duplicate filtering with specified cutoff requires duplicate detection mode to be enabled" << ::std::endl;
 		if (! (options.filterMode==BRUTE_FORCE || options.filterMode==FILTERING_GRAMS) && (stop = true))
-			cerr << "Filtering mode not known" << endl;
+			::std::cerr << "Filtering mode not known" << ::std::endl;
 		if (options.qgramThreshold <= 0 && (stop = true))
-			cerr << "qgram theshhold needs to be positive, otherwise filtering is void" << endl;
+			::std::cerr << "qgram theshhold needs to be positive, otherwise filtering is void" << ::std::endl;
 		
 		
 		
@@ -3226,21 +2974,29 @@ namespace SEQAN_NAMESPACE_MAIN
 		
 		
 		//	optimizing shape/q-gram for threshold >= 2 
-		if (options.filterMode == FILTERING_GRAMS){
+		if (options.filterMode == FILTERING_GRAMS && options.runmode==TRIPLEX_TRIPLEX_SEARCH){
 			int qgram = _calculateShape(options);
 			if (qgram <= 4 && (stop = true)){
-				cerr << "Error-rate, minimum length and qgram-threshold settings do not allow for efficient filtering with q-grams of weight >= 5 (currently " << qgram << ")." << endl;
-				cerr << "Consider disabling filtering-mode (brute-force approach)" << endl;
+				::std::cerr << "Error-rate, minimum length and qgram-threshold settings do not allow for efficient filtering with q-grams of weight >= 5 (currently " << qgram << ")." << ::std::endl;
+				::std::cerr << "Consider disabling filtering-mode (brute-force approach)" << ::std::endl;
 			}
 		}
 		
 		if (options.errorRate == 0 || options.maximalError == 0)
 			options.maxInterruptions=0;
 
+		if (options.applyMaximumLengthConstraint){
+			if (options.maximalError < 0){
+				options.maximalError = static_cast<int>(floor(options.errorRate * options.maxLength));
+			} else {
+				options.maximalError = min(options.maximalError, static_cast<int>(floor(options.errorRate * options.maxLength)));
+			}
+		}
+		
 
 		if (stop)
 		{
-			cerr << "Exiting ..." << endl;
+			::std::cerr << "Exiting ..." << ::std::endl;
 			return TRIPLEX_INVALID_OPTIONS;
 		} else {
 			return 0;	
