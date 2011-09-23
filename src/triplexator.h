@@ -765,25 +765,24 @@ namespace SEQAN_NAMESPACE_MAIN
 							   TQuery							&ttsSet,
 							   Options const					&options
 							   ){
+		
+		// adjust errorRate if maximalError is set and caps the errorRate setting wrt the minimum length constraint
+		double eR = options.errorRate;
+		if (options.maximalError >= 0){
+			eR = min(options.errorRate, max(double(options.maximalError)/options.minLength, 0.0));
+		}
 #if SEQAN_ENABLE_PARALLELISM	
 		if (options.runtimeMode==RUN_PARALLEL_TRIPLEX){
-//			if (options.filterRepeats) // filtering is done before
-//				plant(gardener, pattern, ttsSet, options.errorRate, options.minLength, options.maxInterruptions+1, options.minRepeatLength, options.maxRepeatPeriod, MULTIPLE_WORKER() );
-//			else
-				plant(gardener, pattern, ttsSet, options.errorRate, options.minLength, options.maxInterruptions+1, MULTIPLE_WORKER() );
+			plant(gardener, pattern, ttsSet, eR, options.minLength, options.maxInterruptions+1, MULTIPLE_WORKER() );
 		} else {
 #endif
-//			if (options.filterRepeats) // filtering is done before
-//				plant(gardener, pattern, ttsSet, options.errorRate, options.minLength, options.maxInterruptions+1, options.minRepeatLength, options.maxRepeatPeriod, SINGLE_WORKER() );
-//			else 
-				plant(gardener, pattern, ttsSet, options.errorRate, options.minLength, options.maxInterruptions+1, SINGLE_WORKER() );
-			
+			plant(gardener, pattern, ttsSet, eR, options.minLength, options.maxInterruptions+1, SINGLE_WORKER() );
 #if SEQAN_ENABLE_PARALLELISM
 		}
 #endif
-		
 	}
 
+	
 	
 #if SEQAN_ENABLE_PARALLELISM
 	
@@ -2355,14 +2354,15 @@ namespace SEQAN_NAMESPACE_MAIN
 			read(file, duplexString, Fasta());			// read Fasta sequence
 
 			// find low complexity regions and mask sequences if requested
-			TRepeatString	data_repeats;
-			findRepeats(data_repeats, duplexString, options.minRepeatLength, options.maxRepeatPeriod);
-			for (TRepeatIterator rbeg = begin(data_repeats); rbeg != end(data_repeats); ++rbeg){
-				TRepeat repeat = *rbeg;
-				CharString replacement = string(repeat.endPosition-repeat.beginPosition, 'N' );
-				replace(duplexString, repeat.beginPosition, repeat.endPosition, replacement);
+			if (options.filterRepeats){
+				TRepeatString	data_repeats;
+				findRepeats(data_repeats, duplexString, options.minRepeatLength, options.maxRepeatPeriod);
+				for (TRepeatIterator rbeg = begin(data_repeats); rbeg != end(data_repeats); ++rbeg){
+					TRepeat repeat = *rbeg;
+					CharString replacement = string(repeat.endPosition-repeat.beginPosition, 'N' );
+					replace(duplexString, repeat.beginPosition, repeat.endPosition, replacement);
+				}
 			}
-			
 			
 #if SEQAN_ENABLE_PARALLELISM	
 			// run in parallel if requested and both strands are actually searched
@@ -2435,17 +2435,18 @@ namespace SEQAN_NAMESPACE_MAIN
 			read(file, duplexString, Fasta());			// read Fasta sequence
 			
 			// find low complexity regions and mask sequences if requested
-			TRepeatString	data_repeats;
-			findRepeats(data_repeats, duplexString, options.minRepeatLength, options.maxRepeatPeriod);
-			for (TRepeatIterator rbeg = begin(data_repeats); rbeg != end(data_repeats); ++rbeg){
-				TRepeat repeat = *rbeg;
-				CharString replacement = string(repeat.endPosition-repeat.beginPosition, 'N' );
-				replace(duplexString, repeat.beginPosition, repeat.endPosition, replacement);
+			if (options.filterRepeats){
+				// find low complexity regions and mask sequences if requested
+				TRepeatString	data_repeats;
+				findRepeats(data_repeats, duplexString, options.minRepeatLength, options.maxRepeatPeriod);
+				for (TRepeatIterator rbeg = begin(data_repeats); rbeg != end(data_repeats); ++rbeg){
+					TRepeat repeat = *rbeg;
+					CharString replacement = string(repeat.endPosition-repeat.beginPosition, 'N' );
+					replace(duplexString, repeat.beginPosition, repeat.endPosition, replacement);
+				}
+				if (options._debugLevel > 1 )
+					options.logFileHandle << _getTimeStamp() << "   ... Finished low complexity filtering of duplex sequence" << ::std::endl;
 			}
-			
-			if (options._debugLevel > 1 )
-				options.logFileHandle << _getTimeStamp() << "   ... Finished low complexity filtering of duplex sequence" << ::std::endl;
-
 			
 #if SEQAN_ENABLE_PARALLELISM	
 			// run in parallel if requested and both strands are actually searched
@@ -2526,17 +2527,17 @@ namespace SEQAN_NAMESPACE_MAIN
 			read(file, duplexString, Fasta());		// read Fasta sequence
 			
 			// find low complexity regions and mask sequences if requested
-			TRepeatString	data_repeats;
-			findRepeats(data_repeats, duplexString, options.minRepeatLength, options.maxRepeatPeriod);
-			for (TRepeatIterator rbeg = begin(data_repeats); rbeg != end(data_repeats); ++rbeg){
-				TRepeat repeat = *rbeg;
-				CharString replacement = string(repeat.endPosition-repeat.beginPosition, 'N' );
-				replace(duplexString, repeat.beginPosition, repeat.endPosition, replacement);
+			if (options.filterRepeats){
+				TRepeatString	data_repeats;
+				findRepeats(data_repeats, duplexString, options.minRepeatLength, options.maxRepeatPeriod);
+				for (TRepeatIterator rbeg = begin(data_repeats); rbeg != end(data_repeats); ++rbeg){
+					TRepeat repeat = *rbeg;
+					CharString replacement = string(repeat.endPosition-repeat.beginPosition, 'N' );
+					replace(duplexString, repeat.beginPosition, repeat.endPosition, replacement);
+				}				
+				if (options._debugLevel > 1 )
+					options.logFileHandle << _getTimeStamp() << "   ... Finished low complexity filtering of duplex sequence" << ::std::endl;
 			}
-			
-			if (options._debugLevel > 1 )
-				options.logFileHandle << _getTimeStamp() << "   ... Finished low complexity filtering of duplex sequence" << ::std::endl;
-
 			
 			TSeq seq(duplexSeqNoWithinFile, duplexId, duplexString);
 			appendValue(data, seq);
@@ -2654,9 +2655,9 @@ namespace SEQAN_NAMESPACE_MAIN
 	void
 	setupCommandLineParser(CommandLineParser & parser, Options & options)
 	{
-		::std::string rev = "$Revision: 10318 $";
-		addVersionLine(parser, "Version 1.1.0 (30/08/2011) SeqAn Revision: " + rev.substr(11, 4) + "");
-		append(options.version, "Version 1.1.0 (30/08/2011) SeqAn Revision: " + rev.substr(11, 4) + "");
+		::std::string rev = "$Revision: 10323 $";
+		addVersionLine(parser, "Version 1.1.1 (1/09/2011) SeqAn Revision: " + rev.substr(11, 4) + "");
+		append(options.version, "Version 1.1.1 (1/09/2011) SeqAn Revision: " + rev.substr(11, 4) + "");
 		
 		addTitleLine(parser, "**********************************************************************");
 		addTitleLine(parser, "*** Triplexator - Finding triple helices with approximate matching ***");
@@ -2973,6 +2974,17 @@ namespace SEQAN_NAMESPACE_MAIN
 		options.tolError = static_cast<unsigned>(floor(options.errorRate*options.minLength));
 		
 		
+		if (options.errorRate == 0 || options.maximalError == 0)
+			options.maxInterruptions=0;
+		
+		if (options.applyMaximumLengthConstraint){
+			if (options.maximalError < 0){
+				options.maximalError = static_cast<int>(floor(options.errorRate * options.maxLength));
+			} else {
+				options.maximalError = min(options.maximalError, static_cast<int>(floor(options.errorRate * options.maxLength)));
+			}
+		}
+		
 		//	optimizing shape/q-gram for threshold >= 2 
 		if (options.filterMode == FILTERING_GRAMS && options.runmode==TRIPLEX_TRIPLEX_SEARCH){
 			int qgram = _calculateShape(options);
@@ -2981,17 +2993,7 @@ namespace SEQAN_NAMESPACE_MAIN
 				::std::cerr << "Consider disabling filtering-mode (brute-force approach)" << ::std::endl;
 			}
 		}
-		
-		if (options.errorRate == 0 || options.maximalError == 0)
-			options.maxInterruptions=0;
 
-		if (options.applyMaximumLengthConstraint){
-			if (options.maximalError < 0){
-				options.maximalError = static_cast<int>(floor(options.errorRate * options.maxLength));
-			} else {
-				options.maximalError = min(options.maximalError, static_cast<int>(floor(options.errorRate * options.maxLength)));
-			}
-		}
 		
 
 		if (stop)

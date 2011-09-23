@@ -2,6 +2,11 @@
 * Changelog
 *******************
 
+2011-09-01  Fabian Buske	v1.1.1
+	Bugfix with respect to q-gram filtering (maximal error taken into account when calculating the seed thresholds)
+	Bugfix low-complexity filtering in duplexes when searching triplexes made optional
+	Licence changed to Creative Commons : Attribution - NonCommercial - NoDerivs 3.0 Australia
+
 2011-08-26  Fabian Buske	v1.1.0
 	Default error-rate adjusted to 5%
 	Minimum guanine rate adjusted to 10%

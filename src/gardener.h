@@ -1108,7 +1108,7 @@ namespace SEQAN_NAMESPACE_MAIN
 			
 			// define a scoring scheme
 			TScore match = 1;
-			TScore mismatch = (TScore)_max((TScore) (-1/errorRate) + 1, -(TScore)length(host(finder)));
+			TScore mismatch = (TScore)_max((TScore) (-1.0/(errorRate+0.00000001)) + 1, -(TScore)length(host(finder)));
 			Score<TScore> scoreMatrix(match, mismatch, std::numeric_limits<int>::max());
 			TScore scoreDropOff = (TScore) _max((TScore) xDrop * (-mismatch), minValue<TScore>()+1);
 			// extend seeds 
@@ -1225,15 +1225,14 @@ namespace SEQAN_NAMESPACE_MAIN
 		typedef typename Gardener<TId, TSpec>::THitSet								THits;
 		
 		// create index
-      		TQGramIndex index_qgram(targets);
+		TQGramIndex index_qgram(targets);
 		resize(indexShape(index_qgram), weight(shape));
 		
 		// create pattern
 		Pattern<TQGramIndex, QGramsLookup< TShape, Standard_QGramsLookup> > pattern(index_qgram,shape);
 		plant(gardener, pattern, queries, errorRate, minLength, xDrop, TWORKER() );
 	}
-	
-	
+		
 	/** 
 	 * start gardening by planting
 	 * prepeare pattern beforehand for reuse
@@ -1290,8 +1289,7 @@ namespace SEQAN_NAMESPACE_MAIN
 #endif
 		}		
 	}
-	
-	
+		
 	/** 
 	 * start gardening by planting
 	 * prepeare pattern beforehand for reuse
@@ -1350,8 +1348,7 @@ namespace SEQAN_NAMESPACE_MAIN
 #endif
 		}		
 	}
-
-	
+		
 #if SEQAN_ENABLE_PARALLELISM	
 	/** 
 	 * start gardening by planting
@@ -1479,9 +1476,9 @@ namespace SEQAN_NAMESPACE_MAIN
 		for (TId queryid=0; queryid<querylen; ++queryid){
 			insert(gardener.hits, queryid, tmpPointerList[queryid]);
 		}
-		
-		
+			
 	}
+		
 #endif  // SEQAN_ENABLE_PARALLELISM
 	
 } //namespace SEQAN_NAMESPACE_MAIN

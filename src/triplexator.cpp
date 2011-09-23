@@ -179,7 +179,7 @@ void _populateLogFile(int argc, const char *argv[], Options	&options)
 			options.logFileHandle << "- filtering : qgrams" << ::std::endl;
 			options.logFileHandle << "- weight : " << length(options.shape) << ::std::endl;
 			options.logFileHandle << "- min. threshold specified: " << options.qgramThreshold << ::std::endl;
-			int minSeedsThreshold = static_cast<int>(options.minLength+1-(ceil(options.errorRate*options.minLength)+1)*length(options.shape));
+			int minSeedsThreshold = static_cast<int>(options.minLength+1-(min(static_cast<int>(ceil(options.errorRate*options.minLength)), options.maximalError)+1)*length(options.shape));
 			options.logFileHandle << "- min. threshold actual: " << minSeedsThreshold << ::std::endl;			
 		} else {
 			options.logFileHandle << "- filtering : none - greedy algorithm" << ::std::endl;
