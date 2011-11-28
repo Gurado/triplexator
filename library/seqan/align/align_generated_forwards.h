@@ -153,16 +153,6 @@ template <typename T> struct SizeArr_;       	// "/Users/f.buske/Documents/biosi
 template <typename T> struct StringSetType;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_base.h"(292)
 
 //____________________________________________________________________________
-// SumListOfGaps_
-
-template <typename TGaps> struct SumListOfGaps_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(532)
-
-//____________________________________________________________________________
-// SumlistGaps
-
-struct SumlistGaps;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(44)
-
-//____________________________________________________________________________
 // _HirschbergSet
 
 class _HirschbergSet;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/hirschberg_set.h"(45)
@@ -245,8 +235,6 @@ template <typename TValue, unsigned DIMENSION> inline typename SizeArr_<Matrix<T
 
 template <typename TSource> inline Holder<TSource> & _dataSource(Gaps<TSource, ArrayGaps> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(182)
 template <typename TSource> inline Holder<TSource> const & _dataSource(Gaps<TSource, ArrayGaps> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(189)
-template <typename TSource> inline Holder<TSource> & _dataSource(Gaps<TSource, SumlistGaps> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(154)
-template <typename TSource> inline Holder<TSource> const & _dataSource(Gaps<TSource, SumlistGaps> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(161)
 
 //____________________________________________________________________________
 // _end1
@@ -291,19 +279,9 @@ template <typename TSource> inline typename Position<Gaps<TSource, ArrayGaps> >:
 template <typename T> inline void _goNextArrayGapsIterator(T const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(900)
 
 //____________________________________________________________________________
-// _goNextSumlistGapsIterator
-
-template <typename T> inline void _goNextSumlistGapsIterator(T & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(710)
-
-//____________________________________________________________________________
 // _goPreviousArrayGapsIterator
 
 template <typename T> inline void _goPreviousArrayGapsIterator(T const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(933)
-
-//____________________________________________________________________________
-// _goPreviousSumlistGapsIterator
-
-template <typename T> inline void _goPreviousSumlistGapsIterator(T & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(737)
 
 //____________________________________________________________________________
 // _gotoh
@@ -330,7 +308,6 @@ template <typename TSize, typename TSpec> inline void _initMembers(AlignTrace<TS
 // _initToResize
 
 template <typename TSource, typename TSize> inline void _initToResize(Gaps<TSource, ArrayGaps> & me, TSize _size);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(329)
-template <typename TSource, typename TSize2> inline void _initToResize(Gaps<TSource, SumlistGaps> & me, TSize2 _size);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(261)
 
 //____________________________________________________________________________
 // _iteratorGapsArray
@@ -387,13 +364,11 @@ inline void _setBegin2(_HirschbergSet & me, int const & new_begin);       	// "/
 // _setClippedBeginPosition
 
 template <typename TSource, typename TSourcePosition> inline void _setClippedBeginPosition(Gaps<TSource, ArrayGaps> & me, TSourcePosition _pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(286)
-template <typename TSource, typename TSourcePosition> inline void _setClippedBeginPosition(Gaps<TSource, SumlistGaps> & me, TSourcePosition _pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(231)
 
 //____________________________________________________________________________
 // _setClippedEndPosition
 
 template <typename TSource, typename TSourcePosition> inline void _setClippedEndPosition(Gaps<TSource, ArrayGaps> & me, TSourcePosition _pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(318)
-template <typename TSource, typename TSourcePosition> inline void _setClippedEndPosition(Gaps<TSource, SumlistGaps> & me, TSourcePosition _pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(250)
 
 //____________________________________________________________________________
 // _setEnd1
@@ -481,14 +456,12 @@ template <typename TGaps, typename TSpec, typename TValue> inline void assignVal
 
 template <typename TGaps> inline bool atBegin(Iter<TGaps, GapsIterator<ArrayGaps> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(971)
 template <typename TGaps> inline bool atBegin(Iter<TGaps, GapsIterator<ArrayGaps> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(979)
-template <typename TGaps> inline bool atBegin(Iter<TGaps, GapsIterator<SumlistGaps> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(766)
 
 //____________________________________________________________________________
 // atEnd
 
 template <typename TGaps> inline bool atEnd(Iter<TGaps, GapsIterator<ArrayGaps> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(989)
 template <typename TGaps> inline bool atEnd(Iter<TGaps, GapsIterator<ArrayGaps> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(997)
-template <typename TGaps> inline bool atEnd(Iter<TGaps, GapsIterator<SumlistGaps> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(776)
 
 //____________________________________________________________________________
 // begin
@@ -507,15 +480,12 @@ template <typename TAlign> inline typename Position<AlignCols<TAlign> >::Type be
 template <typename TAlign> inline typename Position<AlignCols<TAlign> >::Type beginPosition(AlignCols<TAlign> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_cols_base.h"(330)
 template <typename TSource> inline typename Position< Gaps<TSource, ArrayGaps> >::Type beginPosition(Gaps<TSource, ArrayGaps> & gaps);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(562)
 template <typename TSource> inline typename Position< Gaps<TSource, ArrayGaps> const>::Type beginPosition(Gaps<TSource, ArrayGaps> const & gaps);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(569)
-template <typename TSource> inline typename Position< Gaps<TSource, SumlistGaps> >::Type beginPosition(Gaps<TSource, SumlistGaps> & gaps);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(171)
-template <typename TSource> inline typename Position< Gaps<TSource, SumlistGaps> const>::Type beginPosition(Gaps<TSource, SumlistGaps> const & gaps);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(182)
 
 //____________________________________________________________________________
 // clear
 
 template <typename TScoreValue> void clear(LocalAlignmentFinder<TScoreValue> & sw_finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_local_dynprog.h"(210)
 template <typename TSource> inline void clear(Gaps<TSource, ArrayGaps> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(353)
-template <typename TSource> inline void clear(Gaps<TSource, SumlistGaps> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(288)
 
 //____________________________________________________________________________
 // clearBit
@@ -527,7 +497,6 @@ template <typename TSize, typename TSpec, typename TSpec2> inline void clearBit(
 
 template <typename TSource, typename TSpec> inline void clearClipping(Align<TSource, TSpec> & align_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_base.h"(539)
 template <typename TSource> inline void clearClipping(Gaps<TSource, ArrayGaps> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(365)
-template <typename TSource> inline void clearClipping(Gaps<TSource, SumlistGaps> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(300)
 
 //____________________________________________________________________________
 // clearGaps
@@ -536,19 +505,16 @@ template <typename TSource, typename TSpec> inline void clearGaps(Align<TSource,
 template <typename TSource> inline void clearGaps(Gaps<TSource, ArrayGaps> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(343)
 template <typename TSource, typename TSpec, typename TPosition1, typename TPosition2> inline void clearGaps(Gaps<TSource, TSpec> & me, TPosition1 view_pos_begin, TPosition2 view_pos_end);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(646)
 template <typename TSource, typename TSpec> inline void clearGaps(Gaps<TSource, TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(679)
-template <typename TSource> inline void clearGaps(Gaps<TSource, SumlistGaps> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(278)
 
 //____________________________________________________________________________
 // clippedBeginPosition
 
 template <typename TSource> inline typename Position<TSource>::Type clippedBeginPosition(Gaps<TSource, ArrayGaps> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(276)
-template <typename TSource> inline typename Position<TSource>::Type clippedBeginPosition(Gaps<TSource, SumlistGaps> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(221)
 
 //____________________________________________________________________________
 // clippedEndPosition
 
 template <typename TSource> inline typename Position<TSource>::Type clippedEndPosition(Gaps<TSource, ArrayGaps> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(309)
-template <typename TSource> inline typename Position<TSource>::Type clippedEndPosition(Gaps<TSource, SumlistGaps> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(241)
 
 //____________________________________________________________________________
 // col
@@ -597,7 +563,6 @@ template <typename TSource, typename TSpec, typename TPoistion> inline typename 
 template <typename TGaps> inline typename Size<TGaps>::Type countGaps(Iter<TGaps, GapsIterator<ArrayGaps> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(836)
 template <typename TSource, typename TSpec, typename TPosition> inline typename Size<Gaps<TSource, TSpec> >::Type countGaps(Gaps<TSource, TSpec> & me, TPosition view_pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(577)
 template <typename TSource, typename TSpec, typename TPosition> inline typename Size<Gaps<TSource, TSpec> >::Type countGaps(Gaps<TSource, TSpec> const & me, TPosition view_pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(585)
-template <typename TGaps> inline typename Size<TGaps>::Type countGaps(Iter<TGaps, GapsIterator<SumlistGaps> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(693)
 
 //____________________________________________________________________________
 // createSource
@@ -655,8 +620,6 @@ template <typename TAlign> inline typename Position<AlignCols<TAlign> >::Type en
 template <typename TAlign> inline typename Position<AlignCols<TAlign> const>::Type endPosition(AlignCols<TAlign> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_cols_base.h"(392)
 template <typename TSource> inline typename Position<Gaps<TSource, ArrayGaps> >::Type endPosition(Gaps<TSource, ArrayGaps> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(199)
 template <typename TSource> inline typename Position<Gaps<TSource, ArrayGaps> >::Type endPosition(Gaps<TSource, ArrayGaps> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(206)
-template <typename TSource> inline typename Position<Gaps<TSource, SumlistGaps> >::Type endPosition(Gaps<TSource, SumlistGaps> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(204)
-template <typename TSource> inline typename Position<Gaps<TSource, SumlistGaps> >::Type endPosition(Gaps<TSource, SumlistGaps> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(211)
 
 //____________________________________________________________________________
 // gapValueImpl
@@ -688,8 +651,6 @@ template <typename TGaps> inline typename GetValue< Iter<TGaps, GapsIterator<Arr
 template <typename TGaps> inline typename GetValue< Iter<TGaps, GapsIterator<ArrayGaps> > const>::Type getValue(Iter<TGaps, GapsIterator<ArrayGaps> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(806)
 template <typename TSource, typename TSpec, typename TPosition> inline typename GetValue<Gaps<TSource, TSpec> >::Type getValue(Gaps<TSource, TSpec> & me, TPosition view_pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(722)
 template <typename TSource, typename TSpec, typename TPosition> inline typename GetValue<Gaps<TSource, TSpec> >::Type getValue(Gaps<TSource, TSpec> const & me, TPosition view_pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(732)
-template <typename TGaps> inline typename GetValue< Iter<TGaps, GapsIterator<SumlistGaps> > >::Type getValue(Iter<TGaps, GapsIterator<SumlistGaps> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(618)
-template <typename TGaps> inline typename GetValue< Iter<TGaps, GapsIterator<SumlistGaps> > const>::Type getValue(Iter<TGaps, GapsIterator<SumlistGaps> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(627)
 
 //____________________________________________________________________________
 // globalAlignment
@@ -713,8 +674,6 @@ template <typename TAlign, typename TSpec> inline void goNext(Iter<TAlign, Align
 template <typename TSize, typename TSpec, typename TSpec2> inline void goNext(Navi< AlignTrace<TSize, TSpec>, TSpec2 > & me, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_trace.h"(312)
 template <typename TGaps> inline void goNext(Iter<TGaps, GapsIterator<ArrayGaps> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(918)
 template <typename TGaps> inline void goNext(Iter<TGaps, GapsIterator<ArrayGaps> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(924)
-template <typename TGaps> inline void goNext(Iter<TGaps, GapsIterator<SumlistGaps> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(722)
-template <typename TGaps> inline void goNext(Iter<TGaps, GapsIterator<SumlistGaps> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(728)
 template <typename TValue, unsigned DIMENSION> inline void goNext(Iter<Matrix<TValue, DIMENSION>, PositionIterator> & me, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(642)
 template <typename TValue, unsigned DIMENSION> inline void goNext(Iter<Matrix<TValue, DIMENSION> const, PositionIterator> & me, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(650)
 template <typename TValue, unsigned DIMENSION> inline void goNext(Iter<Matrix<TValue, DIMENSION>, PositionIterator> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(657)
@@ -727,8 +686,6 @@ template <typename TAlign, typename TSpec> inline void goPrevious(Iter<TAlign, A
 template <typename TSize, typename TSpec, typename TSpec2> inline void goPrevious(Navi< AlignTrace<TSize, TSpec>, TSpec2 > & me, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_trace.h"(352)
 template <typename TGaps> inline void goPrevious(Iter<TGaps, GapsIterator<ArrayGaps> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(957)
 template <typename TGaps> inline void goPrevious(Iter<TGaps, GapsIterator<ArrayGaps> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(963)
-template <typename TGaps> inline void goPrevious(Iter<TGaps, GapsIterator<SumlistGaps> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(752)
-template <typename TGaps> inline void goPrevious(Iter<TGaps, GapsIterator<SumlistGaps> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(758)
 template <typename TValue, unsigned DIMENSION> inline void goPrevious(Iter< Matrix<TValue, DIMENSION>, PositionIterator > & me, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(676)
 template <typename TValue, unsigned DIMENSION> inline void goPrevious(Iter< Matrix<TValue, DIMENSION> const, PositionIterator > & me, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(684)
 template <typename TValue, unsigned DIMENSION> inline void goPrevious(Iter< Matrix<TValue, DIMENSION>, PositionIterator > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(691)
@@ -763,7 +720,6 @@ template <typename TGaps, typename TSpec> inline void insertGap(Iter<TGaps, Gaps
 
 template <typename TGaps, typename TCount> inline void insertGaps(Iter<TGaps, GapsIterator<ArrayGaps> > const & me, TCount size);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(1008)
 template <typename TSource, typename TSpec, typename TPosition, typename TSize> inline void insertGaps(Gaps<TSource, TSpec> & me, TPosition _view_pos, TSize _size);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(465)
-template <typename TGaps, typename TCount> inline void insertGaps(Iter<TGaps, GapsIterator<SumlistGaps> > const & me, TCount size);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(787)
 
 //____________________________________________________________________________
 // integrateAlign
@@ -782,7 +738,6 @@ template <typename TGaps> inline bool isClipped(Iter<TGaps, GapsIterator<ArrayGa
 template <typename TGaps> inline bool isGap(Iter<TGaps, GapsIterator<ArrayGaps> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(818)
 template <typename TSource, typename TSpec, typename TPosition> inline bool isGap(Gaps<TSource, TSpec> & me, TPosition view_pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(540)
 template <typename TSource, typename TSpec, typename TPosition> inline bool isGap(Gaps<TSource, TSpec> const & me, TPosition view_pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(548)
-template <typename TGaps> inline bool isGap(Iter<TGaps, GapsIterator<SumlistGaps> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(683)
 
 //____________________________________________________________________________
 // iter
@@ -791,8 +746,6 @@ template <typename TAlign, typename TPosition, typename TTag> inline typename It
 template <typename TAlign, typename TPosition, typename TTag> inline typename Iterator<AlignCols<TAlign> const, Tag<TTag> const>::Type iter(AlignCols<TAlign> const & me, TPosition pos_, Tag<TTag> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_cols_base.h"(262)
 template <typename TSource, typename TPosition, typename TTag> inline typename Iterator<Gaps<TSource, ArrayGaps>, Tag<TTag> const>::Type iter(Gaps<TSource, ArrayGaps> & gaps, TPosition view_pos, Tag<TTag> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(543)
 template <typename TSource, typename TPosition, typename TTag> inline typename Iterator<Gaps<TSource, ArrayGaps> const, Tag<TTag> const>::Type iter(Gaps<TSource, ArrayGaps> const & gaps, TPosition view_pos, Tag<TTag> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(552)
-template <typename TSource, typename TPosition, typename TTag> inline typename Iterator<Gaps<TSource, SumlistGaps>, Tag<TTag> const>::Type iter(Gaps<TSource, SumlistGaps> & gaps, TPosition view_pos, Tag<TTag> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(382)
-template <typename TSource, typename TPosition, typename TTag> inline typename Iterator<Gaps<TSource, SumlistGaps> const, Tag<TTag> const>::Type iter(Gaps<TSource, SumlistGaps> const & gaps, TPosition view_pos, Tag<TTag> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(393)
 
 //____________________________________________________________________________
 // length
@@ -870,10 +823,6 @@ template <typename TGaps1, typename TGaps2> inline bool operator!= (Iter<TGaps1,
 template <typename TLeftSource, typename TLeftSpec, typename TRightSource, typename TRightSpec > inline bool operator!= (Gaps<TLeftSource, TLeftSpec> const & left, Gaps<TRightSource, TRightSpec> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(1201)
 template <typename TLeftSource, typename TLeftSpec, typename TRight > inline bool operator!=(Gaps<TLeftSource, TLeftSpec> const & left, TRight const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(1210)
 template <typename TLeft, typename TRightSource, typename TRightSpec > inline bool operator!= (TLeft const & left, Gaps<TRightSource, TRightSpec> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(1219)
-template <typename TGaps1, typename TGaps2> inline bool operator!= (Iter<TGaps1, GapsIterator<SumlistGaps> > & _left, Iter<TGaps2, GapsIterator<SumlistGaps> > & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(904)
-template <typename TGaps1, typename TGaps2> inline bool operator!= (Iter<TGaps1, GapsIterator<SumlistGaps> > const & _left, Iter<TGaps2, GapsIterator<SumlistGaps> > & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(912)
-template <typename TGaps1, typename TGaps2> inline bool operator!= (Iter<TGaps1, GapsIterator<SumlistGaps> > & _left, Iter<TGaps2, GapsIterator<SumlistGaps> > const & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(920)
-template <typename TGaps1, typename TGaps2> inline bool operator!= (Iter<TGaps1, GapsIterator<SumlistGaps> > const & _left, Iter<TGaps2, GapsIterator<SumlistGaps> > const & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(928)
 
 //____________________________________________________________________________
 // operator*
@@ -948,10 +897,6 @@ template <typename TGaps1, typename TGaps2> inline bool operator== (Iter<TGaps1,
 template <typename TLeftSource, typename TLeftSpec, typename TRightSource, typename TRightSpec > inline bool operator== (Gaps<TLeftSource, TLeftSpec> const & left, Gaps<TRightSource, TRightSpec> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(1171)
 template <typename TLeftSource, typename TLeftSpec, typename TRight > inline bool operator== (Gaps<TLeftSource, TLeftSpec> const & left, TRight const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(1180)
 template <typename TLeft, typename TRightSource, typename TRightSpec > inline bool operator== (TLeft const & left, Gaps<TRightSource, TRightSpec> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(1189)
-template <typename TGaps1, typename TGaps2> inline bool operator== (Iter<TGaps1, GapsIterator<SumlistGaps> > & _left, Iter<TGaps2, GapsIterator<SumlistGaps> > & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(870)
-template <typename TGaps1, typename TGaps2> inline bool operator== (Iter<TGaps1, GapsIterator<SumlistGaps> > const & _left, Iter<TGaps2, GapsIterator<SumlistGaps> > & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(878)
-template <typename TGaps1, typename TGaps2> inline bool operator== (Iter<TGaps1, GapsIterator<SumlistGaps> > & _left, Iter<TGaps2, GapsIterator<SumlistGaps> > const & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(886)
-template <typename TGaps1, typename TGaps2> inline bool operator== (Iter<TGaps1, GapsIterator<SumlistGaps> > const & _left, Iter<TGaps2, GapsIterator<SumlistGaps> > const & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(894)
 inline bool operator== (_HirschbergSet const & lhs, _HirschbergSet const & rhs);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/hirschberg_set.h"(217)
 template <typename TValue, unsigned DIMENSION1, unsigned DIMENSION2> bool operator== (Matrix<TValue, DIMENSION1> const & matrix1, Matrix<TValue, DIMENSION2> const & matrix2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(876)
 
@@ -993,7 +938,6 @@ template <typename TGaps, typename TSpec> inline void removeGap(Iter<TGaps, Gaps
 
 template <typename TGaps, typename TCount> inline void removeGaps(Iter<TGaps, GapsIterator<ArrayGaps> > const & me, TCount _size);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(1070)
 template <typename TSource, typename TSpec, typename TPosition, typename TSize> inline void removeGaps(Gaps<TSource, TSpec> & me, TPosition _view_pos, TSize _size);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(517)
-template <typename TGaps, typename TCount> inline void removeGaps(Iter<TGaps, GapsIterator<SumlistGaps> > const & me, TCount _size);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(825)
 
 //____________________________________________________________________________
 // resize
@@ -1017,7 +961,6 @@ template <typename TSource, typename TSpec> inline typename Rows< Align<TSource,
 // setBeginPosition
 
 template <typename TSource, typename TPosition> inline void setBeginPosition(Gaps<TSource, ArrayGaps> & me, TPosition view_position);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(582)
-template <typename TSource, typename TPosition> inline void setBeginPosition(Gaps<TSource, SumlistGaps> & me, TPosition view_position);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(408)
 
 //____________________________________________________________________________
 // setBit
@@ -1028,13 +971,11 @@ template <typename TSize, typename TSpec, typename TSpec2> inline void setBit(Na
 // setClippedBeginPosition
 
 template <typename TSource, typename TPosition> inline void setClippedBeginPosition(Gaps<TSource, ArrayGaps> & me, TPosition source_position);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(599)
-template <typename TSource, typename TPosition> inline typename Size< Gaps<TSource, SumlistGaps> >::Type setClippedBeginPosition(Gaps<TSource, SumlistGaps> & me, TPosition source_position);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(426)
 
 //____________________________________________________________________________
 // setClippedEndPosition
 
 template <typename TSource, typename TPosition> inline void setClippedEndPosition(Gaps<TSource, ArrayGaps> & me, TPosition source_position);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(666)
-template <typename TSource, typename TPosition> inline void setClippedEndPosition(Gaps<TSource, SumlistGaps> & me, TPosition source_position);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(484)
 
 //____________________________________________________________________________
 // setContainer
@@ -1077,8 +1018,6 @@ template <typename TSource, typename TSpec> inline TSource & source(Gaps<TSource
 template <typename TSource, typename TSpec> inline TSource & source(Gaps<TSource, TSpec> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(944)
 template <typename TGaps, typename TSpec> inline typename Source<Iter<TGaps, GapsIterator<TSpec> > >::Type source(Iter<TGaps, GapsIterator<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_iterator_base.h"(291)
 template <typename TGaps, typename TSpec> inline typename Source<Iter<TGaps, GapsIterator<TSpec> > const>::Type source(Iter<TGaps, GapsIterator<TSpec> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_iterator_base.h"(298)
-template <typename TGaps> inline typename Source<Iter<TGaps, GapsIterator<SumlistGaps> > >::Type source(Iter<TGaps, GapsIterator<SumlistGaps> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(666)
-template <typename TGaps> inline typename Source<Iter<TGaps, GapsIterator<SumlistGaps> > const>::Type source(Iter<TGaps, GapsIterator<SumlistGaps> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(673)
 
 //____________________________________________________________________________
 // sourceBegin
@@ -1100,11 +1039,6 @@ template <typename TSource, typename TSpec> inline typename Size<TSource>::Type 
 template <typename TSource, typename TSpec> inline typename Size<TSource>::Type sourceLength(Gaps<TSource, TSpec> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(1008)
 
 //____________________________________________________________________________
-// sourcePosition
-
-template <typename TGaps> inline typename Position<TGaps>::Type sourcePosition(Iter<TGaps, GapsIterator<SumlistGaps> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(649)
-
-//____________________________________________________________________________
 // sourceSegment
 
 template <typename TSource, typename TSpec> inline typename Infix<TSource>::Type sourceSegment(Gaps<TSource, TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(969)
@@ -1119,13 +1053,11 @@ template <typename TSource, typename TSpec> inline typename StringSetType<Align<
 // toSourcePosition
 
 template <typename TSource> inline typename Position<TSource>::Type toSourcePosition(Gaps<TSource, ArrayGaps> const & gaps, typename Position< Gaps<TSource, ArrayGaps> >::Type pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(442)
-template <typename TSource> inline typename Position<TSource>::Type toSourcePosition(Gaps<TSource, SumlistGaps> const & gaps, typename Position< Gaps<TSource, SumlistGaps> >::Type pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(340)
 
 //____________________________________________________________________________
 // toViewPosition
 
 template <typename TSource> inline typename Position< Gaps<TSource, ArrayGaps> >::Type toViewPosition(Gaps<TSource, ArrayGaps> const & gaps, typename Position<TSource>::Type pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(392)
-template <typename TSource> inline typename Position< Gaps<TSource, SumlistGaps> >::Type toViewPosition(Gaps<TSource, SumlistGaps> const & gaps_, typename Position<TSource>::Type pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(313)
 
 //____________________________________________________________________________
 // transpose
@@ -1147,11 +1079,6 @@ template <typename TValue, unsigned DIMENSION, typename TPosition> inline typena
 template <typename TValue, unsigned DIMENSION, typename TOrdinate1, typename TOrdinate2> inline typename Reference<Matrix<TValue, DIMENSION> >::Type value(Matrix<TValue, DIMENSION> & me, TOrdinate1 i1, TOrdinate2 i2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(600)
 template <typename TValue, unsigned DIMENSION, typename TOrdinate1, typename TOrdinate2, typename TOrdinate3> inline typename Reference<Matrix<TValue, DIMENSION> >::Type value(Matrix<TValue, DIMENSION> & me, TOrdinate1 i1, TOrdinate2 i2, TOrdinate3 i3);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(614)
 template <typename TValue, unsigned DIMENSION, typename TOrdinate1, typename TOrdinate2, typename TOrdinate3, typename TOrdinate4> inline typename Reference<Matrix<TValue, DIMENSION> >::Type value(Matrix<TValue, DIMENSION> & me, TOrdinate1 i1, TOrdinate2 i2, TOrdinate3 i3, TOrdinate4 i4);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(629)
-
-//____________________________________________________________________________
-// viewPosition
-
-template <typename TGaps> inline typename Position<TGaps>::Type viewPosition(Iter<TGaps, GapsIterator<SumlistGaps> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_sumlist.h"(639)
 
 //____________________________________________________________________________
 // write

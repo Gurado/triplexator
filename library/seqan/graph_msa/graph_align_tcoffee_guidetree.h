@@ -48,6 +48,22 @@ namespace SEQAN_NAMESPACE_MAIN
 //////////////////////////////////////////////////////////////////////////////
 
 
+// Helper function for rounding to n significant digits.  Ported from
+// Java code found here: http://stackoverflow.com/questions/202302
+inline double
+_roundToSignificantFigures(double num, int n)
+{
+    if (num == 0)
+        return 0;
+
+    const double d = ceil(log10(num < 0 ? -num : num));
+    const int power = n - (int) d;
+
+    const double magnitude = pow(10.0, power);
+    const long shifted = static_cast<long>(round(num*magnitude));
+    return shifted / magnitude;
+}
+
 //////////////////////////////////////////////////////////////////////////////
 
 
@@ -67,55 +83,76 @@ njTree(mat, graph)
 */
 template<typename TValue, typename TStringSpec, typename TCargo, typename TSpec>
 inline void
-njTree(String<TValue, TStringSpec>& mat, 
+njTree(String<TValue, TStringSpec> const & matIn,
 	   Graph<Tree<TCargo, TSpec> >& g) 
 {
-	SEQAN_CHECKPOINT
 	typedef String<TValue, TStringSpec> TMatrix;
 	typedef typename Size<TMatrix>::Type TSize;
 	typedef Graph<Tree<TCargo, TSpec> > TGraph;
 	typedef typename VertexDescriptor<TGraph>::Type TVertexDescriptor;
 	
 	TVertexDescriptor nilVertex = getNil<TVertexDescriptor>();
-	TSize nseq = (TSize) std::sqrt((double)length(mat));
+	TSize nseq = (TSize) std::sqrt((double)length(matIn));
+
+    // Assert that the input matrix has no negative values.
+// #if SEQAN_ENABLE_DEBUG
+//     for (unsigned i = 0; i < length(matIn); ++i)
+//         SEQAN_ASSERT_GEQ_MSG(matIn[i], 0, "i = %u", i);
+// #endif  // #if SEQAN_ENABLE_DEBUG
 
 	//for(TSize i=0;i<nseq;++i) {
 	//	for(TSize j=0;j<nseq;++j) {
-	//		std::cout << getValue(mat, i*nseq+j) << ",";
+	//		std::cout << getValue(matIn, i*nseq+j) << ",";
 	//	}
 	//	std::cout << std::endl;
 	//}
 
-	// First initialization
+    // Handle base cases for one and two sequences.
 	clearVertices(g);
-	if (nseq == 1) {
+	if (nseq == 1)
+    {
 		g.data_root = addVertex(g);
 		return;
-	} else if (nseq == 2) {
+	}
+    else if (nseq == 2)
+    {
 		TVertexDescriptor v1 = addVertex(g);
 		TVertexDescriptor v2 = addVertex(g);
 		TVertexDescriptor internalVertex = addVertex(g);
-		addEdge(g, internalVertex, v1, (TCargo) mat[1] / 2);
-		addEdge(g, internalVertex, v2, (TCargo) mat[1] / 2);
+		addEdge(g, internalVertex, v1, (TCargo) _roundToSignificantFigures(matIn[1] / 2.0, 5));
+        addEdge(g, internalVertex, v2, (TCargo) _roundToSignificantFigures(matIn[1] / 2.0, 5));
 		g.data_root = internalVertex;
 		return;
 	}
-	String<TCargo> av;    // Average branch length to a combined node
+
+    // Create a normalized copy of matIn with fixed point numbers, precision of 10 digits.
+    TValue normFactor = 0;
+    for (unsigned i = 0; i < length(matIn); ++i)
+        normFactor = std::max(normFactor, matIn[i]);
+    SEQAN_ASSERT_NEQ(normFactor, TValue(0));
+    String<__int64> mat;
+    resize(mat, length(matIn));
+    for (unsigned i = 0; i < length(mat); ++i)
+        mat[i] = static_cast<__int64>(10000000.0 * ((double)(matIn[i]) / (double)(normFactor)));
+
+	// First initialization
+	String<__int64> av;    // Average branch length to a combined node
 	resize(av,nseq,0);
 
 	String<TVertexDescriptor> connector;   // Nodes that need to be connected
 	resize(connector, nseq);
 
-	for(TSize i=0;i<nseq;++i) {
+	for(TSize i=0;i<nseq;++i)
+    {
 		addVertex(g);  // Add all the nodes that correspond to sequences
 		connector[i] = i;
 		mat[i*nseq+i] = 0;
 	}
 
 	// Main cycle
-	TCargo fnseqs=(TCargo) nseq;
+	__int64 fnseqs = static_cast<__int64>(nseq);
 	for(TSize nc=0; nc<(nseq-3); ++nc) {
-		TCargo sumOfBranches = 0;
+		__int64 sumOfBranches = 0;
 
 		// Determine the sum of all branches and
 		// copy upper triangle matrix to lower triangle
@@ -125,12 +162,12 @@ njTree(String<TValue, TStringSpec>& mat,
 
 		// Compute the sum of branch lengths for all possible pairs
 		bool notFound = true;
-		TCargo tmin = 0;	
+		__int64 tmin = 0;	
 		TSize mini = 0;  // Next pair of seq i and j to join
 		TSize minj = 0;
-		TCargo diToAllOthers = 0;
-		TCargo djToAllOthers = 0;
-		TCargo total = 0;
+		__int64 diToAllOthers = 0;
+		__int64 djToAllOthers = 0;
+		__int64 total = 0;
 		for(TSize col=1; col<nseq; ++col)  {
 			if (connector[col] != nilVertex) {
 				for(TSize row=0; row<col; ++row) {
@@ -164,17 +201,17 @@ njTree(String<TValue, TStringSpec>& mat,
 		//std::cout << std::endl;
 		
 		// Compute branch lengths
-		TCargo dMinIToOthers = 0;
-		TCargo dMinJToOthers = 0;
+		__int64 dMinIToOthers = 0;
+		__int64 dMinJToOthers = 0;
 		for(TSize i=0; i<nseq; ++i) {
 			dMinIToOthers += mat[i*nseq + mini];
 			dMinJToOthers += mat[i*nseq + minj];
 		}
-		TCargo dmin = mat[mini*nseq + minj];
+		__int64 dmin = mat[mini*nseq + minj];
 		dMinIToOthers = dMinIToOthers / (fnseqs - 2);
 		dMinJToOthers = dMinJToOthers / (fnseqs - 2);
-		TCargo iBranch = (dmin + dMinIToOthers - dMinJToOthers) / 2;
-		TCargo jBranch = dmin - iBranch;
+		__int64 iBranch = (dmin + dMinIToOthers - dMinJToOthers) / 2;
+		__int64 jBranch = dmin - iBranch;
 		iBranch -= av[mini];
 		jBranch -= av[minj];
 		
@@ -189,8 +226,8 @@ njTree(String<TValue, TStringSpec>& mat,
 		
 		// Build tree
 		TVertexDescriptor internalVertex = addVertex(g);
-		addEdge(g, internalVertex, connector[mini], (TCargo) iBranch);
-		addEdge(g, internalVertex, connector[minj], (TCargo) jBranch);
+		addEdge(g, internalVertex, connector[mini], (TCargo) _roundToSignificantFigures((iBranch / 10000000.0) * normFactor, 5));
+        addEdge(g, internalVertex, connector[minj], (TCargo) _roundToSignificantFigures((jBranch / 10000000.0) * normFactor, 5));
 
 		// Remember the average branch length for the new combined node
 		// Must be subtracted from all branches that include this node
@@ -207,8 +244,8 @@ njTree(String<TValue, TStringSpec>& mat,
 		for(TSize j=0; j<nseq; ++j) {
 			if( connector[j] != nilVertex ) {
 				// Use upper triangle
-				if((TSize) mini < j) mat[mini*nseq+j] = (TValue) ((mat[mini*nseq+j] + mat[minj*nseq+j]) / 2);
-				if((TSize) mini > j) mat[j*nseq+mini] = (TValue) ((mat[mini*nseq+j] + mat[minj*nseq+j]) / 2);
+				if((TSize) mini < j) mat[mini*nseq+j] = (mat[mini*nseq+j] + mat[minj*nseq+j]) / 2;
+				if((TSize) mini > j) mat[j*nseq+mini] = (mat[mini*nseq+j] + mat[minj*nseq+j]) / 2;
 			}
 		}
 		for(TSize j=0; j<nseq; ++j)
@@ -234,7 +271,7 @@ njTree(String<TValue, TStringSpec>& mat,
 	//std::cout << l[2] << std::endl;
 	//std::cout << std::endl;
 
-	String<TCargo> branch;
+	String<__int64> branch;
 	resize(branch, 3);
 	branch[0] = (mat[l[0]*nseq+l[1]] + mat[l[0]*nseq+l[2]] - mat[l[1]*nseq+l[2]]) / 2;
 	branch[1] = (mat[l[1]*nseq+l[2]] + mat[l[0]*nseq+l[1]] - mat[l[0]*nseq+l[2]]) / 2;
@@ -257,11 +294,11 @@ njTree(String<TValue, TStringSpec>& mat,
     
 	// Build tree
 	TVertexDescriptor internalVertex = addVertex(g);
-	addEdge(g, internalVertex, getValue(connector, l[0]), (TCargo) branch[0]);
-	addEdge(g, internalVertex, getValue(connector, l[1]), (TCargo) branch[1]);
+	addEdge(g, internalVertex, getValue(connector, l[0]), (TCargo) _roundToSignificantFigures((branch[0] / 10000000.0)* normFactor, 5));
+    addEdge(g, internalVertex, getValue(connector, l[1]), (TCargo) _roundToSignificantFigures((branch[1] / 10000000.0) * normFactor, 5));
 	TVertexDescriptor the_root = addVertex(g);
-	addEdge(g, the_root, getValue(connector, l[2]), (TCargo) branch[2] / 2);
-	addEdge(g, the_root, internalVertex, (TCargo) branch[2] / 2);
+	addEdge(g, the_root, getValue(connector, l[2]), (TCargo) _roundToSignificantFigures((branch[2] / 20000000.0) * normFactor, 5));
+	addEdge(g, the_root, internalVertex, (TCargo) _roundToSignificantFigures((branch[2] / 20000000.0) * normFactor, 5));
 	g.data_root = the_root;
 }
 

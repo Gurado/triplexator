@@ -57,7 +57,7 @@ namespace seqan {
 .Spec.Simple Holder
 ..cat:Holders
 ..summary:Simple copying wrapper without any additional state.
-..signature:Holder<TValue, Simle>
+..signature:Holder<TValue, Simple>
 ..param.TValue:Type of the managed object.
 ..general:Class.Holder
 ..remarks.text:This holder stores a copy of the value.

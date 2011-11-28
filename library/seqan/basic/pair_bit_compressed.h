@@ -85,7 +85,7 @@ struct Pair<T1_, T2_, BitCompressed<BITSIZE1, BITSIZE2> >
     // Constructors
     // ------------------------------------------------------------------------
 
-    inline Pair() {}
+    inline Pair() : i1(T1_()), i2(T2_()) {}
 
     inline Pair(Pair const & _p) : i1(_p.i1), i2(_p.i2) {}
 

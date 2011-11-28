@@ -32,6 +32,8 @@
 //  Author: Andreas Gogol-Doering <andreas.doering@mdc-berlin.de>
 // ==========================================================================
 
+// SEQAN_NO_GENERATED_FORWARDS: no forwards are generated for this file
+
 #ifndef SEQAN_HEADER_GAPS_SUMLIST_H
 #define SEQAN_HEADER_GAPS_SUMLIST_H
 
@@ -48,7 +50,7 @@ struct SumlistGaps;
 // Gaps - SumlistGaps Spec
 //////////////////////////////////////////////////////////////////////////////
 
-/**
+/*
 .Spec.SumlistGaps:
 ..cat:Alignments
 ..general:Class.Gaps

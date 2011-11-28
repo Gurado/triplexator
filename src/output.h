@@ -542,7 +542,8 @@ namespace SEQAN_NAMESPACE_MAIN
 	>
 	CharString _errorString(TMatch		&match,				// forward/reverse matches
 							TString		&duplex,			// duplex string
-							TMotifSet 	&tfoSet)
+							TMotifSet 	&tfoSet,
+							Options		&options)
 	{	
 		std::ostringstream errors;
 		
@@ -554,34 +555,56 @@ namespace SEQAN_NAMESPACE_MAIN
 		CharString psTFO = prettyString(tfo_);
 		CharString psTTS = prettyString(tts_);
 				
-		for (unsigned int i=0; i<length(psTTS); ++i){
-		}
-		
-		if (match.strand == '-'){
-			reverse(psTTS);
-			if (value(tfoSet,match.tfoSeqNo).parallel) 
-				reverse(psTFO);
-			
-			TIter itTts = begin(tts_);
-			TIter itTtsEnd = end(tts_);
-			TIter itTfo = begin(tfo_);
-			TIter itTfoEnd = end(tfo_);
-			unsigned i = 0;
-			while(itTtsEnd != itTts and itTfoEnd != itTfo){
-				--itTtsEnd;
-				--itTfoEnd;
-				if (*itTtsEnd != *itTfoEnd){
-					if (! isupper(value(psTTS,i)) && ! isupper(value(psTFO,i))) errors << 'b' << i;
-					else if (! isupper(value(psTTS,i))) errors << 'd' << i;
-					else if (! isupper(value(psTFO,i))) errors << 'o' << i;	
-					else errors << 't' << i;
+		if (options.errorReference == WATSON_STAND){
+			// requires consideration of pruine tract and parallel/anti-parallel triplex formation
+			if (match.strand == '-'){
+				reverse(psTTS);
+				if (value(tfoSet,match.tfoSeqNo).parallel) 
+					reverse(psTFO);
+//				::std::cerr << "\n" << psTTS << "\n" << psTFO << "\n" << tts_ << "\n" << tfo_ << "\n";
+				TIter itTts = begin(tts_);
+				TIter itTtsEnd = end(tts_);
+				TIter itTfo = begin(tfo_);
+				TIter itTfoEnd = end(tfo_);
+				unsigned i = 0;
+				while(itTtsEnd != itTts and itTfoEnd != itTfo){
+					--itTtsEnd;
+					--itTfoEnd;
+					if (*itTtsEnd != *itTfoEnd){
+						if (! isupper(value(psTTS,i)) && ! isupper(value(psTFO,i))) errors << 'b' << i;
+						else if (! isupper(value(psTTS,i))) errors << 'd' << i;
+						else if (! isupper(value(psTFO,i))) errors << 'o' << i;	
+						else errors << 't' << i;
+					}
+					++i;
+				}			
+			} else { // '+' strand
+				if (!value(tfoSet,match.tfoSeqNo).parallel)
+					reverse(psTFO);
+//				::std::cerr << "\n" << psTTS << "\n" << psTFO << "\n" << tts_ << "\n" << tfo_ << "\n";
+				TIter itTts = begin(tts_);
+				TIter itTtsEnd = end(tts_);
+				TIter itTfo = begin(tfo_);
+				TIter itTfoEnd = end(tfo_);
+				unsigned i = 0;
+				while(itTts != itTtsEnd && itTfo != itTfoEnd){
+					if (*itTts != *itTfo){
+						if (! isupper(value(psTTS,i)) && ! isupper(value(psTFO,i))) errors << 'b' << i;
+						else if (! isupper(value(psTTS,i))) errors << 'd' << i;
+						else if (! isupper(value(psTFO,i))) errors << 'o' << i;		
+						else errors << 't' << i;
+					}
+					++itTts;
+					++itTfo;
+					++i;
 				}
-				++i;
-				
 			}
-		} else { // '+' strand
-			if (!value(tfoSet,match.tfoSeqNo).parallel)
+		} else if (options.errorReference == PURINE_STRAND){ 
+			// only requires adjustment of anti-parallel binding third strands
+			if (!value(tfoSet,match.tfoSeqNo).parallel) 
 				reverse(psTFO);
+//			::std::cerr << "\n" << psTTS << "\n" << psTFO << "\n" << tts_ << "\n" << tfo_ << "\n";
+			
 			TIter itTts = begin(tts_);
 			TIter itTtsEnd = end(tts_);
 			TIter itTfo = begin(tfo_);
@@ -591,14 +614,55 @@ namespace SEQAN_NAMESPACE_MAIN
 				if (*itTts != *itTfo){
 					if (! isupper(value(psTTS,i)) && ! isupper(value(psTFO,i))) errors << 'b' << i;
 					else if (! isupper(value(psTTS,i))) errors << 'd' << i;
-					else if (! isupper(value(psTFO,i))) errors << 'o' << i;		
+					else if (! isupper(value(psTFO,i))) errors << 'o' << i;	
 					else errors << 't' << i;
 				}
 				++itTts;
 				++itTfo;
 				++i;
 			}
+		} else if (options.errorReference == THIRD_STRAND){
+			// requires consideration of parallel/anti-parallel binding
+			if (value(tfoSet,match.tfoSeqNo).parallel) {
+//				::std::cerr << "\n" << psTTS << "\n" << psTFO << "\n" << tts_ << "\n" << tfo_ << "\n";
+				TIter itTts = begin(tts_);
+				TIter itTtsEnd = end(tts_);
+				TIter itTfo = begin(tfo_);
+				TIter itTfoEnd = end(tfo_);
+				unsigned i = 0;
+				while(itTts != itTtsEnd && itTfo != itTfoEnd){
+					if (*itTts != *itTfo){
+						if (! isupper(value(psTTS,i)) && ! isupper(value(psTFO,i))) errors << 'b' << i;
+						else if (! isupper(value(psTTS,i))) errors << 'd' << i;
+						else if (! isupper(value(psTFO,i))) errors << 'o' << i;		
+						else errors << 't' << i;
+					}
+					++itTts;
+					++itTfo;
+					++i;
+				}
+			} else {
+				reverse(psTTS);
+//				::std::cerr << "\n" << psTTS << "\n" << psTFO << "\n" << tts_ << "\n" << tfo_ << "\n";
+				TIter itTts = begin(tts_);
+				TIter itTtsEnd = end(tts_);
+				TIter itTfo = begin(tfo_);
+				TIter itTfoEnd = end(tfo_);
+				unsigned i = 0;
+				while(itTtsEnd != itTts and itTfoEnd != itTfo){
+					--itTtsEnd;
+					--itTfoEnd;
+					if (*itTtsEnd != *itTfoEnd){
+						if (! isupper(value(psTTS,i)) && ! isupper(value(psTFO,i))) errors << 'b' << i;
+						else if (! isupper(value(psTTS,i))) errors << 'd' << i;
+						else if (! isupper(value(psTFO,i))) errors << 'o' << i;	
+						else errors << 't' << i;
+					}
+					++i;
+				}
+			}
 		}
+//		::std::cerr << errors.str() << "\n";
 		return errors.str();
 	}
 	
@@ -831,13 +895,13 @@ namespace SEQAN_NAMESPACE_MAIN
 					filehandle << tfoNames[seqNo] << _sep_ << match.oBegin << _sep_ << match.oEnd << _sep_ ;
 					filehandle << duplexId << _sep_ << match.dBegin << _sep_ << match.dEnd << _sep_ ;
 					filehandle << match.mScore << _sep_ << ::std::setprecision(2) << (1.0-match.mScore/(match.dEnd-match.dBegin)) << _sep_ ;
-					filehandle << _errorString(match, duplex, tfoSet) << _sep_ << match.motif << _sep_ << match.strand << _sep_ <<  (match.parallel?'P':'A') << ::std::endl;
+					filehandle << _errorString(match, duplex, tfoSet, options) << _sep_ << match.motif << _sep_ << match.strand << _sep_ <<  (match.parallel?'P':'A') << ::std::endl;
 					break;
 				case 1:	// extended Triplex Format
 					filehandle << tfoNames[seqNo] << _sep_ << match.oBegin << _sep_ << match.oEnd << _sep_ ;
 					filehandle << duplexId << _sep_ << match.dBegin << _sep_ << match.dEnd << _sep_ ;
 					filehandle << match.mScore << _sep_ << ::std::setprecision(2) << (1.0-match.mScore/(match.dEnd-match.dBegin)) << _sep_ ;
-					filehandle << _errorString(match, duplex, tfoSet) << _sep_ << match.motif << _sep_ << match.strand << _sep_ <<  (match.parallel?'P':'A') << ::std::endl;
+					filehandle << _errorString(match, duplex, tfoSet, options) << _sep_ << match.motif << _sep_ << match.strand << _sep_ <<  (match.parallel?'P':'A') << ::std::endl;
 					dumpAlignment(match, duplex, tfoSet, filehandle, options);
 					break;
 				default:

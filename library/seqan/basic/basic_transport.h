@@ -143,8 +143,8 @@ assign(Proxy<TTargetSpec> & target,
 .Function.set:
 ..summary:Assigns one object to another object avoiding to copy contents.
 ..cat:Content Manipulation
-..signature:assign(target, source)
-..signature:assign(target, source)
+..signature:set(target, source)
+..signature:set(target, source)
 ..param.target: Gets the content of $source$.
 ..param.source: Content source.
 ..remarks:$set(target, source)$ is semantically equivalent to $target = source$.

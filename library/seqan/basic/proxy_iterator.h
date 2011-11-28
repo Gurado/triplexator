@@ -71,6 +71,8 @@ public:
     typedef typename Value<Proxy>::Type TValue_;
     typedef typename GetValue<Proxy>::Type TAccessor_;
 
+    // TODO(holtgrew): Is removing this reference necessary or does this only hide errors in the definition of GetValue<>::Type?
+    //typedef typename RemoveReference_<typename RemoveConst_<TAccessor_>::Type>::Type TAccessorNotConst_;
     typedef typename RemoveConst_<TAccessor_>::Type TAccessorNotConst_;
 
     TIterator data_iterator;

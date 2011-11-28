@@ -168,7 +168,10 @@ namespace SEQAN_NAMESPACE_MAIN
 		
 		Shape(unsigned _span):
 			hValue(0),
-			XValue(0)
+			XValue(0),
+			leftFactor(0),
+			leftFactor2(0),
+			leftChar(0)
 		{
 			resize(*this, _span);
 		}

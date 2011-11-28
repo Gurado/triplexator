@@ -175,7 +175,7 @@ Empty edges are traversed also, i.e. for every suffix there is a leaf node repre
 		Pair<TSize> range;			// current SA interval of hits (unique node identifier)
 		TSize		parentRight;	// right boundary of parent node's range (allows to go right)
 
-		VertexEsa() {}
+		VertexEsa() : range(0, 0), parentRight(0) {}
 
 		VertexEsa(MinimalCtor):
 			range(0,0),

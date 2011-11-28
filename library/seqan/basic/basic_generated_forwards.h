@@ -289,7 +289,7 @@ template <size_t SIZE, size_t MAX_COUNT , typename TParentAllocator > struct Chu
 //____________________________________________________________________________
 // ClassIdentifier_
 
-template <typename T> struct ClassIdentifier_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(724)
+template <typename T> struct ClassIdentifier_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(751)
 
 //____________________________________________________________________________
 // CompareType
@@ -326,7 +326,7 @@ template <typename TTarget, typename TSource > struct Convert;       	// "/Users
 //____________________________________________________________________________
 // CopyConst_
 
-template <typename TFrom, typename TTo> struct CopyConst_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(674)
+template <typename TFrom, typename TTo> struct CopyConst_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(701)
 
 //____________________________________________________________________________
 // DeepestSpec
@@ -447,12 +447,7 @@ template <typename T> struct IsCharType;       	// "/Users/f.buske/Documents/bio
 //____________________________________________________________________________
 // IsConst_
 
-template <typename T> struct IsConst_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(698)
-
-//____________________________________________________________________________
-// IsIntegral
-
-template <typename T> struct IsIntegral;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_type.h"(751)
+template <typename T> struct IsConst_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(725)
 
 //____________________________________________________________________________
 // IsSameType
@@ -462,13 +457,13 @@ template <class Type1, class Type2> struct IsSameType;       	// "/Users/f.buske
 //____________________________________________________________________________
 // IsSimple
 
-template <typename T> struct IsSimple;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(78)
+template <typename T> struct IsSimple;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(88)
 template <typename T> struct IsSimple;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(50)
 
 //____________________________________________________________________________
 // IsSimple_
 
-template <typename T> struct IsSimple_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(71)
+template <typename T> struct IsSimple_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(81)
 
 //____________________________________________________________________________
 // Iter
@@ -553,14 +548,24 @@ template <typename Worker, int I> class Loop;       	// "/Users/f.buske/Document
 template <typename Worker, int I> class LoopReverse;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(444)
 
 //____________________________________________________________________________
+// MakeSigned
+
+template <typename T> struct MakeSigned;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(603)
+
+//____________________________________________________________________________
 // MakeSigned_
 
-template <typename T> struct MakeSigned_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(584)
+template <typename T> struct MakeSigned_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(626)
+
+//____________________________________________________________________________
+// MakeUnsigned
+
+template <typename T> struct MakeUnsigned;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(557)
 
 //____________________________________________________________________________
 // MakeUnsigned_
 
-template <typename T> struct MakeUnsigned_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(554)
+template <typename T> struct MakeUnsigned_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(581)
 
 //____________________________________________________________________________
 // MaxValue
@@ -590,12 +595,12 @@ template <typename T> struct MaximumValueUnsigned_;       	// "/Users/f.buske/Do
 //____________________________________________________________________________
 // MemsetConstValueWorker
 
-template <unsigned SIZE, bool direct, unsigned char c> struct MemsetConstValueWorker;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(833)
+template <unsigned SIZE, bool direct, unsigned char c> struct MemsetConstValueWorker;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(860)
 
 //____________________________________________________________________________
 // MemsetWorker
 
-template <unsigned SIZE, bool direct> struct MemsetWorker;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(766)
+template <unsigned SIZE, bool direct> struct MemsetWorker;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(793)
 
 //____________________________________________________________________________
 // MinValue
@@ -737,12 +742,12 @@ template <typename T> struct Reference;       	// "/Users/f.buske/Documents/bios
 //____________________________________________________________________________
 // RemoveConst_
 
-template <typename T> struct RemoveConst_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(638)
+template <typename T> struct RemoveConst_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(665)
 
 //____________________________________________________________________________
 // RemoveReference_
 
-template <typename T> struct RemoveReference_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(615)
+template <typename T> struct RemoveReference_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(642)
 
 //____________________________________________________________________________
 // Rooted_
@@ -914,22 +919,22 @@ template <typename T, const int i > struct Value;       	// "/Users/f.buske/Docu
 //____________________________________________________________________________
 // ValueConstructorProxy_
 
-struct ValueConstructorProxy_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(152)
+struct ValueConstructorProxy_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(162)
 
 //____________________________________________________________________________
 // ValueConstructor_
 
-struct ValueConstructor_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(115)
+struct ValueConstructor_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(125)
 
 //____________________________________________________________________________
 // ValueDestructorProxy_
 
-struct ValueDestructorProxy_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(251)
+struct ValueDestructorProxy_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(261)
 
 //____________________________________________________________________________
 // ValueDestructor_
 
-struct ValueDestructor_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(230)
+struct ValueDestructor_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(240)
 
 //____________________________________________________________________________
 // ValueSize
@@ -1338,105 +1343,105 @@ template <typename TParentAllocator, unsigned int BLOCKING_LIMIT> inline unsigne
 //____________________________________________________________________________
 // _arrayClearSpaceDefault
 
-template <typename TIterator> void _arrayClearSpaceDefault(TIterator array_begin, size_t array_length, size_t keep_from, size_t move_to);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(841)
+template <typename TIterator> void _arrayClearSpaceDefault(TIterator array_begin, size_t array_length, size_t keep_from, size_t move_to);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(851)
 
 //____________________________________________________________________________
 // _arrayClearSpacePointer
 
-template <typename TValue> inline void _arrayClearSpacePointer(TValue * array_begin, size_t array_length, size_t keep_from, size_t move_to, True const & );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1223)
-template <typename TValue> inline void _arrayClearSpacePointer(TValue * array_begin, size_t array_length, size_t keep_from, size_t move_to, False const & );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1238)
+template <typename TValue> inline void _arrayClearSpacePointer(TValue * array_begin, size_t array_length, size_t keep_from, size_t move_to, True const & );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1233)
+template <typename TValue> inline void _arrayClearSpacePointer(TValue * array_begin, size_t array_length, size_t keep_from, size_t move_to, False const & );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1248)
 
 //____________________________________________________________________________
 // _arrayConstructCopyDefault
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void _arrayConstructCopyDefault(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(387)
+template <typename TTarget, typename TSource1, typename TSource2> inline void _arrayConstructCopyDefault(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(397)
 
 //____________________________________________________________________________
 // _arrayConstructCopyPointer
 
-template <typename TValueSource, typename TValueTarget> inline void _arrayConstructCopyPointer(TValueSource * source_begin, TValueSource * source_end, TValueTarget * target_begin, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(963)
-template <typename TValueSource, typename TValueTarget> inline void _arrayConstructCopyPointer(TValueSource * source_begin, TValueSource * source_end, TValueTarget const* target_begin, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(974)
-template <typename TValueSource, typename TValueTarget> inline void _arrayConstructCopyPointer(TValueSource * source_begin, TValueSource * source_end, TValueTarget * target_begin, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(985)
+template <typename TValueSource, typename TValueTarget> inline void _arrayConstructCopyPointer(TValueSource * source_begin, TValueSource * source_end, TValueTarget * target_begin, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(973)
+template <typename TValueSource, typename TValueTarget> inline void _arrayConstructCopyPointer(TValueSource * source_begin, TValueSource * source_end, TValueTarget const* target_begin, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(984)
+template <typename TValueSource, typename TValueTarget> inline void _arrayConstructCopyPointer(TValueSource * source_begin, TValueSource * source_end, TValueTarget * target_begin, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(995)
 
 //____________________________________________________________________________
 // _arrayConstructDefault
 
-template <typename TIterator1, typename TIterator2> inline void _arrayConstructDefault(TIterator1 begin_, TIterator2 end_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(316)
-template <typename TIterator1, typename TIterator2, typename TParam> inline void _arrayConstructDefault(TIterator1 begin_, TIterator2 end_, TParam const & param_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(339)
+template <typename TIterator1, typename TIterator2> inline void _arrayConstructDefault(TIterator1 begin_, TIterator2 end_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(326)
+template <typename TIterator1, typename TIterator2, typename TParam> inline void _arrayConstructDefault(TIterator1 begin_, TIterator2 end_, TParam const & param_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(349)
 
 //____________________________________________________________________________
 // _arrayConstructMoveDefault
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void _arrayConstructMoveDefault(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(439)
+template <typename TTarget, typename TSource1, typename TSource2> inline void _arrayConstructMoveDefault(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(449)
 
 //____________________________________________________________________________
 // _arrayConstructMovePointer
 
-template <typename TValue> inline void _arrayConstructMovePointer(TValue * source_begin, TValue * source_end, TValue * target_begin, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1009)
-template <typename TValue> inline void _arrayConstructMovePointer(TValue * source_begin, TValue * source_end, TValue * target_begin, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1020)
+template <typename TValue> inline void _arrayConstructMovePointer(TValue * source_begin, TValue * source_end, TValue * target_begin, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1019)
+template <typename TValue> inline void _arrayConstructMovePointer(TValue * source_begin, TValue * source_end, TValue * target_begin, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1030)
 
 //____________________________________________________________________________
 // _arrayConstructPointer
 
-template <typename TIterator> inline void _arrayConstructPointer(TIterator, TIterator, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(897)
-template <typename TIterator> inline void _arrayConstructPointer(TIterator begin_, TIterator end_, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(907)
-template <typename TIterator, typename TParam> inline void _arrayConstructPointer(TIterator begin_, TIterator end_, TParam const & param_, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(927)
-template <typename TIterator, typename TParam> inline void _arrayConstructPointer(TIterator begin_, TIterator end_, TParam const & param_, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(938)
+template <typename TIterator> inline void _arrayConstructPointer(TIterator, TIterator, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(907)
+template <typename TIterator> inline void _arrayConstructPointer(TIterator begin_, TIterator end_, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(917)
+template <typename TIterator, typename TParam> inline void _arrayConstructPointer(TIterator begin_, TIterator end_, TParam const & param_, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(937)
+template <typename TIterator, typename TParam> inline void _arrayConstructPointer(TIterator begin_, TIterator end_, TParam const & param_, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(948)
 
 //____________________________________________________________________________
 // _arrayCopyBackwardDefault
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void _arrayCopyBackwardDefault(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(606)
+template <typename TTarget, typename TSource1, typename TSource2> inline void _arrayCopyBackwardDefault(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(616)
 
 //____________________________________________________________________________
 // _arrayCopyBackwardPointer
 
-template <typename TValue> inline void _arrayCopyBackwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1118)
-template <typename TValue> inline void _arrayCopyBackwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1129)
+template <typename TValue> inline void _arrayCopyBackwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1128)
+template <typename TValue> inline void _arrayCopyBackwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1139)
 
 //____________________________________________________________________________
 // _arrayCopyForwardDefault
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void _arrayCopyForwardDefault(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(560)
+template <typename TTarget, typename TSource1, typename TSource2> inline void _arrayCopyForwardDefault(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(570)
 
 //____________________________________________________________________________
 // _arrayCopyForwardPointer
 
-template <typename TValue> inline void _arrayCopyForwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1086)
-template <typename TValue> inline void _arrayCopyForwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1097)
+template <typename TValue> inline void _arrayCopyForwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1096)
+template <typename TValue> inline void _arrayCopyForwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1107)
 
 //____________________________________________________________________________
 // _arrayDestructDefault
 
-template <typename TIterator1, typename TIterator2> inline void _arrayDestructDefault(TIterator1 begin_, TIterator2 end_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(484)
+template <typename TIterator1, typename TIterator2> inline void _arrayDestructDefault(TIterator1 begin_, TIterator2 end_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(494)
 
 //____________________________________________________________________________
 // _arrayDestructPointer
 
-template <typename TValue> inline void _arrayDestructPointer(TValue * , TValue * , True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1044)
-template <typename TValue> inline void _arrayDestructPointer(TValue * begin_, TValue * end_, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1054)
+template <typename TValue> inline void _arrayDestructPointer(TValue * , TValue * , True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1054)
+template <typename TValue> inline void _arrayDestructPointer(TValue * begin_, TValue * end_, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1064)
 
 //____________________________________________________________________________
 // _arrayMoveBackwardDefault
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void _arrayMoveBackwardDefault(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(742)
+template <typename TTarget, typename TSource1, typename TSource2> inline void _arrayMoveBackwardDefault(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(752)
 
 //____________________________________________________________________________
 // _arrayMoveBackwardPointer
 
-template <typename TValue> inline void _arrayMoveBackwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1186)
-template <typename TValue> inline void _arrayMoveBackwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1196)
+template <typename TValue> inline void _arrayMoveBackwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1196)
+template <typename TValue> inline void _arrayMoveBackwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1206)
 
 //____________________________________________________________________________
 // _arrayMoveForwardDefault
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void _arrayMoveForwardDefault(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(690)
+template <typename TTarget, typename TSource1, typename TSource2> inline void _arrayMoveForwardDefault(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(700)
 
 //____________________________________________________________________________
 // _arrayMoveForwardPointer
 
-template <typename TValue> inline void _arrayMoveForwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1154)
-template <typename TValue> inline void _arrayMoveForwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1165)
+template <typename TValue> inline void _arrayMoveForwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1164)
+template <typename TValue> inline void _arrayMoveForwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1175)
 
 //____________________________________________________________________________
 // _dataValue
@@ -1518,73 +1523,73 @@ template <size_t SIZE, typename TParentAllocator, typename TValue, typename TSiz
 //____________________________________________________________________________
 // arrayClearSpace
 
-template <typename TIterator> void arrayClearSpace(TIterator array_begin, size_t array_length, size_t keep_from, size_t move_to);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(884)
-template <typename TValue> void arrayClearSpace(TValue * array_begin, size_t array_length, size_t keep_from, size_t move_to);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1247)
+template <typename TIterator> void arrayClearSpace(TIterator array_begin, size_t array_length, size_t keep_from, size_t move_to);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(894)
+template <typename TValue> void arrayClearSpace(TValue * array_begin, size_t array_length, size_t keep_from, size_t move_to);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1257)
 
 //____________________________________________________________________________
 // arrayConstruct
 
-template <typename TIterator1, typename TIterator2> inline void arrayConstruct(TIterator1 begin_, TIterator2 end_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(329)
-template <typename TIterator1, typename TIterator2, typename TParam> inline void arrayConstruct(TIterator1 begin_, TIterator2 end_, TParam const & param_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(353)
-template <typename TValue> inline void arrayConstruct(TValue * begin_, TValue * end_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(916)
-template <typename TValue, typename TParam> inline void arrayConstruct(TValue * begin_, TValue * end_, TParam const & param_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(948)
+template <typename TIterator1, typename TIterator2> inline void arrayConstruct(TIterator1 begin_, TIterator2 end_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(339)
+template <typename TIterator1, typename TIterator2, typename TParam> inline void arrayConstruct(TIterator1 begin_, TIterator2 end_, TParam const & param_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(363)
+template <typename TValue> inline void arrayConstruct(TValue * begin_, TValue * end_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(926)
+template <typename TValue, typename TParam> inline void arrayConstruct(TValue * begin_, TValue * end_, TParam const & param_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(958)
 
 //____________________________________________________________________________
 // arrayConstructCopy
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void arrayConstructCopy(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(404)
-template <typename TValueSource, typename TValueTarget> inline void arrayConstructCopy(TValueSource * source_begin, TValueSource * source_end, TValueTarget * target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(994)
+template <typename TTarget, typename TSource1, typename TSource2> inline void arrayConstructCopy(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(414)
+template <typename TValueSource, typename TValueTarget> inline void arrayConstructCopy(TValueSource * source_begin, TValueSource * source_end, TValueTarget * target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1004)
 
 //____________________________________________________________________________
 // arrayConstructMove
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void arrayConstructMove(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(458)
-template <typename TValue> inline void arrayConstructMove(TValue * source_begin, TValue * source_end, TValue * target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1030)
+template <typename TTarget, typename TSource1, typename TSource2> inline void arrayConstructMove(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(468)
+template <typename TValue> inline void arrayConstructMove(TValue * source_begin, TValue * source_end, TValue * target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1040)
 
 //____________________________________________________________________________
 // arrayCopy
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void arrayCopy(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(652)
+template <typename TTarget, typename TSource1, typename TSource2> inline void arrayCopy(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(662)
 
 //____________________________________________________________________________
 // arrayCopyBackward
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void arrayCopyBackward(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(616)
-template <typename TValue> inline void arrayCopyBackward(TValue * source_begin, TValue * source_end, TValue * target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1139)
+template <typename TTarget, typename TSource1, typename TSource2> inline void arrayCopyBackward(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(626)
+template <typename TValue> inline void arrayCopyBackward(TValue * source_begin, TValue * source_end, TValue * target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1149)
 
 //____________________________________________________________________________
 // arrayCopyForward
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void arrayCopyForward(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(570)
-template <typename TValue> inline void arrayCopyForward(TValue * source_begin, TValue * source_end, TValue * target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1107)
+template <typename TTarget, typename TSource1, typename TSource2> inline void arrayCopyForward(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(580)
+template <typename TValue> inline void arrayCopyForward(TValue * source_begin, TValue * source_end, TValue * target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1117)
 
 //____________________________________________________________________________
 // arrayDestruct
 
-template <typename TIterator1, typename TIterator2> inline void arrayDestruct(TIterator1 begin_, TIterator2 end_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(497)
-template <typename TValue> inline void arrayDestruct(TValue * begin_, TValue * end_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1063)
+template <typename TIterator1, typename TIterator2> inline void arrayDestruct(TIterator1 begin_, TIterator2 end_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(507)
+template <typename TValue> inline void arrayDestruct(TValue * begin_, TValue * end_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1073)
 
 //____________________________________________________________________________
 // arrayFill
 
-template <typename TIterator1, typename TIterator2, typename TValue> inline void arrayFill(TIterator1 begin_, TIterator2 end_, TValue const & value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(529)
+template <typename TIterator1, typename TIterator2, typename TValue> inline void arrayFill(TIterator1 begin_, TIterator2 end_, TValue const & value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(539)
 
 //____________________________________________________________________________
 // arrayMove
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void arrayMove(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(797)
+template <typename TTarget, typename TSource1, typename TSource2> inline void arrayMove(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(807)
 
 //____________________________________________________________________________
 // arrayMoveBackward
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void arrayMoveBackward(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(757)
-template <typename TValue> inline void arrayMoveBackward(TValue * source_begin, TValue * source_end, TValue * target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1206)
+template <typename TTarget, typename TSource1, typename TSource2> inline void arrayMoveBackward(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(767)
+template <typename TValue> inline void arrayMoveBackward(TValue * source_begin, TValue * source_end, TValue * target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1216)
 
 //____________________________________________________________________________
 // arrayMoveForward
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void arrayMoveForward(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(705)
-template <typename TValue> inline void arrayMoveForward(TValue * source_begin, TValue * source_end, TValue * target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1175)
+template <typename TTarget, typename TSource1, typename TSource2> inline void arrayMoveForward(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(715)
+template <typename TValue> inline void arrayMoveForward(TValue * source_begin, TValue * source_end, TValue * target_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(1185)
 
 //____________________________________________________________________________
 // assign
@@ -1622,7 +1627,7 @@ template <typename TValue> inline void assign(Holder<TValue, Simple> & target_, 
 template <typename TValue> inline void assign(Holder<TValue, Tristate> & target_, Holder<TValue, Tristate> const & source_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(1026)
 template <typename TTargetContainer, typename TSource> inline void assign(Iter<TTargetContainer, StdIteratorAdaptor> & target, TSource const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(564)
 template <typename TTargetContainer, typename TIterator, typename TSpec, typename TSource> inline void assign(Iter<TTargetContainer, AdaptorIterator<TIterator, TSpec> > & target, TSource const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(615)
-template <typename TTargetContainer, typename TSource> inline void assign(Iter<TTargetContainer, PositionIterator> & target, TSource const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(538)
+template <typename TTargetContainer, typename TSource> inline void assign(Iter<TTargetContainer, PositionIterator> & target, TSource const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(539)
 
 //____________________________________________________________________________
 // assignHost
@@ -1645,8 +1650,8 @@ template <typename TContainer, typename TIterator, typename TSpec, typename TVal
 template <typename TContainer, typename TIterator, typename TSpec, typename TValue> inline void assignValue(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(345)
 template <typename T, typename TValue> inline void assignValue(T & me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(304)
 template <typename T, typename TValue> inline void assignValue(T const & me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(314)
-template <typename TContainer, typename TValue> inline void assignValue(Iter<TContainer, PositionIterator> & me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(264)
-template <typename TContainer, typename TValue> inline void assignValue(Iter<TContainer, PositionIterator> const & me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(273)
+template <typename TContainer, typename TValue> inline void assignValue(Iter<TContainer, PositionIterator> & me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(265)
+template <typename TContainer, typename TValue> inline void assignValue(Iter<TContainer, PositionIterator> const & me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(274)
 template <typename T_, unsigned _size, typename tmpS, typename TPos> inline void assignValue(Tuple<T_, _size, void> & me, TPos k, tmpS const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(294)
 template <typename T_, unsigned _size, typename tmpS, typename TPos> inline tmpS const assignValue(Tuple<T_, _size, Compressed> & me, TPos k, tmpS const source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(275)
 template <typename T_, typename tmpS, typename Spec_, unsigned _size, typename TPos> inline SimpleType<tmpS, Spec_> const & assignValue(Tuple<T_, _size, Compressed> & me, TPos k, SimpleType<tmpS, Spec_> const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(284)
@@ -1733,8 +1738,8 @@ template <typename TValue, size_t I> inline void setValue(Holder<TValue * const,
 template <typename TContainer, typename TIterator, typename TSpec> inline typename Parameter_<TContainer>::Type container(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(190)
 template <typename TContainer, typename TIterator, typename TSpec> inline typename Parameter_<TContainer>::Type container(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(198)
 template <typename T> inline typename Container<T>::Type & container(T me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(405)
-template <typename TContainer> inline typename Parameter_<TContainer>::Type container(Iter<TContainer, PositionIterator> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(170)
-template <typename TContainer> inline typename Parameter_<TContainer>::Type container(Iter<TContainer, PositionIterator> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(178)
+template <typename TContainer> inline typename Parameter_<TContainer>::Type container(Iter<TContainer, PositionIterator> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(171)
+template <typename TContainer> inline typename Parameter_<TContainer>::Type container(Iter<TContainer, PositionIterator> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(179)
 
 //____________________________________________________________________________
 // convert
@@ -1843,8 +1848,8 @@ template <typename TValue> inline typename GetValue<Holder<TValue, Simple> const
 template <typename T> inline typename GetValue<T>::Type getValue(T & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(252)
 template <typename T> inline typename GetValue<T const>::Type getValue(T const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(260)
 template <typename T> inline T & getValue(T * me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(268)
-template <typename TIterator> typename GetValue<Proxy<IteratorProxy<TIterator> > >::Type getValue(Proxy<IteratorProxy<TIterator> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/proxy_iterator.h"(258)
-template <typename TIterator> typename GetValue<Proxy<IteratorProxy<TIterator> > const>::Type getValue(Proxy<IteratorProxy<TIterator> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/proxy_iterator.h"(265)
+template <typename TIterator> typename GetValue<Proxy<IteratorProxy<TIterator> > >::Type getValue(Proxy<IteratorProxy<TIterator> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/proxy_iterator.h"(260)
+template <typename TIterator> typename GetValue<Proxy<IteratorProxy<TIterator> > const>::Type getValue(Proxy<IteratorProxy<TIterator> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/proxy_iterator.h"(267)
 template <typename T_, unsigned _size, typename TPos> inline T_ getValue(Tuple<T_, _size, void> & me, TPos k);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(282)
 template <typename T_, unsigned _size, typename TPos> T_ getValue(Tuple<T_, _size, Compressed> const & me, TPos k);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(220)
 template <typename T_, unsigned _size, typename TPos> T_ getValue(Tuple<T_, _size, Compressed> & me, TPos k);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(231)
@@ -1890,7 +1895,7 @@ template <typename TIterator, typename TDiff> inline void goFurther(TIterator & 
 template <typename TContainer> inline void goNext(Iter<TContainer, StdIteratorAdaptor> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(414)
 template <typename TContainer, typename TIterator, typename TSpec> inline void goNext(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(440)
 template <typename TIterator> inline void goNext(TIterator & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(708)
-template <typename TContainer> inline void goNext(Iter<TContainer, PositionIterator> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(388)
+template <typename TContainer> inline void goNext(Iter<TContainer, PositionIterator> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(389)
 
 //____________________________________________________________________________
 // goNil
@@ -1904,7 +1909,7 @@ template <typename TIterator> inline void goNil(TIterator * & me);       	// "/U
 template <typename TContainer> inline void goPrevious(Iter<TContainer, StdIteratorAdaptor> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(426)
 template <typename TContainer, typename TIterator, typename TSpec> inline void goPrevious(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(452)
 template <typename TIterator> inline void goPrevious(TIterator & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(764)
-template <typename TContainer> inline void goPrevious(Iter<TContainer, PositionIterator> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(400)
+template <typename TContainer> inline void goPrevious(Iter<TContainer, PositionIterator> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(401)
 
 //____________________________________________________________________________
 // host
@@ -1933,8 +1938,8 @@ template <typename TValue, typename TSpec> inline SimpleType<TValue, TSpec> infi
 //____________________________________________________________________________
 // iter
 
-template <typename TIterator> inline TIterator & iter(Proxy<IteratorProxy<TIterator> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/proxy_iterator.h"(238)
-template <typename TIterator> inline TIterator const & iter(Proxy<IteratorProxy<TIterator> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/proxy_iterator.h"(245)
+template <typename TIterator> inline TIterator & iter(Proxy<IteratorProxy<TIterator> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/proxy_iterator.h"(240)
+template <typename TIterator> inline TIterator const & iter(Proxy<IteratorProxy<TIterator> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/proxy_iterator.h"(247)
 
 //____________________________________________________________________________
 // length
@@ -1967,8 +1972,8 @@ template <typename T> inline T const & maxValue(T);       	// "/Users/f.buske/Do
 //____________________________________________________________________________
 // memset
 
-template <unsigned SIZE> finline void memset(void* ptr, unsigned char c);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(825)
-template <unsigned SIZE, unsigned char c> finline void memset(void* ptr);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(888)
+template <unsigned SIZE> finline void memset(void* ptr, unsigned char c);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(852)
+template <unsigned SIZE, unsigned char c> finline void memset(void* ptr);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(915)
 
 //____________________________________________________________________________
 // minValue
@@ -2005,8 +2010,8 @@ template <typename TContainer, typename TIterator, typename TSpec, typename TVal
 template <typename TContainer, typename TIterator, typename TSpec, typename TValue> inline void moveValue(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(366)
 template <typename T, typename TValue> inline void moveValue(T & me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(344)
 template <typename T, typename TValue> inline void moveValue(T const & me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(354)
-template <typename TContainer, typename TValue> inline void moveValue(Iter<TContainer, PositionIterator> & me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(293)
-template <typename TContainer, typename TValue> inline void moveValue(Iter<TContainer, PositionIterator> const & me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(302)
+template <typename TContainer, typename TValue> inline void moveValue(Iter<TContainer, PositionIterator> & me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(294)
+template <typename TContainer, typename TValue> inline void moveValue(Iter<TContainer, PositionIterator> const & me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(303)
 template <typename T_, unsigned _size, typename tmpS, typename TPos> inline void moveValue(Tuple<T_, _size, void> & me, TPos k, tmpS & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(318)
 template <typename T_, unsigned _size, typename tmpS, typename TPos> inline tmpS const moveValue(Tuple<T_, _size, Compressed> & me, TPos k, tmpS const source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(319)
 template <typename T_, typename tmpS, typename Spec_, unsigned _size, typename TPos> inline SimpleType<tmpS, Spec_> const & moveValue(Tuple<T_, _size, Compressed> & me, TPos k, SimpleType<tmpS, Spec_> const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(328)
@@ -2056,7 +2061,7 @@ template <typename TContainer> inline bool operator!=(Iter<TContainer, StdIterat
 template <typename TContainer, typename TIterator, typename TSpec> inline bool operator!=(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & left, Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(410)
 template <typename TContainer, typename TIterator, typename TSpec> inline bool operator!=(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & left, typename IterComplementConst<TIterator>::Type const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(419)
 template <typename TContainer, typename TIterator, typename TSpec> inline bool operator!=(typename IterComplementConst<TIterator>::Type const & left, Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(428)
-template <typename TContainer> inline bool operator!=(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(328)
+template <typename TContainer> inline bool operator!=(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(329)
 template <typename L1, typename L2, typename LCompression, typename R1, typename R2, typename RCompression> inline bool operator!=(Pair<L1, L2, LCompression> const & _left, Pair<R1, R2, RCompression> const & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/pair_base.h"(383)
 template <typename TSpec, typename TRight> inline bool operator!=(Proxy<TSpec> const & left_, TRight const & right_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(185)
 template <typename TLeft, typename TSpec> inline bool operator!=(TLeft const & left_, Proxy<TSpec> const & right_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(196)
@@ -2094,10 +2099,10 @@ template <typename TContainer, typename TIterator, typename TSpec> inline Iter<T
 template <typename TContainer, typename TIterator, typename TSpec, typename TIntegral> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > operator+(TIntegral left, Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(486)
 template <typename TContainer, typename TIterator, typename TSpec> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > operator+(int left, Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(496)
 template <typename TContainer, typename TSpec, typename TSize> inline Iter<TContainer, TSpec> operator+(Iter<TContainer, TSpec> const & me, TSize size);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_base.h"(298)
-template <typename TContainer, typename TIntegral> inline Iter<TContainer, PositionIterator> operator+(Iter<TContainer, PositionIterator> const & left, TIntegral right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(413)
-template <typename TContainer> inline Iter<TContainer, PositionIterator> operator+(Iter<TContainer, PositionIterator> const & left, int right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(423)
-template <typename TContainer, typename TIntegral> inline Iter<TContainer, PositionIterator> operator+(TIntegral left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(432)
-template <typename TContainer> inline Iter<TContainer, PositionIterator> operator+(int left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(442)
+template <typename TContainer, typename TIntegral> inline Iter<TContainer, PositionIterator> operator+(Iter<TContainer, PositionIterator> const & left, TIntegral right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(414)
+template <typename TContainer> inline Iter<TContainer, PositionIterator> operator+(Iter<TContainer, PositionIterator> const & left, int right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(424)
+template <typename TContainer, typename TIntegral> inline Iter<TContainer, PositionIterator> operator+(TIntegral left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(433)
+template <typename TContainer> inline Iter<TContainer, PositionIterator> operator+(int left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(443)
 
 //____________________________________________________________________________
 // operator++
@@ -2117,8 +2122,8 @@ template <typename TContainer> inline Iter<TContainer, StdIteratorAdaptor> & ope
 template <typename TContainer, typename TIterator, typename TSpec, typename TIntegral> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & operator+=(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & left, TIntegral right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(509)
 template <typename TContainer, typename TIterator, typename TSpec> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & operator+=(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & left, int right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(520)
 template <typename TContainer, typename TSpec, typename TSize> inline Iter<TContainer, TSpec> const & operator+=(Iter<TContainer, TSpec> & me, TSize size);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_base.h"(312)
-template <typename TContainer, typename TIntegral> inline Iter<TContainer, PositionIterator> & operator+=(Iter<TContainer, PositionIterator> & left, TIntegral right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(455)
-template <typename TContainer> inline Iter<TContainer, PositionIterator> & operator+=(Iter<TContainer, PositionIterator> & left, int right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(466)
+template <typename TContainer, typename TIntegral> inline Iter<TContainer, PositionIterator> & operator+=(Iter<TContainer, PositionIterator> & left, TIntegral right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(456)
+template <typename TContainer> inline Iter<TContainer, PositionIterator> & operator+=(Iter<TContainer, PositionIterator> & left, int right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(467)
 
 //____________________________________________________________________________
 // operator-
@@ -2131,9 +2136,9 @@ template <typename TContainer> inline typename Difference<Iter<TContainer, StdIt
 template <typename TContainer, typename TIterator, typename TSpec, typename TIntegral> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > operator-(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & left, TIntegral right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(534)
 template <typename TContainer, typename TIterator, typename TSpec> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > operator-(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & left, int right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(544)
 template <typename TContainer, typename TIterator, typename TSpec, typename TContainer2, typename TIterator2, typename TSpec2> inline typename Difference<Iter<TContainer, AdaptorIterator<TIterator, TSpec> > >::Type operator-(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & left, Iter<TContainer2, AdaptorIterator<TIterator2, TSpec2> > const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(554)
-template <typename TContainer, typename TIntegral> inline Iter<TContainer, PositionIterator> operator-(Iter<TContainer, PositionIterator> const & left, TIntegral right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(480)
-template <typename TContainer> inline Iter<TContainer, PositionIterator> operator-(Iter<TContainer, PositionIterator> const & left, int right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(490)
-template <typename TContainer> inline typename Difference<TContainer>::Type operator-(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(499)
+template <typename TContainer, typename TIntegral> inline Iter<TContainer, PositionIterator> operator-(Iter<TContainer, PositionIterator> const & left, TIntegral right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(481)
+template <typename TContainer> inline Iter<TContainer, PositionIterator> operator-(Iter<TContainer, PositionIterator> const & left, int right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(491)
+template <typename TContainer> inline typename Difference<TContainer>::Type operator-(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(500)
 
 //____________________________________________________________________________
 // operator--
@@ -2152,8 +2157,8 @@ template <typename TContainer, typename TIntegral> inline Iter<TContainer, StdIt
 template <typename TContainer> inline Iter<TContainer, StdIteratorAdaptor> & operator-= (Iter<TContainer, StdIteratorAdaptor> & left, int right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(549)
 template <typename TContainer, typename TIterator, typename TSpec, typename TIntegral> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & operator-=(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & left, TIntegral right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(567)
 template <typename TContainer, typename TIterator, typename TSpec> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & operator-=(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & left, int right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(578)
-template <typename TContainer, typename TIntegral> inline Iter<TContainer, PositionIterator> & operator-=(Iter<TContainer, PositionIterator> & left, TIntegral right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(512)
-template <typename TContainer> inline Iter<TContainer, PositionIterator> & operator-=(Iter<TContainer, PositionIterator> & left, int right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(523)
+template <typename TContainer, typename TIntegral> inline Iter<TContainer, PositionIterator> & operator-=(Iter<TContainer, PositionIterator> & left, TIntegral right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(513)
+template <typename TContainer> inline Iter<TContainer, PositionIterator> & operator-=(Iter<TContainer, PositionIterator> & left, int right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(524)
 
 //____________________________________________________________________________
 // operator/
@@ -2177,7 +2182,7 @@ template <typename TSpec, typename TValue, typename TSpec2> inline bool operator
 template <typename TSpec, typename TValue, typename TSpec2> inline bool operator<(SimpleType<TValue, TSpec2> const & left_, Proxy<TSpec> const & right_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple.h"(852)
 template <typename TValue, typename TSpec, typename TRhs> inline bool operator<(LogProb<TValue, TSpec> const & lhs, TRhs const & rhs);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_logvalue.h"(411)
 template <typename TContainer> inline bool operator<(Iter<TContainer, StdIteratorAdaptor> const & left, Iter<TContainer, StdIteratorAdaptor> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(364)
-template <typename TContainer> inline bool operator<(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(341)
+template <typename TContainer> inline bool operator<(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(342)
 template <typename L1, typename L2, typename LCompression, typename R1, typename R2, typename RCompression> inline bool operator<(Pair<L1, L2, LCompression> const & _left, Pair<R1, R2, RCompression> const & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/pair_base.h"(323)
 template <typename TSpec, typename TRight> inline bool operator<(Proxy<TSpec> const & left_, TRight const & right_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(233)
 template <typename TLeft, typename TSpec> inline bool operator<(TLeft const & left_, Proxy<TSpec> const & right_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(244)
@@ -2211,7 +2216,7 @@ template <typename TSpec, typename TValue, typename TSpec2> inline bool operator
 template <typename TSpec, typename TValue, typename TSpec2> inline bool operator<=(SimpleType<TValue, TSpec2> const & left_, Proxy<TSpec> const & right_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple.h"(922)
 template <typename TValue, typename TSpec, typename TRhs> inline bool operator<=(LogProb<TValue, TSpec> const & lhs, TRhs const & rhs);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_logvalue.h"(437)
 template <typename TContainer> inline bool operator<=(Iter<TContainer, StdIteratorAdaptor> const & left, Iter<TContainer, StdIteratorAdaptor> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(390)
-template <typename TContainer> inline bool operator<=(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(363)
+template <typename TContainer> inline bool operator<=(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(364)
 template <typename L1, typename L2, typename LCompression, typename R1, typename R2, typename RCompression> inline bool operator<=(Pair<L1, L2, LCompression> const & _left, Pair<R1, R2, RCompression> const & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/pair_base.h"(359)
 template <typename TSpec, typename TRight> inline bool operator<=(Proxy<TSpec> const & left_, TRight const & right_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(281)
 template <typename TLeft, typename TSpec> inline bool operator<=(TLeft const & left_, Proxy<TSpec> const & right_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(292)
@@ -2237,7 +2242,7 @@ template <typename TContainer> inline bool operator==(Iter<TContainer, StdIterat
 template <typename TContainer, typename TIterator, typename TSpec> inline bool operator==(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & left, Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(379)
 template <typename TContainer, typename TIterator, typename TSpec> inline bool operator==(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & left, typename IterComplementConst<TIterator>::Type const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(388)
 template <typename TContainer, typename TIterator, typename TSpec> inline bool operator==(typename IterComplementConst<TIterator>::Type const & left, Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(397)
-template <typename TContainer> inline bool operator==(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(315)
+template <typename TContainer> inline bool operator==(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(316)
 template <typename L1, typename L2, typename LCompression, typename R1, typename R2, typename RCompression> inline bool operator==(Pair<L1, L2, LCompression> const & _left, Pair<R1, R2, RCompression> const & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/pair_base.h"(347)
 template <typename TSpec, typename TRight> inline bool operator==(Proxy<TSpec> const & left_, TRight const & right_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(137)
 template <typename TLeft, typename TSpec> inline bool operator==(TLeft const & left_, Proxy<TSpec> const & right_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(148)
@@ -2259,7 +2264,7 @@ template <typename TSpec, typename TValue, typename TSpec2> inline bool operator
 template <typename TSpec, typename TValue, typename TSpec2> inline bool operator>(SimpleType<TValue, TSpec2> const & left_, Proxy<TSpec> const & right_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple.h"(992)
 template <typename TValue, typename TSpec, typename TRhs> inline bool operator>(LogProb<TValue, TSpec> const & lhs, TRhs const & rhs);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_logvalue.h"(424)
 template <typename TContainer> inline bool operator>(Iter<TContainer, StdIteratorAdaptor> const & left, Iter<TContainer, StdIteratorAdaptor> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(377)
-template <typename TContainer> inline bool operator>(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(350)
+template <typename TContainer> inline bool operator>(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(351)
 template <typename L1, typename L2, typename LCompression, typename R1, typename R2, typename RCompression> inline bool operator>(Pair<L1, L2, LCompression> const & _left, Pair<R1, R2, RCompression> const & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/pair_base.h"(335)
 template <typename TSpec, typename TRight> inline bool operator>(Proxy<TSpec> const & left_, TRight const & right_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(330)
 template <typename TLeft, typename TSpec> inline bool operator>(TLeft const & left_, Proxy<TSpec> const & right_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(341)
@@ -2281,7 +2286,7 @@ template <typename TSpec, typename TValue, typename TSpec2> inline bool operator
 template <typename TSpec, typename TValue, typename TSpec2> inline bool operator>=(SimpleType<TValue, TSpec2> const & left_, Proxy<TSpec> const & right_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple.h"(1062)
 template <typename TValue, typename TSpec, typename TRhs> inline bool operator>=(LogProb<TValue, TSpec> const & lhs, TRhs const & rhs);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_logvalue.h"(450)
 template <typename TContainer> inline bool operator>=(Iter<TContainer, StdIteratorAdaptor> const & left, Iter<TContainer, StdIteratorAdaptor> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(402)
-template <typename TContainer> inline bool operator>=(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(376)
+template <typename TContainer> inline bool operator>=(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(377)
 template <typename L1, typename L2, typename LCompression, typename R1, typename R2, typename RCompression> inline bool operator>=(Pair<L1, L2, LCompression> const & _left, Pair<R1, R2, RCompression> const & _right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/pair_base.h"(371)
 template <typename TSpec, typename TRight> inline bool operator>=(Proxy<TSpec> const & left_, TRight const & right_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(378)
 template <typename TLeft, typename TSpec> inline bool operator>=(TLeft const & left_, Proxy<TSpec> const & right_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(389)
@@ -2315,8 +2320,8 @@ template <typename TContainer, typename TIterator, typename TSpec, typename TCon
 template <typename TContainer, typename TSpec, typename TContainer2> inline typename Position<Iter<TContainer, TSpec> const>::Type position(Iter<TContainer, TSpec> const & me, TContainer2 const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_base.h"(363)
 template <typename T> inline typename Position<T>::Type position(T * );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(435)
 template <typename TContainer, typename TIterator> inline typename Position<TContainer>::Type position(TIterator const & it, TContainer const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(445)
-template <typename TContainer> inline typename Position<TContainer>::Type & position(Iter<TContainer, PositionIterator> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(209)
-template <typename TContainer> inline typename Position<TContainer>::Type const & position(Iter<TContainer, PositionIterator> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(217)
+template <typename TContainer> inline typename Position<TContainer>::Type & position(Iter<TContainer, PositionIterator> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(210)
+template <typename TContainer> inline typename Position<TContainer>::Type const & position(Iter<TContainer, PositionIterator> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(218)
 
 //____________________________________________________________________________
 // set
@@ -2336,7 +2341,7 @@ template <typename T_, unsigned _size> inline void set(Tuple<T_, _size, void> & 
 // setContainer
 
 template <typename TContainer, typename TIterator, typename TSpec> inline void setContainer(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & me, typename Parameter_<TContainer>::Type container_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(222)
-template <typename TContainer> inline void setContainer(Iter<TContainer, PositionIterator> & me, typename Parameter_<TContainer>::Type container_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(192)
+template <typename TContainer> inline void setContainer(Iter<TContainer, PositionIterator> & me, typename Parameter_<TContainer>::Type container_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(193)
 
 //____________________________________________________________________________
 // setHost
@@ -2348,7 +2353,7 @@ template <typename T, typename THost> inline void setHost(T & me, THost const & 
 // setPosition
 
 template <typename TContainer, typename TIterator, typename TSpec, typename TPosition> inline void setPosition(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & me, TPosition pos_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(303)
-template <typename TContainer, typename TPosition> inline void setPosition(Iter<TContainer, PositionIterator> & me, TPosition position_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(231)
+template <typename TContainer, typename TPosition> inline void setPosition(Iter<TContainer, PositionIterator> & me, TPosition position_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(232)
 
 //____________________________________________________________________________
 // setValue
@@ -2439,20 +2444,20 @@ template <typename TContainer, typename TIterator, typename TSpec> inline typena
 template <typename T> inline typename Reference<T>::Type value(T & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(213)
 template <typename T> inline typename Reference<T const>::Type value(T const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(221)
 template <typename T> inline T & value(T * me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(229)
-template <typename TContainer> inline typename Reference<Iter<TContainer, PositionIterator> >::Type value(Iter<TContainer, PositionIterator> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(243)
-template <typename TContainer> inline typename Reference<Iter<TContainer, PositionIterator> >::Type value(Iter<TContainer, PositionIterator> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(251)
+template <typename TContainer> inline typename Reference<Iter<TContainer, PositionIterator> >::Type value(Iter<TContainer, PositionIterator> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(244)
+template <typename TContainer> inline typename Reference<Iter<TContainer, PositionIterator> >::Type value(Iter<TContainer, PositionIterator> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(252)
 
 //____________________________________________________________________________
 // valueConstruct
 
-template <typename TIterator> inline void valueConstruct(TIterator it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(166)
-template <typename TIterator, typename TParam> inline void valueConstruct(TIterator it, TParam const & param_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(186)
-template <typename TIterator, typename TParam> inline void valueConstruct(TIterator it, TParam & param_, Move const & tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(207)
+template <typename TIterator> inline void valueConstruct(TIterator it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(176)
+template <typename TIterator, typename TParam> inline void valueConstruct(TIterator it, TParam const & param_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(196)
+template <typename TIterator, typename TParam> inline void valueConstruct(TIterator it, TParam & param_, Move const & tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(217)
 
 //____________________________________________________________________________
 // valueDestruct
 
-template <typename TIterator> inline void valueDestruct(TIterator it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(270)
+template <typename TIterator> inline void valueDestruct(TIterator it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_construct_destruct.h"(280)
 
 } //namespace seqan
 

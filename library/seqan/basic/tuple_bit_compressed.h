@@ -103,12 +103,12 @@ struct Tuple<T_, _size, Compressed>
     // Constructors
     // -----------------------------------------------------------------------
 
-    // TODO(holtgrew): What about this?
-/*
-		inline Tuple() {
-			SEQAN_ASSERT_LEQ(bitSize * size, sizeof(CT) * 8);
-		}
-*/
+    // TODO(holtgrew): There is the unresolved issue whether the initialize costs critical performance. Since Tuples are PODs, it should be able to initialize Strings/arrays of them with memset().
+    inline Tuple() : i(0)
+    {
+        SEQAN_ASSERT_LEQ(static_cast<__uint64>(bitSize * size), static_cast<__uint64>(sizeof(CT) * 8));
+    }
+
     // -----------------------------------------------------------------------
     // Subscription Operators;  Have to be declared in class.
     // -----------------------------------------------------------------------

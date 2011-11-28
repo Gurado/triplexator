@@ -1453,7 +1453,7 @@ _convertSimpleReadFile(TFile& file,
 			}
 
 			// Insert the read
-			readIdMap.insert(std::make_pair(id, length(fragStore.readStore)));
+			readIdMap.insert(std::make_pair(id, static_cast<TId>(length(fragStore.readStore))));
 			appendRead(fragStore, seq, fragId);
 			appendValue(fragStore.readNameStore, eid, Generous());
 
@@ -1576,7 +1576,7 @@ _convertSimpleReadFile(TFile& file,
 
 				// Insert mate pair
 				if (matePairEl.readId[0] != matePairEl.readId[1]) {
-					frgIdMap.insert(std::make_pair(id, length(fragStore.matePairStore)));
+					frgIdMap.insert(std::make_pair(id, static_cast<TId>(length(fragStore.matePairStore))));
 					appendValue(fragStore.matePairStore, matePairEl, Generous());
 					appendValue(fragStore.matePairNameStore, eid, Generous());
 				}
@@ -1641,7 +1641,7 @@ _convertSimpleReadFile(TFile& file,
 				_parseSkipLine(strmLib, c);
 
 				// Insert mate pair
-				libIdMap.insert(std::make_pair(id, length(fragStore.libraryStore)));
+				libIdMap.insert(std::make_pair(id, static_cast<TId>(length(fragStore.libraryStore))));
 				appendValue(fragStore.libraryStore, libEl, Generous());
 				appendValue(fragStore.libraryNameStore, eid, Generous());
 			} else {

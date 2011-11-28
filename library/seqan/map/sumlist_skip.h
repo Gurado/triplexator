@@ -30,7 +30,7 @@
 //
 // ==========================================================================
 
-//SEQAN_NO_GENERATED_FORWARDS: no forwards are generated for this file
+// SEQAN_NO_GENERATED_FORWARDS: no forwards are generated for this file
 
 #ifndef SEQAN_HEADER_SUMLIST_SKIP_H
 #define SEQAN_HEADER_SUMLIST_SKIP_H

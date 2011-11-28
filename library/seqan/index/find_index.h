@@ -78,15 +78,15 @@ namespace SEQAN_NAMESPACE_MAIN
 		TIterator		data_iterator;
 		TSize			data_length;
 
-		Finder() 
+		Finder() : data_iterator(), data_length(0)
 		{
 			clear(*this);
 		}
-		Finder(TIndex &_index): index(_index) 
+		Finder(TIndex &_index): index(_index), data_iterator(), data_length(0)
 		{
 			clear(*this);
 		}
-		Finder(TIndex const &_index): index(_index)
+		Finder(TIndex const &_index): index(_index), data_iterator(), data_length(0)
 		{
 			clear(*this);
 		}

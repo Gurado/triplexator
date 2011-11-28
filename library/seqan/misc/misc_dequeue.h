@@ -76,7 +76,44 @@ public:
 	{
 		clear(*this);
 	}
+
+    // ----------------------------------------------------------------------
+    // Subscription operators; have to be defined in class def.
+    // ----------------------------------------------------------------------
+	
+    template <typename TPos>
+    inline typename Reference<Dequeue>::Type
+    operator[] (TPos pos)
+    {
+        SEQAN_CHECKPOINT;
+        return value(*this, pos);
+    }
+	
+    template <typename TPos>
+    inline typename Reference<Dequeue const>::Type
+    operator[] (TPos pos) const
+    {
+        SEQAN_CHECKPOINT;
+        return value(*this, pos);
+    }
 };
+
+//////////////////////////////////////////////////////////////////////////////
+
+///.Metafunction.Reference.param.T.type:Class.Segment
+
+template <typename TValue, typename TSpec>
+struct Reference<Dequeue<TValue, TSpec> >
+{
+	typedef typename Reference<TValue>::Type Type;
+};
+
+template <typename TValue, typename TSpec>
+struct Reference<Dequeue<TValue, TSpec> const >
+{
+	typedef typename Reference<TValue>::Type Type;
+};
+
 
 //////////////////////////////////////////////////////////////////////////////
 // Iterators

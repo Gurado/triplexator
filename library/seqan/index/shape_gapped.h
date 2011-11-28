@@ -240,6 +240,8 @@ namespace SEQAN_NAMESPACE_MAIN
 ..see:Class.HardwiredShape
 */
 		Shape():
+			span(0),
+			weight(0),
 			hValue(0) {}
 
 		// c'tor for ungapped shapes

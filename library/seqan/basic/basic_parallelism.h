@@ -47,7 +47,7 @@
 ..signature:SEQAN_ENABLE_PARALLELISM
 ..remarks:By default, set to 1 if $_OPENMP$ is defined and set to 0 otherwise.
 ..example:If you want to change this value, you have to define this value before including any SeqAn header.
-...code:#define SEQAN_ENABLE_PARALLELIS  // ALWAYS switch off parallelism!
+...code:#define SEQAN_ENABLE_PARALLELISM 0  // ALWAYS switch off parallelism!
 
 #include <seqan/basic.h>
 

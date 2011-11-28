@@ -147,7 +147,7 @@ pickRandomNumber(TRNG & rng, Pdf<Uniform<T> > const & pdf)
     SEQAN_CHECKPOINT;
     if (pdf._min == pdf._max)
         return pdf._min;
-    return _pickRandomNumber(rng, pdf, typename IsIntegral<T>::Type());
+    return _pickRandomNumber(rng, pdf, typename IsInteger<T>::Type());
 }
 
 // Specialization for picking a random bool.

@@ -524,15 +524,28 @@ int openTempFile() {
 inline
 const char *tempFileName() {
 //IOREV _duplicate_ overlaps with some stuff in system/file_sync.h, should be moved to io-module
-    static char fileNameBuffer[100];
+    static char fileNameBuffer[1000];
 #ifdef PLATFORM_WINDOWS_VS
-    char * fileName = tempnam(NULL, "SEQAN.");
-    if (!fileName) {
-        ::std::cerr << "Cannot create a unique temporary filename" << ::std::endl;
-        exit(1);
+    static char filePathBuffer[1000];
+	//  Gets the temp path env string (no guarantee it's a valid path).
+    DWORD dwRetVal = 0;
+    dwRetVal = GetTempPath(1000,            // length of the buffer
+                           filePathBuffer); // buffer for path 
+    if (dwRetVal > 1000 || (dwRetVal == 0))
+    {
+        std::cerr << "GetTempPath failed" << std::endl;
+		exit(1);
     }
-    strcpy(fileNameBuffer, fileName);
-    free(fileName);
+    UINT uRetVal   = 0;
+	uRetVal = GetTempFileName(filePathBuffer,   // directory for tmp files
+                              TEXT("SEQAN."),   // temp file name prefix 
+                              0,                // create unique name 
+                              fileNameBuffer);  // buffer for name 
+    if (uRetVal == 0)
+    {
+        std::cerr << "GetTempFileName failed" << std::endl;
+		exit(1);
+    }
     StaticData::tempFileNames().push_back(fileNameBuffer);
     return fileNameBuffer;
 #else  // ifdef PLATFORM_WINDOWS_VS
@@ -566,16 +579,12 @@ const char *tempFileName() {
         StaticData::foundCheckPointCount() = 0;
         // Get path to argv0.
         const char *end = argv0;
-#ifdef PLATFORM_WINDOWS
-        const char pathSeparator = '\\';
-#else  // PLATFORM_WINDOWS
-        const char pathSeparator = '/';
-#endif  // PLATFORM_WINDOWS
-        for (const char *ptr = strchr(argv0, pathSeparator); ptr != 0; ptr = strchr(ptr+1, pathSeparator))
+		const char *ptr = std::min(strchr(argv0, '\\'), strchr(argv0, '/'));  // On Windows, we can have both \ and /.
+        for (; ptr != 0; ptr = std::min(strchr(ptr+1, '\\'), strchr(ptr+1, '/')))
             end = ptr;
         int rpos = end - argv0;
         if (rpos <= 0) {
-            StaticData::basePath() = new char[1];
+            StaticData::basePath() = new char[2];
             strcpy(StaticData::basePath(), ".");
         } else {
             int len = rpos;
@@ -590,7 +599,7 @@ const char *tempFileName() {
                 pos = i;
             }
         }
-        for (; pos > 0 && *(file + pos - 1) != pathSeparator; --pos)
+        for (; pos > 0 && *(file + pos - 1) != '/' &&  *(file + pos - 1) != '\\'; --pos)
             continue;
         if (pos == -1) {
             std::cerr << "Could not extrapolate path to repository from __FILE__ == \""
@@ -600,7 +609,18 @@ const char *tempFileName() {
         StaticData::pathToRoot() = new char[pos];
         strncpy(StaticData::pathToRoot(), file, pos);
         StaticData::pathToRoot()[pos-1] = '\0';
-    }
+#ifdef PLATFORM_WINDOWS_VS
+		// Set CRT reporting such that everything goes to stderr and there are
+		// no popups causing timeouts.
+		_set_error_mode(_OUT_TO_STDERR);
+		_CrtSetReportMode(_CRT_WARN, _CRTDBG_MODE_FILE);
+		_CrtSetReportFile(_CRT_WARN, _CRTDBG_FILE_STDERR);
+		_CrtSetReportMode(_CRT_ERROR, _CRTDBG_MODE_FILE);
+		_CrtSetReportFile(_CRT_ERROR, _CRTDBG_FILE_STDERR);
+		_CrtSetReportMode(_CRT_ASSERT, _CRTDBG_MODE_FILE);
+		_CrtSetReportFile(_CRT_ASSERT, _CRTDBG_FILE_STDERR);
+#endif  // PLATFORM_WINDOWS_VS
+	}
 
     // Run test suite finalization.
     //
@@ -622,8 +642,6 @@ const char *tempFileName() {
         std::cout << " Skipped:     " << StaticData::skippedCount() << std::endl;
         std::cout << " Errors:      " << StaticData::errorCount() << std::endl;
         std::cout << "**************************************" << std::endl;
-        if (StaticData::errorCount() != 0)
-            return 1;
         // TODO(holtgrew): Re-enable that all check points have to be found for the test to return 1;
         /*
         if (StaticData::totalCheckPointCount() != StaticData::foundCheckPointCount())
@@ -638,6 +656,8 @@ const char *tempFileName() {
 #endif  // #ifdef PLATFORM_WINDOWS
         }
 
+        if (StaticData::errorCount() != 0)
+            return 1;
         return 0;
     }
 

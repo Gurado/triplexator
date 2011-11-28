@@ -89,17 +89,17 @@ template <typename TValue , typename TCargo > class IntervalAndCargo;       	// 
 //____________________________________________________________________________
 // IntervalTree
 
-template <typename TValue, typename TCargo> class IntervalTree;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(297)
+template <typename TValue, typename TCargo> class IntervalTree;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(298)
 
 //____________________________________________________________________________
 // IntervalTreeNode
 
-template <typename TInterval, typename TSpec> class IntervalTreeNode;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(214)
+template <typename TInterval, typename TSpec> class IntervalTreeNode;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(215)
 
 //____________________________________________________________________________
 // ListType
 
-template <typename T> struct ListType;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(792)
+template <typename T> struct ListType;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(793)
 
 //____________________________________________________________________________
 // MersenneBuffer_
@@ -159,22 +159,22 @@ template <typename TSet> struct SetSetVector_;       	// "/Users/f.buske/Documen
 //____________________________________________________________________________
 // StoreIntervals
 
-struct StoreIntervals;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(187)
+struct StoreIntervals;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(188)
 
 //____________________________________________________________________________
 // StorePointsOnly
 
-struct StorePointsOnly;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(183)
+struct StorePointsOnly;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(184)
 
 //____________________________________________________________________________
 // TagComputeCenter_
 
-struct TagComputeCenter_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(426)
+struct TagComputeCenter_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(427)
 
 //____________________________________________________________________________
 // TagRandomCenter_
 
-struct TagRandomCenter_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(437)
+struct TagRandomCenter_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(438)
 
 //____________________________________________________________________________
 // VectorSetIterator_
@@ -244,12 +244,12 @@ namespace SEQAN_NAMESPACE_MAIN {
 //____________________________________________________________________________
 // ComputeCenter
 
-typedef Tag<TagComputeCenter_> const ComputeCenter;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(427)
+typedef Tag<TagComputeCenter_> const ComputeCenter;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(428)
 
 //____________________________________________________________________________
 // RandomCenter
 
-typedef Tag<TagRandomCenter_> const RandomCenter;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(438)
+typedef Tag<TagRandomCenter_> const RandomCenter;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(439)
 
 //____________________________________________________________________________
 // VectorSetIterator__
@@ -313,8 +313,8 @@ inline bool _allMandatorySet(CommandLineParser const & me);       	// "/Users/f.
 //____________________________________________________________________________
 // _appendIntervalTreeNodeLists
 
-template <typename TInterval> void _appendIntervalTreeNodeLists(IntervalTreeNode<TInterval,StoreIntervals> & knot,TInterval & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(729)
-template <typename TInterval> void _appendIntervalTreeNodeLists(IntervalTreeNode<TInterval,StorePointsOnly> & knot,TInterval & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(756)
+template <typename TInterval> void _appendIntervalTreeNodeLists(IntervalTreeNode<TInterval,StoreIntervals> & knot,TInterval & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(730)
+template <typename TInterval> void _appendIntervalTreeNodeLists(IntervalTreeNode<TInterval,StorePointsOnly> & knot,TInterval & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(757)
 
 //____________________________________________________________________________
 // _assignOptionValue
@@ -325,17 +325,17 @@ template <typename TErrorStream> inline bool _assignOptionValue(CommandLineParse
 //____________________________________________________________________________
 // _calcIntervalTreeNodeCenterLeft
 
-template <typename TIntervals, typename TValue> TValue _calcIntervalTreeNodeCenterLeft(TIntervals & intervals, TValue &, TValue &, Tag<TagRandomCenter_> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1156)
+template <typename TIntervals, typename TValue> TValue _calcIntervalTreeNodeCenterLeft(TIntervals & intervals, TValue &, TValue &, Tag<TagRandomCenter_> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1157)
 
 //____________________________________________________________________________
 // _calcIntervalTreeNodeCenterRight
 
-template <typename TIntervals, typename TValue> TValue _calcIntervalTreeNodeCenterRight(TIntervals & intervals, TValue &, TValue &, Tag<TagRandomCenter_> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1168)
+template <typename TIntervals, typename TValue> TValue _calcIntervalTreeNodeCenterRight(TIntervals & intervals, TValue &, TValue &, Tag<TagRandomCenter_> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1169)
 
 //____________________________________________________________________________
 // _calcIntervalTreeRootCenter
 
-template <typename TIntervals> typename Value<typename Value<TIntervals>::Type>::Type _calcIntervalTreeRootCenter(TIntervals & intervals);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1180)
+template <typename TIntervals> typename Value<typename Value<TIntervals>::Type>::Type _calcIntervalTreeRootCenter(TIntervals & intervals);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1181)
 
 //____________________________________________________________________________
 // _convertOptionValue
@@ -358,8 +358,8 @@ template <typename TValue, typename TLess, typename TSize> inline void _copyHeap
 //____________________________________________________________________________
 // _createIntervalTree
 
-template <typename TGraph, typename TPropertyMap, typename TIntervalPointer, typename TValue> void _createIntervalTree(TGraph & g, TPropertyMap & pm, String<TIntervalPointer*> & intervals, typename VertexDescriptor<TGraph>::Type & knot, TValue, TValue center, typename VertexDescriptor<TGraph>::Type len, Tag<TagComputeCenter_> const tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(956)
-template <typename TGraph, typename TPropertyMap, typename TSpec, typename TInterval, typename TValue> void _createIntervalTree(TGraph & g, TPropertyMap & pm, String<TInterval*> & intervals, typename VertexDescriptor<TGraph>::Type & knot, TValue last_center, TValue center, typename VertexDescriptor<TGraph>::Type len, Tag<TSpec> const tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1055)
+template <typename TGraph, typename TPropertyMap, typename TIntervalPointer, typename TValue> void _createIntervalTree(TGraph & g, TPropertyMap & pm, String<TIntervalPointer*> & intervals, typename VertexDescriptor<TGraph>::Type & knot, TValue, TValue center, typename VertexDescriptor<TGraph>::Type len, Tag<TagComputeCenter_> const tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(957)
+template <typename TGraph, typename TPropertyMap, typename TSpec, typename TInterval, typename TValue> void _createIntervalTree(TGraph & g, TPropertyMap & pm, String<TInterval*> & intervals, typename VertexDescriptor<TGraph>::Type & knot, TValue last_center, TValue center, typename VertexDescriptor<TGraph>::Type len, Tag<TSpec> const tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1056)
 
 //____________________________________________________________________________
 // _dataHost
@@ -381,7 +381,7 @@ inline String<CharString> const & _getOptionValues(CommandLineParser const & me,
 //____________________________________________________________________________
 // _greater_compI2_ITree
 
-template <typename TPair> bool _greater_compI2_ITree(TPair const& p1, TPair const& p2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(698)
+template <typename TPair> bool _greater_compI2_ITree(TPair const& p1, TPair const& p2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(699)
 
 //____________________________________________________________________________
 // _isDigit
@@ -401,12 +401,12 @@ template <typename TString> inline bool _isInt(TString const s);       	// "/Use
 //____________________________________________________________________________
 // _less_compI1_ITree
 
-template <typename TPair> bool _less_compI1_ITree(TPair const& p1, TPair const& p2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(691)
+template <typename TPair> bool _less_compI1_ITree(TPair const& p1, TPair const& p2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(692)
 
 //____________________________________________________________________________
 // _makePointerInterval
 
-template <typename TIntervals, typename TIntervalPointers> void _makePointerInterval(TIntervals & intervals,TIntervalPointers & interval_pointers);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1131)
+template <typename TIntervals, typename TIntervalPointers> void _makePointerInterval(TIntervals & intervals,TIntervalPointers & interval_pointers);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1132)
 
 //____________________________________________________________________________
 // _parseAppName
@@ -431,8 +431,8 @@ template <typename TStringSet, typename TStream> inline void _printStringSet(TSt
 //____________________________________________________________________________
 // _setIntervalTreeNode
 
-template <typename TValue, typename TInterval> void _setIntervalTreeNode(IntervalTreeNode<TInterval,StoreIntervals> & knot,TValue center,TInterval & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(717)
-template <typename TValue, typename TInterval> void _setIntervalTreeNode(IntervalTreeNode<TInterval,StorePointsOnly> & knot,TValue center,TInterval & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(742)
+template <typename TValue, typename TInterval> void _setIntervalTreeNode(IntervalTreeNode<TInterval,StoreIntervals> & knot,TValue center,TInterval & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(718)
+template <typename TValue, typename TInterval> void _setIntervalTreeNode(IntervalTreeNode<TInterval,StorePointsOnly> & knot,TValue center,TInterval & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(743)
 
 //____________________________________________________________________________
 // _streamPut
@@ -467,10 +467,10 @@ template <typename TString> inline void addHelpLine(CommandLineParser & me, TStr
 //____________________________________________________________________________
 // addInterval
 
-template <typename TGraph, typename TPropertyMap, typename TInterval> void addInterval(TGraph & g, TPropertyMap & pm, TInterval interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1223)
-template <typename TValue, typename TCargo, typename TInterval> void addInterval(IntervalTree<TValue,TCargo> & itree, TInterval interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1322)
-template <typename TValue, typename TCargo> void addInterval(IntervalTree<TValue,TCargo> & itree, TValue begin, TValue end, TCargo cargo);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1341)
-template <typename TValue, typename TCargo> void addInterval(IntervalTree<TValue,TCargo> & itree, TValue begin, TValue end);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1360)
+template <typename TGraph, typename TPropertyMap, typename TInterval> void addInterval(TGraph & g, TPropertyMap & pm, TInterval interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1224)
+template <typename TValue, typename TCargo, typename TInterval> void addInterval(IntervalTree<TValue,TCargo> & itree, TInterval interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1323)
+template <typename TValue, typename TCargo> void addInterval(IntervalTree<TValue,TCargo> & itree, TValue begin, TValue end, TCargo cargo);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1342)
+template <typename TValue, typename TCargo> void addInterval(IntervalTree<TValue,TCargo> & itree, TValue begin, TValue end);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1361)
 
 //____________________________________________________________________________
 // addLine
@@ -533,8 +533,8 @@ template <typename TSet> inline bool atEnd(Iter<TSet, VectorSetIterator__> const
 //____________________________________________________________________________
 // back
 
-template <typename TValue, typename TSpec> inline TValue & back(Dequeue<TValue, TSpec> &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(189)
-template <typename TValue, typename TSpec> inline TValue const & back(Dequeue<TValue, TSpec> const &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(196)
+template <typename TValue, typename TSpec> inline TValue & back(Dequeue<TValue, TSpec> &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(226)
+template <typename TValue, typename TSpec> inline TValue const & back(Dequeue<TValue, TSpec> const &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(233)
 
 //____________________________________________________________________________
 // begin
@@ -547,13 +547,13 @@ template <typename TElement, typename TSpec> inline typename Iterator< VectorSet
 //____________________________________________________________________________
 // cargo
 
-template <typename TValue, typename TCargo> TCargo & cargo(IntervalAndCargo<TValue,TCargo> & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(542)
-template <typename TValue, typename TCargo> TCargo & cargo(PointAndCargo<TValue,TCargo> & point);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(649)
+template <typename TValue, typename TCargo> TCargo & cargo(IntervalAndCargo<TValue,TCargo> & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(543)
+template <typename TValue, typename TCargo> TCargo & cargo(PointAndCargo<TValue,TCargo> & point);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(650)
 
 //____________________________________________________________________________
 // clear
 
-template <typename TValue, typename TSpec> inline void clear(Dequeue<TValue, TSpec> &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(131)
+template <typename TValue, typename TSpec> inline void clear(Dequeue<TValue, TSpec> &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(168)
 template <typename TValue, typename TSpec> finline void clear(VectorSet_<TValue, TSpec> &set);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_set.h"(228)
 template <typename TValue, typename TLess> inline void clear (PriorityType<TValue,TLess, PriorityHeap> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/priority_type_heap.h"(95)
 
@@ -565,15 +565,15 @@ inline bool close(SVGFile &svg);       	// "/Users/f.buske/Documents/biosim/trip
 //____________________________________________________________________________
 // createIntervalTree
 
-template <typename TGraph, typename TPropertyMap, typename TIntervals, typename TSpec> void createIntervalTree(TGraph & g, TPropertyMap & pm, TIntervals & intervals, Tag<TSpec> const tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(841)
-template <typename TGraph, typename TPropertyMap, typename TIntervals> void createIntervalTree(TGraph & g, TPropertyMap & pm, TIntervals & intervals);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(880)
-template <typename TGraph, typename TPropertyMap, typename TIntervals, typename TSpec> void createIntervalTree(TGraph & g, TPropertyMap & pm, TIntervals & intervals, typename Value<typename Value<TIntervals>::Type>::Type center, Tag<TSpec> const tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(896)
-template <typename TGraph, typename TPropertyMap, typename TIntervals> void createIntervalTree(TGraph & g, TPropertyMap & pm, TIntervals & intervals, typename Value<typename Value<TIntervals>::Type>::Type center);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(937)
+template <typename TGraph, typename TPropertyMap, typename TIntervals, typename TSpec> void createIntervalTree(TGraph & g, TPropertyMap & pm, TIntervals & intervals, Tag<TSpec> const tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(842)
+template <typename TGraph, typename TPropertyMap, typename TIntervals> void createIntervalTree(TGraph & g, TPropertyMap & pm, TIntervals & intervals);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(881)
+template <typename TGraph, typename TPropertyMap, typename TIntervals, typename TSpec> void createIntervalTree(TGraph & g, TPropertyMap & pm, TIntervals & intervals, typename Value<typename Value<TIntervals>::Type>::Type center, Tag<TSpec> const tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(897)
+template <typename TGraph, typename TPropertyMap, typename TIntervals> void createIntervalTree(TGraph & g, TPropertyMap & pm, TIntervals & intervals, typename Value<typename Value<TIntervals>::Type>::Type center);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(938)
 
 //____________________________________________________________________________
 // empty
 
-template <typename TValue, typename TSpec> inline bool empty(Dequeue<TValue, TSpec> const &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(122)
+template <typename TValue, typename TSpec> inline bool empty(Dequeue<TValue, TSpec> const &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(159)
 template <typename TValue, typename TLess> inline bool empty(PriorityType<TValue, TLess, PriorityHeap> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/priority_type_heap.h"(104)
 
 //____________________________________________________________________________
@@ -603,23 +603,23 @@ template <typename TKey, typename TKey2, typename TSpec> inline typename Iterato
 //____________________________________________________________________________
 // findIntervals
 
-template <typename TGraph, typename TPropertyMap, typename TValue,typename TCargo> void findIntervals(TGraph & g, TPropertyMap & pm, TValue query, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1384)
-template <typename TValue,typename TCargo> void findIntervals(IntervalTree<TValue,TCargo> & it, TValue query, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1462)
-template <typename TValue,typename TCargo> void findIntervals(IntervalTree<TValue,TCargo> & tree, TValue query_begin, TValue query_end, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1586)
-template <typename TGraph, typename TPropertyMap, typename TValue,typename TCargo> void findIntervals(TGraph & g, TPropertyMap & pm, TValue query_begin, TValue query_end, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1598)
-template <typename TGraph, typename TPropertyMap, typename TValue,typename TCargo> void findIntervals(TGraph & g, TPropertyMap & pm, typename VertexDescriptor<TGraph>::Type & act_knot, TValue query_begin, TValue query_end, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1621)
+template <typename TGraph, typename TPropertyMap, typename TValue,typename TCargo> void findIntervals(TGraph & g, TPropertyMap & pm, TValue query, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1385)
+template <typename TValue,typename TCargo> void findIntervals(IntervalTree<TValue,TCargo> & it, TValue query, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1463)
+template <typename TValue,typename TCargo> void findIntervals(IntervalTree<TValue,TCargo> & tree, TValue query_begin, TValue query_end, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1587)
+template <typename TGraph, typename TPropertyMap, typename TValue,typename TCargo> void findIntervals(TGraph & g, TPropertyMap & pm, TValue query_begin, TValue query_end, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1599)
+template <typename TGraph, typename TPropertyMap, typename TValue,typename TCargo> void findIntervals(TGraph & g, TPropertyMap & pm, typename VertexDescriptor<TGraph>::Type & act_knot, TValue query_begin, TValue query_end, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1622)
 
 //____________________________________________________________________________
 // findIntervalsExcludeTouching
 
-template <typename TGraph, typename TPropertyMap, typename TValue,typename TCargo> void findIntervalsExcludeTouching(TGraph & g, TPropertyMap & pm, TValue query, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1486)
-template <typename TValue,typename TCargo> void findIntervalsExcludeTouching(IntervalTree<TValue,TCargo> & tree, TValue query, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1567)
+template <typename TGraph, typename TPropertyMap, typename TValue,typename TCargo> void findIntervalsExcludeTouching(TGraph & g, TPropertyMap & pm, TValue query, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1487)
+template <typename TValue,typename TCargo> void findIntervalsExcludeTouching(IntervalTree<TValue,TCargo> & tree, TValue query, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1568)
 
 //____________________________________________________________________________
 // front
 
-template <typename TValue, typename TSpec> inline TValue & front(Dequeue<TValue, TSpec> &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(173)
-template <typename TValue, typename TSpec> inline TValue const & front(Dequeue<TValue, TSpec> const &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(180)
+template <typename TValue, typename TSpec> inline TValue & front(Dequeue<TValue, TSpec> &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(210)
+template <typename TValue, typename TSpec> inline TValue const & front(Dequeue<TValue, TSpec> const &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(217)
 
 //____________________________________________________________________________
 // geomRand
@@ -639,14 +639,14 @@ inline String<CharString> const & getArgumentValues(CommandLineParser const & me
 //____________________________________________________________________________
 // getCargo
 
-template <typename TValue, typename TCargo> TCargo getCargo(IntervalAndCargo<TValue,TCargo> & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(557)
-template <typename TValue, typename TCargo> TCargo getCargo(PointAndCargo<TValue,TCargo> & point);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(665)
+template <typename TValue, typename TCargo> TCargo getCargo(IntervalAndCargo<TValue,TCargo> & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(558)
+template <typename TValue, typename TCargo> TCargo getCargo(PointAndCargo<TValue,TCargo> & point);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(666)
 
 //____________________________________________________________________________
 // getLeftBoundary
 
-template <typename TValue, typename TCargo> TValue getLeftBoundary(IntervalAndCargo<TValue,TCargo> & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(505)
-template <typename TValue, typename TCargo> TValue getLeftBoundary(PointAndCargo<TValue,TCargo> & point);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(621)
+template <typename TValue, typename TCargo> TValue getLeftBoundary(IntervalAndCargo<TValue,TCargo> & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(506)
+template <typename TValue, typename TCargo> TValue getLeftBoundary(PointAndCargo<TValue,TCargo> & point);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(622)
 
 //____________________________________________________________________________
 // getOptionValueLong
@@ -673,8 +673,8 @@ inline String<CharString> const & getOptionValuesShort(CommandLineParser & me,Ch
 //____________________________________________________________________________
 // getRightBoundary
 
-template <typename TValue, typename TCargo> TValue getRightBoundary(IntervalAndCargo<TValue,TCargo> & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(526)
-template <typename TValue, typename TCargo> TValue getRightBoundary(PointAndCargo<TValue,TCargo> & point);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(635)
+template <typename TValue, typename TCargo> TValue getRightBoundary(IntervalAndCargo<TValue,TCargo> & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(527)
+template <typename TValue, typename TCargo> TValue getRightBoundary(PointAndCargo<TValue,TCargo> & point);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(636)
 
 //____________________________________________________________________________
 // goBegin
@@ -784,15 +784,15 @@ template <typename TSet> inline typename Key<TSet>::Type keyOf(Iter<TSet, Vector
 //____________________________________________________________________________
 // leftBoundary
 
-template <typename TValue, typename TCargo> TValue & leftBoundary(IntervalAndCargo<TValue,TCargo> & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(463)
-template <typename TValue, typename TCargo> TValue & leftBoundary(PointAndCargo<TValue,TCargo> & point);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(593)
+template <typename TValue, typename TCargo> TValue & leftBoundary(IntervalAndCargo<TValue,TCargo> & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(464)
+template <typename TValue, typename TCargo> TValue & leftBoundary(PointAndCargo<TValue,TCargo> & point);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(594)
 
 //____________________________________________________________________________
 // length
 
 template <typename TObject, unsigned DISTANCE > inline typename Size< Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> > >::Type length(Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(373)
 template <typename TObject, unsigned DISTANCE > inline typename Size< Enumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> > >::Type length(Enumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(698)
-template <typename TValue, typename TSpec> inline typename Size<Dequeue<TValue, TSpec> >::Type length(Dequeue<TValue, TSpec> const &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(305)
+template <typename TValue, typename TSpec> inline typename Size<Dequeue<TValue, TSpec> >::Type length(Dequeue<TValue, TSpec> const &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(342)
 template <typename TObject, typename TSpec> inline typename Size< VectorSet_<TObject, TSpec> >::Type length(VectorSet_<TObject, TSpec> const &set);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_set.h"(164)
 template <typename TValue, typename TLess> inline typename Size<PriorityType<TValue, TLess, PriorityHeap> >::Type length( PriorityType<TValue, TLess, PriorityHeap> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/priority_type_heap.h"(114)
 
@@ -888,12 +888,12 @@ template <typename TValue, typename TLess> inline void pop (PriorityType<TValue,
 //____________________________________________________________________________
 // popBack
 
-template <typename TValue, typename TSpec> inline bool popBack(Dequeue<TValue, TSpec> &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(222)
+template <typename TValue, typename TSpec> inline bool popBack(Dequeue<TValue, TSpec> &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(259)
 
 //____________________________________________________________________________
 // popFront
 
-template <typename TValue, typename TSpec> inline bool popFront(Dequeue<TValue, TSpec> &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(205)
+template <typename TValue, typename TSpec> inline bool popFront(Dequeue<TValue, TSpec> &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(242)
 
 //____________________________________________________________________________
 // push
@@ -903,12 +903,12 @@ template <typename TValue, typename TLess> inline void push (PriorityType<TValue
 //____________________________________________________________________________
 // pushBack
 
-template <typename TValue, typename TSpec> inline void pushBack(Dequeue<TValue, TSpec> &me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(274)
+template <typename TValue, typename TSpec> inline void pushBack(Dequeue<TValue, TSpec> &me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(311)
 
 //____________________________________________________________________________
 // pushFront
 
-template <typename TValue, typename TSpec> inline void pushFront(Dequeue<TValue, TSpec> &me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(242)
+template <typename TValue, typename TSpec> inline void pushFront(Dequeue<TValue, TSpec> &me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(279)
 
 //____________________________________________________________________________
 // requiredArguments
@@ -918,13 +918,13 @@ inline void requiredArguments(CommandLineParser & me, unsigned count);       	//
 //____________________________________________________________________________
 // reserve
 
-template <typename TValue, typename TSpec, typename TSize_, typename TExpand> inline typename Size<Dequeue<TValue, TSpec> >::Type reserve(Dequeue<TValue, TSpec> &me, TSize_ new_capacity, Tag<TExpand> const tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(319)
+template <typename TValue, typename TSpec, typename TSize_, typename TExpand> inline typename Size<Dequeue<TValue, TSpec> >::Type reserve(Dequeue<TValue, TSpec> &me, TSize_ new_capacity, Tag<TExpand> const tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(356)
 
 //____________________________________________________________________________
 // rightBoundary
 
-template <typename TValue, typename TCargo> TValue & rightBoundary(IntervalAndCargo<TValue,TCargo> & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(484)
-template <typename TValue, typename TCargo> TValue & rightBoundary(PointAndCargo<TValue,TCargo> & point);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(607)
+template <typename TValue, typename TCargo> TValue & rightBoundary(IntervalAndCargo<TValue,TCargo> & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(485)
+template <typename TValue, typename TCargo> TValue & rightBoundary(PointAndCargo<TValue,TCargo> & point);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(608)
 
 //____________________________________________________________________________
 // setHelpText
@@ -977,8 +977,8 @@ template <typename TValue, typename TLess> inline TValue const & top(PriorityTyp
 //____________________________________________________________________________
 // value
 
-template <typename TValue, typename TSpec, typename TPos> inline TValue & value(Dequeue<TValue, TSpec> &me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(145)
-template <typename TValue, typename TSpec, typename TPos> inline TValue const & value(Dequeue<TValue, TSpec> const &me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(158)
+template <typename TValue, typename TSpec, typename TPos> inline TValue & value(Dequeue<TValue, TSpec> &me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(182)
+template <typename TValue, typename TSpec, typename TPos> inline TValue const & value(Dequeue<TValue, TSpec> const &me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(195)
 
 //____________________________________________________________________________
 // version

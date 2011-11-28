@@ -129,6 +129,7 @@ inline void
 _alignInitGutterFromBanded(Matrix<TScoreValue, 2> & matrix, Score<TScoreValue, Simple> const & scoringScheme, TDiagonal lowerDiagonal, TDiagonal upperDiagonal, Matrix<TScoreValue, 2> /*const*/ & otherMatrix, TOverlap overlap0, TOverlap overlap1, NeedlemanWunsch const &)
 {
     SEQAN_CHECKPOINT;
+    (void) scoringScheme; // Only used in assertions.
 
     // TODO(holtgrew): Really unnecessary? Remove along with all other unused parameters in all align_*.h files.
     (void) lowerDiagonal;

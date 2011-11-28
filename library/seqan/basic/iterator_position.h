@@ -81,15 +81,16 @@ class Iter<TContainer, PositionIterator>
 {
 public:
     typedef typename Position<TContainer>::Type TPosition;
+    typedef typename Pointer_<TContainer>::Type TContainerPointer_;
 
-    typename Pointer_<TContainer>::Type data_container;
+    TContainerPointer_ data_container;
     TPosition data_position;
 
     // ------------------------------------------------------------------------
     // Constructors
     // ------------------------------------------------------------------------
 
-    Iter()
+    Iter() : data_container(TContainerPointer_(0)), data_position(0)
     {
         SEQAN_CHECKPOINT;
     }

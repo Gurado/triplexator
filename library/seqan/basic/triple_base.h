@@ -103,7 +103,7 @@ struct Triple
     // Constructors
     // ------------------------------------------------------------------------
 
-    inline Triple() {}
+    inline Triple() : i1(T1_()), i2(T2_()), i3(T3_()) {}
     
     inline Triple(Triple const & _p)
             : i1(_p.i1), i2(_p.i2), i3(_p.i3) {}

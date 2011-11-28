@@ -46,7 +46,7 @@ between start and end position2 are stored.
 ..cat:Seed Handling
 ..general:Class.Seed
 ..signature:Seed<TPosition, ChainedSeed>
-..param.TPosition:The type of number that schuld be used. Must have negative numbers (e.g. int/long).
+..param.TPosition:The type of number that should be used. Must have negative numbers (e.g. int/long).
 .Memfunc.ChainedSeed#Seed:
 ..class:Spec.ChainedSeed
 ..summary:Constructor

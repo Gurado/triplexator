@@ -134,22 +134,22 @@ struct TCoffeeLib_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/s
 //____________________________________________________________________________
 // UpgmaAvg_
 
-struct UpgmaAvg_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(315)
+struct UpgmaAvg_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(352)
 
 //____________________________________________________________________________
 // UpgmaMax_
 
-struct UpgmaMax_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(304)
+struct UpgmaMax_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(341)
 
 //____________________________________________________________________________
 // UpgmaMin_
 
-struct UpgmaMin_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(293)
+struct UpgmaMin_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(330)
 
 //____________________________________________________________________________
 // UpgmaWeightAvg_
 
-struct UpgmaWeightAvg_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(326)
+struct UpgmaWeightAvg_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(363)
 
 } //namespace SEQAN_NAMESPACE_MAIN
 
@@ -228,22 +228,22 @@ typedef Tag<TCoffeeLib_> const TCoffeeLib;       	// "/Users/f.buske/Documents/b
 //____________________________________________________________________________
 // UpgmaAvg
 
-typedef Tag<UpgmaAvg_> const UpgmaAvg;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(316)
+typedef Tag<UpgmaAvg_> const UpgmaAvg;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(353)
 
 //____________________________________________________________________________
 // UpgmaMax
 
-typedef Tag<UpgmaMax_> const UpgmaMax;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(305)
+typedef Tag<UpgmaMax_> const UpgmaMax;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(342)
 
 //____________________________________________________________________________
 // UpgmaMin
 
-typedef Tag<UpgmaMin_> const UpgmaMin;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(294)
+typedef Tag<UpgmaMin_> const UpgmaMin;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(331)
 
 //____________________________________________________________________________
 // UpgmaWeightAvg
 
-typedef Tag<UpgmaWeightAvg_> const UpgmaWeightAvg;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(327)
+typedef Tag<UpgmaWeightAvg_> const UpgmaWeightAvg;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(364)
 
 } //namespace SEQAN_NAMESPACE_MAIN
 
@@ -337,9 +337,14 @@ template <typename TStringSet, typename TCargo, typename TSpec, typename TGuideT
 //____________________________________________________________________________
 // _resizeWithRespectToDistance
 
-template <typename TValue, typename TSpec, typename TSize> inline void _resizeWithRespectToDistance(String<TValue, TSpec>& dist, TSize nseq);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(376)
-template <typename TCargo, typename TSpec, typename TSize> inline void _resizeWithRespectToDistance(Graph<Undirected<TCargo, TSpec> >& dist, TSize nseq);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(386)
-template <typename TSize> inline void _resizeWithRespectToDistance(Nothing&, TSize);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(398)
+template <typename TValue, typename TSpec, typename TSize> inline void _resizeWithRespectToDistance(String<TValue, TSpec>& dist, TSize nseq);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(378)
+template <typename TCargo, typename TSpec, typename TSize> inline void _resizeWithRespectToDistance(Graph<Undirected<TCargo, TSpec> >& dist, TSize nseq);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(388)
+template <typename TSize> inline void _resizeWithRespectToDistance(Nothing&, TSize);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(400)
+
+//____________________________________________________________________________
+// _roundToSignificantFigures
+
+inline double _roundToSignificantFigures(double num, int n);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(55)
 
 //____________________________________________________________________________
 // _scoreMatches
@@ -350,9 +355,9 @@ template <typename TString, typename TSpec, typename TScoreType, typename TFragm
 //____________________________________________________________________________
 // _setDistanceValue
 
-template <typename TFragment, typename TSpec1, typename TString, typename TSpec2, typename TValue, typename TSpec, typename TSize> inline void _setDistanceValue(String<TFragment, TSpec1>& matches, StringSet<TString, TSpec2>& pairSet, String<TValue, TSpec>& dist, TSize i, TSize j, TSize nseq, TSize from);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(413)
-template <typename TFragment, typename TSpec1, typename TString, typename TSpec2, typename TCargo, typename TSpec, typename TSize> inline void _setDistanceValue(String<TFragment, TSpec1>& matches, StringSet<TString, TSpec2>& pairSet, Graph<Undirected<TCargo, TSpec> >& dist, TSize i, TSize j, TSize, TSize from);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(442)
-template <typename TFragment, typename TSpec, typename TString, typename TSpec2, typename TSize> inline void _setDistanceValue(String<TFragment, TSpec>&, StringSet<TString, TSpec2>&, Nothing&, TSize, TSize, TSize, TSize);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(469)
+template <typename TFragment, typename TSpec1, typename TString, typename TSpec2, typename TValue, typename TSpec, typename TSize> inline void _setDistanceValue(String<TFragment, TSpec1>& matches, StringSet<TString, TSpec2>& pairSet, String<TValue, TSpec>& dist, TSize i, TSize j, TSize nseq, TSize from);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(415)
+template <typename TFragment, typename TSpec1, typename TString, typename TSpec2, typename TCargo, typename TSpec, typename TSize> inline void _setDistanceValue(String<TFragment, TSpec1>& matches, StringSet<TString, TSpec2>& pairSet, Graph<Undirected<TCargo, TSpec> >& dist, TSize i, TSize j, TSize, TSize from);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(444)
+template <typename TFragment, typename TSpec, typename TString, typename TSpec2, typename TSize> inline void _setDistanceValue(String<TFragment, TSpec>&, StringSet<TString, TSpec2>&, Nothing&, TSize, TSize, TSize, TSize);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(471)
 
 //____________________________________________________________________________
 // _subTreeSearch
@@ -362,14 +367,14 @@ template <typename TGuideTree, typename TSeqGroups, typename TGroupRoot, typenam
 //____________________________________________________________________________
 // _upgmaTreeMerge
 
-template <typename TMatrix, typename TActive, typename TSize> inline void _upgmaTreeMerge(TMatrix& mat, TActive& active, TSize index_i, TSize index_j, TSize nseq, UpgmaWeightAvg);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(341)
-template <typename TMatrix, typename TActive, typename TSize> inline void _upgmaTreeMerge(TMatrix& mat, TActive& active, TSize index_i, TSize index_j, TSize nseq, UpgmaAvg);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(371)
-template <typename TMatrix, typename TActive, typename TSize> inline void _upgmaTreeMerge(TMatrix& mat, TActive& active, TSize index_i, TSize index_j, TSize nseq, UpgmaMin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(397)
-template <typename TMatrix, typename TActive, typename TSize> inline void _upgmaTreeMerge(TMatrix& mat, TActive& active, TSize index_i, TSize index_j, TSize nseq, UpgmaMax);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(422)
-template <typename TCargo, typename TSpec, typename TActive, typename TEdgeDescriptor> inline void _upgmaTreeMerge(Graph<Undirected<TCargo, TSpec> >& pairGraph, TActive const&, TEdgeDescriptor best, UpgmaMax);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(445)
-template <typename TCargo, typename TSpec, typename TActive, typename TEdgeDescriptor> inline void _upgmaTreeMerge(Graph<Undirected<TCargo, TSpec> >& pairGraph, TActive const&, TEdgeDescriptor best, UpgmaMin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(479)
-template <typename TCargo, typename TSpec, typename TActive, typename TEdgeDescriptor> inline void _upgmaTreeMerge(Graph<Undirected<TCargo, TSpec> >& pairGraph, TActive const& active, TEdgeDescriptor best, UpgmaWeightAvg);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(512)
-template <typename TCargo, typename TSpec, typename TActive, typename TEdgeDescriptor> inline void _upgmaTreeMerge(Graph<Undirected<TCargo, TSpec> >& pairGraph, TActive const&, TEdgeDescriptor best, UpgmaAvg);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(548)
+template <typename TMatrix, typename TActive, typename TSize> inline void _upgmaTreeMerge(TMatrix& mat, TActive& active, TSize index_i, TSize index_j, TSize nseq, UpgmaWeightAvg);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(378)
+template <typename TMatrix, typename TActive, typename TSize> inline void _upgmaTreeMerge(TMatrix& mat, TActive& active, TSize index_i, TSize index_j, TSize nseq, UpgmaAvg);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(408)
+template <typename TMatrix, typename TActive, typename TSize> inline void _upgmaTreeMerge(TMatrix& mat, TActive& active, TSize index_i, TSize index_j, TSize nseq, UpgmaMin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(434)
+template <typename TMatrix, typename TActive, typename TSize> inline void _upgmaTreeMerge(TMatrix& mat, TActive& active, TSize index_i, TSize index_j, TSize nseq, UpgmaMax);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(459)
+template <typename TCargo, typename TSpec, typename TActive, typename TEdgeDescriptor> inline void _upgmaTreeMerge(Graph<Undirected<TCargo, TSpec> >& pairGraph, TActive const&, TEdgeDescriptor best, UpgmaMax);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(482)
+template <typename TCargo, typename TSpec, typename TActive, typename TEdgeDescriptor> inline void _upgmaTreeMerge(Graph<Undirected<TCargo, TSpec> >& pairGraph, TActive const&, TEdgeDescriptor best, UpgmaMin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(516)
+template <typename TCargo, typename TSpec, typename TActive, typename TEdgeDescriptor> inline void _upgmaTreeMerge(Graph<Undirected<TCargo, TSpec> >& pairGraph, TActive const& active, TEdgeDescriptor best, UpgmaWeightAvg);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(549)
+template <typename TCargo, typename TSpec, typename TActive, typename TEdgeDescriptor> inline void _upgmaTreeMerge(Graph<Undirected<TCargo, TSpec> >& pairGraph, TActive const&, TEdgeDescriptor best, UpgmaAvg);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(585)
 
 //____________________________________________________________________________
 // alignmentEvaluation
@@ -379,13 +384,13 @@ template <typename TStringSet, typename TCargo, typename TSpec, typename TScore,
 //____________________________________________________________________________
 // appendSegmentMatches
 
-template <typename TString, typename TSpec, typename TSize2, typename TSpec2, typename TSegmentMatches, typename TScores> inline void appendSegmentMatches(StringSet<TString, Dependent<TSpec> > const& str, String<TSize2, TSpec2> const& pList, TSegmentMatches& matches, TScores& scores, LcsLibrary);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(210)
-template <typename TString, typename TSpec, typename TSegmentMatches, typename TScores, typename TAlphabet, typename TSize> inline void appendSegmentMatches(StringSet<TString, Dependent<TSpec> > const& str, TSegmentMatches& matches, TScores& scores, TSize ktup, TAlphabet, KmerLibrary);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(259)
-template <typename TString, typename TSpec, typename TSegmentMatches, typename TScores, typename TSize> inline void appendSegmentMatches(StringSet<TString, Dependent<TSpec> > const& str, TSegmentMatches& matches, TScores& scores, TSize ktup, KmerLibrary);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(318)
-template <typename TString, typename TSpec, typename TSegmentMatches, typename TScores> inline void appendSegmentMatches(StringSet<TString, Dependent<TSpec> > const& str, TSegmentMatches& matches, TScores& scores, KmerLibrary);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(331)
-template <typename TString, typename TSpec, typename TSize2, typename TSpec2, typename TScore, typename TSegmentMatches, typename TScores> inline void appendSegmentMatches(StringSet<TString, Dependent<TSpec> > const& str, String<TSize2, TSpec2> const& pList, TScore const& score_type, TSegmentMatches& matches, TScores& scores, LocalPairwiseLibrary);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(347)
-template <typename TString, typename TSpec, typename TSize2, typename TSpec2, typename TScore, typename TSegmentMatches, typename TScoreValues, typename TDistance, typename TAlignConfig> inline void appendSegmentMatches(StringSet<TString, Dependent<TSpec> > const& str, String<TSize2, TSpec2> const& pList, TScore const& score_type, TSegmentMatches& matches, TScoreValues& scores, TDistance& dist, TAlignConfig const& ac, GlobalPairwiseLibrary);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(485)
-template <typename TString, typename TSpec, typename TSize2, typename TSpec2, typename TScore, typename TSegmentMatches, typename TScoreValues, typename TDistance> inline void appendSegmentMatches(StringSet<TString, Dependent<TSpec> > const& str, String<TSize2, TSpec2> const& pList, TScore const& score_type, TSegmentMatches& matches, TScoreValues& scores, TDistance& dist, GlobalPairwiseLibrary);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(538)
+template <typename TString, typename TSpec, typename TSize2, typename TSpec2, typename TSegmentMatches, typename TScores> inline void appendSegmentMatches(StringSet<TString, Dependent<TSpec> > const& str, String<TSize2, TSpec2> const& pList, TSegmentMatches& matches, TScores& scores, LcsLibrary);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(212)
+template <typename TString, typename TSpec, typename TSegmentMatches, typename TScores, typename TAlphabet, typename TSize> inline void appendSegmentMatches(StringSet<TString, Dependent<TSpec> > const& str, TSegmentMatches& matches, TScores& scores, TSize ktup, TAlphabet, KmerLibrary);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(261)
+template <typename TString, typename TSpec, typename TSegmentMatches, typename TScores, typename TSize> inline void appendSegmentMatches(StringSet<TString, Dependent<TSpec> > const& str, TSegmentMatches& matches, TScores& scores, TSize ktup, KmerLibrary);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(320)
+template <typename TString, typename TSpec, typename TSegmentMatches, typename TScores> inline void appendSegmentMatches(StringSet<TString, Dependent<TSpec> > const& str, TSegmentMatches& matches, TScores& scores, KmerLibrary);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(333)
+template <typename TString, typename TSpec, typename TSize2, typename TSpec2, typename TScore, typename TSegmentMatches, typename TScores> inline void appendSegmentMatches(StringSet<TString, Dependent<TSpec> > const& str, String<TSize2, TSpec2> const& pList, TScore const& score_type, TSegmentMatches& matches, TScores& scores, LocalPairwiseLibrary);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(349)
+template <typename TString, typename TSpec, typename TSize2, typename TSpec2, typename TScore, typename TSegmentMatches, typename TScoreValues, typename TDistance, typename TAlignConfig> inline void appendSegmentMatches(StringSet<TString, Dependent<TSpec> > const& str, String<TSize2, TSpec2> const& pList, TScore const& score_type, TSegmentMatches& matches, TScoreValues& scores, TDistance& dist, TAlignConfig const& ac, GlobalPairwiseLibrary);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(487)
+template <typename TString, typename TSpec, typename TSize2, typename TSpec2, typename TScore, typename TSegmentMatches, typename TScoreValues, typename TDistance> inline void appendSegmentMatches(StringSet<TString, Dependent<TSpec> > const& str, String<TSize2, TSpec2> const& pList, TScore const& score_type, TSegmentMatches& matches, TScoreValues& scores, TDistance& dist, GlobalPairwiseLibrary);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(540)
 
 //____________________________________________________________________________
 // buildAlignmentGraph
@@ -409,7 +414,7 @@ template <typename TAlphabet, typename TScore> inline void evaluateAlignment(Msa
 //____________________________________________________________________________
 // getAlignmentStatistics
 
-template <typename TFragment, typename TSpec1, typename TStringSet, typename TPos, typename TSize1> inline void getAlignmentStatistics(String<TFragment, TSpec1> const& matches, TStringSet& str, TPos const from, TPos const to, TSize1& matchLength, TSize1& overlapLength, TSize1& alignLength);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(145)
+template <typename TFragment, typename TSpec1, typename TStringSet, typename TPos, typename TSize1> inline void getAlignmentStatistics(String<TFragment, TSpec1> const& matches, TStringSet& str, TPos const from, TPos const to, TSize1& matchLength, TSize1& overlapLength, TSize1& alignLength);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_library.h"(147)
 
 //____________________________________________________________________________
 // getDistanceMatrix
@@ -450,7 +455,7 @@ template <typename TStringSet, typename TCargo, typename TSpec, typename TScore>
 //____________________________________________________________________________
 // njTree
 
-template <typename TValue, typename TStringSpec, typename TCargo, typename TSpec> inline void njTree(String<TValue, TStringSpec>& mat, Graph<Tree<TCargo, TSpec> >& g);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(72)
+template <typename TValue, typename TStringSpec, typename TCargo, typename TSpec> inline void njTree(String<TValue, TStringSpec> const & matIn, Graph<Tree<TCargo, TSpec> >& g);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(88)
 
 //____________________________________________________________________________
 // progressiveAlignment
@@ -522,9 +527,9 @@ template <typename TStringSet, typename TCargo, typename TSpec, typename TGuideT
 //____________________________________________________________________________
 // upgmaTree
 
-template <typename TStringValue, typename TStringSpec, typename TCargo, typename TSpec, typename TTag> inline void upgmaTree(String<TStringValue, TStringSpec>& mat, Graph<Tree<TCargo, TSpec> >& g, TTag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(583)
-template <typename TValue, typename TSpec1, typename TCargo, typename TSpec2, typename TTag> inline void upgmaTree(Graph<Undirected<TValue, TSpec1> >& pairGraph, Graph<Tree<TCargo, TSpec2> >& g, TTag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(699)
-template <typename TDistance, typename TCargo, typename TSpec> inline void upgmaTree(TDistance& dist, Graph<Tree<TCargo, TSpec> >& g);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(875)
+template <typename TStringValue, typename TStringSpec, typename TCargo, typename TSpec, typename TTag> inline void upgmaTree(String<TStringValue, TStringSpec>& mat, Graph<Tree<TCargo, TSpec> >& g, TTag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(620)
+template <typename TValue, typename TSpec1, typename TCargo, typename TSpec2, typename TTag> inline void upgmaTree(Graph<Undirected<TValue, TSpec1> >& pairGraph, Graph<Tree<TCargo, TSpec2> >& g, TTag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(736)
+template <typename TDistance, typename TCargo, typename TSpec> inline void upgmaTree(TDistance& dist, Graph<Tree<TCargo, TSpec> >& g);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_msa/graph_align_tcoffee_guidetree.h"(912)
 
 //____________________________________________________________________________
 // write

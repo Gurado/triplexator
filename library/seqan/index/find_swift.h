@@ -673,6 +673,7 @@ inline void _patternInit(Pattern<TIndex, Swift<TSpec> > &pattern, TFloat errorRa
 				else
 					bucketParams.threshold = pattern.params.minThreshold;
 
+                SEQAN_ASSERT_GT_MSG((1 / errorRate), span, "SWIFT only works if span < 1 / error rate!");
 			    TSize errors = (TSize) floor((2 * bucketParams.threshold + span - 3) / (1 / errorRate - span));
 			
 			

@@ -51,6 +51,7 @@ namespace SEQAN_NAMESPACE_MAIN
 ..summary:Holds the needle and preprocessing data (depends on algorithm).
 ..cat:Searching
 ..signature:Pattern<TNeedle[, TSpec]>
+..implements:Concept.Pattern
 ..param.TNeedle:The needle type.
 ...type:Class.String
 ..param.TSpec:The online-algorithm to search with.
@@ -346,13 +347,13 @@ setNeedle(Pattern<TNeedle, TSpec> &obj, TNeedle const &ndl) {
 
 /**.Function.scoringScheme
 ..cat:Searching
-..summary:The @glos:scoring scheme@ used for finding or aligning.
+..summary:The @glos:Scoring Scheme|scoring scheme@ used for finding or aligning.
 ..signature:scoringScheme(obj)
-..param.obj:Object that holds a @glos:scoring scheme@
+..param.obj:Object that holds a @glos:Scoring Scheme|scoring scheme@
 ...type:Class.Pattern
-..returns:The @glos:scoring scheme@ used in $obj$
+..returns:The @glos:Scoring Scheme|scoring scheme@ used in $obj$
 ...default:@Shortcut.EditDistanceScore@
-..see:glos:scoring scheme
+..see:glos:Scoring Scheme|scoring scheme
 ..see:Metafunction.ScoringScheme
 */
 
@@ -375,12 +376,12 @@ SEQAN_CHECKPOINT
 
 /**.Function.setScoringScheme
 ..cat:Searching
-..summary:Sets the @glos:scoring scheme@ used for finding or aligning.
+..summary:Sets the @glos:Scoring Scheme|scoring scheme@ used for finding or aligning.
 ..signature:setScoringScheme(obj, score)
-..param.obj:Object that holds a @glos:scoring scheme@.
+..param.obj:Object that holds a @glos:Scoring Scheme|scoring scheme@.
 ...type:Class.Pattern
-..param.score:The new @glos:scoring scheme@ used by $obj$.
-..see:glos:scoring scheme
+..param.score:The new @glos:Scoring Scheme|scoring scheme@ used by $obj$.
+..see:glos:Scoring Scheme|scoring scheme
 ..see:Function.scoringScheme
 */
 

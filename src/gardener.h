@@ -38,6 +38,15 @@
 //#ifdef _OPENMP
 //#	include <omp.h>
 //#endif
+#ifndef SEQAN_PRAGMA_IF_PARALLEL
+#if SEQAN_ENABLE_PARALLELISM
+#define STRINGIFY(a) #a
+#define SEQAN_PRAGMA_IF_PARALLEL(code) \
+_Pragma(STRINGIFY(code))
+#else // SEQAN_ENABLE_PARALLELISM
+#define SEQAN_PRAGMA_IF_PARALLEL(code)
+#endif // SEQAN_ENABLE_PARALLELISM
+#endif // SEQAN_PRAGMA_IF_PARALLEL
 
 #include <limits>
 #include "find_index_qgrams.h"
@@ -1394,15 +1403,15 @@ namespace SEQAN_NAMESPACE_MAIN
 		::std::cout << (ceil(errorRate*minLength)+1) << " " << ((ceil(errorRate*minLength)+1)*weight(pattern.shape)) << " " << minLength+1-(ceil(errorRate*minLength)+1)*weight(pattern.shape) << ::std::endl;
 #endif		
 		
-		SEQAN_OMP_PRAGMA(omp parallel)
+		SEQAN_PRAGMA_IF_PARALLEL(omp parallel) 
 		{
-			SEQAN_OMP_PRAGMA(omp for schedule(dynamic) )
+			SEQAN_PRAGMA_IF_PARALLEL(omp for schedule(dynamic) )
 			for (TId queryid=0; queryid<querylen; ++queryid){
 				THitSetPointer hitsPointer = new THitSet;
 				TFinder finder(queries[queryid]);
 				_find(*hitsPointer, finder, pattern, errorRate, (TPos) minLength, minSeedsThreshold, xDrop, queryid );	
 				
-				SEQAN_OMP_PRAGMA(omp critical(addhitmap)  )
+				SEQAN_PRAGMA_IF_PARALLEL(omp critical(addhitmap)  )
 				insert(gardener.hits, queryid, hitsPointer);
 			}
 		}
@@ -1463,9 +1472,9 @@ namespace SEQAN_NAMESPACE_MAIN
 			appendValue(tmpPointerList, hitsPointer);
 		}
 		
-		SEQAN_OMP_PRAGMA(omp parallel)
+		SEQAN_PRAGMA_IF_PARALLEL(omp parallel)
 		{
-			SEQAN_OMP_PRAGMA(omp for schedule(dynamic) )
+			SEQAN_PRAGMA_IF_PARALLEL(omp for schedule(dynamic))
 			for (TId queryid=0; queryid<querylen; ++queryid){
 				TFinder finder(queries[queryid], minRepeatLength, maxRepeatPeriod); 
 				_find(*tmpPointerList[queryid], finder, pattern, errorRate, (TPos) minLength, minSeedsThreshold, xDrop, queryid );	

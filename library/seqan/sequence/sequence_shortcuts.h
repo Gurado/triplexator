@@ -241,7 +241,7 @@ typedef Iterator<IupacString, Rooted>::Type IupacIterator;
 .Shortcut.Peptide:
 ..cat:Strings
 ..summary:A string of @Spec.AminoAcid@.
-..signature:IupacString
+..signature:Peptide
 ..shortcutfor:Spec.Alloc String
 ...signature:String<AminoAcid, Alloc<> >
 ..see:Spec.AminoAcid

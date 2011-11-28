@@ -375,6 +375,7 @@ _alignBandedTraceback(TAlignmentIterator & alignmentIt0, TAlignmentIterator & al
     // std::cout << "banded traceback" << std::endl;
 
     // Suppress unused parameters warning.
+    (void) goToTopLeft;
     (void) scoringScheme;
 
     typedef Matrix<TScoreValue, 3> TMatrix;

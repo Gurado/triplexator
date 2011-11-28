@@ -57,6 +57,19 @@ namespace seqan {
 // Metafunction EnableIf
 // ----------------------------------------------------------------------------
 
+//
+// Example for enable-if function: 
+//
+//    template <typename TContainer>
+//    typename EnableIf<
+//        IsContainer<TContainer>,                  // 1st arg: enable-if condition
+//        typename Size<TContainer>::Type >::Type   // 2nd arg: return type
+//    length(TContainer & cont) 
+//    {
+//        SEQAN_CONCEPT_ASSERT((ContainerConcept<TContainer>));
+//        return end(cont) - begin(cont);
+//    }
+    
 template <bool b, typename T>
 struct EnableIf;
 
@@ -99,7 +112,7 @@ struct EnableIf2
 };
 
 template <typename T>
-struct EnableIf2<True, T> {};
+struct EnableIf2<False, T> {};
 
 // ----------------------------------------------------------------------------
 // Metafunction DisableIf2
@@ -115,9 +128,41 @@ struct DisableIf2
 };
 
 template <typename T>
-struct DisableIf2<False, T> {};
+struct DisableIf2<True, T> {};
 
 }  // namespace seqan
+
+// ============================================================================
+// Macros
+// ============================================================================
+
+//
+// Example for enable-if constructor: 
+//
+//    Rational(T const & n, SEQAN_CTOR_ENABLE_IF( IsInteger<T> )) :  // macro must be extra c'tor argument
+//        num(n), den(1)
+//    { 
+//      (void)dummy;    // necessary to avoid unused warning
+//    }
+//
+
+#define SEQAN_CTOR_ENABLE_IF(cond) typename EnableIf<cond::VALUE>::Type * dummy = 0
+
+//
+// Example for enable-if function (with macro): 
+//
+//    template <typename TContainer>
+//    SEQAN_FUNC_ENABLE_IF(
+//        IsContainer<TContainer>, 
+//        typename Size<TContainer>::Type)
+//    length(TContainer & cont) 
+//    {
+//        SEQAN_CONCEPT_ASSERT((ContainerConcept<TContainer>));
+//        return end(cont) - begin(cont);
+//    }
+//
+
+#define SEQAN_FUNC_ENABLE_IF(cond, retVal) typename EnableIf<cond::VALUE, retVal>::Type
 
 // ============================================================================
 // Functions

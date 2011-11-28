@@ -41,7 +41,6 @@
 namespace SEQAN_NAMESPACE_MAIN
 {
 
-
 //////////////////////////////////////////////////////////////////////////////
 // Translation tables
 
@@ -780,26 +779,24 @@ inline bool isMatch(TAlphabet val1, TAlphabet val2)
 //Repeat mask
 
 template <>
-inline bool _repeatMaskValue(Triplex val)
+inline bool _repeatMaskValue(Triplex const &val) 
 {
-	return val.value == 8; // 'N'
+	return val == unknownValue<Triplex>(); // 'N'
+	
 }
-
-//____________________________________________________________________________
+	
+template <>
+inline bool _repeatMaskValue(DnaRY const &val)
+{
+	return val == unknownValue<DnaRY>(); // 'N'
+}
 
 template <>
-inline bool _repeatMaskValue(DnaRY val)
+inline bool _repeatMaskValue(DnaKM const &val)
 {
-	return val.value == 2; // 'N'
+	return val == unknownValue<DnaKM>(); // 'N'
 }
-
-//____________________________________________________________________________
-
-template <>
-inline bool _repeatMaskValue(DnaKM val)
-{
-	return val.value == 2; // 'N'
-}
+	
 //////////////////////////////////////////////////////////////////////////////
 //typedefs
 

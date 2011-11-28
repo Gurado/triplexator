@@ -94,7 +94,7 @@ getDistanceMatrix(Graph<Alignment<TStringSet, TCargo, TSpec> >& g,
 	clear(distanceMatrix);
 	TStringSet& str = stringSet(g);	
 	TSize nseq = length(str);
-	resize(distanceMatrix, nseq * nseq);
+	resize(distanceMatrix, nseq * nseq, 0);
 
 	// All pairwise alignments
 	typedef String<String<TVertexDescriptor> > TSegmentString;

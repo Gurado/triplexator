@@ -289,7 +289,7 @@ namespace SEQAN_NAMESPACE_MAIN
 		typedef typename GetValue<TSA>::Type	TSAValue;
 		typedef typename Size<TSA>::Type		TSize;
 
-		TSize n = length(s);
+		TSize n = lengthSum(s);
 		Pair<unsigned, typename Size<TString>::Type> loc;
 
 		for (TSize i = 0; i < n; ++i)

@@ -100,26 +100,26 @@ struct Holder<TValue, Tristate>
     // Constructors; Destructor
     // ------------------------------------------------------------------------
 
-	Holder() : data_state(EMPTY)
+	Holder() : data_value(NULL), data_state(EMPTY)
 	{
         SEQAN_CHECKPOINT;
 	}
 
-	Holder(Holder const & source_) : data_state(EMPTY)
+	Holder(Holder const & source_) : data_value(NULL), data_state(EMPTY)
 	{
         SEQAN_CHECKPOINT;
 		assign(*this, source_);
 	}
 
     explicit
-	Holder(THostValue & value_) : data_state(EMPTY)
+	Holder(THostValue & value_) : data_value(NULL), data_state(EMPTY)
 	{
         SEQAN_CHECKPOINT;
 		setValue(*this, value_);
 	}
 
     explicit
-	Holder(THostValue const & value_) : data_state(EMPTY)
+	Holder(THostValue const & value_) : data_value(NULL), data_state(EMPTY)
 	{
         SEQAN_CHECKPOINT;
 		assignValue(*this, value_);

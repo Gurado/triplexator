@@ -176,6 +176,7 @@ SEQAN_CHECKPOINT
 .Tag.IntervalTree Node Types
 ..summary:Tags to select the node type for @Class.IntervalTree@.
 ..cat:Miscellaneous
+..see:Class.IntervalTree
 
 ..tag.StorePointsOnly:The tree nodes store points.
 ..include:seqan/misc/misc_interval_tree.h
@@ -417,7 +418,7 @@ SEQAN_CHECKPOINT
 
 
 /**
-..Tag.ComputeCenter
+..tag.ComputeCenter
 ...summary:For intervals that are more or less uniformly distributed in the value range, using the ComputeCenter tag may result in a more balanced tree compared to using the RandomCenter tag.
 ...signature:ComputeCenter
 ...remarks:center = minbegin + (maxend-minbegin)/2
@@ -428,7 +429,7 @@ typedef Tag<TagComputeCenter_> const ComputeCenter;
 
 
 /**
-..Tag.RandomCenter
+..tag.RandomCenter
 ...summary:The RandomCenter tag guarantees that each node contains at least one interval, therefore the size of the tree is limited by the nummer of intervals. This may lead to an unbalanced tree, but is the most space-efficient and in practice the fastest method.
 ...signature:RandomCenter
 ...remarks:center = center of random interval
@@ -827,8 +828,8 @@ struct ListType<IntervalTreeNode<TInterval,StoreIntervals> >
 ...type:Class.PropertyMap
 ..param.intervals:Container of intervals.
 ...type:Class.String
-...remark:Should be a String of @Class.Interval@ or @Class.IntervalAndCargo@ objects.
-..param.tag:Tag for tree construction method. @Tag.IntervalTree Centers.Tag.RandomCenter@ or @Tag.IntervalTree Centers.@Tag.ComputeCenter@
+...remark:Should be a String of @Class.IntervalAndCargo@ or @Class.IntervalAndCargo@ objects.
+..param.tag:Tag for tree construction method. @Tag.IntervalTree Centers.tag.RandomCenter@ or @Tag.IntervalTree Centers.tag.ComputeCenter@
 ..remark:center of root node is computed by _calcIntervalTreeRootCenter
 ..include:seqan/misc/misc_interval_tree.h
  */

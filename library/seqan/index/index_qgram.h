@@ -1059,7 +1059,7 @@ To take effect of changing the $stepSize$ the q-gram index should be empty or re
 					sa[dir[getBucket(bucketMap, hashNext(shape, itText)) + 1]++] = i;	// next hash
 			}
 		else
-			for(TSize i = 1; i < num_qgrams; i += stepSize)
+			for(TSize i = stepSize; i < num_qgrams; i += stepSize)
 			{
 				itText += stepSize;
 				if (TWithConstraints::VALUE) {

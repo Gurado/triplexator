@@ -327,7 +327,7 @@ length(TValue * me)
 SEQAN_CHECKPOINT
     if (!me) return 0;
     TValue * it = me;
-    TValue zero = TValue();
+    TValue zero = TValue(0);
     while ( *it != zero) ++it;
     return it - me;
 }

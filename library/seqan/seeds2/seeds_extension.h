@@ -76,6 +76,17 @@ typedef Tag<UngappedXDrop_> const UnGappedXDrop;
 struct GappedXDrop_;
 typedef Tag<GappedXDrop_> const GappedXDrop;
 
+/**
+.Enum.Extension Direction
+..cat:Seed Handling
+..summary:The direction in which a seed should be extended.
+..value.EXTEND_LEFT:Extend the seed to the left.
+..value.EXTEND_RIGHT:Extend the seed to the right.
+..value.EXTEND_BOTH:Extend the seed in both directions.
+..value.EXTEND_NONE:Perform no extension.
+..see:Function.extendSeed
+..include:seqan/seeds.h
+*/
 enum ExtensionDirection
 {
     EXTEND_LEFT,
@@ -97,14 +108,15 @@ enum ExtensionDirection
 ..summary:Extends a seed.
 ..cat:Seed Handling
 ..signature:extendSeed(seed, query, database, direction, MatchExtend)
-..signature:extendSeed(seed, query, database, direction, scoreDropOff, scoreMatrix, {UngappedXDrop, GappedXDrop})
+..signature:extendSeed(seed, query, database, direction, scoreMatrix, scoreDropOff, {UngappedXDrop, GappedXDrop})
 ..param.seed: The seed to extend.
 ...type:Class.Seed
 ..param.query: The query sequence.
 ...type:Class.String
 ..param.query: The database sequence.
 ...type:Class.String
-..param.direction: Defines the direction in which the seed should be extended. 0 = left, 1 = right, 2 = both
+..param.direction: Defines the direction in which the seed should be extended.
+...type:Enum.Extension Direction
 ..param.scoreDropOff: The score drop after which the extension should stop. The extension stops if this value is exceeded.
 ...remarks:Only used for the algorithms @Tag.Seed Extension.UngappedXDrop@ and @Tag.Seed Extension.GappedXDrop@
 ..param.scoreMatrix: The scoring scheme.
@@ -493,14 +505,14 @@ SEQAN_CHECKPOINT
     SEQAN_ASSERT_GEQ(getEndDiagonal(seed), getLowerDiagonal(seed));
 }
 
-template<typename TConfig, typename TQuerySegment, typename TDatabaseSegment, typename TScoreValue>
+template<typename TConfig, typename TQuerySegment, typename TDatabaseSegment, typename TScoreValue, typename TScoreSpec>
 TScoreValue
 _extendSeedGappedXDropOneDirection(
         Seed<Simple, TConfig> & seed,
         TQuerySegment const & querySeg,
         TDatabaseSegment const & databaseSeg,
         ExtensionDirection direction,
-        Score<TScoreValue, Simple> const & scoringScheme,
+        Score<TScoreValue, TScoreSpec> const & scoringScheme,
 		TScoreValue scoreDropOff) {
 SEQAN_CHECKPOINT
     typedef typename Size<TQuerySegment>::Type TSize;
@@ -637,13 +649,13 @@ SEQAN_CHECKPOINT
 	return longestExtensionScore;
 }
 
-template <typename TConfig, typename TQuery, typename TDatabase, typename TScoreValue>
+template <typename TConfig, typename TQuery, typename TDatabase, typename TScoreValue, typename TScoreSpec>
 inline void 
 extendSeed(Seed<Simple, TConfig> & seed, 
 		   TQuery const & query,
 		   TDatabase const & database,
 		   ExtensionDirection direction,
-           Score<TScoreValue, Simple> const & scoringScheme,
+           Score<TScoreValue, TScoreSpec> const & scoringScheme,
            TScoreValue scoreDropOff,
 		   GappedXDrop const &)
 {
@@ -657,8 +669,10 @@ extendSeed(Seed<Simple, TConfig> & seed,
 
     // The algorithm only works for linear gap scores < 0, mismatch scores < 0
     // and match scores > 0.
-    SEQAN_ASSERT_GT(scoreMatch(scoringScheme), 0);
-    SEQAN_ASSERT_LT(scoreMismatch(scoringScheme), 0);
+    // TODO(holtgrew): We could introduce such check functions for score matrices.
+    // TODO(holtgrew): Originally, this function only worked for simple scoring schemes, does the algorithm also work correctly for BLOSUM62? This matrix contains zeroes. Also see [10729].
+    // SEQAN_ASSERT_GT(scoreMatch(scoringScheme), 0);
+    // SEQAN_ASSERT_LT(scoreMismatch(scoringScheme), 0);
     SEQAN_ASSERT_LT(scoreGapOpen(scoringScheme), 0);
     SEQAN_ASSERT_LT(scoreGapExtend(scoringScheme), 0);
     SEQAN_ASSERT_EQ(scoreGapExtend(scoringScheme), scoreGapOpen(scoringScheme));
@@ -695,13 +709,13 @@ extendSeed(Seed<Simple, TConfig> & seed,
 }
 
 
-template <typename TConfig, typename TQuery, typename TDatabase, typename TScoreValue>
+template <typename TConfig, typename TQuery, typename TDatabase, typename TScoreValue, typename TScoreSpec>
 inline void 
 extendSeed(Seed<ChainedSeed, TConfig> & /*seed*/,
 		   TQuery const & /*query*/,
 		   TDatabase const & /*database*/,
 		   ExtensionDirection /*direction*/,
-           Score<TScoreValue, Simple> const & /*scoringScheme*/,
+           Score<TScoreValue, TScoreSpec> const & /*scoringScheme*/,
            TScoreValue /*scoreDropOff*/,
 		   GappedXDrop const &)
 {

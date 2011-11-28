@@ -1781,7 +1781,7 @@ If $iterator$'s container type is $TIndex$ the return type is $Infix<Fibre<TInde
 		// preorder dfs
 		do {
 			if (!goDown(it) && !goRight(it))
-				while (goUp(it) && !goRight(it)) ;
+				while (goUp(it) && !goRight(it)) {}
 			if (isRoot(it)) {
 				clear(it);
 				return;
@@ -1792,32 +1792,32 @@ If $iterator$'s container type is $TIndex$ the return type is $Infix<Fibre<TInde
 	template < typename TIndex, typename TSpec, typename THideEmptyEdges >
     inline void goNextRightImpl(
 		Iter< TIndex, VSTree< TopDown< ParentLinks<TSpec> > > > &it, 
-		VSTreeIteratorTraits<Preorder_, THideEmptyEdges> const)
+		VSTreeIteratorTraits<Preorder_, THideEmptyEdges> const tag)
     {
         // preorder dfs
-		do {
-			if (!goRight(it))
-				while (goUp(it) && !goRight(it)) ;
-			if (isRoot(it)) {
-				clear(it);
-				return;
-			}
-		} while (!nodePredicate(it));
+        if (!goRight(it))
+            while (goUp(it) && !goRight(it)) {}
+        if (isRoot(it)) {
+            clear(it);
+            return;
+        }
+        if (!nodePredicate(it))
+            goNextImpl(it, tag);
     }
 
 	template < typename TIndex, typename TSpec, typename THideEmptyEdges >
     inline void goNextUpImpl(
 		Iter< TIndex, VSTree< TopDown< ParentLinks<TSpec> > > > &it, 
-		VSTreeIteratorTraits<Preorder_, THideEmptyEdges> const)
+		VSTreeIteratorTraits<Preorder_, THideEmptyEdges> const tag)
     {
         // preorder dfs
-		do {
-			while (goUp(it) && !goRight(it)) ;
-			if (isRoot(it)) {
-				clear(it);
-				return;
-			}
-		} while (!nodePredicate(it));
+        while (goUp(it) && !goRight(it)) {}
+        if (isRoot(it)) {
+            clear(it);
+            return;
+        }
+        if (!nodePredicate(it))
+            goNextImpl(it, tag);
     }
 
 

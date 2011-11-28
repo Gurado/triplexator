@@ -111,6 +111,36 @@ runs in different operative modes depending on which data are input.
 	  
   By default all motifs are used.
 
+  [ -mpmg NUM ],  [ --mixed-parallel-max-guanine NUM ]
+  
+  Specifies the maximum guanine proportion (in %) in a mixed-motif triplexes 
+  (GT) to consider this feature for parallel binding (Hoogsteen bonds) 
+  (default 100).
+  
+  As GT-TFOs can bind in either orientation this parameter can be used 
+  to specify at which guanine content a GT-TFO should not be able to 
+  bind in parallel orientation
+  (because anti-parallel binding will always dominate due to high G content).
+  
+  Works in conjunction with --mixed-antiparallel-min-guanine but 
+  parameters are keep separate as there may be a smooth transition
+  between the binding modes.
+  
+  [ -mamg NUM ], [ --mixed-antiparallel-min-guanine NUM ]
+  
+  Specifies the minimum guanine proportion (in %) in a mixed-motif triplexes 
+  (GT) to consider this feature for anti-parallel binding (reverse Hoogsteen 
+  bonds) (default 0).
+
+  As GT-TFOs can bind in either orientation this parameter can be used 
+  to specify at which guanine content a GT-TFO should not be able to 
+  bind in anti-parallel orientation.
+  (because parallel binding will always dominate due to the low G content).
+  
+  Works in conjunction with --mixed-parallel-max-guanine but 
+  parameters are keep separate as there may be a smooth transition
+  between the binding modes.
+  
   [ -e NUM ],  [ --error-rate NUM ]
 
   Set the maximal error-rate in % tolerated (default 5). 
@@ -142,6 +172,37 @@ runs in different operative modes depending on which data are input.
   The guanine rate controls the minimum ratio of guanines required in the 
   any triplex target site. For triplex-forming oligonucleotide this  
   constraint will be applied to their respective target. 
+  
+  [ -b NUM ],  [ --minimum-block-run NUM ]
+  
+  Sets the number of consecutive matches required in a feature 
+  discarding any feature that violates this constrait (default 1).
+  The rational behind this parameter is that a seed of consecutive matching
+  positions of a given length is required to initiate triplex formation.
+  Given the observation that central errors are more disruptive than 
+  errors at the flanks of a triplex, this parameter will be especially
+  effective for short features.
+  
+  Example: 
+  feature 			valid -b	discarded with -b
+  AGGAGAGtGAGAAAGA    <= 8	         >= 9
+  AGGAGAGGAGAAAtGA    <= 13	         >= 14	
+  
+  [ -a ],   [--all-matches ]
+  
+  Flag indicates that all qualifying sub-matches should be processed and
+  reported in addition to the longest match.
+  Careful! This can result in hugh output files when searching for 
+  TFO-TTS pairs (i.e. providing single-stranded and doubles-stranded input).
+  		
+
+  [ -mf NUM],  [ --merge-features NUM ]
+
+   merge overlapping features into a cluster and report the spanning region
+   Only supported for TFO and TTS detection, respectively. 
+   For TFO-TTS pairs (triplexes) features are merged in the TFO and TTS
+   detection phase on default.
+   Any merge is performed before duplicate detection (-dd).
   		
   [ -dd NUM],  [ --detect-duplicates NUM ]
 
@@ -221,6 +282,13 @@ runs in different operative modes depending on which data are input.
 
   Pretty output indicates matches with capital letters and deviations from 
   the triplex-formation rules by small letters.
+  
+  [ -er NUM ],  [ --error-reference NUM ]
+  
+  Sets the reference to which the error should correspond (default 0)
+  0 = the Watson strand of the target (TTS)
+  1 = the purine strand of the target (TTS)
+  2 = the third strand (TFO)
   
 ---------------------------------------------------------------------------
 3.3. Filtration Options
@@ -381,8 +449,8 @@ runs in different operative modes depending on which data are input.
                       participants contain an error, while "t3" means that 
                       the participants are conform to their individual rules
                       but don't match. 
-                      Coordinates are always with respect to the "+" strand
-                      of the duplex.
+                      Coordinates depend on the setting of the parameter 
+                      --error-reference.
   - Duplicates      : Number of times this triplex feature or respective
                       target does occur in the corresponding sequence set
 					  NOT supported when searching for triplexes.

@@ -99,7 +99,7 @@ struct Pair
     // Constructors
     // ------------------------------------------------------------------------
 
-    Pair() {}
+    Pair() : i1(T1_()), i2(T2_()) {}
 
     template <typename T3_, typename T4_>
     Pair(Pair<T3_, T4_> const & _p) : i1(_p.i1), i2(_p.i2) {}

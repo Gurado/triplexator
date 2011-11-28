@@ -44,7 +44,7 @@ namespace SEQAN_NAMESPACE_MAIN
 
 /**
 .Spec.Myers:
-..cat:Pattern Matching
+..cat:Searching
 ..general:Class.Pattern
 ..summary:Provides fast approximate searching of one string in another using Myer's fast bit-parallel algorithm with application of the Ukkonen-trick.
 ..signature:Pattern<TNeedle, Myers< [TSpec [, TFindBeginPatternSpec] ]> >
@@ -83,7 +83,7 @@ struct AlignTextBanded; // search query in a parallelogram
 /**
 .Shortcut.MyersUkkonen:
 ..status:deprecated, use $Myers<FindInfix>$
-..cat:Pattern Matching
+..cat:Searching
 ..summary:Semin-global (query-global, text-local) pattern matching without findBegin() support.
 ..signature:MyersUkkonen
 ..shortcutfor:Spec.Myers
@@ -99,7 +99,7 @@ typedef Myers<FindInfix, True, void> MyersUkkonen;
 /**
 .Shortcut.MyersUkkonenGlobal:
 ..status:deprecated, use $Myers<FindPrefix>$
-..cat:Pattern Matching
+..cat:Searching
 ..summary:Global (query-global, text-global) pattern matching without findBegin() support.
 ..signature:MyersUkkonen
 ..shortcutfor:Spec.Myers
@@ -115,7 +115,7 @@ typedef Myers<FindPrefix, True, void> MyersUkkonenGlobal;
 /**
 .Shortcut.MyersUkkonenBanded:
 ..status:deprecated, use $Myers<AlignTextBanded<FindInfix, NMatchesN_, NMatchesN_> >$
-..cat:Pattern Matching
+..cat:Searching
 ..summary:Semin-global (query-global, text-local) pattern matching without findBegin() support.
 ..signature:MyersUkkonen
 ..shortcutfor:Spec.Myers
@@ -129,7 +129,7 @@ typedef Myers<FindPrefix, True, void> MyersUkkonenGlobal;
 /**
 .Shortcut.MyersUkkonenGlobalBanded:
 ..status:deprecated, use $Myers<AlignTextBanded<FindPrefix, NMatchesN_, NMatchesN_> >$
-..cat:Pattern Matching
+..cat:Searching
 ..summary:global (query-global, text-global) pattern matching without findBegin() support.
 ..signature:MyersUkkonen
 ..shortcutfor:Spec.Myers

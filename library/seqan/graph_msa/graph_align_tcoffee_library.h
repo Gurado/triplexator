@@ -133,6 +133,8 @@ selectPairs(StringSet<TString, TSpec> const& str,
 
 //////////////////////////////////////////////////////////////////////////////
 
+// TODO(holtgrew): Hard-code TSize1 as __int64, size_t?
+
 template<typename TFragment, typename TSpec1, typename TStringSet, typename TPos, typename TSize1>
 inline void 
 getAlignmentStatistics(String<TFragment, TSpec1> const& matches,
@@ -189,7 +191,7 @@ getAlignmentStatistics(String<TFragment, TSpec1> const& matches,
 		for(;sIt1 != sIt1End; ++sIt1, ++sIt2) 
 			if ( (TAlphabet) *sIt1  == (TAlphabet) *sIt2) ++matchLength;
 	}
-	alignLength = matchMismatch_length + (len1 - matchMismatch_length) + (len2 - matchMismatch_length);
+	alignLength = static_cast<TSize1>(matchMismatch_length + (len1 - matchMismatch_length) + (len2 - matchMismatch_length));
 	overlapLength = alignLength -  minId1 - minId2 - (len1 + len2 - maxId1 - maxId2);
 }
 

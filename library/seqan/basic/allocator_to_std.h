@@ -77,14 +77,14 @@ but the host object that was given to the constructor.
 template <typename THost, typename TValue>
 struct ToStdAllocator
 {
-    typedef TValue value_type;
-    typedef value_type * pointer;
-    typedef value_type & reference;
-    typedef value_type const * const_pointer;
-    typedef value_type const & const_reference;
+    typedef TValue value_type; // nolint
+    typedef value_type * pointer; // nolint
+    typedef value_type & reference; // nolint
+    typedef value_type const * const_pointer; // nolint
+    typedef value_type const & const_reference; // nolint
 
-    typedef size_t size_type;
-    typedef ptrdiff_t difference_type;
+    typedef size_t size_type; // nolint
+    typedef ptrdiff_t difference_type; // nolint
 
     ToStdAllocator(THost & host): m_host(& host)
     {}
@@ -145,9 +145,9 @@ struct ToStdAllocator
     }
 
     template <class TValue2>
-    struct rebind
+    struct rebind // nolint
     {
-        typedef ToStdAllocator<THost, TValue2> other;
+        typedef ToStdAllocator<THost, TValue2> other; // nolint
     };
 
     template <typename THost2, typename TValue2>

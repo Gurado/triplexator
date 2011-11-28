@@ -221,9 +221,6 @@ namespace SEQAN_NAMESPACE_MAIN
 		typedef Pipe< TNamer, Filter<func_slice_t> > TSlicedPos;
         typedef Pool< TypeOf_(TSlicedPos), MapperSpec< MapperConfigSize< filterI1<TypeOf_(TSlicedPos)>, TSizeOf_(TSlicedPos) > > > TNames_Sliced;
 
-        // unique names - shortcut
-        typedef Pool< TypeOf_(TNames_Sliced), MapperSpec< MapperConfigSize< func_slice_t, TSizeOf_(TNames_Sliced) > > > TNames_Linear_Unique;
-
         // non-unique names
         typedef Pipe< TNames_Sliced, Filter< filterI2<TypeOf_(TNames_Sliced)> > > TFilter;
 

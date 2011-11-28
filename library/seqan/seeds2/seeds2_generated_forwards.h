@@ -308,7 +308,7 @@ template <typename TAlignmentIterator, typename TSequenceIterator, typename TPos
 // _alignFillMatrix
 
 template <typename TScoreValue, typename TSequence> inline void _alignFillMatrix(Matrix<TScoreValue, 3> & matrix, TSequence const & sequence0, TSequence const & sequence1, Score<TScoreValue, Simple> const & scoringScheme, Gotoh const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/align_dynprog_affine.h"(221)
-template <typename TScoreValue, typename TSequence> inline void _alignFillMatrix(Matrix<TScoreValue, 2> & matrix, TSequence const & sequence0, TSequence const & sequence1, Score<TScoreValue, Simple> const & scoringScheme, NeedlemanWunsch const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/align_dynprog_linear.h"(177)
+template <typename TScoreValue, typename TSequence> inline void _alignFillMatrix(Matrix<TScoreValue, 2> & matrix, TSequence const & sequence0, TSequence const & sequence1, Score<TScoreValue, Simple> const & scoringScheme, NeedlemanWunsch const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/align_dynprog_linear.h"(178)
 
 //____________________________________________________________________________
 // _alignInitGutter
@@ -347,7 +347,7 @@ template <typename TSequence, typename TScoringScheme, typename TAlignmentTag, t
 // _alignTraceback
 
 template <typename TAlignmentIterator, typename TSequenceIterator, typename TPosition, typename TScoreValue, typename TScoringScheme, typename TOverlap, bool START0_FREE, bool START1_FREE, bool END0_FREE, bool END1_FREE> TScoreValue _alignTraceback(TAlignmentIterator & alignmentIt0, TAlignmentIterator & alignmentIt1, TSequenceIterator & sourceIt0, TSequenceIterator & sourceIt1, TPosition & finalPos0, TPosition & finalPos1, Matrix<TScoreValue, 3> & matrix, TScoringScheme const & scoringScheme, TOverlap lowerRightOverlap0, TOverlap lowerRightOverlap1, TOverlap upperLeftOverlap0, TOverlap upperLeftOverlap1, bool goToTopLeft, AlignConfig<START1_FREE, START0_FREE, END1_FREE, END0_FREE> const &, Gotoh const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/align_dynprog_affine.h"(314)
-template <typename TAlignmentIterator, typename TSequenceIterator, typename TPosition, typename TScoreValue, typename TScoringScheme, typename TOverlap, bool START0_FREE, bool START1_FREE, bool END0_FREE, bool END1_FREE> TScoreValue _alignTraceback(TAlignmentIterator & alignmentIt0, TAlignmentIterator & alignmentIt1, TSequenceIterator & sourceIt0, TSequenceIterator & sourceIt1, TPosition & finalPos0, TPosition & finalPos1, Matrix<TScoreValue, 2> & matrix, TScoringScheme const & scoringScheme, TOverlap lowerRightOverlap0, TOverlap lowerRightOverlap1, TOverlap upperLeftOverlap0, TOverlap upperLeftOverlap1, bool goToTopLeft, AlignConfig<START1_FREE, START0_FREE, END1_FREE, END0_FREE> const &, NeedlemanWunsch const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/align_dynprog_linear.h"(247)
+template <typename TAlignmentIterator, typename TSequenceIterator, typename TPosition, typename TScoreValue, typename TScoringScheme, typename TOverlap, bool START0_FREE, bool START1_FREE, bool END0_FREE, bool END1_FREE> TScoreValue _alignTraceback(TAlignmentIterator & alignmentIt0, TAlignmentIterator & alignmentIt1, TSequenceIterator & sourceIt0, TSequenceIterator & sourceIt1, TPosition & finalPos0, TPosition & finalPos1, Matrix<TScoreValue, 2> & matrix, TScoringScheme const & scoringScheme, TOverlap lowerRightOverlap0, TOverlap lowerRightOverlap1, TOverlap upperLeftOverlap0, TOverlap upperLeftOverlap1, bool goToTopLeft, AlignConfig<START1_FREE, START0_FREE, END1_FREE, END0_FREE> const &, NeedlemanWunsch const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/align_dynprog_linear.h"(248)
 
 //____________________________________________________________________________
 // _alignTrailingRectangle
@@ -368,12 +368,12 @@ template <typename TContainer, typename TBandwidth, typename TScoreValue, typena
 //____________________________________________________________________________
 // _calcExtendedLowerDiag
 
-template <typename TDiagonal, typename TSize> inline void _calcExtendedLowerDiag(TDiagonal & lowerDiag, TSize minCol, TSize antiDiagNo);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/seeds_extension.h"(437)
+template <typename TDiagonal, typename TSize> inline void _calcExtendedLowerDiag(TDiagonal & lowerDiag, TSize minCol, TSize antiDiagNo);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/seeds_extension.h"(449)
 
 //____________________________________________________________________________
 // _calcExtendedUpperDiag
 
-template <typename TDiagonal, typename TSize> inline void _calcExtendedUpperDiag(TDiagonal & upperDiag, TSize maxCol, TSize antiDiagNo);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/seeds_extension.h"(449)
+template <typename TDiagonal, typename TSize> inline void _calcExtendedUpperDiag(TDiagonal & upperDiag, TSize maxCol, TSize antiDiagNo);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/seeds_extension.h"(461)
 
 //____________________________________________________________________________
 // _combineSeeds
@@ -398,7 +398,7 @@ template <typename TSize, typename TSequence, typename TScoringScheme, typename 
 //____________________________________________________________________________
 // _extendSeedGappedXDropOneDirection
 
-template <typename TConfig, typename TQuerySegment, typename TDatabaseSegment, typename TScoreValue> TScoreValue _extendSeedGappedXDropOneDirection( Seed<Simple, TConfig> & seed, TQuerySegment const & querySeg, TDatabaseSegment const & databaseSeg, ExtensionDirection direction, Score<TScoreValue, Simple> const & scoringScheme, TScoreValue scoreDropOff);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/seeds_extension.h"(504)
+template <typename TConfig, typename TQuerySegment, typename TDatabaseSegment, typename TScoreValue, typename TScoreSpec> TScoreValue _extendSeedGappedXDropOneDirection( Seed<Simple, TConfig> & seed, TQuerySegment const & querySeg, TDatabaseSegment const & databaseSeg, ExtensionDirection direction, Score<TScoreValue, TScoreSpec> const & scoringScheme, TScoreValue scoreDropOff);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/seeds_extension.h"(516)
 
 //____________________________________________________________________________
 // _findSeedForCombination
@@ -413,12 +413,12 @@ template <typename TAlignment, typename TSequence, typename TScoringScheme, type
 //____________________________________________________________________________
 // _initAntiDiag3
 
-template <typename TAntiDiag, typename TSize, typename TScoreValue> inline TSize _initAntiDiag3(TAntiDiag & antiDiag3, TSize offset, TSize maxCol, TSize antiDiagNo, TScoreValue minScore, TScoreValue gapCost, TScoreValue undefined);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/seeds_extension.h"(413)
+template <typename TAntiDiag, typename TSize, typename TScoreValue> inline TSize _initAntiDiag3(TAntiDiag & antiDiag3, TSize offset, TSize maxCol, TSize antiDiagNo, TScoreValue minScore, TScoreValue gapCost, TScoreValue undefined);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/seeds_extension.h"(425)
 
 //____________________________________________________________________________
 // _initAntiDiags
 
-template <typename TAntiDiag, typename TDropOff, typename TScoreValue> inline void _initAntiDiags(TAntiDiag & , TAntiDiag & antiDiag2, TAntiDiag & antiDiag3, TDropOff dropOff, TScoreValue gapCost, TScoreValue undefined);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/seeds_extension.h"(374)
+template <typename TAntiDiag, typename TDropOff, typename TScoreValue> inline void _initAntiDiags(TAntiDiag & , TAntiDiag & antiDiag2, TAntiDiag & antiDiag3, TDropOff dropOff, TScoreValue gapCost, TScoreValue undefined);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/seeds_extension.h"(386)
 
 //____________________________________________________________________________
 // _qualityReached
@@ -437,12 +437,12 @@ template <typename TSeedSpec, typename TSeedConfig, typename TDistanceThreshold,
 //____________________________________________________________________________
 // _swapAntiDiags
 
-template <typename TAntiDiag> inline void _swapAntiDiags(TAntiDiag & antiDiag1, TAntiDiag & antiDiag2, TAntiDiag & antiDiag3);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/seeds_extension.h"(396)
+template <typename TAntiDiag> inline void _swapAntiDiags(TAntiDiag & antiDiag1, TAntiDiag & antiDiag2, TAntiDiag & antiDiag3);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/seeds_extension.h"(408)
 
 //____________________________________________________________________________
 // _updateExtendedSeed
 
-template <typename TSeed, typename TSize, typename TDiagonal> inline void _updateExtendedSeed(TSeed & seed, ExtensionDirection direction, TSize cols, TSize rows, TDiagonal lowerDiag, TDiagonal upperDiag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/seeds_extension.h"(464)
+template <typename TSeed, typename TSize, typename TDiagonal> inline void _updateExtendedSeed(TSeed & seed, ExtensionDirection direction, TSize cols, TSize rows, TDiagonal lowerDiag, TDiagonal upperDiag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/seeds_extension.h"(476)
 
 //____________________________________________________________________________
 // _updateSeedsCoordinatesMergeOrSimpleChain
@@ -545,12 +545,12 @@ template <typename TSeedSpec, typename TSeedSetConfig> inline typename Iterator<
 //____________________________________________________________________________
 // extendSeed
 
-template <typename TConfig, typename TQuery, typename TDatabase> inline void extendSeed(Seed<Simple, TConfig> & seed, TQuery const & query, TDatabase const & database, ExtensionDirection direction, MatchExtend const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/seeds_extension.h"(131)
-template <typename TConfig, typename TQuery, typename TDatabase> inline void extendSeed(Seed<ChainedSeed, TConfig> & seed, TQuery const & query, TDatabase const & database, ExtensionDirection direction, MatchExtend const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/seeds_extension.h"(175)
-template <typename TConfig, typename TQuery, typename TDatabase, typename TScoreValue, typename TScoreSpec> inline void extendSeed(Seed<Simple, TConfig> & seed, TQuery const & query, TDatabase const & database, ExtensionDirection direction, Score<TScoreValue, TScoreSpec> const & scoringScheme, TScoreValue scoreDropOff, UnGappedXDrop const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/seeds_extension.h"(230)
-template <typename TConfig, typename TQuery, typename TDatabase, typename TScoreValue, typename TScoreSpec> inline void extendSeed(Seed<ChainedSeed, TConfig> & seed, TQuery const & query, TDatabase const & database, ExtensionDirection direction, Score<TScoreValue, TScoreSpec> const & scoringScheme, TScoreValue scoreDropOff, UnGappedXDrop const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/seeds_extension.h"(300)
-template <typename TConfig, typename TQuery, typename TDatabase, typename TScoreValue> inline void extendSeed(Seed<Simple, TConfig> & seed, TQuery const & query, TDatabase const & database, ExtensionDirection direction, Score<TScoreValue, Simple> const & scoringScheme, TScoreValue scoreDropOff, GappedXDrop const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/seeds_extension.h"(649)
-template <typename TConfig, typename TQuery, typename TDatabase, typename TScoreValue> inline void extendSeed(Seed<ChainedSeed, TConfig> & , TQuery const & , TDatabase const & , ExtensionDirection , Score<TScoreValue, Simple> const & , TScoreValue , GappedXDrop const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/seeds_extension.h"(707)
+template <typename TConfig, typename TQuery, typename TDatabase> inline void extendSeed(Seed<Simple, TConfig> & seed, TQuery const & query, TDatabase const & database, ExtensionDirection direction, MatchExtend const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/seeds_extension.h"(143)
+template <typename TConfig, typename TQuery, typename TDatabase> inline void extendSeed(Seed<ChainedSeed, TConfig> & seed, TQuery const & query, TDatabase const & database, ExtensionDirection direction, MatchExtend const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/seeds_extension.h"(187)
+template <typename TConfig, typename TQuery, typename TDatabase, typename TScoreValue, typename TScoreSpec> inline void extendSeed(Seed<Simple, TConfig> & seed, TQuery const & query, TDatabase const & database, ExtensionDirection direction, Score<TScoreValue, TScoreSpec> const & scoringScheme, TScoreValue scoreDropOff, UnGappedXDrop const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/seeds_extension.h"(242)
+template <typename TConfig, typename TQuery, typename TDatabase, typename TScoreValue, typename TScoreSpec> inline void extendSeed(Seed<ChainedSeed, TConfig> & seed, TQuery const & query, TDatabase const & database, ExtensionDirection direction, Score<TScoreValue, TScoreSpec> const & scoringScheme, TScoreValue scoreDropOff, UnGappedXDrop const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/seeds_extension.h"(312)
+template <typename TConfig, typename TQuery, typename TDatabase, typename TScoreValue, typename TScoreSpec> inline void extendSeed(Seed<Simple, TConfig> & seed, TQuery const & query, TDatabase const & database, ExtensionDirection direction, Score<TScoreValue, TScoreSpec> const & scoringScheme, TScoreValue scoreDropOff, GappedXDrop const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/seeds_extension.h"(661)
+template <typename TConfig, typename TQuery, typename TDatabase, typename TScoreValue, typename TScoreSpec> inline void extendSeed(Seed<ChainedSeed, TConfig> & , TQuery const & , TDatabase const & , ExtensionDirection , Score<TScoreValue, TScoreSpec> const & , TScoreValue , GappedXDrop const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/seeds2/seeds_extension.h"(721)
 
 //____________________________________________________________________________
 // front

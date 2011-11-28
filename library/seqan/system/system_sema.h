@@ -56,44 +56,28 @@ namespace SEQAN_NAMESPACE_MAIN
         
         Handle hSemaphore;
 
-        Semaphore(Type init = 0, Type max = MAX_VALUE) {
-			// Disable warnings on side-effect free operator!= in Release mode.
-#ifdef PLATFORM_WINDOWS_VS
-#pragma warning( push )
-#pragma warning( disable : 4552 )
-#endif  // #ifdef PLATFORM_WINDOWS_VS
-            SEQAN_DO_SYS2((hSemaphore = CreateSemaphore(&SemaphoreDefaultAttributes, init, max, NULL)) != NULL, "Could not create Semaphore");
-#ifdef PLATFORM_WINDOWS_VS
-#pragma warning( pop )
-#endif  // #ifdef PLATFORM_WINDOWS_VS
-		}
+        Semaphore(Type init = 0, Type max = MAX_VALUE)
+        {
+            hSemaphore = CreateSemaphore(&SemaphoreDefaultAttributes, init, max, NULL);
+            SEQAN_ASSERT_MSG(hSemaphore != NULL, "Could not create Semaphore!");
+        }
 
-        ~Semaphore() {
-			// Disable warnings on side-effect free operator!= in Release mode.
-#ifdef PLATFORM_WINDOWS_VS
-#pragma warning( push )
-#pragma warning( disable : 4552 )
-#endif  // #ifdef PLATFORM_WINDOWS_VS
-            SEQAN_DO_SYS2(CloseHandle(hSemaphore) != 0, "Could not destroy Semaphore");
-#ifdef PLATFORM_WINDOWS_VS
-#pragma warning( pop )
-#endif  // #ifdef PLATFORM_WINDOWS_VS
+        ~Semaphore()
+        {
+            int res = CloseHandle(hSemaphore);
+            (void)res;  // Only used in assertion.
+            SEQAN_ASSERT_MSG(res != 0, "Could not destroy Semaphore!");
         }
 
         bool lock(DWORD timeout_millis = INFINITE) {
             return WaitForSingleObject(hSemaphore, timeout_millis) != WAIT_TIMEOUT;
         }
 
-        void unlock() {
-			// Disable warnings on side-effect free operator!= in Release mode.
-#ifdef PLATFORM_WINDOWS_VS
-#pragma warning( push )
-#pragma warning( disable : 4552 )
-#endif  // #ifdef PLATFORM_WINDOWS_VS
-            SEQAN_DO_SYS2(ReleaseSemaphore(hSemaphore, 1, NULL) != 0, "Could not unlock Semaphore");
-#ifdef PLATFORM_WINDOWS_VS
-#pragma warning( pop )
-#endif  // #ifdef PLATFORM_WINDOWS_VS
+        void unlock()
+        {
+            int res = ReleaseSemaphore(hSemaphore, 1, NULL);
+            (void)res;  // Only used in assertion.
+            SEQAN_ASSERT_MSG(res != 0, "Could not unlock Semaphore!");
         }
 
     private:
@@ -111,25 +95,33 @@ namespace SEQAN_NAMESPACE_MAIN
     {
         typedef unsigned int Type;
         typedef sem_t* Handle;
-        
+
         sem_t data, *hSemaphore;
 
         Semaphore(Type init = 0):
             hSemaphore(&data)
         {
-            SEQAN_DO_SYS(!sem_init(hSemaphore, 0, init));
+            bool res = !sem_init(hSemaphore, 0, init);
+            (void)res;  // Only used in assertion.
+            SEQAN_ASSERT(res);
         }
 
         ~Semaphore() {
-            SEQAN_DO_SYS(!sem_destroy(hSemaphore));
+            bool res = sem_destroy(hSemaphore);
+            (void)res;  // Only used in assertion.
+            SEQAN_ASSERT(res);
         }
 
         void lock() {
-            SEQAN_DO_SYS(!sem_wait(hSemaphore));
+            bool res = !sem_wait(hSemaphore);
+            (void)res;  // Only used in assertion.
+            SEQAN_ASSERT(res);
         }
 
         void unlock() {
-            SEQAN_DO_SYS(!sem_post(hSemaphore));
+            bool res = !sem_post(hSemaphore);
+            (void)res;  // Only used in assertion.
+            SEQAN_ASSERT(res);
         }
 
     private:

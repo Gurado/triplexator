@@ -223,7 +223,7 @@ namespace SEQAN_NAMESPACE_MAIN
     //////////////////////////////////////////////////////////////////////////////
     // internal childtab algorithm
     //////////////////////////////////////////////////////////////////////////////
-
+	
 	template < typename TLCPInput, typename TDest >
 	inline void createChildtab(TDest &dest, TLCPInput const &lcpIn)
 	{
@@ -232,93 +232,60 @@ namespace SEQAN_NAMESPACE_MAIN
 		typedef typename Iterator<TLCPInput const>::Type	TIter;
 
 		typedef Pair<TSize, TValue>							TPair;		// (i, lcptab[i])
-		typedef ::std::stack<TPair> 						TStack;
+		typedef String<TPair>								TStack;
 
         #ifdef SEQAN_DEBUG_INDEX
             std::cerr << "--- CREATE CHILD TABLE ---" << std::endl;
             std::cerr << "Start stack-processing [random access]" << std::endl;
         #endif
 
-		TStack stack_updown;
-		TStack stack_nextl;
+		TStack stack;
 
-		stack_updown.push(TPair(0, 0));
-		stack_nextl.push(TPair(0, 0));
+		appendValue(stack, TPair(0, 0));
 
 		resize(dest, length(lcpIn));
 
 		TSize n = length(lcpIn);
 		TSize undef = n + 1;
-		TSize lastIndex_nextl;
-		TPair lastIndex_updown = TPair(undef, 0);
+		TPair lastIndex = TPair(undef, 0);
 
 		TValue lcp_i;
 		TIter lcpI = begin(lcpIn);
-/*		for(TSize i = 0; i < n; ++i, ++lcpI) {
+
+		for(TSize i = 0; i < n; ++i, ++lcpI)
+		{
 			lcp_i = *lcpI;
 
-			//////////////////////////////////////////////////////////////////////////////
-			// nextlIndex part
-			lastIndex_nextl = undef;
-			while (lcp_i < stack_nextl.top().i2)
-				stack_nextl.pop();
-
-			if (lcp_i == stack_nextl.top().i2) {
-				lastIndex_nextl = stack_nextl.top().i1;
-				dest[i + 1] = lastIndex_nextl;						// childtab[top].nextl
-
-				::std::cerr << "nextl:\t\t\t" << TPair(lastIndex_nextl, i + 1) << ::std::endl;
-				stack_nextl.pop();
-			}
-			stack_nextl.push(TPair(i + 1, lcp_i));
-		}
-*/
-		for(TSize i = 0; i < n; ++i, ++lcpI) {
-			lcp_i = *lcpI;
-
-			//////////////////////////////////////////////////////////////////////////////
-			// up/down part
 			TPair top;
-			while (lcp_i < stack_updown.top().i2) {
-				lastIndex_updown = stack_updown.top();
-				stack_updown.pop();
-				
-				top = stack_updown.top();
-				if (lcp_i <= top.i2 && top.i2 != lastIndex_updown.i2 /*&& top.i1 != lastIndex_nextl*/) {
-					dest[top.i1] = lastIndex_updown.i1;				// childtab[top].down
+			while (lcp_i < back(stack).i2)
+			{
+				lastIndex = back(stack);
+				pop(stack);
 
-//					::std::cerr << "down:\t\t" << TPair(top.i1, lastIndex_updown.i1) << ::std::endl;			// childtab[top].down
+				top = back(stack);
+				if (lcp_i < top.i2 && top.i2 != lastIndex.i2 /*&& top.i1 != lastIndex_nextl*/) {
+					dest[top.i1] = lastIndex.i1;			// childtab[top].down
+//					::std::cerr << "down:\t" << TPair(top.i1, lastIndex.i1) << ::std::endl;			// childtab[top].down
 				}
-			}
-			if (lastIndex_updown.i1 != undef) {
-				dest[i] = lastIndex_updown.i1;						// childtab[top].up goes to [top - 1]
+//				else
+//					if (lcp_i == top.i2 && top.i2 != lastIndex.i2 /*&& top.i1 != lastIndex_nextl*/)
+//						::std::cerr << "down:\t" << TPair(top.i1, lastIndex.i1) << ::std::endl;			// childtab[top].down
 
-//				::std::cerr << "up:\t" << TPair(i, lastIndex_updown.i1) << ::std::endl;
-				lastIndex_updown.i1 = undef;
 			}
-			stack_updown.push(TPair(i + 1, lcp_i));
+			if (lastIndex.i1 != undef)
+			{
+				dest[i] = lastIndex.i1;						// childtab[top].up goes to [top - 1]
+
+//				::std::cerr << "up:  \t" << TPair(i+1, lastIndex.i1) << ::std::endl;
+				lastIndex.i1 = undef;
+			}
+			if (lcp_i == back(stack).i2)
+			{
+				dest[back(stack).i1] = i + 1;				// childtab[top].nextl
+//				::std::cerr << "nextl:\t\t\t" << TPair(back(stack).i1, i + 1) << ::std::endl;
+			}
+			appendValue(stack, TPair(i + 1, lcp_i));
 		}
-
-		lcpI = begin(lcpIn);
-		for(TSize i = 0; i < n; ++i, ++lcpI) {
-			lcp_i = *lcpI;
-
-			//////////////////////////////////////////////////////////////////////////////
-			// nextlIndex part
-			lastIndex_nextl = undef;
-			while (lcp_i < stack_nextl.top().i2)
-				stack_nextl.pop();
-
-			if (lcp_i == stack_nextl.top().i2) {
-				lastIndex_nextl = stack_nextl.top().i1;
-				dest[lastIndex_nextl] = i + 1;						// childtab[top].nextl
-
-//				::std::cerr << "nextl:\t\t\t" << TPair(lastIndex_nextl, i + 1) << ::std::endl;
-				stack_nextl.pop();
-			}
-			stack_nextl.push(TPair(i + 1, lcp_i));
-		}
-
     }
 
 //}

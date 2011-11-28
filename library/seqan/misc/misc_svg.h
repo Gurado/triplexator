@@ -267,7 +267,7 @@ inline void _printRead(
 	typedef typename Iterator<TReadGaps, Standard>::Type TIterator;
 
 	__int64 xEnd = svg.cursor.i1 * 20;
-	__int64 x;
+	__int64 x = 0;
 
 	int style, arrow = 0;
 	const char *first;

@@ -924,11 +924,11 @@ If there are multiple edges between two vertices the behaviour is undefined.
 ..signature:findEdge(g, v, w)
 ..param.g:A graph.
 ...type:Class.Graph
-..param.v:A vertex descriptor.
+..param.v:The source vertex descriptor.
 ...type:Metafunction.VertexDescriptor
 ..param.c:An edge label.
 ...type:Metafunction.Alphabet
-..param.w:A vertex descriptor.
+..param.w:The target vertex descriptor.
 ...type:Metafunction.VertexDescriptor
 ..returns:An edge descriptor or 0 if edge is not present. 
 Note: In automatons there is always a valid edge descriptor but the target may be nil.

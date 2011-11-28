@@ -35,28 +35,59 @@
 #define PLATFORM_WINDOWS
 #define PLATFORM_WINDOWS_VS
 
-// Disable warning "'function' : resolved overload was found by
-// argument-dependent lookup".  Visual Studio warns because Koenig
-// lookup was introduced in later version and behaviour has changed at some
-// point.
-#pragma warning( disable : 4675 )
-// Disable warning for identifer name truncation.
-#pragma warning( disable : 4503 )
+// ==========================================================================
+// Compiler Defines For MSVC.
+// ==========================================================================
 
-// Disabling warning 4267 assigning variables with different size on 32 and 64 bit.
-#pragma warning( disable : 4267 )
-// Disabling warning 4244, loss of data when values with different domain sizes.
-#pragma warning( disable : 4244 )
+// Make <windows.h> not define min() and max() as macros.
+#ifndef NOMINMAX
+#define NOMINMAX
+#endif  // #ifndef NOMINMAX
 
 #define finline __forceinline
+
+// ==========================================================================
+// Disable Warnings
+// ==========================================================================
+
+// Disable warning for identifer name truncation.  There is not much we can
+// do about this.  Boost also has this problem and they chose to suppress
+// it globally.  So did we.
+//
+// Documentation of C4504 from Microsoft:
+//   http://msdn.microsoft.com/en-us/library/074af4b6%28v=vs.80%29.aspx
+// Boost Warnings Guidelines:
+//   https://svn.boost.org/trac/boost/wiki/Guidelines/WarningsGuidelines
+#pragma warning( disable : 4503 )
+
+// ==========================================================================
+// Define Integers
+// ==========================================================================
+
+// TODO(holtgrew): It would probably be better to define these in namespace seqan only.
 
 typedef unsigned __int64 __uint64;
 typedef unsigned __int32 __uint32;
 typedef unsigned __int16 __uint16;
 typedef unsigned __int8 __uint8;
 
+// Define ISO C9x compliant integers.
+// TODO(holtgrew): Unconditional inclusion can be dangerous if someone else also has this header.
+
+#include "seqan/platform/windows_stdint.h"
+
+// ==========================================================================
+// Define SeqAn Specific Macros.
+// ==========================================================================
+
+// Uncomment the following to use generated forwards.  This can be useful for
+// debugging order-related errors with templates.
+
+//#define SEQAN_SWITCH_USE_FORWARDS
+
 // The symbols SEQAN_IS_64_BIT and SEQAN_IS_32_BIT can be used to check
 // whether we are on a 32 bit or on a 64 bit machine.
+
 #if defined(_WIN64)
 #define SEQAN_IS_64_BIT 1
 #define SEQAN_IS_32_BIT 0
@@ -65,11 +96,20 @@ typedef unsigned __int8 __uint8;
 #define SEQAN_IS_32_BIT 1
 #endif  // #if defined(_WIN64)
 
+// C++11 is supported by Visual C++ >=v10
+#if _MSC_VER >= 1600
+#  define SEQAN_CXX11_STANDARD
+#endif
+
+// ==========================================================================
+// Visual Studio Specific Workarounds.
+// ==========================================================================
+
 // Workaround for missing round() from C99 in Visual Studio.
 template <typename T>
 inline T round(T const & x)
 {
-	return floor(x + 0.5);
+	return static_cast<T>(floor(x + 0.5));
 }
 
 // Rename some underscore-functions in Windows.
@@ -77,5 +117,7 @@ inline T round(T const & x)
 #define snprintf _snprintf
 #endif  // #ifndef snprintf
 
-//define SEQAN_SWITCH_USE_FORWARDS to use generated forwards 
-//#define SEQAN_SWITCH_USE_FORWARDS
+// Define ftello
+#ifndef ftello
+#define ftello(fp) ftell(fp)
+#endif  // #ifndef ftello

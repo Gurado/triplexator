@@ -61,20 +61,32 @@
 #define finline __inline__
 
 // default 64bit type
-typedef int64_t __int64;
-typedef uint64_t __uint64;
+typedef int64_t __int64;   // nolint
+typedef uint64_t __uint64; // nolint
 
 // default 32bit type
-typedef int32_t __int32;
-typedef uint32_t __uint32;
+typedef int32_t __int32;   // nolint
+typedef uint32_t __uint32; // nolint
 
 // default 16bit type
-typedef int16_t __int16;
-typedef uint16_t __uint16;
+typedef int16_t __int16;   // nolint
+typedef uint16_t __uint16; // nolint
 
 // default 8bit type
-typedef int8_t __int8;
-typedef uint8_t __uint8;
+typedef int8_t __int8;     // nolint
+typedef uint8_t __uint8;   // nolint
+
+// detect gcc C++11 support
+#if defined(__GXX_EXPERIMENTAL_CXX0X__)
+#  define SEQAN_CXX11_STANDARD
+#endif
+
+// detect clang C++11 support
+#ifdef __has_feature
+#  if __has_feature(cxx_static_assert)
+#    define SEQAN_CXX11_STANDARD
+#  endif
+#endif
 
 //define SEQAN_SWITCH_USE_FORWARDS to use generated forwards 
 #define SEQAN_SWITCH_USE_FORWARDS

@@ -166,6 +166,7 @@ _alignGotoh(TTrace& trace,
 	typedef typename Value<TTrace>::Type TTraceValue;
 
 	// Traceback values
+	// TODO(bkehr): Define an Enum instead of locally defining trace values.
 	TTraceValue Diagonal = 0; TTraceValue Horizontal = 1; TTraceValue Vertical = 2;
 
 
@@ -196,6 +197,7 @@ _alignGotoh(TTrace& trace,
 	overallMaxValue[1] = MinValue<TScoreValue>::VALUE;
 	overallMaxIndex[0] = len1;
 	overallMaxIndex[1] = len2;
+	initialDir = maxValue<TTraceValue>();
 	
 	typedef typename Iterator<TColumn, Standard>::Type TColIter;
 	TColIter matIt = begin(mat, Standard());
@@ -272,6 +274,7 @@ _alignGotoh(TTrace& trace,
 		if (horizontal[len2] == mat[len2]) initialDir =  Horizontal;
 		else if (vert == mat[len2]) initialDir =  Vertical;
 	}
+	SEQAN_ASSERT_NEQ(initialDir, maxValue<TTraceValue>());
 	return _maxOfAlignment<TScoreValue>(TAlignConfig(), overallMaxValue, overallMaxIndex, len1, len2);
 }
 

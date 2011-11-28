@@ -733,52 +733,6 @@ struct WEIGHT<T const>:
 
 //////////////////////////////////////////////////////////////////////////////
 
-// TODO(holtgrew): This should probably to into the metafunctions header?
-
-/**
-.Metafunction.IsIntegral:
-..cat:Basic
-..summary:Tests for a type to be of integral value.
-..signature:IsIntegral<T>::Type
-..param.T:Type that is tested.
-..returns.param.Type:@Tag.Logical Values.True@, if $T$ is a simple type, @Tag.Logical Values.False@ otherwise.
-...default:@Tag.Logical Values.False@
-..include:seqan/basic.h
- */
-
-template <typename T>
-struct IsIntegral
-{
-	typedef
-		// Implicitely signed.
-		typename If< IsSameType<T, char>::VALUE,  True,
-		typename If< IsSameType<T, char>::VALUE,  True,
-		typename If< IsSameType<T, short>::VALUE, True,
-		typename If< IsSameType<T, int>::VALUE,   True,
-		typename If< IsSameType<T, long>::VALUE,  True,
-		typename If< IsSameType<T, __int64>::VALUE,      True,
-		// Explicitely signed.
-		typename If< IsSameType<T, signed char>::VALUE,    True,
-		typename If< IsSameType<T, signed char>::VALUE,    True,
-		typename If< IsSameType<T, signed short>::VALUE,   True,
-		typename If< IsSameType<T, signed int>::VALUE,     True,
-		typename If< IsSameType<T, signed long>::VALUE,    True,
-		// Explicitely unsigned.
-		typename If< IsSameType<T, unsigned char>::VALUE,  True,
-		typename If< IsSameType<T, unsigned char>::VALUE,  True,
-		typename If< IsSameType<T, unsigned short>::VALUE, True,
-		typename If< IsSameType<T, unsigned int>::VALUE,   True,
-		typename If< IsSameType<T, unsigned long>::VALUE,  True,
-		typename If< IsSameType<T, __uint64>::VALUE,       True,
-		False
-		>::Type>::Type>::Type>::Type>::Type>::Type
-		>::Type>::Type>::Type>::Type>::Type
-		>::Type>::Type>::Type>::Type>::Type>::Type Type;
-		enum { VALUE = Type::VALUE };
-};
-
-template <typename T>
-struct IsIntegral<T const> : IsIntegral<T> {};
 
 }  // namespace seqan
 

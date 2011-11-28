@@ -59,8 +59,8 @@ namespace SEQAN_NAMESPACE_MAIN
 			typename TCompare::second_argument_type, 
 			bool >
     {
-        TCompare C;
-        AdaptorCompare2Less(TCompare &tmpC): C(tmpC) { }
+        TCompare const & C;
+        AdaptorCompare2Less(TCompare const & tmpC): C(tmpC) { }
         inline bool operator() (
 			typename TCompare::first_argument_type const &a, 
 			typename TCompare::second_argument_type const &b) const 
@@ -395,7 +395,8 @@ namespace SEQAN_NAMESPACE_MAIN
         PageFrame< TValue, typename TConfig::File, Dynamic<> > &buf,
         BufferHandler< Pool< TValue, SorterSpec<TConfig> >, WriteFileSpec > &me)
     {
-      std::sort(buf.begin, buf.end, AdaptorCompare2Less<typename TConfig::Compare>(me.pool.handlerArgs));
+        AdaptorCompare2Less<typename TConfig::Compare> cmp(me.pool.handlerArgs);
+        std::sort(buf.begin, buf.end, cmp);
 		return buf;
     }
 
@@ -408,7 +409,8 @@ namespace SEQAN_NAMESPACE_MAIN
         SimpleBuffer< TValue > &buf,
         BufferHandler< Pool< TValue, SorterSpec<TConfig> >, MemorySpec > &me)
     {
-      std::sort(buf.begin, buf.end, AdaptorCompare2Less<typename TConfig::Compare>(me.pool.handlerArgs));
+        AdaptorCompare2Less<typename TConfig::Compare> cmp(me.pool.handlerArgs);
+        std::sort(buf.begin, buf.end, cmp);
 		return buf;
     }
 

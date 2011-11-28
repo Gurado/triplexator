@@ -325,6 +325,7 @@ TScoreValue
 _alignBandedTraceback(TAlignmentIterator & alignmentIt0, TAlignmentIterator & alignmentIt1, TSequenceIterator & sourceIt0, TSequenceIterator & sourceIt1, TPosition & finalPos0, TPosition & finalPos1, Matrix<TScoreValue, 2> /*const*/ & matrix, TScoringScheme const & scoringScheme, TOverlap overlap0, TOverlap overlap1, TOverlap upperTriangleEdgeLength, TOverlap lowerTriangleEdgeLength, bool goToTopLeft, AlignConfig<START1_FREE, START0_FREE, END1_FREE, END0_FREE> const &, NeedlemanWunsch const &)
 {
     SEQAN_CHECKPOINT;
+    (void)goToTopLeft;  // Only used in assertion.
 
     // std::cout << "trace back banded" << std::endl;
     // // TODO(holtgrew): Debug output, remove when not needed any more.

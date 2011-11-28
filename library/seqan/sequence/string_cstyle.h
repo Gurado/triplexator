@@ -118,29 +118,26 @@ public:
     }
 
     template <typename TString>
-    String(TString & str)
-            : data_size(0)
+    String(TString & str) : data_begin(0), data_end(0), data_size(0)
     {
         SEQAN_CHECKPOINT;
         assign(*this, str);
     }
 
     template <typename TString>
-    String(TString const & str)
-            : data_size(0)
+    String(TString const & str) : data_begin(0), data_end(0), data_size(0)
     {
         SEQAN_CHECKPOINT;
         assign(*this, str);
     }
 
-    String(String & str)
-        : data_size(0)
+    String(String & str) : data_begin(0), data_end(0), data_size(0)
     {
         SEQAN_CHECKPOINT;
         assign(*this, str);
     }
-    String(String const & str)
-        : data_size(0)
+
+    String(String const & str) : data_begin(0), data_end(0), data_size(0)
     {
         SEQAN_CHECKPOINT;
         assign(*this, str);

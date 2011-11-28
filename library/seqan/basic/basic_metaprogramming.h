@@ -63,12 +63,12 @@ printf("%d %d\n", True::VALUE, False::VALUE);
 
 struct True
 {
-    enum { VALUE = true };
+    enum { VALUE = true, value = true };    // the value definition is necessary for boost::enable_if
 };
 
 struct False
 {
-    enum { VALUE = false };
+    enum { VALUE = false, value = false };
 };
 
 // ============================================================================
@@ -541,16 +541,19 @@ template <__int64 base> struct Power<base, 0> { static const __uint64 VALUE = 1;
 // Metafunction MakeUnsigned
 // ----------------------------------------------------------------------------
 
-// TODO(holtgrew): Make public, complete documentation.
-
 /**
-.Internal.MakeUnsigned_:
-..signature:MakeUnsigned_<T>
-..returns:$unsigned t$ if $T$ is not $unsigned t$, otherwise $T$.
-*/
+.Metafunction.MakeUnsigned:
+..cat:Basic
+..summary:Converts an integral value into an unsigned integral value.
+..signature:MakeUnsigned<T>::Type
+..param.T:Type that is tested.
+..returns.param.Type:Is a type without a sign of the same domain, e.g. $unsigned int$ for $T$ = $int$.
+...default:$T$
+..include:seqan/basic.h
+ */
 
 template <typename T>
-struct MakeUnsigned_
+struct MakeUnsigned
 {
 	typedef
 		typename If< IsSameType<T, char>::VALUE,         unsigned char,
@@ -563,10 +566,20 @@ struct MakeUnsigned_
 };
 
 template <typename T>
-struct MakeUnsigned_<T const>
+struct MakeUnsigned<T const>
 {
-	typedef typename MakeUnsigned_<T>::Type const Type;
+	typedef typename MakeUnsigned<T>::Type const Type;
 };
+
+/**
+.Internal.MakeUnsigned_:
+..status:deprecated, please use @Metafunction.MakeUnsigned@
+..signature:MakeUnsigned_<T>
+..returns:$unsigned t$ if $T$ is not $unsigned t$, otherwise $T$.
+*/
+template <typename T>
+struct MakeUnsigned_: MakeUnsigned<T> {};
+
 
 // ----------------------------------------------------------------------------
 // Metafunction MakeSigned
@@ -575,12 +588,18 @@ struct MakeUnsigned_<T const>
 // TODO(holtgrew): Make public, complete documentation.
 
 /**
-.Internal.MakeSigned_:
-..signature:MakeSigned_<T>
-..returns:$signed t$ if $T$ is not $signed t$, otherwise $T$.
-*/
+.Metafunction.MakeUnsigned:
+..cat:Basic
+..summary:Converts an integral value into a signed integral value.
+..signature:MakeUnsigned<T>::Type
+..param.T:Type that is tested.
+..returns.param.Type:Is a type with a sign of the same domain, e.g. $int$ for $T$ = $unsigned int$.
+...default:$T$
+..include:seqan/basic.h
+ */
+
 template <typename T>
-struct MakeSigned_
+struct MakeSigned
 {
 	typedef
 		typename If< IsSameType<T, char>::VALUE,           signed char,
@@ -593,10 +612,18 @@ struct MakeSigned_
 };
 
 template <typename T>
-struct MakeSigned_<T const>
+struct MakeSigned<T const>
 {
-	typedef typename MakeSigned_<T>::Type const Type;
+	typedef typename MakeSigned<T>::Type const Type;
 };
+
+/**
+.Internal.MakeSigned_:
+..signature:MakeSigned_<T>
+..returns:$signed t$ if $T$ is not $signed t$, otherwise $T$.
+*/
+template <typename T>
+struct MakeSigned_: MakeSigned<T> {};
 
 // ----------------------------------------------------------------------------
 // Metafunction RemoveReference_

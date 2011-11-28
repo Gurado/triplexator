@@ -241,7 +241,7 @@ struct Oracle;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/
 //____________________________________________________________________________
 // Pattern
 
-template <typename TNeedle, typename TSpec > class Pattern;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(64)
+template <typename TNeedle, typename TSpec > class Pattern;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(65)
 
 //____________________________________________________________________________
 // PatternState
@@ -271,7 +271,7 @@ template <typename TPosition,typename TScore,typename TVerifier,typename TNeedle
 //____________________________________________________________________________
 // ScoringScheme
 
-template <typename TNeedle> struct ScoringScheme;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(150)
+template <typename TNeedle> struct ScoringScheme;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(151)
 
 //____________________________________________________________________________
 // SetHorspool_
@@ -445,8 +445,8 @@ template <typename TNeedle, typename TMultiFinder> void _createTree(Pattern<TNee
 //____________________________________________________________________________
 // _dataHost
 
-template <typename TNeedle, typename TSpec> inline Holder<TNeedle> & _dataHost(Pattern<TNeedle, TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(164)
-template <typename TNeedle, typename TSpec> inline Holder<TNeedle> & _dataHost(Pattern<TNeedle, TSpec> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(170)
+template <typename TNeedle, typename TSpec> inline Holder<TNeedle> & _dataHost(Pattern<TNeedle, TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(165)
+template <typename TNeedle, typename TSpec> inline Holder<TNeedle> & _dataHost(Pattern<TNeedle, TSpec> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(171)
 
 //____________________________________________________________________________
 // _findAbndmLargeNeedle
@@ -719,8 +719,8 @@ template <typename THaystack, typename TSpec, typename TTag> inline typename Ite
 
 template <typename THaystack, typename TSpec> inline typename Position<THaystack>::Type beginPosition(Finder<THaystack, TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_base.h"(349)
 template <typename THaystack, typename TSpec> inline typename Position<THaystack const>::Type beginPosition(Finder<THaystack, TSpec> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_base.h"(357)
-template <typename TNeedle, typename TSpec> inline typename Position<Pattern<TNeedle, TSpec> >::Type & beginPosition(Pattern<TNeedle, TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(197)
-template <typename TNeedle, typename TSpec> inline typename Position<Pattern<TNeedle, TSpec> const >::Type & beginPosition(Pattern<TNeedle, TSpec> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(203)
+template <typename TNeedle, typename TSpec> inline typename Position<Pattern<TNeedle, TSpec> >::Type & beginPosition(Pattern<TNeedle, TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(198)
+template <typename TNeedle, typename TSpec> inline typename Position<Pattern<TNeedle, TSpec> const >::Type & beginPosition(Pattern<TNeedle, TSpec> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(204)
 
 //____________________________________________________________________________
 // clear
@@ -749,8 +749,8 @@ template <typename THaystack, typename TSpec, typename TTag> inline typename Ite
 
 template <typename THaystack, typename TSpec> inline typename Position<THaystack>::Type endPosition(Finder<THaystack, TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_base.h"(389)
 template <typename THaystack, typename TSpec> inline typename Position<THaystack const>::Type endPosition(Finder<THaystack, TSpec> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_base.h"(397)
-template <typename TNeedle, typename TSpec> inline typename Position<Pattern<TNeedle, TSpec> >::Type & endPosition(Pattern<TNeedle, TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(221)
-template <typename TNeedle, typename TSpec> inline typename Position<Pattern<TNeedle, TSpec> const >::Type & endPosition(Pattern<TNeedle, TSpec> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(227)
+template <typename TNeedle, typename TSpec> inline typename Position<Pattern<TNeedle, TSpec> >::Type & endPosition(Pattern<TNeedle, TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(222)
+template <typename TNeedle, typename TSpec> inline typename Position<Pattern<TNeedle, TSpec> const >::Type & endPosition(Pattern<TNeedle, TSpec> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(228)
 
 //____________________________________________________________________________
 // find
@@ -835,8 +835,8 @@ template <typename TNeedle, typename TSpec, typename TFinderCSP, typename TPatte
 template <typename TNeedle, typename TSpec, typename TFinderCSP, typename TPatternCSP, typename THasState, typename TFindBeginPatternSpec> inline typename Host<Pattern<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, THasState, TFindBeginPatternSpec> > const>::Type & host(Pattern<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, THasState, TFindBeginPatternSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(686)
 template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec> inline TNeedle host(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(695)
 template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec> inline TNeedle host(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(719)
-template <typename TNeedle, typename TSpec> inline typename Host<Pattern<TNeedle, TSpec> >::Type & host(Pattern<TNeedle, TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(263)
-template <typename TNeedle, typename TSpec> inline typename Host<Pattern<TNeedle, TSpec> const>::Type & host(Pattern<TNeedle, TSpec> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(271)
+template <typename TNeedle, typename TSpec> inline typename Host<Pattern<TNeedle, TSpec> >::Type & host(Pattern<TNeedle, TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(264)
+template <typename TNeedle, typename TSpec> inline typename Host<Pattern<TNeedle, TSpec> const>::Type & host(Pattern<TNeedle, TSpec> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(272)
 template <typename TNeedle, typename TVerification, typename TMultiFinder> inline typename Host<Pattern<TNeedle, Pex<TVerification,TMultiFinder > > >::Type & host(Pattern<TNeedle, Pex<TVerification,TMultiFinder > > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pex.h"(222)
 template <typename TNeedle, typename TVerification, typename TMultiFinder> inline typename Host<Pattern<TNeedle, Pex<TVerification,TMultiFinder > > const>::Type & host(Pattern<TNeedle, Pex<TVerification,TMultiFinder > > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pex.h"(230)
 template <typename TNeedle, typename TScore, typename TSpec, typename TFindBeginPatternSpec> inline typename Host<Pattern<TNeedle, DPSearch<TScore, TSpec, TFindBeginPatternSpec> > >::Type & host(Pattern<TNeedle, DPSearch<TScore, TSpec, TFindBeginPatternSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_score.h"(176)
@@ -882,10 +882,10 @@ template <typename THaystack> inline unsigned int & needle(Finder<THaystack, Mul
 template <typename THaystack> inline unsigned int const & needle(Finder<THaystack, MultipatternFinder> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_multi.h"(112)
 template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec> inline TNeedle needle(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(730)
 template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec> inline TNeedle needle(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(738)
-template <typename TObject > inline typename Needle<TObject>::Type & needle(TObject &obj);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(298)
-template <typename TObject > inline typename Needle<TObject const>::Type & needle(TObject const &obj);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(305)
-template <typename TNeedle, typename TSpec > inline typename Needle< Pattern<TNeedle, TSpec> >::Type & needle(Pattern<TNeedle, TSpec> & obj);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(315)
-template <typename TNeedle, typename TSpec > inline typename Needle< Pattern<TNeedle, TSpec> const>::Type & needle(Pattern<TNeedle, TSpec> const & obj);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(322)
+template <typename TObject > inline typename Needle<TObject>::Type & needle(TObject &obj);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(299)
+template <typename TObject > inline typename Needle<TObject const>::Type & needle(TObject const &obj);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(306)
+template <typename TNeedle, typename TSpec > inline typename Needle< Pattern<TNeedle, TSpec> >::Type & needle(Pattern<TNeedle, TSpec> & obj);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(316)
+template <typename TNeedle, typename TSpec > inline typename Needle< Pattern<TNeedle, TSpec> const>::Type & needle(Pattern<TNeedle, TSpec> const & obj);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(323)
 template <typename TNeedle> inline TNeedle needle(Pattern<TNeedle, ShiftAnd> const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_shiftand.h"(184)
 template <typename TNeedle> inline TNeedle needle(Pattern<TNeedle, ShiftAnd> & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_shiftand.h"(192)
 template <typename TNeedle> inline TNeedle needle(Pattern<TNeedle, ShiftOr> const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_shiftor.h"(184)
@@ -950,20 +950,20 @@ template <typename TNeedle, typename TScore, typename TSpec, typename TFindBegin
 //____________________________________________________________________________
 // scoringScheme
 
-template <typename TNeedle, typename TSpec> inline typename ScoringScheme<Pattern<TNeedle, TSpec> >::Type scoringScheme(Pattern<TNeedle, TSpec> &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(362)
-template <typename TNeedle, typename TSpec> inline typename ScoringScheme<Pattern<TNeedle, TSpec> const>::Type scoringScheme(Pattern<TNeedle, TSpec> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(369)
+template <typename TNeedle, typename TSpec> inline typename ScoringScheme<Pattern<TNeedle, TSpec> >::Type scoringScheme(Pattern<TNeedle, TSpec> &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(363)
+template <typename TNeedle, typename TSpec> inline typename ScoringScheme<Pattern<TNeedle, TSpec> const>::Type scoringScheme(Pattern<TNeedle, TSpec> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(370)
 template <typename TNeedle, typename TScore, typename TSpec, typename TFindBeginPatternSpec> inline TScore const & scoringScheme(Pattern<TNeedle, DPSearch<TScore, TSpec, TFindBeginPatternSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_score.h"(216)
 
 //____________________________________________________________________________
 // segment
 
-template <typename TNeedle, typename TSpec> inline typename Infix<TNeedle>::Type segment(Pattern<TNeedle, TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(244)
-template <typename TNeedle, typename TSpec> inline typename Infix<TNeedle>::Type segment(Pattern<TNeedle, TSpec> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(251)
+template <typename TNeedle, typename TSpec> inline typename Infix<TNeedle>::Type segment(Pattern<TNeedle, TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(245)
+template <typename TNeedle, typename TSpec> inline typename Infix<TNeedle>::Type segment(Pattern<TNeedle, TSpec> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(252)
 
 //____________________________________________________________________________
 // setBeginPosition
 
-template <typename TNeedle, typename TSpec, typename TPosition> inline void setBeginPosition(Pattern<TNeedle, TSpec> & me, TPosition _pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(212)
+template <typename TNeedle, typename TSpec, typename TPosition> inline void setBeginPosition(Pattern<TNeedle, TSpec> & me, TPosition _pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(213)
 
 //____________________________________________________________________________
 // setContainer
@@ -973,7 +973,7 @@ template <typename THaystack, typename TSpec> inline void setContainer(Finder<TH
 //____________________________________________________________________________
 // setEndPosition
 
-template <typename TNeedle, typename TSpec, typename TPosition> inline void setEndPosition(Pattern<TNeedle, TSpec> & me, TPosition _pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(235)
+template <typename TNeedle, typename TSpec, typename TPosition> inline void setEndPosition(Pattern<TNeedle, TSpec> & me, TPosition _pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(236)
 
 //____________________________________________________________________________
 // setHaystack
@@ -1003,8 +1003,8 @@ template <typename TNeedle, typename TNeedle2> void setHost (Pattern<TNeedle, Mu
 template <typename TNeedle, typename TNeedle2> void setHost (Pattern<TNeedle, MultipleShiftAnd> & me, TNeedle2 & needle);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_multiple_shiftand.h"(224)
 template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec, typename TNeedle2> inline void setHost(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > & pattern, TNeedle2 & ndl);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(652)
 template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec, typename TNeedle2> inline void setHost(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > & pattern, TNeedle2 const & ndl);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(663)
-template <typename TNeedle, typename TSpec, typename TNeedle2> inline void setHost(Pattern<TNeedle, TSpec> & me, TNeedle2 const & ndl);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(182)
-template <typename TNeedle, typename TSpec, typename TNeedle2> inline void setHost(Pattern<TNeedle, TSpec> & me, TNeedle2 & ndl);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(189)
+template <typename TNeedle, typename TSpec, typename TNeedle2> inline void setHost(Pattern<TNeedle, TSpec> & me, TNeedle2 const & ndl);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(183)
+template <typename TNeedle, typename TSpec, typename TNeedle2> inline void setHost(Pattern<TNeedle, TSpec> & me, TNeedle2 & ndl);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(190)
 template <typename TNeedle, typename TNeedle2, typename TVerification, typename TMultiFinder> void setHost (Pattern<TNeedle, Pex<TVerification,TMultiFinder > > & me, TNeedle2 const & needle);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pex.h"(202)
 template <typename TNeedle, typename TNeedle2, typename TVerification, typename TMultiFinder> void setHost (Pattern<TNeedle, Pex<TVerification,TMultiFinder > > & me, TNeedle2 & needle);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pex.h"(213)
 template <typename TNeedle, typename TScore, typename TSpec, typename TFindBeginPatternSpec, typename TNeedle2> void setHost(Pattern<TNeedle, DPSearch<TScore, TSpec, TFindBeginPatternSpec> > & me, TNeedle2 & ndl);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_score.h"(196)
@@ -1026,7 +1026,7 @@ template <typename TNeedle, typename TNeedle2> inline void setHost(Pattern<TNeed
 // setNeedle
 
 template <typename THaystack> inline void setNeedle(Finder<THaystack, MultipatternFinder> & me, unsigned int const needleIndex_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_multi.h"(121)
-template <typename TNeedle, typename TSpec > inline void setNeedle(Pattern<TNeedle, TSpec> &obj, TNeedle const &ndl);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(340)
+template <typename TNeedle, typename TSpec > inline void setNeedle(Pattern<TNeedle, TSpec> &obj, TNeedle const &ndl);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(341)
 
 //____________________________________________________________________________
 // setPosition
@@ -1046,7 +1046,7 @@ template <typename TNeedle, typename TScore, typename TSpec, typename TFindBegin
 //____________________________________________________________________________
 // setScoringScheme
 
-template <typename TNeedle, typename TSpec, typename TScore2> inline void setScoringScheme(Pattern<TNeedle, TSpec> & , TScore2 & );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(391)
+template <typename TNeedle, typename TSpec, typename TScore2> inline void setScoringScheme(Pattern<TNeedle, TSpec> & , TScore2 & );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(392)
 template <typename TNeedle, typename TScore, typename TSpec, typename TFindBeginPatternSpec, typename TScore2> inline void setScoringScheme(Pattern<TNeedle, DPSearch<TScore, TSpec, TFindBeginPatternSpec> > & me, TScore2 & score);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_score.h"(228)
 template <typename TNeedle, typename TScore, typename TSpec, typename TFindBeginPatternSpec, typename TScore2> inline void setScoringScheme(Pattern<TNeedle, DPSearch<TScore, TSpec, TFindBeginPatternSpec> > & me, TScore2 const & score);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_score.h"(237)
 

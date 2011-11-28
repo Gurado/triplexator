@@ -1197,7 +1197,10 @@ public:
 	int					data_viewCutBegin;	// how many alignment chars should be clipped at the beginning (can be negative too)
 	int					data_viewCutEnd;	// how ...                                           end ...
 	
-	Gaps() {}
+	Gaps():
+		data_viewCutBegin(0),
+		data_viewCutEnd(0) {}
+
 
 	Gaps(TSource &source): 
 		data_source(source),
@@ -1279,7 +1282,7 @@ inline TGapAnchors const &
 _dataAnchors(Gaps<TSource, AnchorGaps<TGapAnchors> > const & me)
 {
 SEQAN_CHECKPOINT
-	return value(me.data_gaps);
+	return value(const_cast<Holder<TGapAnchors> &>(me.data_gaps));
 }
 
 //////////////////////////////////////////////////////////////////////////////

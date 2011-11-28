@@ -73,6 +73,17 @@ typedef Tag<Sam_> const Sam;
 ...default:nolink:$unsigned$
 ..include:seqan/store.h
 
+.Memfunc.CigarElement#CigarElement
+..class:Class.CigarElement
+..summary:Constructor
+..signature:CigarElement()
+..signature:CigarElement(operation, count)
+..param.operation:The operation to use.
+...type:nolink:$TOperation$, typically $char$.
+..param.count:The operation count.
+...type:nolink:$Count$, typically $unsigned$.
+..remarks:The default constructor initialized both @Memvar.CigarElement#operation@ and @Memvar.CigarElement#count@ with $0$.
+
 .Memvar.CigarElement#operation
 ..class:Class.CigarElement
 ..summary:The described operation.
@@ -277,6 +288,8 @@ getCigarString(
 		}
 		++numOps;
 	}
+//	if (atEnd(it1) != atEnd(it2))
+//        std::cerr << "Invalid pairwise alignment:" << std::endl << gaps1 << std::endl << gaps2 << std::endl;
 	SEQAN_ASSERT_EQ(atEnd(it1), atEnd(it2));
 	if (lastOp == 'D' && numOps >= (unsigned)splicedGapThresh)
 		lastOp = 'N';
@@ -386,7 +399,7 @@ alignAndGetCigarString(TCigar &cigar, TMDString &md, TContig &contig, TReadSeq &
     assignSource(row(align, 1), readSeq);
     
     if (!(errors == 0 || (errors == 1 && length(readSeq) == length(source(row(align, 0))))))
-        globalAlignment(align, Score<short, EditDistance>());
+        errors = -globalAlignment(align, Score<short, EditDistance>());
 	getCigarString(cigar, row(align, 0), row(align, 1));
 	getMDString(md, row(align, 0), row(align, 1));
 }
@@ -458,9 +471,12 @@ alignAndGetCigarString(TCigar &cigar, TMDString &md, TContig &contig, TReadSeq &
 // convert CIGAR to gaps
 
     template<typename TCigarString, typename TGaps>
-    inline void cigarToGapAnchorRead(TCigarString const & cigar, TGaps & gaps)
+    inline unsigned
+	cigarToGapAnchorRead(TCigarString const & cigar, TGaps & gaps)
     {
 		typename Iterator<TGaps>::Type it = begin(gaps);
+		bool atBegin = true;
+		unsigned beginGaps = 0;
 		for (unsigned i = 0; i < length(cigar); ++i)
 		{
 			switch (cigar[i].operation)
@@ -468,33 +484,43 @@ alignAndGetCigarString(TCigar &cigar, TMDString &md, TContig &contig, TReadSeq &
 				case 'D':
 				case 'N':
 				case 'P':
+					if (atBegin)
+						beginGaps += cigar[i].count;
 					insertGaps(it, cigar[i].count);
 				case 'I':
 				case 'M':
-        case 'S':
+				case 'S':
 					it += cigar[i].count;
+					atBegin = false;
 			}
 		}
+		return beginGaps;
 	}
 
     template<typename TCigarString, typename TGaps>
-    inline void cigarToGapAnchorContig(TCigarString const & cigar, TGaps & gaps)
+    inline unsigned cigarToGapAnchorContig(TCigarString const & cigar, TGaps & gaps)
     {
 		typename Iterator<TGaps>::Type it = begin(gaps);
+		bool atBegin = true;
+		unsigned beginGaps = 0;
 		for (unsigned i = 0; i < length(cigar); ++i)
 		{
 			switch (cigar[i].operation)
 			{
 				case 'I':
 				case 'P':
+					if (atBegin)
+						beginGaps += cigar[i].count;
 					insertGaps(it, cigar[i].count);
 				case 'D':
 				case 'M':
 				case 'N':
-        case 'S':
+				case 'S':
 					it += cigar[i].count;
+					atBegin = false;
 			}
 		}
+		return beginGaps;
 	}
 
 
@@ -1028,6 +1054,7 @@ alignAndGetCigarString(TCigar &cigar, TMDString &md, TContig &contig, TReadSeq &
         TContigPos endPos;
         _getClippedLength(cigar, endPos);
         endPos = beginPos + endPos;
+
         // if the read is on the antisense strand switch begin and end position
         if (reverse)
 		{
@@ -1090,7 +1117,13 @@ alignAndGetCigarString(TCigar &cigar, TMDString &md, TContig &contig, TReadSeq &
         // insert alignment gaps
 		if (empty(cigar)) return;
 		TReadGaps readGaps(fragStore.readSeqStore[readId], readGapAnchors);
-        cigarToGapAnchorRead(cigar, readGaps);
+        unsigned beginGaps = cigarToGapAnchorRead(cigar, readGaps);
+
+		// adapt start or end (on reverse strand) position if alignment begins with gaps
+        if (reverse)
+			endPos += beginGaps;
+		else
+			beginPos += beginGaps;
         
         // create a new entry in the aligned read store
         TId pairMatchId = appendAlignment(fragStore, readId, contigId, beginPos, endPos, readGapAnchors);
@@ -1148,7 +1181,7 @@ alignAndGetCigarString(TCigar &cigar, TMDString &md, TContig &contig, TReadSeq &
                 if (readId < length(fragStore.readStore))
                     matePairId = fragStore.readStore[readId].matePairId;
                 
-				TMatchMateInfo matchMateInfo = {readId, mcontigId, pairMatchId, matePairId, (flag & 0x20), mPos};
+				TMatchMateInfo matchMateInfo = {readId, mcontigId, pairMatchId, matePairId, (flag & 0x20) != 0, mPos};
 				appendValue(matchMateInfos, matchMateInfo);
 				back(fragStore.alignedReadStore).pairMatchId = pairMatchId;
 			}
@@ -1359,7 +1392,10 @@ alignAndGetCigarString(TCigar &cigar, TMDString &md, TContig &contig, TReadSeq &
 				clear(readSeq);
 			
             // <cigar>
-            alignAndGetCigarString(cigar, md, store.contigStore[(*it).contigId], readSeq, *it, store.alignQualityStore[alignedId].errors, doAlign);
+			int errors = -1;
+			if (alignedId < length(store.alignQualityStore))
+				errors = store.alignQualityStore[alignedId].errors;
+            alignAndGetCigarString(cigar, md, store.contigStore[(*it).contigId], readSeq, *it, errors, doAlign);
 			_streamWrite(target, cigar);
             _streamPut(target, '\t');
             

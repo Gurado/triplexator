@@ -984,7 +984,8 @@ _moveContiguous(TTarget & target,
         _setLength(target, target_length);
         _setCapacity(target, target_capacity);
 
-        _setBegin(source, 0);
+        typedef typename Iterator<TSource, Standard>::Type TSourceIterator;
+        _setBegin(source, TSourceIterator(0));
         _setLength(source, 0);
         _setCapacity(source, 0);
     }

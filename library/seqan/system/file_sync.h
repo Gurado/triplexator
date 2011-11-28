@@ -97,25 +97,30 @@ namespace SEQAN_NAMESPACE_MAIN
         File(void * /*dummy*/ = NULL): // to be compatible with the FILE*(NULL) constructor
             handle(-1) {}
 
+	//File(int posixHandle) : handle(posixHandle) {}
+
         inline int _getOFlag(int openMode) const 
 		{
 			int result;
+			bool canWrite = false;
 
 			switch (openMode & OPEN_MASK) {
                 case OPEN_RDONLY:
                     result = _O_RDONLY;
 					break;
                 case OPEN_WRONLY:
+					canWrite = true;
                     result = _O_WRONLY;
 					break;
                 case OPEN_RDWR:
 				default:
+					canWrite = true;
                     result = _O_RDWR;
 					break;
 			}
 
 			if (openMode & OPEN_CREATE)     result |= _O_CREAT;
-			if (!(openMode & OPEN_APPEND))	result |= _O_TRUNC;
+			if (canWrite && !(openMode & OPEN_APPEND))	result |= _O_TRUNC;
             if (openMode & OPEN_TEMPORARY)  result |= _O_TEMPORARY;
 			return result | _O_BINARY;
         }
@@ -230,6 +235,8 @@ namespace SEQAN_NAMESPACE_MAIN
 
         File(void * /*dummy*/ = NULL): // to be compatible with the FILE*(NULL) constructor
             handle(-1) {}
+
+	///File(int posixHandle) : handle(posixHandle) {}
 
         virtual ~File() {}
         

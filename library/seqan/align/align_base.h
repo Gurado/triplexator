@@ -132,7 +132,7 @@ struct Row<T const> {
 ..param.TSpec:The specializing type.
 ...metafunction:Metafunction.Spec
 ...XXdefault:@Spec.ArrayGaps@
-..remarks:The default implementation of $Align$ stores the alignment in a set of @Class.Gaps.Gaps<TSource.TSpec>@ objects.
+..remarks:The default implementation of $Align$ stores the alignment in a set of @Class.Gaps|Gaps<TSource,TSpec>@ objects.
  Hence, the default implementation is row-based, so it will be faster to access the alignment row-wise than column-wise.
 ..include:seqan/align.h
 */

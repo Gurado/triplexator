@@ -694,7 +694,7 @@ template <typename TValue, typename TSpec > inline void pop(Pool<TValue, TSpec> 
 template <typename TBuffer, typename THandler > inline TBuffer& processBuffer(TBuffer &h, THandler &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(181)
 template <typename TValue, typename TConfig > inline SimpleBuffer< TValue > & processBuffer( PageFrame< TValue, typename TConfig::File, Dynamic<> > &buf, BufferHandler< Pool< TValue, MapperSpec<TConfig> >, ReadFileSpec > &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/pipe/pool_mapper.h"(158)
 template <typename TValue, typename TConfig > inline PageFrame< TValue, typename TConfig::File, Dynamic<> > & processBuffer( PageFrame< TValue, typename TConfig::File, Dynamic<> > &buf, BufferHandler< Pool< TValue, SorterSpec<TConfig> >, WriteFileSpec > &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/pipe/pool_sorter.h"(397)
-template <typename TValue, typename TConfig > inline SimpleBuffer<TValue> & processBuffer( SimpleBuffer< TValue > &buf, BufferHandler< Pool< TValue, SorterSpec<TConfig> >, MemorySpec > &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/pipe/pool_sorter.h"(410)
+template <typename TValue, typename TConfig > inline SimpleBuffer<TValue> & processBuffer( SimpleBuffer< TValue > &buf, BufferHandler< Pool< TValue, SorterSpec<TConfig> >, MemorySpec > &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/pipe/pool_sorter.h"(411)
 
 //____________________________________________________________________________
 // push

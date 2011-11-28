@@ -89,6 +89,14 @@
 #include <seqan/basic/basic_tag.h>
 #include <seqan/basic/basic_type.h>
 
+// --------------------------------------------------------------------------
+// Concept Checking
+// --------------------------------------------------------------------------
+
+#include <seqan/basic/boost_preprocessor_subset.h>
+#include <seqan/basic/concept_checking.h>
+#include <seqan/basic/basic_concepts.h>
+
 // ... and some utility code for computing logarithms and such.
 #include <seqan/basic/basic_math.h>
 #include <seqan/basic/basic_logvalue.h>
@@ -171,6 +179,8 @@
 #include <seqan/basic/basic_alphabet_simple_tabs.h>
 #include <seqan/basic/basic_alphabet_simple.h>
 
+#include <seqan/basic/alphabet_concept.h>
+
 // --------------------------------------------------------------------------
 // Aggregate Types: Pairs, Triples, Tuples.
 // --------------------------------------------------------------------------
@@ -190,5 +200,11 @@
 
 // TODO(holtgrew): Does this actually belong here?
 #include <seqan/basic/basic_volatile_ptr.h>
+
+// --------------------------------------------------------------------------
+// Concept tests
+// --------------------------------------------------------------------------
+
+#include <seqan/basic/basic_test_concepts.h>
 
 #endif //#ifndef SEQAN_HEADER_...
