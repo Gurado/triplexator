@@ -53,22 +53,27 @@ namespace seqan {
 ..summary:Tag that represents true and false.
 ..tag.True:The logical value "true".
 ..tag.False:The logical value "false".
-..remarks:These tags also function as Metafunctions.
+..remarks:These tags also function as Metafunctions that return a boolean value $VALUE$ and themselves ($True$/$False$) as $Type$.
 ..example.text:Print the values of these tags/metafunctions.
 ..example.code:
-printf("%d %d\n", True::VALUE, False::VALUE);
-// => "1 0\n"
+std::cout << False::VALUE << std::endl;                         // 0
+std::cout << True::VALUE << std::endl;                          // 1
+std::cout << IsSameType<False,False::Type>::VALUE << std::endl; // 1
 ..include:seqan/basic.h
+..see:Metafunction.Eval
+..see:Metafunction.IsSameType
 */
 
 struct True
 {
-    enum { VALUE = true, value = true };    // the value definition is necessary for boost::enable_if
+    typedef True Type;
+    enum { VALUE = true };
 };
 
 struct False
 {
-    enum { VALUE = false, value = false };
+    typedef False Type;
+    enum { VALUE = false };
 };
 
 // ============================================================================
@@ -111,16 +116,10 @@ int main(int argc, char ** argv)
 */
 
 template <bool b>
-struct Eval
-{
-    typedef False Type;
-};
+struct Eval: False {};
 
 template <>
-struct Eval<true>
-{
-    typedef True Type;
-};
+struct Eval<true>: True {};
 
 // ----------------------------------------------------------------------------
 // Metafunction Or
@@ -138,20 +137,27 @@ struct Eval<true>
 ...type:Tag.Logical Values.tag.True
 ...type:Tag.Logical Values.tag.False
 ..returns:One of @Tag.Logical Values.tag.True@ and @Tag.Logical Values.tag.False@, the result of logical or.
+The arguments $B1$/$B2$ can either be @Tag.Logical Values.tag.True@/@Tag.Logical Values.tag.False@
+or boolean metafunctions that return @Tag.Logical Values.tag.True@/@Tag.Logical Values.tag.False@.
+..example.code:
+Or<False,False>
+Or<False,True>
+Or<typename And<T1,T2>::Type,T3>
+Or<And<T1,T2>,T3>
 ..include:seqan/basic.h
 */
 
 template <typename TBool1, typename TBool2>
-struct Or
-{
-    typedef True Type;
-};
+struct Or: Or<typename TBool1::Type, typename TBool2::Type> {}; 
 
 template <>
-struct Or<False, False>
-{
-    typedef False Type;
-};
+struct Or<False, False>: False {};
+template <>
+struct Or<False, True>: True {};
+template <>
+struct Or<True, False>: True {};
+template <>
+struct Or<True, True>: True {};
 
 // ----------------------------------------------------------------------------
 // Metafunction And
@@ -172,17 +178,17 @@ struct Or<False, False>
 ..include:seqan/basic.h
 */
 
-template <typename T1, typename T2>
-struct And
-{
-    typedef False Type;
-};
+template <typename TBool1, typename TBool2>
+struct And: And<typename TBool1::Type, typename TBool2::Type> {}; 
 
 template <>
-struct And<True, True>
-{
-    typedef True Type;
-};
+struct And<False, False>: False {};
+template <>
+struct And<False, True>: False {};
+template <>
+struct And<True, False>: False {};
+template <>
+struct And<True, True>: True {};
 
 // ----------------------------------------------------------------------------
 // Metafunction If
@@ -201,6 +207,7 @@ struct And<True, True>
 ..include:seqan/basic.h
 */
 
+//TODO: change bool Flag which is a boolean into typename TFlag which is True/False
 template <bool Flag, class T1, class T2>
 struct If
 {
@@ -225,23 +232,15 @@ struct If<false, T1, T2>
 ..signature:Or<T1, T2>::VALUE
 ..param.T1:Left-hand argument.
 ..param.T2:Right-hand argument.
-..returns:$true$ if @Tag.Logical Values.tag.True@/$T1$ is the same as $T2$, otherwise @Tag.Logical Values.tag.False@/$false$.
+..returns:@Tag.Logical Values.tag.True@/$true$ if $T1$ is the same as $T2$, otherwise @Tag.Logical Values.tag.False@/$false$.
 ..include:seqan/basic.h
 */
 
 template <class Type1, class Type2>
-struct IsSameType
-{
-    typedef False Type;
-    enum { VALUE = false };
-};
+struct IsSameType: False {};
 
 template <class Type1>
-struct IsSameType<Type1, Type1>
-{
-    typedef True Type;
-    enum { VALUE = true };
-};
+struct IsSameType<Type1, Type1>: True {};
 
 // ----------------------------------------------------------------------------
 // Metafunction Switch;  Supporting Tags Case, NilCase.
@@ -546,8 +545,8 @@ template <__int64 base> struct Power<base, 0> { static const __uint64 VALUE = 1;
 ..cat:Basic
 ..summary:Converts an integral value into an unsigned integral value.
 ..signature:MakeUnsigned<T>::Type
-..param.T:Type that is tested.
-..returns.param.Type:Is a type without a sign of the same domain, e.g. $unsigned int$ for $T$ = $int$.
+..param.T:Input integral type.
+..returns.param.Type:A type without a sign of the same domain, e.g. $unsigned int$ for $T$ = $int$.
 ...default:$T$
 ..include:seqan/basic.h
  */
@@ -573,13 +572,12 @@ struct MakeUnsigned<T const>
 
 /**
 .Internal.MakeUnsigned_:
-..status:deprecated, please use @Metafunction.MakeUnsigned@
 ..signature:MakeUnsigned_<T>
+..status:deprecated, please use @Metafunction.MakeUnsigned@
 ..returns:$unsigned t$ if $T$ is not $unsigned t$, otherwise $T$.
 */
 template <typename T>
-struct MakeUnsigned_: MakeUnsigned<T> {};
-
+struct MakeUnsigned_ : MakeUnsigned<T> {};
 
 // ----------------------------------------------------------------------------
 // Metafunction MakeSigned
@@ -588,14 +586,15 @@ struct MakeUnsigned_: MakeUnsigned<T> {};
 // TODO(holtgrew): Make public, complete documentation.
 
 /**
-.Metafunction.MakeUnsigned:
+.Metafunction.MakeSigned:
 ..cat:Basic
 ..summary:Converts an integral value into a signed integral value.
-..signature:MakeUnsigned<T>::Type
-..param.T:Type that is tested.
-..returns.param.Type:Is a type with a sign of the same domain, e.g. $int$ for $T$ = $unsigned int$.
+..signature:MakeSigned<T>::Type
+..param.T:Input integral type.
+..returns.param.Type:A type with a sign of the same domain, e.g. $int$ for $T$ = $unsigned int$.
 ...default:$T$
 ..include:seqan/basic.h
+..see:Metafunction.MakeUnsigned
  */
 
 template <typename T>
@@ -620,76 +619,101 @@ struct MakeSigned<T const>
 /**
 .Internal.MakeSigned_:
 ..signature:MakeSigned_<T>
+..status:deprecated, please use @Metafunction.MakeSigned@
 ..returns:$signed t$ if $T$ is not $signed t$, otherwise $T$.
 */
 template <typename T>
-struct MakeSigned_: MakeSigned<T> {};
+struct MakeSigned_ : MakeSigned<T> {};
 
 // ----------------------------------------------------------------------------
-// Metafunction RemoveReference_
+// Metafunction RemoveReference
 // ----------------------------------------------------------------------------
 
-// TODO(holtgrew): Make public, complete documentation.
+/**
+.Metafunction.RemoveReference:
+..cat:Basic
+..summary:Converts a (reference) type into the same type without reference.
+..signature:RemoveReference<T>::Type
+..param.T:Input type.
+..returns.param.Type:A corresponding non-reference type, e.g. $int$ for $T$ = $&int$.
+...default:$T$
+..include:seqan/basic.h
+..see:Metafunction.RemoveConst
+*/
 
 /**
 .Internal.RemoveReference_:
 ..signature:RemoveReference_<T>
+..status:deprecated, please use @Metafunction.RemoveReference@
 ..returns:$t$ if $T$ is $t &$, otherwise $T$.
 */
 
 template <typename T>
-struct RemoveReference_
+struct RemoveReference
 {
 	typedef T Type;
 };
 
 template <typename T>
-struct RemoveReference_<T &>
-        : public RemoveReference_<T> {};
+struct RemoveReference<T &> : RemoveReference<T> {};
 
+template <typename T>
+struct RemoveReference_ : RemoveReference<T> {};
 
 // ----------------------------------------------------------------------------
-// Metafunction RemoveConst_
+// Metafunction RemoveConst
 // ----------------------------------------------------------------------------
 
-// TODO(holtgrew): Make public, complete documentation.
+/**
+.Metafunction.RemoveConst:
+..cat:Basic
+..summary:Converts a (const) type into the corresponding non-const type.
+..signature:RemoveConst<T>::Type
+..param.T:Input type.
+..returns.param.Type:A corresponding non-const type, e.g. $int$ for $T$ = $const int$.
+...default:$T$
+..include:seqan/basic.h
+*/
 
 /**
 .Internal.RemoveConst_:
 ..signature:RemoveConst_<T>
+..status:deprecated, please use @Metafunction.RemoveConst@
 ..returns:$t$ if $T$ is $t const$, otherwise $T$.
 */
 
 template <typename T>
-struct RemoveConst_
+struct RemoveConst
 {
 	typedef T Type;
 };
 
 template <typename T>
-struct RemoveConst_<T const>
-        : public RemoveConst_<T> {};
+struct RemoveConst<T const> : public RemoveConst<T> {};
 
 template <typename T>
-struct RemoveConst_<T &>
+struct RemoveConst<T &>
 {
-	typedef typename RemoveConst_<T>::Type & Type;
+	typedef typename RemoveConst<T>::Type & Type;
 };
 
 template <typename T>
-struct RemoveConst_<T *>
+struct RemoveConst<T *>
 {
-	typedef typename RemoveConst_<T>::Type * Type;
+	typedef typename RemoveConst<T>::Type * Type;
 };
 
 template <typename T, size_t I>
-struct RemoveConst_<T const [I]>
+struct RemoveConst<T const [I]>
 {
 	typedef T * Type;
 };
 
+template <typename T>
+struct RemoveConst_ : RemoveConst<T> {};
+
 // ----------------------------------------------------------------------------
-// Metafunction CopyConst
+// Metafunction CopyConst_
 // ----------------------------------------------------------------------------
 
 // TODO(holtgrew): Make public, document.
@@ -717,7 +741,7 @@ struct CopyConst_<TFrom const, TTo>
 /**
 .Internal.IsConst_:
 ..signature:IsConst_<T>
-..returns:$True$ if $T$ is $t const$, otherwise $False$.
+..returns:@Tag.Logical Values.tag.True@ if $T$ is $t const$, otherwise @Tag.Logical Values.tag.False@.
 */
 
 template <typename T>

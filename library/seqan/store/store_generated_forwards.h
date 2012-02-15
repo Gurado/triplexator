@@ -49,7 +49,7 @@ namespace SEQAN_NAMESPACE_MAIN {
 //____________________________________________________________________________
 // AlignIntervalsStoreElement
 
-template <typename TInterval , typename TSpec > struct AlignIntervalsStoreElement;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_align_intervals.h"(72)
+template <typename TInterval , typename TSpec > struct AlignIntervalsStoreElement;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_align_intervals.h"(75)
 
 //____________________________________________________________________________
 // AlignQualityStoreElement
@@ -64,7 +64,7 @@ template <typename TFragStore> struct AlignedMateLess_;       	// "/Users/f.busk
 //____________________________________________________________________________
 // AlignedReadLayout
 
-struct AlignedReadLayout;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1414)
+struct AlignedReadLayout;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1419)
 
 //____________________________________________________________________________
 // AlignedReadStoreElement
@@ -372,7 +372,7 @@ namespace SEQAN_NAMESPACE_MAIN {
 //____________________________________________________________________________
 // _adjustParent
 
-template <typename TAnnotation> inline void _adjustParent ( TAnnotation &parent, TAnnotation const &child);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_gff.h"(333)
+template <typename TAnnotation> inline void _adjustParent ( TAnnotation &parent, TAnnotation const &child);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_gff.h"(326)
 
 //____________________________________________________________________________
 // _assignSourceLength
@@ -515,12 +515,12 @@ template <typename TFile, typename TChar> inline void _parseSkipWhiteComma(TFile
 //____________________________________________________________________________
 // _printContig
 
-template <typename TStream, typename TFormatTag, typename TContigGaps, typename TContigName> inline void _printContig( TStream &stream, Tag<TFormatTag> const &format, AlignedReadLayout &, TContigGaps &contigGaps, TContigName const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1510)
+template <typename TStream, typename TFormatTag, typename TContigGaps, typename TContigName> inline void _printContig( TStream &stream, Tag<TFormatTag> const &format, AlignedReadLayout &, TContigGaps &contigGaps, TContigName const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1515)
 
 //____________________________________________________________________________
 // _printRead
 
-template <typename TStream, typename TFormatTag, typename TContigGaps, typename TReadGaps, typename TAlignedRead, typename TLine> inline void _printRead( TStream &stream, Tag<TFormatTag> const &format, AlignedReadLayout &, TContigGaps &, TReadGaps &readGaps, TAlignedRead &, TLine);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1499)
+template <typename TStream, typename TFormatTag, typename TContigGaps, typename TReadGaps, typename TAlignedRead, typename TLine> inline void _printRead( TStream &stream, Tag<TFormatTag> const &format, AlignedReadLayout &, TContigGaps &, TReadGaps &readGaps, TAlignedRead &, TLine);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1504)
 
 //____________________________________________________________________________
 // _readAlignments
@@ -535,12 +535,12 @@ template <typename TFile, typename TSpec, typename TConfig, typename TChar> inli
 //____________________________________________________________________________
 // _readOneAlignment
 
-template <typename TFile, typename TSpec, typename TConfig, typename TContigAnchorGaps, typename TMatchMateInfos, typename TChar, typename TContextSAM> inline void _readOneAlignment ( TFile & file, FragmentStore<TSpec, TConfig> & fragStore, TContigAnchorGaps & contigAnchorGaps, TMatchMateInfos & matchMateInfos, TChar & c, Sam, TContextSAM & contextSAM);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_sam.h"(987)
+template <typename TFile, typename TSpec, typename TConfig, typename TContigAnchorGaps, typename TMatchMateInfos, typename TChar, typename TContextSAM> inline void _readOneAlignment ( TFile & file, FragmentStore<TSpec, TConfig> & fragStore, TContigAnchorGaps & contigAnchorGaps, TMatchMateInfos & matchMateInfos, TChar & c, Sam, TContextSAM & contextSAM);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_sam.h"(995)
 
 //____________________________________________________________________________
 // _readOneAnnotation
 
-template <typename TFile, typename TChar, typename TFragmentStore, typename TSpec> inline bool _readOneAnnotation ( TFile & file, TChar & c, IOContextGff_<TFragmentStore, TSpec> & ctx);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_gff.h"(212)
+template <typename TFile, typename TChar, typename TFragmentStore, typename TSpec> inline bool _readOneAnnotation ( TFile & file, TChar & c, IOContextGff_<TFragmentStore, TSpec> & ctx);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_gff.h"(214)
 template <typename TFile, typename TChar, typename TFragmentStore, typename TSpec> inline bool _readOneAnnotation ( TFile & file, TChar & c, IOContextUcsc_<TFragmentStore, TSpec> & ctx);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_ucsc.h"(149)
 
 //____________________________________________________________________________
@@ -592,7 +592,7 @@ template <typename TAnnotationStore> inline void _storeCreateAnnoBackLinks(TAnno
 //____________________________________________________________________________
 // _storeOneAnnotation
 
-template <typename TFragmentStore, typename TSpec> inline void _storeOneAnnotation ( TFragmentStore & fragStore, IOContextGff_<TFragmentStore, TSpec> & ctx);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_gff.h"(381)
+template <typename TFragmentStore, typename TSpec> inline void _storeOneAnnotation ( TFragmentStore & fragStore, IOContextGff_<TFragmentStore, TSpec> & ctx);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_gff.h"(374)
 template <typename TFragmentStore, typename TSpec> inline void _storeOneAnnotation ( TFragmentStore & fragStore, IOContextUcsc_<TFragmentStore, TSpec> & ctx);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_ucsc.h"(392)
 
 //____________________________________________________________________________
@@ -618,24 +618,24 @@ template <typename TSource, typename TGapAnchors> inline typename Size< Gaps<TSo
 //____________________________________________________________________________
 // _writeAlignments
 
-template <typename TFile, typename TSpec, typename TConfig, typename TDoAlign> inline void _writeAlignments(TFile & target, FragmentStore<TSpec, TConfig> & store, Sam, TDoAlign doAlign);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_sam.h"(1260)
-template <typename TFile, typename TSpec, typename TConfig> inline void _writeAlignments(TFile & target, FragmentStore<TSpec, TConfig> & store, Sam);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_sam.h"(1470)
+template <typename TFile, typename TSpec, typename TConfig, typename TDoAlign> inline void _writeAlignments(TFile & target, FragmentStore<TSpec, TConfig> & store, Sam, TDoAlign doAlign);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_sam.h"(1268)
+template <typename TFile, typename TSpec, typename TConfig> inline void _writeAlignments(TFile & target, FragmentStore<TSpec, TConfig> & store, Sam);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_sam.h"(1478)
 
 //____________________________________________________________________________
 // _writeGffGtf
 
-template <typename TTargetStream, typename TSpec, typename TConfig, typename TFormat> inline void _writeGffGtf ( TTargetStream & target, FragmentStore<TSpec, TConfig> & store, TFormat format);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_gff.h"(716)
+template <typename TTargetStream, typename TSpec, typename TConfig, typename TFormat> inline void _writeGffGtf ( TTargetStream & target, FragmentStore<TSpec, TConfig> & store, TFormat format);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_gff.h"(752)
 
 //____________________________________________________________________________
 // _writeHeader
 
-template <typename TFile, typename TSpec, typename TConfig> inline void _writeHeader(TFile & target, FragmentStore<TSpec, TConfig> & store, Sam);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_sam.h"(1203)
+template <typename TFile, typename TSpec, typename TConfig> inline void _writeHeader(TFile & target, FragmentStore<TSpec, TConfig> & store, Sam);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_sam.h"(1211)
 
 //____________________________________________________________________________
 // _writeOneAnnotation
 
-template <typename TTargetStream, typename TSpec, typename TConfig, typename TAnnotation, typename TId> inline void _writeOneAnnotation ( TTargetStream & target, FragmentStore<TSpec, TConfig> & store, TAnnotation &annotation, TId id, Gff);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_gff.h"(493)
-template <typename TTargetStream, typename TSpec, typename TConfig, typename TAnnotation, typename TId> inline void _writeOneAnnotation ( TTargetStream & target, FragmentStore<TSpec, TConfig> & store, TAnnotation &annotation, TId id, Gtf);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_gff.h"(598)
+template <typename TTargetStream, typename TSpec, typename TConfig, typename TAnnotation, typename TId> inline void _writeOneAnnotation ( TTargetStream & target, FragmentStore<TSpec, TConfig> & store, TAnnotation &annotation, TId id, Gff);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_gff.h"(503)
+template <typename TTargetStream, typename TSpec, typename TConfig, typename TAnnotation, typename TId> inline void _writeOneAnnotation ( TTargetStream & target, FragmentStore<TSpec, TConfig> & store, TAnnotation &annotation, TId id, Gtf);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_gff.h"(608)
 template <typename TTargetStream, typename TFragmentStore, typename TSpec> inline void _writeOneAnnotation ( TTargetStream & file, IOContextUcsc_<TFragmentStore, TSpec> & ctx);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_ucsc.h"(500)
 
 //____________________________________________________________________________
@@ -653,13 +653,13 @@ template <typename TSpec, typename TConfig, typename TAnnotation, typename TKey,
 // annotationGetValueByKey
 
 template <typename TSpec, typename TConfig, typename TAnnotation, typename TKey, typename TValue> inline bool annotationGetValueByKey ( FragmentStore<TSpec, TConfig> & fragStore, TAnnotation const & annotation, TKey const & key, TValue & value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(870)
-template <typename TSpec, typename TConfig, typename TAnnotation, typename TKey> inline CharString annotationGetValueByKey ( FragmentStore<TSpec, TConfig> & fragStore, TAnnotation const & annotation, TKey const & key);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(889)
+template <typename TSpec, typename TConfig, typename TAnnotation, typename TKey> inline CharString annotationGetValueByKey ( FragmentStore<TSpec, TConfig> & fragStore, TAnnotation const & annotation, TKey const & key);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(894)
 
 //____________________________________________________________________________
 // appendAlignedRead
 
-template <typename TSpec, typename TConfig, typename TReadId, typename TContigId, typename TPos, typename TPairMatchId> inline typename Size<typename FragmentStore<TSpec, TConfig>::TAlignedReadStore>::Type appendAlignedRead( FragmentStore<TSpec, TConfig> & store, TReadId const & readId, TContigId const & contigId, TPos const & beginPos, TPos const & endPos, TPairMatchId const & pairMatchId);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1060)
-template <typename TSpec, typename TConfig, typename TReadId, typename TContigId, typename TPos> inline typename Size<typename FragmentStore<TSpec, TConfig>::TAlignedReadStore>::Type appendAlignedRead( FragmentStore<TSpec, TConfig> & store, TReadId const & readId, TContigId const & contigId, TPos const & beginPos, TPos const & endPos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1080)
+template <typename TSpec, typename TConfig, typename TReadId, typename TContigId, typename TPos, typename TPairMatchId> inline typename Size<typename FragmentStore<TSpec, TConfig>::TAlignedReadStore>::Type appendAlignedRead( FragmentStore<TSpec, TConfig> & store, TReadId const & readId, TContigId const & contigId, TPos const & beginPos, TPos const & endPos, TPairMatchId const & pairMatchId);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1065)
+template <typename TSpec, typename TConfig, typename TReadId, typename TContigId, typename TPos> inline typename Size<typename FragmentStore<TSpec, TConfig>::TAlignedReadStore>::Type appendAlignedRead( FragmentStore<TSpec, TConfig> & store, TReadId const & readId, TContigId const & contigId, TPos const & beginPos, TPos const & endPos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1085)
 
 //____________________________________________________________________________
 // appendAlignment
@@ -669,8 +669,8 @@ template <typename TSpec, typename TConfig, typename TId, typename TPos, typenam
 //____________________________________________________________________________
 // appendMatePair
 
-template <typename TSpec, typename TConfig, typename TRead> inline typename Size<typename FragmentStore<TSpec, TConfig>::TMatePairStore>::Type appendMatePair( FragmentStore<TSpec, TConfig> &me, TRead const &read1, TRead const &read2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1115)
-template <typename TSpec, typename TConfig, typename TRead> inline typename Size<typename FragmentStore<TSpec, TConfig>::TMatePairStore>::Type appendMatePair( FragmentStore<TSpec, TConfig> &me, TRead const &read1, TRead const &read2, CharString const &name1, CharString const &name2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1142)
+template <typename TSpec, typename TConfig, typename TRead> inline typename Size<typename FragmentStore<TSpec, TConfig>::TMatePairStore>::Type appendMatePair( FragmentStore<TSpec, TConfig> &me, TRead const &read1, TRead const &read2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1120)
+template <typename TSpec, typename TConfig, typename TRead> inline typename Size<typename FragmentStore<TSpec, TConfig>::TMatePairStore>::Type appendMatePair( FragmentStore<TSpec, TConfig> &me, TRead const &read1, TRead const &read2, CharString const &name1, CharString const &name2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1147)
 
 //____________________________________________________________________________
 // appendName
@@ -682,10 +682,10 @@ template <typename TNameStore, typename TName, typename TCNameStore, typename TC
 //____________________________________________________________________________
 // appendRead
 
-template <typename TSpec, typename TConfig, typename TRead, typename TId> inline typename Size<typename FragmentStore<TSpec, TConfig>::TReadStore>::Type appendRead( FragmentStore<TSpec, TConfig> &me, TRead const &read, TId matePairId);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(951)
-template <typename TSpec, typename TConfig, typename TRead, typename TId> inline typename Size<typename FragmentStore<TSpec, TConfig>::TReadStore>::Type appendRead( FragmentStore<TSpec, TConfig> &me, TRead const &read, CharString const &name, TId matePairId);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(970)
-template <typename TSpec, typename TConfig, typename TRead> inline typename Size<typename FragmentStore<TSpec, TConfig>::TReadStore>::Type appendRead( FragmentStore<TSpec, TConfig> &me, TRead const &read);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(988)
-template <typename TSpec, typename TConfig, typename TRead> inline typename Size<typename FragmentStore<TSpec, TConfig>::TReadStore>::Type appendRead( FragmentStore<TSpec, TConfig> &me, TRead const &read, CharString const &name);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1001)
+template <typename TSpec, typename TConfig, typename TRead, typename TId> inline typename Size<typename FragmentStore<TSpec, TConfig>::TReadStore>::Type appendRead( FragmentStore<TSpec, TConfig> &me, TRead const &read, TId matePairId);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(956)
+template <typename TSpec, typename TConfig, typename TRead, typename TId> inline typename Size<typename FragmentStore<TSpec, TConfig>::TReadStore>::Type appendRead( FragmentStore<TSpec, TConfig> &me, TRead const &read, CharString const &name, TId matePairId);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(975)
+template <typename TSpec, typename TConfig, typename TRead> inline typename Size<typename FragmentStore<TSpec, TConfig>::TReadStore>::Type appendRead( FragmentStore<TSpec, TConfig> &me, TRead const &read);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(993)
+template <typename TSpec, typename TConfig, typename TRead> inline typename Size<typename FragmentStore<TSpec, TConfig>::TReadStore>::Type appendRead( FragmentStore<TSpec, TConfig> &me, TRead const &read, CharString const &name);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1006)
 
 //____________________________________________________________________________
 // assignValueByKey
@@ -724,17 +724,17 @@ template <typename TSource, typename TGapAnchors> inline typename Position< Gaps
 //____________________________________________________________________________
 // buildAlignIntervalsStore
 
-template <typename TAlignIntervalsStore, typename TSpec, typename TConfig > inline void buildAlignIntervalsStore(TAlignIntervalsStore & alignIntervalsStore, FragmentStore<TSpec, TConfig> & me, const unsigned & thresholdGaps);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_align_intervals.h"(85)
+template <typename TAlignIntervalsStore, typename TSpec, typename TConfig > inline void buildAlignIntervalsStore(TAlignIntervalsStore & alignIntervalsStore, FragmentStore<TSpec, TConfig> & me, const unsigned & thresholdGaps);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_align_intervals.h"(88)
 
 //____________________________________________________________________________
 // calculateInsertSizes
 
-template <typename TLibSizeString, typename TSpec, typename TConfig> inline void calculateInsertSizes(TLibSizeString &insertSizes, FragmentStore<TSpec, TConfig> &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1290)
+template <typename TLibSizeString, typename TSpec, typename TConfig> inline void calculateInsertSizes(TLibSizeString &insertSizes, FragmentStore<TSpec, TConfig> &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1295)
 
 //____________________________________________________________________________
 // calculateMateIndices
 
-template <typename TMateIndexString, typename TSpec, typename TConfig> inline void calculateMateIndices(TMateIndexString &mateIndices, FragmentStore<TSpec, TConfig> &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1374)
+template <typename TMateIndexString, typename TSpec, typename TConfig> inline void calculateMateIndices(TMateIndexString &mateIndices, FragmentStore<TSpec, TConfig> &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1379)
 
 //____________________________________________________________________________
 // cigarToGapAnchorContig
@@ -750,13 +750,13 @@ template <typename TCigarString, typename TGaps> inline unsigned cigarToGapAncho
 // clear
 
 template <typename TFragmentStore, typename TSpec> inline void clear(Iter<TFragmentStore, AnnotationTree<TSpec> > & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_annotation.h"(304)
-template <typename TFragmentStore, typename TSpec> inline void clear(IOContextGff_<TFragmentStore, TSpec> &ctx);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_gff.h"(182)
+template <typename TFragmentStore, typename TSpec> inline void clear(IOContextGff_<TFragmentStore, TSpec> &ctx);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_gff.h"(183)
 template <typename TFragmentStore, typename TSpec> inline void clear(IOContextUcsc_<TFragmentStore, TSpec> &ctx);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_ucsc.h"(126)
 
 //____________________________________________________________________________
 // clearReads
 
-template <typename TSpec, typename TConfig> inline void clearReads(FragmentStore<TSpec, TConfig> &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(919)
+template <typename TSpec, typename TConfig> inline void clearReads(FragmentStore<TSpec, TConfig> &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(924)
 
 //____________________________________________________________________________
 // clearValues
@@ -766,12 +766,12 @@ template <typename TFragmentStore, typename TSpec> inline void clearValues(Iter<
 //____________________________________________________________________________
 // compactAlignedReads
 
-template <typename TSpec, typename TConfig> inline typename Size<typename FragmentStore<TSpec, TConfig>::TAlignedReadStore>::Type compactAlignedReads(FragmentStore<TSpec, TConfig> &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1187)
+template <typename TSpec, typename TConfig> inline typename Size<typename FragmentStore<TSpec, TConfig>::TAlignedReadStore>::Type compactAlignedReads(FragmentStore<TSpec, TConfig> &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1192)
 
 //____________________________________________________________________________
 // compactPairMatchIds
 
-template <typename TSpec, typename TConfig> inline typename Size<typename FragmentStore<TSpec, TConfig>::TAlignedReadStore>::Type compactPairMatchIds(FragmentStore<TSpec, TConfig> &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1243)
+template <typename TSpec, typename TConfig> inline typename Size<typename FragmentStore<TSpec, TConfig>::TAlignedReadStore>::Type compactPairMatchIds(FragmentStore<TSpec, TConfig> &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1248)
 
 //____________________________________________________________________________
 // container
@@ -782,12 +782,12 @@ template <typename TFragmentStore, typename TSpec> inline TFragmentStore & conta
 //____________________________________________________________________________
 // convertMatchesToGlobalAlignment
 
-template <typename TSpec, typename TConfig, typename TScore, typename TShrinkMatches> void convertMatchesToGlobalAlignment(FragmentStore<TSpec, TConfig> &store, TScore const & score, TShrinkMatches const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1671)
+template <typename TSpec, typename TConfig, typename TScore, typename TShrinkMatches> void convertMatchesToGlobalAlignment(FragmentStore<TSpec, TConfig> &store, TScore const & score, TShrinkMatches const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1676)
 
 //____________________________________________________________________________
 // convertPairWiseToGlobalAlignment
 
-template <typename TSpec, typename TConfig, typename TContigGapsString> void convertPairWiseToGlobalAlignment(FragmentStore<TSpec, TConfig> &store, TContigGapsString &gaps);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1990)
+template <typename TSpec, typename TConfig, typename TContigGapsString> void convertPairWiseToGlobalAlignment(FragmentStore<TSpec, TConfig> &store, TContigGapsString &gaps);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1995)
 
 //____________________________________________________________________________
 // countGaps
@@ -832,7 +832,7 @@ template <typename TSource, typename TGapAnchors> inline typename Position< Gaps
 //____________________________________________________________________________
 // extractAlignIntervals
 
-template <typename TIntervals, typename TAlignedReadStoreElement, typename TSpec, typename TConfig> inline void extractAlignIntervals(TIntervals & contigIntervals, TAlignedReadStoreElement & align, FragmentStore<TSpec, TConfig> & me, const unsigned & thresholdGaps);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_align_intervals.h"(123)
+template <typename TIntervals, typename TAlignedReadStoreElement, typename TSpec, typename TConfig> inline void extractAlignIntervals(TIntervals & contigIntervals, TAlignedReadStoreElement & align, FragmentStore<TSpec, TConfig> & me, const unsigned & thresholdGaps);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_align_intervals.h"(126)
 
 //____________________________________________________________________________
 // findIntervalsForInterval
@@ -886,7 +886,7 @@ template <typename TMDString, typename TGaps1, typename TGaps2> inline void getM
 //____________________________________________________________________________
 // getMateNo
 
-template <typename TSpec, typename TConfig, typename TId> inline int getMateNo(FragmentStore<TSpec, TConfig> const &me, TId readId);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1336)
+template <typename TSpec, typename TConfig, typename TId> inline int getMateNo(FragmentStore<TSpec, TConfig> const &me, TId readId);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1341)
 
 //____________________________________________________________________________
 // getName
@@ -901,7 +901,7 @@ template <typename TFragmentStore, typename TSpec> inline typename GetValue<type
 //____________________________________________________________________________
 // getRead
 
-template <typename TSpec, typename TConfig, typename TId> inline typename Value<typename FragmentStore<TSpec, TConfig>::TReadSeqStore>::Type getRead( FragmentStore<TSpec, TConfig> &me, TId id);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1025)
+template <typename TSpec, typename TConfig, typename TId> inline typename Value<typename FragmentStore<TSpec, TConfig>::TReadSeqStore>::Type getRead( FragmentStore<TSpec, TConfig> &me, TId id);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1030)
 
 //____________________________________________________________________________
 // getType
@@ -1024,7 +1024,7 @@ template <typename TGaps, typename TGapAnchors> inline bool isUnknown(Iter<TGaps
 //____________________________________________________________________________
 // layoutAlignment
 
-template <typename TSpec, typename TConfig> void layoutAlignment(AlignedReadLayout &layout, FragmentStore<TSpec, TConfig> &store);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1439)
+template <typename TSpec, typename TConfig> void layoutAlignment(AlignedReadLayout &layout, FragmentStore<TSpec, TConfig> &store);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1444)
 
 //____________________________________________________________________________
 // length
@@ -1091,7 +1091,7 @@ template <typename TGapAnchor, typename TSearchValue> inline typename Iterator<T
 //____________________________________________________________________________
 // mergeIntervals
 
-template <typename TIntervals> inline void mergeIntervals(TIntervals & intervals, const unsigned & thresholdGaps);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_align_intervals.h"(328)
+template <typename TIntervals> inline void mergeIntervals(TIntervals & intervals, const unsigned & thresholdGaps);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_align_intervals.h"(331)
 
 //____________________________________________________________________________
 // nodeDown
@@ -1151,14 +1151,14 @@ template <typename TSource, typename TGapAnchors, typename TPosition> inline TPo
 //____________________________________________________________________________
 // printAlignment
 
-template <typename TStream, typename TFormatTag, typename TSpec, typename TConfig, typename TContigId, typename TPos, typename TNum> void printAlignment( TStream &stream, Tag<TFormatTag> const &format, AlignedReadLayout &layout, FragmentStore<TSpec, TConfig> &store, TContigId contigId, TPos posBegin, TPos posEnd, TNum lineBegin, TNum lineEnd);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1547)
+template <typename TStream, typename TFormatTag, typename TSpec, typename TConfig, typename TContigId, typename TPos, typename TNum> void printAlignment( TStream &stream, Tag<TFormatTag> const &format, AlignedReadLayout &layout, FragmentStore<TSpec, TConfig> &store, TContigId contigId, TPos posBegin, TPos posEnd, TNum lineBegin, TNum lineEnd);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_all.h"(1552)
 
 //____________________________________________________________________________
 // read
 
 template <typename TFile, typename TSpec, typename TConfig> inline void read(TFile & file, FragmentStore<TSpec, TConfig>& fragStore, Amos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io.h"(158)
-template <typename TFile, typename TSpec, typename TConfig> inline void read ( TFile & file, FragmentStore<TSpec, TConfig> & fragStore, Gff);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_gff.h"(446)
-template <typename TFile, typename TSpec, typename TConfig> inline void read ( TFile & file, FragmentStore<TSpec, TConfig> & fragStore, Gtf);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_gff.h"(476)
+template <typename TFile, typename TSpec, typename TConfig> inline void read ( TFile & file, FragmentStore<TSpec, TConfig> & fragStore, Gff);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_gff.h"(456)
+template <typename TFile, typename TSpec, typename TConfig> inline void read ( TFile & file, FragmentStore<TSpec, TConfig> & fragStore, Gtf);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_gff.h"(486)
 template <typename TFile, typename TSpec, typename TConfig> inline void read( TFile & file, FragmentStore<TSpec, TConfig> & fragStore, Sam);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_sam.h"(874)
 template <typename TFile, typename TSpec, typename TConfig, typename TFormatSpec> inline void read ( TFile & file, FragmentStore<TSpec, TConfig> & fragStore, Tag<Ucsc_<TFormatSpec> > const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_ucsc.h"(405)
 
@@ -1274,9 +1274,9 @@ template <typename TFragmentStore, typename TSpec> inline typename VertexDescrip
 // write
 
 template <typename TFile, typename TSpec, typename TConfig> inline void write(TFile & target, FragmentStore<TSpec, TConfig>& fragStore, Amos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io.h"(578)
-template <typename TTargetStream, typename TSpec, typename TConfig> inline void write ( TTargetStream & target, FragmentStore<TSpec, TConfig> & store, Gff format);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_gff.h"(737)
-template <typename TTargetStream, typename TSpec, typename TConfig> inline void write ( TTargetStream & target, FragmentStore<TSpec, TConfig> & store, Gtf format);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_gff.h"(748)
-template <typename TFile, typename TSpec, typename TConfig> inline void write(TFile & target, FragmentStore<TSpec, TConfig> & store, Sam);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_sam.h"(1483)
+template <typename TTargetStream, typename TSpec, typename TConfig> inline void write ( TTargetStream & target, FragmentStore<TSpec, TConfig> & store, Gff format);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_gff.h"(773)
+template <typename TTargetStream, typename TSpec, typename TConfig> inline void write ( TTargetStream & target, FragmentStore<TSpec, TConfig> & store, Gtf format);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_gff.h"(784)
+template <typename TFile, typename TSpec, typename TConfig> inline void write(TFile & target, FragmentStore<TSpec, TConfig> & store, Sam);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_sam.h"(1491)
 template <typename TTargetStream, typename TSpec, typename TConfig, typename TFormatSpec> inline void write ( TTargetStream & target, FragmentStore<TSpec, TConfig> & store, Tag<Ucsc_<TFormatSpec> > const format);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/store/store_io_ucsc.h"(595)
 
 //____________________________________________________________________________

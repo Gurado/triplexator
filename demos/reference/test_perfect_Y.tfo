@@ -1,2 +1,2 @@
-# Sequence-ID	Start	End	Score	Motif	Error-rate	Errors	Duplicates	TFO	Duplicate locations
-Seq1-Y-noErrors	2	22	20	Y	0		-1	CCCTTCTCCTTCCTTTTCCC	-
+# Sequence-ID	Start	End	Score	Motif	Error-rate	Errors	Guanine-rate	Duplicates	TFO	Duplicate locations
+Seq1-Y-noErrors	2	22	20	Y	0		0.55	-1	CCCTTCTCCTTCCTTTTCCC	-

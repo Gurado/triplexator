@@ -1,2 +1,2 @@
-# Duplex-ID	Start	End	Score	Strand	Error-rate	Errors	Duplicates	TTS	Duplicate locations
-Duplex1_Y_+	4	32	26	+	0.071	d20d22	0	GGGAAGAGGAAGGAAAAGGGtGtAAAAA	-
+# Duplex-ID	Start	End	Score	Strand	Error-rate	Errors	Guanine-rate	Duplicates	TTS	Duplicate locations
+Duplex1_Y_+	4	32	26	+	0.071	d20d22	0.43	0	GGGAAGAGGAAGGAAAAGGGtGtAAAAA	-

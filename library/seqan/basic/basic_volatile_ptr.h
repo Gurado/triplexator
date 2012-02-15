@@ -67,19 +67,19 @@ namespace seqan {
 template < typename Type >
 struct VolatilePtr
 {
-    typedef VolatilePtr		Self_;
-    typedef VolatilePtr*	SelfPtr_;
-    typedef VolatilePtr&	SelfRef_;
+    typedef VolatilePtr     Self_;
+    typedef VolatilePtr*    SelfPtr_;
+    typedef VolatilePtr&    SelfRef_;
 
-    typedef Type&			reference;
-    typedef const Type&		const_reference;
-    typedef Type*			pointer;
+    typedef Type&           reference;
+    typedef const Type&     const_reference;
+    typedef Type*           pointer;
 
-    pointer			ptr;
-    SelfPtr_		next;			// prev == NULL means this is the master node
-    SelfPtr_		prev;			// prev == NULL means this is the master node
+    pointer         ptr;
+    SelfPtr_        next;           // prev == NULL means this is the master node
+    SelfPtr_        prev;           // prev == NULL means this is the master node
 
-    VolatilePtr() {	    // volatile pinters behave like normal pointers
+    VolatilePtr() {     // volatile pinters behave like normal pointers
         prev = this;    // and are not initialized (ptr) per default
         next = this;
     }

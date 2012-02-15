@@ -165,14 +165,22 @@ runs in different operative modes depending on which data are input.
   canonical triplex rules as such were found to greatly destabilize 
   triplexes in vitro. The maximum permitted number is 3.
   
-  [ -g NUM ],  [ --percent-guanine NUM ]
+  [ -g NUM ],  [ --min-guanine NUM ]
   
-  Set the percent guanine rate in the triplex features. NUM must be a value
+  Set the minimum guanine conten in triplex features. NUM must be a value
   between 0 and 100 (default is 10). 
-  The guanine rate controls the minimum ratio of guanines required in the 
+  The minimum guanine rate controls the ratio of guanines required in the 
   any triplex target site. For triplex-forming oligonucleotide this  
   constraint will be applied to their respective target. 
+ 
+  [ -G NUM ],  [ --max-guanine NUM ]
   
+  Set the maximum guanine conten in triplex features. NUM must be a value
+  between 0 and 100 (default is 100). 
+  The maximum guanine rate controls the ratio of guanines required in the 
+  any triplex target site. For triplex-forming oligonucleotide this  
+  constraint will be applied to their respective target. 
+ 
   [ -b NUM ],  [ --minimum-block-run NUM ]
   
   Sets the number of consecutive matches required in a feature 
@@ -421,14 +429,16 @@ runs in different operative modes depending on which data are input.
   of a triplex feature (TFO/TTS) or triplex match.
 
   Searching putative triplex-forming oligonucleotides:
-    Sequence-ID|Start|End|Score|Motif|Error-rate|Errors|Duplicates|TFO
+    Sequence-ID|Start|End|Score|Motif|Error-rate|Errors|Guanine-rate|
+    			...Duplicates|TFO
 	
   Searching putative triplex target sites:
-	Duplex-ID|Start|End|Score|Strand|Error-rate|Errors|Duplicates|TTS
+	Duplex-ID|Start|End|Score|Strand|Error-rate|Errors|Guanine-rate|
+				...Duplicates|TTS
 	
   Searching putative triplexes:
 	Sequence-ID|TFO start|TFO end|Duplex-ID|TTS start|TTS end|Score|Error-rate|
-	            ...Motif|strand|orientation
+	            ...Motif|Strand|Orientation|Guanine-rate
 	
   with the following meaning:
   - Sequence-ID     : id of the single-stranded sequence providing the TFO
@@ -456,9 +466,10 @@ runs in different operative modes depending on which data are input.
 					  NOT supported when searching for triplexes.
   - TFO/TTS         : sequence of the TFO/TTS
   - Strand          : strand of the duplex providing the poly-purine tract
-  - orientation     : parallel or anti-parallel binding of the TFO to the 
+  - Orientation     : parallel or anti-parallel binding of the TFO to the 
                       TTS [P|A]
-                  
+  - Guanine-rate    : proportion of guanines w/r/t the target able to 
+                      participate in triplex formation                  
 ---------------------------------------------------------------------------
 4.2. Triplexator Format
 ---------------------------------------------------------------------------
@@ -476,8 +487,11 @@ runs in different operative modes depending on which data are input.
   and triplex hits for the corresponding sequence(s).
   
   The absolute number of features/triplexes is given for all motifs 
-  individually (abs), while the relative measure has been adjusted for 
-  the sequence and feature length of the sequence(s):
+  individually (abs), while the relative measure (triplex potential) is 
+  adjusted for the sequence and feature length of the sequence(s).
+  
+  Note, to save disk space only sequences that have at least one triplex
+  feature are output.
   
   Searching triplex-forming oligonucleotides:
     Sequence-ID|TFOs (abs)|TFOs (rel)|GA (abs)|GA (rel)|TC (abs)|TC (rel)|

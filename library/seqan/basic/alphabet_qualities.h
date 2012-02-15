@@ -82,7 +82,7 @@ namespace seqan {
 template <typename TValue>
 struct QualityValueSize
 {
-	enum { VALUE = ValueSize<TValue>::VALUE };
+    enum { VALUE = ValueSize<TValue>::VALUE };
 };
 
 template <typename TValue>
@@ -151,7 +151,7 @@ struct HasQualities
 inline 
 void convertQuality(Ascii & c, int q) 
 {
-	c = '!' + Ascii(q);
+    c = '!' + Ascii(q);
 }
 
 // ----------------------------------------------------------------------------
@@ -195,15 +195,15 @@ void convertQuality(Ascii & c, int q)
 template <typename TDest, typename TSource>
 void assignQualities(TDest &dst, TSource const &src)
 {
-	typedef typename Iterator<TDest>::Type TDestIter;
-	typedef typename Iterator<TSource>::Type TSourceIter;
+    typedef typename Iterator<TDest>::Type TDestIter;
+    typedef typename Iterator<TSource>::Type TSourceIter;
 
-	TDestIter itDst = begin(dst, Standard());
-	TDestIter itDstEnd = end(dst, Standard());
-	TSourceIter itSrcEnd = end(src, Standard());
-	
-	for (TSourceIter itSrc = begin(src, Standard()); itDst != itDstEnd && itSrc != itSrcEnd; ++itDst, ++itSrc)
-		assignQualityValue(*itDst, *itSrc);
+    TDestIter itDst = begin(dst, Standard());
+    TDestIter itDstEnd = end(dst, Standard());
+    TSourceIter itSrcEnd = end(src, Standard());
+    
+    for (TSourceIter itSrc = begin(src, Standard()); itDst != itDstEnd && itSrc != itSrcEnd; ++itDst, ++itSrc)
+        assignQualityValue(*itDst, *itSrc);
 }
 
 }  // namespace seqan

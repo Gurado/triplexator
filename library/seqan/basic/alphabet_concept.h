@@ -51,85 +51,79 @@ namespace seqan {
 ..remarks:Stream output operators are not shown in the function list below, but required.
 ..remarks:Comparison operators are not shown in the function list below, but required.
 
-..Function.clear.concept:Concept.Aggregate
-..Function.value.concept:Concept.Aggregate
-..Function.assign.concept:Concept.Aggregate
+.Function.clear.concept:Concept.Aggregate
+.Function.value.concept:Concept.Aggregate
+.Function.assign.concept:Concept.Aggregate
 
 ..Metafunction..concept:Concept.Aggregate
 ..Metafunction.BitsPerValue.concept:Concept.AlphabetConcept
  */
 
 // minimal requirements for the alphabet of a String class
-SEQAN_CONCEPT(AlphabetConcept, (TValue)) :
-    Assignable<TValue>,
-    DefaultConstructible<TValue>,
-    CopyConstructible<TValue>
+SEQAN_CONCEPT_REFINE(AlphabetConcept, (TValue), (Assignable)(DefaultConstructible)(CopyConstructible))
 {
-	TValue val, val2;
+    TValue val, val2;
 
     SEQAN_CONCEPT_USAGE(AlphabetConcept)
     {
-		// assign must be available as an equivalent to '='
-		assign(val, val2);
-//		swap(val, val2);
-	}
+        // assign must be available as an equivalent to '='
+        assign(val, val2);
+//      swap(val, val2);
+    }
 };
 
 
 // a totally strict ordered alphabet
-SEQAN_CONCEPT(OrderedAlphabetConcept, (TValue)) :
-    AlphabetConcept<TValue>,
-	Comparable<TValue>
+SEQAN_CONCEPT_REFINE(OrderedAlphabetConcept, (TValue), (AlphabetConcept)(Comparable))
 {
-	TValue val;
+    TValue val;
 
     SEQAN_CONCEPT_USAGE(OrderedAlphabetConcept)
     {
-		// type consistency checks
-		sameType(minValue(val), val);
-		sameType(minValue<TValue>, val);
-		sameType(MinValue<TValue>::VALUE, val);
-		sameType(maxValue(val), val);
-		sameType(maxValue<TValue>, val);
-		sameType(MaxValue<TValue>::VALUE, val);
+        // type consistency checks
+        sameType(minValue(val), val);
+        sameType(minValue<TValue>, val);
+        sameType(MinValue<TValue>::VALUE, val);
+        sameType(maxValue(val), val);
+        sameType(maxValue<TValue>, val);
+        sameType(MaxValue<TValue>::VALUE, val);
 
-		// sanity checks
-		SEQAN_STATIC_ASSERT_MSG(MinValue<TValue>::VALUE <= MaxValue<TValue>::VALUE, "Minimal alphabet value must be less or equal to the maximal value.");
-		
-		// 0 must be an element of the alphabet, as we want to be able
-		// to initialize a TValue variable to omit uninitialized warnings.
-		SEQAN_STATIC_ASSERT_MSG(MinValue<TValue>::VALUE <= static_cast<TValue>(0), "0 must be convertible to a valid alphabet value.");
-		SEQAN_STATIC_ASSERT_MSG(static_cast<TValue>(0) <= MaxValue<TValue>::VALUE, "0 must be convertible to a valid alphabet value.");
-	}
+        // sanity checks
+        SEQAN_STATIC_ASSERT_MSG(MinValue<TValue>::VALUE <= MaxValue<TValue>::VALUE, "Minimal alphabet value must be less or equal to the maximal value.");
+        
+        // 0 must be an element of the alphabet, as we want to be able
+        // to initialize a TValue variable to omit uninitialized warnings.
+        SEQAN_STATIC_ASSERT_MSG(MinValue<TValue>::VALUE <= static_cast<TValue>(0), "0 must be convertible to a valid alphabet value.");
+        SEQAN_STATIC_ASSERT_MSG(static_cast<TValue>(0) <= MaxValue<TValue>::VALUE, "0 must be convertible to a valid alphabet value.");
+    }
 };
 
 // a finite totally strict ordered alphabet
-SEQAN_CONCEPT(FiniteOrderedAlphabetConcept, (TValue)) :
-    OrderedAlphabetConcept<TValue>
+SEQAN_CONCEPT_REFINE(FiniteOrderedAlphabetConcept, (TValue), (OrderedAlphabetConcept))
 {
-	typedef typename Size<TValue>::Type	TSize;
+    typedef typename Size<TValue>::Type TSize;
 
-	TValue	val;
-	TSize	size;
+    TValue  val;
+    TSize   size;
 
     SEQAN_CONCEPT_ASSERT((UnsignedIntegerConcept<TSize>));
 
     SEQAN_CONCEPT_USAGE(FiniteOrderedAlphabetConcept)
     {
-		// a finite alphabet must be countable
-		sameType(ordValue(val), size);
-//		sameType(valueSize<T>(), size);
-		sameType(ValueSize<TValue>::VALUE, size);
+        // a finite alphabet must be countable
+        sameType(ordValue(val), size);
+//      sameType(valueSize<T>(), size);
+        sameType(ValueSize<TValue>::VALUE, size);
 
-		// alphabet must be non-empty
-		SEQAN_STATIC_ASSERT_MSG(static_cast<TSize>(0) < ValueSize<TValue>::VALUE, "Alphabet size be greater than zero.");
-		
-		// convert integer to alphabet value
-		val = 0;
-		val = size;
-		TValue val2(0);
-		TValue val3(size);
-	}
+        // alphabet must be non-empty
+        SEQAN_STATIC_ASSERT_MSG(static_cast<TSize>(0) < ValueSize<TValue>::VALUE, "Alphabet size be greater than zero.");
+        
+        // convert integer to alphabet value
+        val = 0;
+        val = size;
+        TValue val2(0);
+        TValue val3(size);
+    }
 };
 
 }  // namespace seqan

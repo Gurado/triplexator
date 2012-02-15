@@ -55,6 +55,7 @@ struct MersenneTwister;
 ..param.TSpec:Random Number Generator specialization.
 ...default:@Spec.Mersenne Twister Rng@
 ..include:seqan/random.h
+..wiki:Tutorial/Randomness|Tutorial: Randomness
 */
 template <typename TSpec = MersenneTwister>
 class Rng;
@@ -66,6 +67,7 @@ class Rng;
 ..cat:Random
 ..param.TSpec:Specialization.
 ..include:seqan/random.h
+..wiki:Tutorial/Randomness|Tutorial: Randomness
 */
 template <typename TSpec>
 class Pdf;
@@ -157,6 +159,7 @@ struct GetDefaultRng
 ..summary:Pick a random number using a random number generator object, possibly following the given distribution.
 ..cat:Random
 ..include:seqan/random.h
+..wiki:Tutorial/Randomness|Tutorial: Randomness
 ..signature:pickRandomNumber(rng[, pdf])
 ..param.rng:Random number generator to use.
 ...type:Class.Rng

@@ -79,7 +79,7 @@ non-POD types could be simple too, e.g. some specializations of @Class.SimpleTyp
 template <typename T>
 struct IsSimple_
 {
-	typedef False Type;
+    typedef False Type;
     enum { VALUE = 0 };
 };
 
@@ -123,35 +123,35 @@ so the constructed object must support move construction.
 // proxies from their value() functions but references.
 struct ValueConstructor_ 
 {
-	template <typename TIterator>
-	static inline void
-	construct(TIterator it)
-	{
-		typedef typename Value<TIterator>::Type		TValue;
-		typedef typename RemoveConst_<TValue>::Type	TNonConstValue;
-		new( (void*) & value(it) ) TNonConstValue;
-	}
+    template <typename TIterator>
+    static inline void
+    construct(TIterator it)
+    {
+        typedef typename Value<TIterator>::Type     TValue;
+        typedef typename RemoveConst_<TValue>::Type TNonConstValue;
+        new( (void*) & value(it) ) TNonConstValue;
+    }
 
-	template <typename TIterator, typename TParam>
-	static inline void
-	construct(TIterator it,
-			  TParam const & param_)
-	{
-		typedef typename Value<TIterator>::Type		TValue;
-		typedef typename RemoveConst_<TValue>::Type	TNonConstValue;
-		new( (void*) & value(it) ) TNonConstValue(param_);
-	}
+    template <typename TIterator, typename TParam>
+    static inline void
+    construct(TIterator it,
+              TParam const & param_)
+    {
+        typedef typename Value<TIterator>::Type     TValue;
+        typedef typename RemoveConst_<TValue>::Type TNonConstValue;
+        new( (void*) & value(it) ) TNonConstValue(param_);
+    }
 
-	template <typename TIterator, typename TParam>
-	static inline void
-	construct(TIterator it,
-			  TParam & param_,
-			  Move const & tag)
-	{
-		typedef typename Value<TIterator>::Type		TValue;
-		typedef typename RemoveConst_<TValue>::Type	TNonConstValue;
-		new( (void*) & value(it) ) TNonConstValue(param_, tag);
-	}
+    template <typename TIterator, typename TParam>
+    static inline void
+    construct(TIterator it,
+              TParam & param_,
+              Move const & tag)
+    {
+        typedef typename Value<TIterator>::Type     TValue;
+        typedef typename RemoveConst_<TValue>::Type TNonConstValue;
+        new( (void*) & value(it) ) TNonConstValue(param_, tag);
+    }
 };
 
 // Helper code for constructing values behind iterators that return proxies
@@ -160,14 +160,14 @@ struct ValueConstructor_
 // TODO(holtgrew): These implementations are empty and to be overwritten. Should we have dynamic/static asserstions here?
 struct ValueConstructorProxy_ 
 {
-	template <typename TIterator>
-	static inline void construct(TIterator) {}
+    template <typename TIterator>
+    static inline void construct(TIterator) {}
 
-	template <typename TIterator, typename TParam>
-	static inline void construct(TIterator, TParam const &) {}
+    template <typename TIterator, typename TParam>
+    static inline void construct(TIterator, TParam const &) {}
 
-	template <typename TIterator, typename TParam>
-	static inline void construct(TIterator, TParam &, Move const & ) {}
+    template <typename TIterator, typename TParam>
+    static inline void construct(TIterator, TParam &, Move const & ) {}
 };
 
 template <typename TIterator>
@@ -175,59 +175,59 @@ inline void
 valueConstruct(TIterator it)
 {
     SEQAN_CHECKPOINT;
-	typedef typename If<
-		IsSameType<
-			typename Value<TIterator>::Type &,
-			typename Reference<TIterator>::Type
-		>::VALUE,
-	// THEN
-		ValueConstructor_,			// true,  types are equal
-	// ELSE
-		ValueConstructorProxy_		// false, types differ -> value() returns a proxy
-	>::Type TConstructor;
+    typedef typename If<
+        IsSameType<
+            typename Value<TIterator>::Type &,
+            typename Reference<TIterator>::Type
+        >::VALUE,
+    // THEN
+        ValueConstructor_,          // true,  types are equal
+    // ELSE
+        ValueConstructorProxy_      // false, types differ -> value() returns a proxy
+    >::Type TConstructor;
 
-	TConstructor::construct(it);
+    TConstructor::construct(it);
 }
 
 template <typename TIterator, typename TParam>
 inline void
 valueConstruct(TIterator it,
-			   TParam const & param_)
+               TParam const & param_)
 {
     SEQAN_CHECKPOINT;
-	typedef typename If<
-		IsSameType<
-			typename Value<TIterator>::Type &,
-			typename Reference<TIterator>::Type
-		>::VALUE,
-	// THEN
-		ValueConstructor_,			// true,  types are equal
-	// ELSE
-		ValueConstructorProxy_		// false, types differ -> value() returns a proxy
-	>::Type TConstructor;
+    typedef typename If<
+        IsSameType<
+            typename Value<TIterator>::Type &,
+            typename Reference<TIterator>::Type
+        >::VALUE,
+    // THEN
+        ValueConstructor_,          // true,  types are equal
+    // ELSE
+        ValueConstructorProxy_      // false, types differ -> value() returns a proxy
+    >::Type TConstructor;
 
-	TConstructor::construct(it, param_);
+    TConstructor::construct(it, param_);
 }
 
 template <typename TIterator, typename TParam>
 inline void
 valueConstruct(TIterator it,
-			   TParam & param_,
-			   Move const & tag)
+               TParam & param_,
+               Move const & tag)
 {
     SEQAN_CHECKPOINT;
-	typedef typename If<
-		IsSameType<
-			typename Value<TIterator>::Type &,
-			typename Reference<TIterator>::Type
-		>::VALUE,
-	// THEN
-		ValueConstructor_,			// true,  types are equal
-	// ELSE
-		ValueConstructorProxy_		// false, types differ -> value() returns a proxy
-	>::Type TConstructor;
+    typedef typename If<
+        IsSameType<
+            typename Value<TIterator>::Type &,
+            typename Reference<TIterator>::Type
+        >::VALUE,
+    // THEN
+        ValueConstructor_,          // true,  types are equal
+    // ELSE
+        ValueConstructorProxy_      // false, types differ -> value() returns a proxy
+    >::Type TConstructor;
 
-	TConstructor::construct(it, param_, tag);
+    TConstructor::construct(it, param_, tag);
 }
 
 // ----------------------------------------------------------------------------
@@ -238,19 +238,19 @@ valueConstruct(TIterator it,
 // proxies from their value() function but references.
 struct ValueDestructor_ 
 {
-	template <typename TValue>
-	static inline void
-	_destruct(TValue * p)
-	{
-		p->~TValue();
-	}
+    template <typename TValue>
+    static inline void
+    _destruct(TValue * p)
+    {
+        p->~TValue();
+    }
 
-	template <typename TIterator>
-	static inline void
-	destruct(TIterator it)
-	{
-		_destruct(&value(it));
-	}
+    template <typename TIterator>
+    static inline void
+    destruct(TIterator it)
+    {
+        _destruct(&value(it));
+    }
 };
 
 // Helper code for destructing values behind iterators that return proxies
@@ -259,8 +259,8 @@ struct ValueDestructor_
 // TODO(holtgrew): These implementations are empty and to be overwritten. Should we have dynamic/static asserstions here?
 struct ValueDestructorProxy_ 
 {
-	template <typename TIterator>
-	static inline void destruct(TIterator) {}
+    template <typename TIterator>
+    static inline void destruct(TIterator) {}
 };
 
 /**
@@ -279,18 +279,18 @@ inline void
 valueDestruct(TIterator it)
 {
     SEQAN_CHECKPOINT;
-	typedef typename If<
-		IsSameType<
-			typename Value<TIterator>::Type &,
-			typename Reference<TIterator>::Type
-		>::VALUE,
-	// THEN
-		ValueDestructor_,			// true,  types are equal
-	// ELSE
-		ValueDestructorProxy_		// false, types differ -> value() returns a proxy
-	>::Type TDestructor;
+    typedef typename If<
+        IsSameType<
+            typename Value<TIterator>::Type &,
+            typename Reference<TIterator>::Type
+        >::VALUE,
+    // THEN
+        ValueDestructor_,           // true,  types are equal
+    // ELSE
+        ValueDestructorProxy_       // false, types differ -> value() returns a proxy
+    >::Type TDestructor;
 
-	TDestructor::destruct(it);
+    TDestructor::destruct(it);
 }
 
 // ----------------------------------------------------------------------------
@@ -325,20 +325,20 @@ _arrayConstructDefault(TIterator1 begin_,
                        TIterator2 end_)
 {
     SEQAN_CHECKPOINT;
-	while (begin_ != end_)
-	{
-		valueConstruct(begin_);
-		++begin_;
-	}
+    while (begin_ != end_)
+    {
+        valueConstruct(begin_);
+        ++begin_;
+    }
 }
 
 template<typename TIterator1, typename TIterator2>
 inline void 
 arrayConstruct(TIterator1 begin_, 
-			   TIterator2 end_)
+               TIterator2 end_)
 {
     SEQAN_CHECKPOINT;
-	_arrayConstructDefault(begin_, end_);
+    _arrayConstructDefault(begin_, end_);
 }
 
 template<typename TIterator1, typename TIterator2, typename TParam>
@@ -348,21 +348,21 @@ _arrayConstructDefault(TIterator1 begin_,
                        TParam const & param_)
 {
     SEQAN_CHECKPOINT;
-	while (begin_ != end_)
-	{
-		valueConstruct(begin_, param_);
-		++begin_;
-	}
+    while (begin_ != end_)
+    {
+        valueConstruct(begin_, param_);
+        ++begin_;
+    }
 }
 
 template<typename TIterator1, typename TIterator2, typename TParam>
 inline void 
 arrayConstruct(TIterator1 begin_, 
-			   TIterator2 end_, 
-			   TParam const & param_)
+               TIterator2 end_, 
+               TParam const & param_)
 {
     SEQAN_CHECKPOINT;
-	_arrayConstructDefault(begin_, end_, param_);
+    _arrayConstructDefault(begin_, end_, param_);
 }
 
 // ----------------------------------------------------------------------------
@@ -396,24 +396,24 @@ _arrayConstructCopyDefault(TSource1 source_begin,
                            TTarget target_begin)
 {
     SEQAN_CHECKPOINT;
-	while (source_begin != source_end)
-	{
+    while (source_begin != source_end)
+    {
         // NOTE(holtgrew): getValue() is used here since value() could return
         // a proxy!
-		valueConstruct(target_begin, getValue(source_begin));
-		++source_begin;
-		++target_begin;
-	}
+        valueConstruct(target_begin, getValue(source_begin));
+        ++source_begin;
+        ++target_begin;
+    }
 }
 
 template<typename TTarget, typename TSource1, typename TSource2>
 inline void 
 arrayConstructCopy(TSource1 source_begin, 
-				   TSource2 source_end, 
-				   TTarget target_begin)
+                   TSource2 source_end, 
+                   TTarget target_begin)
 {
     SEQAN_CHECKPOINT;
-	_arrayConstructCopyDefault(source_begin, source_end, target_begin);
+    _arrayConstructCopyDefault(source_begin, source_end, target_begin);
 }
 
 // ----------------------------------------------------------------------------
@@ -448,26 +448,26 @@ _arrayConstructMoveDefault(TSource1 source_begin,
                            TTarget target_begin)
 {
     SEQAN_CHECKPOINT;
-	while (source_begin < source_end)
-	{
+    while (source_begin < source_end)
+    {
         // NOTE(holtgrew): Using value() here, used to be getValue() but
         // cannot move from const reference or proxy.
-		// valueConstruct(target_begin, value(source_begin), Move());
+        // valueConstruct(target_begin, value(source_begin), Move());
         // TODO(holtgrew): We need a "has move constructor" metafunction to switch between move/copy constructing before we can use the line here.
-		valueConstruct(target_begin, value(source_begin));
-		++source_begin;
-		++target_begin;
-	}
+        valueConstruct(target_begin, value(source_begin));
+        ++source_begin;
+        ++target_begin;
+    }
 }
 
 template<typename TTarget, typename TSource1, typename TSource2>
 inline void 
 arrayConstructMove(TSource1 source_begin, 
-				   TSource2 source_end, 
-				   TTarget target_begin)
+                   TSource2 source_end, 
+                   TTarget target_begin)
 {
     SEQAN_CHECKPOINT;
-	_arrayConstructMoveDefault(source_begin, source_end, target_begin);
+    _arrayConstructMoveDefault(source_begin, source_end, target_begin);
 }
 
 // ----------------------------------------------------------------------------
@@ -493,20 +493,20 @@ _arrayDestructDefault(TIterator1 begin_,
                       TIterator2 end_)
 {
     SEQAN_CHECKPOINT;
-	while (begin_ != end_)
-	{
-		valueDestruct(begin_);
-		++begin_;
-	}
+    while (begin_ != end_)
+    {
+        valueDestruct(begin_);
+        ++begin_;
+    }
 }
 
 template<typename TIterator1, typename TIterator2>
 inline void 
 arrayDestruct(TIterator1 begin_, 
-			  TIterator2 end_)
+              TIterator2 end_)
 {
     SEQAN_CHECKPOINT;
-	_arrayDestructDefault(begin_, end_);
+    _arrayDestructDefault(begin_, end_);
 }
 
 // ----------------------------------------------------------------------------
@@ -534,11 +534,11 @@ arrayDestruct(TIterator1 begin_,
 template<typename TIterator1, typename TIterator2, typename TValue>
 inline void 
 arrayFill(TIterator1 begin_,
-		  TIterator2 end_, 
-		  TValue const & value)
+          TIterator2 end_, 
+          TValue const & value)
 {
     SEQAN_CHECKPOINT;
-	::std::fill_n(begin_, end_ - begin_, value);
+    ::std::fill_n(begin_, end_ - begin_, value);
 }
 
 // ----------------------------------------------------------------------------
@@ -569,17 +569,17 @@ _arrayCopyForwardDefault(TSource1 source_begin,
                          TTarget target_begin)
 {
     SEQAN_CHECKPOINT;
-	::std::copy(source_begin, source_end, target_begin);
+    ::std::copy(source_begin, source_end, target_begin);
 }
 
 template<typename TTarget, typename TSource1, typename TSource2>
 inline void 
 arrayCopyForward(TSource1 source_begin, 
-				 TSource2 source_end, 
-				 TTarget target_begin)
+                 TSource2 source_end, 
+                 TTarget target_begin)
 {
     SEQAN_CHECKPOINT;
-	_arrayCopyForwardDefault(source_begin, source_end, target_begin);	
+    _arrayCopyForwardDefault(source_begin, source_end, target_begin);   
 }
 
 // ----------------------------------------------------------------------------
@@ -597,7 +597,7 @@ arrayCopyForward(TSource1 source_begin,
 ..param.target:Iterator to the first element of the target array.
 ...text:The target capacity should be at least as long as the source range.
 ..remarks.note:Be careful if source and target range overlap, because in this case
-	some source elements could be accidently overwritten before they are moved.
+    some source elements could be accidently overwritten before they are moved.
 ..remarks.text:If source and target do not overlap, consider to use the function
 @Function.arrayCopyForward@ instead that is faster in some cases.
 ..remarks:If there is no need for the source elements to persist, consider to use 
@@ -611,21 +611,21 @@ arrayCopyForward(TSource1 source_begin,
 template<typename TTarget, typename TSource1, typename TSource2>
 inline void 
 _arrayCopyBackwardDefault(TSource1 source_begin, 
-						   TSource2 source_end, 
-						   TTarget target_begin)
+                           TSource2 source_end, 
+                           TTarget target_begin)
 {
     SEQAN_CHECKPOINT;
-	::std::copy_backward(source_begin, source_end, target_begin + (source_end - source_begin));
+    ::std::copy_backward(source_begin, source_end, target_begin + (source_end - source_begin));
 }
 
 template<typename TTarget, typename TSource1, typename TSource2>
 inline void 
 arrayCopyBackward(TSource1 source_begin, 
-				  TSource2 source_end, 
-				  TTarget target_begin)
+                  TSource2 source_end, 
+                  TTarget target_begin)
 {
     SEQAN_CHECKPOINT;
-	_arrayCopyBackwardDefault(source_begin, source_end, target_begin);
+    _arrayCopyBackwardDefault(source_begin, source_end, target_begin);
 }
 
 // ----------------------------------------------------------------------------
@@ -643,12 +643,12 @@ arrayCopyBackward(TSource1 source_begin,
 ..param.target:Iterator to the first element of the target range.
 ...text:The target capacity should be at least as long as the source range.
 ..remarks.text:If source and target range do not overlap, consider to use
-	@Function.arrayCopyForward@ instead to improve performance.
+    @Function.arrayCopyForward@ instead to improve performance.
 ..remarks:If there is no need for the source elements to persist, consider to use 
-	@Function.arrayMoveForward@ instead to improve performance.
+    @Function.arrayMoveForward@ instead to improve performance.
 ..DISABLED.remarks.note:Be careful if source and target range overlap and the size of the
-	source elements differ from the size of target elements, because in this case
-	some source elements could be accidently overwritten before they are moved.
+    source elements differ from the size of target elements, because in this case
+    some source elements could be accidently overwritten before they are moved.
 ..see:Function.arrayCopyForward
 ..see:Function.arrayCopyBackward
 ..see:Class.SimpleType
@@ -657,16 +657,16 @@ arrayCopyBackward(TSource1 source_begin,
 
 template<typename TTarget, typename TSource1, typename TSource2>
 inline void arrayCopy(TSource1 source_begin, 
-					  TSource2 source_end, 
-					  TTarget target_begin)
+                      TSource2 source_end, 
+                      TTarget target_begin)
 {
-	if ((void *) source_begin >= (void *) target_begin) {
+    if ((void *) source_begin >= (void *) target_begin) {
         SEQAN_CHECKPOINT;
-		arrayCopyForward(source_begin, source_end, target_begin);
-	} else {
+        arrayCopyForward(source_begin, source_end, target_begin);
+    } else {
         SEQAN_CHECKPOINT;
-		arrayCopyBackward(source_begin, source_end, target_begin);
-	}
+        arrayCopyBackward(source_begin, source_end, target_begin);
+    }
 }
 
 // ----------------------------------------------------------------------------
@@ -684,9 +684,9 @@ inline void arrayCopy(TSource1 source_begin,
 ..param.target:Iterator to the first element of the target array.
 ...text:The target capacity should be at least as long as the source range.
 ..remarks:The function possibly clears (but does not destroy) the source elements.
-	If source elements must persist, consider to use @Function.arrayCopyForward@ instead.
+    If source elements must persist, consider to use @Function.arrayCopyForward@ instead.
 ..remarks.note:Be careful if source and target range overlap, because in this case
-	some source elements could be accidently overwritten before they are moved.
+    some source elements could be accidently overwritten before they are moved.
 ..see:Function.arrayCopyForward
 ..see:Class.SimpleType
 ..include:seqan/basic.h
@@ -695,26 +695,26 @@ inline void arrayCopy(TSource1 source_begin,
 template<typename TTarget, typename TSource1, typename TSource2>
 inline void 
 _arrayMoveForwardDefault(TSource1 source_begin, 
-						  TSource2 source_end, 
-						  TTarget target_begin)
+                          TSource2 source_end, 
+                          TTarget target_begin)
 {
     SEQAN_CHECKPOINT;
-	while (source_begin != source_end)
-	{
-		move(*target_begin, *source_begin);
-		++source_begin;
-		++target_begin;
-	}
+    while (source_begin != source_end)
+    {
+        move(*target_begin, *source_begin);
+        ++source_begin;
+        ++target_begin;
+    }
 }
 
 template<typename TTarget, typename TSource1, typename TSource2>
 inline void 
 arrayMoveForward(TSource1 source_begin, 
-				 TSource2 source_end, 
-				 TTarget target_begin)
+                 TSource2 source_end, 
+                 TTarget target_begin)
 {
     SEQAN_CHECKPOINT;
-	_arrayMoveForwardDefault(source_begin, source_end, target_begin);	
+    _arrayMoveForwardDefault(source_begin, source_end, target_begin);   
 }
 
 // ----------------------------------------------------------------------------
@@ -732,9 +732,9 @@ arrayMoveForward(TSource1 source_begin,
 ..param.target:Iterator to the first element of the target array.
 ...text:The target capacity should be at least as long as the source range.
 ..remarks:The function possibly clears (but does not destroy) the source elements.
-	If source elements must persist, consider to use @Function.arrayCopyBackward@ instead.
+    If source elements must persist, consider to use @Function.arrayCopyBackward@ instead.
 ..remarks.note:Be careful if source and target range overlap, because in this case
-	some source elements could be accidently overwritten before they are moved.
+    some source elements could be accidently overwritten before they are moved.
 ..remarks.text:If source and target do not overlap, consider to use the function
 @Function.arrayMoveForward@ instead that is faster in some cases.
 ..remarks.note:The semantic of this function's argument $target$ differ from the arguments of $::std::copy_backward$.
@@ -751,22 +751,22 @@ _arrayMoveBackwardDefault(TSource1 source_begin,
                           TTarget target_begin)
 {
     SEQAN_CHECKPOINT;
-	target_begin += (source_end - source_begin);
-	while (source_end != source_begin) {
-		--source_end;
-		--target_begin;
-		move(*target_begin, *source_end);
-	}
+    target_begin += (source_end - source_begin);
+    while (source_end != source_begin) {
+        --source_end;
+        --target_begin;
+        move(*target_begin, *source_end);
+    }
 }
 
 template<typename TTarget, typename TSource1, typename TSource2>
 inline void 
 arrayMoveBackward(TSource1 source_begin, 
-				  TSource2 source_end, 
-				  TTarget target_begin)
+                  TSource2 source_end, 
+                  TTarget target_begin)
 {
     SEQAN_CHECKPOINT;
-	_arrayMoveBackwardDefault(source_begin, source_end, target_begin);
+    _arrayMoveBackwardDefault(source_begin, source_end, target_begin);
 }
 
 // ----------------------------------------------------------------------------
@@ -784,12 +784,12 @@ arrayMoveBackward(TSource1 source_begin,
 ..param.target:Iterator to the first element of the target range.
 ...text:The target capacity should be at least as long as the source range.
 ..remarks:The function possibly clears (but does not destroy) the source elements.
-	If source elements must persist, consider to use @Function.arrayCopy@ instead.
+    If source elements must persist, consider to use @Function.arrayCopy@ instead.
 ..remarks.text:If source and target range do not overlap, consider to use
-	@Function.arrayMoveForward@ instead to improve performance.
+    @Function.arrayMoveForward@ instead to improve performance.
 ..DISABLED.remarks.note:Be careful if source and target range overlap and the size of the
-	source elements differ from the size of target elements, because in this case
-	some source elements could be accidently overwritten before they are moved.
+    source elements differ from the size of target elements, because in this case
+    some source elements could be accidently overwritten before they are moved.
 ..remarks.note:Don't confuse this function with the standard $move$ function that
 resembles @Function.arrayCopy@.
 ..see:Function.arrayMoveForward
@@ -802,16 +802,16 @@ resembles @Function.arrayCopy@.
 template<typename TTarget, typename TSource1, typename TSource2>
 inline void 
 arrayMove(TSource1 source_begin, 
-		  TSource2 source_end,
-		  TTarget target_begin)
+          TSource2 source_end,
+          TTarget target_begin)
 {
-	if ((void *) source_begin >= (void *) target_begin) {
+    if ((void *) source_begin >= (void *) target_begin) {
         SEQAN_CHECKPOINT;
-		arrayMoveForward(source_begin, source_end, target_begin);
-	} else {
+        arrayMoveForward(source_begin, source_end, target_begin);
+    } else {
         SEQAN_CHECKPOINT;
-		arrayMoveBackward(source_begin, source_end, target_begin);
-	}
+        arrayMoveBackward(source_begin, source_end, target_begin);
+    }
 }
 
 // ----------------------------------------------------------------------------
@@ -849,50 +849,50 @@ void _arrayClearSpaceDefault(TIterator array_begin,
                              size_t keep_from, 
                              size_t move_to)
 {
-	if (keep_from == array_length) {
+    if (keep_from == array_length) {
         // In the simplest case, we only destruct elements.
-		arrayDestruct(array_begin, array_begin + array_length);
-		return;
-	}
+        arrayDestruct(array_begin, array_begin + array_length);
+        return;
+    }
 
     // Otherwise, we will perform the destruction & movement.
-	SEQAN_ASSERT_LT(keep_from, array_length);
-	if (keep_from == move_to) {
+    SEQAN_ASSERT_LT(keep_from, array_length);
+    if (keep_from == move_to) {
         // Case 1: No movement, just destroy elements.
-		arrayDestruct(array_begin, array_begin + move_to);
+        arrayDestruct(array_begin, array_begin + move_to);
         return;
-	} else if (keep_from < move_to) {
+    } else if (keep_from < move_to) {
         // Case 2: Move to the right.
-		if (array_length > move_to) {
+        if (array_length > move_to) {
             // Case 2a: Moving right of array_length, i.e. we can move a part
             // of the objects and have to move-construct the rest.
             SEQAN_CHECKPOINT;
-			size_t middle = array_length - (move_to - keep_from);
-			arrayConstructMove(array_begin + middle, array_begin + array_length, array_begin + array_length);
-			arrayMove(array_begin + keep_from, array_begin + middle, array_begin + move_to);
-			arrayDestruct(array_begin, array_begin + move_to);
-		} else {
+            size_t middle = array_length - (move_to - keep_from);
+            arrayConstructMove(array_begin + middle, array_begin + array_length, array_begin + array_length);
+            arrayMove(array_begin + keep_from, array_begin + middle, array_begin + move_to);
+            arrayDestruct(array_begin, array_begin + move_to);
+        } else {
             // Case 2b: We have to move-construct all target objects.
             SEQAN_CHECKPOINT;
-			arrayConstructMove(array_begin + keep_from, array_begin + array_length, array_begin + move_to);
-			arrayDestruct(array_begin, array_begin + array_length);
-		}
-	} else {
+            arrayConstructMove(array_begin + keep_from, array_begin + array_length, array_begin + move_to);
+            arrayDestruct(array_begin, array_begin + array_length);
+        }
+    } else {
         // Case 3: Move to the left.
         SEQAN_CHECKPOINT;
-		arrayMove(array_begin + keep_from, array_begin + array_length, array_begin + move_to);
-		arrayDestruct(array_begin, array_begin + move_to);
-		arrayDestruct(array_begin + array_length - (keep_from - move_to), array_begin + array_length);
-	}
+        arrayMove(array_begin + keep_from, array_begin + array_length, array_begin + move_to);
+        arrayDestruct(array_begin, array_begin + move_to);
+        arrayDestruct(array_begin + array_length - (keep_from - move_to), array_begin + array_length);
+    }
 }
 
 template <typename TIterator>
 void arrayClearSpace(TIterator array_begin, 
-					 size_t array_length, 
-					 size_t keep_from, 
-					 size_t move_to)
+                     size_t array_length, 
+                     size_t keep_from, 
+                     size_t move_to)
 {
-	_arrayClearSpaceDefault(array_begin, array_length, keep_from, move_to);
+    _arrayClearSpaceDefault(array_begin, array_length, keep_from, move_to);
 }
 
 // ----------------------------------------------------------------------------
@@ -906,7 +906,7 @@ _arrayConstructPointer(TIterator,
                        True)
 {
     SEQAN_CHECKPOINT;
-	//nothing to do
+    //nothing to do
 }
 
 template<typename TIterator>
@@ -916,48 +916,48 @@ _arrayConstructPointer(TIterator begin_,
                        False)
 {
     SEQAN_CHECKPOINT;
-	_arrayConstructDefault(begin_, end_);
+    _arrayConstructDefault(begin_, end_);
 }
 
 template<typename TValue>
 inline void 
 arrayConstruct(TValue * begin_, 
-			   TValue * end_)
+               TValue * end_)
 {
     SEQAN_CHECKPOINT;
-	_arrayConstructPointer(begin_, end_, typename IsSimple<TValue>::Type() );
+    _arrayConstructPointer(begin_, end_, typename IsSimple<TValue>::Type() );
 }
 
 template<typename TIterator, typename TParam>
 inline void 
 _arrayConstructPointer(TIterator begin_, 
-						TIterator end_, 
-						TParam const & param_,
-						True)
+                        TIterator end_, 
+                        TParam const & param_,
+                        True)
 {
     SEQAN_CHECKPOINT;
-	arrayFill(begin_, end_, param_);
+    arrayFill(begin_, end_, param_);
 }
 
 template<typename TIterator, typename TParam>
 inline void 
 _arrayConstructPointer(TIterator begin_, 
-						TIterator end_, 
-						TParam const & param_,
-						False)
+                        TIterator end_, 
+                        TParam const & param_,
+                        False)
 {
     SEQAN_CHECKPOINT;
-	_arrayConstructDefault(begin_, end_, param_);
+    _arrayConstructDefault(begin_, end_, param_);
 }
 
 template<typename TValue, typename TParam>
 inline void 
 arrayConstruct(TValue * begin_, 
-			   TValue * end_, 
-			   TParam const & param_)
+               TValue * end_, 
+               TParam const & param_)
 {
     SEQAN_CHECKPOINT;
-	_arrayConstructPointer(begin_, end_, param_, typename IsSimple<TValue>::Type());
+    _arrayConstructPointer(begin_, end_, param_, typename IsSimple<TValue>::Type());
 }
 
 // ----------------------------------------------------------------------------
@@ -967,43 +967,43 @@ arrayConstruct(TValue * begin_,
 template<typename TValueSource, typename TValueTarget>
 inline void 
 _arrayConstructCopyPointer(TValueSource * source_begin, 
-							TValueSource * source_end, 
-							TValueTarget * target_begin,
-							True)
+                            TValueSource * source_end, 
+                            TValueTarget * target_begin,
+                            True)
 {
     SEQAN_CHECKPOINT;
-	arrayCopyForward(source_begin, source_end, target_begin);
+    arrayCopyForward(source_begin, source_end, target_begin);
 }
 
 template<typename TValueSource, typename TValueTarget>
 inline void 
 _arrayConstructCopyPointer(TValueSource * source_begin, 
-							TValueSource * source_end, 
-							TValueTarget const* target_begin,
-							True)
+                            TValueSource * source_end, 
+                            TValueTarget const* target_begin,
+                            True)
 {
     SEQAN_CHECKPOINT;
-	arrayCopyForward(source_begin, source_end, const_cast<TValueTarget *>(target_begin));
+    arrayCopyForward(source_begin, source_end, const_cast<TValueTarget *>(target_begin));
 }
 
 template<typename TValueSource, typename TValueTarget>
 inline void 
 _arrayConstructCopyPointer(TValueSource * source_begin, 
-							TValueSource * source_end, 
-							TValueTarget * target_begin,
-							False)
+                            TValueSource * source_end, 
+                            TValueTarget * target_begin,
+                            False)
 {
     SEQAN_CHECKPOINT;
-	_arrayConstructCopyDefault(source_begin, source_end, target_begin);
+    _arrayConstructCopyDefault(source_begin, source_end, target_begin);
 }
 template<typename TValueSource, typename TValueTarget>
 inline void 
 arrayConstructCopy(TValueSource * source_begin, 
-				   TValueSource * source_end, 
-				   TValueTarget * target_begin)
+                   TValueSource * source_end, 
+                   TValueTarget * target_begin)
 {
     SEQAN_CHECKPOINT;
-	_arrayConstructCopyPointer(source_begin, source_end, target_begin, typename IsSimple<TValueTarget>::Type() );
+    _arrayConstructCopyPointer(source_begin, source_end, target_begin, typename IsSimple<TValueTarget>::Type() );
 }
 
 // ----------------------------------------------------------------------------
@@ -1013,33 +1013,33 @@ arrayConstructCopy(TValueSource * source_begin,
 template<typename TValue>
 inline void 
 _arrayConstructMovePointer(TValue * source_begin, 
-							TValue * source_end, 
-							TValue * target_begin,
-							True)
+                            TValue * source_end, 
+                            TValue * target_begin,
+                            True)
 {
     SEQAN_CHECKPOINT;
-	arrayMoveForward(source_begin, source_end, target_begin);
+    arrayMoveForward(source_begin, source_end, target_begin);
 }
 
 template<typename TValue>
 inline void 
 _arrayConstructMovePointer(TValue * source_begin, 
-							TValue * source_end, 
-							TValue * target_begin,
-							False)
+                            TValue * source_end, 
+                            TValue * target_begin,
+                            False)
 {
     SEQAN_CHECKPOINT;
-	_arrayConstructMoveDefault(source_begin, source_end, target_begin);
+    _arrayConstructMoveDefault(source_begin, source_end, target_begin);
 }
 
 template<typename TValue>
 inline void 
 arrayConstructMove(TValue * source_begin, 
-				   TValue * source_end, 
-				   TValue * target_begin)
+                   TValue * source_end, 
+                   TValue * target_begin)
 {
     SEQAN_CHECKPOINT;
-	_arrayConstructMovePointer(source_begin, source_end, target_begin, typename IsSimple<TValue>::Type() );
+    _arrayConstructMovePointer(source_begin, source_end, target_begin, typename IsSimple<TValue>::Type() );
 }
 
 // ----------------------------------------------------------------------------
@@ -1049,30 +1049,30 @@ arrayConstructMove(TValue * source_begin,
 template<typename TValue>
 inline void 
 _arrayDestructPointer(TValue * /*begin_*/, 
-					   TValue * /*end_*/,
-					   True)
+                       TValue * /*end_*/,
+                       True)
 {
     SEQAN_CHECKPOINT;
-	//do nothing
+    //do nothing
 }
 
 template<typename TValue>
 inline void 
 _arrayDestructPointer(TValue * begin_, 
-					   TValue * end_,
-					   False)
+                       TValue * end_,
+                       False)
 {
     SEQAN_CHECKPOINT;
-	_arrayDestructDefault(begin_, end_);
+    _arrayDestructDefault(begin_, end_);
 }
 
 template<typename TValue>
 inline void 
 arrayDestruct(TValue * begin_, 
-			  TValue * end_)
+              TValue * end_)
 {
     SEQAN_CHECKPOINT;
-	_arrayDestructPointer(begin_, end_, typename IsSimple<TValue>::Type() );
+    _arrayDestructPointer(begin_, end_, typename IsSimple<TValue>::Type() );
 }
 
 // ----------------------------------------------------------------------------
@@ -1090,65 +1090,65 @@ arrayDestruct(TValue * begin_,
 template<typename TValue>
 inline void 
 _arrayCopyForwardPointer(TValue * source_begin, 
-						  TValue * source_end, 
-						  TValue * target_begin,
-						  True)
+                          TValue * source_end, 
+                          TValue * target_begin,
+                          True)
 {
     SEQAN_CHECKPOINT;
-	::std::memmove(target_begin, source_begin, (source_end - source_begin) * sizeof(TValue));
+    ::std::memmove(target_begin, source_begin, (source_end - source_begin) * sizeof(TValue));
 }
 
 template<typename TValue>
 inline void 
 _arrayCopyForwardPointer(TValue * source_begin, 
-						  TValue * source_end, 
-						  TValue * target_begin,
-						  False)
+                          TValue * source_end, 
+                          TValue * target_begin,
+                          False)
 {
     SEQAN_CHECKPOINT;
-	_arrayCopyForwardDefault(source_begin, source_end, target_begin);
+    _arrayCopyForwardDefault(source_begin, source_end, target_begin);
 }
 
 template<typename TValue>
 inline void 
 arrayCopyForward(TValue * source_begin, 
-				 TValue * source_end, 
-				 TValue * target_begin)
+                 TValue * source_end, 
+                 TValue * target_begin)
 {
     SEQAN_CHECKPOINT;
-	_arrayCopyForwardPointer(source_begin, source_end, target_begin, typename IsSimple<TValue>::Type() );
+    _arrayCopyForwardPointer(source_begin, source_end, target_begin, typename IsSimple<TValue>::Type() );
 }
 
 template <typename TValue>
 inline void 
 _arrayCopyBackwardPointer(TValue * source_begin, 
-						   TValue * source_end, 
-						   TValue * target_begin,
-						   True)
+                           TValue * source_end, 
+                           TValue * target_begin,
+                           True)
 {
     SEQAN_CHECKPOINT;
-	::std::memmove(target_begin, source_begin, (source_end - source_begin) * sizeof(TValue));
+    ::std::memmove(target_begin, source_begin, (source_end - source_begin) * sizeof(TValue));
 }
 
 template <typename TValue>
 inline void 
 _arrayCopyBackwardPointer(TValue * source_begin, 
-						   TValue * source_end, 
-						   TValue * target_begin,
-						   False)
+                           TValue * source_end, 
+                           TValue * target_begin,
+                           False)
 {
     SEQAN_CHECKPOINT;
-	_arrayCopyBackwardDefault(source_begin, source_end, target_begin); 
+    _arrayCopyBackwardDefault(source_begin, source_end, target_begin); 
 }
 
 template<typename TValue>
 inline void 
 arrayCopyBackward(TValue * source_begin, 
-				  TValue * source_end, 
-				  TValue * target_begin)
+                  TValue * source_end, 
+                  TValue * target_begin)
 {
     SEQAN_CHECKPOINT;
-	_arrayCopyBackwardPointer(source_begin, source_end, target_begin, typename IsSimple<TValue>::Type() );
+    _arrayCopyBackwardPointer(source_begin, source_end, target_begin, typename IsSimple<TValue>::Type() );
 }
 
 // ----------------------------------------------------------------------------
@@ -1158,64 +1158,64 @@ arrayCopyBackward(TValue * source_begin,
 template<typename TValue>
 inline void 
 _arrayMoveForwardPointer(TValue * source_begin, 
-						  TValue * source_end, 
-						  TValue * target_begin,
-						  True)
+                          TValue * source_end, 
+                          TValue * target_begin,
+                          True)
 {
     SEQAN_CHECKPOINT;
-	::std::memmove(target_begin, source_begin, (source_end - source_begin) * sizeof(TValue));
+    ::std::memmove(target_begin, source_begin, (source_end - source_begin) * sizeof(TValue));
 }
 
 template<typename TValue>
 inline void 
 _arrayMoveForwardPointer(TValue * source_begin, 
-						  TValue * source_end, 
-						  TValue * target_begin,
-						  False)
+                          TValue * source_end, 
+                          TValue * target_begin,
+                          False)
 {
     SEQAN_CHECKPOINT;
-	_arrayMoveForwardDefault(source_begin, source_end, target_begin);
+    _arrayMoveForwardDefault(source_begin, source_end, target_begin);
 }
 
 template<typename TValue>
 inline void 
 arrayMoveForward(TValue * source_begin, 
-				 TValue * source_end, 
-				 TValue * target_begin)
+                 TValue * source_end, 
+                 TValue * target_begin)
 {
     SEQAN_CHECKPOINT;
-	_arrayMoveForwardPointer(source_begin, source_end, target_begin, typename IsSimple<TValue>::Type() );
+    _arrayMoveForwardPointer(source_begin, source_end, target_begin, typename IsSimple<TValue>::Type() );
 }
 
 template <typename TValue>
 inline void 
 _arrayMoveBackwardPointer(TValue * source_begin, 
-						   TValue * source_end, 
-						   TValue * target_begin,
-						   True)
+                           TValue * source_end, 
+                           TValue * target_begin,
+                           True)
 {
     SEQAN_CHECKPOINT;
-	::std::memmove(target_begin, source_begin, (source_end - source_begin) * sizeof(TValue));
+    ::std::memmove(target_begin, source_begin, (source_end - source_begin) * sizeof(TValue));
 }
 template <typename TValue>
 inline void 
 _arrayMoveBackwardPointer(TValue * source_begin, 
-						   TValue * source_end, 
-						   TValue * target_begin,
-						   False)
+                           TValue * source_end, 
+                           TValue * target_begin,
+                           False)
 {
     SEQAN_CHECKPOINT;
-	_arrayMoveBackwardDefault(source_begin, source_end, target_begin); 
+    _arrayMoveBackwardDefault(source_begin, source_end, target_begin); 
 }
 
 template<typename TValue>
 inline void 
 arrayMoveBackward(TValue * source_begin, 
-				  TValue * source_end, 
-				  TValue * target_begin)
+                  TValue * source_end, 
+                  TValue * target_begin)
 {
     SEQAN_CHECKPOINT;
-	_arrayMoveBackwardPointer(source_begin, source_end, target_begin, typename IsSimple<TValue>::Type() );
+    _arrayMoveBackwardPointer(source_begin, source_end, target_begin, typename IsSimple<TValue>::Type() );
 }
 
 // ----------------------------------------------------------------------------
@@ -1226,36 +1226,36 @@ arrayMoveBackward(TValue * source_begin,
 template <typename TValue>
 inline void 
 _arrayClearSpacePointer(TValue * array_begin, 
-						size_t array_length, 
-						size_t keep_from, 
-						size_t move_to,
-						True const & /*isSimple*/)
+                        size_t array_length, 
+                        size_t keep_from, 
+                        size_t move_to,
+                        True const & /*isSimple*/)
 {
-	if (keep_from == move_to) return;
+    if (keep_from == move_to) return;
     SEQAN_CHECKPOINT;
     // TODO(holtgrew): arrayCopy is more appropriate here since we are dealing with the IsSimple case.
-	arrayMove(array_begin + keep_from, array_begin + array_length, array_begin + move_to);
+    arrayMove(array_begin + keep_from, array_begin + array_length, array_begin + move_to);
 }
 
 // clearSpace() on non-simple type using pointers.
 template <typename TValue>
 inline void 
 _arrayClearSpacePointer(TValue * array_begin, 
-						size_t array_length, 
-						size_t keep_from, 
-						size_t move_to,
-						False const & /*isSimple*/)
+                        size_t array_length, 
+                        size_t keep_from, 
+                        size_t move_to,
+                        False const & /*isSimple*/)
 {
-	_arrayClearSpaceDefault(array_begin, array_length, keep_from, move_to);
+    _arrayClearSpaceDefault(array_begin, array_length, keep_from, move_to);
 }
 
 template <typename TValue>
 void arrayClearSpace(TValue * array_begin, 
-					 size_t array_length, 
-					 size_t keep_from, 
-					 size_t move_to)
+                     size_t array_length, 
+                     size_t keep_from, 
+                     size_t move_to)
 {
-	_arrayClearSpacePointer(array_begin, array_length, keep_from, move_to, typename IsSimple<TValue>::Type());
+    _arrayClearSpacePointer(array_begin, array_length, keep_from, move_to, typename IsSimple<TValue>::Type());
 }
 
 

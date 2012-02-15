@@ -55,19 +55,24 @@ struct LogNormal {};
 ..summary:Tag to specify that the given parameters are mu and sigma of the underlying normal distribution for lognormal distributions.
 ..cat:Random
 ..include:seqan/random.h
+..wiki:Tutorial/Randomness|Tutorial: Randomness
 ..see:Spec.Log-Normal Pdf
 ..see:Tag.MeanStdDev
 */
+
 struct MuSigma {};
+
 /**
 .Tag.MeanStdDev
 ..signature:MeanStdDev
 ..summary:Tag to specify that the given parameters are mean an standard deviation of the lognormal distribution.
 ..cat:Random
 ..include:seqan/random.h
+..wiki:Tutorial/Randomness|Tutorial: Randomness
 ..see:Spec.Log-Normal Pdf
 ..see:Tag.MuSigma
 */
+
 struct MeanStdDev {};
 
 // ===========================================================================
@@ -81,7 +86,9 @@ struct MeanStdDev {};
 ..remark:Note that you can construct this either with mu/sigma of the underlying normal distribution (default) or with the mean and standard deviation of the log-normal distribution.
 ..cat:Random
 ..include:seqan/random.h
+..wiki:Tutorial/Randomness|Tutorial: Randomness
 */
+
 template <>
 class Pdf<LogNormal>
 {

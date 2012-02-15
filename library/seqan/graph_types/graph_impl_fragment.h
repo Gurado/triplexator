@@ -42,7 +42,7 @@ namespace SEQAN_NAMESPACE_MAIN
 //////////////////////////////////////////////////////////////////////////////
 
 /**
-.Spec.ExactFragment:
+.Spec.ExactFragment
 ..cat:Alignments
 ..general:Class.Fragment
 ..summary:A type for ungapped, pairwise segment matches.
@@ -51,16 +51,17 @@ namespace SEQAN_NAMESPACE_MAIN
 ...metafunction:Metafunction.Size
 ..param.TSpec:The specializing type for the graph.
 ...metafunction:Metafunction.Spec
-..include:seqan/refinement.h
+..include:seqan/graph_types.h
 ..see:Spec.ExactReversableFragment
 */
+
 template<typename TSpec = Default>
 struct ExactFragment;	
 
 
 
 /**
-.Spec.ExactReversableFragment:
+.Spec.ExactReversableFragment
 ..cat:Alignments
 ..general:Class.Fragment
 ..summary:A type for ungapped, pairwise segment matches that may be in reverse orientation.
@@ -70,9 +71,10 @@ struct ExactFragment;
 ..param.TSpec:The specializing type for the graph.
 ...metafunction:Metafunction.Spec
 ..remarks:Compared to the @Spec.ExactFragment@ specialzing type of @Class.Fragment@, a @Spec.ExactReversableFragment@ stores an additional bool value to indicate whether a match is in reverse orientation or not.
-..include:seqan/refinement.h
+..include:seqan/graph_types.h
 ..see:Spec.ExactFragment
 */
+
 template<typename TSpec = Default>
 struct ExactReversableFragment;	
 
@@ -91,8 +93,20 @@ struct ExactReversableFragment;
 ...metafunction:Metafunction.Size
 ..param.TSpec:The specializing type.
 ...metafunction:Metafunction.Spec
-...XXdefault:@Spec.ExactFragment@
-..include:seqan/refinement.h
+...default:@Spec.ExactFragment@
+..include:seqan/graph_types.h
+..example:A small example using fragments.
+..example.code:
+// Construct fragment.
+unsigned seqId1 = 0, beg1 = 0, seqId2 = 32, beg2 = 42, len = 33;
+Fragment<> fragment(seqId1, beg1, seqId2, beg2, len);
+
+// Update fragment's properties.
+fragmentBegin(fragment, 0) = 10;
+fragmentBegin(fragment, 1) = 10;
+sequenceId(fragment, 0) = 33;
+sequenceId(fragment, 1) = 44;
+fragmentLength(fragment) += 42;
 */
 
 
@@ -123,22 +137,21 @@ struct Size<Fragment<TSize, TSpec> const> {
 
 template<typename TSize, typename TSpec>
 class Fragment<TSize, ExactFragment<TSpec> > {
- public:
-	 typedef typename Id<Fragment>::Type TId;
-	 TId seqId1;
-	 TSize begin1;
-	 TId seqId2;
-	 TSize begin2;
-	 TSize len;
+public:
+    typedef typename Id<Fragment>::Type TId;
+
+    TId seqId1;
+    TSize begin1;
+    TId seqId2;
+    TSize begin2;
+    TSize len;
   
-	 Fragment()	 {}
-
-
 /**
-.Memfunc.Fragment#Fragment:
-..class:Class.Fragment
+.Memfunc.ExactFragment#Fragment:
+..class:Spec.ExactFragment
 ..summary:Constructor.
-..signature:Fragment<TSize,TSpec>(seqId1, beg1, seqId2, beg2, len)
+..signature:Fragment()
+..signature:Fragment(seqId1, beg1, seqId2, beg2, len)
 ..param.seqId1:The id of the first sequence.
 ...type:Metafunction.Id
 ..param.beg1:The TSize begin position on the first sequence.
@@ -147,11 +160,12 @@ class Fragment<TSize, ExactFragment<TSpec> > {
 ..param.beg2:The TSize begin position on the second sequence.
 ..param.len:The TSize length of the segment match.
 */
-	 Fragment(TId sqId1, TSize beg1, TId sqId2, TSize beg2, TSize l) :
-	 seqId1(sqId1), begin1(beg1), seqId2(sqId2), begin2(beg2), len(l) 
-	 {
-		 SEQAN_CHECKPOINT
-	 }
+
+    Fragment() : seqId1(0), begin1(0), seqId2(0), begin2(0), len(0) {}
+
+    Fragment(TId sqId1, TSize beg1, TId sqId2, TSize beg2, TSize l) :
+            seqId1(sqId1), begin1(beg1), seqId2(sqId2), begin2(beg2), len(l) 
+    {}
 
 };
 
@@ -202,34 +216,43 @@ operator<(Fragment<TSize, ExactFragment<TSpec> > const & left,
 
 template<typename TSize, typename TSpec>
 class Fragment<TSize, ExactReversableFragment<TSpec> > {
- public:
-	 typedef typename Id<Fragment>::Type TId_;
-	 TId_ seqId1;
-	 TSize begin1;
-	 TId_ seqId2;
-	 TSize begin2;
-	 TSize len;
-	 bool reversed;
-  
-	 Fragment()	 {}
+public:
+    typedef typename Id<Fragment>::Type TId_;
 
-	 Fragment(TId_ sqId1, TSize beg1, TId_ sqId2, TSize beg2, TSize l) :
-	 seqId1(sqId1), begin1(beg1), seqId2(sqId2), begin2(beg2), len(l), reversed(false) 
-	 {
-		 SEQAN_CHECKPOINT
-	 }
+    TId_ seqId1;
+    TSize begin1;
+    TId_ seqId2;
+    TSize begin2;
+    TSize len;
+    bool reversed;
+
 /**
-.Memfunc.Fragment#Fragment:
+.Memfunc.ExactReversableFragment#Fragment:
 ..class:Spec.ExactReversableFragment
-..signature:Fragment<TSize,ExactReversableFragment<TSpec> >(seqId1, beg1, seqId2, beg2, len, reversed)
-..param.reversed:True if the segments match in reverse orientation, false otherwise.
+..summary:Constructor.
+..signature:Fragment()
+..signature:Fragment(seqId1, beg1, seqId2, beg2, len[, reversed])
+..param.seqId1:The id of the first sequence.
+...type:Metafunction.Id
+..param.beg1:The TSize begin position on the first sequence.
+..param.seqId2:The id of the second sequence.
+...type:Metafunction.Id
+..param.beg2:The TSize begin position on the second sequence.
+..param.len:The TSize length of the segment match.
+..param.reversed:$true$ if the segments match in reverse orientation, $false$ otherwise.
+...default:$false$
+...type:nolink:$bool$
 */
+    
+    Fragment() : seqId1(0), begin1(0), seqId2(0), begin2(0), len(0), reversed(false) {}
+    
+    Fragment(TId_ sqId1, TSize beg1, TId_ sqId2, TSize beg2, TSize l) :
+            seqId1(sqId1), begin1(beg1), seqId2(sqId2), begin2(beg2), len(l), reversed(false) 
+    {}
 	
- 	 Fragment(TId_ sqId1, TSize beg1, TId_ sqId2, TSize beg2, TSize l, bool rev) :
-	 seqId1(sqId1), begin1(beg1), seqId2(sqId2), begin2(beg2), len(l), reversed(rev) 
-	 {
-		 SEQAN_CHECKPOINT
-	 }
+    Fragment(TId_ sqId1, TSize beg1, TId_ sqId2, TSize beg2, TSize l, bool rev) :
+            seqId1(sqId1), begin1(beg1), seqId2(sqId2), begin2(beg2), len(l), reversed(rev) 
+    {}
 };
 
 template<typename TSize, typename TSpec>
@@ -312,23 +335,24 @@ label(Fragment<TSize, TSpec> const& f,
 ...remarks:Note that @Class.Fragment@ stores information about exactly two sequences which can be accessed with seqNum 0 or 1, but whose ids may differ from their seqNum.
 */
 template<typename TSize, typename TSpec, typename TVal>
-inline typename Id<Fragment<TSize, TSpec> >::Type
+inline typename Id<Fragment<TSize, TSpec> >::Type &
 sequenceId(Fragment<TSize, TSpec> const& f,
 		   TVal const seqId)
 {
 	SEQAN_CHECKPOINT
 	typedef typename Id<Fragment<TSize, TSpec> >::Type TId;
-	return ((TId) seqId == 0) ? f.seqId1 : f.seqId2;
+	return ((TId) seqId == 0) ? const_cast<TId &>(f.seqId1) : const_cast<TId &>(f.seqId2);
 }
 
 //////////////////////////////////////////////////////////////////////////////
 
 /**
 .Function.fragmentBegin:
-..signature:fragmentBegin(f,seqNum)
+..signature:fragmentBegin(f, seqId)
 ..param.f:A fragment.
 ...type:Class.Fragment
-..param.seqNum:The sequence number for which the begin position should be retrieved.
+..param.seqId:The sequence id for which the begin position should be retrieved.
+...remarks:Retrieve with @Function.sequenceId@.
 */
 template<typename TSize, typename TSpec, typename TVal>
 inline TSize&

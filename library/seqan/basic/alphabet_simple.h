@@ -83,29 +83,29 @@ public:
     // Members;  Have to be defined in class.
     // ------------------------------------------------------------------------
 
-	TValue value;
+    TValue value;
 
     // ------------------------------------------------------------------------
     // Constructors;  Have to be defined in class.
     // ------------------------------------------------------------------------
 
-	SimpleType() 
-	{
+    SimpleType() 
+    {
         SEQAN_CHECKPOINT;
-	}
+    }
 
-	SimpleType(SimpleType const & other)
-	{
+    SimpleType(SimpleType const & other)
+    {
         SEQAN_CHECKPOINT;
-		assign(*this, other);
-	}
+        assign(*this, other);
+    }
 
-	template <typename T> 
-	SimpleType(T const & other) 
-	{
+    template <typename T> 
+    SimpleType(T const & other) 
+    {
         SEQAN_CHECKPOINT;
-		assign(*this, other);
-	}
+        assign(*this, other);
+    }
 
     // ------------------------------------------------------------------------
     // Assignment Operator;  Have to be defined in class.
@@ -113,20 +113,20 @@ public:
 
     inline SimpleType &
     operator=(SimpleType const & other) 
-	{ 
+    { 
         SEQAN_CHECKPOINT;
-		assign(*this, other);
-		return *this;
-	}
+        assign(*this, other);
+        return *this;
+    }
 
-	template <typename T>
-	inline SimpleType &
+    template <typename T>
+    inline SimpleType &
     operator=(T const & other) 
-	{ 
+    { 
         SEQAN_CHECKPOINT;
-		assign(*this, other);
-		return *this;
-	}
+        assign(*this, other);
+        return *this;
+    }
 
     // ------------------------------------------------------------------------
     // Conversion Operators;  Have to be defined in class.
@@ -139,77 +139,77 @@ public:
     // This cannot be a template since it would conflict to the template
     // constructor.
 
-	operator __int64() const
-	{
+    operator __int64() const
+    {
         SEQAN_CHECKPOINT;
-		__int64 c;
-		assign(c, *this);
-		return c;
-	}
+        __int64 c;
+        assign(c, *this);
+        return c;
+    }
 
-	operator __uint64() const
-	{
+    operator __uint64() const
+    {
         SEQAN_CHECKPOINT;
-		__uint64 c;
-		assign(c, *this);
-		return c;
-	}
+        __uint64 c;
+        assign(c, *this);
+        return c;
+    }
 
-	operator int() const
-	{
+    operator int() const
+    {
         SEQAN_CHECKPOINT;
-		int c;
-		assign(c, *this);
-		return c;
-	}
+        int c;
+        assign(c, *this);
+        return c;
+    }
 
-	operator unsigned int() const
-	{
+    operator unsigned int() const
+    {
         SEQAN_CHECKPOINT;
-		unsigned int c;
-		assign(c, *this);
-		return c;
-	}
+        unsigned int c;
+        assign(c, *this);
+        return c;
+    }
 
-	operator short() const
-	{
+    operator short() const
+    {
         SEQAN_CHECKPOINT;
-		short c;
-		assign(c, *this);
-		return c;
-	}
+        short c;
+        assign(c, *this);
+        return c;
+    }
 
-	operator unsigned short() const
-	{
+    operator unsigned short() const
+    {
         SEQAN_CHECKPOINT;
-		unsigned short c;
-		assign(c, *this);
-		return c;
-	}
+        unsigned short c;
+        assign(c, *this);
+        return c;
+    }
 
-	operator char() const
-	{
+    operator char() const
+    {
         SEQAN_CHECKPOINT;
-		char c;
-		assign(c, *this);
-		return c;
-	}
+        char c;
+        assign(c, *this);
+        return c;
+    }
 
-	operator signed char() const
-	{
+    operator signed char() const
+    {
         SEQAN_CHECKPOINT;
-		signed char c;
-		assign(c, *this);
-		return c;
-	}
+        signed char c;
+        assign(c, *this);
+        return c;
+    }
 
-	operator unsigned char() const
-	{
+    operator unsigned char() const
+    {
         SEQAN_CHECKPOINT;
-		unsigned char c;
-		assign(c, *this);
-		return c;
-	}
+        unsigned char c;
+        assign(c, *this);
+        return c;
+    }
 };
 
 // ============================================================================
@@ -225,7 +225,7 @@ public:
 template <typename TValue, typename TSpec>
 struct IsSimple<SimpleType<TValue, TSpec> >
 {
-	typedef True Type;
+    typedef True Type;
 };
 
 // ----------------------------------------------------------------------------
@@ -237,13 +237,13 @@ struct IsSimple<SimpleType<TValue, TSpec> >
 template <typename TValue, typename TSpec>
 struct Value<SimpleType<TValue, TSpec> >
 {
-	typedef TValue Type;
+    typedef TValue Type;
 };
 
 template <typename TValue, typename TSpec>
 struct Value<SimpleType<TValue, TSpec> const>
 {
-	typedef TValue const Type;
+    typedef TValue const Type;
 };
 
 // ----------------------------------------------------------------------------
@@ -257,8 +257,8 @@ template <typename TValue, typename TSpec>
 inline SimpleType<TValue, TSpec>
 infimumValueImpl(SimpleType<TValue, TSpec> *)
 {
-	SEQAN_CHECKPOINT;
-	return MinValue<SimpleType<TValue, TSpec> >::VALUE;
+    SEQAN_CHECKPOINT;
+    return MinValue<SimpleType<TValue, TSpec> >::VALUE;
 }
 
 // ----------------------------------------------------------------------------
@@ -278,8 +278,8 @@ template <typename TValue, typename TSpec>
 inline SimpleType<TValue, TSpec>
 supremumValueImpl(SimpleType<TValue, TSpec> *)
 {
-	SEQAN_CHECKPOINT;
-	return MaxValue<SimpleType<TValue, TSpec> >::VALUE;
+    SEQAN_CHECKPOINT;
+    return MaxValue<SimpleType<TValue, TSpec> >::VALUE;
 }
 
 // ----------------------------------------------------------------------------
@@ -291,13 +291,13 @@ supremumValueImpl(SimpleType<TValue, TSpec> *)
 template <typename TValue, typename TSpec>
 struct Spec<SimpleType<TValue, TSpec> >
 {
-	typedef TSpec Type;
+    typedef TSpec Type;
 };
 
 template <typename TValue, typename TSpec>
 struct Spec<SimpleType<TValue, TSpec> const>
 {
-	typedef TSpec Type;
+    typedef TSpec Type;
 };
 
 // ----------------------------------------------------------------------------
@@ -308,15 +308,15 @@ struct Spec<SimpleType<TValue, TSpec> const>
 template <typename TValue, typename TSpec>
 struct Iterator<SimpleType<TValue, TSpec>, Standard>
 {
-	typedef SimpleType<TValue, TSpec> * Type;
-//	typedef Iter<SimpleType<TValue, TSpec>, SimpleIterator> * Type;
+    typedef SimpleType<TValue, TSpec> * Type;
+//  typedef Iter<SimpleType<TValue, TSpec>, SimpleIterator> * Type;
 };
 
 template <typename TValue, typename TSpec>
 struct Iterator<SimpleType<TValue, TSpec> const, Standard>
 {
-	typedef SimpleType<TValue, TSpec> const * Type;
-//	typedef Iter<SimpleType<TValue, TSpec> const, SimpleIterator> * Type;
+    typedef SimpleType<TValue, TSpec> const * Type;
+//  typedef Iter<SimpleType<TValue, TSpec> const, SimpleIterator> * Type;
 };
 
 // ----------------------------------------------------------------------------
@@ -353,13 +353,13 @@ struct CompareType;
 template <typename T>
 struct CompareType<T, T>
 {
-	typedef T Type;
+    typedef T Type;
 };
 
 template <typename TValue, typename TSpec, typename TRight>
 struct CompareType<SimpleType<TValue, TSpec>, TRight>
 {
-	typedef TRight Type;
+    typedef TRight Type;
 };
 
 // ============================================================================
@@ -377,12 +377,12 @@ struct CompareType<SimpleType<TValue, TSpec>, TRight>
 template <typename TTarget, typename T, typename TSourceValue, typename TSourceSpec>
 inline typename RemoveConst_<TTarget>::Type
 convertImpl(Convert<TTarget, T> const,
-			SimpleType<TSourceValue, TSourceSpec> const & source_)
+            SimpleType<TSourceValue, TSourceSpec> const & source_)
 {
     SEQAN_CHECKPOINT;
-	typename RemoveConst_<TTarget>::Type target_;
-	assign(target_, source_);
-	return target_;
+    typename RemoveConst_<TTarget>::Type target_;
+    assign(target_, source_);
+    return target_;
 }
 
 // ----------------------------------------------------------------------------
@@ -395,8 +395,8 @@ operator<<(TStream & stream,
            SimpleType<TValue, TSpec> const & data)
 {
     SEQAN_CHECKPOINT;
-	stream << convert<char>(data);
-	return stream;
+    stream << convert<char>(data);
+    return stream;
 }
 
 // ----------------------------------------------------------------------------
@@ -409,10 +409,10 @@ operator>>(TStream & stream,
            SimpleType<TValue, TSpec> & data)
 {
     SEQAN_CHECKPOINT;
-	char c;
-	stream >> c;
-	assign(data, c);
-	return stream;
+    char c;
+    stream >> c;
+    assign(data, c);
+    return stream;
 }
 
 // ----------------------------------------------------------------------------
@@ -425,37 +425,37 @@ operator>>(TStream & stream,
 template <typename TTargetValue, typename TTargetSpec, typename TSourceValue, typename TSourceSpec>
 inline void 
 assign(SimpleType<TTargetValue, TTargetSpec> & target, 
-	   SimpleType<TSourceValue, TSourceSpec> & source)
+       SimpleType<TSourceValue, TSourceSpec> & source)
 {
     SEQAN_CHECKPOINT;
-	target.value = source.value;
+    target.value = source.value;
 }
 
 template <typename TTargetValue, typename TTargetSpec, typename TSourceValue, typename TSourceSpec>
 inline void 
 assign(SimpleType<TTargetValue, TTargetSpec> & target, 
-	   SimpleType<TSourceValue, TSourceSpec> const & source)
+       SimpleType<TSourceValue, TSourceSpec> const & source)
 {
     SEQAN_CHECKPOINT;
-	target.value = source.value;
+    target.value = source.value;
 }
 
 template <typename TTargetValue, typename TTargetSpec, typename TSource>
 inline void 
 assign(SimpleType<TTargetValue, TTargetSpec> & target, 
-	   TSource & source)
+       TSource & source)
 {
     SEQAN_CHECKPOINT;
-	target.value = source;
+    target.value = source;
 }
 
 template <typename TTargetValue, typename TTargetSpec, typename TSource>
 inline void 
 assign(SimpleType<TTargetValue, TTargetSpec> & target, 
-	   TSource const & source)
+       TSource const & source)
 {
     SEQAN_CHECKPOINT;
-	target.value = source;
+    target.value = source;
 }
 
 // Assign Proxy to SimpleType 
@@ -465,19 +465,19 @@ assign(SimpleType<TTargetValue, TTargetSpec> & target,
 template <typename TTargetValue, typename TTargetSpec, typename TSourceSpec>
 inline void 
 assign(SimpleType<TTargetValue, TTargetSpec> & target, 
-	   Proxy<TSourceSpec> & source)
+       Proxy<TSourceSpec> & source)
 {
     SEQAN_CHECKPOINT;
-	target.value = getValue(source);
+    target.value = getValue(source);
 }
 
 template <typename TTargetValue, typename TTargetSpec, typename TSourceSpec>
 inline void 
 assign(SimpleType<TTargetValue, TTargetSpec> & target, 
-	   Proxy<TSourceSpec> const & source)
+       Proxy<TSourceSpec> const & source)
 {
     SEQAN_CHECKPOINT;
-	target.value = getValue(source);
+    target.value = getValue(source);
 }
 
 //INTEGRAL TYPES
@@ -486,163 +486,163 @@ assign(SimpleType<TTargetValue, TTargetSpec> & target,
 template <typename TValue, typename TSpec>
 inline void 
 assign(__int64 & c_target, 
-	   SimpleType<TValue, TSpec> & source)
+       SimpleType<TValue, TSpec> & source)
 {
     SEQAN_CHECKPOINT;
-	c_target = source.value;
+    c_target = source.value;
 }
 
 template <typename TValue, typename TSpec>
 inline void 
 assign(__int64 & c_target, 
-	   SimpleType<TValue, TSpec> const & source)
+       SimpleType<TValue, TSpec> const & source)
 {
     SEQAN_CHECKPOINT;
-	c_target = source.value;
+    c_target = source.value;
 }
 
 template <typename TValue, typename TSpec>
 inline void 
 assign(__uint64 & c_target, 
-	   SimpleType<TValue, TSpec> & source)
+       SimpleType<TValue, TSpec> & source)
 {
     SEQAN_CHECKPOINT;
-	c_target = source.value;
+    c_target = source.value;
 }
 
 template <typename TValue, typename TSpec>
 inline void 
 assign(__uint64 & c_target, 
-	   SimpleType<TValue, TSpec> const & source)
+       SimpleType<TValue, TSpec> const & source)
 {
     SEQAN_CHECKPOINT;
-	c_target = source.value;
+    c_target = source.value;
 }
 
 template <typename TValue, typename TSpec>
 inline void 
 assign(int & c_target, 
-	   SimpleType<TValue, TSpec> & source)
+       SimpleType<TValue, TSpec> & source)
 {
     SEQAN_CHECKPOINT;
-	c_target = source.value;
+    c_target = source.value;
 }
 
 template <typename TValue, typename TSpec>
 inline void 
 assign(int & c_target, 
-	   SimpleType<TValue, TSpec> const & source)
+       SimpleType<TValue, TSpec> const & source)
 {
     SEQAN_CHECKPOINT;
-	c_target = source.value;
+    c_target = source.value;
 }
 
 template <typename TValue, typename TSpec>
 inline void 
 assign(unsigned int & c_target, 
-	   SimpleType<TValue, TSpec> & source)
+       SimpleType<TValue, TSpec> & source)
 {
     SEQAN_CHECKPOINT;
-	c_target = source.value;
+    c_target = source.value;
 }
 
 template <typename TValue, typename TSpec>
 inline void 
 assign(unsigned int & c_target, 
-	   SimpleType<TValue, TSpec> const & source)
+       SimpleType<TValue, TSpec> const & source)
 {
     SEQAN_CHECKPOINT;
-	c_target = source.value;
+    c_target = source.value;
 }
 
 template <typename TValue, typename TSpec>
 inline void 
 assign(short & c_target, 
-	   SimpleType<TValue, TSpec> & source)
+       SimpleType<TValue, TSpec> & source)
 {
     SEQAN_CHECKPOINT;
-	c_target = source.value;
+    c_target = source.value;
 }
 
 template <typename TValue, typename TSpec>
 inline void 
 assign(short & c_target, 
-	   SimpleType<TValue, TSpec> const & source)
+       SimpleType<TValue, TSpec> const & source)
 {
     SEQAN_CHECKPOINT;
-	c_target = source.value;
+    c_target = source.value;
 }
 
 template <typename TValue, typename TSpec>
 inline void 
 assign(unsigned short & c_target, 
-	   SimpleType<TValue, TSpec> & source)
+       SimpleType<TValue, TSpec> & source)
 {
     SEQAN_CHECKPOINT;
-	c_target = source.value;
+    c_target = source.value;
 }
 
 template <typename TValue, typename TSpec>
 inline void 
 assign(unsigned short & c_target, 
-	   SimpleType<TValue, TSpec> const & source)
+       SimpleType<TValue, TSpec> const & source)
 {
     SEQAN_CHECKPOINT;
-	c_target = source.value;
+    c_target = source.value;
 }
 
 template <typename TValue, typename TSpec>
 inline void 
 assign(char & c_target, 
-	   SimpleType<TValue, TSpec> & source)
+       SimpleType<TValue, TSpec> & source)
 {
     SEQAN_CHECKPOINT;
-	c_target = source.value;
+    c_target = source.value;
 }
 
 template <typename TValue, typename TSpec>
 inline void 
 assign(char & c_target, 
-	   SimpleType<TValue, TSpec> const & source)
+       SimpleType<TValue, TSpec> const & source)
 {
     SEQAN_CHECKPOINT;
-	c_target = source.value;
+    c_target = source.value;
 }
 
 template <typename TValue, typename TSpec>
 inline void 
 assign(signed char & c_target, 
-	   SimpleType<TValue, TSpec> & source)
+       SimpleType<TValue, TSpec> & source)
 {
     SEQAN_CHECKPOINT;
-	c_target = source.value;
+    c_target = source.value;
 }
 
 template <typename TValue, typename TSpec>
 inline void 
 assign(signed char & c_target, 
-	   SimpleType<TValue, TSpec> const & source)
+       SimpleType<TValue, TSpec> const & source)
 {
     SEQAN_CHECKPOINT;
-	c_target = source.value;
+    c_target = source.value;
 }
 
 template <typename TValue, typename TSpec>
 inline void 
 assign(unsigned char & c_target, 
-	   SimpleType<TValue, TSpec> & source)
+       SimpleType<TValue, TSpec> & source)
 {
     SEQAN_CHECKPOINT;
-	c_target = source.value;
+    c_target = source.value;
 }
 
 template <typename TValue, typename TSpec>
 inline void 
 assign(unsigned char & c_target, 
-	   SimpleType<TValue, TSpec> const & source)
+       SimpleType<TValue, TSpec> const & source)
 {
     SEQAN_CHECKPOINT;
-	c_target = source.value;
+    c_target = source.value;
 }
 
 // ----------------------------------------------------------------------------
@@ -655,9 +655,9 @@ operator==(SimpleType<TValue, TSpec> const & left_,
            TRight const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef SimpleType<TValue, TSpec> TLeft;
-	typedef typename CompareType<TLeft, TRight>::Type TCompareType;
-	return convert<TCompareType>(left_) == convert<TCompareType>(right_);
+    typedef SimpleType<TValue, TSpec> TLeft;
+    typedef typename CompareType<TLeft, TRight>::Type TCompareType;
+    return convert<TCompareType>(left_) == convert<TCompareType>(right_);
 }
 
 template <typename TLeft, typename TValue, typename TSpec>
@@ -666,9 +666,9 @@ operator==(TLeft const & left_,
            SimpleType<TValue, TSpec> const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef SimpleType<TValue, TSpec> TRight;
-	typedef typename CompareType<TRight, TLeft>::Type TCompareType;
-	return convert<TCompareType>(left_) == convert<TCompareType>(right_);
+    typedef SimpleType<TValue, TSpec> TRight;
+    typedef typename CompareType<TRight, TLeft>::Type TCompareType;
+    return convert<TCompareType>(left_) == convert<TCompareType>(right_);
 }
 
 template <typename TLeftValue, typename TLeftSpec, typename TRightValue, typename TRightSpec>
@@ -677,10 +677,10 @@ operator==(SimpleType<TLeftValue, TLeftSpec> const & left_,
            SimpleType<TRightValue, TRightSpec> const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef SimpleType<TLeftValue, TLeftSpec> TLeft;
-	typedef SimpleType<TRightValue, TRightSpec> TRight;
-	typedef typename CompareType<TLeft, TRight>::Type TCompareType;
-	return convert<TCompareType>(left_) == convert<TCompareType>(right_);
+    typedef SimpleType<TLeftValue, TLeftSpec> TLeft;
+    typedef SimpleType<TRightValue, TRightSpec> TRight;
+    typedef typename CompareType<TLeft, TRight>::Type TCompareType;
+    return convert<TCompareType>(left_) == convert<TCompareType>(right_);
 }
 
 template <typename TValue, typename TSpec>
@@ -689,7 +689,7 @@ operator==(SimpleType<TValue, TSpec> const & left_,
            SimpleType<TValue, TSpec> const & right_)
 {
     SEQAN_CHECKPOINT;
-	return convert<TValue>(left_) == convert<TValue>(right_);
+    return convert<TValue>(left_) == convert<TValue>(right_);
 }
 
 template <typename TSpec, typename TValue, typename TSpec2>
@@ -698,10 +698,10 @@ operator==(Proxy<TSpec> const & left_,
            SimpleType<TValue, TSpec2> const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef Proxy<TSpec> TLeft;
-	typedef SimpleType<TValue, TSpec> TRight;
-	typedef typename CompareType<TLeft, TRight>::Type TCompareType;
-	return convert<TCompareType>(left_) == convert<TCompareType>(right_);
+    typedef Proxy<TSpec> TLeft;
+    typedef SimpleType<TValue, TSpec> TRight;
+    typedef typename CompareType<TLeft, TRight>::Type TCompareType;
+    return convert<TCompareType>(left_) == convert<TCompareType>(right_);
 }
 
 template <typename TSpec, typename TValue, typename TSpec2>
@@ -710,10 +710,10 @@ operator==(SimpleType<TValue, TSpec2> const & left_,
            Proxy<TSpec> const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef SimpleType<TValue, TSpec> TLeft;
-	typedef Proxy<TSpec> TRight;
-	typedef typename CompareType<TLeft, TRight>::Type TCompareType;
-	return convert<TCompareType>(left_) == convert<TCompareType>(right_);
+    typedef SimpleType<TValue, TSpec> TLeft;
+    typedef Proxy<TSpec> TRight;
+    typedef typename CompareType<TLeft, TRight>::Type TCompareType;
+    return convert<TCompareType>(left_) == convert<TCompareType>(right_);
 }
 
 // ----------------------------------------------------------------------------
@@ -726,9 +726,9 @@ operator!=(SimpleType<TValue, TSpec> const & left_,
            TRight const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef SimpleType<TValue, TSpec> TLeft;
-	typedef typename CompareType<TLeft, TRight>::Type TCompareType;
-	return convert<TCompareType>(left_) != convert<TCompareType>(right_);
+    typedef SimpleType<TValue, TSpec> TLeft;
+    typedef typename CompareType<TLeft, TRight>::Type TCompareType;
+    return convert<TCompareType>(left_) != convert<TCompareType>(right_);
 }
 
 template <typename TLeft, typename TValue, typename TSpec>
@@ -737,9 +737,9 @@ operator!=(TLeft const & left_,
            SimpleType<TValue, TSpec> const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef SimpleType<TValue, TSpec> TRight;
-	typedef typename CompareType<TRight, TLeft>::Type TCompareType;
-	return convert<TCompareType>(left_) != convert<TCompareType>(right_);
+    typedef SimpleType<TValue, TSpec> TRight;
+    typedef typename CompareType<TRight, TLeft>::Type TCompareType;
+    return convert<TCompareType>(left_) != convert<TCompareType>(right_);
 }
 
 template <typename TLeftValue, typename TLeftSpec, typename TRightValue, typename TRightSpec>
@@ -748,10 +748,10 @@ operator!=(SimpleType<TLeftValue, TLeftSpec> const & left_,
            SimpleType<TRightValue, TRightSpec> const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef SimpleType<TLeftValue, TLeftSpec> TLeft;
-	typedef SimpleType<TRightValue, TRightSpec> TRight;
-	typedef typename CompareType<TLeft, TRight>::Type TCompareType;
-	return convert<TCompareType>(left_) != convert<TCompareType>(right_);
+    typedef SimpleType<TLeftValue, TLeftSpec> TLeft;
+    typedef SimpleType<TRightValue, TRightSpec> TRight;
+    typedef typename CompareType<TLeft, TRight>::Type TCompareType;
+    return convert<TCompareType>(left_) != convert<TCompareType>(right_);
 }
 
 template <typename TValue, typename TSpec>
@@ -760,7 +760,7 @@ operator!=(SimpleType<TValue, TSpec> const & left_,
            SimpleType<TValue, TSpec> const & right_)
 {
     SEQAN_CHECKPOINT;
-	return convert<TValue>(left_) != convert<TValue>(right_);
+    return convert<TValue>(left_) != convert<TValue>(right_);
 }
 
 template <typename TSpec, typename TValue, typename TSpec2>
@@ -769,10 +769,10 @@ operator!=(Proxy<TSpec> const & left_,
            SimpleType<TValue, TSpec2> const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef Proxy<TSpec> TLeft;
-	typedef SimpleType<TValue, TSpec> TRight;
-	typedef typename CompareType<TLeft, TRight>::Type TCompareType;
-	return convert<TCompareType>(left_) != convert<TCompareType>(right_);
+    typedef Proxy<TSpec> TLeft;
+    typedef SimpleType<TValue, TSpec> TRight;
+    typedef typename CompareType<TLeft, TRight>::Type TCompareType;
+    return convert<TCompareType>(left_) != convert<TCompareType>(right_);
 }
 template <typename TSpec, typename TValue, typename TSpec2>
 inline bool
@@ -780,10 +780,10 @@ operator!=(SimpleType<TValue, TSpec2> const & left_,
            Proxy<TSpec> const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef SimpleType<TValue, TSpec> TLeft;
-	typedef Proxy<TSpec> TRight;
-	typedef typename CompareType<TLeft, TRight>::Type TCompareType;
-	return convert<TCompareType>(left_) != convert<TCompareType>(right_);
+    typedef SimpleType<TValue, TSpec> TLeft;
+    typedef Proxy<TSpec> TRight;
+    typedef typename CompareType<TLeft, TRight>::Type TCompareType;
+    return convert<TCompareType>(left_) != convert<TCompareType>(right_);
 }
 
 // ----------------------------------------------------------------------------
@@ -796,9 +796,9 @@ operator<(SimpleType<TValue, TSpec> const & left_,
           TRight const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef SimpleType<TValue, TSpec> TLeft;
-	typedef typename CompareType<TLeft, TRight>::Type TCompareType;
-	return convert<TCompareType>(left_) < convert<TCompareType>(right_);
+    typedef SimpleType<TValue, TSpec> TLeft;
+    typedef typename CompareType<TLeft, TRight>::Type TCompareType;
+    return convert<TCompareType>(left_) < convert<TCompareType>(right_);
 }
 
 template <typename TLeft, typename TValue, typename TSpec>
@@ -807,9 +807,9 @@ operator<(TLeft const & left_,
           SimpleType<TValue, TSpec> const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef SimpleType<TValue, TSpec> TRight;
-	typedef typename CompareType<TRight, TLeft>::Type TCompareType;
-	return convert<TCompareType>(left_) < convert<TCompareType>(right_);
+    typedef SimpleType<TValue, TSpec> TRight;
+    typedef typename CompareType<TRight, TLeft>::Type TCompareType;
+    return convert<TCompareType>(left_) < convert<TCompareType>(right_);
 }
 
 template <typename TLeftValue, typename TLeftSpec, typename TRightValue, typename TRightSpec>
@@ -818,10 +818,10 @@ operator<(SimpleType<TLeftValue, TLeftSpec> const & left_,
           SimpleType<TRightValue, TRightSpec> const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef SimpleType<TLeftValue, TLeftSpec> TLeft;
-	typedef SimpleType<TRightValue, TRightSpec> TRight;
-	typedef typename CompareType<TLeft, TRight>::Type TCompareType;
-	return convert<TCompareType>(left_) < convert<TCompareType>(right_);
+    typedef SimpleType<TLeftValue, TLeftSpec> TLeft;
+    typedef SimpleType<TRightValue, TRightSpec> TRight;
+    typedef typename CompareType<TLeft, TRight>::Type TCompareType;
+    return convert<TCompareType>(left_) < convert<TCompareType>(right_);
 }
 
 template <typename TValue, typename TSpec>
@@ -830,7 +830,7 @@ operator<(SimpleType<TValue, TSpec> const & left_,
           SimpleType<TValue, TSpec> const & right_)
 {
     SEQAN_CHECKPOINT;
-	return convert<TValue>(left_) < convert<TValue>(right_);
+    return convert<TValue>(left_) < convert<TValue>(right_);
 }
 
 template <typename TSpec, typename TValue, typename TSpec2>
@@ -839,10 +839,10 @@ operator<(Proxy<TSpec> const & left_,
           SimpleType<TValue, TSpec2> const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef Proxy<TSpec> TLeft;
-	typedef SimpleType<TValue, TSpec> TRight;
-	typedef typename CompareType<TLeft, TRight>::Type TCompareType;
-	return convert<TCompareType>(left_) < convert<TCompareType>(right_);
+    typedef Proxy<TSpec> TLeft;
+    typedef SimpleType<TValue, TSpec> TRight;
+    typedef typename CompareType<TLeft, TRight>::Type TCompareType;
+    return convert<TCompareType>(left_) < convert<TCompareType>(right_);
 }
 
 template <typename TSpec, typename TValue, typename TSpec2>
@@ -851,10 +851,10 @@ operator<(SimpleType<TValue, TSpec2> const & left_,
           Proxy<TSpec> const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef SimpleType<TValue, TSpec> TLeft;
-	typedef Proxy<TSpec> TRight;
-	typedef typename CompareType<TLeft, TRight>::Type TCompareType;
-	return convert<TCompareType>(left_) < convert<TCompareType>(right_);
+    typedef SimpleType<TValue, TSpec> TLeft;
+    typedef Proxy<TSpec> TRight;
+    typedef typename CompareType<TLeft, TRight>::Type TCompareType;
+    return convert<TCompareType>(left_) < convert<TCompareType>(right_);
 }
 
 // ----------------------------------------------------------------------------
@@ -867,9 +867,9 @@ operator<=(SimpleType<TValue, TSpec> const & left_,
            TRight const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef SimpleType<TValue, TSpec> TLeft;
-	typedef typename CompareType<TLeft, TRight>::Type TCompareType;
-	return convert<TCompareType>(left_) <= convert<TCompareType>(right_);
+    typedef SimpleType<TValue, TSpec> TLeft;
+    typedef typename CompareType<TLeft, TRight>::Type TCompareType;
+    return convert<TCompareType>(left_) <= convert<TCompareType>(right_);
 }
 
 template <typename TLeft, typename TValue, typename TSpec>
@@ -878,9 +878,9 @@ operator<=(TLeft const & left_,
            SimpleType<TValue, TSpec> const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef SimpleType<TValue, TSpec> TRight;
-	typedef typename CompareType<TRight, TLeft>::Type TCompareType;
-	return convert<TCompareType>(left_) <= convert<TCompareType>(right_);
+    typedef SimpleType<TValue, TSpec> TRight;
+    typedef typename CompareType<TRight, TLeft>::Type TCompareType;
+    return convert<TCompareType>(left_) <= convert<TCompareType>(right_);
 }
 
 template <typename TLeftValue, typename TLeftSpec, typename TRightValue, typename TRightSpec>
@@ -889,10 +889,10 @@ operator<=(SimpleType<TLeftValue, TLeftSpec> const & left_,
            SimpleType<TRightValue, TRightSpec> const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef SimpleType<TLeftValue, TLeftSpec> TLeft;
-	typedef SimpleType<TRightValue, TRightSpec> TRight;
-	typedef typename CompareType<TLeft, TRight>::Type TCompareType;
-	return convert<TCompareType>(left_) <= convert<TCompareType>(right_);
+    typedef SimpleType<TLeftValue, TLeftSpec> TLeft;
+    typedef SimpleType<TRightValue, TRightSpec> TRight;
+    typedef typename CompareType<TLeft, TRight>::Type TCompareType;
+    return convert<TCompareType>(left_) <= convert<TCompareType>(right_);
 }
 
 template <typename TValue, typename TSpec>
@@ -901,7 +901,7 @@ operator<=(SimpleType<TValue, TSpec> const & left_,
            SimpleType<TValue, TSpec> const & right_)
 {
     SEQAN_CHECKPOINT;
-	return convert<TValue>(left_) <= convert<TValue>(right_);
+    return convert<TValue>(left_) <= convert<TValue>(right_);
 }
 
 template <typename TSpec, typename TValue, typename TSpec2>
@@ -910,10 +910,10 @@ operator<=(Proxy<TSpec> const & left_,
            SimpleType<TValue, TSpec2> const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef Proxy<TSpec> TLeft;
-	typedef SimpleType<TValue, TSpec> TRight;
-	typedef typename CompareType<TLeft, TRight>::Type TCompareType;
-	return convert<TCompareType>(left_) <= convert<TCompareType>(right_);
+    typedef Proxy<TSpec> TLeft;
+    typedef SimpleType<TValue, TSpec> TRight;
+    typedef typename CompareType<TLeft, TRight>::Type TCompareType;
+    return convert<TCompareType>(left_) <= convert<TCompareType>(right_);
 }
 template <typename TSpec, typename TValue, typename TSpec2>
 inline bool
@@ -921,10 +921,10 @@ operator<=(SimpleType<TValue, TSpec2> const & left_,
            Proxy<TSpec> const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef SimpleType<TValue, TSpec> TLeft;
-	typedef Proxy<TSpec> TRight;
-	typedef typename CompareType<TLeft, TRight>::Type TCompareType;
-	return convert<TCompareType>(left_) <= convert<TCompareType>(right_);
+    typedef SimpleType<TValue, TSpec> TLeft;
+    typedef Proxy<TSpec> TRight;
+    typedef typename CompareType<TLeft, TRight>::Type TCompareType;
+    return convert<TCompareType>(left_) <= convert<TCompareType>(right_);
 }
 
 // ----------------------------------------------------------------------------
@@ -938,8 +938,8 @@ operator>(SimpleType<TValue, TSpec> const & left_,
 {
     SEQAN_CHECKPOINT
             typedef SimpleType<TValue, TSpec> TLeft;
-	typedef typename CompareType<TLeft, TRight>::Type TCompareType;
-	return convert<TCompareType>(left_) > convert<TCompareType>(right_);
+    typedef typename CompareType<TLeft, TRight>::Type TCompareType;
+    return convert<TCompareType>(left_) > convert<TCompareType>(right_);
 }
 
 template <typename TLeft, typename TValue, typename TSpec>
@@ -948,9 +948,9 @@ operator>(TLeft const & left_,
           SimpleType<TValue, TSpec> const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef SimpleType<TValue, TSpec> TRight;
-	typedef typename CompareType<TRight, TLeft>::Type TCompareType;
-	return convert<TCompareType>(left_) > convert<TCompareType>(right_);
+    typedef SimpleType<TValue, TSpec> TRight;
+    typedef typename CompareType<TRight, TLeft>::Type TCompareType;
+    return convert<TCompareType>(left_) > convert<TCompareType>(right_);
 }
 
 template <typename TLeftValue, typename TLeftSpec, typename TRightValue, typename TRightSpec>
@@ -959,10 +959,10 @@ operator>(SimpleType<TLeftValue, TLeftSpec> const & left_,
           SimpleType<TRightValue, TRightSpec> const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef SimpleType<TLeftValue, TLeftSpec> TLeft;
-	typedef SimpleType<TRightValue, TRightSpec> TRight;
-	typedef typename CompareType<TLeft, TRight>::Type TCompareType;
-	return convert<TCompareType>(left_) > convert<TCompareType>(right_);
+    typedef SimpleType<TLeftValue, TLeftSpec> TLeft;
+    typedef SimpleType<TRightValue, TRightSpec> TRight;
+    typedef typename CompareType<TLeft, TRight>::Type TCompareType;
+    return convert<TCompareType>(left_) > convert<TCompareType>(right_);
 }
 
 template <typename TValue, typename TSpec>
@@ -971,7 +971,7 @@ operator>(SimpleType<TValue, TSpec> const & left_,
           SimpleType<TValue, TSpec> const & right_)
 {
     SEQAN_CHECKPOINT;
-	return convert<TValue>(left_) > convert<TValue>(right_);
+    return convert<TValue>(left_) > convert<TValue>(right_);
 }
 
 template <typename TSpec, typename TValue, typename TSpec2>
@@ -980,10 +980,10 @@ operator>(Proxy<TSpec> const & left_,
           SimpleType<TValue, TSpec2> const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef Proxy<TSpec> TLeft;
-	typedef SimpleType<TValue, TSpec> TRight;
-	typedef typename CompareType<TLeft, TRight>::Type TCompareType;
-	return convert<TCompareType>(left_) > convert<TCompareType>(right_);
+    typedef Proxy<TSpec> TLeft;
+    typedef SimpleType<TValue, TSpec> TRight;
+    typedef typename CompareType<TLeft, TRight>::Type TCompareType;
+    return convert<TCompareType>(left_) > convert<TCompareType>(right_);
 }
 template <typename TSpec, typename TValue, typename TSpec2>
 inline bool
@@ -991,10 +991,10 @@ operator>(SimpleType<TValue, TSpec2> const & left_,
           Proxy<TSpec> const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef SimpleType<TValue, TSpec> TLeft;
-	typedef Proxy<TSpec> TRight;
-	typedef typename CompareType<TLeft, TRight>::Type TCompareType;
-	return convert<TCompareType>(left_) > convert<TCompareType>(right_);
+    typedef SimpleType<TValue, TSpec> TLeft;
+    typedef Proxy<TSpec> TRight;
+    typedef typename CompareType<TLeft, TRight>::Type TCompareType;
+    return convert<TCompareType>(left_) > convert<TCompareType>(right_);
 }
 
 // ----------------------------------------------------------------------------
@@ -1007,9 +1007,9 @@ operator>=(SimpleType<TValue, TSpec> const & left_,
            TRight const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef SimpleType<TValue, TSpec> TLeft;
-	typedef typename CompareType<TLeft, TRight>::Type TCompareType;
-	return convert<TCompareType>(left_) >= convert<TCompareType>(right_);
+    typedef SimpleType<TValue, TSpec> TLeft;
+    typedef typename CompareType<TLeft, TRight>::Type TCompareType;
+    return convert<TCompareType>(left_) >= convert<TCompareType>(right_);
 }
 
 template <typename TLeft, typename TValue, typename TSpec>
@@ -1018,9 +1018,9 @@ operator>=(TLeft const & left_,
            SimpleType<TValue, TSpec> const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef SimpleType<TValue, TSpec> TRight;
-	typedef typename CompareType<TRight, TLeft>::Type TCompareType;
-	return convert<TCompareType>(left_) >= convert<TCompareType>(right_);
+    typedef SimpleType<TValue, TSpec> TRight;
+    typedef typename CompareType<TRight, TLeft>::Type TCompareType;
+    return convert<TCompareType>(left_) >= convert<TCompareType>(right_);
 }
 
 template <typename TLeftValue, typename TLeftSpec, typename TRightValue, typename TRightSpec>
@@ -1029,10 +1029,10 @@ operator>=(SimpleType<TLeftValue, TLeftSpec> const & left_,
            SimpleType<TRightValue, TRightSpec> const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef SimpleType<TLeftValue, TLeftSpec> TLeft;
-	typedef SimpleType<TRightValue, TRightSpec> TRight;
-	typedef typename CompareType<TLeft, TRight>::Type TCompareType;
-	return convert<TCompareType>(left_) >= convert<TCompareType>(right_);
+    typedef SimpleType<TLeftValue, TLeftSpec> TLeft;
+    typedef SimpleType<TRightValue, TRightSpec> TRight;
+    typedef typename CompareType<TLeft, TRight>::Type TCompareType;
+    return convert<TCompareType>(left_) >= convert<TCompareType>(right_);
 }
 
 template <typename TValue, typename TSpec>
@@ -1041,7 +1041,7 @@ operator>=(SimpleType<TValue, TSpec> const & left_,
            SimpleType<TValue, TSpec> const & right_)
 {
     SEQAN_CHECKPOINT;
-	return convert<TValue>(left_) >= convert<TValue>(right_);
+    return convert<TValue>(left_) >= convert<TValue>(right_);
 }
 
 template <typename TSpec, typename TValue, typename TSpec2>
@@ -1050,10 +1050,10 @@ operator>=(Proxy<TSpec> const & left_,
            SimpleType<TValue, TSpec2> const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef Proxy<TSpec> TLeft;
-	typedef SimpleType<TValue, TSpec> TRight;
-	typedef typename CompareType<TLeft, TRight>::Type TCompareType;
-	return convert<TCompareType>(left_) >= convert<TCompareType>(right_);
+    typedef Proxy<TSpec> TLeft;
+    typedef SimpleType<TValue, TSpec> TRight;
+    typedef typename CompareType<TLeft, TRight>::Type TCompareType;
+    return convert<TCompareType>(left_) >= convert<TCompareType>(right_);
 }
 template <typename TSpec, typename TValue, typename TSpec2>
 inline bool
@@ -1061,10 +1061,10 @@ operator>=(SimpleType<TValue, TSpec2> const & left_,
            Proxy<TSpec> const & right_)
 {
     SEQAN_CHECKPOINT;
-	typedef SimpleType<TValue, TSpec> TLeft;
-	typedef Proxy<TSpec> TRight;
-	typedef typename CompareType<TLeft, TRight>::Type TCompareType;
-	return convert<TCompareType>(left_) >= convert<TCompareType>(right_);
+    typedef SimpleType<TValue, TSpec> TLeft;
+    typedef Proxy<TSpec> TRight;
+    typedef typename CompareType<TLeft, TRight>::Type TCompareType;
+    return convert<TCompareType>(left_) >= convert<TCompareType>(right_);
 }
 
 // ----------------------------------------------------------------------------
@@ -1075,8 +1075,8 @@ operator>=(SimpleType<TValue, TSpec2> const & left_,
 template<typename T_, typename TSpec> 
 inline bool
 lexLess(SimpleType<T_, TSpec> const &_Left, SimpleType<T_, TSpec> const &Right_)
-{	// return lexicographical _Left < Right_
-	typedef typename MakeUnsigned_<T_>::Type TUnsigned;
+{   // return lexicographical _Left < Right_
+    typedef typename MakeUnsigned_<T_>::Type TUnsigned;
     return (TUnsigned)(_Left.value) < (TUnsigned)(Right_.value);
 }
 
@@ -1088,17 +1088,17 @@ template <typename TValue, typename TSpec>
 inline SimpleType<TValue, TSpec> &
 operator++(SimpleType<TValue, TSpec> & me)
 {
-	++me.value;
-	return me;
+    ++me.value;
+    return me;
 }
 
 template <typename TValue, typename TSpec>
 inline SimpleType<TValue, TSpec>
 operator++(SimpleType<TValue, TSpec> & me, int)
 {
-	SimpleType<TValue, TSpec> dummy = me;
-	++me.value;
-	return dummy;
+    SimpleType<TValue, TSpec> dummy = me;
+    ++me.value;
+    return dummy;
 }
 
 // ----------------------------------------------------------------------------
@@ -1109,17 +1109,17 @@ template <typename TValue, typename TSpec>
 inline SimpleType<TValue, TSpec> &
 operator--(SimpleType<TValue, TSpec> & me)
 {
-	--me.value;
-	return me;
+    --me.value;
+    return me;
 }
 
 template <typename TValue, typename TSpec>
 inline SimpleType<TValue, TSpec>
 operator--(SimpleType<TValue, TSpec> & me, int)
 {
-	SimpleType<TValue, TSpec> dummy = me;
-	--me.value;
-	return dummy;
+    SimpleType<TValue, TSpec> dummy = me;
+    --me.value;
+    return dummy;
 }
 
 }  // namespace seqan

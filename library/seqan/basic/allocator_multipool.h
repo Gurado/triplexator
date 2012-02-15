@@ -74,60 +74,60 @@ typedef Allocator<MultiPool<Allocator<SimpleAlloc<Default> >, 0x100> > PoolAlloc
 template <typename TParentAllocator, unsigned int BLOCKING_LIMIT_>
 struct Allocator<MultiPool<TParentAllocator, BLOCKING_LIMIT_> >
 {
-	enum
-	{
-		BLOCKING_LIMIT = BLOCKING_LIMIT_,
-		GRANULARITY_BITS = 2,
-		BLOCKING_COUNT = BLOCKING_LIMIT >> GRANULARITY_BITS,
-		STORAGE_SIZE = 0xf80
-	};
+    enum
+    {
+        BLOCKING_LIMIT = BLOCKING_LIMIT_,
+        GRANULARITY_BITS = 2,
+        BLOCKING_COUNT = BLOCKING_LIMIT >> GRANULARITY_BITS,
+        STORAGE_SIZE = 0xf80
+    };
 
-	char * data_recycled_blocks [BLOCKING_COUNT];
-	char * data_current_begin [BLOCKING_COUNT];
-	char * data_current_free [BLOCKING_COUNT];
-	Holder<TParentAllocator> data_parent_allocator;
+    char * data_recycled_blocks [BLOCKING_COUNT];
+    char * data_current_begin [BLOCKING_COUNT];
+    char * data_current_free [BLOCKING_COUNT];
+    Holder<TParentAllocator> data_parent_allocator;
 
-	Allocator()
-	{
+    Allocator()
+    {
         SEQAN_CHECKPOINT;
         // TODO(holtrew): Why not SeqAn's memset? or use using?
-		::std::memset(data_recycled_blocks, 0, sizeof(data_recycled_blocks));
-		::std::memset(data_current_begin, 0, sizeof(data_current_begin));
-		::std::memset(data_current_free, 0, sizeof(data_current_free));
-	}
+        ::std::memset(data_recycled_blocks, 0, sizeof(data_recycled_blocks));
+        ::std::memset(data_current_begin, 0, sizeof(data_current_begin));
+        ::std::memset(data_current_free, 0, sizeof(data_current_free));
+    }
 
-	Allocator(TParentAllocator & parent_alloc)
-	{
+    Allocator(TParentAllocator & parent_alloc)
+    {
         SEQAN_CHECKPOINT;
         // TODO(holtrew): Why not SeqAn's memset? or use using?
-		::std::memset(data_recycled_blocks, 0, sizeof(data_recycled_blocks));
-		::std::memset(data_current_begin, 0, sizeof(data_current_begin));
-		::std::memset(data_current_free, 0, sizeof(data_current_free));
+        ::std::memset(data_recycled_blocks, 0, sizeof(data_recycled_blocks));
+        ::std::memset(data_current_begin, 0, sizeof(data_current_begin));
+        ::std::memset(data_current_free, 0, sizeof(data_current_free));
 
-		setValue(data_parent_allocator, parent_alloc);
-	}
+        setValue(data_parent_allocator, parent_alloc);
+    }
 
-	//Dummy copy
-	Allocator(Allocator const &)
-	{
+    //Dummy copy
+    Allocator(Allocator const &)
+    {
         // TODO(holtrew): Why not SeqAn's memset? or use using?
-		::std::memset(data_recycled_blocks, 0, sizeof(data_recycled_blocks));
-		::std::memset(data_current_begin, 0, sizeof(data_current_begin));
-		::std::memset(data_current_free, 0, sizeof(data_current_free));
-	}
+        ::std::memset(data_recycled_blocks, 0, sizeof(data_recycled_blocks));
+        ::std::memset(data_current_begin, 0, sizeof(data_current_begin));
+        ::std::memset(data_current_free, 0, sizeof(data_current_free));
+    }
 
-	inline Allocator &
-	operator=(Allocator const &)
-	{
-		clear(*this);
-		return *this;
-	}
+    inline Allocator &
+    operator=(Allocator const &)
+    {
+        clear(*this);
+        return *this;
+    }
 
-	~Allocator()
-	{
+    ~Allocator()
+    {
         SEQAN_CHECKPOINT;
-		clear(*this);
-	}
+        clear(*this);
+    }
 };
 
 // ============================================================================
@@ -147,7 +147,7 @@ inline TParentAllocator &
 parentAllocator(Allocator<MultiPool<TParentAllocator, BLOCKING_LIMIT> > & me)
 {
     SEQAN_CHECKPOINT;
-	return value(me.data_parent_allocator);
+    return value(me.data_parent_allocator);
 }
 
 // ----------------------------------------------------------------------------
@@ -159,11 +159,11 @@ void
 clear(Allocator<MultiPool<TParentAllocator, BLOCKING_LIMIT> > & me)
 {
     SEQAN_CHECKPOINT;
-	::std::memset(me.data_recycled_blocks, 0, sizeof(me.data_recycled_blocks));
-	::std::memset(me.data_current_begin, 0, sizeof(me.data_current_begin));
-	::std::memset(me.data_current_free, 0, sizeof(me.data_current_free));
+    ::std::memset(me.data_recycled_blocks, 0, sizeof(me.data_recycled_blocks));
+    ::std::memset(me.data_current_begin, 0, sizeof(me.data_current_begin));
+    ::std::memset(me.data_current_free, 0, sizeof(me.data_current_free));
 
-	clear(parentAllocator(me));
+    clear(parentAllocator(me));
 }
 
 // ----------------------------------------------------------------------------
@@ -173,21 +173,21 @@ clear(Allocator<MultiPool<TParentAllocator, BLOCKING_LIMIT> > & me)
 template <typename TParentAllocator, unsigned int BLOCKING_LIMIT>
 inline unsigned int
 _allocatorBlockNumber(Allocator<MultiPool<TParentAllocator, BLOCKING_LIMIT> > &,
-					  size_t size_)
+                      size_t size_)
 {
     SEQAN_CHECKPOINT;
-	typedef Allocator<MultiPool<TParentAllocator, BLOCKING_LIMIT> > TAllocator;
+    typedef Allocator<MultiPool<TParentAllocator, BLOCKING_LIMIT> > TAllocator;
 
-	SEQAN_ASSERT_GT(size_, 0u);
+    SEQAN_ASSERT_GT(size_, 0u);
 
-	if (size_ < BLOCKING_LIMIT)
-	{//blocks
-		return size_ >> TAllocator::GRANULARITY_BITS;
-	}
-	else
-	{//no blocking
-		return TAllocator::BLOCKING_COUNT;
-	}
+    if (size_ < BLOCKING_LIMIT)
+    {//blocks
+        return size_ >> TAllocator::GRANULARITY_BITS;
+    }
+    else
+    {//no blocking
+        return TAllocator::BLOCKING_COUNT;
+    }
 }
 
 // ----------------------------------------------------------------------------
@@ -197,41 +197,41 @@ _allocatorBlockNumber(Allocator<MultiPool<TParentAllocator, BLOCKING_LIMIT> > &,
 template <typename TParentAllocator, unsigned int BLOCKING_LIMIT, typename TValue, typename TSize, typename TUsage>
 inline void
 allocate(Allocator<MultiPool<TParentAllocator, BLOCKING_LIMIT> > & me, 
-		 TValue * & data,
-		 TSize count,
-		 Tag<TUsage> const & tag_)
+         TValue * & data,
+         TSize count,
+         Tag<TUsage> const & tag_)
 {
     SEQAN_CHECKPOINT;
-	typedef Allocator<MultiPool<TParentAllocator, BLOCKING_LIMIT> > TAllocator;
+    typedef Allocator<MultiPool<TParentAllocator, BLOCKING_LIMIT> > TAllocator;
 
-	size_t bytes_needed = count * sizeof(TValue);
-	char * ptr;
+    size_t bytes_needed = count * sizeof(TValue);
+    char * ptr;
 
-	unsigned int block_number =  _allocatorBlockNumber(me, bytes_needed);
-	if (block_number == TAllocator::BLOCKING_COUNT)
-	{//no blocking
-		return allocate(parentAllocator(me), data, count, tag_);
-	}
+    unsigned int block_number =  _allocatorBlockNumber(me, bytes_needed);
+    if (block_number == TAllocator::BLOCKING_COUNT)
+    {//no blocking
+        return allocate(parentAllocator(me), data, count, tag_);
+    }
 
-	bytes_needed = (block_number + 1) << TAllocator::GRANULARITY_BITS;
+    bytes_needed = (block_number + 1) << TAllocator::GRANULARITY_BITS;
 
-	if (me.data_recycled_blocks[block_number])
-	{//use recycled
-		ptr = me.data_recycled_blocks[block_number];
-		me.data_recycled_blocks[block_number] = * reinterpret_cast<char **>(ptr);
-	}
-	else
-	{//use new
-		ptr = me.data_current_free[block_number];
-		if (!ptr || (ptr + bytes_needed > me.data_current_begin[block_number] + TAllocator::STORAGE_SIZE))
-		{//not enough free space in current storage: allocate new
-			allocate(parentAllocator(me), ptr, (size_t) TAllocator::STORAGE_SIZE, tag_);
-			me.data_current_begin[block_number] = ptr;
-		}
-		me.data_current_free[block_number] = ptr + bytes_needed;
-	}
+    if (me.data_recycled_blocks[block_number])
+    {//use recycled
+        ptr = me.data_recycled_blocks[block_number];
+        me.data_recycled_blocks[block_number] = * reinterpret_cast<char **>(ptr);
+    }
+    else
+    {//use new
+        ptr = me.data_current_free[block_number];
+        if (!ptr || (ptr + bytes_needed > me.data_current_begin[block_number] + TAllocator::STORAGE_SIZE))
+        {//not enough free space in current storage: allocate new
+            allocate(parentAllocator(me), ptr, (size_t) TAllocator::STORAGE_SIZE, tag_);
+            me.data_current_begin[block_number] = ptr;
+        }
+        me.data_current_free[block_number] = ptr + bytes_needed;
+    }
 
-	data = reinterpret_cast<TValue *>(ptr);
+    data = reinterpret_cast<TValue *>(ptr);
 }
 
 // ----------------------------------------------------------------------------
@@ -241,26 +241,26 @@ allocate(Allocator<MultiPool<TParentAllocator, BLOCKING_LIMIT> > & me,
 template <typename TParentAllocator, unsigned int BLOCKING_LIMIT, typename TValue, typename TSize, typename TUsage>
 inline void 
 deallocate(Allocator<MultiPool<TParentAllocator, BLOCKING_LIMIT> > & me,
-		   TValue * data, 
-		   TSize count,
-		   Tag<TUsage> const tag_)
+           TValue * data, 
+           TSize count,
+           Tag<TUsage> const tag_)
 {
     SEQAN_CHECKPOINT;
-	typedef Allocator<MultiPool<TParentAllocator, BLOCKING_LIMIT> > TAllocator;
+    typedef Allocator<MultiPool<TParentAllocator, BLOCKING_LIMIT> > TAllocator;
 
-	size_t bytes_needed = count * sizeof(TValue);
+    size_t bytes_needed = count * sizeof(TValue);
 
-	unsigned int block_number = _allocatorBlockNumber(me, bytes_needed);
-	if (block_number == TAllocator::BLOCKING_COUNT)
-	{//no blocking
-		return deallocate(parentAllocator(me), data, count, tag_);
-	}
+    unsigned int block_number = _allocatorBlockNumber(me, bytes_needed);
+    if (block_number == TAllocator::BLOCKING_COUNT)
+    {//no blocking
+        return deallocate(parentAllocator(me), data, count, tag_);
+    }
 
-	bytes_needed = (block_number + 1) << TAllocator::GRANULARITY_BITS;
+    bytes_needed = (block_number + 1) << TAllocator::GRANULARITY_BITS;
 
-	//link in recycling list
-	*reinterpret_cast<char **>(data) = me.data_recycled_blocks[block_number];
-	me.data_recycled_blocks[block_number] = reinterpret_cast<char *>(data);
+    //link in recycling list
+    *reinterpret_cast<char **>(data) = me.data_recycled_blocks[block_number];
+    me.data_recycled_blocks[block_number] = reinterpret_cast<char *>(data);
 }
 
 }  // namespace seqan

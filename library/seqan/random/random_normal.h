@@ -57,7 +57,9 @@ struct Normal {};
 ..summary:Normal probability density function.
 ..cat:Random
 ..include:seqan/random.h
+..wiki:Tutorial/Randomness|Tutorial: Randomness
 */
+
 template <>
 class Pdf<Normal>
 {

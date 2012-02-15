@@ -67,74 +67,74 @@ namespace seqan {
 template <typename TValue>
 struct Holder<TValue, Simple>
 {
-	typedef typename Value<Holder>::Type THolderValue;
-	typedef typename Parameter_<THolderValue>::Type THolderParameter;
+    typedef typename Value<Holder>::Type THolderValue;
+    typedef typename Parameter_<THolderValue>::Type THolderParameter;
 
     // ------------------------------------------------------------------------
     // Members
     // ------------------------------------------------------------------------
 
-	mutable typename RemoveConst_<THolderValue>::Type data_value;
+    mutable typename RemoveConst_<THolderValue>::Type data_value;
 
     // ------------------------------------------------------------------------
     // Constructors
     // ------------------------------------------------------------------------
 
-	Holder() {}
+    Holder() {}
 
-	Holder(Holder & source_) : data_value(source_.data_value)
-	{
+    Holder(Holder & source_) : data_value(source_.data_value)
+    {
         SEQAN_CHECKPOINT;
-	}
+    }
 
-	Holder(Holder const & source_) : data_value(source_.data_value)
-	{
+    Holder(Holder const & source_) : data_value(source_.data_value)
+    {
         SEQAN_CHECKPOINT;
-	}
+    }
 
-	template <typename TSource>
+    template <typename TSource>
     explicit
-	Holder(TSource & value_) : data_value(value_)
-	{
+    Holder(TSource & value_) : data_value(value_)
+    {
         SEQAN_CHECKPOINT;
-	}
+    }
 
-	template <typename TSource>
+    template <typename TSource>
     explicit
-	Holder(TSource const & value_) : data_value(value_)
-	{
+    Holder(TSource const & value_) : data_value(value_)
+    {
         SEQAN_CHECKPOINT;
-	}
+    }
 
     // ------------------------------------------------------------------------
     // Assignment Operators;  Have to be defined in class.
     // ------------------------------------------------------------------------
 
-	Holder &
-	operator=(Holder const & source_)
-	{
+    Holder &
+    operator=(Holder const & source_)
+    {
         SEQAN_CHECKPOINT;
-		data_value = source_.data_value;
-		return *this;
-	}
+        data_value = source_.data_value;
+        return *this;
+    }
 
-	Holder &
-	operator=(THolderValue const & value_)
-	{
+    Holder &
+    operator=(THolderValue const & value_)
+    {
         SEQAN_CHECKPOINT;
-		data_value = value_;
-		return *this;
-	}
+        data_value = value_;
+        return *this;
+    }
 
     // ------------------------------------------------------------------------
     // Conversion Operators;  Have to be defined in class.
     // ------------------------------------------------------------------------
 
-	operator THolderParameter()
-	{
+    operator THolderParameter()
+    {
         SEQAN_CHECKPOINT;
-		return *data_value;
-	}
+        return *data_value;
+    }
 };
 
 #ifdef PLATFORM_WINDOWS_VS
@@ -159,7 +159,7 @@ inline bool
 empty(Holder<TValue, Simple> const & /*me*/)
 {
     SEQAN_CHECKPOINT;
-	return false;
+    return false;
 }
 
 // ----------------------------------------------------------------------------
@@ -171,7 +171,7 @@ inline bool
 dependent(Holder<TValue, Simple> const & /*me*/)
 {
     SEQAN_CHECKPOINT;
-	return false;
+    return false;
 }
 
 // ----------------------------------------------------------------------------
@@ -200,21 +200,21 @@ create(Holder<TValue, Simple> & /*me*/)
 template <typename TValue>
 inline void
 create(Holder<TValue, Simple> & me,
-	   TValue const & value_)
+       TValue const & value_)
 {
     SEQAN_CHECKPOINT;
-	me.data_value = value_;
+    me.data_value = value_;
 }
 
 template <typename TValue>
 inline void
 create(Holder<TValue, Simple> & me,
-	   TValue const & value_,
+       TValue const & value_,
        Move const &)
 {
     SEQAN_CHECKPOINT;
     // TODO(holtgrew): Real implementation once HasMoveConstructor metafunction is in place.
-	me.data_value = value_;
+    me.data_value = value_;
 }
 
 // ----------------------------------------------------------------------------
@@ -235,10 +235,10 @@ detach(Holder<TValue, Simple> & /*me*/)
 template <typename TValue>
 inline void
 setValue(Holder<TValue, Simple> & me,
-		 TValue const & value_)
+         TValue const & value_)
 {
     SEQAN_CHECKPOINT;
-	set(me.data_value, value_);
+    set(me.data_value, value_);
 }
 
 // ----------------------------------------------------------------------------
@@ -250,7 +250,7 @@ inline typename Reference<Holder<TValue, Simple> >::Type
 value(Holder<TValue, Simple> & me)
 {
     SEQAN_CHECKPOINT;
-	return me.data_value;
+    return me.data_value;
 }
 
 template <typename TValue>
@@ -258,7 +258,7 @@ inline typename Reference<Holder<TValue, Simple> const>::Type
 value(Holder<TValue, Simple> const & me)
 {
     SEQAN_CHECKPOINT;
-	return me.data_value;
+    return me.data_value;
 }
 
 // ----------------------------------------------------------------------------
@@ -270,7 +270,7 @@ inline typename GetValue<Holder<TValue, Simple> >::Type
 getValue(Holder<TValue, Simple> & me)
 {
     SEQAN_CHECKPOINT;
-	return me.data_value;
+    return me.data_value;
 }
 
 template <typename TValue>
@@ -278,7 +278,7 @@ inline typename GetValue<Holder<TValue, Simple> const>::Type
 getValue(Holder<TValue, Simple> const & me)
 {
     SEQAN_CHECKPOINT;
-	return me.data_value;
+    return me.data_value;
 }
 
 // ----------------------------------------------------------------------------
@@ -288,10 +288,10 @@ getValue(Holder<TValue, Simple> const & me)
 template <typename TValue, typename TSource>
 inline void
 assignValue(Holder<TValue, Simple> & me,
-			TSource const & value_)
+            TSource const & value_)
 {
     SEQAN_CHECKPOINT;
-	assign(me.data_value, value_);
+    assign(me.data_value, value_);
 }
 
 // ----------------------------------------------------------------------------
@@ -301,10 +301,10 @@ assignValue(Holder<TValue, Simple> & me,
 template <typename TValue, typename TSource>
 inline void
 moveValue(Holder<TValue, Simple> & me,
-		  TSource const & value_)
+          TSource const & value_)
 {
     SEQAN_CHECKPOINT;
-	move(me.data_value, value_);
+    move(me.data_value, value_);
 }
 
 // ----------------------------------------------------------------------------
@@ -314,10 +314,10 @@ moveValue(Holder<TValue, Simple> & me,
 template <typename TValue>
 inline void
 assign(Holder<TValue, Simple> & target_,
-	   Holder<TValue, Simple> const & source_)
+       Holder<TValue, Simple> const & source_)
 {
     SEQAN_CHECKPOINT;
-	assignValue(target_, source_);
+    assignValue(target_, source_);
 }
 
 }  // namespace seqan

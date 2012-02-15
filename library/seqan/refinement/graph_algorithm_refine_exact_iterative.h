@@ -318,6 +318,9 @@ SEQAN_CHECKPOINT
 		//get sequence, begin position and end position
 		TValue seq_id,begin_pos,end_pos;
 		_getSeqBeginAndEnd(*ali_it,seq_map,seq_id,begin_pos,end_pos,(TValue)0);
+        SEQAN_ASSERT_LEQ(end_pos, length(seqs[idToPosition(seqs, seq_id)]));
+        SEQAN_ASSERT(ali_it.data_container == ali_end.data_container);
+        SEQAN_ASSERT(ali_it.data_iterator != ali_end.data_iterator);
 		
 		//get the node represents the current interval (begin_pos until next_cut_pos or end_pos)
 		TVertexDescriptor act_knot = findVertex(ali_g,seq_id,begin_pos);
@@ -381,7 +384,6 @@ SEQAN_CHECKPOINT
 			//prepare for next interval
 			act_pos += fragmentLength(ali_g,act_knot);
 			act_knot = findVertex(ali_g,seq_id,act_pos);
-		
 		}
 		++ali_it;
 	}

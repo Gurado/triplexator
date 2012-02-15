@@ -153,7 +153,7 @@ inline T
 unknownValueImpl(T *)
 {
     SEQAN_CHECKPOINT;
-	return 'N';
+    return 'N';
 }
 
 // ----------------------------------------------------------------------------
@@ -175,8 +175,8 @@ inline T
 unknownValue()
 {
     SEQAN_CHECKPOINT;
-	static T * _tag = 0;
-	return unknownValueImpl(_tag);
+    static T * _tag = 0;
+    return unknownValueImpl(_tag);
 }
 
 }  // namespace seqan

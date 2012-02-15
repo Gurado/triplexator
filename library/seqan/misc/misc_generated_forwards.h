@@ -198,6 +198,21 @@ template <typename TElement , typename TSpec > class VectorSet_;       	// "/Use
 namespace seqan {
 
 //____________________________________________________________________________
+// Accumulator
+
+template <typename TValue, typename TSpec> struct Accumulator;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_accumulators.h"(80)
+
+//____________________________________________________________________________
+// Average_
+
+struct Average_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_accumulators.h"(58)
+
+//____________________________________________________________________________
+// Count_
+
+struct Count_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_accumulators.h"(64)
+
+//____________________________________________________________________________
 // DynamicWidth_
 
 struct DynamicWidth_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_long_word.h"(68)
@@ -213,9 +228,20 @@ template <typename TSpec> struct LongWord;       	// "/Users/f.buske/Documents/b
 template <typename TWord, typename TSpec> struct LongWordBitProxy;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_long_word.h"(57)
 
 //____________________________________________________________________________
+// Result
+
+template <typename T, typename TTag> struct Result;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_accumulators.h"(52)
+template <typename T, typename TTag > struct Result;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_accumulators.h"(156)
+
+//____________________________________________________________________________
 // StaticWidth
 
 template <unsigned LENGTH> struct StaticWidth;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_long_word.h"(73)
+
+//____________________________________________________________________________
+// Sum_
+
+struct Sum_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_accumulators.h"(61)
 
 //____________________________________________________________________________
 // UnionFind
@@ -262,6 +288,16 @@ typedef Tag<VectorSetIterator_> VectorSetIterator__;       	// "/Users/f.buske/D
 namespace seqan {
 
 //____________________________________________________________________________
+// Average
+
+typedef Tag<Average_> Average;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_accumulators.h"(59)
+
+//____________________________________________________________________________
+// Count
+
+typedef Tag<Count_> Count;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_accumulators.h"(65)
+
+//____________________________________________________________________________
 // DynamicWidth
 
 typedef Tag<DynamicWidth_> DynamicWidth;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_long_word.h"(69)
@@ -275,6 +311,11 @@ typedef Tag<_NativeWideWidth> NativeWideWidth;       	// "/Users/f.buske/Documen
 // NativeWidth
 
 typedef Tag<_NativeWidth> NativeWidth;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_long_word.h"(61)
+
+//____________________________________________________________________________
+// Sum
+
+typedef Tag<Sum_> Sum;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_accumulators.h"(62)
 
 } //namespace seqan
 
@@ -308,7 +349,7 @@ template <typename TStringSet, typename TId, typename TPos, typename TTraceValue
 //____________________________________________________________________________
 // _allMandatorySet
 
-inline bool _allMandatorySet(CommandLineParser const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1175)
+inline bool _allMandatorySet(CommandLineParser const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1187)
 
 //____________________________________________________________________________
 // _appendIntervalTreeNodeLists
@@ -319,8 +360,8 @@ template <typename TInterval> void _appendIntervalTreeNodeLists(IntervalTreeNode
 //____________________________________________________________________________
 // _assignOptionValue
 
-template <typename TErrorStream> bool _assignOptionValue(CommandLineParser & me, unsigned option_index, CharString const & val, unsigned argNo, TErrorStream & estream);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1201)
-template <typename TErrorStream> inline bool _assignOptionValue(CommandLineParser & me, unsigned option_index, CharString const & val, TErrorStream & estream);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1242)
+template <typename TErrorStream> bool _assignOptionValue(CommandLineParser & me, unsigned option_index, CharString const & val, unsigned argNo, TErrorStream & estream);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1213)
+template <typename TErrorStream> inline bool _assignOptionValue(CommandLineParser & me, unsigned option_index, CharString const & val, TErrorStream & estream);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1254)
 
 //____________________________________________________________________________
 // _calcIntervalTreeNodeCenterLeft
@@ -340,14 +381,14 @@ template <typename TIntervals> typename Value<typename Value<TIntervals>::Type>:
 //____________________________________________________________________________
 // _convertOptionValue
 
-inline bool _convertOptionValue(CommandLineOption const & opt, bool & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1465)
-inline bool _convertOptionValue(CommandLineOption const & opt, int & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1473)
-inline bool _convertOptionValue(CommandLineOption const & opt, unsigned int & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1481)
-inline bool _convertOptionValue(CommandLineOption const & opt, __int64 & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1489)
-inline bool _convertOptionValue(CommandLineOption const & opt, __uint64 & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1497)
-inline bool _convertOptionValue(CommandLineOption const & opt, float & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1505)
-inline bool _convertOptionValue(CommandLineOption const & opt, double & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1513)
-template <typename TObject> inline bool _convertOptionValue(CommandLineOption const & opt, TObject & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1522)
+inline bool _convertOptionValue(CommandLineOption const & opt, bool & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1477)
+inline bool _convertOptionValue(CommandLineOption const & opt, int & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1485)
+inline bool _convertOptionValue(CommandLineOption const & opt, unsigned int & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1493)
+inline bool _convertOptionValue(CommandLineOption const & opt, __int64 & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1501)
+inline bool _convertOptionValue(CommandLineOption const & opt, __uint64 & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1509)
+inline bool _convertOptionValue(CommandLineOption const & opt, float & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1517)
+inline bool _convertOptionValue(CommandLineOption const & opt, double & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1525)
+template <typename TObject> inline bool _convertOptionValue(CommandLineOption const & opt, TObject & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1534)
 
 //____________________________________________________________________________
 // _copyHeapElement
@@ -370,13 +411,13 @@ template <typename TText, typename TSpec> inline Holder<TText> const & _dataHost
 //____________________________________________________________________________
 // _getOptionValue
 
-inline CharString const & _getOptionValue(CommandLineParser const & me, unsigned option_index, unsigned argNo);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1445)
-inline CharString const & _getOptionValue(CommandLineParser const & me, unsigned option_index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1457)
+inline CharString const & _getOptionValue(CommandLineParser const & me, unsigned option_index, unsigned argNo);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1457)
+inline CharString const & _getOptionValue(CommandLineParser const & me, unsigned option_index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1469)
 
 //____________________________________________________________________________
 // _getOptionValues
 
-inline String<CharString> const & _getOptionValues(CommandLineParser const & me, unsigned option_index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1435)
+inline String<CharString> const & _getOptionValues(CommandLineParser const & me, unsigned option_index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1447)
 
 //____________________________________________________________________________
 // _greater_compI2_ITree
@@ -411,7 +452,7 @@ template <typename TIntervals, typename TIntervalPointers> void _makePointerInte
 //____________________________________________________________________________
 // _parseAppName
 
-inline CharString _parseAppName(CharString const & candidate);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1185)
+inline CharString _parseAppName(CharString const & candidate);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1197)
 
 //____________________________________________________________________________
 // _printContig
@@ -510,7 +551,7 @@ template <typename TValue, typename TLess> inline void adjustTop (PriorityType<T
 //____________________________________________________________________________
 // argumentCount
 
-inline Size<String<CharString> >::Type argumentCount(CommandLineParser const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1722)
+inline Size<String<CharString> >::Type argumentCount(CommandLineParser const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1734)
 
 //____________________________________________________________________________
 // argumentText
@@ -629,12 +670,12 @@ template <typename T> inline T geomRand();       	// "/Users/f.buske/Documents/b
 //____________________________________________________________________________
 // getArgumentValue
 
-inline CharString const & getArgumentValue(CommandLineParser const & me, unsigned position);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1684)
+inline CharString const & getArgumentValue(CommandLineParser const & me, unsigned position);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1696)
 
 //____________________________________________________________________________
 // getArgumentValues
 
-inline String<CharString> const & getArgumentValues(CommandLineParser const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1705)
+inline String<CharString> const & getArgumentValues(CommandLineParser const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1717)
 
 //____________________________________________________________________________
 // getCargo
@@ -651,24 +692,24 @@ template <typename TValue, typename TCargo> TValue getLeftBoundary(PointAndCargo
 //____________________________________________________________________________
 // getOptionValueLong
 
-template <typename TValue> inline bool getOptionValueLong(CommandLineParser & me, CharString const & longName, unsigned argNo, TValue & val);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1617)
-template <typename TValue> inline bool getOptionValueLong(CommandLineParser & me,CharString const & longName, TValue & val);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1635)
+template <typename TValue> inline bool getOptionValueLong(CommandLineParser & me, CharString const & longName, unsigned argNo, TValue & val);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1629)
+template <typename TValue> inline bool getOptionValueLong(CommandLineParser & me,CharString const & longName, TValue & val);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1647)
 
 //____________________________________________________________________________
 // getOptionValueShort
 
-template <typename TValue> inline bool getOptionValueShort(CommandLineParser & me, CharString const & shortName, unsigned argNo, TValue & val);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1547)
-template <typename TValue> inline bool getOptionValueShort(CommandLineParser & me, CharString const & shortName, TValue & val);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1565)
+template <typename TValue> inline bool getOptionValueShort(CommandLineParser & me, CharString const & shortName, unsigned argNo, TValue & val);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1559)
+template <typename TValue> inline bool getOptionValueShort(CommandLineParser & me, CharString const & shortName, TValue & val);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1577)
 
 //____________________________________________________________________________
 // getOptionValuesLong
 
-inline String<CharString> const & getOptionValuesLong(CommandLineParser & me, CharString const & longName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1653)
+inline String<CharString> const & getOptionValuesLong(CommandLineParser & me, CharString const & longName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1665)
 
 //____________________________________________________________________________
 // getOptionValuesShort
 
-inline String<CharString> const & getOptionValuesShort(CommandLineParser & me,CharString const & shortName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1583)
+inline String<CharString> const & getOptionValuesShort(CommandLineParser & me,CharString const & shortName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1595)
 
 //____________________________________________________________________________
 // getRightBoundary
@@ -759,7 +800,7 @@ inline bool isOptionMandatory(CommandLineOption const & me);       	// "/Users/f
 //____________________________________________________________________________
 // isSetLong
 
-inline bool isSetLong(CommandLineParser & me,CharString const & longName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1163)
+inline bool isSetLong(CommandLineParser & me,CharString const & longName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1169)
 
 //____________________________________________________________________________
 // isSetShort
@@ -877,8 +918,8 @@ template <typename TSet> inline bool operator==(Iter<TSet, VectorSetIterator__> 
 //____________________________________________________________________________
 // parse
 
-template <typename TErrorStream> bool parse(CommandLineParser & me, int argc, const char *argv[], TErrorStream & estream);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1265)
-inline bool parse(CommandLineParser & me, int argc, const char *argv[]);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1426)
+template <typename TErrorStream> bool parse(CommandLineParser & me, int argc, const char *argv[], TErrorStream & estream);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1277)
+inline bool parse(CommandLineParser & me, int argc, const char *argv[]);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1438)
 
 //____________________________________________________________________________
 // pop
@@ -997,8 +1038,14 @@ template <typename TStream> inline void write(TStream & target, CommandLineOptio
 namespace seqan {
 
 //____________________________________________________________________________
+// average
+
+template <typename TValue> inline typename Result<Accumulator<TValue, Average>, Average>::Type average(Accumulator<TValue, Average> const & acc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_accumulators.h"(264)
+
+//____________________________________________________________________________
 // clear
 
+template <typename TValue> inline void clear(Accumulator<TValue, Average> & accumulator);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_accumulators.h"(228)
 template <typename TValue> inline void clear(UnionFind<TValue> & unionFind);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_union_find.h"(157)
 
 //____________________________________________________________________________
@@ -1010,6 +1057,11 @@ template <typename TWord> inline void clearBit(TWord & word, unsigned index);   
 // clearBits
 
 template <typename TWord> inline void clearBits(TWord & word);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_bit_twiddling.h"(170)
+
+//____________________________________________________________________________
+// count
+
+template <typename TValue> inline typename Result<Accumulator<TValue, Average>, Count>::Type count(Accumulator<TValue, Average> const & acc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_accumulators.h"(311)
 
 //____________________________________________________________________________
 // findSet
@@ -1136,6 +1188,11 @@ template <unsigned LENGTH> LongWord<StaticWidth<LENGTH> > & operator|=(LongWord<
 LongWord<DynamicWidth> & operator|=(LongWord<DynamicWidth> & a, LongWord<DynamicWidth> const & b);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_long_word.h"(683)
 
 //____________________________________________________________________________
+// push
+
+template <typename TValue, typename TValue2> inline void push(Accumulator<TValue, Average> & acc, TValue2 value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_accumulators.h"(240)
+
+//____________________________________________________________________________
 // reserve
 
 template <typename TValue, typename TSize, typename TTag> inline typename Size<UnionFind<TValue> >::Type reserve(UnionFind<TValue> & unionFind, TSize const & newSize, TTag const & tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_union_find.h"(187)
@@ -1166,6 +1223,11 @@ template <typename TWord> inline void setBit(TWord & word, unsigned index);     
 // setBitTo
 
 template <typename TWord> inline void setBitTo(TWord & word, unsigned index, bool value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_bit_twiddling.h"(87)
+
+//____________________________________________________________________________
+// sum
+
+template <typename TValue> inline typename Result<Accumulator<TValue, Average>, Sum>::Type sum(Accumulator<TValue, Average> const & acc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_accumulators.h"(289)
 
 } //namespace seqan
 //////////////////////////////////////////////////////////////////////////////

@@ -1138,9 +1138,15 @@ version(CommandLineParser const & me)
 inline bool
 isSetShort(CommandLineParser & me, CharString const & shortName)
 {
-    if (!hasKey(me.shortNameMap, shortName))
-		return false; // this option does not exist
-
+	if (!hasOptionShort(me, shortName))
+	{
+		_streamWrite(std::cerr, me.appName);
+		_streamWrite(std::cerr, ": \'");
+		_streamWrite(std::cerr, shortName);
+		_streamWrite(std::cerr, "\' is not an option\n");
+		return false;
+	}
+	
 	// if value != "" -> value was set
 	return !empty(me.optionMap[cargo(me.shortNameMap, shortName)].value);
 }
@@ -1161,8 +1167,14 @@ isSetShort(CommandLineParser & me, CharString const & shortName)
 inline bool
 isSetLong(CommandLineParser & me,CharString const & longName)
 {
-    if (!hasKey(me.longNameMap, longName))
-		return false; // this option does not exist
+	if (!hasOptionLong(me, longName))
+	{
+		_streamWrite(std::cerr, me.appName);
+		_streamWrite(std::cerr, ": \'");
+		_streamWrite(std::cerr, longName);
+		_streamWrite(std::cerr, "\' is not an option\n");
+		return false;
+	}
 
 	// if value != "" -> value was set
 	return !empty(me.optionMap[cargo(me.longNameMap, longName)].value);
@@ -1403,7 +1415,7 @@ parse(CommandLineParser & me, int argc, const char *argv[], TErrorStream & estre
             appendValue(me.arguments,argv[i] );
         }
     }
-	if (isSetLong(me, "version"))
+	if (hasOptionLong(me, "version") && isSetLong(me, "version"))
 	{
 		version(me, estream);
         return false;

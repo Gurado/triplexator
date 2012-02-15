@@ -1293,7 +1293,7 @@ fragmentLength(Graph<Alignment<TStringSet, TCargo, TSpec> > const& g,
 ...type:Spec.Alignment Graph
 ..param.id:A sequence id.
 ..param.pos:A position.
-..returns:The vertex covering the given position on the specified sequence.
+..returns:The vertex covering the given position on the specified sequence, $getNil<TVertexDescriptor>()$ if none could be found.
 ..include:seqan/refinement.h
 */
 template<typename TStringSet, typename TCargo, typename TSpec, typename TSeqId, typename TPos> 

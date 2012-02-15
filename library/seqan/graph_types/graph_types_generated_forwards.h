@@ -114,17 +114,17 @@ template <typename T> struct EdgeType;       	// "/Users/f.buske/Documents/biosi
 //____________________________________________________________________________
 // ExactFragment
 
-template <typename TSpec > struct ExactFragment;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(58)
+template <typename TSpec > struct ExactFragment;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(59)
 
 //____________________________________________________________________________
 // ExactReversableFragment
 
-template <typename TSpec > struct ExactReversableFragment;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(77)
+template <typename TSpec > struct ExactReversableFragment;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(79)
 
 //____________________________________________________________________________
 // Fragment
 
-template <typename TSize , typename TSpec > class Fragment;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(100)
+template <typename TSize , typename TSpec > class Fragment;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(114)
 
 //____________________________________________________________________________
 // Graph
@@ -777,13 +777,13 @@ template <typename TCargo, typename TSpec, typename TVertexDescriptor> inline ty
 //____________________________________________________________________________
 // fragmentBegin
 
-template <typename TSize, typename TSpec, typename TVal> inline TSize& fragmentBegin(Fragment<TSize, TSpec> const& f, TVal const seqId);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(337)
+template <typename TSize, typename TSpec, typename TVal> inline TSize& fragmentBegin(Fragment<TSize, TSpec> const& f, TVal const seqId);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(361)
 
 //____________________________________________________________________________
 // fragmentLength
 
-template <typename TSize, typename TSpec, typename TVal> inline TSize& fragmentLength(Fragment<TSize, TSpec> const& f, TVal const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(349)
-template <typename TSize, typename TSpec> inline TSize& fragmentLength(Fragment<TSize, TSpec> const& f);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(366)
+template <typename TSize, typename TSpec, typename TVal> inline TSize& fragmentLength(Fragment<TSize, TSpec> const& f, TVal const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(373)
+template <typename TSize, typename TSpec> inline TSize& fragmentLength(Fragment<TSize, TSpec> const& f);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(390)
 
 //____________________________________________________________________________
 // getAdjacencyMatrix
@@ -850,10 +850,10 @@ template <typename T> inline T getNil();       	// "/Users/f.buske/Documents/bio
 //____________________________________________________________________________
 // getProjectedPosition
 
-template <typename TSize, typename TSpec, typename TId1, typename TPosition1, typename TId2, typename TPosition2> inline void getProjectedPosition(Fragment<TSize, ExactFragment<TSpec> > const& f, TId1 const seqId, TPosition1 const pos, TId2& seqId2, TPosition2& pos2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(398)
-template <typename TSize, typename TSpec, typename TValue, typename TId1, typename TPosition1, typename TId2, typename TPosition2> inline void getProjectedPosition(Fragment<TSize, ExactFragment<TSpec> > const& f, TValue seg_num, TId1 const seqId, TPosition1 const pos, TId2& seqId2, TPosition2& pos2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(428)
-template <typename TSize, typename TSpec, typename TId1, typename TPosition1, typename TId2, typename TPosition2> inline void getProjectedPosition(Fragment<TSize, ExactReversableFragment<TSpec> > const& f, TId1 const seqId, TPosition1 const pos, TId2& seqId2, TPosition2& pos2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(460)
-template <typename TSize, typename TSpec, typename TValue, typename TId1, typename TPosition1, typename TId2, typename TPosition2> inline void getProjectedPosition(Fragment<TSize, ExactReversableFragment<TSpec> > const& f, TValue seg_num, TId1 const seqId, TPosition1 const pos, TId2& seqId2, TPosition2& pos2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(492)
+template <typename TSize, typename TSpec, typename TId1, typename TPosition1, typename TId2, typename TPosition2> inline void getProjectedPosition(Fragment<TSize, ExactFragment<TSpec> > const& f, TId1 const seqId, TPosition1 const pos, TId2& seqId2, TPosition2& pos2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(422)
+template <typename TSize, typename TSpec, typename TValue, typename TId1, typename TPosition1, typename TId2, typename TPosition2> inline void getProjectedPosition(Fragment<TSize, ExactFragment<TSpec> > const& f, TValue seg_num, TId1 const seqId, TPosition1 const pos, TId2& seqId2, TPosition2& pos2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(452)
+template <typename TSize, typename TSpec, typename TId1, typename TPosition1, typename TId2, typename TPosition2> inline void getProjectedPosition(Fragment<TSize, ExactReversableFragment<TSpec> > const& f, TId1 const seqId, TPosition1 const pos, TId2& seqId2, TPosition2& pos2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(484)
+template <typename TSize, typename TSpec, typename TValue, typename TId1, typename TPosition1, typename TId2, typename TPosition2> inline void getProjectedPosition(Fragment<TSize, ExactReversableFragment<TSpec> > const& f, TValue seg_num, TId1 const seqId, TPosition1 const pos, TId2& seqId2, TPosition2& pos2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(516)
 
 //____________________________________________________________________________
 // getProperty
@@ -1011,7 +1011,7 @@ template <typename TCargo, typename TSpec, typename TVertexDescriptor> inline bo
 //____________________________________________________________________________
 // isReversed
 
-template <typename TSize, typename TSpec> inline bool isReversed(Fragment<TSize, ExactReversableFragment<TSpec> > const& f);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(530)
+template <typename TSize, typename TSpec> inline bool isReversed(Fragment<TSize, ExactReversableFragment<TSpec> > const& f);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(554)
 
 //____________________________________________________________________________
 // isRoot
@@ -1027,7 +1027,7 @@ template <typename TAlphabet, typename TCargo, typename TSpec, typename TVertexD
 //____________________________________________________________________________
 // label
 
-template <typename TSize, typename TSpec, typename TStringSet, typename TVal> inline typename Infix<typename Value<TStringSet>::Type>::Type label(Fragment<TSize, TSpec> const& f, TStringSet& str, TVal const seqId);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(297)
+template <typename TSize, typename TSpec, typename TStringSet, typename TVal> inline typename Infix<typename Value<TStringSet>::Type>::Type label(Fragment<TSize, TSpec> const& f, TStringSet& str, TVal const seqId);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(320)
 template <typename TAlphabet, typename TCargo, typename TGraphSpec, typename TSpec> inline typename Alphabet<Graph<Automaton<TAlphabet, TCargo, TGraphSpec> > >::Type label(Iter<Graph<Automaton<TAlphabet, TCargo, TGraphSpec> >, GraphIterator<InternalEdgeIterator<TSpec> > >& it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_iterator_edge.h"(484)
 template <typename TAlphabet, typename TCargo, typename TGraphSpec, typename TSpec> inline typename Alphabet<Graph<Automaton<TAlphabet, TCargo, TGraphSpec> > >::Type label(Iter<Graph<Automaton<TAlphabet, TCargo, TGraphSpec> >, GraphIterator<InternalOutEdgeIterator<TSpec> > >& it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_iterator_outedge.h"(1178)
 
@@ -1134,8 +1134,8 @@ template <typename TGraph, typename TSpec> inline Iter<TGraph, GraphIterator<Int
 //____________________________________________________________________________
 // operator<
 
-template <typename TSize, typename TSpec> inline bool operator<(Fragment<TSize, ExactFragment<TSpec> > const & left, Fragment<TSize, ExactFragment<TSpec> > const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(174)
-template <typename TSize, typename TSpec> inline bool operator<(Fragment<TSize, ExactReversableFragment<TSpec> > const & left, Fragment<TSize, ExactReversableFragment<TSpec> > const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(252)
+template <typename TSize, typename TSpec> inline bool operator<(Fragment<TSize, ExactFragment<TSpec> > const & left, Fragment<TSize, ExactFragment<TSpec> > const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(188)
+template <typename TSize, typename TSpec> inline bool operator<(Fragment<TSize, ExactReversableFragment<TSpec> > const & left, Fragment<TSize, ExactReversableFragment<TSpec> > const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(275)
 
 //____________________________________________________________________________
 // operator<<
@@ -1145,8 +1145,8 @@ template <typename TStream, typename TSpec> inline TStream & operator<< (TStream
 //____________________________________________________________________________
 // operator==
 
-template <typename TSize, typename TSpec> inline bool operator==(Fragment<TSize, ExactFragment<TSpec> > const & left, Fragment<TSize, ExactFragment<TSpec> > const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(162)
-template <typename TSize, typename TSpec> inline bool operator==(Fragment<TSize, ExactReversableFragment<TSpec> > const & left, Fragment<TSize, ExactReversableFragment<TSpec> > const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(239)
+template <typename TSize, typename TSpec> inline bool operator==(Fragment<TSize, ExactFragment<TSpec> > const & left, Fragment<TSize, ExactFragment<TSpec> > const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(176)
+template <typename TSize, typename TSpec> inline bool operator==(Fragment<TSize, ExactReversableFragment<TSpec> > const & left, Fragment<TSize, ExactReversableFragment<TSpec> > const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(262)
 template <typename TGraph, typename TSpec> inline bool operator==(Iter<TGraph, GraphIterator<InternalAdjacencyIterator<TSpec> > >& it1, Iter<TGraph, GraphIterator<InternalAdjacencyIterator<TSpec> > >& it2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_iterator_adjacency.h"(339)
 template <typename TGraph, typename TSpec> inline bool operator==(Iter<TGraph, GraphIterator<InternalBfsIterator<TSpec> > >& it1, Iter<TGraph, GraphIterator<InternalBfsIterator<TSpec> > >& it2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_iterator_bfs.h"(295)
 template <typename TGraph, typename TSpec> inline bool operator==(Iter<TGraph, GraphIterator<InternalDfsIterator<TSpec> > >& it1, Iter<TGraph, GraphIterator<InternalDfsIterator<TSpec> > >& it2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_iterator_dfs.h"(298)
@@ -1294,7 +1294,7 @@ template <typename TCargo, typename TSpec> inline typename VertexDescriptor<Grap
 //____________________________________________________________________________
 // sequenceId
 
-template <typename TSize, typename TSpec, typename TVal> inline typename Id<Fragment<TSize, TSpec> >::Type sequenceId(Fragment<TSize, TSpec> const& f, TVal const seqId);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(318)
+template <typename TSize, typename TSpec, typename TVal> inline typename Id<Fragment<TSize, TSpec> >::Type & sequenceId(Fragment<TSize, TSpec> const& f, TVal const seqId);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_types/graph_impl_fragment.h"(341)
 
 //____________________________________________________________________________
 // silentStatus

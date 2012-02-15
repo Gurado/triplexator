@@ -650,7 +650,7 @@ template <typename TSpec, typename TConfig, typename TId>
 inline CharString
 getAnnoUniqueName(FragmentStore<TSpec, TConfig> & store, TId id)
 {
-	if (id < length(store.annotationNameStore))
+	if (id < length(store.annotationNameStore) && !empty(getAnnoName(store, id)))
 		return getAnnoName(store, id);
 	
 	std::stringstream tmp;
@@ -872,12 +872,17 @@ annotationGetValueByKey (
 	typedef typename Size<TValues>::Type	TKeyId;
 	
 	TKeyId keyId = 0;	
-	if (getIdByName(fragStore.annotationKeyStore, key, keyId, fragStore.annotationKeyStoreCache))
-	{
-		assign(value, annotation.values[keyId]);
-		return true;
-	}
-	return false;
+	if (!getIdByName(fragStore.annotationKeyStore, key, keyId, fragStore.annotationKeyStoreCache))
+		return false;
+	
+	if (keyId >= length(annotation.values))
+		return false;
+
+	if (empty(annotation.values[keyId]))
+		return false;
+	
+	assign(value, annotation.values[keyId]);
+    return true;
 }
 
 template <typename TSpec, typename TConfig, typename TAnnotation, typename TKey>

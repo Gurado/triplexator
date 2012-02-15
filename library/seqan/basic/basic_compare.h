@@ -60,19 +60,19 @@ struct CompareType;
 template <typename TLeft, typename TRight>
 struct CompareType<TLeft const, TRight>
 {
-	typedef typename CompareType<TLeft, TRight>::Type const Type;
+    typedef typename CompareType<TLeft, TRight>::Type const Type;
 };
 
 template <typename TLeft, typename TRight>
 struct CompareType<TLeft, TRight const>
 {
-	typedef typename CompareType<TLeft, TRight>::Type const Type;
+    typedef typename CompareType<TLeft, TRight>::Type const Type;
 };
 
 template <typename TLeft, typename TRight>
 struct CompareType<TLeft const, TRight const>
 {
-	typedef typename CompareType<TLeft, TRight>::Type const Type;
+    typedef typename CompareType<TLeft, TRight>::Type const Type;
 };
 
 // ============================================================================
@@ -84,7 +84,7 @@ struct CompareType<TLeft const, TRight const>
 template<typename T_> inline
 bool lexLess(const T_& _Left, const T_& Right_)
 {
-	typedef typename MakeUnsigned_<T_>::Type TUnsigned;
+    typedef typename MakeUnsigned_<T_>::Type TUnsigned;
     return (TUnsigned)_Left < (TUnsigned)Right_;
 }
 

@@ -171,7 +171,7 @@ inline std::ostream &
 operator<<(std::ostream & out, Tuple<T_,_size,TSpec> const &a) {
     out << "[";
     if (a.size > 0)
-			out << a[0];
+            out << a[0];
     for(unsigned j = 1; j < a.size; ++j)
         out << " " << a[j];
     out << "]";

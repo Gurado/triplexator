@@ -60,6 +60,16 @@
 //   https://svn.boost.org/trac/boost/wiki/Guidelines/WarningsGuidelines
 #pragma warning( disable : 4503 )
 
+// Disable warning for C++ compliant behaviour for default-initializing
+// arrays in classes.
+//
+// Documentation of C4345 from Microsoft:
+//   http://msdn.microsoft.com/de-de/library/1ywe7hcy(v=vs.80).aspx
+// Documentation of C4351 from Microsoft:
+//   http://msdn.microsoft.com/en-us/library/wewb47ee(v=vs.80).aspx
+#pragma warning( disable : 4345 )
+#pragma warning( disable : 4351 )
+
 // ==========================================================================
 // Define Integers
 // ==========================================================================

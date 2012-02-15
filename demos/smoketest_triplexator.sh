@@ -47,7 +47,7 @@ else
 	echo "Test: minimum size TFO.............................FAILED"
 fi
 
-$TRIPLEXATOR --lower-length-bound 14 --error-rate 10 --filtering-mode 0 --percent-guanine 50 -o test_guanine50.tfo -od ${DEMOS}/tests -of 0 --pretty-output -ss ${DEMOS}/single-stranded.fasta
+$TRIPLEXATOR --lower-length-bound 14 --error-rate 10 --filtering-mode 0 --max-guanine 50 --min-guanine 50 -o test_guanine50.tfo -od ${DEMOS}/tests -of 0 --pretty-output -ss ${DEMOS}/single-stranded.fasta
 if [ -f ${DEMOS}/tests/test_guanine50.tfo ] && [ $(diff ${DEMOS}/reference/test_guanine50.tfo ${DEMOS}/tests/test_guanine50.tfo | wc -l) -eq 0 ]
 then
 	PASSED=`expr ${PASSED} + 1`
@@ -56,6 +56,7 @@ else
 	FAILED=`expr ${FAILED} + 1`
 	echo "Test: 50% guanine rate settings TFO................FAILED"
 fi
+
 
 $TRIPLEXATOR --lower-length-bound 14 --error-rate 0  --triplex-motifs R -o test_perfect_R.tfo -od ${DEMOS}/tests -of 0 --pretty-output -ss ${DEMOS}/single-stranded.fasta
 if [ -f ${DEMOS}/tests/test_perfect_R.tfo ] && [ $(diff ${DEMOS}/reference/test_perfect_R.tfo ${DEMOS}/tests/test_perfect_R.tfo | wc -l) -eq 0 ]

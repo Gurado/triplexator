@@ -58,7 +58,9 @@ struct RngFunctor {};
 ..summary:Functor wrapper for random number generation.
 ..cat:Random
 ..include:seqan/random.h
+..wiki:Tutorial/Randomness|Tutorial: Randomness
 */
+
 template <typename TRng, typename TPdf>
 class Rng<RngFunctor<TRng, TPdf> >
 {

@@ -771,7 +771,7 @@ inline void _patternInit(Pattern<TIndex, Swift<TSpec> > &pattern, TFloat errorRa
 					// the formula for bucketsPerCol is (worst-case):
 					// (height-(q-1) - 1 - (delta+1-e))/delta + 3
 					//    ^-- full paral. in the middle --^     ^-- 2 at the bottom, 1 at the top
-					TSize bucketsPerCol = (length - span + 2 * bucketParams.delta + errors - 1) / bucketParams.delta;
+					TSize bucketsPerCol = (sequenceLength(seqNo, host(pattern)) - span + 2 * bucketParams.delta + errors - 1) / bucketParams.delta;
 					bucketsPerCol2 = 1 << (TSize) ceil(log((double)bucketsPerCol) / log(2.0));
 				}
 				else
@@ -801,9 +801,9 @@ inline void _patternInit(Pattern<TIndex, Swift<TSpec> > &pattern, TFloat errorRa
 				} else
 					count += bucketsPerCol2;
 				
-	/*			if (seqNo<3)
+/*				if (seqNo<3)
 					_printSwiftParams(bucketParams);
-	*/		}
+*/			}
 
 		if (Swift<TSpec>::PARAMS_BY_LENGTH) {
 			count *= bucketsPerCol2Max;

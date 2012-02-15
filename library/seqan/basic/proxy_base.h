@@ -465,7 +465,7 @@ inline TStream &
 operator<<(TStream & strm,
            Proxy<TSpec> const & proxy)
 {
-	strm << getValue(proxy);
+    strm << getValue(proxy);
     return strm;
 }
 

@@ -194,9 +194,9 @@ struct Tuple<T_, _size, Compressed>
     }
 }
 #ifndef PLATFORM_WINDOWS
-	__attribute__((packed))
+    __attribute__((packed))
 #endif
-	;
+    ;
 #ifdef PLATFORM_WINDOWS
     #pragma pack(pop)
 #endif

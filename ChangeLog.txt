@@ -2,6 +2,17 @@
 * Changelog
 *******************
 
+2012-01-05  Fabian Buske	v1.2.0
+	Added feature: maximum guanine rate for targets can be specified (--max_guanine)
+	Refactoring: percent-guanine parameter changed to --min_guanine
+	Added feature: Output now also shows the guanine-rate of the triplex feature
+	Bugfix: perform parallel tts detection if requested (--runtime-mode 2)
+	Added feature: triplex potential is now an accurate calculation rather than approximation
+	Added feature: triplex potential is now computed by default, option --normalized-score is obsolete and therefore removed
+	Refactoring: maximum triplex feature length parameter (short) changed from "-u" to "-L"
+	Default changed: maximum triplex feature length set to 30 by default (from unrestricted)
+	Refactoring: output.h and triplex.h merged
+
 2011-11-28  Fabian Buske	v1.1.2
 	Updated parallel processing directives to seqan rev 10701
 	Updated repeat finder directives to seqan rev 10701

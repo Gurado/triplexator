@@ -359,10 +359,10 @@ SEQAN_CHECKPOINT
 template <typename TContainer, typename TSpec, typename TContainer2>
 inline typename Position<Iter<TContainer, TSpec> const>::Type
 position(Iter<TContainer, TSpec> const & me,
-		 TContainer2 const &)
+         TContainer2 const &)
 {
     SEQAN_CHECKPOINT;
-	return position(me);
+    return position(me);
 }
 
 }  // namespace seqan

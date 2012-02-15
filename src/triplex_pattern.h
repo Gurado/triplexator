@@ -1,7 +1,7 @@
 // ==========================================================================
 //                                triplexator
 // ==========================================================================
-// Copyright (c) 2011, Fabian Buske, UQ
+// Copyright (c) 2011,2012, Fabian Buske, UQ
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,8 +32,8 @@
 // Author: Fabian Buske <fbuske@uq.edu.au>
 // ==========================================================================
 
-#ifndef SEQAN_HEADER_TRIPLEX_PATTERN_H
-#define SEQAN_HEADER_TRIPLEX_PATTERN_H
+#ifndef FBUSKE_APPS_TRIPLEXATOR_HEADER_TRIPLEX_PATTERN_H
+#define FBUSKE_APPS_TRIPLEXATOR_HEADER_TRIPLEX_PATTERN_H
 
 #include "triplex_functors.h"
 
@@ -717,7 +717,44 @@ SEQAN_CHECKPOINT
 	SEQAN_CHECKPOINT
 		return me.segment;
 	}
-		
+	
+	//____________________________________________________________________________
+	
+	/**
+	 .Function.guanineRate:
+	 ..summary:Returns the proportion of guanines in the target sequence available for triplex formation
+	 ..cat:Dependent Objects
+	 ..signature:errorString(object)
+	 ..param.object:The object
+	 ..returns:guanine rate normalized over feature length 
+	 ...type:Class.ModStringTriplex
+	 */
+	
+	template <typename THost, typename TString>
+	inline double
+	guanineRate(ModStringTriplex<THost, TString> & me)
+	{
+		SEQAN_CHECKPOINT
+		double guanines = 0.;
+		for (unsigned i=0; i<length(me); ++i){
+			if (value(me.mask_string,i)=='G' || value(me.mask_string,i)=='g') ++guanines;
+		}
+		return guanines/length(me);
+	}
+	
+	template <typename THost, typename TString>
+	inline double const
+	guanineRate(ModStringTriplex<THost, TString> const & me)
+	{
+		SEQAN_CHECKPOINT
+		double guanines = 0.;
+		for (unsigned i=0; i<length(me); ++i){
+			if (value(me.mask_string,i)=='G' || value(me.mask_string,i)=='g') ++guanines;
+		}
+		return guanines/length(me);
+	}	
+	
+	
 	//____________________________________________________________________________
 
 	/**
@@ -1308,4 +1345,4 @@ SEQAN_CHECKPOINT
 
 } //namespace SEQAN_NAMESPACE_MAIN
 
-#endif //#ifndef SEQAN_HEADER_TRIPLEX_PATTERN_H
+#endif //#ifndef FBUSKE_APPS_TRIPLEXATOR_HEADER_TRIPLEX_PATTERN_H

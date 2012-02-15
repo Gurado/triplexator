@@ -1,7 +1,7 @@
 // ==========================================================================
 //                                triplexator
 // ==========================================================================
-// Copyright (c) 2011, Fabian Buske, UQTRIPLEXATOR_TRIPLEX_H_
+// Copyright (c) 2011,2012, Fabian Buske, UQ
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,8 +32,8 @@
 // Author: Fabian Buske <fbuske@uq.edu.au>
 // ==========================================================================
 
-#ifndef SANDBOX_FBUSKE_APPS_TRIPLEXATOR_TRIPLEX_H_
-#define SANDBOX_FBUSKE_APPS_TRIPLEXATOR_TRIPLEX_H_
+#ifndef FBUSKE_APPS_TRIPLEXATOR_TRIPLEX_H_
+#define FBUSKE_APPS_TRIPLEXATOR_TRIPLEX_H_
 
 #include <seqan/misc/misc_cmdparser.h>
 #include <seqan/parallel.h> 
@@ -58,6 +58,13 @@ _Pragma(STRINGIFY(code))
 #define SEQAN_PRAGMA_IF_PARALLEL(code)
 #endif // SEQAN_ENABLE_PARALLELISM
 #endif // SEQAN_PRAGMA_IF_PARALLEL
+
+#ifdef BOOST
+#include <boost/iostreams/device/file.hpp>
+#include <boost/iostreams/filter/gzip.hpp>
+#include <boost/iostreams/filtering_stream.hpp>
+namespace io = boost::iostreams;
+#endif
 
 using namespace std;
 namespace SEQAN_NAMESPACE_MAIN
@@ -137,6 +144,9 @@ namespace SEQAN_NAMESPACE_MAIN
 	struct _TFO;
 	typedef Tag<_TFO> TFO; // tag for a triplex forming oligonucleotide
 	
+	struct _TPX;
+	typedef Tag<_TPX> TPX; // tag for a triplexes
+	
 	struct _MIXEDMOTIF;
 	typedef Tag<_MIXEDMOTIF> MIXEDMOTIF; // tag for a triplex forming oligonucleotide of the GT Motif
 
@@ -156,49 +166,55 @@ namespace SEQAN_NAMESPACE_MAIN
 		unsigned int	blockSize;		// size of entry
 		char			blockClass;		// class of entry
 	};
-
+	
 	// definition of a triplex match
 	template <typename _TGPos, typename TSize, typename TScore>
 	struct TriplexMatch
 	{
 		typedef typename MakeSigned_<_TGPos>::Type TGPos;
 		
-		TSize		tfoSeqNo;		// tfo seqNo
+		TSize		tfoNo;			// tfo number
 		TGPos		oBegin;			// begin position of the match in the third strand (oligo)
 		TGPos		oEnd;			// end position of the match in the third strand (oligo)
-		unsigned	ttsSeqNo;		// tts seqNo
+		TSize		ttsSeqNo;		// tts sequence number
+		TSize		ttsNo;			// tts number
 		TGPos		dBegin;			// begin position of the match in the duplex
 		TGPos		dEnd;			// end position of the match in the duplex
 		TScore		mScore;			// matching score
 		bool		parallel;		// false = anti-parallel, true = parallel
 		char		motif;			// triplex motif [R,Y,M]
 		char		strand;			// '+'..Watson, '-'..Crick strand
+		TScore		guanines;		// number of guanines in the target (able to/engaging in triplex-formation)
 		
 		TriplexMatch() {
-			tfoSeqNo = -1;
+			tfoNo = -1;
 			oBegin = -1;
 			oEnd = -1;
 			ttsSeqNo = 0;
+			ttsNo = -1;
 			dBegin = -1;
 			dEnd = -1;
 			mScore = 0;
 			parallel = false;
 			motif = ' ';
 			strand = ' ';
+			guanines = 0;
 			SEQAN_CHECKPOINT
 		}
 		
-		TriplexMatch(TSize _tfoSeqNo, TGPos _oBegin, TGPos _oEnd, TSize _ttsSeqNo, TGPos _dBegin, TGPos _dEnd, TScore _mScore, bool _parallel, char _motif, char _strand):
-			tfoSeqNo(_tfoSeqNo),
+		TriplexMatch(TSize _tfoNo, TGPos _oBegin, TGPos _oEnd, TSize _ttsSeqNo, TSize _ttsNo, TGPos _dBegin, TGPos _dEnd, TScore _mScore, bool _parallel, char _motif, char _strand, TScore _guanines):
+			tfoNo(_tfoNo),
 			oBegin(_oBegin),
 			oEnd(_oEnd),
 			ttsSeqNo(_ttsSeqNo),
+			ttsNo(_ttsNo),
 			dBegin(_dBegin),
 			dEnd(_dEnd),
 			mScore(_mScore),
 			parallel(_parallel),
 			motif(_motif),
-			strand(_strand)
+			strand(_strand),
+			guanines(_guanines)
 		{
 			SEQAN_CHECKPOINT
 		}
@@ -217,9 +233,9 @@ namespace SEQAN_NAMESPACE_MAIN
 		}
 		
 		void print(){
-			::std::cerr << "Match:" << tfoSeqNo << " ("<< oBegin << ":" << oEnd << ")\t";
-			::std::cerr << ttsSeqNo << " ("<< dBegin << ":" << dEnd << ")\tD:"<< (dBegin-oBegin)<< "\t";
-			::std::cerr << motif << " " << strand << " " << (parallel?"P":"A") << " " << mScore << ::std::endl;
+			::std::cerr << "Match:" << tfoNo << " ("<< oBegin << ":" << oEnd << ")\t";
+			::std::cerr << ttsSeqNo << " " << ttsNo << " ("<< dBegin << ":" << dEnd << ")\tD:"<< (dBegin-oBegin)<< "\t";
+			::std::cerr << motif << " " << strand << " " << (parallel?"P":"A") << " " << mScore << " " << guanines << ::std::endl;
 		}
 	};	
 	
@@ -233,8 +249,11 @@ namespace SEQAN_NAMESPACE_MAIN
 			if (a.ttsSeqNo < b.ttsSeqNo) return true;
 			if (a.ttsSeqNo > b.ttsSeqNo) return false;
 			// tfo seq number
-			if (a.tfoSeqNo < b.tfoSeqNo) return true;
-			if (a.tfoSeqNo > b.tfoSeqNo) return false;
+			if (a.tfoNo < b.tfoNo) return true;
+			if (a.tfoNo > b.tfoNo) return false;
+			// tfo seq number
+			if (a.ttsNo < b.ttsNo) return true;
+			if (a.ttsNo > b.ttsNo) return false;
 			// tts begin position
 			if (a.dBegin < b.dBegin) return true;
 			if (a.dBegin > b.dBegin) return false;
@@ -257,6 +276,9 @@ namespace SEQAN_NAMESPACE_MAIN
 			return a.mScore > b.mScore;
 		}
 	};
+
+	
+	//____________________________________________________________________________
 	
 	// definition of sequence location
 	template <typename TSeq, typename TPos>
@@ -295,6 +317,7 @@ namespace SEQAN_NAMESPACE_MAIN
 			::std::cerr << "SeqPos:" << seqnr << ":"<< position << ::std::endl;
 		}
 	};	
+	
 	
 	//____________________________________________________________________________
 	
@@ -375,7 +398,7 @@ namespace SEQAN_NAMESPACE_MAIN
 	typedef VertexDescriptor<TGraph>::Type					TVertexDescriptor;
 	typedef ModStringTriplex<TTriplex, TTriplex>			TOligoMotif;
 	typedef StringSet<TOligoMotif>							TMotifSet;
-	typedef __int64											TPos;
+	typedef __int64											TPos;	
 	
 	
 	template <typename TTriplexMatch>
@@ -454,7 +477,8 @@ namespace SEQAN_NAMESPACE_MAIN
 		bool		reverse;			// compute reverse oriented read matches
 		double		errorRate;			// Criteria 1 threshold (max)
 		int			maximalError;		// maximal absolute error tolerated
-		double		guanineRate;		// Criteria 2 threshold (min)
+		double		minGuanineRate;		// Criteria 2 threshold (min)
+		double		maxGuanineRate;		// Criteria 2 threshold (max)
 		bool		motifTC;			// use triplex TC motifs
 		bool		motifGA;			// use triplex AG motifs
 		bool		motifGT_p;			// use triplex GT motifs (parallel configuration)
@@ -493,7 +517,6 @@ namespace SEQAN_NAMESPACE_MAIN
 		::std::ofstream summaryFileHandle;
 		
 		// output format options
-		bool		computeTpot;
 		bool		prettyString;		// indicate matching/mismatching characters with upper/lower case if true
 		unsigned	outputFormat;		// 0..FASTA format
 		unsigned	errorReference;		// Reference the error is reported to (0=Watson strand of TTS, 1=purine strand of TTS, 2 TFO)
@@ -537,7 +560,8 @@ namespace SEQAN_NAMESPACE_MAIN
 			reverse = true;
 			errorRate = 0.05;
 			maximalError = -1;
-			guanineRate = 0.1;
+			minGuanineRate = 0.1;
+			maxGuanineRate = 1.0;
 			motifTC = true;
 			motifGA = true;
 			motifGT_p = true;
@@ -558,14 +582,13 @@ namespace SEQAN_NAMESPACE_MAIN
 			filterMode = FILTERING_GRAMS;
 			processors= -1;
 			minLength = 16;
-			maxLength = -1;
+			maxLength = 30;
 			tolError = 0;
 			maxInterruptions = 1;
 			filterRepeats = 1;
 			minRepeatLength = 10;
 			maxRepeatPeriod = 4;
 			
-			computeTpot = false;
 			prettyString = false;
 			outputFormat = 0;
 			errorReference = WATSON_STAND;
@@ -591,15 +614,1157 @@ namespace SEQAN_NAMESPACE_MAIN
 			applyMaximumLengthConstraint = false;
 		}
 	};
-
+	
+	// ... to sort pairs according to ids
+	template <typename TPair>
+	struct LessRPair : public ::std::binary_function < TPair, TPair, bool >
+	{
+		inline bool operator() (TPair const &a, TPair const &b) const
+		{
+			if (a.i1 < b.i1) return true;
+			if (a.i1 > b.i1) return false;
+			return a.i2 > b.i2;
+		}
+	};
+	
+	//____________________________________________________________________________
+	// definition of triplex potential
+	template <typename TId>
+	struct TriplexPotential
+	{
+	public:
+		typedef unsigned TCount;
+		typedef double TNorm;
+		
+		TId key;
+		TCount count_R;
+		TCount count_M;
+		TCount count_Y;
+		TNorm norm;
+		
+		bool operator==(const TriplexPotential<TId>& b) const;
+		bool operator!=(const TriplexPotential<TId>& b) const;
+		bool operator<(const TriplexPotential<TId>& b) const;
+		bool operator>(const TriplexPotential<TId>& b) const;
+		
+		TriplexPotential(TId _key):
+		key(_key)
+		{
+			count_R = 0;
+			count_M = 0;
+			count_Y = 0;
+			norm = 0.;
+			SEQAN_CHECKPOINT
+		}
+		
+		
+		TriplexPotential(){
+			count_R = 0;
+			count_M = 0;
+			count_Y = 0;
+			norm = 0.;
+			SEQAN_CHECKPOINT
+		}
+		
+		template <typename TSource>
+		inline TriplexPotential &
+		operator = (TSource const & source) {
+			SEQAN_CHECKPOINT
+			assign(*this, source);
+			return *this;
+		}
+		
+		void print(){
+			::std::cerr << "Potential:" << key << ":" << count << " " << norm <<  ::std::endl;
+		}
+	private:
+			
+	};	
+	
+	//____________________________________________________________________________
+	
+	template <typename TId>
+	bool TriplexPotential<TId>::operator==(const TriplexPotential<TId>& b) const {
+		if (key != b.key) return false;
+		return true;
+	}
+	
+	//____________________________________________________________________________
+	
+	template <typename TId>
+	bool TriplexPotential<TId>::operator!=(const TriplexPotential<TId>& b) const {
+		return !(*this == b);
+	}
+	
+	//____________________________________________________________________________
+	
+	template <typename TId>
+	bool TriplexPotential<TId>::operator<(const TriplexPotential<TId>& b) const {
+		if (key < b.key) return true;
+		return false;
+	}
+	
+	//____________________________________________________________________________
+	
+	template <typename TId>
+	bool TriplexPotential<TId>::operator>(const TriplexPotential<TId>& b) const {
+		return b<*this;
+	}
+	
+	//____________________________________________________________________________
+	
+	// return a single count 
+	template <typename TId>
+	inline unsigned getCount(TriplexPotential<TId> & me, char motif){
+		if (motif=='R' || motif=='+')
+			return me.count_R;
+		else if (motif=='Y' || motif=='-')
+			return me.count_Y;
+		else if (motif=='M')
+			return me.count_M;
+		else 
+			return me.count_R+me.count_Y+me.count_M;
+	}
+	
+	// return sum of all counts count 
+	template <typename TId>
+	inline unsigned getCounts(TriplexPotential<TId> & me){
+		return me.count_R+me.count_Y+me.count_M;
+	}
+	
+	template <typename TId>
+	inline double getNorm(TriplexPotential<TId> & me){
+		return me.norm;
+	}
+	
+	template <typename TId>
+	inline TId getKey(TriplexPotential<TId> & me){
+		return me.key;
+	}
+	
+	template <typename TId>
+	inline void addCount(TriplexPotential<TId> & me, unsigned count, char motif){
+		if (motif=='R' || motif=='+')
+			me.count_R += count;
+		else if (motif=='Y' || motif=='-')
+			me.count_Y += count;
+		else if (motif=='M')
+			me.count_M += count;
+	}
+	
+	template <typename TId>
+	inline bool hasCount(TriplexPotential<TId> & me){
+		if (me.count_R != 0. or me.count_Y != 0. or me.count_M != 0.)
+			return true;
+		else 
+			return false;
+	}
+	
+	//////////////////////////////////////////////////////////////////////////////
+	// Calculate number of possible triplex feature positions
+	template <
+	typename TId,
+	typename TSize
+	>
+	inline void setNorm(TriplexPotential<TId>	&me,
+						TSize const				&seqlength,
+						Options const			&options)
+	{
+		TSize maxLen = options.maxLength;
+		if (options.maxLength < options.minLength || seqlength < maxLen){
+			maxLen = seqlength;
+		}
+		
+		double norm = 0.;
+		for (TSize i=options.minLength; i<= maxLen; ++i){
+			norm += static_cast<double>(seqlength-i+1);
+		}
+		me.norm = norm;
+	}
+	
+	//////////////////////////////ngth////////////////////////////////////////////////
+	// Calculate number of possible triplex feature positions
+	template <
+	typename TId,
+	typename TSize
+	>
+	inline void setNorm(TriplexPotential<TId>	&me,
+						TSize const				&oligolength,
+						TSize const				&duplexlength,
+						Options const			&options)
+	{
+		TSize maxLen = options.maxLength;
+		if (options.maxLength < options.minLength || oligolength < maxLen || duplexlength < maxLen){
+			maxLen = (TSize)min(duplexlength,oligolength);
+		}
+		
+		double norm = 0.;
+		for (TSize i=options.minLength; i<= maxLen; ++i){
+			norm += (double)((duplexlength-i+1)*(oligolength-i+1));
+		}
+		norm *= 2.; // account for both parallel and antiparallel binding
+		me.norm = norm;
+	}	
+	
+	//////////////////////////////////////////////////////////////////////////////
+	// Less-operators ...	
+	template <typename TTriplexMatch>
+	struct PotentialComparator : public ::std::binary_function < TTriplexMatch, TTriplexMatch, bool >
+	{
+		inline bool operator() (TTriplexMatch const &a, TTriplexMatch const &b) const
+		{
+			// tts position and orientation
+			if (a.ttsSeqNo < b.ttsSeqNo) return true;
+			if (a.ttsSeqNo > b.ttsSeqNo) return false;
+			// tfo seq number
+			if (a.tfoNo < b.tfoNo) return true;
+			if (a.tfoNo > b.tfoNo) return false;
+			// diagonal
+			if (a.dBegin-a.oBegin < b.dBegin-b.oBegin) return true;
+			if (a.dBegin-a.oBegin > b.dBegin-b.oBegin) return false;
+			// tts start position
+			if (a.dBegin < b.dBegin) return true;
+			if (a.dBegin > b.dBegin) return false;
+			// tts end position
+			if (a.dEnd > b.dEnd) return true;
+			if (a.dEnd < b.dEnd) return false;
+			// triplex motif
+			if (a.motif < b.motif) return true;
+			if (a.motif > b.motif) return false;
+			// tts strand
+			if (a.strand < b.strand) return true;
+			if (a.strand > b.strand) return false;
+			// triplex orientation
+			if (a.parallel < b.parallel) return true;
+			if (a.parallel > b.parallel) return false;
+			// score
+			return a.mScore > b.mScore;
+		}
+	};
+	
+	template <typename TModString>
+	struct ModTriplexPotentialComparator : public ::std::binary_function < TModString, TModString, bool >
+	{
+		inline bool operator() (TModString const &a, TModString const &b) const
+		{
+			// seqNo
+			if (getSequenceNo(a) < getSequenceNo(b)) return true;
+			if (getSequenceNo(a) > getSequenceNo(b)) return false;
+			// beginPosition
+			if (beginPosition(a) < beginPosition(b)) return true;
+			if (beginPosition(a) > beginPosition(b)) return false;
+			// endPosition
+			if (endPosition(a) > endPosition(b)) return true;
+			if (endPosition(a) < endPosition(b)) return false;
+			// isParallel
+			if (isParallel(a) < isParallel(b)) return true;
+			if (isParallel(a) > isParallel(b)) return false;
+			// getMotif
+			if (getMotif(a) < getMotif(b)) return true;
+			if (getMotif(a) > getMotif(b)) return false;
+			// score
+			return score(a) > score(b);
+		}
+	};
+	
 // ============================================================================
 // Metafunctions
 // ============================================================================
 
+	template <typename TId>
+	struct Key<TriplexPotential<TId> >
+	{
+		typedef TId Type;
+	};
+	
 // ============================================================================
-// Functions
+// Functions - related to output
 // ============================================================================
 
+	//////////////////////////////////////////////////////////////////////////////
+	// prepare output
+	template <typename TFile>
+	void openOutputFile(TFile 			&filehandle,		// file handle
+						Options const	&options)
+	{
+		// create output file
+		CharString fileName = options.outputFolder;
+		CharString tmp = "tmp_";
+		if (!empty(options.output) && options.outputFormat!=2){
+			append(tmp, options.output);
+			append(fileName,tmp);
+			if (options._debugLevel >= 1)		
+				::std::cerr << "open " << fileName << ::std::endl;
+			
+			filehandle.open(toCString(fileName), ::std::ios_base::out | ::std::ios_base::trunc);
+			if (!filehandle.is_open()) {
+				::std::cerr << "Failed to open temporary output file:" << fileName << ::std::endl;
+				return;
+			}
+		}
+	}
+	
+#ifdef BOOST
+	void openOutputFile(io::filtering_ostream		&filterstream,
+						Options const	&options)
+	{
+		// create output file
+		CharString fileName = options.outputFolder;
+		CharString tmp = "tmp_";
+		if (!empty(options.output) && options.outputFormat!=2){
+			append(tmp, options.output);
+			append(fileName,tmp);
+			append(fileName,".gz");
+			
+			if (options._debugLevel >= 1)		
+				::std::cerr << "open " << fileName << ::std::endl;
+			filterstream.push(io::file_sink(toCString(fileName), std::ios::binary));
+		}
+	}
+#endif
+	
+	//////////////////////////////////////////////////////////////////////////////
+	// finish output
+	template <typename TFile>
+	inline int finishOutputFile(TFile			&filehandle,		// file handle
+								Options const	&options)
+	{
+		// rename temporary file to final location
+		CharString workFileName = options.outputFolder;
+		CharString fileName = options.outputFolder;
+		if (!empty(options.output) && options.outputFormat!=2){
+			CharString tmp = "tmp_";
+			append(tmp,options.output);
+			append(workFileName,tmp);
+			append(fileName,options.output);
+			if (filehandle.is_open()){
+				filehandle.close();
+			}
+			// remove existing file first
+			if (options._debugLevel >= 1)		
+				::std::cerr << "rename temorary file " << workFileName << " to " << fileName << ::std::endl;
+			::std::remove(toCString(fileName));
+			// rename tmporary file to final destination
+			int result = ::std::rename( toCString(workFileName) , toCString(fileName) );
+			if (result != 0){
+				::std::cerr << "Failed to rename output file " << workFileName << " to " << fileName << ::std::endl;
+				return 1;
+			}
+		} 
+		return 0;
+	}
+	
+#ifdef BOOST	
+	inline int finishOutputFile(io::filtering_ostream	&filterstream,		
+								Options const			&options)
+	{
+		// rename temporary file to final location
+		CharString workFileName = options.outputFolder;
+		CharString fileName = options.outputFolder;
+		if (!empty(options.output) && options.outputFormat!=2){
+			CharString tmp = "tmp_";
+			append(tmp,options.output);
+			append(tmp,".gz");
+			append(workFileName,tmp);
+			append(fileName,options.output);
+			append(fileName,".gz");
+			
+			filterstream.flush();
+			
+			// remove existing file first
+			if (options._debugLevel >= 1)		
+				::std::cerr << "rename temorary file " << workFileName << " to " << fileName << ::std::endl;
+			::std::remove(toCString(fileName));
+			// rename tmporary file to final destination
+			int result = ::std::rename( toCString(workFileName) , toCString(fileName) );
+			if (result != 0){
+				::std::cerr << "Failed to rename output file " << workFileName << " to " << fileName << ::std::endl;
+				return 1;
+			}
+		} 
+		return 0;
+	}
+#endif
+	
+	//////////////////////////////////////////////////////////////////////////////
+	// close and finish output file
+	template <typename TFile>
+	inline void closeOutputFile(TFile	&filehandle,		// file handle
+								Options	&options)
+	{
+		if (!empty(options.output) && options.outputFormat!=2){
+			// close output file
+			if (filehandle.is_open()){
+				filehandle.close();
+			}
+			finishOutputFile(filehandle, options);
+		}
+	}
+	
+#ifdef BOOST	
+	inline void closeOutputFile(io::filtering_ostream	&filterstream,
+								Options					&options)
+	{
+		if (!empty(options.output) && options.outputFormat!=2){
+			// flush filterstream
+			filterstream.flush();		
+			finishOutputFile(filterstream, options);
+		}
+	}
+#endif
+	
+	//////////////////////////////////////////////////////////////////////////////
+	// prepare output
+	void openLogFile(Options &options)
+	{
+		// create output file
+		CharString fileName = options.outputFolder;
+		CharString tmp = "tmp_";
+		if (!empty(options.output)){
+			append(tmp, options.output);
+			append(tmp, ".log");
+			append(fileName,tmp);
+		} else {
+			append(fileName,tmp);
+			append(fileName,options.logFileName);
+		}
+		options.logFileHandle.open(toCString(fileName), ::std::ios_base::out | ::std::ios_base::trunc);
+		if (!options.logFileHandle.is_open()) {
+			::std::cerr << "Failed to create log file:" << fileName << ::std::endl;
+		}
+	}
+	
+	//////////////////////////////////////////////////////////////////////////////
+	// finish log file
+	inline int finishLogFile(Options &options)
+	{
+		// rename temporary file to final location
+		CharString workFileName = options.outputFolder;
+		CharString fileName = options.outputFolder;
+		CharString tmp = "tmp_";
+		if (!empty(options.output)){
+			append(tmp, options.output);
+			append(tmp, ".log");
+			append(workFileName,tmp);
+			append(fileName,options.output);
+			append(fileName,".log");
+		} else {
+			append(workFileName,tmp);
+			append(workFileName,options.logFileName);
+			append(fileName,options.logFileName);
+			
+		}
+		if (options.logFileHandle.is_open()){
+			::std::cerr << "File still open. Renaming aborted: " << workFileName << ::std::endl;
+			return 1;
+		}
+		// remove existing file first
+		::std::remove(toCString(fileName));
+		// rename tmporary file to final destination
+		int result = ::std::rename( toCString(workFileName) , toCString(fileName) );
+		if (result != 0){
+			::std::cerr << "Failed to rename output file " << workFileName << " to " << fileName << ::std::endl;
+			return 1;
+		}
+		return 0;
+	}
+	
+	
+	//////////////////////////////////////////////////////////////////////////////
+	// close logfile
+	void closeLogFile(Options &options)
+	{
+		// close output file
+		if (options.logFileHandle.is_open()){
+			options.logFileHandle.close();
+			finishLogFile(options);
+		}
+	}
+	
+	//////////////////////////////////////////////////////////////////////////////
+	// prepare summary file
+	void openSummaryFile(Options &options)
+	{
+		// create output file
+		CharString fileName = options.outputFolder;
+		CharString tmp = "tmp_";
+		if (!empty(options.output)){
+			append(tmp, options.output);
+			append(tmp, ".summary");
+			append(fileName,tmp);
+		} else {
+			append(fileName,tmp);
+			append(fileName,options.summaryFileName);
+		}
+		options.summaryFileHandle.open(toCString(fileName), ::std::ios_base::out | ::std::ios_base::trunc);
+		if (!options.summaryFileHandle.is_open()) {
+			::std::cerr << "Failed to create temporary summary file:" << fileName << ::std::endl;
+		}
+	}
+	
+	
+	//////////////////////////////////////////////////////////////////////////////
+	// finish summary file
+	inline int finishSummaryFile(Options &options)
+	{
+		// rename temporary file to final location
+		CharString workFileName = options.outputFolder;
+		CharString fileName = options.outputFolder;
+		CharString tmp = "tmp_";
+		if (!empty(options.output)){
+			append(tmp, options.output);
+			append(tmp, ".summary");
+			append(workFileName,tmp);
+			append(fileName,options.output);
+			append(fileName,".summary");
+		} else {
+			append(workFileName,tmp);
+			append(workFileName,options.summaryFileName);
+			append(fileName,options.summaryFileName);
+		}
+		if (options.summaryFileHandle.is_open()){
+			::std::cerr << "File still open. Renaming aborted: " << workFileName << ::std::endl;
+			return 1;
+		}
+		// remove existing file first
+		::std::remove(toCString(fileName));
+		// rename tmporary file to final destination
+		int result = ::std::rename( toCString(workFileName) , toCString(fileName) );
+		if (result != 0){
+			::std::cerr << "Failed to rename output file " << workFileName << " to " << fileName << ::std::endl;
+			return 1;
+		}
+		return 0;
+	}
+	
+	//////////////////////////////////////////////////////////////////////////////
+	// close summary file
+	void closeSummaryFile(Options &options)
+	{
+		// close output file
+		if (options.summaryFileHandle.is_open()){
+			options.summaryFileHandle.close();
+			finishSummaryFile(options);
+		}
+	}
+	
+	
+	//////////////////////////////////////////////////////////////////////////////
+	// print header for triplex file
+	template <typename TFile>
+	void printTriplexHeader(TFile	&filehandle,		// file handle
+							Options	&options)
+	{
+		char _sep_ = '\t';
+		switch (options.outputFormat)
+		{
+			case 0:	// brief Triplex Format
+				filehandle << "# Sequence-ID" << _sep_ << "TFO start" << _sep_ << "TFO end" << _sep_ << "Duplex-ID" << _sep_ << "TTS start" << _sep_ << "TTS end" << _sep_ << "Score" << _sep_ << "Error-rate" << _sep_ << "Errors" << _sep_ << "Motif" << _sep_ << "Strand" << _sep_ << "Orientation" << _sep_ << "Guanine-rate" << ::std::endl;
+				break;
+			case 1:	// brief Triplex Format
+				filehandle << "# Sequence-ID" << _sep_ << "TFO start" << _sep_ << "TFO end" << _sep_ << "Duplex-ID" << _sep_ << "TTS start" << _sep_ << "TTS end" << _sep_ << "Score" << _sep_ << "Error-rate" << _sep_ << "Errors" << _sep_ << "Motif" << _sep_ << "Strand" << _sep_ << "Orientation" << _sep_ << "Guanine-rate" << ::std::endl;
+				break;	
+			default:
+				break;
+		}
+		// summary file 
+		options.summaryFileHandle << "# Duplex-ID" << _sep_ << "Sequence-ID" << _sep_ << "Total (abs)" << _sep_ << "Total (rel)" << _sep_ << "GA (abs)" << _sep_ << "GA (rel)" << _sep_ << "TC (abs)" << _sep_ << "TC (rel)" << _sep_ << "GT (abs)" << _sep_ << "GT (rel)" << ::std::endl;
+	}
+	
+	//////////////////////////////////////////////////////////////////////////////
+	// prepare tfo output
+	template <typename TFile>
+	void printTFOHeader(TFile	&filehandle,		// file handle
+						Options	&options)
+	{
+		char _sep_ = '\t';
+		switch (options.outputFormat)
+		{
+			case 0:	// TFO Format
+				filehandle << "# Sequence-ID" << _sep_ << "Start" << _sep_ << "End" << _sep_ << "Score" << _sep_ << "Motif" << _sep_ << "Error-rate" << _sep_ << "Errors"  << _sep_ << "Guanine-rate" << _sep_ <<  "Duplicates"  << _sep_ <<  "TFO"  << _sep_ <<  "Duplicate locations" << ::std::endl;
+				break;
+			case 1:	// FASTA
+				break;
+			default:
+				break;				
+		}
+		// summary file 
+		options.summaryFileHandle << "# Sequence-ID" << _sep_ << "TFOs (abs)" << _sep_ << "TFOs (rel)" << _sep_ << "GA (abs)" << _sep_ << "GA (rel)" << _sep_ << "TC (abs)" << _sep_ << "TC (rel)" << _sep_ << "GT (abs)"  << _sep_ << "GT (rel)" << ::std::endl;
+	}
+	
+	
+	//////////////////////////////////////////////////////////////////////////////
+	// prepare tts output
+	template <typename TFile>
+	void printTTSHeader(TFile		&filehandle,		// file handle
+						Options 	&options)
+	{
+		char _sep_ = '\t';
+		switch (options.outputFormat)
+		{
+			case 0:	// TTS Format
+				filehandle << "# Duplex-ID" << _sep_ << "Start" << _sep_ << "End" << _sep_ << "Score" << _sep_ << "Strand" << _sep_ << "Error-rate" << _sep_ << "Errors"  << _sep_ << "Guanine-rate" << _sep_ <<  "Duplicates"  << _sep_ << "TTS"  << _sep_ << "Duplicate locations"  << ::std::endl;
+				break;
+			case 1:	// FASTA
+				break;
+			default:
+				break;				
+		}
+		// summary file 
+		options.summaryFileHandle << "# Duplex-ID" << _sep_ << "TTSs (abs)" << _sep_ << "TTSs (rel)" << ::std::endl;
+	}
+	
+	
+	//////////////////////////////////////////////////////////////////////////////
+	// Output triplex match alignments
+	template <
+	typename TMatch,
+	typename TString,
+	typename TMotifSet,
+	typename TFile
+	>
+	void dumpAlignment(TMatch		&match,				// forward/reverse matches
+					   TString		&duplex,			// duplex string
+					   TMotifSet	&tfoSet,
+					   TFile		&filehandle,
+					   Options		&options)
+	{	
+		if (options.outputFormat != FORMAT_TRIPLEX)
+			return;
+		
+		typedef typename Iterator<TString, Standard>::Type	TIter;
+		typedef typename Value<TMotifSet>::Type				TMotif;
+		TMotif tts_(duplex, match.dBegin, match.dEnd, match.parallel, match.ttsSeqNo, false, match.strand);		
+		TMotif tfo_(host(value(tfoSet,match.tfoNo)), match.oBegin, match.oEnd, match.parallel, value(tfoSet,match.tfoNo).seqNo, true, match.motif);		
+		
+		CharString psTFO = prettyString(tfo_);
+		CharString psTTS = prettyString(tts_);
+		TString opp(psTTS);
+		complement(opp);
+		
+		if (match.strand == '-'){
+			reverse(opp);
+			reverse(psTTS);
+			filehandle << "     5'- " << opp << " -3'" << ::std::endl;
+			filehandle << "TTS: 3'- " << psTTS << " -5'" << ::std::endl;
+			TIter itTts = begin(tts_);
+			TIter itTtsEnd = end(tts_);
+			TIter itTfo = begin(tfo_);
+			TIter itTfoEnd = end(tfo_);
+			filehandle << "         ";
+			while(itTtsEnd != itTts and itTfoEnd != itTfo){
+				--itTtsEnd;
+				--itTfoEnd;
+				if (*itTtsEnd == *itTfoEnd)
+					filehandle << "|";
+				else
+					filehandle << "*";
+			}
+			filehandle << ::std::endl;
+			if (!value(tfoSet,match.tfoNo).parallel){
+				filehandle << "TFO: 5'- " << psTFO << " -3'" << ::std::endl;
+			} else {
+				reverse(psTFO);
+				filehandle << "TFO: 3'- " << psTFO << " -5'" << ::std::endl;
+			}
+		} else { // '+' strand
+			if (!value(tfoSet,match.tfoNo).parallel){
+				reverse(psTFO);
+				filehandle << "TFO: 3'- " << psTFO << " -5'" << ::std::endl;
+			} else {
+				filehandle << "TFO: 5'- " << psTFO << " -3'" << ::std::endl;
+			}
+			TIter itTts = begin(tts_);
+			TIter itTtsEnd = end(tts_);
+			TIter itTfo = begin(tfo_);
+			TIter itTfoEnd = end(tfo_);
+			filehandle << "         ";
+			while(itTts != itTtsEnd and itTfo != itTfoEnd){
+				if (*itTts == *itTfo)
+					filehandle << "|";
+				else
+					filehandle << "*";
+				++itTts;
+				++itTfo;
+			}
+			filehandle << ::std::endl;
+			filehandle << "TTS: 5'- " << psTTS <<  " -3'" << ::std::endl;
+			filehandle << "     3'- " << opp <<  " -5'" << ::std::endl;
+		}
+		filehandle << ::std::endl;
+	}
+	
+	
+	//////////////////////////////////////////////////////////////////////////////
+	// get error string for triplex matches
+	template <
+	typename TMatch,
+	typename TString,
+	typename TMotifSet
+	>
+	CharString _errorString(TMatch		&match,				// forward/reverse matches
+							TString		&duplex,			// duplex string
+							TMotifSet 	&tfoSet,
+							Options		&options)
+	{	
+		std::ostringstream errors;
+		
+		typedef typename Iterator<TString, Standard>::Type	TIter;
+		typedef typename Value<TMotifSet>::Type				TMotif;
+		TMotif tts_(duplex, match.dBegin, match.dEnd, match.parallel, match.ttsSeqNo, false, match.strand);		
+		TMotif tfo_(host(value(tfoSet,match.tfoNo)), match.oBegin, match.oEnd, match.parallel, value(tfoSet,match.tfoNo).seqNo, true, match.motif);		
+		
+		CharString psTFO = prettyString(tfo_);
+		CharString psTTS = prettyString(tts_);
+		
+		if (options.errorReference == WATSON_STAND){
+			// requires consideration of pruine tract and parallel/anti-parallel triplex formation
+			if (match.strand == '-'){
+				reverse(psTTS);
+				if (value(tfoSet,match.tfoNo).parallel) 
+					reverse(psTFO);
+				//				::std::cerr << "\n" << psTTS << "\n" << psTFO << "\n" << tts_ << "\n" << tfo_ << "\n";
+				TIter itTts = begin(tts_);
+				TIter itTtsEnd = end(tts_);
+				TIter itTfo = begin(tfo_);
+				TIter itTfoEnd = end(tfo_);
+				unsigned i = 0;
+				while(itTtsEnd != itTts and itTfoEnd != itTfo){
+					--itTtsEnd;
+					--itTfoEnd;
+					if (*itTtsEnd != *itTfoEnd){
+						if (! isupper(value(psTTS,i)) && ! isupper(value(psTFO,i))) errors << 'b' << i;
+						else if (! isupper(value(psTTS,i))) errors << 'd' << i;
+						else if (! isupper(value(psTFO,i))) errors << 'o' << i;	
+						else errors << 't' << i;
+					}
+					++i;
+				}			
+			} else { // '+' strand
+				if (!value(tfoSet,match.tfoNo).parallel)
+					reverse(psTFO);
+				//				::std::cerr << "\n" << psTTS << "\n" << psTFO << "\n" << tts_ << "\n" << tfo_ << "\n";
+				TIter itTts = begin(tts_);
+				TIter itTtsEnd = end(tts_);
+				TIter itTfo = begin(tfo_);
+				TIter itTfoEnd = end(tfo_);
+				unsigned i = 0;
+				while(itTts != itTtsEnd && itTfo != itTfoEnd){
+					if (*itTts != *itTfo){
+						if (! isupper(value(psTTS,i)) && ! isupper(value(psTFO,i))) errors << 'b' << i;
+						else if (! isupper(value(psTTS,i))) errors << 'd' << i;
+						else if (! isupper(value(psTFO,i))) errors << 'o' << i;		
+						else errors << 't' << i;
+					}
+					++itTts;
+					++itTfo;
+					++i;
+				}
+			}
+		} else if (options.errorReference == PURINE_STRAND){ 
+			// only requires adjustment of anti-parallel binding third strands
+			if (!value(tfoSet,match.tfoNo).parallel) 
+				reverse(psTFO);
+			//			::std::cerr << "\n" << psTTS << "\n" << psTFO << "\n" << tts_ << "\n" << tfo_ << "\n";
+			
+			TIter itTts = begin(tts_);
+			TIter itTtsEnd = end(tts_);
+			TIter itTfo = begin(tfo_);
+			TIter itTfoEnd = end(tfo_);
+			unsigned i = 0;
+			while(itTts != itTtsEnd && itTfo != itTfoEnd){
+				if (*itTts != *itTfo){
+					if (! isupper(value(psTTS,i)) && ! isupper(value(psTFO,i))) errors << 'b' << i;
+					else if (! isupper(value(psTTS,i))) errors << 'd' << i;
+					else if (! isupper(value(psTFO,i))) errors << 'o' << i;	
+					else errors << 't' << i;
+				}
+				++itTts;
+				++itTfo;
+				++i;
+			}
+		} else if (options.errorReference == THIRD_STRAND){
+			// requires consideration of parallel/anti-parallel binding
+			if (value(tfoSet,match.tfoNo).parallel) {
+				//				::std::cerr << "\n" << psTTS << "\n" << psTFO << "\n" << tts_ << "\n" << tfo_ << "\n";
+				TIter itTts = begin(tts_);
+				TIter itTtsEnd = end(tts_);
+				TIter itTfo = begin(tfo_);
+				TIter itTfoEnd = end(tfo_);
+				unsigned i = 0;
+				while(itTts != itTtsEnd && itTfo != itTfoEnd){
+					if (*itTts != *itTfo){
+						if (! isupper(value(psTTS,i)) && ! isupper(value(psTFO,i))) errors << 'b' << i;
+						else if (! isupper(value(psTTS,i))) errors << 'd' << i;
+						else if (! isupper(value(psTFO,i))) errors << 'o' << i;		
+						else errors << 't' << i;
+					}
+					++itTts;
+					++itTfo;
+					++i;
+				}
+			} else {
+				reverse(psTTS);
+				//				::std::cerr << "\n" << psTTS << "\n" << psTFO << "\n" << tts_ << "\n" << tfo_ << "\n";
+				TIter itTts = begin(tts_);
+				TIter itTtsEnd = end(tts_);
+				TIter itTfo = begin(tfo_);
+				TIter itTfoEnd = end(tfo_);
+				unsigned i = 0;
+				while(itTtsEnd != itTts and itTfoEnd != itTfo){
+					--itTtsEnd;
+					--itTfoEnd;
+					if (*itTtsEnd != *itTfoEnd){
+						if (! isupper(value(psTTS,i)) && ! isupper(value(psTFO,i))) errors << 'b' << i;
+						else if (! isupper(value(psTTS,i))) errors << 'd' << i;
+						else if (! isupper(value(psTFO,i))) errors << 'o' << i;	
+						else errors << 't' << i;
+					}
+					++i;
+				}
+			}
+		}
+		//		::std::cerr << errors.str() << "\n";
+		return errors.str();
+	}
+	
+	
+	//////////////////////////////////////////////////////////////////////////////
+	// Output triplex matches
+	template <
+	typename TMatches,
+	typename TString,
+	typename TMotifSet,
+	typename TFile
+	>
+	void printTriplexEntry(TMatches		&matches,			// forward/reverse matches
+						   CharString	&duplexName,		// tts names (read from Fasta file, currently unused)
+						   TString		&duplex,			// list of tts names (e.g. {"hs_ref_chr1.fa","hs_ref_chr2.fa"})
+						   TMotifSet const				&tfoSet,	// set of tfos
+						   StringSet<CharString> const	&tfoNames,	// tfo names (read from Fasta file, currently unused)
+						   TFile		&filehandle,				// output file
+						   Options		&options
+						   ){
+		typedef typename Iterator<TMatches, Standard>::Type		TIter;
+		typedef typename Value<TMatches>::Type					TMatch;
+		typedef ::std::list<TMatch>								TMatchList;
+		typedef unsigned										TKey;
+		
+		char _sep_ = '\t';
+		for (TIter it = begin(matches, Standard()); it != end(matches, Standard());++it){
+			TMatch match = (*it);
+			TKey seqNo = value(tfoSet,match.tfoNo).seqNo;
+			switch (options.outputFormat)
+			{
+				case 0:	// brief Triplex Format
+					filehandle << tfoNames[seqNo] << _sep_ << match.oBegin << _sep_ << match.oEnd << _sep_ ;
+					filehandle << duplexName << _sep_ << match.dBegin << _sep_ << match.dEnd << _sep_ ;
+					filehandle << match.mScore << _sep_ << ::std::setprecision(2) << (1.0-match.mScore/(match.dEnd-match.dBegin)) << _sep_ ;
+					filehandle << _errorString(match, duplex, tfoSet, options) << _sep_ << match.motif << _sep_ << match.strand << _sep_ <<  (match.parallel?'P':'A') << _sep_ <<  (match.guanines/(match.dEnd-match.dBegin)) << ::std::endl;
+					break;
+				case 1:	// extended Triplex Format
+					filehandle << tfoNames[seqNo] << _sep_ << match.oBegin << _sep_ << match.oEnd << _sep_ ;
+					filehandle << duplexName << _sep_ << match.dBegin << _sep_ << match.dEnd << _sep_ ;
+					filehandle << match.mScore << _sep_ << ::std::setprecision(2) << (1.0-match.mScore/(match.dEnd-match.dBegin)) << _sep_ ;
+					filehandle << _errorString(match, duplex, tfoSet, options) << _sep_ << match.motif << _sep_ << match.strand << _sep_ <<  (match.parallel?'P':'A') << _sep_ <<  (match.guanines/(match.dEnd-match.dBegin)) << ::std::endl;
+					dumpAlignment(match, duplex, tfoSet, filehandle, options);
+					break;
+				default:
+					break;
+			}
+		}
+	}
+	
+	// output single TTS hit
+	template<typename TFile, typename TEntry, typename TDuplexNames>
+	inline void printTtsEntry(TFile					&filehandle,
+							  TEntry				&entry,
+							  unsigned				&counter,
+							  TDuplexNames const	&ttsIDs,	// duplex names (read from Fasta file, currently unused)
+							  Options const			&options
+							  ){
+		
+		char _sep_ = '\t';
+		if (options.outputFormat == 0){ //  Triplex Format
+			filehandle << ttsIDs[getSequenceNo(entry)] << _sep_ << beginPosition(entry) << _sep_ <<  endPosition(entry) << _sep_ ;
+			filehandle << score(entry) << _sep_ << entry.motif << _sep_ << ::std::setprecision(2) << (1.0-score(entry)/(endPosition(entry)-beginPosition(entry))) << _sep_ << errorString(entry) << _sep_ << guanineRate(entry) << _sep_ << duplicates(entry) << _sep_ ;
+			if (options.prettyString)
+				filehandle << prettyString(entry) << _sep_ ;
+			else
+				filehandle << outputString(entry) << _sep_ ;
+			
+			if (!options.reportDuplicateLocations || duplicates(entry) < 1 || options.duplicatesCutoff <= duplicates(entry) ){
+				filehandle << "-" ;
+			} else {
+				for (int d = 0; d<duplicates(entry); ++d){
+					filehandle << ttsIDs[getDuplicateAt(entry, d).i1] << ":" << getDuplicateAt(entry, d).i2 << "-" << getDuplicateAt(entry, d).i2+length(entry) << ";";
+				}
+			}
+			filehandle << ::std::endl;
+			
+		} else if (options.outputFormat == 1){ // FASTA
+			filehandle << ">" ;
+			filehandle << ttsIDs[getSequenceNo(entry)] << "_" << counter << _sep_;
+			filehandle << beginPosition(entry) << "-" <<  endPosition(entry) << " " << entry.motif << _sep_  << score(entry) << _sep_ << errorString(entry) << _sep_ << guanineRate(entry) << _sep_ << duplicates(entry) << _sep_ ;
+			
+			
+			if (!options.reportDuplicateLocations || duplicates(entry) < 1 || options.duplicatesCutoff <= duplicates(entry) ){
+				filehandle << "-" ;
+			} else {
+				for (int d = 0; d<duplicates(entry); ++d){
+					filehandle << ttsIDs[getDuplicateAt(entry, d).i1] << ":" << getDuplicateAt(entry, d).i2 << "-" << getDuplicateAt(entry, d).i2+length(entry) << ";";
+				}
+			}
+			filehandle << ::std::endl;
+			
+			if (options.prettyString)
+				filehandle << prettyString(entry) << ::std::endl;
+			else
+				filehandle << outputString(entry) << ::std::endl;
+			
+		} 
+		++counter;
+	}
+	
+	
+	// output single TFO
+	template<typename TFile, typename TEntry, typename TMotifNames>
+	inline void printTfoEntry(TFile					&filehandle,
+							  TEntry				&entry,
+							  unsigned				&counter,
+							  TMotifNames const		&tfoIDs,	// duplex names (read from Fasta file, currently unused)
+							  Options const			&options
+							  ){
+		
+		char _sep_ = '\t';
+		if (options.outputFormat == 0){ // Triplex Format
+			filehandle << tfoIDs[getSequenceNo(entry)] << _sep_ << beginPosition(entry) << _sep_ <<  endPosition(entry) << _sep_ ;
+			filehandle << score(entry) << _sep_ << entry.motif << _sep_ << ::std::setprecision(2) << (1.0-score(entry)/(endPosition(entry)-beginPosition(entry))) << _sep_ << errorString(entry) << _sep_ << guanineRate(entry) << _sep_ << duplicates(entry) << _sep_ ;
+ 			
+			if (options.prettyString)
+				filehandle << prettyString(entry) << _sep_ ;
+			else
+				filehandle << outputString(entry) << _sep_ ;
+			
+			if (!options.reportDuplicateLocations || duplicates(entry) < 1 || options.duplicatesCutoff <= duplicates(entry) ){
+				filehandle << "-" ;
+			} else {
+				for (int d = 0; d<duplicates(entry); ++d){
+					filehandle << tfoIDs[getDuplicateAt(entry, d).i1] << ":" << getDuplicateAt(entry, d).i2 << "-" << getDuplicateAt(entry, d).i2+length(entry) << ";";
+				}
+			}
+			filehandle << ::std::endl;
+			
+			
+		} else if (options.outputFormat == 1){ // FASTA
+			filehandle << ">" ;
+			filehandle  << tfoIDs[getSequenceNo(entry)] << "_" << counter << _sep_;
+			filehandle << beginPosition(entry) << "-" <<  endPosition(entry) << " " << entry.motif << _sep_ << score(entry) << _sep_ << errorString(entry) << _sep_ << duplicates(entry) << _sep_ << guanineRate(entry) << _sep_ ;
+			
+			if (!options.reportDuplicateLocations || duplicates(entry) < 1 || options.duplicatesCutoff <= duplicates(entry) ){
+				filehandle << "-" ;
+			} else {
+				for (int d = 0; d<duplicates(entry); ++d){
+					filehandle << tfoIDs[getDuplicateAt(entry, d).i1] << ":" << getDuplicateAt(entry, d).i2 << "-" << getDuplicateAt(entry, d).i2+length(entry) << ";";
+				}
+			}
+			filehandle << ::std::endl;
+			
+			if (options.prettyString)
+				filehandle << prettyString(entry) << ::std::endl;
+			else
+				filehandle << outputString(entry) << ::std::endl;
+			
+		}
+		++counter;
+	}
+	
+	// output TTS hits
+	template <
+	typename TFile,
+	typename TDuplexSet,
+	typename TDuplexNames
+	>
+	void dumpTtsMatches(TFile					&filehandle,
+						TDuplexSet				&ttsSet,
+						TDuplexNames const		&ttsIDs,	// duplex names (read from Fasta file, currently unused)
+						Options					&options)
+	{	
+		typedef typename Value<TDuplexSet>::Type				TModDuplex;
+		typedef typename Iterator<TDuplexSet, Standard>::Type 	TIter;
+		unsigned counter;
+		
+		// nothing found
+		if (length(ttsSet)==0)
+			return;
+		
+		switch (options.outputFormat){
+			case 0:	// brief Triplex Format
+				counter = 1;
+				for(TIter it = begin(ttsSet, Standard()); it != end(ttsSet, Standard()); ++it){
+					printTtsEntry(filehandle, *it, counter, ttsIDs, options);
+				}
+				break;
+				
+			case 1:	// extended Triplex Format
+				counter = 1;
+				for(TIter it = begin(ttsSet, Standard()); it != end(ttsSet, Standard()); ++it){
+					printTtsEntry(filehandle, *it, counter, ttsIDs, options);
+				}
+				break;
+			default:
+				break;
+		}
+	}	
+	
+	//////////////////////////////////////////////////////////////////////////////
+	// Output matches
+	template <
+	typename TFile,
+	typename TMotifSet,
+	typename TSeqNames
+	>
+	void dumpTfoMatches(TFile				&filehandle,
+						TMotifSet			&tfoMotifSet,
+						TSeqNames const		&tfoIDs,		// tfo names (read from Fasta file, currently unused)
+						Options				&options)
+	{
+		typedef typename Value<TMotifSet>::Type					TMotif;
+		typedef typename Iterator<TMotifSet, Standard>::Type	TIter;
+		unsigned counter;
+		
+		
+		// nothing found?
+		if (length(tfoMotifSet)==0){
+			return;
+		}
+		
+		SEQAN_PROTIMESTART(dump_time);
+		
+		switch (options.outputFormat)
+		{
+			case 0:	// brief Triplex Format
+				counter = 1;
+				for(TIter it = begin(tfoMotifSet, Standard()); it != end(tfoMotifSet, Standard()); ++it){
+					if ((*it).motif == '-')
+						continue;
+					printTfoEntry(filehandle, *it, counter, tfoIDs, options);
+				}
+				break;
+				
+			case 1:	// Bed format
+				counter = 1;
+				for(TIter it = begin(tfoMotifSet, Standard()); it != end(tfoMotifSet, Standard()); ++it){
+					printTfoEntry(filehandle, *it, counter, tfoIDs, options);
+				}
+				break;
+			default:
+				break;
+		}
+		options.timeDumpResults += SEQAN_PROTIMEDIFF(dump_time);
+	}
+	
+	
+	//////////////////////////////////////////////////////////////////////////////
+	// Output summary entries
+	template <
+	typename TPotentials,
+	typename TSeqNames
+	>
+	void dumpSummary(TPotentials			&tpots,
+					 TSeqNames const		&seqIDs,	// duplex names (read from Fasta file, currently unused)
+					 Options				&options,
+					 TTS
+					 )
+	{	
+		typedef typename Iterator<TPotentials>::Type	TPotIter;
+		typedef typename Value<TPotentials>::Type		TPot;
+		
+		// summary file
+		char _sep_ = '\t';
+		
+		for(TPotIter it = begin(tpots, Standard()); it != end(tpots, Standard()); ++it){
+			TPot tpot = *it;
+			// skip entries without counts to save disk space
+			if (hasCount(tpot)){
+				options.summaryFileHandle << seqIDs[getKey(tpot)] << _sep_ << getCounts(tpot) << _sep_ << ::std::setprecision(3) << (getCounts(tpot)/getNorm(tpot)) << ::std::endl;	
+			}
+		}
+		options.summaryFileHandle.flush();
+	}
+	
+	
+	//////////////////////////////////////////////////////////////////////////////
+	// Output summary entries
+	template <
+	typename TPotentials,
+	typename TSeqNames
+	>
+	void dumpSummary(TPotentials			&tpots,
+					 TSeqNames const		&seqIDs,	// tfo names (read from Fasta file, currently unused)
+					 Options				&options,
+					 TFO
+					 )
+	{	
+		typedef typename Iterator<TPotentials>::Type	TPotIter;
+		typedef typename Value<TPotentials>::Type		TPot;
+		
+		// summary
+		char _sep_ = '\t';
+		
+		for(TPotIter it = begin(tpots, Standard()); it != end(tpots, Standard()); ++it){
+			TPot tpot = *it;
+			// skip entries without counts to save disk space
+			if (hasCount(tpot)){
+				options.summaryFileHandle << seqIDs[getKey(tpot)] << _sep_ << getCounts(tpot) << _sep_ << ::std::setprecision(3) << (getCounts(tpot)/getNorm(tpot)) << _sep_;
+				options.summaryFileHandle << getCount(tpot,'R') << _sep_ << ::std::setprecision(3) << (getCount(tpot,'R')/getNorm(tpot)) << _sep_;
+				options.summaryFileHandle << getCount(tpot,'Y') << _sep_ << ::std::setprecision(3) << (getCount(tpot,'Y')/getNorm(tpot)) << _sep_;
+				options.summaryFileHandle << getCount(tpot,'M') << _sep_ << ::std::setprecision(3) << (getCount(tpot,'M')/getNorm(tpot)) << _sep_ << ::std::endl;
+			}
+			
+		}
+		options.summaryFileHandle.flush();
+	}
+	
+	//////////////////////////////////////////////////////////////////////////////
+	// Output summary entries
+	template <
+	typename TPotentials,
+	typename TSeqNames
+	>
+	void dumpSummary(TPotentials					&tpots,
+					 TSeqNames	const				&duplexName,	// tts name (read from Fasta file)
+					 StringSet<TSeqNames> const		&tfoNames,		// tfo names (read from Fasta file)
+					 Options						&options,
+					 TPX
+					 )
+	{	
+		typedef typename Iterator<TPotentials>::Type	TPotIter;
+		typedef typename Value<TPotentials>::Type		TPotValue;
+		typedef typename Key<TPotValue>::Type			TPotKey;
+		typedef typename Cargo<TPotValue>::Type			TPotCargo;
+		
+		// summary
+		char _sep_ = '\t';
+		
+		for(TPotIter it = begin(tpots); it != end(tpots); ++it){
+			TPotValue tpotvalue = *it;
+			TPotCargo tpot = cargo(tpotvalue);
+			// skip entries without counts to save disk space
+			if (hasCount(tpot)){
+				options.summaryFileHandle << duplexName << _sep_ << tfoNames[getKey(tpot).i1] << _sep_ << getCounts(tpot) << _sep_ << ::std::setprecision(3) << (getCounts(tpot)/getNorm(tpot)) << _sep_;
+				options.summaryFileHandle << getCount(tpot,'R') << _sep_ << ::std::setprecision(3) << (getCount(tpot,'R')/getNorm(tpot)) << _sep_;
+				options.summaryFileHandle << getCount(tpot,'Y') << _sep_ << ::std::setprecision(3) << (getCount(tpot,'Y')/getNorm(tpot)) << _sep_;
+				options.summaryFileHandle << getCount(tpot,'M') << _sep_ << ::std::setprecision(3) << (getCount(tpot,'M')/getNorm(tpot)) << _sep_ << ::std::endl;
+			}
+		}	
+		options.summaryFileHandle.flush();
+	}
+	
+// ============================================================================
+// Functions - related to search
+// ============================================================================
+	
 	//////////////////////////////////////////////////////////////////////////////
 	// produce a timestamp for the log file
 	inline int _calculateShape(Options &options){	
@@ -635,12 +1800,12 @@ namespace SEQAN_NAMESPACE_MAIN
 	//////////////////////////////////////////////////////////////////////////////
 	// Search a sequence compatible with the TC-motif and add these for parallel binding
 	template <typename TOligoMotifSet, typename TString, typename TId>
-	inline void processTCMotif(TOligoMotifSet	&motifSet,
-							   TString			&sequence,
-							   TId const		&tfoSeqNo,
-							   bool const		reduceSet,
-							   Options const	&options
-							   ){
+	inline unsigned processTCMotif(TOligoMotifSet	&motifSet,
+								   TString			&sequence,
+								   TId const		&tfoSeqNo,
+								   bool const		reduceSet,
+								   Options const	&options
+								   ){
 		typedef typename Value<TOligoMotifSet>::Type			TTfoMotif;
 		typedef typename Iterator<TString>::Type 				TIter;
 		typedef typename Infix<TString>::Type					TSegment;
@@ -660,21 +1825,23 @@ namespace SEQAN_NAMESPACE_MAIN
 		_parse(seqString,parser, sequence, options);
 		
 		// convert tfo sequences into matching tts to allow pattern search
+		unsigned totalNumberOfMatches = 0;
 		for (TSegStringIter it = begin(seqString, Standard()); it != end(seqString, Standard()); ++it){
 			TTfoMotif tfomotif(*it, true, tfoSeqNo, true, 'Y');
-			_filterWithGuanineAndErrorRate(motifSet, tfomotif, 'G', 'N', reduceSet, TRIPLEX_ORIENTATION_PARALLEL, options, PYRIMIDINEMOTIF());
+			totalNumberOfMatches += _filterWithGuanineAndErrorRate(motifSet, tfomotif, 'G', 'N', reduceSet, TRIPLEX_ORIENTATION_PARALLEL, options, PYRIMIDINEMOTIF());
 		}
+		return totalNumberOfMatches;
 	}
 	
 	//////////////////////////////////////////////////////////////////////////////
 	// Search a sequence compatible with the GA-motif and add these for anti-parallel binding
 	template <typename TOligoMotifSet, typename TString, typename TId>
-	inline void processGAMotif(TOligoMotifSet	&motifSet,
-							   TString			&sequence,
-							   TId const		&tfoSeqNo,
-							   bool const		reduceSet,
-							   Options const	&options
-							   ){
+	inline unsigned processGAMotif(TOligoMotifSet	&motifSet,
+								   TString			&sequence,
+								   TId const		&tfoSeqNo,
+								   bool const		reduceSet,
+								   Options const	&options
+								   ){
 		typedef typename Value<TOligoMotifSet>::Type			TTfoMotif;
 		typedef typename Iterator<TString>::Type				TIter;
 		typedef typename Infix<TString>::Type					TSegment;
@@ -694,10 +1861,12 @@ namespace SEQAN_NAMESPACE_MAIN
 		_parse(seqString,parser, sequence, options);
 		
 		// convert tfo sequences into matching tts to allow pattern search
+		unsigned totalNumberOfMatches = 0;
 		for (TSegStringIter it = begin(seqString, Standard()); it != end(seqString, Standard()); ++it){
 			TTfoMotif tfomotif(*it, false, tfoSeqNo, true, 'R');
-			_filterWithGuanineAndErrorRate(motifSet, tfomotif, 'G', 'N', reduceSet, TRIPLEX_ORIENTATION_ANTIPARALLEL, options, PURINEMOTIF());
+			totalNumberOfMatches += _filterWithGuanineAndErrorRate(motifSet, tfomotif, 'G', 'N', reduceSet, TRIPLEX_ORIENTATION_ANTIPARALLEL, options, PURINEMOTIF());
 		}
+		return totalNumberOfMatches;
 	}
 	
 	
@@ -705,13 +1874,13 @@ namespace SEQAN_NAMESPACE_MAIN
 	// Search a sequence compatible with the GT-motif and add these for 
 	// the requested binding orientation(s)
 	template <typename TOligoMotifSet, typename TString, typename TId>
-	inline void processGTMotif(TOligoMotifSet		&motifSet,
-							   TString				&sequence,
-							   TId const			&tfoSeqNo,
-							   ORIENTATION const	orientation, // the orientation to be considered (>0 parallel, <0 antiparallel, 0=both
-							   bool const			reduceSet,
-							   Options const		&options
-							   ){		
+	inline unsigned processGTMotif(TOligoMotifSet		&motifSet,
+								   TString				&sequence,
+								   TId const			&tfoSeqNo,
+								   ORIENTATION const	orientation, // the orientation to be considered (>0 parallel, <0 antiparallel, 0=both
+								   bool const			reduceSet,
+								   Options const		&options
+								   ){		
 		typedef typename Value<TOligoMotifSet>::Type			TTfoMotif;
 		typedef typename Iterator<TString>::Type				TIter;
 		typedef typename Infix<TString>::Type					TSegment;
@@ -732,31 +1901,33 @@ namespace SEQAN_NAMESPACE_MAIN
 		_parse(seqString,parser, sequence, options);
 		
 		// convert tfo sequences into matching tts to allow pattern search
+		unsigned totalNumberOfMatches = 0;
 		for (TSegStringIter it = begin(seqString, Standard()); it != end(seqString, Standard()); ++it){
 #ifdef TRIPLEX_DEBUG
 			::std::cerr << "processing:" << *it << ::std::endl;
 #endif
-			if ((orientation == TRIPLEX_ORIENTATION_BOTH || orientation == TRIPLEX_ORIENTATION_PARALLEL) && options.mixed_parallel_max_guanine >= options.guanineRate){
+			if ((orientation == TRIPLEX_ORIENTATION_BOTH || orientation == TRIPLEX_ORIENTATION_PARALLEL) && options.mixed_parallel_max_guanine >= options.minGuanineRate){
 				TTfoMotif tfomotif(*it, true, tfoSeqNo, true, 'M');
-				_filterWithGuanineAndErrorRate(motifSet, tfomotif, 'G', 'N', reduceSet, orientation, options, MIXEDMOTIF());
+				totalNumberOfMatches += _filterWithGuanineAndErrorRate(motifSet, tfomotif, 'G', 'N', reduceSet, orientation, options, MIXEDMOTIF());
 			}
-			if (orientation == TRIPLEX_ORIENTATION_BOTH || orientation == TRIPLEX_ORIENTATION_ANTIPARALLEL){
+			if ((orientation == TRIPLEX_ORIENTATION_BOTH || orientation == TRIPLEX_ORIENTATION_ANTIPARALLEL) && options.mixed_antiparallel_min_guanine <= options.maxGuanineRate){
 				TTfoMotif tfomotif_rev(*it, false, tfoSeqNo, true, 'M');
-				_filterWithGuanineAndErrorRate(motifSet, tfomotif_rev, 'G', 'N', reduceSet, orientation, options, MIXEDMOTIF());
+				totalNumberOfMatches += _filterWithGuanineAndErrorRate(motifSet, tfomotif_rev, 'G', 'N', reduceSet, orientation, options, MIXEDMOTIF());
 			}
 		}
+		return totalNumberOfMatches;
 	}
 	
 	//////////////////////////////////////////////////////////////////////////////
 	// Search a sequence for a putative triplex target
 	template <typename TDuplexMotifSet, typename TString, typename TId>
-	inline void processDuplex(TDuplexMotifSet	&ttsSet,
-							  TString			&duplex,
-							  TId const			&seqNo,
-							  bool const		plusstrand,
-							  bool const		reduceSet,
-							  Options			&options
-							  ){
+	inline unsigned processDuplex(TDuplexMotifSet	&ttsSet,
+								  TString			&duplex,
+								  TId const			&seqNo,
+								  bool const		plusstrand,
+								  bool const		reduceSet,
+								  Options			&options
+								  ){
 		typedef typename Value<TDuplexMotifSet>::Type				TTtsMotif;
 		typedef typename Iterator<TString>::Type 					TIter;
 		typedef typename Infix<TString>::Type						TSegment;
@@ -782,18 +1953,20 @@ namespace SEQAN_NAMESPACE_MAIN
 		_parse(seqString, parser, duplex, options);
 		
 		// process one segment at a time
+		unsigned totalNumberOfMatches = 0;
 		for (TSegStringIter it = begin(seqString, Standard()); it != end(seqString, Standard()); ++it){
 #ifdef TRIPLEX_DEBUG
 			::std::cerr << "pTTS:" << *it << ::std::endl;
 #endif
 			if (plusstrand){
 				TTtsMotif ttsfilter(*it, true, seqNo, false, '+');
-				_filterWithGuanineAndErrorRate(ttsSet, ttsfilter, 'G', 'Y', reduceSet, TRIPLEX_ORIENTATION_BOTH, options, TTS());
+				totalNumberOfMatches += _filterWithGuanineAndErrorRate(ttsSet, ttsfilter, 'G', 'Y', reduceSet, TRIPLEX_ORIENTATION_BOTH, options, TTS());
 			} else {
 				TTtsMotif ttsfilter(*it, true, seqNo, false, '-');
-				_filterWithGuanineAndErrorRate(ttsSet, ttsfilter, 'G', 'Y', reduceSet, TRIPLEX_ORIENTATION_BOTH, options, TTS());
+				totalNumberOfMatches += _filterWithGuanineAndErrorRate(ttsSet, ttsfilter, 'G', 'Y', reduceSet, TRIPLEX_ORIENTATION_BOTH, options, TTS());
 			}
 		}
+		return totalNumberOfMatches;
 	}
 	
 	//////////////////////////////////////////////////////////////////////////////
@@ -804,7 +1977,7 @@ namespace SEQAN_NAMESPACE_MAIN
 	typename TPattern,
 	typename TQuery
 	>
-	inline void _detectTriplex(Gardener< TId, TGardenerSpec>	&gardener,
+	inline void _filterTriplex(Gardener< TId, TGardenerSpec>	&gardener,
 							   TPattern	const					&pattern,
 							   TQuery							&ttsSet,
 							   Options const					&options
@@ -845,7 +2018,23 @@ namespace SEQAN_NAMESPACE_MAIN
 		for (TIter it = begin(match_source, Standard()); it != end(match_source, Standard()); ++it){
 			appendValue(match_sink, *it);
 		}
+	}
+	
+	//////////////////////////////////////////////////////////////////////////////
+	// copy the potentials across from the source to the sink
+	template<
+	typename TPotentials
+	>
+	inline void _savePotentials(TPotentials &tpot_sink,
+								TPotentials &tpot_source
+								){
 		
+		typedef typename Iterator<TPotentials, Standard>::Type	TIter;
+		typedef typename Value<TPotentials>::Type				TPotential;
+		
+		for (TIter it = begin(tpot_source); it != end(tpot_source); ++it){
+			insert(tpot_sink, *it);
+		}
 	}
 	
 	//////////////////////////////////////////////////////////////////////////////
@@ -853,12 +2042,14 @@ namespace SEQAN_NAMESPACE_MAIN
 	// strands of the duplex in parallel, which requires about twice as much memory	
 	template<
 	typename TMatches,
+	typename TPotentials,
 	typename TId, 
 	typename TPattern,
 	typename TDuplex,
 	typename TGardenerSpec
 	>
 	void _detectTriplexParallelStrands(TMatches			&matches,
+									   TPotentials		&potentials,
 									   TPattern const	&pattern,
 									   TDuplex			&duplexString,
 									   TId const		&duplexId,
@@ -868,13 +2059,14 @@ namespace SEQAN_NAMESPACE_MAIN
 		typedef StringSet<ModStringTriplex<TDuplex, TDuplex> > 	TDuplexModSet;
 		typedef Gardener< TId, TGardenerSpec>					TGardener;
 		
-		
 		TGardener gardener_forward;
 		TGardener gardener_reverse;
 		TDuplexModSet ttsSet_forward;
 		TDuplexModSet ttsSet_reverse;
 		TMatches matches_forward;
 		TMatches matches_reverse;
+		TPotentials tpot_forward;
+		TPotentials tpot_reverse;
 		
 		bool reduceSet = true; // merge overlapping features
 		
@@ -888,9 +2080,8 @@ namespace SEQAN_NAMESPACE_MAIN
 				// prefilter for putative TTSs
 				processDuplex(ttsSet_forward, duplexString, duplexId, true, reduceSet, options);
 				if (length(ttsSet_forward)>0){
-					_detectTriplex(gardener_forward, pattern, ttsSet_forward, options);
-					_filterAndStore(matches_forward, gardener_forward, pattern, ttsSet_forward, duplexId, true, options);
-					
+					_filterTriplex(gardener_forward, pattern, ttsSet_forward, options);
+					_verifyAndStore(matches_forward, tpot_forward, gardener_forward, pattern, ttsSet_forward, duplexId, true, options);
 				}
 				
 			}
@@ -900,8 +2091,8 @@ namespace SEQAN_NAMESPACE_MAIN
 				// prefilter for putative TTSs
 				processDuplex(ttsSet_reverse, duplexString, duplexId, false, reduceSet, options);
 				if (length(gardener_reverse)>0){
-					_detectTriplex(gardener_reverse, pattern, ttsSet_reverse, options);
-					_filterAndStore(matches_reverse, gardener_reverse, pattern, ttsSet_reverse, duplexId, false, options);
+					_filterTriplex(gardener_reverse, pattern, ttsSet_reverse, options);
+					_verifyAndStore(matches_reverse, tpot_reverse, gardener_reverse, pattern, ttsSet_reverse, duplexId, false, options);
 				}			
 			}
 			
@@ -909,6 +2100,8 @@ namespace SEQAN_NAMESPACE_MAIN
 		
 		_saveMatches(matches, matches_forward);
 		_saveMatches(matches, matches_reverse);
+		_savePotentials(potentials, tpot_forward);
+		_savePotentials(potentials, tpot_reverse);
 		
 		eraseAll(gardener_forward);
 		eraseAll(gardener_reverse);
@@ -920,11 +2113,13 @@ namespace SEQAN_NAMESPACE_MAIN
 	// strands of the duplex in parallel, which requires about twice as much memory	
 	template<
 	typename TMatches,
+	typename TPotentials,
 	typename TId, 
 	typename TPattern,
 	typename TDuplex
 	>
 	void _detectTriplexParallelStrands(TMatches			&matches,
+									   TPotentials		&potentials,
 									   TPattern			&tfoSet,
 									   TDuplex			&duplexString,
 									   TId const		&duplexId,
@@ -935,8 +2130,10 @@ namespace SEQAN_NAMESPACE_MAIN
 		
 		TDuplexModSet ttsSet_forward;
 		TDuplexModSet ttsSet_reverse;
-		TMatches matches_forward;
-		TMatches matches_reverse;
+		TMatches matches_watson;
+		TMatches matches_crick;
+		TPotentials potentials_watson;
+		TPotentials potentials_crick;
 		
 		bool reduceSet = true; // merge overlapping features
 		
@@ -949,20 +2146,22 @@ namespace SEQAN_NAMESPACE_MAIN
 			{
 				// prefilter for putative TTSs
 				processDuplex(ttsSet_forward, duplexString, duplexId, true, reduceSet, options);
-				_detectTriplexBruteForce(matches_forward, tfoSet, ttsSet_forward, duplexId, options);					
+				_detectTriplexBruteForce(matches_watson, potentials_watson, tfoSet, ttsSet_forward, duplexId, options);					
 			}
 			SEQAN_PRAGMA_IF_PARALLEL(omp section)
 			//#pragma omp section
 			{
 				// prefilter for putative TTSs
 				processDuplex(ttsSet_reverse, duplexString, duplexId, false, reduceSet, options);
-				_detectTriplexBruteForce(matches_reverse, tfoSet, ttsSet_reverse, duplexId, options);					
+				_detectTriplexBruteForce(matches_crick, potentials_crick, tfoSet, ttsSet_reverse, duplexId, options);					
 			}
 			
 		}  /* end of sections */
 		
-		_saveMatches(matches, matches_forward);
-		_saveMatches(matches, matches_reverse);
+		_saveMatches(matches, matches_watson);
+		_saveMatches(matches, matches_crick);
+		_savePotentials(potentials, potentials_watson);
+		_savePotentials(potentials, potentials_crick);
 		
 	}
 #endif
@@ -971,12 +2170,14 @@ namespace SEQAN_NAMESPACE_MAIN
 	// Search for a triplex given a target string and a set of TFOs
 	template<
 	typename TMatches,
+	typename TPotentials,
 	typename TId, 
 	typename TPattern,
 	typename TDuplex,
 	typename TGardenerSpec
 	>
 	void _detectTriplex(TMatches		&matches,
+						TPotentials		&potentials,
 						TPattern const	&pattern,
 						TDuplex			&duplexString,
 						TId const		&duplexId,
@@ -1002,8 +2203,8 @@ namespace SEQAN_NAMESPACE_MAIN
 #endif
 			
 			if (length(ttsSet_forward)>0){
-				_detectTriplex(gardener_forward, pattern, ttsSet_forward, options);
-				_filterAndStore(matches, gardener_forward, pattern, ttsSet_forward, duplexId, true, options);
+				_filterTriplex(gardener_forward, pattern, ttsSet_forward, options);
+				_verifyAndStore(matches, potentials, gardener_forward, pattern, ttsSet_forward, duplexId, true, options);
 			}
 			eraseAll(gardener_forward);
 		}
@@ -1021,8 +2222,8 @@ namespace SEQAN_NAMESPACE_MAIN
 			}
 #endif
 			if (length(ttsSet_reverse)>0){
-				_detectTriplex(gardener_reverse, pattern, ttsSet_reverse, options);
-				_filterAndStore(matches, gardener_reverse, pattern, ttsSet_reverse, duplexId, false, options);
+				_filterTriplex(gardener_reverse, pattern, ttsSet_reverse, options);
+				_verifyAndStore(matches, potentials, gardener_reverse, pattern, ttsSet_reverse, duplexId, false, options);
 			}
 			eraseAll(gardener_reverse);
 		}
@@ -1033,17 +2234,19 @@ namespace SEQAN_NAMESPACE_MAIN
 	// Search for a triplex given a target string and a set of TFOs
 	template<
 	typename TMatches,
+	typename TPotentials,
 	typename TId, 
 	typename TPatterns,
 	typename TDuplex
 	>
 	void _detectTriplex(TMatches		&matches,
+						TPotentials		&potentials,
 						TPatterns		&tfoSet,
 						TDuplex			&duplexString,
 						TId const		&duplexId,
 						Options			&options,
 						BruteForce
-								  ){	
+						){	
 		typedef ModStringTriplex<TDuplex, TDuplex>	TTts;
 		typedef StringSet<TTts>						TTtsSet;
 		typedef typename Iterator<TTtsSet>::Type	TTtsIter;
@@ -1075,29 +2278,34 @@ namespace SEQAN_NAMESPACE_MAIN
 					TTtsSet tmp_ttsSet;
 					appendValue(tmp_ttsSet, ttsSet[tts]);
 					TMatches tmp_matches;
-					_detectTriplexBruteForce(tmp_matches, tfoSet, tmp_ttsSet, duplexId, options);
+					TPotentials tmp_potentials;
+					_detectTriplexBruteForce(tmp_matches, tmp_potentials, tfoSet, tmp_ttsSet, duplexId, options);
 					
 					if (length(tmp_matches)>0){
-						SEQAN_PRAGMA_IF_PARALLEL(omp critical(addMatches) )
-						_saveMatches(matches, tmp_matches);
+						SEQAN_PRAGMA_IF_PARALLEL(omp critical(addMatches) ){
+							_saveMatches(matches, tmp_matches);
+							_savePotentials(potentials, tmp_potentials);
+						}
 					}
 				}
 			}
 		} else		
 #endif
-		_detectTriplexBruteForce(matches, tfoSet, ttsSet, duplexId, options);
+		_detectTriplexBruteForce(matches, potentials, tfoSet, ttsSet, duplexId, options);
 	}
 	
 	//////////////////////////////////////////////////////////////////////////////
 	// Search for a triplex given a target string and a set of TFOs
 	template<
 	typename TMatches,
+	typename TPotentials,
 	typename TId, 
 	typename TPatterns,
 	typename TTtsSet
 	>
 	void _detectTriplexBruteForce(TMatches			&matches,
-								  TPatterns			&tfoSet,
+								  TPotentials		&potentials,
+								  TPatterns	const	&tfoSet,
 								  TTtsSet			&ttsSet,
 								  TId const			&duplexId,
 								  Options			&options
@@ -1105,17 +2313,22 @@ namespace SEQAN_NAMESPACE_MAIN
 		typedef typename Value<TTtsSet>::Type		TTts;
 		typedef typename Host<TTts>::Type			TDuplex;
 		typedef typename Iterator<TTtsSet>::Type	TTtsIter;
-		typedef typename Iterator<TPatterns>::Type	TPattIter;
+		typedef typename Iterator<TPatterns const>::Type	TPattIter;
 		typedef typename Value<TPatterns>::Type		TPattern;
 		typedef typename Host<TPattern>::Type		TTfo;
 		typedef typename Position<TPatterns>::Type	TPos;
 		typedef typename Infix<TDuplex>::Type		TSegment;
 		typedef String<TSegment>					TSegString;
 		typedef typename Iterator<TSegString>::Type	TSegStringIter;
+		typedef typename Value<TPotentials>::Type	TPotential;
+		typedef typename Key<TPotential>::Type		TPotentialKey;
+		typedef typename Cargo<TPotential>::Type	TPotentialCargo;
+		
+		TTtsSet triplexSet;
 		
 		int minScore = options.minLength- static_cast<int>(ceil(options.errorRate * options.minLength));
 		if (length(ttsSet)>0){
-			// iterate over all TFO candidates
+			// iterate over all TFO candidates (which have been merged into clusters before)
 			int tfoNo = 0;
 			for (TPattIter itO = begin(tfoSet);itO != end(tfoSet); ++itO, ++tfoNo){
 #ifdef TRIPLEX_DEBUG
@@ -1125,7 +2338,8 @@ namespace SEQAN_NAMESPACE_MAIN
 				TTfo tfoCandidate = ttsString(*itO);
 				Finder<TTfo > finder(tfoCandidate);
 				// iterate over all TTS candidates
-				for (TTtsIter itD = begin(ttsSet); itD != end(ttsSet); ++itD){
+				int ttsNo = 0;
+				for (TTtsIter itD = begin(ttsSet); itD != end(ttsSet); ++itD, ++ttsNo){
 					TDuplex ttsCandidate = ttsString(*itD);
 #ifdef TRIPLEX_DEBUG
 					::std::cerr << "tts candidate: " << ttsCandidate << ::std::endl;
@@ -1151,7 +2365,7 @@ namespace SEQAN_NAMESPACE_MAIN
 							if (triplex[k]!=tfo[k]){
 								triplex[k]='N';
 							} else {
-								++ m;
+								++m;
 							}
 						}
 #ifdef TRIPLEX_DEBUG	
@@ -1160,7 +2374,9 @@ namespace SEQAN_NAMESPACE_MAIN
 						// check for minimum requirement of matching positions
 						if (m >= minScore){
 							// run through TTS parser
-							TTtsSet triplexSet;
+							
+							// clear triplex result set from previous entries first
+							clear(triplexSet);
 							// create parser once
 							if (empty(options.triplexParser)){
 								TDuplex valid("GAR");		// the valid characters
@@ -1171,6 +2387,7 @@ namespace SEQAN_NAMESPACE_MAIN
 							// split duplex into valid parts
 							TSegString seqString;	// target segment container
 							_parse(seqString, options.triplexParser, triplex, options);
+							unsigned totalNumberOfMatches = 0;
 							
 							// process one segment at a time
 							for (TSegStringIter it = begin(seqString, Standard()); it != end(seqString, Standard()); ++it){
@@ -1179,7 +2396,14 @@ namespace SEQAN_NAMESPACE_MAIN
 #endif
 								TTts ttsfilter(*it, true, getSequenceNo(*itD), false, '+');
 								bool reduceSet = false; // don't merge overlapping triplexes	
-								_filterWithGuanineAndErrorRate(triplexSet, ttsfilter, 'G', 'Y', reduceSet, TRIPLEX_ORIENTATION_BOTH, options, TTS());
+								totalNumberOfMatches += _filterWithGuanineAndErrorRate(triplexSet, ttsfilter, 'G', 'Y', reduceSet, TRIPLEX_ORIENTATION_BOTH, options, TTS());
+							}
+#ifdef TRIPLEX_DEBUG
+							::std::cerr << "totalNumberOfMatches:" << totalNumberOfMatches << ::std::endl;
+#endif		
+							// skip parts below if no matches have been detected
+							if (totalNumberOfMatches==0){
+								continue;
 							}
 							
 							// save all matches
@@ -1191,9 +2415,12 @@ namespace SEQAN_NAMESPACE_MAIN
 							for (TTtsIter itr=begin(triplexSet); itr!=end(triplexSet); ++itr){
 								// compute score = matching positions, which can be found in the triplex string (number of N's within the interval found)
 								int score=0;
+								int guanines=0;
 								for (unsigned int i=beginPosition(*itr); i<endPosition(*itr); ++i){
 									if (triplex[i]!='N')
-										score += 1;
+										++score;
+									if (triplex[i]=='G')
+										++guanines;
 								}
 								
 								// calculate tts positions according to strand in the duplex
@@ -1214,20 +2441,22 @@ namespace SEQAN_NAMESPACE_MAIN
 								} else {
 									tfoEnd = endPosition(*itO) - (offsetTfo + beginPosition(*itr));
 									tfoStart = tfoEnd - length(*itr);
-									
 								}
 								
-								// save the corresponding triplex match 
+								// save the corresponding triplex match and 
+								// squeeze in the total number of matches between the TFO and the TTS as well
 								TMatch match(tfoNo,
 											 tfoStart,
 											 tfoEnd,
 											 duplexId,
+											 ttsNo,
 											 ttsStart,
 											 ttsEnd,
 											 score,
 											 isParallel(*itO),
 											 getMotif(*itO),
-											 strand
+											 strand,
+											 guanines
 											 );
 								appendValue(matches, match);
 								
@@ -1240,11 +2469,22 @@ namespace SEQAN_NAMESPACE_MAIN
 #endif
 							}
 							
+							// save potential
+							TPotentialKey pkey(getSequenceNo(*itO), getSequenceNo(*itD));
+							if (hasKey(potentials, pkey)){
+								// sequence pair already known, just add counts
+								TPotentialCargo* potential = &cargo(potentials, pkey);
+								addCount(*potential, totalNumberOfMatches, getMotif(*itO));
+							} else {
+								// new sequence pair, add counts and compute norm
+								TPotentialCargo potential(pkey);
+								addCount(potential, totalNumberOfMatches, getMotif(*itO));
+								setNorm(potential, length(host(*itO)), length(host(*itD)), options);
+								insert(potentials, TPotential(pkey, potential));
+							}
 						}
-						
 					}
 				}
-				
 			}
 		}
 	}
@@ -1702,16 +2942,18 @@ namespace SEQAN_NAMESPACE_MAIN
 	
 	//////////////////////////////////////////////////////////////////////////////
 	// Filter a string with the requested guanine rate AND the error rate
+	// returns the total number of matches (all_matches) that comply to the 
+	// defined constraints
 	template <typename TMotifSet, typename TTag>
-	inline int _filterWithGuanineAndErrorRate(TMotifSet							&patternString,
-											  typename Value<TMotifSet>::Type	&pattern,
-											  char								filter_char,
-											  char								interrupting_char,
-											  bool								reduceSet,
-											  ORIENTATION const					orientation,
-											  Options const						&options,
-											  TTag const & 
-											  ){
+	inline unsigned _filterWithGuanineAndErrorRate(TMotifSet						&patternString,
+												   typename Value<TMotifSet>::Type	&pattern,
+												   char								filter_char,
+												   char								interrupting_char,
+												   bool								reduceSet,
+												   ORIENTATION const				orientation,
+												   Options const					&options,
+												   TTag const & 
+												   ){
 		typedef typename Value<TMotifSet>::Type			TPattern;
 		typedef typename Host<TPattern>::Type			TString;
 		typedef typename Iterator<TString>::Type		TStringIter;
@@ -1742,7 +2984,7 @@ namespace SEQAN_NAMESPACE_MAIN
 		}
 
 		// if no guanine rate restriction, then collapse filter and tolerated chars
-		if (options.guanineRate <= 0.0){
+		if (options.minGuanineRate <= 0.0){
 			TFilter filter_seq(pattern);
 			if (filter_char == 'G')
 				filter_char='R';
@@ -1775,7 +3017,7 @@ namespace SEQAN_NAMESPACE_MAIN
 		double max_error = floor(length(pattern)*options.errorRate);
 		if (options.maximalError >= 0)
 			max_error = min(max_error, double(options.maximalError));
-		double max_tolerated = (floor(length(pattern)*(1.0-options.guanineRate)));
+		double max_tolerated = (floor(length(pattern)*(1.0-options.minGuanineRate)));
 		
 		
 		double cnt_filter_chars = 0.0;
@@ -1793,6 +3035,11 @@ namespace SEQAN_NAMESPACE_MAIN
 		
 		unsigned itLeft = 0;
 		unsigned itRight = 0;
+		
+		double filter_chars_rate = 0.;
+		double interrupt_chars_rate = 0.;
+	
+		unsigned totalNumberOfMatches = 0;
 		
 		// there must be another valid blockrun
 		while (blockruns[itLeft][length(pattern)] && itLeft+options.minLength <= length(pattern)){
@@ -1831,12 +3078,15 @@ namespace SEQAN_NAMESPACE_MAIN
 				// got a minimum length segment that does not violate maximum constraints
 				// extend to the left as far as possible
 				while (cnt_interrupt_chars <= max_error && cnt_nonfilter_chars <= max_tolerated && itRight-itLeft <= max_length){
+					filter_chars_rate = double(cnt_filter_chars)/(itRight-itLeft);
+					interrupt_chars_rate = double(cnt_interrupt_chars)/(itRight-itLeft);
 					if (blockruns[itLeft][itRight] && !_isInterruptingChar(encoded_seq, itRight-1) 
-						&& cnt_interrupt_chars/(itRight-itLeft) <= options.errorRate 
-						&& cnt_filter_chars/(itRight-itLeft) >= options.guanineRate 
-						&& _motifSpecificConstraints(double(itRight-itLeft), cnt_filter_chars, cnt_interrupt_chars, orientation, options, TTag()))
+						&& interrupt_chars_rate <= options.errorRate 
+						&& options.minGuanineRate <= filter_chars_rate && filter_chars_rate <= options.maxGuanineRate
+						&& _motifSpecificConstraints(filter_chars_rate, interrupt_chars_rate, orientation, options, TTag()))
 					{	
 						is_match = true;
+						++totalNumberOfMatches;
 						tmp_start = itLeft;
 						tmp_end = itRight;
 						tmp_error = cnt_interrupt_chars;
@@ -1883,9 +3133,6 @@ namespace SEQAN_NAMESPACE_MAIN
 #endif	
 					_addMatch(*ptr_pattern_set, pattern, tmp_start, tmp_end, tmp_error, TTag());
 					covered_end = tmp_end;
-					// leave loop if there cannot be a subsequent hit
-					if (tmp_end >= length(pattern))
-						break;
 				}
 				is_match = false;
 				// increase leftmost pointer & skip errors
@@ -1896,10 +3143,7 @@ namespace SEQAN_NAMESPACE_MAIN
 				itRight = itLeft;
 				cnt_filter_chars = 0.0;
 				cnt_interrupt_chars = 0.0;
-				cnt_nonfilter_chars = 0.0;
-				while (!options.allMatches && itRight < tmp_end){
-					_increaseRight(encoded_seq, itRight, cnt_filter_chars, cnt_interrupt_chars, cnt_nonfilter_chars);
-				}					
+				cnt_nonfilter_chars = 0.0;				
 			}
 		}
 		
@@ -1909,7 +3153,7 @@ namespace SEQAN_NAMESPACE_MAIN
 		for (unsigned t1=0; t1<=length(pattern)-options.minBlockRun; ++t1)
 			delete [] blockruns[t1];
 		delete [] blockruns;
-		
+	
 		// reduce motif set for triplex search
 		if (reduceSet){
 #ifdef TRIPLEX_DEBUG	
@@ -1920,21 +3164,20 @@ namespace SEQAN_NAMESPACE_MAIN
 #ifdef TRIPLEX_DEBUG
 		::std::cerr << "# Elements final patterns:" << length(patternString) << ::std::endl;
 #endif			
-		return 0;
+		return totalNumberOfMatches;
 	}
 	
 	//////////////////////////////////////////////////////////////////////////////
 	// Processing motif specific constraints
 	template <typename TSize, typename TTag>
-	inline bool _motifSpecificConstraints(TSize const &length,
-										  TSize const &filter,
-										  TSize const &errors,
+	inline bool _motifSpecificConstraints(TSize const &filter_rate,
+										  TSize const &error_rate,
 										  ORIENTATION const	&orientation,
 										  Options const &options,
 										  TTag
 										  ){
 #ifdef TRIPLEX_DEBUG
-		::std::cerr << "length:" << length << " filter:" << filter << " errors:" << errors << " orientation:" << orientation << ::std::endl;
+		::std::cerr << " filter:" << filter_rate << " errors:" << error_rate << " orientation:" << orientation << ::std::endl;
 #endif
 		return true;
 	}
@@ -1942,20 +3185,19 @@ namespace SEQAN_NAMESPACE_MAIN
 	//////////////////////////////////////////////////////////////////////////////
 	// Processing motif specific constraints
 	template <typename TSize>
-	inline bool _motifSpecificConstraints(TSize const &length,
-										  TSize const &filter,
-										  TSize const &errors,
+	inline bool _motifSpecificConstraints(TSize const &filter_rate,
+										  TSize const &error_rate,
 										  ORIENTATION const	&orientation,
 										  Options const &options,
 										  MIXEDMOTIF
 										  ){
 #ifdef TRIPLEX_DEBUG
-		::std::cerr << "length:" << length << " filter:" << filter << " errors:" << errors << " orientation:" << orientation << " qualifies" << ::std::endl;
+		::std::cerr << " filter:" << filter_rate << " errors:" << error_rate << " orientation:" << orientation << " qualifies" << ::std::endl;
 #endif
-		if (orientation != TRIPLEX_ORIENTATION_PARALLEL && filter/length >= options.mixed_antiparallel_min_guanine)
+		if (orientation != TRIPLEX_ORIENTATION_PARALLEL && filter_rate >= options.mixed_antiparallel_min_guanine)
 			return true;
 
-		if (orientation != TRIPLEX_ORIENTATION_ANTIPARALLEL && filter/length <= options.mixed_parallel_max_guanine)
+		if (orientation != TRIPLEX_ORIENTATION_ANTIPARALLEL && filter_rate <= options.mixed_parallel_max_guanine)
 			return true;
 		
 #ifdef TRIPLEX_DEBUG
@@ -2259,12 +3501,14 @@ namespace SEQAN_NAMESPACE_MAIN
 	// Store all matches in a vector and convert the references accordingly
 	template<
 	typename TMatches,
+	typename TPotentials,
 	typename TId, 
 	typename TGardenerSpec,
 	typename TPattern,
 	typename TStringSet
 	>
-	void _filterAndStore(TMatches						&matches, 
+	void _verifyAndStore(TMatches						&matches, 
+						 TPotentials					&potentials,
 						 Gardener<TId, TGardenerSpec>	&gardener,
 						 TPattern	const				&pattern,
 						 TStringSet	const				&ttsSet, 
@@ -2288,6 +3532,11 @@ namespace SEQAN_NAMESPACE_MAIN
 		typedef typename Infix<THost>::Type					TSegment;
 		typedef String<TSegment>							TSegString;
 		typedef typename Iterator<TSegString>::Type			TSegStringIter;
+
+		typedef typename Iterator<TPotentials>::Type		TPotIter;
+		typedef typename Value<TPotentials>::Type			TPotValue;
+		typedef typename Key<TPotValue>::Type				TPotKey;
+		typedef typename Cargo<TPotValue>::Type				TPotCargo;
 		
 		// check all queries for hits	
 		for (TId queryid=0; queryid<(TId)length(ttsSet); ++queryid){
@@ -2326,6 +3575,7 @@ namespace SEQAN_NAMESPACE_MAIN
 				// split duplex into valid parts
 				TSegString seqString;	// target segment container
 				_parse(seqString, options.triplexParser, triplex, options);
+				unsigned totalNumberOfMatches = 0;
 				
 				// process one segment at a time
 				for (TSegStringIter it = begin(seqString, Standard()); it != end(seqString, Standard()); ++it){
@@ -2334,16 +3584,25 @@ namespace SEQAN_NAMESPACE_MAIN
 #endif
 					TString ttsfilter(*it, true, hit.getHstId(), false, '+');
 					bool reduceSet = false; // don't merge overlapping triplexes	
-					_filterWithGuanineAndErrorRate(triplexSet, ttsfilter, 'G', 'Y', reduceSet, TRIPLEX_ORIENTATION_BOTH, options, TTS());
+					totalNumberOfMatches += _filterWithGuanineAndErrorRate(triplexSet, ttsfilter, 'G', 'Y', reduceSet, TRIPLEX_ORIENTATION_BOTH, options, TTS());
 				}
-				
+#ifdef TRIPLEX_DEBUG
+				::std::cerr << "totalNumberOfMatches:" << totalNumberOfMatches << ::std::endl;
+#endif	
+				// skip parts below if no matches have been detected
+				if (totalNumberOfMatches==0){
+					continue;
+				}
 				
 				for (TStringIter itr=begin(triplexSet); itr!=end(triplexSet); ++itr){
 					// compute score = matching positions, which can be found in the triplex string (number of N's within the interval found)
 					int score=0;
+					int guanines=0;
 					for (unsigned int i=beginPosition(*itr); i<endPosition(*itr); ++i){
 						if (triplex[i]!='N')
-							score += 1;
+							++score;
+						if (triplex[i]=='G')
+							++guanines;
 					}
 					
 					// calculate tts positions according to strand in the duplex
@@ -2372,12 +3631,14 @@ namespace SEQAN_NAMESPACE_MAIN
 								 tfoStart,
 								 tfoEnd,
 								 duplexId,
+								 queryid,
 								 ttsStart,
 								 ttsEnd,
 								 score,
 								 isParallel(getSequenceByNo(hit.getNdlSeqNo(),needle(pattern))),
 								 getMotif(getSequenceByNo(hit.getNdlSeqNo(),needle(pattern))),
-								 strand
+								 strand,
+								 guanines
 								 );
 					appendValue(matches, match);
 					
@@ -2386,8 +3647,21 @@ namespace SEQAN_NAMESPACE_MAIN
 					THost ftfo = infix(ttsString(getSequenceByNo(hit.getNdlSeqNo(),needle(pattern))), tfoStart, tfoEnd);
 					THost ftts = infix(ttsString(value(ttsSet,hit.getHstId())), ttsStart, ttsEnd);
 					::std::cerr << "tts: " << ftts << ::std::endl << "tfo: "<< ftfo << ::std::endl;
-#endif
-					
+#endif				
+				}
+				
+				// save potential
+				TPotKey pkey(getSequenceNo(getSequenceByNo(hit.getNdlSeqNo(),needle(pattern))), getSequenceNo(value(ttsSet,hit.getHstId())));
+				if (hasKey(potentials, pkey)){
+					// sequence pair already known, just add counts
+					TPotCargo* potential = &cargo(potentials, pkey);
+					addCount(*potential, totalNumberOfMatches, getMotif(getSequenceByNo(hit.getNdlSeqNo(),needle(pattern))));
+				} else {
+					// new sequence pair, add counts and compute norm
+					TPotCargo potential(pkey);
+					addCount(potential, totalNumberOfMatches, getMotif(getSequenceByNo(hit.getNdlSeqNo(),needle(pattern))));
+					setNorm(potential, length(host(getSequenceByNo(hit.getNdlSeqNo(),needle(pattern)))), length(host(ttsSet[queryid])), options);
+					insert(potentials, TPotValue(pkey, potential));
 				}
 			}
 		}
@@ -2505,7 +3779,7 @@ namespace SEQAN_NAMESPACE_MAIN
 	typename TGardenerSpec
 	>
 	int inline startTriplexSearchSerial(TMotifSet					&tfoMotifSet,
-										StringSet<CharString>		&tfoNames,
+										StringSet<CharString> const	&tfoNames,
 										TPattern const				&pattern,			 
 										TFile						&outputfile,
 										TId							duplexSeqNo,
@@ -2516,9 +3790,14 @@ namespace SEQAN_NAMESPACE_MAIN
 		typedef StringSet<ModStringTriplex<TDuplex, TDuplex> >		TDuplexModSet;
 		typedef Gardener<TId, TGardenerSpec>						TGardener;
 		typedef ::std::list<TMatch>									TMatches;
-		typedef Repeat<unsigned, unsigned>						TRepeat;
-		typedef std::list<TRepeat>								TRepeatString; //@TODO workaround for memory leak in seqan string
-		typedef typename Iterator<TRepeatString, Rooted>::Type	TRepeatIterator;
+
+		typedef Pair<unsigned, unsigned>							TPotKey;
+		typedef TriplexPotential<TPotKey>							TPotPair;
+		typedef Map<Pair<TPotKey, TPotPair>, Skiplist<> >			TPotentials;
+		
+		typedef Repeat<unsigned, unsigned>							TRepeat;
+		typedef std::list<TRepeat>									TRepeatString; //@TODO workaround for memory leak in seqan string
+		typedef typename Iterator<TRepeatString, Rooted>::Type		TRepeatIterator;
 		
 		// open duplex file
 		::std::ifstream file;
@@ -2540,36 +3819,38 @@ namespace SEQAN_NAMESPACE_MAIN
 		// iterate over duplex sequences
 		for(; !_streamEOF(file); ++duplexSeqNo,++duplexSeqNoWithinFile){
 			TMatches matches;
-			TDuplex	duplexString;
-			CharString duplexId;
+			TPotentials potentials;
+			TDuplex	duplexSeq;
+			CharString duplexName;
 			//readID(file, id, Fasta());			// read Fasta id
-			readShortID(file, duplexId, Fasta());	// read Fasta id up to first whitespace
+			readShortID(file, duplexName, Fasta());	// read Fasta id up to first whitespace
 			if (options._debugLevel >= 2)
-				::std::cerr << "Processing:\t" << duplexId << "\t(seq " << duplexSeqNoWithinFile << ")\r" << ::std::flush;
+				::std::cerr << "Processing:\t" << duplexName << "\t(seq " << duplexSeqNoWithinFile << ")\r" << ::std::flush;
 			
-			read(file, duplexString, Fasta());			// read Fasta sequence
+			read(file, duplexSeq, Fasta());			// read Fasta sequence
 
 			// find low complexity regions and mask sequences if requested
 			if (options.filterRepeats){
 				TRepeatString	data_repeats;
-				findRepeats(data_repeats, duplexString, options.minRepeatLength, options.maxRepeatPeriod);
+				findRepeats(data_repeats, duplexSeq, options.minRepeatLength, options.maxRepeatPeriod);
 				for (TRepeatIterator rbeg = begin(data_repeats); rbeg != end(data_repeats); ++rbeg){
 					TRepeat repeat = *rbeg;
 					CharString replacement = string(repeat.endPosition-repeat.beginPosition, 'N' );
-					replace(duplexString, repeat.beginPosition, repeat.endPosition, replacement);
+					replace(duplexSeq, repeat.beginPosition, repeat.endPosition, replacement);
 				}
 			}
 			
 #if SEQAN_ENABLE_PARALLELISM	
 			// run in parallel if requested and both strands are actually searched
 			if (options.runtimeMode==RUN_PARALLEL_STRANDS && options.forward && options.reverse)
-				_detectTriplexParallelStrands(matches, pattern, duplexString, duplexSeqNoWithinFile, options, TGardener());
+				_detectTriplexParallelStrands(matches, potentials, pattern, duplexSeq, duplexSeqNoWithinFile, options, TGardener());
 				// otherwise go for serial processing
 #endif	
-			_detectTriplex(matches, pattern, duplexString, duplexSeqNoWithinFile, options, TGardener());
+			_detectTriplex(matches, potentials, pattern, duplexSeq, duplexSeqNoWithinFile, options, TGardener());
 			
 			// output all entries
-			printTriplexEntry(matches, duplexId, duplexString, tfoMotifSet, tfoNames, outputfile, options);
+			printTriplexEntry(matches, duplexName, duplexSeq, tfoMotifSet, tfoNames, outputfile, options);
+			dumpSummary(potentials, duplexName, tfoNames, options, TPX() );
 			
 			// clean up
 			clear(matches);
@@ -2588,7 +3869,7 @@ namespace SEQAN_NAMESPACE_MAIN
 	typename TId
 	>
 	int inline startTriplexSearchSerial(TMotifSet					&tfoMotifSet,
-										StringSet<CharString>		&tfoNames,
+										StringSet<CharString> const	&tfoNames,
 										TPattern const				&pattern,			 
 										TFile						&outputfile,
 										TId							duplexSeqNo,
@@ -2598,9 +3879,14 @@ namespace SEQAN_NAMESPACE_MAIN
 		typedef TriplexString										TDuplex;
 		typedef StringSet<ModStringTriplex<TDuplex, TDuplex> >		TDuplexModSet;
 		typedef ::std::list<TMatch>									TMatches;
-		typedef Repeat<unsigned, unsigned>						TRepeat;
-		typedef std::list<TRepeat>								TRepeatString; //@TODO workaround for memory leak in seqan string
-		typedef typename Iterator<TRepeatString, Rooted>::Type	TRepeatIterator;
+		
+		typedef Pair<unsigned, unsigned>							TPotKey;
+		typedef TriplexPotential<TPotKey>							TPotPair;
+		typedef Map<Pair<TPotKey, TPotPair>, Skiplist<> >			TPotentials;
+		
+		typedef Repeat<unsigned, unsigned>							TRepeat;
+		typedef std::list<TRepeat>									TRepeatString; //@TODO workaround for memory leak in seqan string
+		typedef typename Iterator<TRepeatString, Rooted>::Type		TRepeatIterator;
 		
 		// open duplex file
 		::std::ifstream file;
@@ -2622,23 +3908,24 @@ namespace SEQAN_NAMESPACE_MAIN
 		// iterate over duplex sequences
 		for(; !_streamEOF(file); ++duplexSeqNo,++duplexSeqNoWithinFile){
 			TMatches matches;
-			TDuplex	duplexString;
-			CharString duplexId;
-			readShortID(file, duplexId, Fasta());	// read Fasta id up to first whitespace
+			TPotentials potentials;
+			TDuplex	duplexSeq;
+			CharString duplexName;
+			readShortID(file, duplexName, Fasta());	// read Fasta id up to first whitespace
 			if (options._debugLevel >= 2)
-				::std::cerr << "Processing:\t" << duplexId << "\t(seq " << duplexSeqNoWithinFile << ")\r" << ::std::flush;
+				::std::cerr << "Processing:\t" << duplexName << "\t(seq " << duplexSeqNoWithinFile << ")\r" << ::std::flush;
 			
-			read(file, duplexString, Fasta());			// read Fasta sequence
+			read(file, duplexSeq, Fasta());			// read Fasta sequence
 			
 			// find low complexity regions and mask sequences if requested
 			if (options.filterRepeats){
 				// find low complexity regions and mask sequences if requested
 				TRepeatString	data_repeats;
-				findRepeats(data_repeats, duplexString, options.minRepeatLength, options.maxRepeatPeriod);
+				findRepeats(data_repeats, duplexSeq, options.minRepeatLength, options.maxRepeatPeriod);
 				for (TRepeatIterator rbeg = begin(data_repeats); rbeg != end(data_repeats); ++rbeg){
 					TRepeat repeat = *rbeg;
 					CharString replacement = string(repeat.endPosition-repeat.beginPosition, 'N' );
-					replace(duplexString, repeat.beginPosition, repeat.endPosition, replacement);
+					replace(duplexSeq, repeat.beginPosition, repeat.endPosition, replacement);
 				}
 				if (options._debugLevel > 1 )
 					options.logFileHandle << _getTimeStamp() << "   ... Finished low complexity filtering of duplex sequence" << ::std::endl;
@@ -2647,13 +3934,14 @@ namespace SEQAN_NAMESPACE_MAIN
 #if SEQAN_ENABLE_PARALLELISM	
 			// run in parallel if requested and both strands are actually searched
 			if (options.runtimeMode==RUN_PARALLEL_STRANDS && options.forward && options.reverse)
-				_detectTriplexParallelStrands(matches, tfoMotifSet, duplexString, duplexSeqNoWithinFile, options, BruteForce());
+				_detectTriplexParallelStrands(matches, potentials, tfoMotifSet, duplexSeq, duplexSeqNoWithinFile, options, BruteForce());
 			// otherwise go for serial processing
 #endif	
-			_detectTriplex(matches, tfoMotifSet, duplexString, duplexSeqNoWithinFile, options, BruteForce());
+			_detectTriplex(matches, potentials, tfoMotifSet, duplexSeq, duplexSeqNoWithinFile, options, BruteForce());
 			
 			// output all entries
-			printTriplexEntry(matches, duplexId, duplexString, tfoMotifSet, tfoNames, outputfile, options);
+			printTriplexEntry(matches, duplexName, duplexSeq, tfoMotifSet, tfoNames, outputfile, options);
+			dumpSummary(potentials, duplexName, tfoNames, options, TPX() );
 			
 			// clean up
 			clear(matches);
@@ -2678,7 +3966,7 @@ namespace SEQAN_NAMESPACE_MAIN
 												TPattern const				&pattern,			 
 												TFile						&outputfile,
 												TId							duplexSeqNo,
-												Options		&options,
+												Options						&options,
 												TTag
 												){
 		typedef TriplexString									TDuplex;
@@ -2737,7 +4025,6 @@ namespace SEQAN_NAMESPACE_MAIN
 			
 			TSeq seq(duplexSeqNoWithinFile, duplexId, duplexString);
 			appendValue(data, seq);
-
 		}
 		
 		// search
@@ -2782,22 +4069,30 @@ namespace SEQAN_NAMESPACE_MAIN
 		typedef Gardener<TId, TGardenerSpec>			TGardener;
 		typedef ::std::list<TMatch>						TMatches;
 		
+		typedef Pair<unsigned, unsigned>				TPotKey;
+		typedef TriplexPotential<TPotKey>				TPotPair;
+		typedef TriplexPotential<unsigned>				TPotSingle;
+		typedef Map<Pair<TPotKey,TPotPair>, Skiplist<> >	TPotentials;
+
 		// parallel section 
 		SEQAN_PRAGMA_IF_PARALLEL(omp parallel)
 		{
 			SEQAN_PRAGMA_IF_PARALLEL(omp for schedule(dynamic) )
 			for (int i=0; i<(int)length(data);++i){
 				TMatches matches;
+				TPotentials potentials;
 				TSeq seq = data[i];
 				TCounter duplexCounter = seq.i1;
-				TString duplexId = seq.i2;
+				TString duplexName = seq.i2;
 				TDuplex duplex = seq.i3;
 				
-				_detectTriplex(matches, pattern, duplex, duplexCounter, options, TGardener());
+				_detectTriplex(matches, potentials, pattern, duplex, duplexCounter, options, TGardener());
 
 				if (length(matches)>0){
-					SEQAN_PRAGMA_IF_PARALLEL(omp critical(printTriplexEntry) )
-					printTriplexEntry(matches, duplexId, duplex, tfoSet, tfoNames, outputfile, options);
+					SEQAN_PRAGMA_IF_PARALLEL(omp critical(printTriplexEntry) ){
+						printTriplexEntry(matches, duplexName, duplex, tfoSet, tfoNames, outputfile, options);
+						dumpSummary(potentials, duplexName, tfoNames, options, TPX());
+					}
 				}
 			}
 		}
@@ -2825,29 +4120,35 @@ namespace SEQAN_NAMESPACE_MAIN
 		typedef typename Value<TSeq,3>::Type			TDuplex;
 		typedef ::std::list<TMatch>						TMatches;
 		
+		typedef Pair<unsigned, unsigned>				TPotKey;
+		typedef TriplexPotential<TPotKey>				TPotPair;
+		typedef TriplexPotential<unsigned>				TPotSingle;
+		typedef Map<Pair<TPotKey,TPotPair>, Skiplist<> >	TPotentials;
+		
 		// parallel section 
 		SEQAN_PRAGMA_IF_PARALLEL(omp parallel)
 		{
 			SEQAN_PRAGMA_IF_PARALLEL(omp for schedule(dynamic) )
 			for (int i=0; i<(int)length(data);++i){
 				TMatches matches;
+				TPotentials potentials;
 				TSeq seq = data[i];
 				TCounter duplexCounter = seq.i1;
-				TString duplexId = seq.i2;
+				TString duplexName = seq.i2;
 				TDuplex duplex = seq.i3;
 				
-				_detectTriplex(matches, tfoSet, duplex, duplexCounter, options, BruteForce());
+				_detectTriplex(matches, potentials, tfoSet, duplex, duplexCounter, options, BruteForce());
 				
 				if (length(matches)>0){
-					SEQAN_PRAGMA_IF_PARALLEL(omp critical(printTriplexEntry) )
-					printTriplexEntry(matches, duplexId, duplex, tfoSet, tfoNames, outputfile, options);
+					SEQAN_PRAGMA_IF_PARALLEL(omp critical(printTriplexEntry) ){
+						printTriplexEntry(matches, duplexName, duplex, tfoSet, tfoNames, outputfile, options);
+						dumpSummary(potentials, duplexName, tfoNames, options, TPX());
+					}
 				}
 			}
 		}
 	}
-#endif
-
-
-
+	
+#endif	
 }
-#endif  // #ifndef SANDBOX_FBUSKE_APPS_TRIPLEXATOR_TRIPLEX_H_
+#endif  // #ifndef FBUSKE_APPS_TRIPLEXATOR_TRIPLEX_H_

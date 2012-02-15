@@ -98,19 +98,19 @@ struct HasMoveConstructor
 template <typename TTarget, typename TSource>
 inline void
 assign(TTarget & target,
-	   TSource & source)
+       TSource & source)
 {
     SEQAN_CHECKPOINT;
-	target = source;
+    target = source;
 }
 
 template <typename TTarget, typename TSource>
 inline void
 assign(TTarget & target,
-	   TSource const & source)
+       TSource const & source)
 {
     SEQAN_CHECKPOINT;
-	target = source;
+    target = source;
 }
 
 // TODO(holtgrew): assign() for proxies should be defined in basic_proxy.h.
@@ -120,19 +120,19 @@ template <typename TSpec> class Proxy;
 template<typename TTargetSpec, typename TSource>
 inline void
 assign(Proxy<TTargetSpec> & target,
-	   TSource & source)
+       TSource & source)
 {
     SEQAN_CHECKPOINT;
-	assignValue(iter(target), source);
+    assignValue(iter(target), source);
 }
 
 template<typename TTargetSpec, typename TSource>
 inline void
 assign(Proxy<TTargetSpec> & target,
-	   TSource const & source)
+       TSource const & source)
 {
     SEQAN_CHECKPOINT;
-	assignValue(iter(target), source);
+    assignValue(iter(target), source);
 }
 
 // ----------------------------------------------------------------------------
@@ -155,37 +155,37 @@ If possible, $set$ copies content references instead of the content itself.
 template<typename TTarget, typename TSource>
 inline void
 set(TTarget & target,
-	TSource & source)
+    TSource & source)
 {
     SEQAN_CHECKPOINT;
-	assign(target, source);
+    assign(target, source);
 }
 
 template<typename TTarget, typename TSource>
 inline void
 set(TTarget const & target,
-	TSource & source)
+    TSource & source)
 {
     SEQAN_CHECKPOINT;
-	assign(target, source);
+    assign(target, source);
 }
 
 template<typename TTarget, typename TSource>
 inline void
 set(TTarget & target,
-	TSource const & source)
+    TSource const & source)
 {
     SEQAN_CHECKPOINT;
-	assign(target, source);
+    assign(target, source);
 }
 
 template<typename TTarget, typename TSource>
 inline void
 set(TTarget const & target,
-	TSource const & source)
+    TSource const & source)
 {
     SEQAN_CHECKPOINT;
-	assign(target, source);
+    assign(target, source);
 }
 
 // ----------------------------------------------------------------------------
@@ -209,37 +209,37 @@ Otherwise, the function behaves like @Function.assign@ and $source$ is copied to
 template<typename TTarget, typename TSource>
 inline void
 move(TTarget & target,
-	 TSource & source)
+     TSource & source)
 {
     SEQAN_CHECKPOINT;
-	assign(target, source);
+    assign(target, source);
 }
 
 template<typename TTarget, typename TSource>
 inline void
 move(TTarget const & target,
-	 TSource & source)
+     TSource & source)
 {
     SEQAN_CHECKPOINT;
-	assign(target, source);
+    assign(target, source);
 }
 
 template<typename TTarget, typename TSource>
 inline void
 move(TTarget & target,
-	 TSource const & source)
+     TSource const & source)
 {
     SEQAN_CHECKPOINT;
-	assign(target, source);
+    assign(target, source);
 }
 
 template<typename TTarget, typename TSource>
 inline void
 move(TTarget const & target,
-	 TSource const & source)
+     TSource const & source)
 {
     SEQAN_CHECKPOINT;
-	assign(target, source);
+    assign(target, source);
 }
 
 }  // namespace seqan

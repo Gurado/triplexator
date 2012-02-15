@@ -149,7 +149,7 @@ public:
 template <typename TValue, typename TCount, typename TSpec>
 struct ValueSize<ProfileType<TValue, TCount, TSpec> >
 {
-	enum { VALUE = ValueSize<TValue>::VALUE + 1};
+    enum { VALUE = ValueSize<TValue>::VALUE + 1};
 };
 
 // ----------------------------------------------------------------------------
@@ -163,13 +163,13 @@ struct SourceValue;
 template <typename TValue, typename TCount, typename TSpec>
 struct SourceValue<ProfileType<TValue, TCount, TSpec> >
 {
-	typedef TValue Type;
+    typedef TValue Type;
 };
 
 template< typename TValue, typename TCount, typename TSpec>
 struct SourceValue<ProfileType<TValue, TCount, TSpec> const>
 {
-	typedef TValue const Type;
+    typedef TValue const Type;
 };
 
 // ============================================================================
@@ -224,12 +224,12 @@ template <typename TSourceValue, typename TSourceCount, typename TSourceSpec>
 inline bool
 empty(ProfileType<TSourceValue, TSourceCount, TSourceSpec> const & source)
 {
-	typedef typename Size<ProfileType<TSourceValue, TSourceCount, TSourceSpec> const >::Type TSize;
-	// Check if there are only gaps
-	for(TSize i = 0; i<ValueSize<TSourceValue>::VALUE; ++i) {
-		if (source.count[i]) return false;
-	}
-	return true;
+    typedef typename Size<ProfileType<TSourceValue, TSourceCount, TSourceSpec> const >::Type TSize;
+    // Check if there are only gaps
+    for(TSize i = 0; i<ValueSize<TSourceValue>::VALUE; ++i) {
+        if (source.count[i]) return false;
+    }
+    return true;
 }
 
 // ----------------------------------------------------------------------------
@@ -240,17 +240,17 @@ template <typename TSourceValue, typename TSourceCount, typename TSourceSpec>
 inline typename Size<ProfileType<TSourceValue, TSourceCount, TSourceSpec> const >::Type
 _getMaxIndex(ProfileType<TSourceValue, TSourceCount, TSourceSpec> const & source)
 {
-	typedef ProfileType<TSourceValue, TSourceCount, TSourceSpec> TProfileType;
-	typedef typename Size<TProfileType>::Type TSize;
-	TSize maxIndex = 0;
-	TSourceCount maxCount = source.count[0];
-	for(TSize i = 1; i<ValueSize<TProfileType>::VALUE; ++i) {
-		if (source.count[i] > maxCount) {
-			maxIndex = i;
-			maxCount = source.count[i];
-		}
-	}
-	return maxIndex;
+    typedef ProfileType<TSourceValue, TSourceCount, TSourceSpec> TProfileType;
+    typedef typename Size<TProfileType>::Type TSize;
+    TSize maxIndex = 0;
+    TSourceCount maxCount = source.count[0];
+    for(TSize i = 1; i<ValueSize<TProfileType>::VALUE; ++i) {
+        if (source.count[i] > maxCount) {
+            maxIndex = i;
+            maxCount = source.count[i];
+        }
+    }
+    return maxIndex;
 }
 
 // ----------------------------------------------------------------------------
@@ -260,9 +260,9 @@ _getMaxIndex(ProfileType<TSourceValue, TSourceCount, TSourceSpec> const & source
 template <typename TTargetValue, typename TTargetSpec, typename TSourceValue, typename TSourceCount, typename TSourceSpec>
 inline void
 assign(SimpleType<TTargetValue, TTargetSpec> & target,
-	   ProfileType<TSourceValue, TSourceCount, TSourceSpec> const & source)
+       ProfileType<TSourceValue, TSourceCount, TSourceSpec> const & source)
 {
-	target.value = _getMaxIndex(source);
+    target.value = _getMaxIndex(source);
 }
 
 // ----------------------------------------------------------------------------
@@ -272,9 +272,9 @@ assign(SimpleType<TTargetValue, TTargetSpec> & target,
 template <typename TTarget, typename T, typename TSourceValue, typename TSourceCount, typename TSourceSpec>
 inline typename Convert<TTarget, ProfileType<TSourceValue, TSourceCount, TSourceSpec> >::Type
 convertImpl(Convert<TTarget, T> const &,
-			ProfileType<TSourceValue, TSourceCount, TSourceSpec> const & source)
+            ProfileType<TSourceValue, TSourceCount, TSourceSpec> const & source)
 {
-	return (_getMaxIndex(source) == ValueSize<TSourceValue>::VALUE) ? convertImpl(Convert<TTarget, T>(), '-') : convertImpl(Convert<TTarget, T>(), TSourceValue(_getMaxIndex(source)));
+    return (_getMaxIndex(source) == ValueSize<TSourceValue>::VALUE) ? convertImpl(Convert<TTarget, T>(), '-') : convertImpl(Convert<TTarget, T>(), TSourceValue(_getMaxIndex(source)));
 }
 
 // ----------------------------------------------------------------------------
@@ -284,12 +284,12 @@ convertImpl(Convert<TTarget, T> const &,
 template<typename TStream, typename TValue, typename TCount, typename TSpec>
 inline TStream&
 operator<<(TStream& os, ProfileType<TValue, TCount, TSpec> const & rhs) {
-	typedef ProfileType<TValue, TCount, TSpec> TProfileType;
-	typedef typename Size<TProfileType>::Type TSize;
-	for (TSize i = 0; i<ValueSize<TProfileType>::VALUE; ++i) {
-		os << i << ':' << rhs.count[i] << ' ' << ';';
-	}
-	return os;
+    typedef ProfileType<TValue, TCount, TSpec> TProfileType;
+    typedef typename Size<TProfileType>::Type TSize;
+    for (TSize i = 0; i<ValueSize<TProfileType>::VALUE; ++i) {
+        os << i << ':' << rhs.count[i] << ' ' << ';';
+    }
+    return os;
 }
 
 }  // namespace seqan

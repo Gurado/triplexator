@@ -64,7 +64,9 @@ namespace seqan {
 ..param.container:Container to shuffle elements of.
 ..param.rng:Random number generator to use.
 ...type:Class.Rng
+..wiki:Tutorial/Randomness#Shuffling|Tutorial: Randomness
 */
+
 template <typename TContainer, typename TRNG>
 void shuffle(TContainer & container, TRNG & rng)
 {

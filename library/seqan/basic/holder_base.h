@@ -109,13 +109,13 @@ struct Holder;
 template <typename TValue, typename TSpec>
 struct Value<Holder<TValue, TSpec> >
 {
-	typedef TValue Type;
+    typedef TValue Type;
 };
 
 template <typename TValue, typename TSpec>
 struct Value<Holder<TValue, TSpec> const>
 {
-	typedef TValue Type;
+    typedef TValue Type;
 };
 
 #if SEQAN_ENABLE_POINTER_HOLDER
@@ -123,7 +123,7 @@ struct Value<Holder<TValue, TSpec> const>
 template <typename TValue, typename TSpec>
 struct Value<Holder<TValue * const, TSpec> >
 {
-	typedef TValue * Type;
+    typedef TValue * Type;
 };
 #endif  // #if SEQAN_ENABLE_POINTER_HOLDER
 
@@ -136,13 +136,13 @@ struct Value<Holder<TValue * const, TSpec> >
 template <typename TValue, typename TSpec>
 struct Spec<Holder<TValue, TSpec> >
 {
-	typedef TSpec Type;
+    typedef TSpec Type;
 };
 
 template <typename TValue, typename TSpec>
 struct Spec<Holder<TValue, TSpec> const>
 {
-	typedef TSpec Type;
+    typedef TSpec Type;
 };
 
 // ----------------------------------------------------------------------------
@@ -154,20 +154,20 @@ struct Spec<Holder<TValue, TSpec> const>
 template <typename TValue, typename TSpec>
 struct Reference<Holder<TValue, TSpec> >
 {
-	typedef typename Value<Holder<TValue, TSpec> >::Type & Type;
+    typedef typename Value<Holder<TValue, TSpec> >::Type & Type;
 };
 
 template <typename TValue, typename TSpec>
 struct Reference< Holder<TValue, TSpec> const>
 {
-	typedef typename Value<Holder<TValue, TSpec> const>::Type & Type;
+    typedef typename Value<Holder<TValue, TSpec> const>::Type & Type;
 };
 
 #if SEQAN_ENABLE_POINTER_HOLDER
 template <typename TValue, typename TSpec>
 struct Reference<Holder<TValue *, TSpec> const>
 {
-	typedef typename Value<Holder<TValue *, TSpec> const>::Type const & Type;
+    typedef typename Value<Holder<TValue *, TSpec> const>::Type const & Type;
 };
 #endif  // #if SEQAN_ENABLE_POINTER_HOLDER
 

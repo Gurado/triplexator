@@ -1,4 +1,4 @@
-# Sequence-ID	Start	End	Score	Motif	Error-rate	Errors	Duplicates	TFO	Duplicate locations
-Seq1-Y-noErrors	2	22	20	Y	0		-1	CCCTTCTCCTTCCTTTTCCC	-
-Seq4-R-noErrors	2	22	20	R	0		-1	GGGAAGAGGAAGGAAAAGGG	-
-Seq7-M-noErrors	2	22	20	M	0		-1	GGGTTGTGGTTGGTTTTGGG	-
+# Sequence-ID	Start	End	Score	Motif	Error-rate	Errors	Guanine-rate	Duplicates	TFO	Duplicate locations
+Seq1-Y-noErrors	2	22	20	Y	0		0.55	-1	CCCTTCTCCTTCCTTTTCCC	-
+Seq4-R-noErrors	2	22	20	R	0		0.55	-1	GGGAAGAGGAAGGAAAAGGG	-
+Seq7-M-noErrors	2	22	20	M	0		0.55	-1	GGGTTGTGGTTGGTTTTGGG	-

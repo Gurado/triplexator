@@ -1,7 +1,7 @@
 // ==========================================================================
 //                                triplexator
 // ==========================================================================
-// Copyright (c) 2011, Fabian Buske, UQ
+// Copyright (c) 2011,2012, Fabian Buske, UQ
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,8 +32,8 @@
 // Author: Fabian Buske <fbuske@uq.edu.au>
 // ==========================================================================
 
-#ifndef SEQAN_HEADER_TRIPLEX_FUNCTORS_H
-#define SEQAN_HEADER_TRIPLEX_FUNCTORS_H
+#ifndef FBUSKE_APPS_TRIPLEXATOR_HEADER_TRIPLEX_FUNCTORS_H
+#define FBUSKE_APPS_TRIPLEXATOR_HEADER_TRIPLEX_FUNCTORS_H
 
 #include "triplex_alphabet.h"
 
@@ -417,4 +417,4 @@ namespace SEQAN_NAMESPACE_MAIN
 	
 } //namespace SEQAN_NAMESPACE_MAIN
 
-#endif //#ifndef SEQAN_HEADER_TRIPLEX_FUNCTORS_H
+#endif //#ifndef FBUSKE_APPS_TRIPLEXATOR_HEADER_TRIPLEX_FUNCTORS_H

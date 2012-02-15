@@ -1,7 +1,7 @@
 // ==========================================================================
 //                                triplexator
 // ==========================================================================
-// Copyright (c) 2011, Fabian Buske, UQ
+// Copyright (c) 2011,2012, Fabian Buske, UQ
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,8 +32,8 @@
 // Author: Fabian Buske <fbuske@uq.edu.au>
 // ==========================================================================
 
-#ifndef HEADER_TRIPLEX_ALPHABET_H
-#define HEADER_TRIPLEX_ALPHABET_H
+#ifndef FBUSKE_APPS_TRIPLEXATOR_HEADER_TRIPLEX_ALPHABET_H
+#define FBUSKE_APPS_TRIPLEXATOR_HEADER_TRIPLEX_ALPHABET_H
 
 #include <seqan/basic/basic_alphabet_simple.h>
 #include <seqan/basic/basic_alphabet_simple_tabs.h>
@@ -855,4 +855,4 @@ struct FunctorComplement<DnaKM> : public ::std::unary_function<DnaKM,DnaKM>
 //////////////////////////////////////////////////////////////////////////////
 }// namespace SEQAN_NAMESPACE_MAIN
 
-#endif //#ifndef HEADER_TRIPLEX_ALPHABET_H
+#endif //#ifndef FBUSKE_APPS_TRIPLEXATOR_HEADER_TRIPLEX_ALPHABET_H

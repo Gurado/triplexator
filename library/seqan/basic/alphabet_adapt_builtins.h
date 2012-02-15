@@ -141,16 +141,16 @@ inline char const &
 gapValueImpl(char *)
 {
     SEQAN_CHECKPOINT;
-	static char const _gap = '-';
-	return _gap;
+    static char const _gap = '-';
+    return _gap;
 }
 
 inline char const &
 gapValueImpl(char const *)
 {
     SEQAN_CHECKPOINT;
-	static char const _gap = '-';
-	return _gap;
+    static char const _gap = '-';
+    return _gap;
 }
 
 // ----------------------------------------------------------------------------
@@ -161,16 +161,16 @@ inline char const &
 unknownValueImpl(char *)
 {
     SEQAN_CHECKPOINT;
-	static char const _unknown = 'N';
-	return _unknown;
+    static char const _unknown = 'N';
+    return _unknown;
 }
 
 inline char const &
 unknownValueImpl(char const *)
 {
     SEQAN_CHECKPOINT;
-	static char const _unknown = 'N';
-	return _unknown;
+    static char const _unknown = 'N';
+    return _unknown;
 }
 
 // ----------------------------------------------------------------------------
@@ -183,7 +183,7 @@ supremumValueImpl(T *)
 {
     // TODO(holtgrew): We probably do not want a default specialization.
     SEQAN_CHECKPOINT;
-	return MaxValue<T>::VALUE;
+    return MaxValue<T>::VALUE;
 }
 
 inline long double const &
@@ -191,11 +191,11 @@ supremumValueImpl(long double *)
 {
     SEQAN_CHECKPOINT;
 #ifdef PLATFORM_WINDOWS
-	static long double const _value = ::std::numeric_limits<long double>::infinity( );
+    static long double const _value = ::std::numeric_limits<long double>::infinity( );
 #else
-	static long double const _value = 1.7976931348623157e+308;
+    static long double const _value = 1.7976931348623157e+308;
 #endif
-	return _value;
+    return _value;
 }
 
 inline double const &
@@ -203,22 +203,22 @@ supremumValueImpl(double *)
 {
     SEQAN_CHECKPOINT;
 #ifdef PLATFORM_WINDOWS
-	static double const _value = ::std::numeric_limits<double>::infinity( );
+    static double const _value = ::std::numeric_limits<double>::infinity( );
 #else
-	static double const _value = 1.7976931348623157e+308;
+    static double const _value = 1.7976931348623157e+308;
 #endif
-	return _value;
+    return _value;
 }
 inline float const &
 supremumValueImpl(float *)
 {
     SEQAN_CHECKPOINT;
 #ifdef PLATFORM_WINDOWS
-	static float const _value = ::std::numeric_limits<float>::infinity( );
+    static float const _value = ::std::numeric_limits<float>::infinity( );
 #else
-	static float const _value = 3.40282347e+38F;
+    static float const _value = 3.40282347e+38F;
 #endif
-	return _value;
+    return _value;
 }
 
 // ----------------------------------------------------------------------------
@@ -231,7 +231,7 @@ infimumValueImpl(T *)
 {
     // TODO(holtgrew): We probably do not want a default specialization.
     SEQAN_CHECKPOINT;
-	return MinValue<T>::VALUE;
+    return MinValue<T>::VALUE;
 }
 
 inline float const &
@@ -239,11 +239,11 @@ infimumValueImpl(float *)
 {
     SEQAN_CHECKPOINT;
 #ifdef PLATFORM_WINDOWS
-	static float const _value = -::std::numeric_limits<float>::infinity( );
+    static float const _value = -::std::numeric_limits<float>::infinity( );
 #else
-	static float const _value = -3.40282347e+38F;
+    static float const _value = -3.40282347e+38F;
 #endif
-	return _value;
+    return _value;
 }
 
 inline double const &
@@ -251,11 +251,11 @@ infimumValueImpl(double *)
 {
     SEQAN_CHECKPOINT;
 #ifdef PLATFORM_WINDOWS
-	static double const _value = -::std::numeric_limits<double>::infinity( );
+    static double const _value = -::std::numeric_limits<double>::infinity( );
 #else
-	static double const _value = -1.7976931348623157e+308;
+    static double const _value = -1.7976931348623157e+308;
 #endif
-	return _value;
+    return _value;
 }
 
 inline long double const &
@@ -263,11 +263,11 @@ infimumValueImpl(long double *)
 {
     SEQAN_CHECKPOINT;
 #ifdef PLATFORM_WINDOWS
-	static long double const _value = -::std::numeric_limits<long double>::infinity( );
+    static long double const _value = -::std::numeric_limits<long double>::infinity( );
 #else
-	static long double const _value = -1.7976931348623157e+308;
+    static long double const _value = -1.7976931348623157e+308;
 #endif
-	return _value;
+    return _value;
 }
 
 // TODO(holtgrew): The following functions were in basic_alphabet_traits.h but commented out because of infimumValue->minValue, supremumValue->maxValue change. Eventually, they might die out since infimumValue/supremumValue are only worth keeping for floating point numbers where there are infinity values.
@@ -281,15 +281,15 @@ inline char const &
 supremumValueImpl(char *)
 {
 SEQAN_CHECKPOINT
-	static char const _value = (char) 127;
-	return _value;
+    static char const _value = (char) 127;
+    return _value;
 }
 inline char const &
 infimumValueImpl(char *)
 {
 SEQAN_CHECKPOINT
-	static char const _value = (char) -128;
-	return _value;
+    static char const _value = (char) -128;
+    return _value;
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -300,15 +300,15 @@ inline signed char const &
 supremumValueImpl(signed char *)
 {
 SEQAN_CHECKPOINT
-	static signed char const _value = 127;
-	return _value;
+    static signed char const _value = 127;
+    return _value;
 }
 inline signed char const &
 infimumValueImpl(signed char *)
 {
 SEQAN_CHECKPOINT
-	static signed char const _value = -128;
-	return _value;
+    static signed char const _value = -128;
+    return _value;
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -319,15 +319,15 @@ inline unsigned char const &
 supremumValueImpl(unsigned char *)
 {
 SEQAN_CHECKPOINT
-	static unsigned char const _value = 255;
-	return _value;
+    static unsigned char const _value = 255;
+    return _value;
 }
 inline unsigned char const &
 infimumValueImpl(unsigned char *)
 {
 SEQAN_CHECKPOINT
-	static unsigned char const _value = 0;
-	return _value;
+    static unsigned char const _value = 0;
+    return _value;
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -338,15 +338,15 @@ inline wchar_t const &
 supremumValueImpl(wchar_t *)
 {
 SEQAN_CHECKPOINT
-	static wchar_t const _value = 1UL << (BitsPerValue<wchar_t>::VALUE) - 1;
-	return _value;
+    static wchar_t const _value = 1UL << (BitsPerValue<wchar_t>::VALUE) - 1;
+    return _value;
 }
 inline wchar_t const &
 infimumValueImpl(wchar_t *)
 {
 SEQAN_CHECKPOINT
-	static wchar_t const _value = 0;
-	return _value;
+    static wchar_t const _value = 0;
+    return _value;
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -357,15 +357,15 @@ inline signed short const &
 supremumValueImpl(signed short *)
 {
 SEQAN_CHECKPOINT
-	static signed short const _value = (((1 << (BitsPerValue<signed short>::VALUE - 2)) - 1) << 1) + 1;
-	return _value;
+    static signed short const _value = (((1 << (BitsPerValue<signed short>::VALUE - 2)) - 1) << 1) + 1;
+    return _value;
 }
 inline signed short const &
 infimumValueImpl(signed short *dummy)
 {
 SEQAN_CHECKPOINT
-	static signed short const _value = -supremumValueImpl(dummy) - 1;
-	return _value;
+    static signed short const _value = -supremumValueImpl(dummy) - 1;
+    return _value;
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -376,15 +376,15 @@ inline unsigned short const &
 supremumValueImpl(unsigned short *)
 {
 SEQAN_CHECKPOINT
-	static unsigned short const _value = (((1 << (BitsPerValue<unsigned short>::VALUE - 1)) - 1) << 1) + 1;
-	return _value;
+    static unsigned short const _value = (((1 << (BitsPerValue<unsigned short>::VALUE - 1)) - 1) << 1) + 1;
+    return _value;
 }
 inline unsigned short const &
 infimumValueImpl(unsigned short *)
 {
 SEQAN_CHECKPOINT
-	static unsigned short const _value = 0;
-	return _value;
+    static unsigned short const _value = 0;
+    return _value;
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -395,16 +395,16 @@ inline signed int const &
 supremumValueImpl(signed int *)
 {
 SEQAN_CHECKPOINT
-	static signed int const _value = (((1 << (BitsPerValue<signed int>::VALUE - 2)) - 1) << 1) + 1;
-	return _value;
+    static signed int const _value = (((1 << (BitsPerValue<signed int>::VALUE - 2)) - 1) << 1) + 1;
+    return _value;
 }
 
 inline signed int const &
 infimumValueImpl(signed int *dummy)
 {
 SEQAN_CHECKPOINT
-	static signed int const _value = -supremumValueImpl(dummy) - 1;
-	return _value;
+    static signed int const _value = -supremumValueImpl(dummy) - 1;
+    return _value;
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -415,16 +415,16 @@ inline unsigned int const &
 supremumValueImpl(unsigned int *)
 {
 SEQAN_CHECKPOINT
-	static unsigned int const _value = ~0ul;
-	return _value;
+    static unsigned int const _value = ~0ul;
+    return _value;
 }
 
 inline unsigned int const &
 infimumValueImpl(unsigned int *)
 {
 SEQAN_CHECKPOINT
-	static unsigned int const _value = 0;
-	return _value;
+    static unsigned int const _value = 0;
+    return _value;
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -435,16 +435,16 @@ inline signed long const &
 supremumValueImpl(signed long *)
 {
 SEQAN_CHECKPOINT
-	static signed long const _value = (((1 << (BitsPerValue<signed long>::VALUE - 2)) - 1) << 1) + 1;
-	return _value;
+    static signed long const _value = (((1 << (BitsPerValue<signed long>::VALUE - 2)) - 1) << 1) + 1;
+    return _value;
 }
 
 inline signed long const &
 infimumValueImpl(signed long *dummy)
 {
 SEQAN_CHECKPOINT
-	static signed long const _value = -supremumValueImpl(dummy) - 1;
-	return _value;
+    static signed long const _value = -supremumValueImpl(dummy) - 1;
+    return _value;
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -455,16 +455,16 @@ inline unsigned long const &
 supremumValueImpl(unsigned long *)
 {
 SEQAN_CHECKPOINT
-	static unsigned long const _value = ~0ul;
-	return _value;
+    static unsigned long const _value = ~0ul;
+    return _value;
 }
 
 inline unsigned long const &
 infimumValueImpl(unsigned long *)
 {
 SEQAN_CHECKPOINT
-	static unsigned long const _value = 0;
-	return _value;
+    static unsigned long const _value = 0;
+    return _value;
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -475,16 +475,16 @@ inline __int64 const &
 supremumValueImpl(__int64 *)
 {
 SEQAN_CHECKPOINT
-	static __int64 const _value = ((((__int64)1 << (BitsPerValue<__int64>::VALUE - 2)) - 1) << 1) + 1;
-	return _value;
+    static __int64 const _value = ((((__int64)1 << (BitsPerValue<__int64>::VALUE - 2)) - 1) << 1) + 1;
+    return _value;
 }
 
 inline __int64 const &
 infimumValueImpl(__int64 *dummy)
 {
 SEQAN_CHECKPOINT
-	static __int64 const _value = -supremumValueImpl(dummy) - 1;
-	return _value;
+    static __int64 const _value = -supremumValueImpl(dummy) - 1;
+    return _value;
 }
 */
 

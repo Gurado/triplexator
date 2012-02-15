@@ -224,7 +224,7 @@ template <typename TSpec> struct Allocator;       	// "/Users/f.buske/Documents/
 //____________________________________________________________________________
 // And
 
-template <typename T1, typename T2> struct And;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(177)
+template <typename TBool1, typename TBool2> struct And;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(182)
 
 //____________________________________________________________________________
 // BandedGotoh_
@@ -279,7 +279,7 @@ template <typename T> struct Cargo;       	// "/Users/f.buske/Documents/biosim/t
 //____________________________________________________________________________
 // Case
 
-template <int TAG, typename Type_, typename Next_ > struct Case;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(324)
+template <int TAG, typename Type_, typename Next_ > struct Case;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(323)
 
 //____________________________________________________________________________
 // ChunkPool
@@ -289,7 +289,7 @@ template <size_t SIZE, size_t MAX_COUNT , typename TParentAllocator > struct Chu
 //____________________________________________________________________________
 // ClassIdentifier_
 
-template <typename T> struct ClassIdentifier_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(751)
+template <typename T> struct ClassIdentifier_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(775)
 
 //____________________________________________________________________________
 // CompareType
@@ -326,7 +326,7 @@ template <typename TTarget, typename TSource > struct Convert;       	// "/Users
 //____________________________________________________________________________
 // CopyConst_
 
-template <typename TFrom, typename TTo> struct CopyConst_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(701)
+template <typename TFrom, typename TTo> struct CopyConst_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(725)
 
 //____________________________________________________________________________
 // DeepestSpec
@@ -361,12 +361,12 @@ struct DotDrawing_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/s
 //____________________________________________________________________________
 // Eval
 
-template <bool b> struct Eval;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(115)
+template <bool b> struct Eval;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(119)
 
 //____________________________________________________________________________
 // False
 
-struct False;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(70)
+struct False;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(74)
 
 //____________________________________________________________________________
 // GetValue
@@ -421,7 +421,7 @@ template <typename T> struct Id;       	// "/Users/f.buske/Documents/biosim/trip
 //____________________________________________________________________________
 // If
 
-template <bool Flag, class T1, class T2> struct If;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(206)
+template <bool Flag, class T1, class T2> struct If;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(213)
 
 //____________________________________________________________________________
 // IntegralForValue
@@ -447,12 +447,12 @@ template <typename T> struct IsCharType;       	// "/Users/f.buske/Documents/bio
 //____________________________________________________________________________
 // IsConst_
 
-template <typename T> struct IsConst_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(725)
+template <typename T> struct IsConst_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(749)
 
 //____________________________________________________________________________
 // IsSameType
 
-template <class Type1, class Type2> struct IsSameType;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(234)
+template <class Type1, class Type2> struct IsSameType;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(240)
 
 //____________________________________________________________________________
 // IsSimple
@@ -519,12 +519,12 @@ struct LevenshteinDistance_;       	// "/Users/f.buske/Documents/biosim/triplexe
 //____________________________________________________________________________
 // Log2
 
-template <__int64 numerus> struct Log2;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(479)
+template <__int64 numerus> struct Log2;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(478)
 
 //____________________________________________________________________________
 // Log2Floor
 
-template <__int64 numerus> struct Log2Floor;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(504)
+template <__int64 numerus> struct Log2Floor;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(503)
 
 //____________________________________________________________________________
 // Log2Impl_
@@ -540,17 +540,17 @@ template <typename TValue, typename TSpec> class LogProb;       	// "/Users/f.bu
 //____________________________________________________________________________
 // Loop
 
-template <typename Worker, int I> class Loop;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(392)
+template <typename Worker, int I> class Loop;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(391)
 
 //____________________________________________________________________________
 // LoopReverse
 
-template <typename Worker, int I> class LoopReverse;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(444)
+template <typename Worker, int I> class LoopReverse;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(443)
 
 //____________________________________________________________________________
 // MakeSigned
 
-template <typename T> struct MakeSigned;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(603)
+template <typename T> struct MakeSigned;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(602)
 
 //____________________________________________________________________________
 // MakeSigned_
@@ -560,12 +560,12 @@ template <typename T> struct MakeSigned_;       	// "/Users/f.buske/Documents/bi
 //____________________________________________________________________________
 // MakeUnsigned
 
-template <typename T> struct MakeUnsigned;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(557)
+template <typename T> struct MakeUnsigned;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(556)
 
 //____________________________________________________________________________
 // MakeUnsigned_
 
-template <typename T> struct MakeUnsigned_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(581)
+template <typename T> struct MakeUnsigned_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(580)
 
 //____________________________________________________________________________
 // MaxValue
@@ -595,12 +595,12 @@ template <typename T> struct MaximumValueUnsigned_;       	// "/Users/f.buske/Do
 //____________________________________________________________________________
 // MemsetConstValueWorker
 
-template <unsigned SIZE, bool direct, unsigned char c> struct MemsetConstValueWorker;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(860)
+template <unsigned SIZE, bool direct, unsigned char c> struct MemsetConstValueWorker;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(884)
 
 //____________________________________________________________________________
 // MemsetWorker
 
-template <unsigned SIZE, bool direct> struct MemsetWorker;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(793)
+template <unsigned SIZE, bool direct> struct MemsetWorker;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(817)
 
 //____________________________________________________________________________
 // MinValue
@@ -660,7 +660,7 @@ struct NeedlemanWunsch_;       	// "/Users/f.buske/Documents/biosim/triplexes/pr
 //____________________________________________________________________________
 // NilCase
 
-struct NilCase;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(320)
+struct NilCase;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(319)
 
 //____________________________________________________________________________
 // NonConstPointer_
@@ -685,7 +685,7 @@ template <typename T> struct Object;       	// "/Users/f.buske/Documents/biosim/
 //____________________________________________________________________________
 // Or
 
-template <typename TBool1, typename TBool2> struct Or;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(146)
+template <typename TBool1, typename TBool2> struct Or;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(151)
 
 //____________________________________________________________________________
 // Pair
@@ -715,7 +715,7 @@ struct PositionIterator;       	// "/Users/f.buske/Documents/biosim/triplexes/pr
 //____________________________________________________________________________
 // Power
 
-template <__int64 base, __int64 exponent> struct Power;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(530)
+template <__int64 base, __int64 exponent> struct Power;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(529)
 
 //____________________________________________________________________________
 // ProfileType
@@ -740,14 +740,24 @@ template <typename TValue> struct QualityValueSize;       	// "/Users/f.buske/Do
 template <typename T> struct Reference;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_type.h"(119)
 
 //____________________________________________________________________________
+// RemoveConst
+
+template <typename T> struct RemoveConst;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(687)
+
+//____________________________________________________________________________
 // RemoveConst_
 
-template <typename T> struct RemoveConst_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(665)
+template <typename T> struct RemoveConst_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(713)
+
+//____________________________________________________________________________
+// RemoveReference
+
+template <typename T> struct RemoveReference;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(653)
 
 //____________________________________________________________________________
 // RemoveReference_
 
-template <typename T> struct RemoveReference_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(642)
+template <typename T> struct RemoveReference_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(661)
 
 //____________________________________________________________________________
 // Rooted_
@@ -829,7 +839,7 @@ struct StdIteratorAdaptor_;       	// "/Users/f.buske/Documents/biosim/triplexes
 //____________________________________________________________________________
 // Switch
 
-template <int TAG, typename Case_> struct Switch;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(332)
+template <int TAG, typename Case_> struct Switch;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(331)
 
 //____________________________________________________________________________
 // Tag
@@ -864,7 +874,7 @@ struct Tristate_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seq
 //____________________________________________________________________________
 // True
 
-struct True;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(65)
+struct True;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(68)
 
 //____________________________________________________________________________
 // Tuple
@@ -959,7 +969,7 @@ template <typename T> struct WEIGHT;       	// "/Users/f.buske/Documents/biosim/
 //____________________________________________________________________________
 // WorkerNothing
 
-struct WorkerNothing;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(385)
+struct WorkerNothing;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(384)
 
 } //namespace seqan
 
@@ -1068,7 +1078,7 @@ typedef Tag<DotDrawing_> DotDrawing;       	// "/Users/f.buske/Documents/biosim/
 //____________________________________________________________________________
 // EditDistance
 
-typedef Tag<LevenshteinDistance_> EditDistance;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_tag.h"(265)
+typedef Tag<LevenshteinDistance_>  EditDistance;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_tag.h"(265)
 
 //____________________________________________________________________________
 // GoEnd
@@ -1083,7 +1093,7 @@ typedef Tag<Gotoh_> Gotoh;       	// "/Users/f.buske/Documents/biosim/triplexes/
 //____________________________________________________________________________
 // HammingDistance
 
-typedef Tag<HammingDistance_> HammingDistance;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_tag.h"(263)
+typedef Tag<HammingDistance_>    HammingDistance;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_tag.h"(263)
 
 //____________________________________________________________________________
 // Hirschberg
@@ -1098,7 +1108,7 @@ typedef Tag<Lcs_> Lcs;       	// "/Users/f.buske/Documents/biosim/triplexes/prog
 //____________________________________________________________________________
 // LevenshteinDistance
 
-typedef Tag<LevenshteinDistance_> LevenshteinDistance;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_tag.h"(264)
+typedef Tag<LevenshteinDistance_>  LevenshteinDistance;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_tag.h"(264)
 
 //____________________________________________________________________________
 // MinimalCtor
@@ -1972,8 +1982,8 @@ template <typename T> inline T const & maxValue(T);       	// "/Users/f.buske/Do
 //____________________________________________________________________________
 // memset
 
-template <unsigned SIZE> finline void memset(void* ptr, unsigned char c);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(852)
-template <unsigned SIZE, unsigned char c> finline void memset(void* ptr);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(915)
+template <unsigned SIZE> finline void memset(void* ptr, unsigned char c);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(876)
+template <unsigned SIZE, unsigned char c> finline void memset(void* ptr);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/basic/basic_metaprogramming.h"(939)
 
 //____________________________________________________________________________
 // minValue

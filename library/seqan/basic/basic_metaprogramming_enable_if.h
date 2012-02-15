@@ -136,33 +136,52 @@ struct DisableIf2<True, T> {};
 // Macros
 // ============================================================================
 
-//
-// Example for enable-if constructor: 
-//
-//    Rational(T const & n, SEQAN_CTOR_ENABLE_IF( IsInteger<T> )) :  // macro must be extra c'tor argument
-//        num(n), den(1)
-//    { 
-//      (void)dummy;    // necessary to avoid unused warning
-//    }
-//
-
+/**
+.Macro.SEQAN_CTOR_ENABLE_IF
+..cat:Concepts
+..summary:Bind the visibility of a constructor to an expression.
+..signature:SEQAN_CTOR_ENABLE_IF(cond)
+..param.cond:Boolean type. If @Tag.Logical Values.tag.True@, the following function is visible, otherwise not.
+...remarks:The boolean value must be available at compile-time, e.g. $sizeof(T)>4$.
+..remarks:This macro allows to bind the visibility of a constructor to a boolean expression
+by using the @http://en.wikipedia.org/wiki/Substitution_failure_is_not_an_error|SFINAE@ principle for an optional argument with default value.
+It can be used as the last dummy-argument of a constructor.
+To avoid an unused argument warning, call $ignoreUnusedVariableWarning(dummy)$ in the constructor's body.
+..example.code:
+Rational(T const & n, SEQAN_CTOR_ENABLE_IF(Is<IntegerConcept<T> >)) :  // macro must be extra c'tor argument
+    num(n), den(1)
+{ 
+    ignoreUnusedVariableWarning(dummy);		// necessary to avoid unused warning
+}
+..include:seqan/basic.h
+ */
 #define SEQAN_CTOR_ENABLE_IF(cond) typename EnableIf<cond::VALUE>::Type * dummy = 0
 
-//
-// Example for enable-if function (with macro): 
-//
-//    template <typename TContainer>
-//    SEQAN_FUNC_ENABLE_IF(
-//        IsContainer<TContainer>, 
-//        typename Size<TContainer>::Type)
-//    length(TContainer & cont) 
-//    {
-//        SEQAN_CONCEPT_ASSERT((ContainerConcept<TContainer>));
-//        return end(cont) - begin(cont);
-//    }
-//
-
-#define SEQAN_FUNC_ENABLE_IF(cond, retVal) typename EnableIf<cond::VALUE, retVal>::Type
+/**
+.Macro.SEQAN_FUNC_ENABLE_IF
+..cat:Concepts
+..summary:Bind the visibility of a function to an expression.
+..signature:SEQAN_FUNC_ENABLE_IF(cond, retType)
+..param.cond:Boolean type. If @Tag.Logical Values.tag.True@, the following function is visible, otherwise not.
+...remarks:The boolean value must be available at compile-time, e.g. $sizeof(T)>4$.
+..param.retType:Function return type, e.g. $typename Size<T>::Type$ or $void$.
+..remarks:This macro allows to bind the visibility of a function to a boolean expression
+by using the @http://en.wikipedia.org/wiki/Substitution_failure_is_not_an_error|SFINAE@ principle.
+It can be used in a function declaration/definition instead of its return type.
+As constructors have no return types, they must be disabled with @Macro.SEQAN_CTOR_ENABLE_IF@.
+..example.code:
+template <typename TContainer>
+SEQAN_FUNC_ENABLE_IF(
+    IsContainer<TContainer>, 
+    typename Size<TContainer>::Type)
+length(TContainer & cont) 
+{
+    SEQAN_CONCEPT_ASSERT((ContainerConcept<TContainer>));
+    return end(cont) - begin(cont);
+}
+..include:seqan/basic.h
+ */
+#define SEQAN_FUNC_ENABLE_IF(cond, retType) typename EnableIf<cond::VALUE, retType>::Type
 
 // ============================================================================
 // Functions

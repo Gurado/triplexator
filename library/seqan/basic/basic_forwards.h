@@ -43,12 +43,12 @@ namespace SEQAN_NAMESPACE_MAIN
 template <typename TTarget, typename TSource>
 inline void
 assign(TTarget & target,
-	   TSource & source);
+       TSource & source);
 
 template <typename TTarget, typename TSource>
 inline void
 assign(TTarget & target,
-	   TSource const & source);
+       TSource const & source);
 
 //////////////////////////////////////////////////////////////////////////////
 // string_pointer.h::assignValue
@@ -56,8 +56,8 @@ assign(TTarget & target,
 //template <typename TValue, typename TPos>
 //inline void
 //assignValue(TValue * me,
-//			TPos pos, 
-//			TValue const & _value);
+//          TPos pos, 
+//          TValue const & _value);
 
 //////////////////////////////////////////////////////////////////////////////
 // string_pointer.h::value
@@ -65,7 +65,7 @@ assign(TTarget & target,
 //template <typename TValue, typename TPos>
 //inline TValue &
 //value(TValue * me,
-//	  TPos pos);
+//    TPos pos);
 
 //////////////////////////////////////////////////////////////////////////////
 // sequence/lexical.h::ordValue

@@ -79,7 +79,7 @@ typedef wchar_t Unicode;
 template <typename TValue>
 struct BitsPerValue
 {
-	enum { VALUE = sizeof(TValue) * 8 };
+    enum { VALUE = sizeof(TValue) * 8 };
 };
 
 template <typename TValue>
@@ -106,7 +106,7 @@ struct BitsPerValue<TValue const> : public BitsPerValue<TValue>
 template <typename T>
 struct ValueSize
 {
-	enum { VALUE = 1 << BitsPerValue<T>::VALUE };
+    enum { VALUE = 1 << BitsPerValue<T>::VALUE };
 };
 template <typename TValue>
 struct ValueSize<TValue const>
@@ -139,7 +139,7 @@ struct InternalValueSize_
 template <typename TValue>
 struct BytesPerValue
 {
-	enum { VALUE = (BitsPerValue<TValue>::VALUE + 7) / 8 };
+    enum { VALUE = (BitsPerValue<TValue>::VALUE + 7) / 8 };
 };
 
 // ----------------------------------------------------------------------------
@@ -161,7 +161,7 @@ struct BytesPerValue
 ...table:4|$unsigned int$
 ...table:5 and above|$__int64$
 ..remarks:Note that the returned integral type cannot store $T$ values, if $T$ takes more than 8 bytes, 
-	since there exists no integral type that provides sufficient space to store types of this size.
+    since there exists no integral type that provides sufficient space to store types of this size.
 ..see:Metafunction.ValueSize
 ..see:Metafunction.BitsPerValue
 ..see:Metafunction.BytesPerValue
@@ -171,31 +171,31 @@ struct BytesPerValue
 template <int SIZE>
 struct IntegralForValueImpl_
 {
-	typedef __int64 Type;
+    typedef __int64 Type;
 };
 
 template <>
 struct IntegralForValueImpl_<1>
 {
-	typedef unsigned char Type;
+    typedef unsigned char Type;
 };
 
 template <>
 struct IntegralForValueImpl_<2>
 {
-	typedef unsigned short Type;
+    typedef unsigned short Type;
 };
 
 template <>
 struct IntegralForValueImpl_<3>
 {
-	typedef unsigned int Type;
+    typedef unsigned int Type;
 };
 
 template <>
 struct IntegralForValueImpl_<4>
 {
-	typedef unsigned int Type;
+    typedef unsigned int Type;
 };
 
 template <typename TValue>

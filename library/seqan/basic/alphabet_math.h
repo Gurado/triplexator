@@ -86,7 +86,7 @@ template <typename T>
 struct MaximumValueSigned_ { static const T VALUE; };
 
 template <typename T = void>
-struct MaximumValueFloat_ {	static const float VALUE; };
+struct MaximumValueFloat_ { static const float VALUE; };
 template <typename T = void>
 struct MaximumValueDouble_ { static const double VALUE; };
 
@@ -100,11 +100,11 @@ template <typename T>
 const double MaximumValueDouble_<T>::VALUE = DBL_MAX;
 
 template <
-	typename T,
-	typename TParent = typename If<
-	  IsSameType<double, T>::VALUE,
-	  MaximumValueDouble_<>,
-	  typename If<
+    typename T,
+    typename TParent = typename If<
+      IsSameType<double, T>::VALUE,
+      MaximumValueDouble_<>,
+      typename If<
       IsSameType<float, T>::VALUE,
       MaximumValueFloat_<>,
       typename If<
@@ -134,12 +134,12 @@ struct MaxValue : TParent {};
  */
 
 template <typename T>
-struct MinimumValueUnsigned_ {	static const T VALUE; };
+struct MinimumValueUnsigned_ {  static const T VALUE; };
 template <typename T>
 struct MinimumValueSigned_ { static const T VALUE; };
 
 template <typename T = void>
-struct MinimumValueFloat_ {	static const float VALUE; };
+struct MinimumValueFloat_ { static const float VALUE; };
 template <typename T = void>
 struct MinimumValueDouble_ { static const double VALUE; };
 
@@ -153,11 +153,11 @@ template <typename T>
 const double MinimumValueDouble_<T>::VALUE = -DBL_MAX;
 
 template <
-	typename T,
-	typename TParent = typename If<
-	  IsSameType<double, T>::VALUE,
-	  MinimumValueDouble_<>,
-	  typename If<
+    typename T,
+    typename TParent = typename If<
+      IsSameType<double, T>::VALUE,
+      MinimumValueDouble_<>,
+      typename If<
       IsSameType<float, T>::VALUE,
       MinimumValueFloat_<>,
       typename If<
@@ -216,8 +216,8 @@ inline T const &
 maxValue()
 {
     SEQAN_CHECKPOINT;
-	T * _tag = 0;
-	return supremumValueImpl(_tag);
+    T * _tag = 0;
+    return supremumValueImpl(_tag);
 }
 
 template <typename T>
@@ -225,8 +225,8 @@ inline T const &
 maxValue(T)
 {
     SEQAN_CHECKPOINT;
-	T * _tag = 0;
-	return supremumValueImpl(_tag);
+    T * _tag = 0;
+    return supremumValueImpl(_tag);
 }
 
 // ----------------------------------------------------------------------------
@@ -274,8 +274,8 @@ inline T const &
 minValue()
 {
     SEQAN_CHECKPOINT;
-	T * _tag = 0;
-	return infimumValueImpl(_tag);
+    T * _tag = 0;
+    return infimumValueImpl(_tag);
 }
 
 template <typename T>
@@ -283,8 +283,8 @@ inline T const &
 minValue(T)
 {
     SEQAN_CHECKPOINT;
-	T * _tag = 0;
-	return infimumValueImpl(_tag);
+    T * _tag = 0;
+    return infimumValueImpl(_tag);
 }
 
 }  // namespace seqan

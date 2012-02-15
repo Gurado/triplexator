@@ -180,6 +180,7 @@
 #include <seqan/basic/basic_alphabet_simple.h>
 
 #include <seqan/basic/alphabet_concept.h>
+#include <seqan/basic/container_concept.h>
 
 // --------------------------------------------------------------------------
 // Aggregate Types: Pairs, Triples, Tuples.

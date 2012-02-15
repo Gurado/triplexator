@@ -437,6 +437,36 @@ _connectedComponentVisit(Graph<TSpec> const& g,
 ..param.components:Out-parameter:A property map.
 ...remarks:Each vertex is mapped to a component id. If two vertices share the same id they are in the same component.
 ..returns: The number of components.
+..example:A simple example on how to use this function.
+..example.code:
+// Build Input.
+Graph<Undirected<> > graph;
+for (unsigned i = 0; i < 5; ++i)
+    addVertex(graph);
+addEdge(graph, 0, 1);
+addEdge(graph, 0, 3);
+addEdge(graph, 2, 4);
+String<unsigned> components;
+unsigned numComponents = 0;
+
+// Call Algorithm.
+numComponents = connectedComponents(g, components);
+
+// Print Result.
+std::cout << "Number of components: " << numComponents << std::endl;
+std::cout << std::endl << "Vertex -> Component" << std::endl;
+for (unsigned i = 0; i < length(components); ++i)
+    std::cout << i << " -> " << components[i] << std::endl;
+..example:The output now is:
+..example.code:
+Number of components: 2
+
+Vertex -> Component
+0 -> 0
+1 -> 0
+2 -> 1
+3 -> 0
+4 -> 1
 ..include:seqan/graph_algorithms.h
 */
 

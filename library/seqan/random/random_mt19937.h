@@ -59,6 +59,7 @@ struct MersenneTwister {};
 ..summary:Mersenne Twister 19937 Random Number Generator
 ..cat:Random
 ..include:seqan/random.h
+..wiki:Tutorial/Randomness|Tutorial: Randomness
 */
 template <>
 class Rng<MersenneTwister>
@@ -126,6 +127,7 @@ pickRandomNumber(Rng<MersenneTwister> & mt)
 ...default:0
 ...type:nolink:$__uint32$
 ..include:seqan/random.h
+..wiki:Tutorial/Randomness|Tutorial: Randomness
 */
 
 inline void

@@ -71,7 +71,7 @@ namespace SEQAN_NAMESPACE_MAIN
 */
 	typedef FibreText		WotdText;
 	typedef FibreRawText	WotdRawText;
-	typedef FibreSA		WotdSA;
+	typedef FibreSA         WotdSA;
 	typedef FibreRawSA		WotdRawSA;
 	typedef FibreDir		WotdDir;
 
@@ -116,7 +116,7 @@ namespace SEQAN_NAMESPACE_MAIN
 	class Index<TObject, IndexWotd<TSpec> > {
 	public:
 		typedef typename Fibre<Index, WotdText>::Type		TText;
-		typedef typename Fibre<Index, WotdSA>::Type		TSA;
+		typedef typename Fibre<Index, WotdSA>::Type         TSA;
 		typedef typename Fibre<Index, WotdDir>::Type		TDir;
 
 		typedef typename Value<Index>::Type					TValue;
@@ -1735,8 +1735,13 @@ namespace SEQAN_NAMESPACE_MAIN
 
 			// mark nodes with solely empty child edges
 			w1 = dst;
-			if (index.sentinelOcc > 1)
-				if (size == 2) w1 |= index.SENTINELS;
+			if (index.sentinelOcc > 0)
+            {
+                TSize sentinelSize = index.sentinelOcc;
+                if (index.interSentinelNodes && sentinelSize > 2)
+                    sentinelSize = 2;
+				if (size == sentinelSize) w1 |= index.SENTINELS;
+            }
 
 			assert(!(index.sentinelOcc == 1 && size == 1));
 
@@ -1768,11 +1773,13 @@ namespace SEQAN_NAMESPACE_MAIN
 				value(it).range.i1, 
 				w1 & index.BITMASK1, 
 				repLength(it));
-
-/*			if (globalDumpFlag) 
+/*
+			if (globalDumpFlag) 
 			{
 				::std::cerr << '"' << representative(it) << '"' << ::std::endl;
-				_dumpFreq(index);
+                for (int i=0;i<length(getOccurrences(it));++i)
+                    ::std::cerr << getOccurrences(it)[i]<<'\t'<<suffix(indexText(index),getOccurrences(it)[i])<<std::endl;
+//				_dumpFreq(index);
 			}
 */
 			resize(indexDir(index), dst + size, Generous());
@@ -1780,8 +1787,13 @@ namespace SEQAN_NAMESPACE_MAIN
 
 			// mark nodes with solely empty child edges
 			w1 = dst;
-			if (index.sentinelOcc > 1)
-				if (size == 2) w1 |= index.SENTINELS;
+			if (index.sentinelOcc > 0)
+            {
+                TSize sentinelSize = index.sentinelOcc;
+                if (index.interSentinelNodes && sentinelSize > 2)
+                    sentinelSize = 2;
+				if (size == sentinelSize) w1 |= index.SENTINELS;
+            }
 
 			dirAt(pos + 1, index) = w1;
 		}
@@ -1895,9 +1907,9 @@ namespace SEQAN_NAMESPACE_MAIN
 	template <typename TText, typename TSpec>
 	inline void _wotdCreateFirstLevel(Index<TText, IndexWotd<TSpec> > &index)
 	{
-		typedef Index<TText, IndexWotd<TSpec> >	TIndex;
-		typedef typename Value<TIndex>::Type		TValue;
-		typedef typename Size<TIndex>::Type			TSize;
+        typedef Index<TText, IndexWotd<TSpec> > TIndex;
+        typedef typename Value<TIndex>::Type    TValue;
+        typedef typename Size<TIndex>::Type     TSize;
 
 		resize(index.tempOcc, ValueSize<TValue>::VALUE + 1);
 		resize(index.tempBound, ValueSize<TValue>::VALUE + 1);
@@ -1919,8 +1931,14 @@ namespace SEQAN_NAMESPACE_MAIN
 
 			// mark nodes with solely empty child edges
 			TSize w1 = 2;
-			if (index.sentinelOcc > 1)
-				if (size == 2) w1 |= index.SENTINELS;
+			if (index.sentinelOcc > 0)
+            {
+                TSize sentinelSize = index.sentinelOcc;
+                if (index.interSentinelNodes && sentinelSize > 2)
+                    sentinelSize = 2;
+				if (size == sentinelSize) w1 |= index.SENTINELS;
+            }
+
 
 			dirAt(0, index) = 0 | index.LAST_CHILD;
 			dirAt(1, index) = w1;
@@ -1957,6 +1975,9 @@ namespace SEQAN_NAMESPACE_MAIN
 		const char *fileName,
 		int openMode)
 	{
+        typedef Index<TText, IndexWotd<TSpec> > TIndex;
+        typedef typename Value<TIndex>::Type    TValue;
+
 		String<char> name;
 		name = fileName;	append(name, ".txt");
 		bool result = true;
@@ -1965,6 +1986,11 @@ namespace SEQAN_NAMESPACE_MAIN
 			result = false;
 		name = fileName;	append(name, ".sa");	open(getFibre(index, WotdSA()), toCString(name), openMode);
 		name = fileName;	append(name, ".dir");	open(getFibre(index, WotdDir()), toCString(name), openMode);
+        if (!empty(getFibre(index, WotdDir())))
+        {
+            resize(index.tempOcc, ValueSize<TValue>::VALUE + 1);
+            resize(index.tempBound, ValueSize<TValue>::VALUE + 1);
+        }
 		return result;
 	}
 	template < typename TText, typename TSpec >

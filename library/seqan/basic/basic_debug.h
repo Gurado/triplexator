@@ -58,30 +58,30 @@ inline bool
 _compareBinaryFiles(const char * file1, const char * file2)
 {
 //IOREV see above
-	bool ret = false;
+    bool ret = false;
 
-	FILE * fl1 = fopen(file1, "rb");
-	if (!fl1) return ret;
+    FILE * fl1 = fopen(file1, "rb");
+    if (!fl1) return ret;
 
-	FILE * fl2 = fopen(file2, "rb");
-	if (!fl2)
-	{
-		fclose(fl1);
-		return ret;
-	}
+    FILE * fl2 = fopen(file2, "rb");
+    if (!fl2)
+    {
+        fclose(fl1);
+        return ret;
+    }
 
-	while (!feof(fl1) && !feof(fl2))
-	{
-		if (fgetc(fl1) != fgetc(fl2)) goto End;
-	}
+    while (!feof(fl1) && !feof(fl2))
+    {
+        if (fgetc(fl1) != fgetc(fl2)) goto End;
+    }
 
-	ret = feof(fl1) && feof(fl2);
+    ret = feof(fl1) && feof(fl2);
 
 End:
-	fclose(fl2);
-	fclose(fl1);
+    fclose(fl2);
+    fclose(fl1);
 
-	return ret;
+    return ret;
 
 }
 //____________________________________________________________________________
@@ -93,32 +93,32 @@ inline void
 _compareTextFilesReadChar(FILE * fl, char & c, int & num_lb, bool & is_eof)
 {
 //IOREV see above
-	num_lb = 0;
-	is_eof = false;
+    num_lb = 0;
+    is_eof = false;
 
-	c = fgetc(fl);
-	while ((c == '\r') || (c == '\n'))
-	{
-		++num_lb;
-		if (c == '\r')
-		{
-			c = fgetc(fl);
-			if (feof(fl)) is_eof = true;
-			else
-			{
-				if (c == '\n')
-				{
-					c = fgetc(fl);
-					if (feof(fl)) is_eof = true;
-				}
-			}
-		}
-		else if (c == '\n')
-		{
-			c = fgetc(fl);
-			if (feof(fl)) is_eof = true;
-		}
-	}
+    c = fgetc(fl);
+    while ((c == '\r') || (c == '\n'))
+    {
+        ++num_lb;
+        if (c == '\r')
+        {
+            c = fgetc(fl);
+            if (feof(fl)) is_eof = true;
+            else
+            {
+                if (c == '\n')
+                {
+                    c = fgetc(fl);
+                    if (feof(fl)) is_eof = true;
+                }
+            }
+        }
+        else if (c == '\n')
+        {
+            c = fgetc(fl);
+            if (feof(fl)) is_eof = true;
+        }
+    }
 }
 
 // compare two files, translate linebreaks
@@ -126,48 +126,48 @@ inline bool
 _compareTextFiles(const char * file1, const char * file2)
 {
 //IOREV see above
-	FILE * fl1 = fopen(file1, "rb");
-	if (!fl1) return false;
+    FILE * fl1 = fopen(file1, "rb");
+    if (!fl1) return false;
 
-	FILE * fl2 = fopen(file2, "rb");
-	if (!fl2)
-	{
-		fclose(fl1);
-		return false;
-	}
+    FILE * fl2 = fopen(file2, "rb");
+    if (!fl2)
+    {
+        fclose(fl1);
+        return false;
+    }
 
-	bool ret = false;
+    bool ret = false;
 
-	int num_lb1, num_lb2;
-	bool is_eof1, is_eof2;
-	char c1, c2;
+    int num_lb1, num_lb2;
+    bool is_eof1, is_eof2;
+    char c1, c2;
 
-	while (!feof(fl1) && !feof(fl2))
-	{
-		_compareTextFilesReadChar(fl1, c1, num_lb1, is_eof1);
-		_compareTextFilesReadChar(fl2, c2, num_lb2, is_eof2);
+    while (!feof(fl1) && !feof(fl2))
+    {
+        _compareTextFilesReadChar(fl1, c1, num_lb1, is_eof1);
+        _compareTextFilesReadChar(fl2, c2, num_lb2, is_eof2);
 
-		if (num_lb1 != num_lb2)
-		{
-			goto End;
-		}
-		if (is_eof1 ^ is_eof2)
-		{
-			goto End;
-		}
-		if (c1 != c2)
-		{
-			goto End;
-		}
-	}
+        if (num_lb1 != num_lb2)
+        {
+            goto End;
+        }
+        if (is_eof1 ^ is_eof2)
+        {
+            goto End;
+        }
+        if (c1 != c2)
+        {
+            goto End;
+        }
+    }
 
-	ret = feof(fl1) && feof(fl2);
+    ret = feof(fl1) && feof(fl2);
 
 End:
-	fclose(fl2);
-	fclose(fl1);
+    fclose(fl2);
+    fclose(fl1);
 
-	return ret;
+    return ret;
 
 }
 

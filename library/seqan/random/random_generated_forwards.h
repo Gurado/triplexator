@@ -66,7 +66,7 @@ struct GeometricFairCoin;       	// "/Users/f.buske/Documents/biosim/triplexes/p
 //____________________________________________________________________________
 // GetDefaultRng
 
-template <typename T> struct GetDefaultRng;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_base.h"(147)
+template <typename T> struct GetDefaultRng;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_base.h"(149)
 
 //____________________________________________________________________________
 // LogNormal
@@ -76,7 +76,7 @@ struct LogNormal;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seq
 //____________________________________________________________________________
 // MeanStdDev
 
-struct MeanStdDev;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_lognormal.h"(71)
+struct MeanStdDev;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_lognormal.h"(76)
 
 //____________________________________________________________________________
 // MersenneTwister
@@ -87,7 +87,7 @@ struct MersenneTwister;       	// "/Users/f.buske/Documents/biosim/triplexes/pro
 //____________________________________________________________________________
 // MuSigma
 
-struct MuSigma;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_lognormal.h"(61)
+struct MuSigma;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_lognormal.h"(63)
 
 //____________________________________________________________________________
 // Normal
@@ -98,12 +98,12 @@ struct Normal;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/
 //____________________________________________________________________________
 // Pdf
 
-template <typename TSpec> class Pdf;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_base.h"(71)
+template <typename TSpec> class Pdf;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_base.h"(73)
 
 //____________________________________________________________________________
 // Rng
 
-template <typename TSpec > class Rng;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_base.h"(60)
+template <typename TSpec > class Rng;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_base.h"(61)
 
 //____________________________________________________________________________
 // RngFunctor
@@ -232,36 +232,36 @@ namespace seqan {
 //____________________________________________________________________________
 // _pickRandomNumber
 
-template <typename TRNG, typename T> inline typename Value<Pdf<Uniform<T> > >::Type _pickRandomNumber(TRNG & rng, Pdf<Uniform<T> > const & pdf, True const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_uniform.h"(119)
-template <typename TRNG, typename T> inline typename Value<Pdf<Uniform<T> > >::Type _pickRandomNumber(TRNG & rng, Pdf<Uniform<T> > const & pdf, False const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_uniform.h"(135)
+template <typename TRNG, typename T> inline typename Value<Pdf<Uniform<T> > >::Type _pickRandomNumber(TRNG & rng, Pdf<Uniform<T> > const & pdf, True const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_uniform.h"(121)
+template <typename TRNG, typename T> inline typename Value<Pdf<Uniform<T> > >::Type _pickRandomNumber(TRNG & rng, Pdf<Uniform<T> > const & pdf, False const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_uniform.h"(137)
 
 //____________________________________________________________________________
 // defaultRng
 
-template <typename TRng> inline TRng & defaultRng();       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_base.h"(186)
-template <typename T> inline typename GetDefaultRng<T>::Type & defaultRng(T const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_base.h"(195)
+template <typename TRng> inline TRng & defaultRng();       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_base.h"(189)
+template <typename T> inline typename GetDefaultRng<T>::Type & defaultRng(T const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_base.h"(198)
 
 //____________________________________________________________________________
 // pickRandomNumber
 
-template <typename TRNG> inline typename Value<Pdf<GeometricFairCoin> >::Type pickRandomNumber(TRNG & rng, Pdf<GeometricFairCoin> const & );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_geometric.h"(102)
-template <typename TRandomNumberGenerator> inline typename Value<Pdf<LogNormal> >::Type pickRandomNumber(TRandomNumberGenerator & rng, Pdf<LogNormal> const & pdf);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_lognormal.h"(150)
-inline unsigned pickRandomNumber(Rng<MersenneTwister> & mt);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_mt19937.h"(112)
-template <typename TRNG> inline typename Value<Pdf<Normal> >::Type pickRandomNumber(TRNG & rng, Pdf<Normal> const & pdf);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_normal.h"(109)
-template <typename TRng, typename TPdf> inline unsigned pickRandomNumber(Rng<RngFunctor<TRng, TPdf> > & rng);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_rng_functor.h"(119)
-template <typename TRNG, typename T> inline typename Value<Pdf<Uniform<T> > >::Type pickRandomNumber(TRNG & rng, Pdf<Uniform<T> > const & pdf);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_uniform.h"(146)
-template <typename TRNG> inline typename Value<Pdf<Uniform<bool> > >::Type pickRandomNumber(TRNG & rng, Pdf<Uniform<bool> > const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_uniform.h"(158)
+template <typename TRNG> inline typename Value<Pdf<GeometricFairCoin> >::Type pickRandomNumber(TRNG & rng, Pdf<GeometricFairCoin> const & );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_geometric.h"(104)
+template <typename TRandomNumberGenerator> inline typename Value<Pdf<LogNormal> >::Type pickRandomNumber(TRandomNumberGenerator & rng, Pdf<LogNormal> const & pdf);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_lognormal.h"(157)
+inline unsigned pickRandomNumber(Rng<MersenneTwister> & mt);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_mt19937.h"(113)
+template <typename TRNG> inline typename Value<Pdf<Normal> >::Type pickRandomNumber(TRNG & rng, Pdf<Normal> const & pdf);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_normal.h"(111)
+template <typename TRng, typename TPdf> inline unsigned pickRandomNumber(Rng<RngFunctor<TRng, TPdf> > & rng);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_rng_functor.h"(121)
+template <typename TRNG, typename T> inline typename Value<Pdf<Uniform<T> > >::Type pickRandomNumber(TRNG & rng, Pdf<Uniform<T> > const & pdf);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_uniform.h"(148)
+template <typename TRNG> inline typename Value<Pdf<Uniform<bool> > >::Type pickRandomNumber(TRNG & rng, Pdf<Uniform<bool> > const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_uniform.h"(160)
 
 //____________________________________________________________________________
 // reSeed
 
-inline void reSeed(Rng<MersenneTwister> & mt, __uint32 const seed);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_mt19937.h"(133)
-inline void reSeed(Rng<MersenneTwister> & mt);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_mt19937.h"(141)
+inline void reSeed(Rng<MersenneTwister> & mt, __uint32 const seed);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_mt19937.h"(135)
+inline void reSeed(Rng<MersenneTwister> & mt);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_mt19937.h"(143)
 
 //____________________________________________________________________________
 // shuffle
 
-template <typename TContainer, typename TRNG> void shuffle(TContainer & container, TRNG & rng);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_shuffle.h"(70)
+template <typename TContainer, typename TRNG> void shuffle(TContainer & container, TRNG & rng);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_shuffle.h"(72)
 
 } //namespace seqan
 

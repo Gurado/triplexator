@@ -62,13 +62,13 @@ namespace seqan {
 template <typename TValue>
 struct Value<TValue *>
 {
-	typedef TValue Type;
+    typedef TValue Type;
 };
 
 template <typename TValue>
 struct Value<TValue * const>
 {
-	typedef TValue Type;
+    typedef TValue Type;
 };
 
 // TODO(holtgrew): Is this still a problem with dropped 2003 support of VC++?
@@ -79,13 +79,13 @@ struct Value<TValue * const>
 template <typename TValue, size_t SIZE>
 struct Value<TValue [SIZE]>
 {
-	typedef TValue Type;
+    typedef TValue Type;
 };
 
 template <typename TValue, size_t SIZE>
 struct Value<TValue const [SIZE]>
 {
-	typedef TValue Type;
+    typedef TValue Type;
 };
 
 // ----------------------------------------------------------------------------
@@ -97,13 +97,13 @@ struct Value<TValue const [SIZE]>
 template <typename TValue>
 struct Iterator<TValue *, Standard>
 {
-	typedef TValue * Type;
+    typedef TValue * Type;
 };
 
 template <typename TValue>
 struct Iterator<TValue * const, Standard>
 {
-	typedef TValue * Type;
+    typedef TValue * Type;
 };
 
 template <typename TValue, size_t SIZE>

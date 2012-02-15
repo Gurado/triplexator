@@ -48,9 +48,9 @@ namespace seqan {
 // mutable container concept
 template <typename TContainer>
 struct ContainerConcept :
-    boost::Assignable<TContainer>,
-    boost::DefaultConstructible<TContainer>,
-    boost::CopyConstructible<TContainer>
+    Assignable<TContainer>,
+    DefaultConstructible<TContainer>,
+    CopyConstructible<TContainer>
 {
     typedef typename Value<TContainer>::Type                TValue;
     typedef typename Size<TContainer>::Type                 TSize;
@@ -66,8 +66,8 @@ struct ContainerConcept :
     TIterator   iter;
     
     SEQAN_CONCEPT_ASSERT((AlphabetConcept<TValue>));
-    SEQAN_CONCEPT_ASSERT((boost::SignedInteger<TDifference>));
-    SEQAN_CONCEPT_ASSERT((boost::UnsignedInteger<TSize>));
+    SEQAN_CONCEPT_ASSERT((SignedIntegerConcept<TDifference>));
+    SEQAN_CONCEPT_ASSERT((UnsignedIntegerConcept<TSize>));
 
     SEQAN_CONCEPT_USAGE(ContainerConcept)
     {
@@ -119,12 +119,15 @@ struct StringConcept :
     
     SEQAN_CONCEPT_USAGE(StringConcept)
     {
+        pos = 0u;
+
         // append
         append(str, str2);
         appendValue(str, val);
 
         // assign
         assign(str, str2);
+        assignValue(str, pos, val);
         
         // erase
         erase(str, pos);
@@ -132,6 +135,11 @@ struct StringConcept :
         
         // replace
         replace(str, pos, pos, str2);
+        // there is no replaceValue as we have assignValue with the same semantic
+        
+        // insert
+        insert(str, pos, str2);
+        insertValue(str, pos, val);
 
         // front/back
         val = front(str);
@@ -142,20 +150,23 @@ struct StringConcept :
         sameType(resize(str, size, val), size);
         sameType(reserve(str, size), size);
         clear(str);
+        
+        // untested:
+        // setValue, move, moveValue
 
         // capacity
         sameType(size, capacity(str));
     }
 };
 
-void testStringConcepts()
-{
-    SEQAN_CONCEPT_ASSERT((StringConcept<String<char, Alloc<> > >));
-    SEQAN_CONCEPT_ASSERT((StringConcept<String<Pair<int, double>, Alloc<> > >));
-//    SEQAN_CONCEPT_ASSERT((StringConcept<String<bool, Packed<> > >));  // doesn't compile yet
-//    SEQAN_CONCEPT_ASSERT((StringConcept<String<Dna5, Packed<> > >));
-    SEQAN_CONCEPT_ASSERT((StringConcept<String<int, Array<50> > >));
-}
+//void testStringConcepts()
+//{
+//    SEQAN_CONCEPT_ASSERT((StringConcept<String<char, Alloc<> > >));
+//    SEQAN_CONCEPT_ASSERT((StringConcept<String<Pair<int, double>, Alloc<> > >));
+////    SEQAN_CONCEPT_ASSERT((StringConcept<String<bool, Packed<> > >));  // doesn't compile yet
+////    SEQAN_CONCEPT_ASSERT((StringConcept<String<Dna5, Packed<> > >));
+//    SEQAN_CONCEPT_ASSERT((StringConcept<String<int, Array<50> > >));
+//}
     
 }  // namespace seqan
 

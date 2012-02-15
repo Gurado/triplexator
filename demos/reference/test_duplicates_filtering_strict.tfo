@@ -1,7 +1,7 @@
-# Sequence-ID	Start	End	Score	Motif	Error-rate	Errors	Duplicates	TFO	Duplicate locations
-Seq1-Y-noErrors	2	22	20	Y	0		1	CCCTTCTCCTTCCTTTTCCC	Seq7-M-noErrors:2-22;
-Seq2-Y-2disErrors	2	22	18	Y	0.1	o4o14	0	CCCTgCTCCTTCCTgTTCCC	-
-Seq4-R-noErrors	2	22	20	R	0		0	GGGAAGAGGAAGGAAAAGGG	-
-Seq5-R-2disErrors	2	22	18	R	0.1	o4o14	0	GGGAcGAGGAAGGAcAAGGG	-
-Seq7-M-noErrors	2	22	20	M	0		1	GGGTTGTGGTTGGTTTTGGG	Seq1-Y-noErrors:2-22;
-Seq8-M-2disErrors	2	22	18	M	0.1	o2o17	0	GGcTTGTGGTTGGTTTTcGG	-
+# Sequence-ID	Start	End	Score	Motif	Error-rate	Errors	Guanine-rate	Duplicates	TFO	Duplicate locations
+Seq1-Y-noErrors	2	22	20	Y	0		0.55	1	CCCTTCTCCTTCCTTTTCCC	Seq7-M-noErrors:2-22;
+Seq2-Y-2disErrors	2	22	18	Y	0.1	o4o14	0.55	0	CCCTgCTCCTTCCTgTTCCC	-
+Seq4-R-noErrors	2	22	20	R	0		0.55	0	GGGAAGAGGAAGGAAAAGGG	-
+Seq5-R-2disErrors	2	22	18	R	0.1	o4o14	0.55	0	GGGAcGAGGAAGGAcAAGGG	-
+Seq7-M-noErrors	2	22	20	M	0		0.55	1	GGGTTGTGGTTGGTTTTGGG	Seq1-Y-noErrors:2-22;
+Seq8-M-2disErrors	2	22	18	M	0.1	o2o17	0.45	0	GGcTTGTGGTTGGTTTTcGG	-

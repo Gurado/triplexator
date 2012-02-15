@@ -315,7 +315,7 @@ operator==(Iter<TContainer, PositionIterator> const & left,
            Iter<TContainer, PositionIterator> const & right)
 {
     SEQAN_CHECKPOINT;
-	return position(left) == position(right);
+    return position(left) == position(right);
 }
 
 // ----------------------------------------------------------------------------
@@ -328,7 +328,7 @@ operator!=(Iter<TContainer, PositionIterator> const & left,
            Iter<TContainer, PositionIterator> const & right)
 {
     SEQAN_CHECKPOINT;
-	return position(left) != position(right);
+    return position(left) != position(right);
 }
 
 // ----------------------------------------------------------------------------
@@ -341,7 +341,7 @@ operator<(Iter<TContainer, PositionIterator> const & left,
           Iter<TContainer, PositionIterator> const & right)
 {
     SEQAN_CHECKPOINT;
-	return position(left) < position(right);
+    return position(left) < position(right);
 }
 
 template <typename TContainer>
@@ -350,7 +350,7 @@ operator>(Iter<TContainer, PositionIterator> const & left,
           Iter<TContainer, PositionIterator> const & right)
 {
     SEQAN_CHECKPOINT;
-	return position(left) > position(right);
+    return position(left) > position(right);
 }
 
 // ----------------------------------------------------------------------------
@@ -363,7 +363,7 @@ operator<=(Iter<TContainer, PositionIterator> const & left,
            Iter<TContainer, PositionIterator> const & right)
 {
     SEQAN_CHECKPOINT;
-	return position(left) <= position(right);
+    return position(left) <= position(right);
 }
 
 // ----------------------------------------------------------------------------
@@ -376,7 +376,7 @@ operator>=(Iter<TContainer, PositionIterator> const & left,
            Iter<TContainer, PositionIterator> const & right)
 {
     SEQAN_CHECKPOINT;
-	return position(left) >= position(right);
+    return position(left) >= position(right);
 }
 
 // ----------------------------------------------------------------------------
@@ -388,7 +388,7 @@ inline void
 goNext(Iter<TContainer, PositionIterator> & me)
 {
     SEQAN_CHECKPOINT;
-	setPosition(me, position(me) + 1);
+    setPosition(me, position(me) + 1);
 }
 
 // ----------------------------------------------------------------------------
@@ -400,7 +400,7 @@ inline void
 goPrevious(Iter<TContainer, PositionIterator> & me)
 {
     SEQAN_CHECKPOINT;
-	setPosition(me, position(me) - 1);
+    setPosition(me, position(me) - 1);
 }
 
 // ----------------------------------------------------------------------------
@@ -413,7 +413,7 @@ operator+(Iter<TContainer, PositionIterator> const & left,
           TIntegral right)
 {
     SEQAN_CHECKPOINT;
-	return Iter<TContainer, PositionIterator>(container(left), position(left) + right);
+    return Iter<TContainer, PositionIterator>(container(left), position(left) + right);
 }
 
 // for <anonymous enum> types
@@ -423,7 +423,7 @@ operator+(Iter<TContainer, PositionIterator> const & left,
           int right)
 {
     SEQAN_CHECKPOINT;
-	return Iter<TContainer, PositionIterator>(container(left), position(left) + right);
+    return Iter<TContainer, PositionIterator>(container(left), position(left) + right);
 }
 
 template <typename TContainer, typename TIntegral>
@@ -432,7 +432,7 @@ operator+(TIntegral left,
           Iter<TContainer, PositionIterator> const & right)
 {
     SEQAN_CHECKPOINT;
-	return Iter<TContainer, PositionIterator>(container(right), position(right) + left);
+    return Iter<TContainer, PositionIterator>(container(right), position(right) + left);
 }
 
 // for <anonymous enum> types
@@ -442,7 +442,7 @@ operator+(int left,
           Iter<TContainer, PositionIterator> const & right)
 {
     SEQAN_CHECKPOINT;
-	return Iter<TContainer, PositionIterator>(container(right), position(right) + left);
+    return Iter<TContainer, PositionIterator>(container(right), position(right) + left);
 }
 
 // ----------------------------------------------------------------------------
@@ -455,8 +455,8 @@ operator+=(Iter<TContainer, PositionIterator> & left,
            TIntegral right)
 {
     SEQAN_CHECKPOINT;
-	setPosition(left, position(left) + right);
-	return left;
+    setPosition(left, position(left) + right);
+    return left;
 }
 
 // for <anonymous enum> types
@@ -466,8 +466,8 @@ operator+=(Iter<TContainer, PositionIterator> & left,
            int right)
 {
     SEQAN_CHECKPOINT;
-	setPosition(left, position(left) + right);
-	return left;
+    setPosition(left, position(left) + right);
+    return left;
 }
 
 // ----------------------------------------------------------------------------
@@ -480,7 +480,7 @@ operator-(Iter<TContainer, PositionIterator> const & left,
           TIntegral right)
 {
     SEQAN_CHECKPOINT;
-	return Iter<TContainer, PositionIterator>(container(left), position(left) - right);
+    return Iter<TContainer, PositionIterator>(container(left), position(left) - right);
 }
 
 // for <anonymous enum> types
@@ -490,7 +490,7 @@ operator-(Iter<TContainer, PositionIterator> const & left,
           int right)
 {
     SEQAN_CHECKPOINT;
-	return Iter<TContainer, PositionIterator>(container(left), position(left) - right);
+    return Iter<TContainer, PositionIterator>(container(left), position(left) - right);
 }
 
 template <typename TContainer>
@@ -499,7 +499,7 @@ operator-(Iter<TContainer, PositionIterator> const & left,
           Iter<TContainer, PositionIterator> const & right)
 {
     SEQAN_CHECKPOINT;
-	return position(left) - position(right);
+    return position(left) - position(right);
 }
 
 // ----------------------------------------------------------------------------
@@ -512,8 +512,8 @@ operator-=(Iter<TContainer, PositionIterator> & left,
            TIntegral right)
 {
     SEQAN_CHECKPOINT;
-	setPosition(left, position(left) - right);
-	return left;
+    setPosition(left, position(left) - right);
+    return left;
 }
 
 // for <anonymous enum> types
@@ -523,8 +523,8 @@ operator-=(Iter<TContainer, PositionIterator> & left,
            int right)
 {
     SEQAN_CHECKPOINT;
-	setPosition(left, position(left) - right);
-	return left;
+    setPosition(left, position(left) - right);
+    return left;
 }
 
 // ----------------------------------------------------------------------------
@@ -535,11 +535,11 @@ operator-=(Iter<TContainer, PositionIterator> & left,
 template <typename TTargetContainer, typename TSource>
 inline void
 assign(Iter<TTargetContainer, PositionIterator> & target,
-	   TSource const & source)
+       TSource const & source)
 {
     SEQAN_CHECKPOINT;
-	target.data_container = _toPointer(container(source));
-	target.data_position = position(source);
+    target.data_container = _toPointer(container(source));
+    target.data_position = position(source);
 }
 
 }  // namespace seqan

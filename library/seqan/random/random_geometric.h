@@ -60,7 +60,9 @@ This can be implemented efficiently not using any floating point arithmetics.
 Just bit operations are needed.
 ..cat:Random
 ..include:seqan/random.h
+..wiki:Tutorial/Randomness|Tutorial: Randomness
 */
+
 template <>
 class Pdf<GeometricFairCoin>
 {

@@ -89,7 +89,7 @@ inline bool
 emptyHost(T const & me)
 {
     SEQAN_CHECKPOINT;
-	return empty(_dataHost(me));
+    return empty(_dataHost(me));
 }
 
 // ----------------------------------------------------------------------------
@@ -113,7 +113,7 @@ inline bool
 dependentHost(T const & me)
 {
     SEQAN_CHECKPOINT;
-	return dependent(_dataHost(me));
+    return dependent(_dataHost(me));
 }
 
 // ----------------------------------------------------------------------------
@@ -136,7 +136,7 @@ inline void
 clearHost(T & me)
 {
     SEQAN_CHECKPOINT;
-	clear(_dataHost(me));
+    clear(_dataHost(me));
 }
 
 // ----------------------------------------------------------------------------
@@ -162,16 +162,16 @@ inline void
 createHost(T & me)
 {
     SEQAN_CHECKPOINT;
-	create(_dataHost(me));
+    create(_dataHost(me));
 }
 
 template <typename T, typename THost>
 inline void
 createHost(T & me,
-		   THost const & host_)
+           THost const & host_)
 {
     SEQAN_CHECKPOINT;
-	create(_dataHost(me), host_);
+    create(_dataHost(me), host_);
 }
 
 // ----------------------------------------------------------------------------
@@ -187,7 +187,7 @@ inline typename Host<T>::Type &
 host(T & me)
 {
     SEQAN_CHECKPOINT;
-	return value(_dataHost(me));
+    return value(_dataHost(me));
 }
 
 // TODO(holtgrew): Is this function unnecessary? Should be since the above one is catch-all.
@@ -196,7 +196,7 @@ inline typename Host<T const>::Type &
 host(T const & me)
 {
     SEQAN_CHECKPOINT;
-	return value(_dataHost(me));
+    return value(_dataHost(me));
 }
 
 // ----------------------------------------------------------------------------
@@ -211,19 +211,19 @@ host(T const & me)
 template <typename T, typename THost>
 inline void
 setHost(T & me,
-		THost & host_)
+        THost & host_)
 {
     SEQAN_CHECKPOINT;
-	setValue(_dataHost(me), host_);
+    setValue(_dataHost(me), host_);
 }
 
 template <typename T, typename THost>
 inline void
 setHost(T & me,
-		THost const & host_)
+        THost const & host_)
 {
     SEQAN_CHECKPOINT;
-	setValue(_dataHost(me), host_);
+    setValue(_dataHost(me), host_);
 }
 
 // ----------------------------------------------------------------------------
@@ -246,10 +246,10 @@ setHost(T & me,
 template <typename T, typename THost>
 inline void
 assignHost(T & me,
-		   THost const & host_)
+           THost const & host_)
 {
     SEQAN_CHECKPOINT;
-	assignValue(_dataHost(me), host_);
+    assignValue(_dataHost(me), host_);
 }
 
 // ----------------------------------------------------------------------------
@@ -272,10 +272,10 @@ assignHost(T & me,
 template <typename T, typename THost>
 inline void
 moveHost(T & me,
-		 THost & host_)
+         THost & host_)
 {
     SEQAN_CHECKPOINT;
-	moveValue(_dataHost(me), host_);
+    moveValue(_dataHost(me), host_);
 }
 
 

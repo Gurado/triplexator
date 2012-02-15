@@ -54,13 +54,13 @@
 #include <string>
 
 #ifdef PLATFORM_WINDOWS
-#include <Windows.h>	// DeleteFile()
+#include <Windows.h>    // DeleteFile()
 #else  // #ifdef PLATFORM_WINDOWS
-#include <unistd.h>		// unlink()
+#include <unistd.h>     // unlink()
 #if SEQAN_HAS_EXECINFO
-#include <execinfo.h>	// backtrace(), backtrace_symbols()
+#include <execinfo.h>   // backtrace(), backtrace_symbols()
 #endif  // #if SEQAN_HAS_EXECINFO
-#include <cxxabi.h>		// __cxa_demangle()
+#include <cxxabi.h>     // __cxa_demangle()
 #include <signal.h>
 #endif  // #ifdef PLATFORM_WINDOWS
 
@@ -273,131 +273,131 @@ void printDebugLevel(TStream &stream) {
 }
 
 #if defined(PLATFORM_WINDOWS) || !SEQAN_HAS_EXECINFO
-	
-	template <typename TSize>
-	void printStackTrace(TSize /*maxFrames*/)
-	{
-	}
-	
+    
+    template <typename TSize>
+    void printStackTrace(TSize /*maxFrames*/)
+    {
+    }
+    
 #else
-	
-	// print a demangled stack backtrace of the caller function
-	template <typename TSize>
-	void printStackTrace(TSize maxFrames)
-	{
-		void *addrlist[256];
-		char temp[4096];
-		char addr[20];
-		char offset[20];
-		
-		size_t size;
-		int status;
-		char *symname;
-		char *demangled;
-		
-		std::cerr << std::endl << "stack trace:" << std::endl;
+    
+    // print a demangled stack backtrace of the caller function
+    template <typename TSize>
+    void printStackTrace(TSize maxFrames)
+    {
+        void *addrlist[256];
+        char temp[4096];
+        char addr[20];
+        char offset[20];
+        
+        size_t size;
+        int status;
+        char *symname;
+        char *demangled;
+        
+        std::cerr << std::endl << "stack trace:" << std::endl;
 
-		int addrlist_len = backtrace(addrlist, maxFrames);
-		char** symbollist = backtrace_symbols(addrlist, addrlist_len);
-		for (int i = 1; i < addrlist_len; ++i)
-		{
-			offset[0] = 0;
-			addr[0] = 0;
-			demangled = NULL;
+        int addrlist_len = backtrace(addrlist, maxFrames);
+        char** symbollist = backtrace_symbols(addrlist, addrlist_len);
+        for (int i = 1; i < addrlist_len; ++i)
+        {
+            offset[0] = 0;
+            addr[0] = 0;
+            demangled = NULL;
 
-			// LINUX FORMAT:
-			//			./sam2svg [0x473b8c]
-			//			/lib/libc.so.6 [0x7f40d2526f60]
-			//			./sam2svg(_Z2f3v+0x10) [0x47200c]
-			//			./sam2svg(_Z2f2v+0xd) [0x472021]
-			//			./sam2svg(main+0x1367) [0x4735fc]
-			//			/lib/libc.so.6(__libc_start_main+0xe6) [0x7f40d25131a6]
-			//
-			
-			if (3 == sscanf(symbollist[i], "%*[^(](%4095[^+]+%[^)]) %s", temp, offset, addr))
-			{
-				symname = temp;
-				if (NULL != (demangled = abi::__cxa_demangle(temp, NULL, &size, &status))) 
-				{
-					symname = demangled;
-				}
-			}
+            // LINUX FORMAT:
+            //          ./sam2svg [0x473b8c]
+            //          /lib/libc.so.6 [0x7f40d2526f60]
+            //          ./sam2svg(_Z2f3v+0x10) [0x47200c]
+            //          ./sam2svg(_Z2f2v+0xd) [0x472021]
+            //          ./sam2svg(main+0x1367) [0x4735fc]
+            //          /lib/libc.so.6(__libc_start_main+0xe6) [0x7f40d25131a6]
+            //
+            
+            if (3 == sscanf(symbollist[i], "%*[^(](%4095[^+]+%[^)]) %s", temp, offset, addr))
+            {
+                symname = temp;
+                if (NULL != (demangled = abi::__cxa_demangle(temp, NULL, &size, &status))) 
+                {
+                    symname = demangled;
+                }
+            }
 
-			// MAC OS X FORMAT:
-			//			1   sam2svg                             0x0000000100003a39 _ZN5seqanL28signalHandlerPrintStackTraceEi + 21
-			//			2   libSystem.B.dylib                   0x00007fff87a6d67a _sigtramp + 26
-			//			3   libSystem.B.dylib                   0x00007fff87a76df7 tiny_free_do_recirc_to_depot + 980
-			//			4   sam2svg                             0x00000001000021b9 _Z2f2v + 9
-			//			5   sam2svg                             0x00000001000034b1 main + 4546
-			//			6   sam2svg                             0x0000000100002190 start + 52
-			
-			else if (3 == sscanf(symbollist[i], "%*d %*s %s %s %*s %s", addr, temp, offset))
-			{
-				symname = temp;
-				if (NULL != (demangled = abi::__cxa_demangle(temp, NULL, &size, &status))) 
-				{
-					symname = demangled;
-				}
-			}
-			
-			// LINUX FORMAT:
-			//			./sam2svg [0x473b8c]
-			//			/lib/libc.so.6 [0x7f40d2526f60]
+            // MAC OS X FORMAT:
+            //          1   sam2svg                             0x0000000100003a39 _ZN5seqanL28signalHandlerPrintStackTraceEi + 21
+            //          2   libSystem.B.dylib                   0x00007fff87a6d67a _sigtramp + 26
+            //          3   libSystem.B.dylib                   0x00007fff87a76df7 tiny_free_do_recirc_to_depot + 980
+            //          4   sam2svg                             0x00000001000021b9 _Z2f2v + 9
+            //          5   sam2svg                             0x00000001000034b1 main + 4546
+            //          6   sam2svg                             0x0000000100002190 start + 52
+            
+            else if (3 == sscanf(symbollist[i], "%*d %*s %s %s %*s %s", addr, temp, offset))
+            {
+                symname = temp;
+                if (NULL != (demangled = abi::__cxa_demangle(temp, NULL, &size, &status))) 
+                {
+                    symname = demangled;
+                }
+            }
+            
+            // LINUX FORMAT:
+            //          ./sam2svg [0x473b8c]
+            //          /lib/libc.so.6 [0x7f40d2526f60]
 
-			else if (2 == sscanf(symbollist[i], "%s %s", temp, addr))
-			{
-				symname = temp;
-			} 
-			
-			// DEFAULT:
-			else
-			{
-				symname = symbollist[i];
-			}
-			
-			std::cerr << std::setw(3) << i - 1;
-			std::cerr << std::setw(20) << addr;
-			std::cerr << "  " << symname;
-			if (offset[0] != 0) std::cerr << " + " << offset;
-			std::cerr << std::endl;
+            else if (2 == sscanf(symbollist[i], "%s %s", temp, addr))
+            {
+                symname = temp;
+            } 
+            
+            // DEFAULT:
+            else
+            {
+                symname = symbollist[i];
+            }
+            
+            std::cerr << std::setw(3) << i - 1;
+            std::cerr << std::setw(20) << addr;
+            std::cerr << "  " << symname;
+            if (offset[0] != 0) std::cerr << " + " << offset;
+            std::cerr << std::endl;
 
-			free(demangled);
-		}
-		std::cerr << std::endl;
+            free(demangled);
+        }
+        std::cerr << std::endl;
     // Only the array must be freed according to man page, not the contents.
-		free(symbollist);
-	}
-	
-	static void signalHandlerPrintStackTrace(int signum)
-	{
-		std::cerr << std::endl;
-		printStackTrace(20);
-		signal(signum, SIG_DFL);
-		kill(getpid(), signum);
-	}	
-	
-	inline int _deploySignalHandlers()
-	{
-		signal(SIGSEGV, signalHandlerPrintStackTrace);	// segfault
-		signal(SIGFPE, signalHandlerPrintStackTrace);	// divide by zero
-		// ...
-		return 0;
-	}
+        free(symbollist);
+    }
+    
+    static void signalHandlerPrintStackTrace(int signum)
+    {
+        std::cerr << std::endl;
+        printStackTrace(20);
+        signal(signum, SIG_DFL);
+        kill(getpid(), signum);
+    }   
+    
+    inline int _deploySignalHandlers()
+    {
+        signal(SIGSEGV, signalHandlerPrintStackTrace);  // segfault
+        signal(SIGFPE, signalHandlerPrintStackTrace);   // divide by zero
+        // ...
+        return 0;
+    }
 
 #if SEQAN_ENABLE_DEBUG
 
-	// automatically deploy signal handlers that output the stack trace on a trap (in debug mode)
+    // automatically deploy signal handlers that output the stack trace on a trap (in debug mode)
 
-	template <typename T>
-	struct SignalHandlersDummy_
-	{
-		static const int i;
-	};
+    template <typename T>
+    struct SignalHandlersDummy_
+    {
+        static const int i;
+    };
 
-	template <typename T>
-	const int SignalHandlersDummy_<T>::i = _deploySignalHandlers();
+    template <typename T>
+    const int SignalHandlersDummy_<T>::i = _deploySignalHandlers();
 
-	namespace {
+    namespace {
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunused-variable"
@@ -527,24 +527,24 @@ const char *tempFileName() {
     static char fileNameBuffer[1000];
 #ifdef PLATFORM_WINDOWS_VS
     static char filePathBuffer[1000];
-	//  Gets the temp path env string (no guarantee it's a valid path).
+    //  Gets the temp path env string (no guarantee it's a valid path).
     DWORD dwRetVal = 0;
     dwRetVal = GetTempPath(1000,            // length of the buffer
                            filePathBuffer); // buffer for path 
     if (dwRetVal > 1000 || (dwRetVal == 0))
     {
         std::cerr << "GetTempPath failed" << std::endl;
-		exit(1);
+        exit(1);
     }
     UINT uRetVal   = 0;
-	uRetVal = GetTempFileName(filePathBuffer,   // directory for tmp files
+    uRetVal = GetTempFileName(filePathBuffer,   // directory for tmp files
                               TEXT("SEQAN."),   // temp file name prefix 
                               0,                // create unique name 
                               fileNameBuffer);  // buffer for name 
     if (uRetVal == 0)
     {
         std::cerr << "GetTempFileName failed" << std::endl;
-		exit(1);
+        exit(1);
     }
     StaticData::tempFileNames().push_back(fileNameBuffer);
     return fileNameBuffer;
@@ -579,7 +579,7 @@ const char *tempFileName() {
         StaticData::foundCheckPointCount() = 0;
         // Get path to argv0.
         const char *end = argv0;
-		const char *ptr = std::min(strchr(argv0, '\\'), strchr(argv0, '/'));  // On Windows, we can have both \ and /.
+        const char *ptr = std::min(strchr(argv0, '\\'), strchr(argv0, '/'));  // On Windows, we can have both \ and /.
         for (; ptr != 0; ptr = std::min(strchr(ptr+1, '\\'), strchr(ptr+1, '/')))
             end = ptr;
         int rpos = end - argv0;
@@ -610,17 +610,17 @@ const char *tempFileName() {
         strncpy(StaticData::pathToRoot(), file, pos);
         StaticData::pathToRoot()[pos-1] = '\0';
 #ifdef PLATFORM_WINDOWS_VS
-		// Set CRT reporting such that everything goes to stderr and there are
-		// no popups causing timeouts.
-		_set_error_mode(_OUT_TO_STDERR);
-		_CrtSetReportMode(_CRT_WARN, _CRTDBG_MODE_FILE);
-		_CrtSetReportFile(_CRT_WARN, _CRTDBG_FILE_STDERR);
-		_CrtSetReportMode(_CRT_ERROR, _CRTDBG_MODE_FILE);
-		_CrtSetReportFile(_CRT_ERROR, _CRTDBG_FILE_STDERR);
-		_CrtSetReportMode(_CRT_ASSERT, _CRTDBG_MODE_FILE);
-		_CrtSetReportFile(_CRT_ASSERT, _CRTDBG_FILE_STDERR);
+        // Set CRT reporting such that everything goes to stderr and there are
+        // no popups causing timeouts.
+        _set_error_mode(_OUT_TO_STDERR);
+        _CrtSetReportMode(_CRT_WARN, _CRTDBG_MODE_FILE);
+        _CrtSetReportFile(_CRT_WARN, _CRTDBG_FILE_STDERR);
+        _CrtSetReportMode(_CRT_ERROR, _CRTDBG_MODE_FILE);
+        _CrtSetReportFile(_CRT_ERROR, _CRTDBG_FILE_STDERR);
+        _CrtSetReportMode(_CRT_ASSERT, _CRTDBG_MODE_FILE);
+        _CrtSetReportFile(_CRT_ASSERT, _CRTDBG_FILE_STDERR);
 #endif  // PLATFORM_WINDOWS_VS
-	}
+    }
 
     // Run test suite finalization.
     //
@@ -1428,13 +1428,13 @@ const char *tempFileName() {
     // If in testing mode then raise an AssertionFailedException.
     inline void fail() {
         StaticData::thisTestOk() = false;
-		printStackTrace(20);
+        printStackTrace(20);
         throw AssertionFailedException();
     }
 #else
     // If not in testing mode then quit with an abort.
     inline void fail() {
-		printStackTrace(20);
+        printStackTrace(20);
         abort();
     }
 #endif  // #if SEQAN_ENABLE_TESTING
@@ -1941,164 +1941,164 @@ SEQAN_ASSERT_IN_DELTA_MSG(1, 0, 0.1, "msg");  // will fail with message
 #if SEQAN_ENABLE_DEBUG
 inline void SEQAN_ASSERT_FAIL(const char *comment, ...)
 {
-	va_list args;
-	va_start(args, comment);
-	::seqan::ClassTest::vforceFail("", 0, comment, args);
+    va_list args;
+    va_start(args, comment);
+    ::seqan::ClassTest::vforceFail("", 0, comment, args);
     ::seqan::ClassTest::fail();
-	va_end(args);
+    va_end(args);
 }
 
 template <typename T1, typename T2, typename T3>
 void SEQAN_ASSERT_IN_DELTA(T1 const &_arg1, T2 const &_arg2, T3 const &_arg3)
 {
-	if (!::seqan::ClassTest::testInDelta("", 0, _arg1, "", _arg2, "", _arg3, ""))
-		::seqan::ClassTest::fail();
+    if (!::seqan::ClassTest::testInDelta("", 0, _arg1, "", _arg2, "", _arg3, ""))
+        ::seqan::ClassTest::fail();
 }
 
 template <typename T1, typename T2, typename T3>
 void SEQAN_ASSERT_IN_DELTA_MSG(T1 const &_arg1, T2 const &_arg2, T3 const &_arg3, const char *comment, ...)
 {
-	va_list args;
-	va_start(args, comment);
-	if (!::seqan::ClassTest::vtestInDelta("", 0, _arg1, "", _arg2, "", _arg3, "", comment, args))
-		::seqan::ClassTest::fail();
-	va_end(args);
+    va_list args;
+    va_start(args, comment);
+    if (!::seqan::ClassTest::vtestInDelta("", 0, _arg1, "", _arg2, "", _arg3, "", comment, args))
+        ::seqan::ClassTest::fail();
+    va_end(args);
 }
 
 template <typename T1, typename T2>
 void SEQAN_ASSERT_EQ(T1 const &_arg1, T2 const &_arg2)
 {
-	if (!::seqan::ClassTest::testEqual("", 0, _arg1, "", _arg2, ""))
-		::seqan::ClassTest::fail();
+    if (!::seqan::ClassTest::testEqual("", 0, _arg1, "", _arg2, ""))
+        ::seqan::ClassTest::fail();
 }
 
 template <typename T1, typename T2>
 void SEQAN_ASSERT_EQ_MSG(T1 const &_arg1, T2 const &_arg2, const char *comment, ...)
 {
-	va_list args;
-	va_start(args, comment);
-	if (!::seqan::ClassTest::vtestEqual("", 0, _arg1, "", _arg2, "", comment, args))
-		::seqan::ClassTest::fail();
-	va_end(args);
+    va_list args;
+    va_start(args, comment);
+    if (!::seqan::ClassTest::vtestEqual("", 0, _arg1, "", _arg2, "", comment, args))
+        ::seqan::ClassTest::fail();
+    va_end(args);
 }
 
 template <typename T1, typename T2>
 void SEQAN_ASSERT_NEQ(T1 const &_arg1, T2 const &_arg2)
 {
-	if (!::seqan::ClassTest::testNotEqual("", _arg1, "", _arg2, ""))
-		::seqan::ClassTest::fail();
+    if (!::seqan::ClassTest::testNotEqual("", _arg1, "", _arg2, ""))
+        ::seqan::ClassTest::fail();
 }
 
 template <typename T1, typename T2>
 void SEQAN_ASSERT_NEQ_MSG(T1 const &_arg1, T2 const &_arg2, const char *comment, ...)
 {
-	va_list args;
-	va_start(args, comment);
-	if (!::seqan::ClassTest::vtestNotEqual("", _arg1, "", _arg2, "", comment, args))
-		::seqan::ClassTest::fail();
-	va_end(args);
+    va_list args;
+    va_start(args, comment);
+    if (!::seqan::ClassTest::vtestNotEqual("", _arg1, "", _arg2, "", comment, args))
+        ::seqan::ClassTest::fail();
+    va_end(args);
 }
 
 template <typename T1, typename T2>
 void SEQAN_ASSERT_LEQ(T1 const &_arg1, T2 const &_arg2)
 {
-	if (!::seqan::ClassTest::testLeq("", 0, _arg1, "", _arg2, ""))
-		::seqan::ClassTest::fail();
+    if (!::seqan::ClassTest::testLeq("", 0, _arg1, "", _arg2, ""))
+        ::seqan::ClassTest::fail();
 }
 
 template <typename T1, typename T2>
 void SEQAN_ASSERT_LEQ_MSG(T1 const &_arg1, T2 const &_arg2, const char *comment, ...)
 {
-	va_list args;
-	va_start(args, comment);
-	if (!::seqan::ClassTest::vtestLeq("", 0, _arg1, "", _arg2, "", comment, args))
-		::seqan::ClassTest::fail();
-	va_end(args);
+    va_list args;
+    va_start(args, comment);
+    if (!::seqan::ClassTest::vtestLeq("", 0, _arg1, "", _arg2, "", comment, args))
+        ::seqan::ClassTest::fail();
+    va_end(args);
 }
 
 template <typename T1, typename T2>
 void SEQAN_ASSERT_LT(T1 const &_arg1, T2 const &_arg2)
 {
-	if (!::seqan::ClassTest::testLt("", 0, _arg1, "", _arg2, ""))
-		::seqan::ClassTest::fail();
+    if (!::seqan::ClassTest::testLt("", 0, _arg1, "", _arg2, ""))
+        ::seqan::ClassTest::fail();
 }
 
 template <typename T1, typename T2>
 void SEQAN_ASSERT_LT_MSG(T1 const &_arg1, T2 const &_arg2, const char *comment, ...)
 {
-	va_list args;
-	va_start(args, comment);
-	if (!::seqan::ClassTest::vtestLt("", 0, _arg1, "", _arg2, "", comment, args))
-		::seqan::ClassTest::fail();
-	va_end(args);
+    va_list args;
+    va_start(args, comment);
+    if (!::seqan::ClassTest::vtestLt("", 0, _arg1, "", _arg2, "", comment, args))
+        ::seqan::ClassTest::fail();
+    va_end(args);
 }
 
 template <typename T1, typename T2>
 void SEQAN_ASSERT_GEQ(T1 const &_arg1, T2 const &_arg2)
 {
-	if (!::seqan::ClassTest::testGeq("", 0, _arg1, "", _arg2, ""))
-		::seqan::ClassTest::fail();
+    if (!::seqan::ClassTest::testGeq("", 0, _arg1, "", _arg2, ""))
+        ::seqan::ClassTest::fail();
 }
 
 template <typename T1, typename T2>
 void SEQAN_ASSERT_GEQ_MSG(T1 const &_arg1, T2 const &_arg2, const char *comment, ...)
 {
-	va_list args;
-	va_start(args, comment);
-	if (!::seqan::ClassTest::vtestGeq("", 0, _arg1, "", _arg2, "", comment, args))
-		::seqan::ClassTest::fail();
-	va_end(args);
+    va_list args;
+    va_start(args, comment);
+    if (!::seqan::ClassTest::vtestGeq("", 0, _arg1, "", _arg2, "", comment, args))
+        ::seqan::ClassTest::fail();
+    va_end(args);
 }
 
 template <typename T1, typename T2>
 void SEQAN_ASSERT_GT(T1 const &_arg1, T2 const &_arg2)
 {
-	if (!::seqan::ClassTest::testGt("", 0, _arg1, "", _arg2, ""))
-		::seqan::ClassTest::fail();
+    if (!::seqan::ClassTest::testGt("", 0, _arg1, "", _arg2, ""))
+        ::seqan::ClassTest::fail();
 }
 
 template <typename T1, typename T2>
 void SEQAN_ASSERT_GT_MSG(T1 const &_arg1, T2 const &_arg2, const char *comment, ...)
 {
-	va_list args;
-	va_start(args, comment);
-	if (!::seqan::ClassTest::vtestGt("", 0, _arg1, "", _arg2, "", comment, args))
-		::seqan::ClassTest::fail();
-	va_end(args);
+    va_list args;
+    va_start(args, comment);
+    if (!::seqan::ClassTest::vtestGt("", 0, _arg1, "", _arg2, "", comment, args))
+        ::seqan::ClassTest::fail();
+    va_end(args);
 }
 
 template <typename T1>
 void SEQAN_ASSERT(T1 const &_arg1)
 {
-	if (!::seqan::ClassTest::testTrue("", 0, _arg1, ""))
-		::seqan::ClassTest::fail();
+    if (!::seqan::ClassTest::testTrue("", 0, _arg1, ""))
+        ::seqan::ClassTest::fail();
 }
 
 template <typename T1>
 void SEQAN_ASSERT_MSG(T1 const &_arg1, const char *comment, ...)
 {
-	va_list args;
-	va_start(args, comment);
-	if (!::seqan::ClassTest::vtestTrue("", 0, _arg1, "", comment, args))
-		::seqan::ClassTest::fail();
-	va_end(args);
+    va_list args;
+    va_start(args, comment);
+    if (!::seqan::ClassTest::vtestTrue("", 0, _arg1, "", comment, args))
+        ::seqan::ClassTest::fail();
+    va_end(args);
 }
 
 template <typename T1>
 void SEQAN_ASSERT_NOT(T1 const &_arg1)
 {
-	if (!::seqan::ClassTest::testFalse("", 0, _arg1, ""))
-		::seqan::ClassTest::fail();
+    if (!::seqan::ClassTest::testFalse("", 0, _arg1, ""))
+        ::seqan::ClassTest::fail();
 }
 
 template <typename T1>
 void SEQAN_ASSERT_NOT_MSG(T1 const &_arg1, const char *comment, ...)
 {
-	va_list args;
-	va_start(args, comment);
-	if (!::seqan::ClassTest::vtestFalse("", 0, _arg1, "", comment, args))
-		::seqan::ClassTest::fail();
-	va_end(args);
+    va_list args;
+    va_start(args, comment);
+    if (!::seqan::ClassTest::vtestFalse("", 0, _arg1, "", comment, args))
+        ::seqan::ClassTest::fail();
+    va_end(args);
 }
 
 #else // #if SEQAN_ENABLE_DEBUG

@@ -69,6 +69,7 @@ namespace SEQAN_NAMESPACE_MAIN
 ...note:This can be either a $TSpec$ argument (e.g. $SimpleShape$) or a complete @Class.Shape@ class (e.g. Shape<Dna, SimpleShape>).
 ..remarks:This index uses a non-trivial hashing for mapping q-gram hash values to buckets.
 This reduces the sizes of bucket directories (QGramDir, QGramCountsDir fibres) from |\Sigma|^q to min(\alpha*n,|\Sigma|^q), for a load factor \alpha>1.
+A bucket still stores occurrences (or counts) of the same q-gram, but in contrast to the @Spec.IndexQGram@ index, buckets are in random order due to the hashing.
 ..include:seqan/index.h
 .Memvar.OpenAddressing#alpha
 ..summary:Load factor. Controls space/time-tradeoff and must be greater 1. Default value is 1.6.
@@ -175,8 +176,10 @@ This reduces the sizes of bucket directories (QGramDir, QGramCountsDir fibres) f
 	template < typename TDir, typename THashValue >
 	inline void _qgramClearDir(TDir &dir, BucketMap<THashValue> &bucketMap)
 	{
-		arrayFill(begin(dir, Standard()), end(dir, Standard()), 0);
-		arrayFill(begin(bucketMap.qgramHash, Standard()), end(bucketMap.qgramHash, Standard()), (THashValue)-1);
+        if (!empty(dir))
+            arrayFill(begin(dir, Standard()), end(dir, Standard()), 0);
+        if (!empty(bucketMap.qgramHash))
+            arrayFill(begin(bucketMap.qgramHash, Standard()), end(bucketMap.qgramHash, Standard()), (THashValue)-1);
 	}
 
 	// looks up the bucket for the hash
@@ -191,13 +194,13 @@ This reduces the sizes of bucket directories (QGramDir, QGramCountsDir fibres) f
 
 		// check whether bucket map is disabled and
 		// where the hash should be found if no collision took place before
+		register TSize hlen = length(bucketMap.qgramHash);
+		if (hlen == 0ul) return hash;
 #ifdef SEQAN_OPENADDRESSING_COMPACT
-		register TSize hlen = length(bucketMap.qgramHash) - 1;
-		if (hlen == (TSize)-1) return hash;		
+        --hlen;
 		register TSize h1 = (TSize)(hash % hlen);
 #else
-		register TSize hlen = length(bucketMap.qgramHash) - 2;
-		if (hlen == (TSize)-2) return hash;
+        hlen -= 2;
 		register TSize h1 = (TSize)(hash & hlen);
 #endif
 		// -1 is the undefiend value, hence the method works not for the largest word of length 32
@@ -245,13 +248,13 @@ This reduces the sizes of bucket directories (QGramDir, QGramCountsDir fibres) f
 		
 		// check whether bucket map is disabled and
 		// where the hash should be found if no collision took place before
+		register TSize hlen = length(bucketMap.qgramHash);
+		if (hlen == 0ul) return hash;
 #ifdef SEQAN_OPENADDRESSING_COMPACT
-		register TSize hlen = length(bucketMap.qgramHash) - 1;
-		if (hlen == (TSize)-1) return hash;		
+        --hlen;
 		register TSize h1 = (TSize)(hash % hlen);
 #else
-		register TSize hlen = length(bucketMap.qgramHash) - 2;
-		if (hlen == (TSize)-2) return hash;
+        hlen -= 2;
 		register TSize h1 = (TSize)(hash & hlen);
 #endif
 		

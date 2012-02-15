@@ -144,6 +144,9 @@ To efficiently create them at once use this tag for @Function.indexRequire@ or @
 ...default:Default
 ...type:Spec.OpenAddressing
 ..remarks:The fibres (see @Class.Index@ and @Metafunction.Fibre@) of this index are a suffix array sorted by the first q characters (see @Tag.QGram Index Fibres.QGramSA@) and a q-gram directory (see @Tag.QGram Index Fibres.QGramDir@).
+The size of the q-gram directory is |\Sigma|^q.
+On a 32bit system the q-gram length is limited to 3 for $char$ alphabets or 13-14 for @Spec.Dna@ alphabets.
+Consider to use the @Spec.OpenAddressing@ q-gram index for longer q-grams if you don't need q-grams to be sorted.
 ..include:seqan/index.h
 */
 

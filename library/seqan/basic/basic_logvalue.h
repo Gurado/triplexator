@@ -94,77 +94,77 @@ log(TValue const & value)
 template<typename TValue, typename TSpec>
 class LogProb
 {
-  public:	
-	TValue data_value;
+  public:   
+    TValue data_value;
 
     // ------------------------------------------------------------------------
     // Constructors
     // ------------------------------------------------------------------------
     
-	LogProb() : data_value(::std::log(0.0)) {}
+    LogProb() : data_value(::std::log(0.0)) {}
 
-	template <typename TValue2>
-	LogProb(TValue2 const & _other)
+    template <typename TValue2>
+    LogProb(TValue2 const & _other)
     {
-		data_value = log(_other);
-	}
+        data_value = log(_other);
+    }
 
     // ------------------------------------------------------------------------
     // Type conversion operators;  Have to be defined in class.
     // ------------------------------------------------------------------------
-	
-	template <typename TResult>
-	inline TResult _convert(False) const
-	{
-		return (TResult)::std::exp(data_value);
-	}
+    
+    template <typename TResult>
+    inline TResult _convert(False) const
+    {
+        return (TResult)::std::exp(data_value);
+    }
 
-	template <typename TResult>
-	inline TResult _convert(True) const
-	{
-		return (TResult)round(::std::exp(data_value));
-	}
+    template <typename TResult>
+    inline TResult _convert(True) const
+    {
+        return (TResult)round(::std::exp(data_value));
+    }
 
     template <typename TValue2>
     inline
-	operator TValue2() const
+    operator TValue2() const
     {
-		return _convert<TValue2>(typename IsInteger<TValue2>::Type());
-	}
+        return _convert<TValue2>(typename IsInteger<TValue2>::Type());
+    }
 /*
     inline
-	operator float() const
+    operator float() const
     {
-		return (float) ::std::exp(data_value);
-	}
+        return (float) ::std::exp(data_value);
+    }
 
     inline
-	operator double() const
+    operator double() const
     {
-		return (double) ::std::exp(data_value);
-	}
+        return (double) ::std::exp(data_value);
+    }
 */
     // ------------------------------------------------------------------------
     // Function operator=();  Has to be defined in class.
     // ------------------------------------------------------------------------
 
-	template<typename TRhs>
+    template<typename TRhs>
     inline
-	LogProb &
+    LogProb &
     operator=(TRhs const& rhs)
     {
-		data_value = ::std::log(rhs);
-		return *this;
-	}
+        data_value = ::std::log(rhs);
+        return *this;
+    }
 
-	template<typename TValue2, typename TSpec2>
+    template<typename TValue2, typename TSpec2>
     inline
-	LogProb &
+    LogProb &
     operator=(LogProb<TValue2, TSpec2> const & rhs)
     {
-		data_value = rhs.data_value;
-		return *this;
-	}
+        data_value = rhs.data_value;
+        return *this;
+    }
 };
 
 // ============================================================================
@@ -462,9 +462,9 @@ inline
 TStream &
 operator<<(TStream & stream, LogProb<TValue, TSpec> const & rhs)
 {
-	return stream << ::std::exp(rhs.data_value);
+    return stream << ::std::exp(rhs.data_value);
 }
-	
+    
 }  // namespace seqan
 
 #endif  // #ifndef SEQAN_BASIC_BASIC_LOGVALUE_H_

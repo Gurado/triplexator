@@ -1,7 +1,7 @@
 // ==========================================================================
 //                                triplexator
 // ==========================================================================
-// Copyright (c) 2011, Fabian Buske, UQ
+// Copyright (c) 2011,2012, Fabian Buske, UQ
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,23 +32,17 @@
 // Author: Fabian Buske <fbuske@uq.edu.au>
 // ==========================================================================
 
-#ifndef SANDBOX_FBUSKE_APPS_TRIPLEXATOR_TRIPLEXATOR_H_
-#define SANDBOX_FBUSKE_APPS_TRIPLEXATOR_TRIPLEXATOR_H_
+#ifndef FBUSKE_APPS_TRIPLEXATOR_TRIPLEXATOR_H_
+#define FBUSKE_APPS_TRIPLEXATOR_TRIPLEXATOR_H_
 
 #include <seqan/misc/misc_cmdparser.h>
 #include <seqan/parallel.h> 
-#include <seqan/index.h>
 #include <seqan/modifier/modifier_view.h>
 #include <seqan/sequence.h>
 #include <seqan/basic.h>  // Includes testing infrastructure.
 #include <seqan/file.h>   // Required to print strings in tests.
-#include <seqan/find.h>
-#include <seqan/score.h>
 
 #include "triplex.h"
-#include "triplex_alphabet.h"
-#include "gardener.h"
-#include "output.h"
 
 using namespace std;
 
@@ -88,11 +82,11 @@ namespace SEQAN_NAMESPACE_MAIN
 	typename TMotifSet,
 	typename TFile,
 	typename TShape>
-	int _findTriplex(TMotifSet				&tfoMotifSet,
-					 StringSet<CharString>	&tfoNames,
-					 TFile					&outputfile,
-					 Options				&options,
-					 TShape const			&shape);
+	int _findTriplex(TMotifSet						&tfoMotifSet,
+					 StringSet<CharString> const	&tfoNames,
+					 TFile							&outputfile,
+					 Options						&options,
+					 TShape const					&shape);
 		
 	
 	// find TTSs (serial mode)
@@ -150,4 +144,4 @@ namespace SEQAN_NAMESPACE_MAIN
 		
 	
 }
-#endif  // #ifndef SANDBOX_FBUSKE_APPS_TRIPLEXATOR_TRIPLEXATOR_H_
+#endif  // #ifndef FBUSKE_APPS_TRIPLEXATOR_TRIPLEXATOR_H_

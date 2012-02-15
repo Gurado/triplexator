@@ -174,7 +174,7 @@ typedef Tag<GoEnd_> GoEnd;
 template <typename TTag = void, typename TSubList = void>
 struct TagList
 {
-	typedef TTag Type;
+    typedef TTag Type;
 };
 
 // ----------------------------------------------------------------------------
@@ -217,8 +217,8 @@ template <typename TTag, typename TSubList>
 struct TagSelector< TagList<TTag, TSubList> >
         : TagSelector<TSubList>
 {
-	typedef TTag					Type;
-	typedef TagSelector<TSubList>	Base;
+    typedef TTag                    Type;
+    typedef TagSelector<TSubList>   Base;
 };
 
 // ----------------------------------------------------------------------------
@@ -260,9 +260,9 @@ typedef Tag<DotDrawing_> DotDrawing;
 struct HammingDistance_;
 struct LevenshteinDistance_;
 
-typedef Tag<HammingDistance_>		HammingDistance;
-typedef Tag<LevenshteinDistance_>	LevenshteinDistance;
-typedef Tag<LevenshteinDistance_>	EditDistance; 
+typedef Tag<HammingDistance_>       HammingDistance;
+typedef Tag<LevenshteinDistance_>   LevenshteinDistance;
+typedef Tag<LevenshteinDistance_>   EditDistance; 
 
 // ----------------------------------------------------------------------------
 // Tag NeedlemanWunsch
@@ -284,7 +284,7 @@ typedef Tag<LevenshteinDistance_>	EditDistance;
 
 /**
 .Tag.Global Alignment Algorithms.value.NeedlemanWunsch:
-	Dynamic programming algorithm for alignments by Needleman and Wunsch.
+    Dynamic programming algorithm for alignments by Needleman and Wunsch.
 ..include:seqan/basic.h
 */
 
@@ -299,7 +299,7 @@ typedef Tag<NeedlemanWunsch_> NeedlemanWunsch;
 
 /**
 .Tag.Global Alignment Algorithms.value.BandedNeedlemanWunsch:
-	The Needleman-Wunsch alignment algorithm in a banded version.
+    The Needleman-Wunsch alignment algorithm in a banded version.
 ..include:seqan/basic.h
 */
 struct BandedNeedlemanWunsch_;
@@ -313,7 +313,7 @@ typedef Tag<BandedNeedlemanWunsch_> BandedNeedlemanWunsch;
 
 /**
 .Tag.Global Alignment Algorithms.value.Gotoh:
-	Gotoh's affine gap cost alignment algorithm.
+    Gotoh's affine gap cost alignment algorithm.
 ..include:seqan/basic.h
 */
 struct Gotoh_;
@@ -327,7 +327,7 @@ typedef Tag<Gotoh_> Gotoh;
 
 /**
 .Tag.Global Alignment Algorithms.value.BandedGotoh:
-	Gotoh's affine gap cost alignment algorithm in a banded version.
+    Gotoh's affine gap cost alignment algorithm in a banded version.
 ..include:seqan/basic.h
 */
 struct BandedGotoh_;
@@ -341,8 +341,8 @@ typedef Tag<BandedGotoh_> BandedGotoh;
 
 /**
 .Tag.Global Alignment Algorithms.value.MyersBitVector:
-	Myers' bit vector alignment algorithm for edit distance.
-	Note that this algorithm does not returns the alignment itself, but only computes the score.
+    Myers' bit vector alignment algorithm for edit distance.
+    Note that this algorithm does not returns the alignment itself, but only computes the score.
 ..include:seqan/basic.h
 */
 struct MyersBitVector_;
@@ -356,7 +356,7 @@ typedef Tag<MyersBitVector_> MyersBitVector;
 
 /**
 .Tag.Global Alignment Algorithms.value.MyersHirschberg:
-	Myers' bit vector algorithm for edit distance combined with Hirschberg's linear space alignment algorithm.
+    Myers' bit vector algorithm for edit distance combined with Hirschberg's linear space alignment algorithm.
 ..include:seqan/basic.h
 */
 struct MyersHirschberg_;
@@ -372,7 +372,7 @@ typedef Tag<MyersHirschberg_> MyersHirschberg;
 
 /**
 .Tag.Global Alignment Algorithms.value.Hirschberg:
-	Hirschberg's linear space global alignment algorithm.
+    Hirschberg's linear space global alignment algorithm.
 ..include:seqan/basic.h
 */
 struct Hirschberg_;
@@ -386,7 +386,7 @@ typedef Tag<Hirschberg_> Hirschberg;
 
 /**
 .Tag.Global Alignment Algorithms.value.Lcs:
-	Longest common subsequence algorithm.
+    Longest common subsequence algorithm.
 ..include:seqan/basic.h
 */
 struct Lcs_;
@@ -408,7 +408,7 @@ typedef Tag<Lcs_> Lcs;
 
 /**
 .Tag.Local Alignment Algorithms.value.SmithWaterman:
-	Triggers a Smith Waterman local alignment algorithm.
+    Triggers a Smith Waterman local alignment algorithm.
 ..include:seqan/basic.h
 */
 struct SmithWaterman_;
@@ -422,7 +422,7 @@ typedef Tag<SmithWaterman_> SmithWaterman;
 
 /**
 .Tag.Local Alignment Algorithms.value.BandedSmithWaterman:
-	Triggers a banded version of the Smith Waterman local alignment algorithm.
+    Triggers a banded version of the Smith Waterman local alignment algorithm.
 ..include:seqan/basic.h
 */
 struct BandedSmithWaterman_;
@@ -436,9 +436,9 @@ typedef Tag<BandedSmithWaterman_> BandedSmithWaterman;
 
 /**
 .Tag.Local Alignment Algorithms.value.WatermanEggert:
-	Local alignment algorithm by Waterman and Eggert with "declumping" (i.e. only non-overlapping local alignments are computed).
+    Local alignment algorithm by Waterman and Eggert with "declumping" (i.e. only non-overlapping local alignments are computed).
 .Tag.Local Alignment Algorithms.value.SmithWatermanClump:
-	Same as $WatermanEggert$.
+    Same as $WatermanEggert$.
 ..include:seqan/basic.h
 */
 struct SmithWatermanClump_;
@@ -453,9 +453,9 @@ typedef Tag<SmithWatermanClump_> WatermanEggert;
 
 /**
 .Tag.Local Alignment Algorithms.value.BandedWatermanEggert:
-	Triggers a banded version of the local alignment algorithm by Waterman and Eggert with "declumping".
+    Triggers a banded version of the local alignment algorithm by Waterman and Eggert with "declumping".
 .Tag.Local Alignment Algorithms.value.BandedSmithWatermanClump:
-	Same as $BandedWatermanEggert$.
+    Same as $BandedWatermanEggert$.
 ..include:seqan/basic.h
 */
 struct BandedWatermanEggert_;
@@ -489,17 +489,17 @@ struct LENGTH;
 template <>
 struct LENGTH<void>
 {
-	enum { VALUE = 0 };
+    enum { VALUE = 0 };
 };
 
 template <typename TTag>
 struct LENGTH< TagList<TTag, void> > {
-	enum { VALUE = 1 };
+    enum { VALUE = 1 };
 };
 
 template <typename TTag, typename TSubList>
 struct LENGTH< TagList<TTag, TSubList> > {
-	enum { VALUE = LENGTH<TSubList>::VALUE + 1 };
+    enum { VALUE = LENGTH<TSubList>::VALUE + 1 };
 };
 
 // ============================================================================

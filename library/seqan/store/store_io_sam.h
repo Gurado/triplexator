@@ -943,6 +943,8 @@ alignAndGetCigarString(TCigar &cigar, TMDString &md, TContig &contig, TReadSeq &
 		typedef FragmentStore<TSpec, TConfig> TFragmentStore;
 		typedef typename TFragmentStore::TAlignQualityStore TAlignQualityStore;
 		typedef typename TFragmentStore::TNameStore TNameStore;
+		typedef typename TFragmentStore::TReadSeqStore TReadSeqStore;
+        typedef typename Size<TReadSeqStore>::Type TReadSeqStoreSize;
 		typedef typename Value<TAlignQualityStore>::Type TAlignQuality;
 		
 		TAlignQuality q;
@@ -963,9 +965,15 @@ alignAndGetCigarString(TCigar &cigar, TMDString &md, TContig &contig, TReadSeq &
         while (!_streamEOF(file))
             _readOneAlignment(file, fragStore, contigAnchorGaps, matchMateInfos, c, Sam(), contextSAM);
             
-        for(unsigned i=0;i<length(fragStore.alignedReadStore);++i)
+        TReadSeqStoreSize emptyReads = 0; 
+        for(TReadSeqStoreSize i = 0; i < length(fragStore.alignedReadStore); ++i)
             if (empty(fragStore.readSeqStore[fragStore.alignedReadStore[i].readId]))
-                std::cout <<"EMPTY: "<<fragStore.readNameStore[fragStore.alignedReadStore[i].readId]<<std::endl;
+            {
+                ++emptyReads;
+//                std::cerr << "Read sequence empty for " << fragStore.readNameStore[fragStore.alignedReadStore[i].readId] << std::endl;
+            }
+        if (emptyReads != 0)
+            std::cerr << "Warning: " << emptyReads << " read sequences are empty." << std::endl;
     }
     
     

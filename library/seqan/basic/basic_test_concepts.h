@@ -47,54 +47,54 @@ namespace seqan {
 
 inline void testAlphabetConcepts()
 {
-	SEQAN_CONCEPT_ASSERT((AlphabetConcept<bool>));
-	SEQAN_CONCEPT_ASSERT((AlphabetConcept<char>));
-	SEQAN_CONCEPT_ASSERT((AlphabetConcept<unsigned>));
-	SEQAN_CONCEPT_ASSERT((AlphabetConcept<int>));
-	SEQAN_CONCEPT_ASSERT((AlphabetConcept<double>));
-	SEQAN_CONCEPT_ASSERT((AlphabetConcept<Pair<int, double> >));
-	SEQAN_CONCEPT_ASSERT((AlphabetConcept<Dna>));
-	SEQAN_CONCEPT_ASSERT((AlphabetConcept<Dna5>));
-	SEQAN_CONCEPT_ASSERT((AlphabetConcept<AminoAcid>));
-	SEQAN_CONCEPT_ASSERT((AlphabetConcept<Ascii>));
+    SEQAN_CONCEPT_ASSERT((AlphabetConcept<bool>));
+    SEQAN_CONCEPT_ASSERT((AlphabetConcept<char>));
+    SEQAN_CONCEPT_ASSERT((AlphabetConcept<unsigned>));
+    SEQAN_CONCEPT_ASSERT((AlphabetConcept<int>));
+    SEQAN_CONCEPT_ASSERT((AlphabetConcept<double>));
+    SEQAN_CONCEPT_ASSERT((AlphabetConcept<Pair<int, double> >));
+    SEQAN_CONCEPT_ASSERT((AlphabetConcept<Dna>));
+    SEQAN_CONCEPT_ASSERT((AlphabetConcept<Dna5>));
+    SEQAN_CONCEPT_ASSERT((AlphabetConcept<AminoAcid>));
+    SEQAN_CONCEPT_ASSERT((AlphabetConcept<Ascii>));
 }
 
 template <typename T>
 inline void testInteger()
 {
-	SEQAN_CONCEPT_ASSERT((IntegerConcept<T>));
-	SEQAN_STATIC_ASSERT_MSG(Is< IntegerConcept<T> >::VALUE, "Type is not marked to be an integer");
+    SEQAN_CONCEPT_ASSERT((IntegerConcept<T>));
+    SEQAN_STATIC_ASSERT_MSG(Is< IntegerConcept<T> >::VALUE, "Type is not marked to be an integer");
 }
 
 template <typename T>
 inline void testSignedInteger()
 {
-	SEQAN_CONCEPT_ASSERT((SignedIntegerConcept<T>));
-	SEQAN_STATIC_ASSERT_MSG(Is< SignedIntegerConcept<T> >::VALUE, "Type is not marked to be a signed integer");
-	testInteger<T>();
+    SEQAN_CONCEPT_ASSERT((SignedIntegerConcept<T>));
+    SEQAN_STATIC_ASSERT_MSG(Is< SignedIntegerConcept<T> >::VALUE, "Type is not marked to be a signed integer");
+    testInteger<T>();
 }
 
 template <typename T>
 inline void testUnsignedInteger()
 {
-	SEQAN_CONCEPT_ASSERT((UnsignedIntegerConcept<T>));
-	SEQAN_STATIC_ASSERT_MSG(Is< UnsignedIntegerConcept<T> >::VALUE, "Type is not marked to be an unsigned integer");
-	testInteger<T>();
+    SEQAN_CONCEPT_ASSERT((UnsignedIntegerConcept<T>));
+    SEQAN_STATIC_ASSERT_MSG(Is< UnsignedIntegerConcept<T> >::VALUE, "Type is not marked to be an unsigned integer");
+    testInteger<T>();
 }
 
 inline void testIntegers()
 {
-	testInteger<char>();
-	testSignedInteger<signed char>();
-	testSignedInteger<signed short>();
-	testSignedInteger<signed int>();
-	testSignedInteger<signed long>();
-	testSignedInteger<__int64>();
-	testUnsignedInteger<unsigned char>();
-	testUnsignedInteger<unsigned short>();
-	testUnsignedInteger<unsigned int>();
-	testUnsignedInteger<unsigned long>();
-	testUnsignedInteger<__uint64>();
+    testInteger<char>();
+    testSignedInteger<signed char>();
+    testSignedInteger<signed short>();
+    testSignedInteger<signed int>();
+    testSignedInteger<signed long>();
+    testSignedInteger<__int64>();
+    testUnsignedInteger<unsigned char>();
+    testUnsignedInteger<unsigned short>();
+    testUnsignedInteger<unsigned int>();
+    testUnsignedInteger<unsigned long>();
+    testUnsignedInteger<__uint64>();
 //  testSignedInteger<unsigned long>();   // <== this should fail
 }
 

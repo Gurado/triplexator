@@ -1,47 +1,47 @@
-# Sequence-ID	TFO start	TFO end	Duplex-ID	TTS start	TTS end	Score	Error-rate	Errors	Motif	strand	orientation
-Seq1-Y-noErrors	2	22	Duplex1_Y_+	4	24	20	0		Y	+	P
+# Sequence-ID	TFO start	TFO end	Duplex-ID	TTS start	TTS end	Score	Error-rate	Errors	Motif	Strand	Orientation	Guanine-rate
+Seq1-Y-noErrors	2	22	Duplex1_Y_+	4	24	20	0		Y	+	P	0.55
 TFO: 5'- CCCTTCTCCTTCCTTTTCCC -3'
          ||||||||||||||||||||
 TTS: 5'- GGGAAGAGGAAGGAAAAGGG -3'
      3'- CCCTTCTCCTTCCTTTTCCC -5'
 
-Seq7-M-noErrors	2	22	Duplex1_Y_+	4	24	20	0		M	+	P
+Seq7-M-noErrors	2	22	Duplex1_Y_+	4	24	20	0		M	+	P	0.55
 TFO: 5'- GGGTTGTGGTTGGTTTTGGG -3'
          ||||||||||||||||||||
 TTS: 5'- GGGAAGAGGAAGGAAAAGGG -3'
      3'- CCCTTCTCCTTCCTTTTCCC -5'
 
-Seq4-R-noErrors	2	22	Duplex2_R_+	3	23	20	0		R	+	A
+Seq4-R-noErrors	2	22	Duplex2_R_+	3	23	20	0		R	+	A	0.55
 TFO: 3'- GGGAAAAGGAAGGAGAAGGG -5'
          ||||||||||||||||||||
 TTS: 5'- GGGAAAAGGAAGGAGAAGGG -3'
      3'- CCCTTTTCCTTCCTCTTCCC -5'
 
-Seq7-M-noErrors	2	22	Duplex2_R_+	3	23	20	0		M	+	A
+Seq7-M-noErrors	2	22	Duplex2_R_+	3	23	20	0		M	+	A	0.55
 TFO: 3'- GGGTTTTGGTTGGTGTTGGG -5'
          ||||||||||||||||||||
 TTS: 5'- GGGAAAAGGAAGGAGAAGGG -3'
      3'- CCCTTTTCCTTCCTCTTCCC -5'
 
-Seq4-R-noErrors	2	22	Duplex3_R_-	4	24	20	0		R	-	A
+Seq4-R-noErrors	2	22	Duplex3_R_-	4	24	20	0		R	-	A	0.55
      5'- CCCTTCTCCTTCCTTTTCCC -3'
 TTS: 3'- GGGAAGAGGAAGGAAAAGGG -5'
          ||||||||||||||||||||
 TFO: 5'- GGGAAGAGGAAGGAAAAGGG -3'
 
-Seq7-M-noErrors	2	22	Duplex3_R_-	4	24	20	0		M	-	A
+Seq7-M-noErrors	2	22	Duplex3_R_-	4	24	20	0		M	-	A	0.55
      5'- CCCTTCTCCTTCCTTTTCCC -3'
 TTS: 3'- GGGAAGAGGAAGGAAAAGGG -5'
          ||||||||||||||||||||
 TFO: 5'- GGGTTGTGGTTGGTTTTGGG -3'
 
-Seq1-Y-noErrors	2	22	Duplex4_Y_-	3	23	20	0		Y	-	P
+Seq1-Y-noErrors	2	22	Duplex4_Y_-	3	23	20	0		Y	-	P	0.55
      5'- CCCTTTTCCTTCCTCTTCCC -3'
 TTS: 3'- GGGAAAAGGAAGGAGAAGGG -5'
          ||||||||||||||||||||
 TFO: 3'- CCCTTTTCCTTCCTCTTCCC -5'
 
-Seq7-M-noErrors	2	22	Duplex4_Y_-	3	23	20	0		M	-	P
+Seq7-M-noErrors	2	22	Duplex4_Y_-	3	23	20	0		M	-	P	0.55
      5'- CCCTTTTCCTTCCTCTTCCC -3'
 TTS: 3'- GGGAAAAGGAAGGAGAAGGG -5'
          ||||||||||||||||||||

@@ -106,7 +106,7 @@ struct Allocator;
 template <typename TSpec>
 struct Spec<Allocator<TSpec> >
 {
-	typedef TSpec Type;
+    typedef TSpec Type;
 };
 
 // ============================================================================
@@ -154,72 +154,72 @@ A $new$ operator which is part of the C++ standard (defined in $<new>$)
 template <typename T, typename TValue, typename TSize>
 inline void
 allocate(T const & me,
-		 TValue * & data,
-		 TSize count)
+         TValue * & data,
+         TSize count)
 {
-	allocate(me, data, count, TagAllocateUnspecified());
+    allocate(me, data, count, TagAllocateUnspecified());
 }
 
 template <typename T, typename TValue, typename TSize>
 inline void
 allocate(T & me,
-		 TValue * & data,
-		 TSize count)
+         TValue * & data,
+         TSize count)
 {
-	allocate(me, data, count, TagAllocateUnspecified());
+    allocate(me, data, count, TagAllocateUnspecified());
 }
 
 template <typename T, typename TValue, typename TSize, typename TUsage>
 inline void
 allocate(T const &, 
-		 TValue * & data,
-		 TSize count,
-		 Tag<TUsage> const &)
+         TValue * & data,
+         TSize count,
+         Tag<TUsage> const &)
 {
-//	data = (TValue *) operator new(count * sizeof(TValue));
+//  data = (TValue *) operator new(count * sizeof(TValue));
 #ifdef PLATFORM_WINDOWS_VS
-	data = (TValue *) _aligned_malloc(count * sizeof(TValue), __alignof(TValue));
+    data = (TValue *) _aligned_malloc(count * sizeof(TValue), __alignof(TValue));
 #else
 /*#if _POSIX_C_SOURCE >= 200112L || _XOPEN_SOURCE >= 600
-	const size_t align = (__alignof__(TValue) < sizeof(void*))? sizeof(void*): __alignof__(TValue);
-	if (posix_memalign(&(void* &)data, align, count * sizeof(TValue)))
-		data = NULL;
+    const size_t align = (__alignof__(TValue) < sizeof(void*))? sizeof(void*): __alignof__(TValue);
+    if (posix_memalign(&(void* &)data, align, count * sizeof(TValue)))
+        data = NULL;
 #else
-	data = (TValue *) malloc(count * sizeof(TValue));
+    data = (TValue *) malloc(count * sizeof(TValue));
 #endif*/
-	data = (TValue *) operator new(count * sizeof(TValue));
+    data = (TValue *) operator new(count * sizeof(TValue));
 #endif
 
 #ifdef SEQAN_PROFILE
-	if (data)
-	    SEQAN_PROADD(SEQAN_PROMEMORY, count * sizeof(TValue));
+    if (data)
+        SEQAN_PROADD(SEQAN_PROMEMORY, count * sizeof(TValue));
 #endif
 }
 
 template <typename T, typename TValue, typename TSize, typename TUsage>
 inline void
 allocate(T &, 
-		 TValue * & data,
-		 TSize count,
-		 Tag<TUsage> const &)
+         TValue * & data,
+         TSize count,
+         Tag<TUsage> const &)
 {
-//	data = (TValue *) operator new(count * sizeof(TValue));
+//  data = (TValue *) operator new(count * sizeof(TValue));
 #ifdef PLATFORM_WINDOWS_VS
-	data = (TValue *) _aligned_malloc(count * sizeof(TValue), __alignof(TValue));
+    data = (TValue *) _aligned_malloc(count * sizeof(TValue), __alignof(TValue));
 #else
 /*#if _POSIX_C_SOURCE >= 200112L || _XOPEN_SOURCE >= 600
-	const size_t align = (__alignof__(TValue) < sizeof(void*))? sizeof(void*): __alignof__(TValue);
-	if (posix_memalign(&(void* &)data, align, count * sizeof(TValue)))
-		data = NULL;
+    const size_t align = (__alignof__(TValue) < sizeof(void*))? sizeof(void*): __alignof__(TValue);
+    if (posix_memalign(&(void* &)data, align, count * sizeof(TValue)))
+        data = NULL;
 #else
-	data = (TValue *) malloc(count * sizeof(TValue));
+    data = (TValue *) malloc(count * sizeof(TValue));
 #endif
-*/	data = (TValue *) operator new(count * sizeof(TValue));
+*/  data = (TValue *) operator new(count * sizeof(TValue));
 #endif
 
 #ifdef SEQAN_PROFILE
-	if (data)
-	    SEQAN_PROADD(SEQAN_PROMEMORY, count * sizeof(TValue));
+    if (data)
+        SEQAN_PROADD(SEQAN_PROMEMORY, count * sizeof(TValue));
 #endif
 }
 
@@ -257,68 +257,68 @@ $delete$ and $delete []$ operators which are part of the C++ standard (defined i
 template <typename T, typename TValue, typename TSize>
 inline void 
 deallocate(T const & me, 
-		   TValue * data, 
-		   TSize const count)
+           TValue * data, 
+           TSize const count)
 {
-	deallocate(me, data, count, TagAllocateUnspecified());
+    deallocate(me, data, count, TagAllocateUnspecified());
 }
 
 template <typename T, typename TValue, typename TSize>
 inline void 
 deallocate(T & me, 
-		   TValue * data, 
-		   TSize const count)
+           TValue * data, 
+           TSize const count)
 {
-	deallocate(me, data, count, TagAllocateUnspecified());
+    deallocate(me, data, count, TagAllocateUnspecified());
 }
 
 template <typename T, typename TValue, typename TSize, typename TUsage>
 inline void
 deallocate(
-	T const & /*me*/,
-	TValue * data,
+    T const & /*me*/,
+    TValue * data,
 #ifdef SEQAN_PROFILE 
-	TSize count,
+    TSize count,
 #else
-	TSize,
+    TSize,
 #endif
-	Tag<TUsage> const)
+    Tag<TUsage> const)
 {
 #ifdef SEQAN_PROFILE
-	if (data && count)	// .. to use count if SEQAN_PROFILE is not defined
-	    SEQAN_PROSUB(SEQAN_PROMEMORY, count * sizeof(TValue));
+    if (data && count)  // .. to use count if SEQAN_PROFILE is not defined
+        SEQAN_PROSUB(SEQAN_PROMEMORY, count * sizeof(TValue));
 #endif
-//	operator delete ((void *) data);
+//  operator delete ((void *) data);
 #ifdef PLATFORM_WINDOWS_VS
-	_aligned_free((void *) data);
+    _aligned_free((void *) data);
 #else
-//	free((void *) data);
-	operator delete ((void *) data);
+//  free((void *) data);
+    operator delete ((void *) data);
 #endif
 }
 
 template <typename T, typename TValue, typename TSize, typename TUsage>
 inline void 
 deallocate(
-	T & /*me*/,
-	TValue * data,
+    T & /*me*/,
+    TValue * data,
 #ifdef SEQAN_PROFILE 
-	TSize count,
+    TSize count,
 #else
-	TSize,
+    TSize,
 #endif
-	Tag<TUsage> const)
+    Tag<TUsage> const)
 {
 #ifdef SEQAN_PROFILE
-	if (data && count)	// .. to use count if SEQAN_PROFILE is not defined
-	    SEQAN_PROSUB(SEQAN_PROMEMORY, count * sizeof(TValue));
+    if (data && count)  // .. to use count if SEQAN_PROFILE is not defined
+        SEQAN_PROSUB(SEQAN_PROMEMORY, count * sizeof(TValue));
 #endif
-//	operator delete ((void *) data);
+//  operator delete ((void *) data);
 #ifdef PLATFORM_WINDOWS_VS
-	_aligned_free((void *) data);
+    _aligned_free((void *) data);
 #else
-//	free((void *) data);
-	operator delete ((void *) data);
+//  free((void *) data);
+    operator delete ((void *) data);
 #endif
 }
 

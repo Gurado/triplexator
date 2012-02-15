@@ -62,13 +62,13 @@ namespace seqan {
 template <typename T, const int i = 0>
 struct Value
 {
-	typedef T Type;
+    typedef T Type;
 };
 
 template <typename T>
 struct Value<T const>
 {
-	typedef T const Type;
+    typedef T const Type;
 };
 
 //____________________________________________________________________________
@@ -91,12 +91,12 @@ Do not confuse it with @Function.value@ that returns a @Metafunction.Reference.r
 template <typename T>
 struct GetValue
 {
-	typedef typename Value<T>::Type const & Type;
+    typedef typename Value<T>::Type const & Type;
 };
 
 template <typename T>
 struct GetValue<T const>:
-	public GetValue<T>
+    public GetValue<T>
 {
 };
 
@@ -117,13 +117,13 @@ struct GetValue<T const>:
 template <typename T>
 struct Reference
 {
-	typedef typename Value<T>::Type & Type;
+    typedef typename Value<T>::Type & Type;
 };
 
 template <typename T>
 struct Reference<T const>
 {
-	typedef typename Value<T>::Type const & Type;
+    typedef typename Value<T>::Type const & Type;
 };
 
 //____________________________________________________________________________
@@ -143,12 +143,12 @@ struct Reference<T const>
 template <typename T>
 struct Size
 {
-	typedef size_t Type;
+    typedef size_t Type;
 };
 
 template <typename T>
 struct Size<T const>:
-	Size<T>
+    Size<T>
 {
 };
 
@@ -171,12 +171,12 @@ struct Size<T const>:
 template <typename T>
 struct Difference
 {
-	typedef ptrdiff_t Type;
+    typedef ptrdiff_t Type;
 };
 
 template <typename T>
 struct Difference<T const>:
-	Difference<T>
+    Difference<T>
 {
 };
 
@@ -199,12 +199,12 @@ struct Difference<T const>:
 template <typename T>
 struct Position
 {
-	typedef typename Size<T>::Type Type;
+    typedef typename Size<T>::Type Type;
 };
 
 template <typename T>
 struct Position<T const>:
-	Position<T>
+    Position<T>
 {
 };
 
@@ -225,7 +225,7 @@ struct Position<T const>:
 template <typename T>
 struct Host
 {
-	typedef T Type;
+    typedef T Type;
 };
 
 //____________________________________________________________________________
@@ -246,19 +246,19 @@ struct Host
 // default case
 template <typename T>
 struct Spec {
-	typedef void Type;
+    typedef void Type;
 };
 
 
 // one argument case
 template <template <typename> class T, typename TSpec>
 struct Spec< T<TSpec> > {
-	typedef TSpec Type;
+    typedef TSpec Type;
 };
 
 template <typename T>
 struct Spec<T const>:
-	public Spec<T> {};
+    public Spec<T> {};
 
 //____________________________________________________________________________
 
@@ -277,53 +277,53 @@ struct Spec<T const>:
 // default case
 template <typename T>
 struct DeepestSpec {
-	typedef T Type;
+    typedef T Type;
 };
 
 // recursion for 1 argument
 template <
-	template <typename> class T, 
-	typename T1 >
+    template <typename> class T, 
+    typename T1 >
 struct DeepestSpec< T<T1> > {
-	typedef typename 
-		If<
-			IsSameType<T1, void>::VALUE,										// is T1 void?
-			T<T1>,															// yes, end of recursion
-			typename DeepestSpec< typename Spec< T<T1> >::Type >::Type		// no,  recurse
-		>::Type Type;
+    typedef typename 
+        If<
+            IsSameType<T1, void>::VALUE,                                        // is T1 void?
+            T<T1>,                                                          // yes, end of recursion
+            typename DeepestSpec< typename Spec< T<T1> >::Type >::Type      // no,  recurse
+        >::Type Type;
 };
 
 // recursion for 2 arguments
 template <
-	template <typename, typename> class T, 
-	typename T1, typename T2 >
+    template <typename, typename> class T, 
+    typename T1, typename T2 >
 struct DeepestSpec< T<T1,T2> >:
-	DeepestSpec< typename Spec< T<T1,T2> >::Type > {};
+    DeepestSpec< typename Spec< T<T1,T2> >::Type > {};
 
 // recursion for 3 arguments
 template <
-	template <typename, typename, typename> class T, 
-	typename T1, typename T2, typename T3 >
+    template <typename, typename, typename> class T, 
+    typename T1, typename T2, typename T3 >
 struct DeepestSpec< T<T1,T2,T3> >:
-	DeepestSpec< typename Spec< T<T1,T2,T3> >::Type > {};
+    DeepestSpec< typename Spec< T<T1,T2,T3> >::Type > {};
 
 // recursion for 4 arguments
 template <
-	template <typename, typename, typename, typename> class T, 
-	typename T1, typename T2, typename T3, typename T4 >
+    template <typename, typename, typename, typename> class T, 
+    typename T1, typename T2, typename T3, typename T4 >
 struct DeepestSpec< T<T1,T2,T3,T4> >:
-	DeepestSpec< typename Spec< T<T1,T2,T3,T4> >::Type > {};
+    DeepestSpec< typename Spec< T<T1,T2,T3,T4> >::Type > {};
 
 // recursion for 5 arguments
 template <
-	template <typename, typename, typename, typename, typename> class T, 
-	typename T1, typename T2, typename T3, typename T4, typename T5 >
+    template <typename, typename, typename, typename, typename> class T, 
+    typename T1, typename T2, typename T3, typename T4, typename T5 >
 struct DeepestSpec< T<T1,T2,T3,T4,T5> >:
-	DeepestSpec< typename Spec< T<T1,T2,T3,T4,T5> >::Type > {};
+    DeepestSpec< typename Spec< T<T1,T2,T3,T4,T5> >::Type > {};
 
 template <typename T>
 struct DeepestSpec<T const>:
-	public DeepestSpec<T> {};
+    public DeepestSpec<T> {};
 
 //____________________________________________________________________________
 
@@ -342,11 +342,11 @@ struct DeepestSpec<T const>:
 
 template <typename T>
 struct Cargo {
-	typedef Nothing Type;
+    typedef Nothing Type;
 };
 template <typename T>
 struct Cargo<T const> {
-	typedef typename Cargo<T>::Type const Type;
+    typedef typename Cargo<T>::Type const Type;
 };
 
 //____________________________________________________________________________
@@ -369,16 +369,16 @@ It is also used to attach properties to vertices.
 
 template <typename T>
 struct VertexDescriptor {
-	typedef void* Type;
+    typedef void* Type;
 };
 template <typename T>
 struct VertexDescriptor<T const>:
-	public VertexDescriptor<T> {};
+    public VertexDescriptor<T> {};
 
 
 //____________________________________________________________________________
 
-	
+    
 /**
 .Metafunction.Id:
 ..cat:Graph
@@ -396,7 +396,7 @@ In most cases this type is unsigned int.
 
 template<typename T>
 struct Id {
-	typedef unsigned int Type;
+    typedef unsigned int Type;
 };
 
 template<typename T>
@@ -420,12 +420,12 @@ struct Id<T const> : Id<T> {};
 template< typename T >
 struct Key
 {
-	typedef T Type;
+    typedef T Type;
 };
 
 template <typename T>
 struct Key<T const>:
-	Key<T> {};
+    Key<T> {};
 
 //____________________________________________________________________________
 
@@ -443,7 +443,7 @@ struct Object;
 
 template <typename T>
 struct Object<T const>:
-	Object<T> {};
+    Object<T> {};
 
 
 //____________________________________________________________________________
@@ -459,12 +459,12 @@ struct Object<T const>:
 template < typename TSpec = void >
 struct Source
 {
-	typedef TSpec Type;
+    typedef TSpec Type;
 };
 
 template <typename T>
 struct Source<T const>:
-	Source<T>
+    Source<T>
 {
 };
 
@@ -486,19 +486,19 @@ otherwise $Parameter_<T>::Type$ is $T &$.
 template <typename T>
 struct Parameter_
 {
-	typedef T & Type;
+    typedef T & Type;
 };
 
 template <typename T>
 struct Parameter_<T *>
 {
-	typedef T * Type;
+    typedef T * Type;
 };
 
 template <typename T, size_t I>
 struct Parameter_<T [I]>
 {
-	typedef T * Type;
+    typedef T * Type;
 };
 
 /**
@@ -521,7 +521,7 @@ typename Parameter_<T>::Type
 _toParameter(T * _object)
 {
     SEQAN_CHECKPOINT;
-	return * _object;
+    return * _object;
 }
 
 template <typename T>
@@ -530,7 +530,7 @@ _toParameter(T _object)
 {
     // TODO(holtgrew): This cannot really work, cannot return references to temporaries.
     SEQAN_CHECKPOINT;
-	return _object;
+    return _object;
 }
 
 //____________________________________________________________________________
@@ -552,35 +552,35 @@ otherwise $Parameter_<T>::Type$ is $T const &$.
 template <typename T>
 struct ConstParameter_
 {
-	typedef T const & Type;
+    typedef T const & Type;
 };
 
 template <typename T>
 struct ConstParameter_<T const>:
-	public ConstParameter_<T> {};
+    public ConstParameter_<T> {};
 
 template <typename T>
 struct ConstParameter_<T *>
 {
-	typedef T const * Type;
+    typedef T const * Type;
 };
 
 template <typename T>
 struct ConstParameter_<T const *>
 {
-	typedef T const * Type;
+    typedef T const * Type;
 };
 
 template <typename T, size_t I>
 struct ConstParameter_<T [I]>
 {
-	typedef T const * Type;
+    typedef T const * Type;
 };
 
 template <typename T, size_t I>
 struct ConstParameter_<T const [I]>
 {
-	typedef T const * Type;
+    typedef T const * Type;
 };
 
 //____________________________________________________________________________
@@ -603,37 +603,37 @@ otherwise $Pointer_<T>::Type$ is $T *$.
 template <typename T>
 struct Pointer_
 {
-	typedef T * Type;
+    typedef T * Type;
 };
 
 template <typename T>
 struct Pointer_<T *>
 {
-	typedef T * Type;
+    typedef T * Type;
 };
 template <typename T>
 struct Pointer_<T * const>
 {
-	typedef T * Type;
+    typedef T * Type;
 };
 
 template <typename T, size_t I>
 struct Pointer_<T [I]>
 {
-	typedef T * Type;
+    typedef T * Type;
 };
 
 //non const version of Pointer_ for return values
 
 template <typename T>
 struct NonConstPointer_:
-	Pointer_<T>
+    Pointer_<T>
 {
 };
 template <typename T>
 struct NonConstPointer_<T * const>
 {
-	typedef T * Type;
+    typedef T * Type;
 };
 
 /**
@@ -654,14 +654,14 @@ typename NonConstPointer_<T>::Type
 _toPointer(T & _object)
 {
 SEQAN_CHECKPOINT
-	return & _object;
+    return & _object;
 }
 template <typename T>
 typename NonConstPointer_<T const>::Type
 _toPointer(T const & _object)
 {
 SEQAN_CHECKPOINT
-	return & _object;
+    return & _object;
 }
 
 template <typename T>
@@ -669,7 +669,7 @@ typename NonConstPointer_<T *>::Type
 _toPointer(T * _object)
 {
 SEQAN_CHECKPOINT
-	return _object;
+    return _object;
 }
 
 //____________________________________________________________________________
@@ -692,12 +692,12 @@ SEQAN_CHECKPOINT
 template <typename T>
 struct LENGTH
 {
-	enum { VALUE = 1 };
+    enum { VALUE = 1 };
 };
 
 template <typename T>
 struct LENGTH<T const>:
-	LENGTH<T>
+    LENGTH<T>
 {
 };
 
@@ -718,12 +718,12 @@ For gapped shapes this is the number of '1's.
 
 template <typename T>
 struct WEIGHT:
-	LENGTH<T>
+    LENGTH<T>
 {
 };
 template <typename T>
 struct WEIGHT<T const>:
-	WEIGHT<T>
+    WEIGHT<T>
 {
 };
 

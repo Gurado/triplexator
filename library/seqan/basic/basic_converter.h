@@ -71,7 +71,7 @@ that is @Function.convert@ returns a temporary.
 template <typename TTarget, typename TSource = void>
 struct Convert
 {
-	typedef TTarget Type;
+    typedef TTarget Type;
 };
 
 // ============================================================================
@@ -107,9 +107,9 @@ It is recommended to use @Function.convert@ rather than $convertImpl$.
 template <typename TTarget, typename T, typename TSource>
 inline typename Convert<TTarget, TSource>::Type
 convertImpl(Convert<TTarget, T> const,
-			TSource const & source)
+            TSource const & source)
 {
-	return source;
+    return source;
 }
 
 // ----------------------------------------------------------------------------
@@ -137,7 +137,7 @@ template <typename TTarget, typename TSource>
 inline typename Convert<TTarget, TSource>::Type
 convert(TSource const & source)
 {
-	return convertImpl(Convert<TTarget, TSource>(), source);
+    return convertImpl(Convert<TTarget, TSource>(), source);
 }
 
 }  // namespace seqan

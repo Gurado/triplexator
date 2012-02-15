@@ -44,17 +44,17 @@
 
 namespace std
 {
-	template<typename TContainer, typename TSpec>
-	struct iterator_traits<seqan::Iter<TContainer, TSpec> > // nolint
-	{
-		typedef ::seqan::Iter<TContainer, TSpec> TIter; // nolint
+    template<typename TContainer, typename TSpec>
+    struct iterator_traits<seqan::Iter<TContainer, TSpec> > // nolint
+    {
+        typedef ::seqan::Iter<TContainer, TSpec> TIter; // nolint
 
-		typedef random_access_iterator_tag iterator_category; // nolint
-		typedef typename ::seqan::Value<TIter>::Type value_type; // nolint
-		typedef typename ::seqan::Difference<TIter>::Type difference_type; // nolint
-		typedef typename ::seqan::Value<TIter>::Type * pointer; // nolint
-		typedef typename ::seqan::Reference<TIter>::Type reference; // nolint
-	};
+        typedef random_access_iterator_tag iterator_category; // nolint
+        typedef typename ::seqan::Value<TIter>::Type value_type; // nolint
+        typedef typename ::seqan::Difference<TIter>::Type difference_type; // nolint
+        typedef typename ::seqan::Value<TIter>::Type * pointer; // nolint
+        typedef typename ::seqan::Reference<TIter>::Type reference; // nolint
+    };
 }
 
 namespace seqan {
@@ -90,25 +90,25 @@ template <typename TContainer>
 class Iter<TContainer, StdIteratorAdaptor>
 {
 public:
-	typedef typename StdContainerIterator<TContainer>::Type TIterator;
-	TIterator data_iterator;
+    typedef typename StdContainerIterator<TContainer>::Type TIterator;
+    TIterator data_iterator;
 
     // ------------------------------------------------------------------------
     // Constructors
     // ------------------------------------------------------------------------
 
-	Iter() {}
+    Iter() {}
 
-	Iter(Iter const & other_)
+    Iter(Iter const & other_)
             : data_iterator(other_.data_iterator)
     {}
 
-	Iter(TIterator const & iter_)
+    Iter(TIterator const & iter_)
             : data_iterator(iter_)
     {}
 
     // TODO(holtgrew): Do we want this? Besides being non-essential, this creates a cross dependency on the begin function!
-	Iter(TContainer const & cont_)
+    Iter(TContainer const & cont_)
             : data_iterator(begin(cont_))
     {}
 
@@ -116,19 +116,19 @@ public:
     // Assignment Operators;  Have to be defined in the class.
     // ------------------------------------------------------------------------
 
-	Iter &
+    Iter &
     operator = (Iter const & other_)
-	{
-		data_iterator = other_.data_iterator;
-		return *this;
-	}
+    {
+        data_iterator = other_.data_iterator;
+        return *this;
+    }
 
-	Iter &
+    Iter &
     operator = (TIterator const & iter_)
-	{
-		data_iterator = iter_;
-		return *this;
-	}
+    {
+        data_iterator = iter_;
+        return *this;
+    }
 
     // ------------------------------------------------------------------------
     // Pointer Operators;  Have to be defined within class.
@@ -150,10 +150,10 @@ public:
     // Conversion Operators;  Have to be defined within class.
     // ------------------------------------------------------------------------
 
-	operator TIterator & ()
-	{
-		return data_iterator;
-	}
+    operator TIterator & ()
+    {
+        return data_iterator;
+    }
 };
 
 // ============================================================================
@@ -260,14 +260,14 @@ template <typename TContainer>
 inline typename StdContainerIterator<TContainer>::Type &
 hostIterator(Iter<TContainer, StdIteratorAdaptor> & me)
 {
-	return me.data_iterator;
+    return me.data_iterator;
 }
 
 template <typename TContainer>
 inline typename StdContainerIterator<TContainer>::Type const &
 hostIterator(Iter<TContainer, StdIteratorAdaptor> const & me)
 {
-	return me.data_iterator;
+    return me.data_iterator;
 }
 
 // ----------------------------------------------------------------------------
@@ -278,14 +278,14 @@ template <typename TContainer>
 inline typename Reference<Iter<TContainer, StdIteratorAdaptor> >::Type 
 value(Iter<TContainer, StdIteratorAdaptor> & me)
 {
-	return *(me.data_iterator);
+    return *(me.data_iterator);
 }
 
 template <typename TContainer>
 inline typename Reference<Iter<TContainer, StdIteratorAdaptor> const>::Type 
 value(Iter<TContainer, StdIteratorAdaptor> const & me)
 {
-	return *(me.data_iterator);
+    return *(me.data_iterator);
 }
 
 // ----------------------------------------------------------------------------
@@ -295,17 +295,17 @@ value(Iter<TContainer, StdIteratorAdaptor> const & me)
 template <typename TContainer, typename TValue>
 inline void 
 assignValue(Iter<TContainer, StdIteratorAdaptor> & me,
-			TValue & val)
+            TValue & val)
 {
-	*(me.data_iterator) = val;
+    *(me.data_iterator) = val;
 }
 
 template <typename TContainer, typename TValue>
 inline void 
 assignValue(Iter<TContainer, StdIteratorAdaptor> & me,
-			TValue const & val)
+            TValue const & val)
 {
-	*(me.data_iterator) = val;
+    *(me.data_iterator) = val;
 }
 
 // ----------------------------------------------------------------------------
@@ -315,16 +315,16 @@ assignValue(Iter<TContainer, StdIteratorAdaptor> & me,
 template <typename TContainer, typename TValue>
 inline void 
 moveValue(Iter<TContainer, StdIteratorAdaptor> & me,
-		  TValue & val)
+          TValue & val)
 {
-	move(*(me.data_iterator), val);
+    move(*(me.data_iterator), val);
 }
 template <typename TContainer, typename TValue>
 inline void 
 moveValue(Iter<TContainer, StdIteratorAdaptor> & me,
-		  TValue const & val)
+          TValue const & val)
 {
-	move(*(me.data_iterator), val);
+    move(*(me.data_iterator), val);
 }
 
 // ----------------------------------------------------------------------------
@@ -337,7 +337,7 @@ operator==(Iter<TContainer, StdIteratorAdaptor> const & left,
            Iter<TContainer, StdIteratorAdaptor> const & right)
 {
     SEQAN_CHECKPOINT;
-	return hostIterator(left) == hostIterator(right);
+    return hostIterator(left) == hostIterator(right);
 }
 
 // ----------------------------------------------------------------------------
@@ -350,7 +350,7 @@ operator!=(Iter<TContainer, StdIteratorAdaptor> const & left,
            Iter<TContainer, StdIteratorAdaptor> const & right)
 {
     SEQAN_CHECKPOINT;
-	return hostIterator(left) != hostIterator(right);
+    return hostIterator(left) != hostIterator(right);
 }
 
 // ----------------------------------------------------------------------------
@@ -363,7 +363,7 @@ operator<(Iter<TContainer, StdIteratorAdaptor> const & left,
           Iter<TContainer, StdIteratorAdaptor> const & right)
 {
     SEQAN_CHECKPOINT;
-	return hostIterator(left) < hostIterator(right);
+    return hostIterator(left) < hostIterator(right);
 }
 
 // ----------------------------------------------------------------------------
@@ -376,7 +376,7 @@ operator>(Iter<TContainer, StdIteratorAdaptor> const & left,
           Iter<TContainer, StdIteratorAdaptor> const & right)
 {
     SEQAN_CHECKPOINT;
-	return hostIterator(left) > hostIterator(right);
+    return hostIterator(left) > hostIterator(right);
 }
 
 // ----------------------------------------------------------------------------
@@ -388,7 +388,7 @@ inline bool
 operator<=(Iter<TContainer, StdIteratorAdaptor> const & left,
            Iter<TContainer, StdIteratorAdaptor> const & right)
 {
-	return hostIterator(left) <= hostIterator(right);
+    return hostIterator(left) <= hostIterator(right);
 }
 
 // ----------------------------------------------------------------------------
@@ -401,7 +401,7 @@ operator>=(Iter<TContainer, StdIteratorAdaptor> const & left,
            Iter<TContainer, StdIteratorAdaptor> const & right)
 {
     SEQAN_CHECKPOINT;
-	return hostIterator(left) >= hostIterator(right);
+    return hostIterator(left) >= hostIterator(right);
 }
 
 // ----------------------------------------------------------------------------
@@ -413,7 +413,7 @@ inline void
 goNext(Iter<TContainer, StdIteratorAdaptor> & me)
 {
     SEQAN_CHECKPOINT;
-	goNext(hostIterator(me));
+    goNext(hostIterator(me));
 }
 
 // ----------------------------------------------------------------------------
@@ -425,7 +425,7 @@ inline void
 goPrevious(Iter<TContainer, StdIteratorAdaptor> & me)
 {
     SEQAN_CHECKPOINT;
-	goPrevious(hostIterator(me));
+    goPrevious(hostIterator(me));
 }
 
 // ----------------------------------------------------------------------------
@@ -438,7 +438,7 @@ operator+(Iter<TContainer, StdIteratorAdaptor> const & left,
           TIntegral right)
 {
     SEQAN_CHECKPOINT;
-	return Iter<TContainer, StdIteratorAdaptor>(hostIterator(left) + right);
+    return Iter<TContainer, StdIteratorAdaptor>(hostIterator(left) + right);
 }
 
 // for <anonymous enum> types
@@ -448,7 +448,7 @@ operator+(Iter<TContainer, StdIteratorAdaptor> const & left,
           int right)
 {
     SEQAN_CHECKPOINT;
-	return Iter<TContainer, StdIteratorAdaptor>(hostIterator(left) + right);
+    return Iter<TContainer, StdIteratorAdaptor>(hostIterator(left) + right);
 }
 
 template <typename TContainer, typename TIntegral>
@@ -457,7 +457,7 @@ operator+(TIntegral left,
           Iter<TContainer, StdIteratorAdaptor> const & right)
 {
     SEQAN_CHECKPOINT;
-	return Iter<TContainer, StdIteratorAdaptor>(hostIterator(right) + left);
+    return Iter<TContainer, StdIteratorAdaptor>(hostIterator(right) + left);
 }
 
 // for <anonymous enum> types
@@ -467,7 +467,7 @@ operator+(int left,
           Iter<TContainer, StdIteratorAdaptor> const & right)
 {
     SEQAN_CHECKPOINT;
-	return Iter<TContainer, StdIteratorAdaptor>(hostIterator(right) + left);
+    return Iter<TContainer, StdIteratorAdaptor>(hostIterator(right) + left);
 }
 
 // ----------------------------------------------------------------------------
@@ -480,8 +480,8 @@ operator+=(Iter<TContainer, StdIteratorAdaptor> & left,
            TIntegral right)
 {
     SEQAN_CHECKPOINT;
-	hostIterator(left) += right;
-	return left;
+    hostIterator(left) += right;
+    return left;
 }
 
 // for <anonymous enum> types
@@ -491,8 +491,8 @@ operator+=(Iter<TContainer, StdIteratorAdaptor> & left,
            int right)
 {
     SEQAN_CHECKPOINT;
-	hostIterator(left) += right;
-	return left;
+    hostIterator(left) += right;
+    return left;
 }
 
 // ----------------------------------------------------------------------------
@@ -505,7 +505,7 @@ operator-(Iter<TContainer, StdIteratorAdaptor> const & left,
           TIntegral right)
 {
     SEQAN_CHECKPOINT;
-	return Iter<TContainer, StdIteratorAdaptor>(hostIterator(left) - right);
+    return Iter<TContainer, StdIteratorAdaptor>(hostIterator(left) - right);
 }
 
 // for <anonymous enum> types
@@ -515,7 +515,7 @@ operator-(Iter<TContainer, StdIteratorAdaptor> const & left,
           int right)
 {
 SEQAN_CHECKPOINT
-	return Iter<TContainer, StdIteratorAdaptor>(hostIterator(left) - right);
+    return Iter<TContainer, StdIteratorAdaptor>(hostIterator(left) - right);
 }
 
 template <typename TContainer>
@@ -524,7 +524,7 @@ operator-(Iter<TContainer, StdIteratorAdaptor> const & left,
           Iter<TContainer, StdIteratorAdaptor> const & right)
 {
     SEQAN_CHECKPOINT;
-	return hostIterator(left) - hostIterator(right);
+    return hostIterator(left) - hostIterator(right);
 }
 
 // ----------------------------------------------------------------------------
@@ -537,19 +537,19 @@ operator-=(Iter<TContainer, StdIteratorAdaptor> & left,
            TIntegral right)
 {
     SEQAN_CHECKPOINT;
-	hostIterator(left) -= right;
-	return left;
+    hostIterator(left) -= right;
+    return left;
 }
 
 // for <anonymous enum> types
 template <typename TContainer>
 inline Iter<TContainer, StdIteratorAdaptor> &
 operator -= (Iter<TContainer, StdIteratorAdaptor> & left,
-			 int right)
+             int right)
 {
     SEQAN_CHECKPOINT;
-	hostIterator(left) -= right;
-	return left;
+    hostIterator(left) -= right;
+    return left;
 }
 
 // ----------------------------------------------------------------------------
@@ -560,10 +560,10 @@ operator -= (Iter<TContainer, StdIteratorAdaptor> & left,
 template <typename TTargetContainer, typename TSource>
 inline void
 assign(Iter<TTargetContainer, StdIteratorAdaptor> & target,
-	   TSource const & source)
+       TSource const & source)
 {
     SEQAN_CHECKPOINT;
-	target.data_iterator = begin(container(source)) + position(source);
+    target.data_iterator = begin(container(source)) + position(source);
 }
 
 }  // namespace seqan

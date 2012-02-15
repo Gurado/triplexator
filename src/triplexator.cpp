@@ -1,7 +1,7 @@
 // ==========================================================================
 //                                triplexator
 // ==========================================================================
-// Copyright (c) 2011, Fabian Buske, UQ
+// Copyright (c) 2011,2012, Fabian Buske, UQ
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -50,14 +50,9 @@
 #include <seqan/parallel.h> 
 #include <seqan/parallel/parallel_macros.h> 
 #include <seqan/sequence.h>
-#include <seqan/graph_types.h>
 #include <seqan/file.h>
-#include <seqan/find.h>
 #include "triplexator.h"
 #include "triplex.h"
-#include "triplex_alphabet.h"
-#include "gardener.h"
-#include "output.h"
 
 #include <iostream>
 #include <sstream>
@@ -69,21 +64,21 @@ namespace SEQAN_NAMESPACE_MAIN
 {
 
 	void _setupCommandLineParser(CommandLineParser & parser, Options & options){
-		::std::string rev = "$Revision: 10843 $";
-		addVersionLine(parser, "Version 1.1.2 (28/11/2011) SeqAn Revision: " + rev.substr(11, 4) + "");
-		append(options.version, "Version 1.1.2 (28/11/2011) SeqAn Revision: " + rev.substr(11, 4) + "");
+		::std::string rev = "$Revision: 10987 $";
+		addVersionLine(parser, "Version 1.2.0 (05/01/2012) SeqAn Revision: " + rev.substr(11, 4) + "");
+		append(options.version, "Version 1.2.0 (05/01/2012) SeqAn Revision: " + rev.substr(11, 4) + "");
 		
-		addTitleLine(parser, "**********************************************************************");
-		addTitleLine(parser, "*** Triplexator - Finding triple helices with approximate matching ***");
-		addTitleLine(parser, "***              (c) Copyright 2011 by Fabian Buske                ***");
-		addTitleLine(parser, "***          Comments, Bugs, Feedback: f.buske@uq.edu.au           ***");
-		addTitleLine(parser, "**********************************************************************");
-		addUsageLine(parser, "triplexator [OPTIONS] -ss <FASTA FILE> -ds <FASTA FILE>");
+		addTitleLine(parser, "***********************************************************************************");
+		addTitleLine(parser, "*** Triplexator - Finding nucleic acid triple helices with approximate matching ***");
+		addTitleLine(parser, "***                     (c) Copyright 2011 by Fabian Buske                      ***");
+		addTitleLine(parser, "***                 Comments, Bugs, Feedback: f.buske@uq.edu.au                 ***");
+		addTitleLine(parser, "***********************************************************************************");
+		addUsageLine(parser, "[OPTIONS] -ss <FASTA FILE> -ds <FASTA FILE>");
 		addSection(parser, "Input:");
-		addHelpLine(parser, "Depending on the input files supplied Triplexator will run in different modes:");
-		addHelpLine(parser, "1) Providing exclusively the third strand (-ss) triggers search for putative triplex forming oligonucleotides (TFO) only");
-		addHelpLine(parser, "2) Providing exclusively the duplex (-ds) triggers search for putative triplex target sites (TTS) only");
-		addHelpLine(parser, "3) Providing both input types triggers search for triplexes (matching TFO-TTS pairs)");
+		addHelpLine(parser, "Depending on the input files supplied Triplexator will run in different modes. Providing:");
+		addHelpLine(parser, "1) only the third strand (-ss) triggers a search for putative triplex-forming oligonucleotides (TFO)");
+		addHelpLine(parser, "2) only the duplex (-ds) triggers a search for putative triplex target sites (TTS)");
+		addHelpLine(parser, "3) both input types triggers a search for triplexes (matching TFO-TTS pairs)");
 		addHelpLine(parser, "");
 		addOption(parser, addArgumentText(CommandLineOption("ss",  "single-strand-file",    "File in FASTA format that is searched for Triplex-forming capability (e.g. RNA or DNA)", OptionType::String), "<FILE>"));
 		addHelpLine(parser, "If only this file is supplied, Triplexator will search and output");
@@ -93,26 +88,25 @@ namespace SEQAN_NAMESPACE_MAIN
 		addHelpLine(parser, "Triplex Target Sites (TTSs) only");
 		addSection(parser, "Main Options:");
 		addOption(parser, CommandLineOption("l",  "lower-length-bound",						"minimum triplex feature length required", OptionType::Int| OptionType::Label, options.minLength));
-		addOption(parser, CommandLineOption("u",  "upper-length-bound",						"maximum triplex feature length permitted, -1 = unrestricted ", OptionType::Int | OptionType::Label, options.maxLength ));
-		addOption(parser, addArgumentText(CommandLineOption("m", "triplex-motifs", 			"Triplex motifs allowed [R,Y,M,P,A] (default all)", OptionType::String), "MOTIF1,MOTIF2,..."));
-		addHelpLine(parser, "R = purine (G and A), Y = pyrimidine (C and T), M = mixed (G and T), P = parallel (Hoogsteen bonds), A = anti-parallel (reverse Hoogsteen bonds)");
-		addOption(parser, CommandLineOption("mpmg",  "mixed-parallel-max-guanine",			"maximum guanine proportion (%) in mixed-motif (GT) to consider parallel binding (Hoogsteen bonds)", OptionType::Double | OptionType::Label, (100.0 * options.mixed_parallel_max_guanine)));
-		addOption(parser, CommandLineOption("mamg",  "mixed-antiparallel-min-guanine",		"minimum guanine proportion (%) in mixed-motif (GT) to consider anti-parallel binding (reverse Hoogsteen bonds)", OptionType::Double | OptionType::Label, (100.0 * options.mixed_antiparallel_min_guanine)));
-		
+		addOption(parser, CommandLineOption("L",  "upper-length-bound",						"maximum triplex feature length permitted, -1 = unrestricted ", OptionType::Int | OptionType::Label, options.maxLength ));
 		addOption(parser, CommandLineOption("e",  "error-rate",								"set the maximal error-rate in % tolerated", OptionType::Double | OptionType::Label, (100.0 * options.errorRate)));
 		addOption(parser, CommandLineOption("E",  "maximal-error",							"set the maximal overall error tolerated, disable with -1 ", OptionType::Int | OptionType::Label, options.maximalError));
 		addOption(parser, CommandLineOption("c",  "consecutive-errors",						"maximum number of consecutive errors", OptionType::Int | OptionType::Label, options.maxInterruptions));
-		addOption(parser, CommandLineOption("g",  "percent-guanine",						"set the minimum guanine proportion in % required", OptionType::Double | OptionType::Label, 100.0 * options.guanineRate));
+		addOption(parser, CommandLineOption("g",  "min-guanine",							"set the minimal guanine proportion required in %", OptionType::Double | OptionType::Label, 100.0 * options.minGuanineRate));
+		addOption(parser, CommandLineOption("G",  "max-guanine",							"set the maximal guanine proportion allowed in %", OptionType::Double | OptionType::Label, 100.0 * options.maxGuanineRate));
+		addOption(parser, addArgumentText(CommandLineOption("m", "triplex-motifs", 			"Triplex motifs allowed [R,Y,M,P,A] (default all)", OptionType::String), "MOTIF1,MOTIF2,..."));
+		addHelpLine(parser, "R = purine (G and A), Y = pyrimidine (C and T), M = mixed (G and T), P = parallel (Hoogsteen bonds), A = anti-parallel (reverse Hoogsteen bonds)");
+		addOption(parser, CommandLineOption("mpmg",  "mixed-parallel-max-guanine",			"maximum guanine content (%) in mixed-motif (GT) to consider parallel binding", OptionType::Double | OptionType::Label, (100.0 * options.mixed_parallel_max_guanine)));
+		addOption(parser, CommandLineOption("mamg",  "mixed-antiparallel-min-guanine",		"minimum guanine content (%) in mixed-motif (GT) to consider anti-parallel binding", OptionType::Double | OptionType::Label, (100.0 * options.mixed_antiparallel_min_guanine)));
+		
 		addOption(parser, CommandLineOption("b",  "minimum-block-run",						"required number of consecutive matches", OptionType::Int | OptionType::Label, options.minBlockRun));
 		addOption(parser, CommandLineOption("a",  "all-matches",							"process and report all sub-matches in addition to the longest match", OptionType::Boolean));
 		addHelpLine(parser, "Careful! This can result in hugh output files when searching for TFO-TTS pairs.");
 		addOption(parser, CommandLineOption("dd", "detect-duplicates",						"indicates whether and how duplicates should be detected", OptionType::Int | OptionType::Label, options.detectDuplicates));
 		addHelpLine(parser, "0 = off         do not detect duplicates");
 		addHelpLine(parser, "1 = permissive  detect duplicates in feature space, e.g. AGGGAcGAGGA != AGGGAtGAGGA");	
-		addHelpLine(parser, "2 = strict      detect duplicates in target space, e.g. AGGGAcGAGGA == AGGGAtGAGGA == AGGGAYGAGGA");
+		addHelpLine(parser, "2 = strict      detect duplicates in target space, e.g. AGGGAcGAGGA == AGGGAtGAGGA == AGGGAnGAGGA");
 		addOption(parser, addArgumentText(CommandLineOption("ssd", "same-sequence-duplicates",	"whether to count a feature copy in the same sequence as duplicates or not.", OptionType::String | OptionType::Label, (options.sameSequenceDuplicates?"on":"off")), "[on|off]"));
-		//		addOption(parser, CommandLineOption("fs",  "forward-strand",           "search TTS only on given strand", OptionType::Boolean));
-		//		addOption(parser, CommandLineOption("rs",  "reverse-strand",           "search TTS only on complement of given strand", OptionType::Boolean));
 		addOption(parser, CommandLineOption("v",  "verbose",			"verbose mode", OptionType::Boolean));
 		addOption(parser, CommandLineOption("vv", "vverbose",			"very verbose mode", OptionType::Boolean));
 		addSection(parser, "Filtration Options:");
@@ -133,7 +127,6 @@ namespace SEQAN_NAMESPACE_MAIN
 		addHelpLine(parser, "Only supported for TFO and TTS detection, respectively. Merge is performed before duplicate detection.");
 		addOption(parser, CommandLineOption("dl", "duplicate-locations","Report the location of duplicates", OptionType::Boolean));
 		addHelpLine(parser, "Only works when duplicate cutoff is set to greater than 0.");
-		addOption(parser, addArgumentText(CommandLineOption("ns", "normalized-score","Whether to compute the triplex potenial normalized over the sequences", OptionType::String | OptionType::Label, (options.computeTpot?"on":"off")), "[on|off]"));
 		addOption(parser, addArgumentText(CommandLineOption("o", "output",	"output filename (default standard out)", OptionType::String), "FILE"));
 		addOption(parser, addArgumentText(CommandLineOption("od", "output-directory", 	"directory where all the output will be directed to", OptionType::String), "FILEDIR"));
 		addOption(parser, CommandLineOption("of", "output-format",     "set output format", OptionType::Int | OptionType::Label, options.outputFormat));
@@ -150,7 +143,7 @@ namespace SEQAN_NAMESPACE_MAIN
 		addSection(parser, "Performance Options:");
 		addOption(parser, CommandLineOption("rm", "runtime-mode",		"execution mode - any parallel runtime mode requires OpenMP support during compilation", OptionType::Int | OptionType::Label, options.runtimeMode));
 		addHelpLine(parser, "0 = Serial               process in serial (most memory efficient)");
-		addHelpLine(parser, "1 = Parallelize TTSs     process triplex-matching per duplex in parallel (for long duplex sequences)");	
+		addHelpLine(parser, "1 = Parallelize TTSs     process triplex-matching for all targets in a duplex in parallel (for long duplex sequences)");	
 		addHelpLine(parser, "2 = Parallelize duplex   process duplex sequences in parallel (for short duplex sequences)");
 		//		addHelpLine(parser, "3 = Parallelize strands  process duplex strands in parallel (for average-sized duplex sequences)");
 		addHelpLine(parser, "Note: potential runtime speedup is at the cost of higher memory usage. ");
@@ -184,7 +177,8 @@ namespace SEQAN_NAMESPACE_MAIN
 		// Extract options
 		getOptionValueLong(parser, "error-rate", options.errorRate);
 		getOptionValueLong(parser, "maximal-error", options.maximalError);
-		getOptionValueLong(parser, "percent-guanine", options.guanineRate);
+		getOptionValueLong(parser, "min-guanine", options.minGuanineRate);
+		getOptionValueLong(parser, "max-guanine", options.maxGuanineRate);
 		if (isSetLong(parser, "consecutive-errors")){
 			getOptionValueLong(parser, "consecutive-errors", options.maxInterruptions);
 		}
@@ -210,16 +204,6 @@ namespace SEQAN_NAMESPACE_MAIN
 		}
 		if (isSetLong(parser, "maximum-repeat-period")){
 			getOptionValueLong(parser, "maximum-repeat-period", options.maxRepeatPeriod);
-		}
-		
-		getOptionValueLong(parser, "normalized-score", tmpVal);
-		if (tmpVal == "off"){
-			options.computeTpot = false;
-		} else if (tmpVal == "on"){
-			options.computeTpot = true;
-		} else {
-			cerr << "Unknown specification for the option normalized-score." << ::std::endl;
-			stop = true;
 		}
 		
 		getOptionValueLong(parser, "output", options.output);
@@ -383,8 +367,12 @@ namespace SEQAN_NAMESPACE_MAIN
 		}
 		if ((options.errorRate > 20 || options.errorRate < 0) && (stop = true))
 			::std::cerr << "Error-rate must be a value between 0 and 20" << ::std::endl;
-		if ((options.guanineRate < 0 || options.guanineRate > 100) && (stop = true))
-			::std::cerr << "Guanine proportion in the triplex target site must be a value between 0 and 100" << ::std::endl;
+		if ((options.minGuanineRate < 0 || options.minGuanineRate > 100) && (stop = true))
+			::std::cerr << "Minimum guanine proportion in the triplex target site must be a value between 0 and 100" << ::std::endl;
+		if ((options.maxGuanineRate < 0 || options.maxGuanineRate > 100) && (stop = true))
+			::std::cerr << "Maximum guanine proportion in the triplex target site must be a value between 0 and 100" << ::std::endl;
+		if ((options.minGuanineRate > options.maxGuanineRate) && (stop = true))
+			::std::cerr << "Maximum guanine proportion cannot be smaller than minimum guanine proportion" << ::std::endl;
 		if ((options.mixed_antiparallel_min_guanine < 0 || options.mixed_antiparallel_min_guanine > 100) && (stop = true))
 			::std::cerr << "Min guanine proportion antiparallel mixed motif TFOs must be a value between 0 and 100" << ::std::endl;
 		if ((options.mixed_parallel_max_guanine < 0 || options.mixed_parallel_max_guanine > 100) && (stop = true))
@@ -413,10 +401,11 @@ namespace SEQAN_NAMESPACE_MAIN
 			::std::cerr << "qgram theshhold needs to be positive, otherwise filtering is void" << ::std::endl;
 		
 		options.errorRate = options.errorRate / 100.0;
-		options.guanineRate = options.guanineRate / 100.0;
+		options.minGuanineRate = options.minGuanineRate / 100.0;
+		options.maxGuanineRate = options.maxGuanineRate / 100.0;
 		options.mixed_parallel_max_guanine = options.mixed_parallel_max_guanine / 100.0;
 		options.mixed_antiparallel_min_guanine = options.mixed_antiparallel_min_guanine / 100.0;
-		options.minGuanine = static_cast<unsigned>(ceil(options.minLength * options.guanineRate));
+		options.minGuanine = static_cast<unsigned>(ceil(options.minLength * options.minGuanineRate));
 		options.tolError = static_cast<unsigned>(floor(options.errorRate*options.minLength));
 		
 		if (options.errorRate == 0 || options.maximalError == 0)
@@ -506,7 +495,6 @@ namespace SEQAN_NAMESPACE_MAIN
 		}
 		options.logFileHandle << "- merge features : " << (options.runmode == TRIPLEX_TRIPLEX_SEARCH || options.mergeFeatures?"Yes":"No") << ::std::endl;
 		options.logFileHandle << "- report duplicate locations : " << (options.reportDuplicateLocations?"Yes":"No") << ::std::endl;
-		options.logFileHandle << "- compute normalized score : " << (options.computeTpot?"Yes":"No") << ::std::endl;
 	#ifdef BOOST
 		options.logFileHandle << "- compress output : " << (options.compressOutput?"Yes":"No") << ::std::endl;
 	#endif	
@@ -534,7 +522,8 @@ namespace SEQAN_NAMESPACE_MAIN
 		else
 			options.logFileHandle << "- maximum total error : " << "not specified" << ::std::endl;	
 		
-		options.logFileHandle << "- minimum guanine-ratio with respect to the target : " << (options.guanineRate*100) << "%" << ::std::endl;
+		options.logFileHandle << "- minimum guanine content with respect to the target : " << (options.minGuanineRate*100) << "%" << ::std::endl;
+		options.logFileHandle << "- maximum guanine content with respect to the target : " << (options.maxGuanineRate*100) << "%" << ::std::endl;
 		
 		options.logFileHandle << "- minimum length : " << options.minLength << " nucleotides" << ::std::endl;
 		if (!options.applyMaximumLengthConstraint)
@@ -639,32 +628,22 @@ namespace SEQAN_NAMESPACE_MAIN
 	typename TMotifSet,
 	typename TFile,
 	typename TShape>
-	int _findTriplex(TMotifSet				&tfoMotifSet,
-					StringSet<CharString>	&tfoNames,
-					TFile					&outputfile,
-					Options					&options,
-					TShape const			&shape)
+	int _findTriplex(TMotifSet						&tfoMotifSet,
+					 StringSet<CharString> const	&tfoNames,
+					 TFile							&outputfile,
+					 Options						&options,
+					 TShape const					&shape)
 	{
-		typedef Index<TMotifSet, IndexQGram<TShape, OpenAddressing> >			TQGramIndex;
+		typedef Index<TMotifSet, IndexQGram<TShape, OpenAddressing> >				TQGramIndex;
+		typedef Pattern<TQGramIndex, QGramsLookup< TShape, Standard_QGramsLookup > > TPattern;
+		
 		typedef __int64															TId;
 		typedef Gardener<TId, GardenerUngapped>									TGardener;
 		
+		unsigned errorCode = TRIPLEX_NORMAL_PROGAM_EXIT;
+		
 		SEQAN_PROTIMESTART(find_time);
 		options.logFileHandle << _getTimeStamp() << " * Started searching for triplexes" << ::std::endl;
-		
-		// create index
-		if (options._debugLevel >= 1)
-			options.logFileHandle << _getTimeStamp() <<  " - Started creating q-gram index for all TFOs" << ::std::endl;
-		
-		TQGramIndex index_qgram(tfoMotifSet);
-		resize(indexShape(index_qgram), weight(shape));
-		// create pattern	
-		Pattern<TQGramIndex, QGramsLookup< TShape, Standard_QGramsLookup > > pattern(index_qgram,shape);
-		options.timeFindTriplexes = 0;
-		
-		// create index
-		if (options._debugLevel >= 1)
-			options.logFileHandle << _getTimeStamp() <<  " - Finised creating q-gram index for all TFOs" << ::std::endl;
 		
 		TId duplexSeqNo = 0;
 		// open duplex file
@@ -673,28 +652,52 @@ namespace SEQAN_NAMESPACE_MAIN
 		// run in parallel if requested
 		if (options.runtimeMode==RUN_PARALLEL_DUPLEX){
 			if (options.filterMode == FILTERING_GRAMS){
-				startTriplexSearchParallelDuplex(tfoMotifSet, tfoNames, pattern, outputfile, duplexSeqNo, options, TGardener());
+				// create index
+				if (options._debugLevel >= 1)
+					options.logFileHandle << _getTimeStamp() <<  " - Started creating q-gram index for all TFOs" << ::std::endl;
+				TQGramIndex index_qgram(tfoMotifSet);
+				resize(indexShape(index_qgram), weight(shape));
+				// create pattern	
+				TPattern pattern(index_qgram,shape);
+				options.timeFindTriplexes = 0;
+				// create index
+				if (options._debugLevel >= 1)
+					options.logFileHandle << _getTimeStamp() <<  " - Finised creating q-gram index for all TFOs" << ::std::endl;
+				
+				errorCode = startTriplexSearchParallelDuplex(tfoMotifSet, tfoNames, pattern, outputfile, duplexSeqNo, options, TGardener());
 			} else {
-				startTriplexSearchParallelDuplex(tfoMotifSet, tfoNames, pattern, outputfile, duplexSeqNo, options, BruteForce());			
+				errorCode = startTriplexSearchParallelDuplex(tfoMotifSet, tfoNames, NULL, outputfile, duplexSeqNo, options, BruteForce());			
 			}
 		} else {
 		// otherwise go for serial processing
 	#endif	
 			if (options.filterMode == FILTERING_GRAMS){
-				startTriplexSearchSerial(tfoMotifSet, tfoNames, pattern, outputfile, duplexSeqNo, options, TGardener());
+				// create index
+				if (options._debugLevel >= 1)
+					options.logFileHandle << _getTimeStamp() <<  " - Started creating q-gram index for all TFOs" << ::std::endl;
+				TQGramIndex index_qgram(tfoMotifSet);
+				resize(indexShape(index_qgram), weight(shape));
+				// create pattern	
+				TPattern pattern(index_qgram,shape);
+				options.timeFindTriplexes = 0;
+				// create index
+				if (options._debugLevel >= 1)
+					options.logFileHandle << _getTimeStamp() <<  " - Finised creating q-gram index for all TFOs" << ::std::endl;
+				
+				errorCode = startTriplexSearchSerial(tfoMotifSet, tfoNames, pattern, outputfile, duplexSeqNo, options, TGardener());
 			} else {
-				startTriplexSearchSerial(tfoMotifSet, tfoNames, pattern, outputfile, duplexSeqNo, options, BruteForce());
+				errorCode = startTriplexSearchSerial(tfoMotifSet, tfoNames, NULL, outputfile, duplexSeqNo, options, BruteForce());
 			}	
 	#if SEQAN_ENABLE_PARALLELISM	
 		}
 	#endif
-		options.logFileHandle << _getTimeStamp() << " * Finished processing " << options.duplexFileNames[0] << ::std::endl; 
-
-		options.timeFindTriplexes += SEQAN_PROTIMEDIFF(find_time);	
-
-		options.logFileHandle << _getTimeStamp() << " * Finished searching for triplexes  within " << ::std::setprecision(3) << options.timeFindTriplexes << " seconds (summed over all cpus)" << ::std::endl;
 		
-		return 0;
+		if (errorCode == TRIPLEX_NORMAL_PROGAM_EXIT){
+			options.logFileHandle << _getTimeStamp() << " * Finished processing " << options.duplexFileNames[0] << ::std::endl; 
+			options.timeFindTriplexes += SEQAN_PROTIMEDIFF(find_time);	
+			options.logFileHandle << _getTimeStamp() << " * Finished searching for triplexes  within " << ::std::setprecision(3) << options.timeFindTriplexes << " seconds (summed over all cpus)" << ::std::endl;
+		}
+		return errorCode;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
@@ -829,7 +832,8 @@ namespace SEQAN_NAMESPACE_MAIN
 		//////////////////////////////////////////////////////////////////////////////
 		// Step 4: prepare output file & scan duplex sequences with tfo patterns
 		// 
-		
+	
+		unsigned errorCode = TRIPLEX_NORMAL_PROGAM_EXIT;
 	#ifdef BOOST
 		if (options.compressOutput){
 			io::filtering_ostream filterstream;
@@ -841,7 +845,7 @@ namespace SEQAN_NAMESPACE_MAIN
 				filterstream.push(::std::cout);	
 			}
 			printTriplexHeader(filterstream, options);
-			_findTriplex(tfoMotifSet, oligoNames, filterstream, options, ungappedShape);
+			errorCode = _findTriplex(tfoMotifSet, oligoNames, filterstream, options, ungappedShape);
 			closeOutputFile(filterstream, options);
 		} else {
 	#endif
@@ -849,17 +853,16 @@ namespace SEQAN_NAMESPACE_MAIN
 			if (!empty(options.output) && options.outputFormat!=2){
 				openOutputFile(filehandle, options);
 				printTriplexHeader(filehandle, options);
-				_findTriplex(tfoMotifSet, oligoNames, filehandle, options, ungappedShape);
+				errorCode = _findTriplex(tfoMotifSet, oligoNames, filehandle, options, ungappedShape);
 				closeOutputFile(filehandle, options);
 			} else {
 				printTriplexHeader(::std::cout, options);
-				_findTriplex(tfoMotifSet, oligoNames, ::std::cout, options, ungappedShape);
+				errorCode = _findTriplex(tfoMotifSet, oligoNames, ::std::cout, options, ungappedShape);
 			}
 	#ifdef BOOST
 		}
 	#endif
-		
-		return TRIPLEX_NORMAL_PROGAM_EXIT;
+		return errorCode;
 	}
 
 	template <
@@ -881,13 +884,21 @@ namespace SEQAN_NAMESPACE_MAIN
 		typedef Repeat<unsigned, unsigned>						TRepeat;
 		typedef std::list<TRepeat>								TRepeatString; //@TODO workaround for memory leak in seqan string
 		typedef typename Iterator<TRepeatString, Rooted>::Type	TRepeatIterator;
-
+		typedef ::std::vector<unsigned>							THitList;
+		typedef TriplexPotential<TId>							TPotential;
+		typedef typename ::std::list<TPotential>				TPotentials;
+		
 		options.logFileHandle << _getTimeStamp() << " * Starting search for targets in serial mode " << ::std::endl;
 		
 		TDuplex	duplexString;
 		CharString	id;
 		unsigned seqNoWithinFile = 0;
+		THitList ttsMaxMatchList;
+		TPotentials potentials;
+		
 		for(; !_streamEOF(file); ++seqNo,++seqNoWithinFile){
+			resize(ttsMaxMatchList, seqNoWithinFile+1);
+			TPotential potential(seqNoWithinFile);
 			
 			if (options._debugLevel > 1 )
 				options.logFileHandle << _getTimeStamp() << "   ... Started reading next duplex sequence " << ::std::endl;
@@ -933,7 +944,8 @@ namespace SEQAN_NAMESPACE_MAIN
 				if (options._debugLevel > 1 )
 					options.logFileHandle << _getTimeStamp() << "   ... Started processing the Watson strand" << ::std::endl;
 
-				processDuplex(ttsSet, duplexString, seqNoWithinFile, true, reduceSet, options);
+				unsigned ttsMaxMatches = processDuplex(ttsSet, duplexString, seqNoWithinFile, true, reduceSet, options);
+				addCount(potential, ttsMaxMatches, '+');
 				
 				if (options._debugLevel > 1 )
 					options.logFileHandle << _getTimeStamp() << "   ... Finished processing the Watson strand" << ::std::endl;
@@ -945,7 +957,8 @@ namespace SEQAN_NAMESPACE_MAIN
 				if (options._debugLevel > 1 )
 					options.logFileHandle << _getTimeStamp() << "   ... Started processing the Crick strand" << ::std::endl;
 
-				processDuplex(ttsSet, duplexString, seqNoWithinFile, false, reduceSet, options);
+				unsigned ttsMaxMatches = processDuplex(ttsSet, duplexString, seqNoWithinFile, false, reduceSet, options);
+				addCount(potential, ttsMaxMatches, '-');
 
 				if (options._debugLevel > 1 )
 					options.logFileHandle << _getTimeStamp() << "   ... Finished processing the Crick strand" << ::std::endl;
@@ -963,7 +976,13 @@ namespace SEQAN_NAMESPACE_MAIN
 			if (options._debugLevel > 1 )
 				options.logFileHandle << _getTimeStamp() << "   ... Started outputing results " << ::std::endl;
 
-			dumpTtsMatches(outputhandle, ttsSet, duplexNames, options);				
+			
+			// get norm for sequence
+			setNorm(potential, length(duplexString), options);
+			// add potential to list
+			appendValue(potentials, potential);
+			
+			dumpTtsMatches(outputhandle, ttsSet, duplexNames, options);
 			
 			if (options._debugLevel > 1 )
 				options.logFileHandle << _getTimeStamp() << "   ... Finished outputing results " << ::std::endl;
@@ -972,8 +991,10 @@ namespace SEQAN_NAMESPACE_MAIN
 				options.logFileHandle << _getTimeStamp() << "   ... Finished processing duplex " << id << ::std::endl;
 
 		}
+		dumpSummary(potentials, duplexNames, options, TTS());
 		file.close();	
 	}
+	
 
 	template <
 	typename TDuplexName, 
@@ -996,7 +1017,8 @@ namespace SEQAN_NAMESPACE_MAIN
 		typedef typename Iterator<TRepeatString, Rooted>::Type	TRepeatIterator;
 		typedef typename Iterator<TTriplexSet, Standard>::Type 	TIter;
 		typedef typename Iterator<TTargetSet, Standard>::Type 	TTIter;	
-		
+		typedef TriplexPotential<TId>							TPotential;
+		typedef typename ::std::vector<TPotential>				TPotentials;
 		
 		options.logFileHandle << _getTimeStamp() << " * Starting search for targets in parallel mode" << ::std::endl;
 		
@@ -1019,6 +1041,8 @@ namespace SEQAN_NAMESPACE_MAIN
 		
 		::std::vector<TTargetSet> tmpTtsSets;
 		resize(tmpTtsSets, length(duplexSet));
+		TPotentials potentials;
+		resize(potentials, length(duplexSet));
 		
 		options.logFileHandle << _getTimeStamp() << " * Detecting triplex targets in all duplexes (" << options.processors << " threads)" << ::std::endl;
 		
@@ -1046,18 +1070,24 @@ namespace SEQAN_NAMESPACE_MAIN
 
 				}
 				
+				TPotential potential(duplexSeqNo);
 				if (options.forward){
-					processDuplex(tmpTtsSets[duplexSeqNo], value(duplexSet, duplexSeqNo), duplexSeqNo, true, reduceSet, options);
+					unsigned totalNumberOfMatches = processDuplex(tmpTtsSets[duplexSeqNo], value(duplexSet, duplexSeqNo), duplexSeqNo, true, reduceSet, options);
+					addCount(potential, totalNumberOfMatches, '+');
 					if (options._debugLevel > 1 )
 						options.logFileHandle << _getTimeStamp() << "   ... Finished processing Watson strand of sequence " << duplexSeqNo << ::std::endl;			
 				}
 				
 				if (options.reverse){
-					processDuplex(tmpTtsSets[duplexSeqNo], value(duplexSet, duplexSeqNo), duplexSeqNo, false, reduceSet, options);
+					unsigned totalNumberOfMatches = processDuplex(tmpTtsSets[duplexSeqNo], value(duplexSet, duplexSeqNo), duplexSeqNo, false, reduceSet, options);
+					addCount(potential, totalNumberOfMatches, '-');
 					if (options._debugLevel > 1 )
 						options.logFileHandle << _getTimeStamp() << "   ... Finished processing Crick strand of sequence " << duplexSeqNo << ::std::endl;
 				}
-				
+				// get norm for sequence
+				setNorm(potential, length(value(duplexSet, duplexSeqNo)), options);
+				// add potential to list
+				potentials[duplexSeqNo] = potential;
 			}
 		}
 		if (options._debugLevel >= 1 )
@@ -1081,18 +1111,18 @@ namespace SEQAN_NAMESPACE_MAIN
 				
 		}
 
-	#ifdef TRIPLEX_DEBUG
+#ifdef TRIPLEX_DEBUG
 		typedef typename Iterator<TTargetSet>::Type  TIterMotifSet;
 		::std::cout << "printing all tts segments" << ::std::endl;
 		for (TIterMotifSet itr=begin(ttsSet); itr != end(ttsSet);++itr){
 			::std::cout << "tts: " << ttsString(*itr) << " type: " << (*itr).motif << " length: "<< length(*itr) <<  " position: "<< beginPosition(*itr) << " " << ::std::endl;
 		}
-	#endif
+#endif
 		
 		if (options._debugLevel >= 1 )
 			options.logFileHandle << _getTimeStamp() << "   ... Finished accumulating TTSs in common datastructure " << ::std::endl;
 		
-		// any business with duplicates?
+		// any business with duplicate detection?
 		if (options.detectDuplicates != DETECT_DUPLICATES_OFF){
 			if (options._debugLevel >= 1 )
 				options.logFileHandle << _getTimeStamp() << "   ... Started duplicate detection " << ::std::endl;
@@ -1111,10 +1141,11 @@ namespace SEQAN_NAMESPACE_MAIN
 				options.logFileHandle << _getTimeStamp() << "   ... Finished duplicate detection " << ::std::endl;
 
 		}
-		
+
 		options.logFileHandle << _getTimeStamp() << " * Finished detecting targets "  << ::std::endl;
-			
+
 		dumpTtsMatches(outputhandle, ttsSet, duplexNames, options);	
+		dumpSummary(potentials, duplexNames, options, TTS());	
 		
 		file.close();	
 	}
@@ -1135,7 +1166,7 @@ namespace SEQAN_NAMESPACE_MAIN
 								TOutput &outputhandle, 
 								Options &options)
 	{
-		if (options.detectDuplicates == DETECT_DUPLICATES_OFF){
+		if (options.detectDuplicates == DETECT_DUPLICATES_OFF && options.runtimeMode != RUN_PARALLEL_DUPLEX ){
 			_investigateTTSconsecutively(filename, file, seqNo, ttsnoToFileMap, duplexNames, outputhandle, options);
 		} else {
 			_investigateTTSsimultaneous(filename, file, seqNo, ttsnoToFileMap, duplexNames, outputhandle, options);
@@ -1229,7 +1260,8 @@ namespace SEQAN_NAMESPACE_MAIN
 		typedef Repeat<unsigned, unsigned>						TRepeat;
 		typedef std::list<TRepeat>								TRepeatString; //@TODO workaround for memory leak in seqan string
 		typedef typename Iterator<TRepeatString, Rooted>::Type	TRepeatIterator;
-		
+		typedef TriplexPotential<TId>							TPotential;
+		typedef typename ::std::list<TPotential>				TPotentials;
 		
 		TOligoSet				oligoSequences;
 		StringSet<CharString>	oligoNames;				// tfs names, taken from the Fasta file
@@ -1261,6 +1293,7 @@ namespace SEQAN_NAMESPACE_MAIN
 		TMotifSet tfoMotifSet;
 		
 		bool reduceSet = false || options.mergeFeatures; //merge overlapping features on request
+		TPotentials potentials;
 		
 		for (TOligoIter it = begin(oligoSequences, Standard()); it != end(oligoSequences, Standard()); ++ it){
 			// find low complexity regions and mask sequences if requested
@@ -1274,19 +1307,28 @@ namespace SEQAN_NAMESPACE_MAIN
 				}
 			}
 			
+			TPotential potential(oligoSeqNo);
 			// process TC motif
 			if (options.motifTC) {
-				processTCMotif(tfoMotifSet, *it, oligoSeqNo, reduceSet, options);
+				unsigned totalNumberOfMatches = processTCMotif(tfoMotifSet, *it, oligoSeqNo, reduceSet, options);
+				addCount(potential, totalNumberOfMatches, 'Y');
 			}
 			// process GA motif
 			if (options.motifGA) {
-				processGAMotif(tfoMotifSet, *it, oligoSeqNo, reduceSet, options);
+				unsigned totalNumberOfMatches = processGAMotif(tfoMotifSet, *it, oligoSeqNo, reduceSet, options);
+				addCount(potential, totalNumberOfMatches, 'R');
 			}
 			// process GT motif
 			if (options.motifGT_p || options.motifGT_a) {
 				// for TFO search the parallel GT motifs need to be recorded only
-				processGTMotif(tfoMotifSet, *it, oligoSeqNo, TRIPLEX_ORIENTATION_PARALLEL, reduceSet, options);
-			}		
+				unsigned totalNumberOfMatches = processGTMotif(tfoMotifSet, *it, oligoSeqNo, TRIPLEX_ORIENTATION_PARALLEL, reduceSet, options);
+				addCount(potential, totalNumberOfMatches, 'M');
+			}
+			// get norm for sequence
+			setNorm(potential, length(*it), options);
+			// add potential to list
+			appendValue(potentials, potential);
+			// increase oligo id counter
 			++oligoSeqNo;
 		}
 		
@@ -1315,6 +1357,7 @@ namespace SEQAN_NAMESPACE_MAIN
 		options.logFileHandle << _getTimeStamp() << " * Started printing results " << ::std::endl;
 		// create output file
 		
+		
 	#ifdef BOOST
 		if (options.compressOutput){
 			io::filtering_ostream filterstream;
@@ -1327,6 +1370,7 @@ namespace SEQAN_NAMESPACE_MAIN
 			}
 			printTFOHeader(filterstream, options);
 			dumpTfoMatches(filterstream, tfoMotifSet, oligoNames, options);
+			dumpSummary(potentials, oligoNames, options, TFO());
 			closeOutputFile(filterstream, options);
 		} else {
 	#endif
@@ -1335,10 +1379,12 @@ namespace SEQAN_NAMESPACE_MAIN
 				openOutputFile(filehandle, options);
 				printTFOHeader(filehandle, options);
 				dumpTfoMatches(filehandle, tfoMotifSet, oligoNames, options);
+				dumpSummary(potentials, oligoNames, options, TFO());
 				closeOutputFile(filehandle, options);
 			} else {
 				printTFOHeader(::std::cout, options);
 				dumpTfoMatches(::std::cout, tfoMotifSet, oligoNames, options);
+				dumpSummary(potentials, oligoNames, options, TFO());
 			}
 	#ifdef BOOST
 		}

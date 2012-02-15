@@ -169,7 +169,7 @@ private:
 template <typename T, typename TData>
 struct StdAllocator
 {
-	typedef ToStdAllocator<T, TData> Type;
+    typedef ToStdAllocator<T, TData> Type;
 };
 
 // ============================================================================

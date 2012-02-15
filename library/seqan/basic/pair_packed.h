@@ -102,9 +102,9 @@ struct Pair<T1_, T2_, Compressed>
             : i1(getValueI1(_p)), i2(getValueI2(_p)) {}
 }
 #ifndef PLATFORM_WINDOWS
-	__attribute__((packed))
+    __attribute__((packed))
 #endif
-	;
+    ;
 #ifdef PLATFORM_WINDOWS
       #pragma pack(pop)
 #endif

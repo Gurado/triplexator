@@ -65,13 +65,13 @@ template <typename TValue, typename TExponent>
 inline TValue _intPow(TValue a, TExponent b)
 {
     SEQAN_CHECKPOINT;
-	TValue ret = 1;
-	while (b != 0) {
-		if (b & 1) ret *= a;
-		a *= a;
-		b >>= 1;
-	}	
-	return ret;
+    TValue ret = 1;
+    while (b != 0) {
+        if (b & 1) ret *= a;
+        a *= a;
+        b >>= 1;
+    }   
+    return ret;
 }
 
 // ----------------------------------------------------------------------------
@@ -94,42 +94,42 @@ the logarithm of $i$.
 template <int BITS_MAX>
 struct Log2Impl_
 {
-	template <typename T>
-	static inline unsigned int
-	log2(T val, unsigned int offset)
-	{
-		unsigned int val2 = val >> (BITS_MAX / 2);
-		if (val2)
-		{
-			val = val2;
-			offset += BITS_MAX / 2;
-		}
-		return Log2Impl_<BITS_MAX / 2>::log2(val, offset);
-	}
+    template <typename T>
+    static inline unsigned int
+    log2(T val, unsigned int offset)
+    {
+        unsigned int val2 = val >> (BITS_MAX / 2);
+        if (val2)
+        {
+            val = val2;
+            offset += BITS_MAX / 2;
+        }
+        return Log2Impl_<BITS_MAX / 2>::log2(val, offset);
+    }
 };
 
 template <>
 struct Log2Impl_<1>
 {
-	template <typename T>
-	static inline unsigned int
-	log2(T /*val*/, unsigned int offset)
-	{
-		return offset;
-	}
+    template <typename T>
+    static inline unsigned int
+    log2(T /*val*/, unsigned int offset)
+    {
+        return offset;
+    }
 };
 
 template <typename T>
 inline unsigned int
 log2(T val)
 {
-	enum
-	{
-//		BITS_PER_VALUE = BitsPerValue<T>::VALUE //  TODO(holtgrew): portable bits-per-char!
-		BITS_PER_VALUE = sizeof(T) * 8
-	};
+    enum
+    {
+//      BITS_PER_VALUE = BitsPerValue<T>::VALUE //  TODO(holtgrew): portable bits-per-char!
+        BITS_PER_VALUE = sizeof(T) * 8
+    };
 
-	return Log2Impl_<BITS_PER_VALUE>::log2(val, 0);
+    return Log2Impl_<BITS_PER_VALUE>::log2(val, 0);
 }
 
 // ----------------------------------------------------------------------------
@@ -143,16 +143,16 @@ log2(T val)
 
 template<typename Tx_> inline
 const Tx_& _min(const Tx_& _Left, const Tx_& Right_)
-{	// return smaller of _Left and Right_
-	if (_Left < Right_)
-		return _Left;
-	else
-		return Right_;
+{   // return smaller of _Left and Right_
+    if (_Left < Right_)
+        return _Left;
+    else
+        return Right_;
 }
 
 template<typename Tx_, typename Ty_> inline
 Tx_ _min(const Tx_& _Left, const Ty_& Right_)
-{	// return smaller of _Left and Right_
+{   // return smaller of _Left and Right_
     return (Right_ < _Left ? Right_ : _Left);
 }
 
@@ -168,17 +168,17 @@ Tx_ _min(const Tx_& _Left, const Ty_& Right_)
 template<typename Ty_>
 inline Ty_ const &
 _max(const Ty_& _Left, const Ty_& Right_)
-{	// return larger of _Left and Right_
-	if (_Left < Right_)
-		return Right_;
-	else
-		return _Left;
+{   // return larger of _Left and Right_
+    if (_Left < Right_)
+        return Right_;
+    else
+        return _Left;
 }
 
 template<typename Tx_, typename Ty_>
 inline Tx_
 _max(const Tx_& _Left, const Ty_& Right_)
-{	// return smaller of _Left and Right_
+{   // return smaller of _Left and Right_
     return (Right_ < _Left ? _Left : Right_);
 }
 

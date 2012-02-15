@@ -63,7 +63,7 @@ namespace seqan {
 .Memfunc.Pair#Pair:
 ..class:Class.Pair
 ..summary:Constructor
-..signature:Pair<T1, T2[, TSpec]> ()	
+..signature:Pair<T1, T2[, TSpec]> ()    
 ..signature:Pair<T1, T2[, TSpec]> (pair)
 ..signature:Pair<T1, T2[, TSpec]> (i1, i2)
 ..param.pair:Other Pair object. (copy constructor)
@@ -156,7 +156,7 @@ struct Value<Pair<T1, T2, TSpec>, 1>
 template <typename T1, typename T2, typename TSpec>
 struct Value<Pair<T1, T2, TSpec>, 2>
 {
-		typedef T2 Type;
+        typedef T2 Type;
 };
 
 // ----------------------------------------------------------------------------

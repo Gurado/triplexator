@@ -170,8 +170,9 @@ struct IOContextGff_
 	StringSet<CharString> keys;
 	StringSet<CharString> values;
 	
-	CharString gtfGeneKey;
-	CharString gtfGene;
+	CharString gtfGeneId;
+	CharString gtfGeneName;
+	CharString gtfTranscriptName;		// transcipt_id is stored in parentName
 
 	TId annotationId;
 	TAnnotation annotation;
@@ -190,8 +191,9 @@ inline void clear(IOContextGff_<TFragmentStore, TSpec> &ctx)
 	clear(ctx.parentName);
 	clear(ctx._key);
 	clear(ctx._value);
-	clear(ctx.gtfGeneKey);
-	clear(ctx.gtfGene);
+	clear(ctx.gtfGeneId);
+	clear(ctx.gtfGeneName);
+	clear(ctx.gtfTranscriptName);
 	clear(ctx.keys);
 	clear(ctx.values);
 	ctx.annotationId = TAnnotation::INVALID_ID;
@@ -298,24 +300,15 @@ _readOneAnnotation (
 		}
 		else if (ctx._key == "transcript_name")
 		{
-			if (empty(ctx.parentName)) 
-			{
-				ctx.parentKey = ctx._key;
-				ctx.parentName = ctx._value;
-			}
+				ctx.gtfTranscriptName = ctx._value;
 		} 
 		else if (ctx._key == "gene_id")
 		{
-			ctx.gtfGeneKey = ctx._key;
-			ctx.gtfGene = ctx._value;
+			ctx.gtfGeneId = ctx._value;
 		}
 		else if (ctx._key == "gene_name")
 		{
-			if (empty(ctx.gtfGene))
-			{
-				ctx.gtfGeneKey = ctx._key;
-				ctx.gtfGene = ctx._value;
-			}
+				ctx.gtfGeneName = ctx._value;
 		} 
 
 		clear(ctx._key);
@@ -387,9 +380,9 @@ _storeOneAnnotation (
 
 	// for lines in Gtf format get/add the parent gene first
 	TId geneId = TAnnotation::INVALID_ID;
-	if (!empty(ctx.gtfGene))
+	if (!empty(ctx.gtfGeneId))
 	{
-		_storeAppendAnnotationName(fragStore, geneId, ctx.gtfGene);
+		_storeAppendAnnotationName(fragStore, geneId, ctx.gtfGeneId);
 		if (maxId < geneId)
 			maxId = geneId;
 	}	
@@ -414,8 +407,19 @@ _storeOneAnnotation (
 		maxId = ctx.annotationId;
 	
 	for (unsigned i = 0; i < length(ctx.keys); ++i)
-		if (ctx.keys[i] != ctx.gtfGeneKey && ctx.keys[i] != ctx.parentKey)
-			annotationAssignValueByKey(fragStore, ctx.annotation, ctx.keys[i], ctx.values[i]);
+    {
+        // don't store gene_name as key/value pair unless it is a gene
+        if (ctx.keys[i] == "gene_name" && ctx.annotation.typeId != TFragmentStore::ANNO_GENE)
+            continue;
+
+        // don't store transcript_name as key/value pair unless it is a transcript
+        if (ctx.keys[i] == "transcript_name" && ctx.annotation.typeId != TFragmentStore::ANNO_MRNA)
+            continue;
+
+        // don't store Parent, transcript_id or gene_id as key/value pair (the are used to link annotations)
+        if (ctx.keys[i] != ctx.parentKey && ctx.keys[i] != "gene_id")
+            annotationAssignValueByKey(fragStore, ctx.annotation, ctx.keys[i], ctx.values[i]);
+    }
 
 	if (length(fragStore.annotationStore) <= maxId)
 		resize(fragStore.annotationStore, maxId + 1, Generous());
@@ -430,10 +434,16 @@ _storeOneAnnotation (
 		gene.parentId = 0;
 		gene.typeId = TFragmentStore::ANNO_GENE;
 		_adjustParent(gene, ctx.annotation);
+//		std::cout<<"gene_name "<<ctx.gtfGeneName<<"  transcript_name  " << ctx.gtfTranscriptName<<std::endl;
+
+		if (!empty(ctx.gtfGeneName))
+			annotationAssignValueByKey(fragStore, gene, "gene_name", ctx.gtfGeneName);
 
 		transcript.parentId = geneId;
 		transcript.typeId = TFragmentStore::ANNO_MRNA;
 		_adjustParent(transcript, ctx.annotation);
+		if (!empty(ctx.gtfTranscriptName))
+			annotationAssignValueByKey(fragStore, transcript, "transcript_name", ctx.gtfTranscriptName);
 	}
 }
 
@@ -560,7 +570,7 @@ _writeOneAnnotation (
 		_streamWrite(target, getAnnoUniqueName(store, id));
 		semicolon = true;
 	}
-	
+
 	// write column 9.2: parent id
 	if (store.annotationStore[annotation.parentId].typeId > 1)	// ignore root/deleted nodes
 	{
@@ -651,36 +661,35 @@ _writeOneAnnotation (
 	_streamWrite(target, ".\t");
 	
 	// write column 9: group
-	// write column 9.1: transcript_id
 	bool semicolon = false;
-	TId transcriptId = annotation.parentId;
-	
-	// step up until we reach a transcript
-	while (transcriptId < length(store.annotationStore) && store.annotationStore[transcriptId].typeId != TFragmentStore::ANNO_MRNA)
-		transcriptId = store.annotationStore[transcriptId].parentId;
-	
-	if (transcriptId < length(store.annotationStore))
-	{
-		_streamWrite(target, "transcript_id \"");
-		if (transcriptId < length(store.annotationNameStore) && !empty(getAnnoName(store, transcriptId)))
-			_streamWrite(target, getAnnoName(store, transcriptId));
-		else
-			_streamWrite(target, getAnnoUniqueName(store, transcriptId));
-		_streamPut(target, '"');
 
-		// write column 9.2: gene_id	
-		TId geneId = store.annotationStore[transcriptId].parentId;
-		if (geneId < length(store.annotationStore))
-		{
-			_streamWrite(target, "; gene_id \"");
-			if (geneId < length(store.annotationNameStore) && !empty(getAnnoName(store, geneId)))
-				_streamWrite(target, getAnnoName(store, geneId));
-			else
-				_streamWrite(target, getAnnoUniqueName(store, geneId));
-			_streamPut(target, '"');
-		}
-		semicolon = true;
-	}
+    // step up until we reach a transcript
+    TId transcriptId = annotation.parentId;
+    while (transcriptId < length(store.annotationStore) && store.annotationStore[transcriptId].typeId != TFragmentStore::ANNO_MRNA)
+        transcriptId = store.annotationStore[transcriptId].parentId;
+
+    // step up until we reach a gene
+    TId geneId = transcriptId;
+    while (geneId < length(store.annotationStore) && store.annotationStore[geneId].typeId != TFragmentStore::ANNO_GENE)
+        geneId = store.annotationStore[geneId].parentId;	
+	
+    CharString tmpStr;
+    if (geneId < length(store.annotationStore) && annotationGetValueByKey(store, store.annotationStore[geneId], "gene_name", tmpStr))
+    {
+        if (semicolon) _streamWrite(target, "; ");
+        _streamWrite(target, "gene_name \"");
+        _streamWrite(target, tmpStr);
+        _streamPut(target, '"');
+        semicolon = true;
+    }
+    if (transcriptId < length(store.annotationStore) && annotationGetValueByKey(store, store.annotationStore[transcriptId], "transcript_name", tmpStr))
+    {
+        if (semicolon) _streamWrite(target, "; ");
+        _streamWrite(target, "transcript_name \"");
+        _streamWrite(target, tmpStr);
+        _streamPut(target, '"');
+        semicolon = true;
+    }
 
 	if (id < length(store.annotationNameStore) && !empty(getAnnoName(store, id)))
 	{
@@ -691,7 +700,7 @@ _writeOneAnnotation (
 		semicolon = true;
 	} 
 		
-	// write column 9.3-...: key, value pairs
+	// write key, value pairs
 	for (unsigned keyId = 0; keyId < length(annotation.values); ++keyId)
 		if (!empty(annotation.values[keyId]))
 		{
@@ -702,6 +711,33 @@ _writeOneAnnotation (
 			_streamPut(target, '"');
 			semicolon = true;
 		}
+        
+    // The GTF format version 2.2 requires the keys gene_id and transcript_id to be the last keys of line
+    // read http://mblab.wustl.edu/GTF22.html and http://www.bioperl.org/wiki/GTF
+    
+    if (geneId < length(store.annotationStore))
+    {
+        if (semicolon) _streamWrite(target, "; ");
+        _streamWrite(target, "gene_id \"");
+        if (geneId < length(store.annotationNameStore) && !empty(getAnnoName(store, geneId)))
+            _streamWrite(target, getAnnoName(store, geneId));
+        else
+            _streamWrite(target, getAnnoUniqueName(store, geneId));
+		_streamPut(target, '"');
+        semicolon = true;
+    }
+
+	if (transcriptId < length(store.annotationStore))
+	{
+		if (semicolon) _streamWrite(target, "; ");
+		_streamWrite(target, "transcript_id \"");
+		if (transcriptId < length(store.annotationNameStore) && !empty(getAnnoName(store, transcriptId)))
+			_streamWrite(target, getAnnoName(store, transcriptId));
+		else
+			_streamWrite(target, getAnnoUniqueName(store, transcriptId));
+		_streamPut(target, '"');
+		semicolon = true;
+	}
 
 	if (semicolon) _streamWrite(target, ';');	
 	_streamPut(target, '\n');	

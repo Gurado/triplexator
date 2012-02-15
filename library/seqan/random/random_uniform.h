@@ -59,7 +59,9 @@ struct Uniform;
 ..param.T:Type of the values the Pdf is defined on.
 ..cat:Random
 ..include:seqan/random.h
+..wiki:Tutorial/Randomness|Tutorial: Randomness
 */
+
 template <typename T>
 class Pdf<Uniform<T> >
 {

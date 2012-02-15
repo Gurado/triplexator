@@ -100,9 +100,9 @@ struct Triple<T1_, T2_, T3_, Compressed>
             : i1(getValueI1(_p)), i2(getValueI2(_p)), i3(getValueI3(_p)) {}
 }
 #ifndef PLATFORM_WINDOWS
-	__attribute__((packed))
+    __attribute__((packed))
 #endif
-	;
+    ;
 #ifdef PLATFORM_WINDOWS
     #pragma pack(pop)
 #endif
