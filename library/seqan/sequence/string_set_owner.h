@@ -146,14 +146,15 @@ inline void assignValue(
     typedef typename Size<TStringSet>::Type TSize;
     typedef typename StringSetLimits<TStringSet>::Type TLimits;
     typedef typename Value<TLimits>::Type TLimitValue;
+    typedef typename MakeSigned<TLimitValue>::Type TSignedLimitValue;
 
-    TLimitValue oldSize = length(me[pos]);
+    TSignedLimitValue oldSize = length(me[pos]);
     assign(me[pos], seq);
     if (_validStringSetLimits(me))
     {
-        TLimitValue delta = (TLimitValue)length(seq) - oldSize;
+        TSignedLimitValue delta = (TSignedLimitValue)length(seq) - oldSize;
         TSize size = length(me);
-        while (pos <size)
+        while (pos < size)
             me.limits[++pos] += delta;
     }
 }

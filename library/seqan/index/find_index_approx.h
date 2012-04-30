@@ -66,13 +66,115 @@ template <
 	typename TIterPosB, 
 	typename TErrors >
 inline void 
+_exactTreeSearch(
+	TOnFoundFunctor	&onFoundFunctor,    // functor to store matches
+	TTreeIteratorA	iterA,              // pattern tree iterator
+	TIterPosA		iterPosA,           // position in representative
+	TTreeIteratorB	iterB,              // text suffix tree iterator
+	TIterPosB		iterPosB)           // position in representative
+{
+    while (true)
+    {
+        TIterPosA repLenA = repLength(iterA);
+        TIterPosB repLenB = repLength(iterB);
+        if (iterPosA < repLenA)
+        {
+            // search patterns in the suffix tree
+            if (!goDown(iterB, suffix(representative(iterA), iterPosA)))
+                return;
+            // end of pattern found?
+            if (isLeaf(iterA))
+            {
+                onFoundFunctor(iterA, iterB);
+                return;
+            }
+            iterPosB += repLenA - iterPosA;
+            iterPosA = repLenA;
+        }
+        else if (iterPosB < repLenB)
+        {
+            // search text in the pattern tree
+            TIterPosA lcp = 0;
+            if (!_goDownString(iterA, suffix(representative(iterB), iterPosB), lcp))
+            {
+                // couldn't we proceed to go down because of a leaf in the pattern tree?
+                if (iterPosA + lcp == repLength(iterA) && isLeaf(iterA))
+                    onFoundFunctor(iterA, iterB);
+                return;
+            }
+            // end of pattern found?
+            if (isLeaf(iterA))
+            {
+                onFoundFunctor(iterA, iterB);
+                return;
+            }
+            iterPosA += repLenB - iterPosB;
+            iterPosB = repLenB;
+        }
+        else
+        {
+            if (!goDown(iterA))
+            {
+                onFoundFunctor(iterA, iterB);
+                return;
+            }
+            while (emptyParentEdge(iterA))
+            {
+                onFoundFunctor(iterA, iterB);
+                if (!goRight(iterA))
+                    return;
+            }
+
+            if (!goDown(iterB))
+                return;
+            while (emptyParentEdge(iterB))
+            {
+                if (!goRight(iterA))
+                    return;
+            }
+            
+            // search pairs of edges with the same character
+            while (true)
+            {
+                if (parentEdgeFirstChar(iterA) < parentEdgeFirstChar(iterB))
+                {
+                    if (!goRight(iterA))
+                        return;
+                }
+                else if (parentEdgeFirstChar(iterB) < parentEdgeFirstChar(iterA))
+                {
+                    if (!goRight(iterB))
+                        return;
+                }
+                else
+                {
+                    _exactTreeSearch(onFoundFunctor, iterA, iterPosA, iterB, iterPosB);
+                    if (!goRight(iterA) || !goRight(iterB))
+                        return;
+                }
+            }
+            return;
+        }
+    }
+}
+
+template <
+	bool enumerateA,
+	bool enumerateB,
+	typename TOnFoundFunctor, 
+	typename TTreeIteratorA, 
+	typename TIterPosA, 
+	typename TTreeIteratorB, 
+	typename TIterPosB, 
+	typename TErrors >
+inline void 
 _approximateTreeSearch(
-	TOnFoundFunctor	&onFoundFunctor, 
-	TTreeIteratorA	iterA, 
-	TIterPosA		iterPosA, 
-	TTreeIteratorB	iterB_, 
-	TIterPosB		iterPosB, 
-	TErrors			errorsLeft)
+	TOnFoundFunctor	&onFoundFunctor,    // functor to store matches
+	TTreeIteratorA	iterA,              // pattern tree iterator
+	TIterPosA		iterPosA,           // position in representative
+	TTreeIteratorB	iterB_,             // text suffix tree iterator
+	TIterPosB		iterPosB,           // position in representative
+	TErrors			errorsLeft)         // tolerated errors left
 {
 	if (enumerateA && !goDown(iterA)) 
 	{
@@ -141,12 +243,12 @@ template <
 	typename TErrors >
 inline void 
 _approximateStringSearch(
-	TOnFoundFunctor	&onFoundFunctor, 
-	TString const &string, 
-	TStringPos stringPos, 
-	TTreeIterator iter, 
-	TIterPos iterPos, 
-	TErrors errorsLeft)
+	TOnFoundFunctor	&onFoundFunctor,    // functor to store matches
+	TString const &string,              // search pattern 
+	TStringPos stringPos,               // position in pattern
+	TTreeIterator iter,                 // text suffix tree iterator
+	TIterPos iterPos,                   // position in representative
+	TErrors errorsLeft)                 // tolerated errors left
 {
 	if (errorsLeft == 0)
 	{

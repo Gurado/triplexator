@@ -370,7 +370,7 @@ struct ContextLss_
                typename TText >
     void createSuffixArray(
 		TSA &SA,
-		TText &s,
+		TText const &s,
 		LarssonSadakane const &,
 		unsigned K)
 	{

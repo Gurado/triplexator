@@ -75,6 +75,17 @@ public:
 	{
 	}
 
+    /**
+.Memfunc.Annotation#Annotation:
+..class:Class.Annotation
+..summary:Constructor.
+..signature:Annotation(seqId, begin, len, label)
+..param.seqId:The sequence ID of the annotated sequence of type Id<TSequence>::Type.
+..param.begin:The begin position of the annotated interval of type Position<TSequence>::Type.
+..param.len:The length of the annotated interval of type Size<TSequence>::Type.
+..param.cargo:The annotation label/identifier of type TValue.
+     */
+	
 	Annotation(TId_ seqId, TPos_ begin, TSize_ len, TValue label) :
 			data_seq_id(seqId),
 			data_begin(begin), 
@@ -131,6 +142,7 @@ struct Value<Annotation<TSequence,TValue,TSpec> >
 };
 
 
+// default: no annotation given, do nothing
 template<typename TValue, typename TAliString, typename TGraph, typename TPropertyMap, typename TStringSet, typename TMap, typename TTagSpec>
 inline void
 _addAnnotationCuts(String<std::set<TValue> > &,
@@ -200,7 +212,7 @@ SEQAN_CHECKPOINT
 }
 	      
 
-
+// add annotation labels to nodes, as given in annotation, store as node properties in pm
 template<typename TPropertyMap, typename TStringSet, typename TMap, typename TAnnoString, typename TAliGraph,typename TTagSpec>
 inline void
 _addNodeAnnotation(TStringSet &,
@@ -254,6 +266,9 @@ SEQAN_CHECKPOINT
 
 }
 
+// edgescore = alignmentscore * annoscore
+// compute annotation score: 2 if vd1 and vd2 share same annotation
+// 1 if they are not the same (--> edgescore = alignmentscore)
 template<typename TAliGraph,typename TScore, typename TPropertyMap>
 typename Value<TScore>::Type 
 _getRefinedAnnoScore(TAliGraph &,
@@ -285,7 +300,7 @@ SEQAN_CHECKPOINT
 
 }
 
-
+// default score 1 --> edgescore = alignmentscore
 template<typename TAliGraph,typename TScore>
 typename Value<TScore>::Type 
 _getRefinedAnnoScore(TAliGraph &,

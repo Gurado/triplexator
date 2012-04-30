@@ -1,7 +1,7 @@
 // ==========================================================================
 //                 SeqAn - The Library for Sequence Analysis
 // ==========================================================================
-// Copyright (c) 2006-2010, Knut Reinert, FU Berlin
+// Copyright (c) 2006-2012, Knut Reinert, FU Berlin
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -35,8 +35,10 @@
 // Definitions for piggybacking qualities in free bits of bytes.
 // ==========================================================================
 
-#ifndef SEQAN_BASIC_ALPHABET_QUALITIES_H_
-#define SEQAN_BASIC_ALPHABET_QUALITIES_H_
+#ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_ALPHABET_QUALITIES_H_
+#define SEQAN_CORE_INCLUDE_SEQAN_BASIC_ALPHABET_QUALITIES_H_
+
+// TODO(holtgrew): Should the documentation be here?
 
 namespace seqan {
 
@@ -48,18 +50,6 @@ namespace seqan {
 // Tags, Classes, Enums
 // ============================================================================
 
-/**
-.Concept.Alphabet With Qualities
-..summary:An alphabet where qualities can be attached to the characters.
-
-.Metafunction.QualityValueSize.concept:Concept.Alphabet With Qualities
-.Metafunction.HasQualities.concept:Concept.Alphabet With Qualities
-.Function.getQualityValue.concept:Concept.Alphabet With Qualities
-.Function.convertQuality.concept:Concept.Alphabet With Qualities
-.Function.assignQualityValue.concept:Concept.Alphabet With Qualities
-.Function.assignQualities.concept:Concept.Alphabet With Qualities
- */
-
 // ============================================================================
 // Metafunctions
 // ============================================================================
@@ -68,17 +58,7 @@ namespace seqan {
 // Metafunction QualityValueSize
 // ----------------------------------------------------------------------------
 
-/**
-.Metafunction.QualityValueSize
-..cat:Alphabets
-..summary:Return the number of quality values in characters from alphabet with qualities.
-..signature:QualityValueSize<TAlphabet>::VALUE
-..param.TAlphabet:The alphabet to query for its value size.
-..returns:The cardinality of the set of qualities.
-..include:seqan/basic.h
- */
-
-// TODO(holtgrew): Do we want a default specialization?
+// TODO(holtgrew): Do we want a default specialization? Should it return 0?
 template <typename TValue>
 struct QualityValueSize
 {
@@ -86,18 +66,12 @@ struct QualityValueSize
 };
 
 template <typename TValue>
-struct QualityValueSize<TValue const> : QualityValueSize<TValue> {};
+struct QualityValueSize<TValue const> : QualityValueSize<TValue>
+{};
 
-/**
-.Metafunction.HasQualities
-..cat:Alphabets
-..summary:Return whether the given type stores qualities besides the alphabet.
-..signature:HasQualities<TAlphabet>::VALUE
-..signature:HasQualities<TAlphabet>::Type
-..param.TAlphabet:The alphabe to query.
-..returns:$true$, $false$, $True$, or $False$.
-..include:seqan/basic.h
-*/
+// ----------------------------------------------------------------------------
+// Metafunction HasQualities
+// ----------------------------------------------------------------------------
 
 template <typename TValue>
 struct HasQualities
@@ -111,22 +85,16 @@ struct HasQualities
 // ============================================================================
 
 // ----------------------------------------------------------------------------
+// Function assignQualityValue()
+// ----------------------------------------------------------------------------
+
+// Documentation is in alphabet_concept.h.
+
+// ----------------------------------------------------------------------------
 // Function getQualityValue()
 // ----------------------------------------------------------------------------
 
-/**
-.Function.getQualityValue
-..cat:Alphabets
-..signature:getQualityValue(c)
-..summary:Returns the quality of a character from an alphabet with integrated quality.
-..param.c:Character to retrieve the quality from.
-..returns:Quality value of $c$.
-...type:nolink:int
-...remarks:The quality value is an integral value between 0 and 62 (inclusive).
-..see:Function.assignQualityValue
-..see:Function.convertQuality
-..include:seqan/basic.h
- */
+// Documentation is in alphabet_concept.h.
 
 // ----------------------------------------------------------------------------
 // Function convertQuality()
@@ -149,63 +117,11 @@ struct HasQualities
  */
 
 inline 
-void convertQuality(Ascii & c, int q) 
+void convertQuality(char & c, int q) 
 {
-    c = '!' + Ascii(q);
-}
-
-// ----------------------------------------------------------------------------
-// Function assignQualityValue()
-// ----------------------------------------------------------------------------
-
-// TODO(holtgrew): What about different quality types? Guess scaling? Look at how other packages do this.
-/**
-.Function.assignQualityValue
-..cat:Alphabets
-..signature:assignQualityValue(c, q)
-..summary:Assign quality to a character from an alphabet with integrated quality.
-..param.c:Target character to assign quality to.
-..param.q:Quality to assign to the character.
-...type:nolink:int
-...type:nolink:char
-...remarks:The quality value is an integral value between 0 and 62 (inclusive).
-..remarks:If $q$ is a $char$ then $'!'$ is subtracted from $q$. This is useful for ASCII encoded PHRED scores.
-..see:Function.getQualityValue
-..see:Function.convertQuality
-..include:seqan/basic.h
- */
-
-// ----------------------------------------------------------------------------
-// Function assignQualities()
-// ----------------------------------------------------------------------------
-
-/**
-.Function.assignQualities
-..cat:Alphabets
-..summary:Assign quality values between strings.
-..signature:assignQualities(target, source)
-..param.target:Target string
-...type:nolink:@Class.String@ of any alphabet with qualities, e.g. @Spec.DnaQ@, @Spec.Dna5Q@
-..param.source:Source string.
-...type:nolink:@Class.String@ of $int$ or $char$.
-..remarks:This funciton calls @Function.assignQualityValue@ for all entries of $target$ and $source$, look at the documentation of @Function.assignQualityValue@ on how the values of $source$ are interpreted.
-..see:Function.assignQualityValue
-..include:seqan/basic.h
- */
-template <typename TDest, typename TSource>
-void assignQualities(TDest &dst, TSource const &src)
-{
-    typedef typename Iterator<TDest>::Type TDestIter;
-    typedef typename Iterator<TSource>::Type TSourceIter;
-
-    TDestIter itDst = begin(dst, Standard());
-    TDestIter itDstEnd = end(dst, Standard());
-    TSourceIter itSrcEnd = end(src, Standard());
-    
-    for (TSourceIter itSrc = begin(src, Standard()); itDst != itDstEnd && itSrc != itSrcEnd; ++itDst, ++itSrc)
-        assignQualityValue(*itDst, *itSrc);
+    c = '!' + char(q);
 }
 
 }  // namespace seqan
 
-#endif  // #ifndef SEQAN_BASIC_ALPHABET_QUALITIES_H_
+#endif  // #ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_ALPHABET_QUALITIES_H_

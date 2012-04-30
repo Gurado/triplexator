@@ -252,7 +252,6 @@ namespace seqan
 ..param.list:The list containing the element.
 ...type:Class.SkipList
 ..param.iterator:Iterator to an entry, that should be deleted.
-...concept:Concept.Iterator
 ..param.object:An object in the list, that should be deleted.
 ..param.key:A key.
 ...type:A key. All entries with the given theKeywill be deleted.

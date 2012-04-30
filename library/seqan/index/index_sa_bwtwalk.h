@@ -140,14 +140,13 @@ namespace SEQAN_NAMESPACE_MAIN
 	{
 		typedef typename Value<TSA>::Type TValue;
 		typedef typename Iterator<TSA, Standard>::Type TSaIter;
-		typedef String<TValue> TArray;
 		const TValue NIL = MaxValue<TValue>::VALUE;
 		
 		if (empty(s)) return;
 		
-		TArray lexnextpos;
+		TSA lexnextpos;
 		// Since SA is capable of fast random access, we can temporarily use it as lexprevpos array.
-		TArray &lexprevpos = SA;
+		TSA &lexprevpos = SA;
 
 		resize(lexnextpos, length(s), NIL, Exact());
 		std::fill(begin(lexprevpos, Standard()), end(lexprevpos, Standard()), NIL);
@@ -386,12 +385,10 @@ namespace SEQAN_NAMESPACE_MAIN
 		const TValue FLAGBIT = (TValue)1 << (BitsPerValue<TValue>::VALUE-1);
 		const TValue NOTFLAGBIT = ~FLAGBIT;
 
-		typedef String<TValue> TArray;
-
 		if (empty(s)) return;
 		
 		// since SA is capable of fast random access, we can temporarily use it as the lexxorpos array
-		TArray & lexxorpos = SA;
+		TSA & lexxorpos = SA;
 		std::fill(begin(lexxorpos, Standard()), end(lexxorpos, Standard()), 0);
 
 		// finally create suffix array

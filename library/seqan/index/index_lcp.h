@@ -157,7 +157,7 @@ namespace SEQAN_NAMESPACE_MAIN
 
     template < typename TTextInput, typename TSuffixArrayInput, typename TPair, typename TLimitsString >
     struct Value< Pipe< Bundle2< TTextInput, TSuffixArrayInput >, Multi<Kasai, TPair, TLimitsString> > > {
-        typedef typename Size<TTextInput>::Type Type;
+        typedef typename Value<TLimitsString>::Type Type;
     };
 
 	template <typename InType, typename TLimitsString, typename Result = typename Value<TLimitsString>::Type>

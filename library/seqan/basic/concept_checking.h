@@ -1,7 +1,7 @@
 // ==========================================================================
 //                 SeqAn - The Library for Sequence Analysis
 // ==========================================================================
-// Copyright (c) 2006-2011, Knut Reinert, FU Berlin
+// Copyright (c) 2006-2012, Knut Reinert, FU Berlin
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -363,10 +363,10 @@ struct constraint
   
 template <class Model>
 struct requirement_<void(*)(Model)>
-        : If<not_satisfied<Model>::Type::VALUE, /* should be called "has_constraints", see above */
-             constraint<Model>,
-             requirement<failed ************ Model::************>
-             >::Type
+        : IfC<not_satisfied<Model>::Type::VALUE, /* should be called "has_constraints", see above */
+              constraint<Model>,
+              requirement<failed ************ Model::************>
+              >::Type
 {};
 
 #  define SEQAN_CONCEPT_ASSERT_FN( ModelFnPtr )             \
@@ -637,7 +637,7 @@ If @Tag.Logical Values.tag.True@/$true$ is returned, $TConcept$ must pass the co
 It can be used to switch between different implementations depending on the concept of a type, or in combination with @Macro.SEQAN_FUNC_ENABLE_IF@ to make a function only visible to types of certain concepts.
 ..example.code:
 Is<SequenceConcept<TSeq> >::Type
-If<Is<ContainerConcept<TSeq> >::VALUE, T1, T2>::Type
+IfC<Is<ContainerConcept<TSeq> >::VALUE, T1, T2>::Type
 
 std::cout << Is<IntegerConcept<int> >::VALUE << std::endl;     // 1
 std::cout << Is<IntegerConcept<double> >::VALUE << std::endl;  // 0

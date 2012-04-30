@@ -116,17 +116,17 @@ namespace SEQAN_NAMESPACE_MAIN
 
     struct PoolParameters
     {
-/*
-        enum { DefaultMemBufferSize     = 384 * 1024*1024,			// max memory config
+
+        enum { DefaultMemBufferSize     = 2 * 1024*1024*1024ul - 1,	// max memory config
                DefaultPageSize          = 32 * 1024*1024,
                DefaultBucketBufferSize  = 64 * 1024*1024,
-               DefaultReadAheadBuffers  = 2,
-               DefaultWriteBackBuffers  = 2,
+               DefaultReadAheadBuffers  = 4,
+               DefaultWriteBackBuffers  = 4,
                DefaultWriteBackBuckets  = 16,
                DefaultAbsoluteSizes     = true };
-*/
 
 
+/*
         enum { DefaultMemBufferSize     = 128 * 1024*1024,		// normal memory config
                DefaultPageSize          = 32 * 1024*1024,
                DefaultBucketBufferSize  = 64 * 1024*1024,
@@ -134,7 +134,7 @@ namespace SEQAN_NAMESPACE_MAIN
                DefaultWriteBackBuffers  = 2,
                DefaultWriteBackBuckets  = 16,
                DefaultAbsoluteSizes     = true };
-
+*/
 
 /*
         enum { DefaultMemBufferSize     = 0*8192,//64 * 1024*1024,	// low memory config
@@ -510,18 +510,18 @@ namespace SEQAN_NAMESPACE_MAIN
 		}
 
 		inline void end() {
-			if (handler1)	return handler1->end();
-			else			return handler2->end();
+			if (handler1)	handler1->end();
+			else			handler2->end();
 		}
 
 		inline void process() {
-			if (handler1)	return handler1->process();
-			else			return handler2->process();
+			if (handler1)	handler1->process();
+			else			handler2->process();
 		}
 
 		inline void cancel() {
-			if (handler1)	return handler1->cancel();
-			else			return handler2->cancel();
+			if (handler1)	handler1->cancel();
+			else			handler2->cancel();
 		}
 	};
 
@@ -581,13 +581,13 @@ namespace SEQAN_NAMESPACE_MAIN
         }
 
 		inline void end() {
-			if (handler1)	return handler1->end();
-			else			return handler2->end();
+			if (handler1)	handler1->end();
+			else			handler2->end();
 		}
 
 		inline void process() {
-			if (handler1)	return handler1->process();
-			else			return handler2->process();
+			if (handler1)	handler1->process();
+			else			handler2->process();
 		}
 	};
 

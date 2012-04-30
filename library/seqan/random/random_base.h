@@ -57,6 +57,7 @@ struct MersenneTwister;
 ..include:seqan/random.h
 ..wiki:Tutorial/Randomness|Tutorial: Randomness
 */
+
 template <typename TSpec = MersenneTwister>
 class Rng;
 
@@ -69,6 +70,7 @@ class Rng;
 ..include:seqan/random.h
 ..wiki:Tutorial/Randomness|Tutorial: Randomness
 */
+
 template <typename TSpec>
 class Pdf;
 

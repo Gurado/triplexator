@@ -1,7 +1,7 @@
 // ==========================================================================
 //                 SeqAn - The Library for Sequence Analysis
 // ==========================================================================
-// Copyright (c) 2006-2010, Knut Reinert, FU Berlin
+// Copyright (c) 2006-2012, Knut Reinert, FU Berlin
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -29,13 +29,16 @@
 // DAMAGE.
 //
 // ==========================================================================
-// Author: Andres Gogol-Döring <andreas.doering@mdc-berlin.de>
+// Author: Andreas Gogol-Döring <andreas.doering@mdc-berlin.de>
 // ==========================================================================
-// Iterator proxy base class definition.
+// Iterator Proxy specialization through an iterator.
+//
+// The proxy stores an iterator to the referenced value.  Assignment is done
+// using assignValue() on the iterator, reading via getValue().
 // ==========================================================================
 
-#ifndef SEQAN_BASIC_PROXY_ITERATOR_H_
-#define SEQAN_BASIC_PROXY_ITERATOR_H_
+#ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_PROXY_ITERATOR_H_
+#define SEQAN_CORE_INCLUDE_SEQAN_BASIC_PROXY_ITERATOR_H_
 
 namespace seqan {
 
@@ -270,5 +273,5 @@ getValue(Proxy<IteratorProxy<TIterator> > const & me)
 
 }  // namespace seqan
 
-#endif  // #ifndef SEQAN_BASIC_PROXY_ITERATOR_H_
+#endif  // #ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_PROXY_ITERATOR_H_
 

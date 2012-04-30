@@ -46,9 +46,30 @@ SEQAN_CHECKPOINT
 	assignStringSet(align, str);
 }
 
+template<typename T, typename TString>
+inline void
+_initAlign(T & /*align*/,
+           StringSet<TString, Dependent<> > const& /*str*/) {
+SEQAN_CHECKPOINT
+	//nothing to do
+}
+
 template<typename TString, typename TPos>
 inline void
 _finishAlign(Graph<Alignment<StringSet<TString, Dependent<> > > >&,
+             TPos,
+             TPos,
+             TPos,
+             TPos) {
+SEQAN_CHECKPOINT
+    // Nothing to be done?
+    //stringSet(g)[0] = infix(stringSet(g)[0], begin1, end1);
+    //stringSet(g)[1] = infix(stringSet(g)[1], begin2, end2);
+}
+
+template<typename T, typename TPos>
+inline void
+_finishAlign(T &,
              TPos,
              TPos,
              TPos,

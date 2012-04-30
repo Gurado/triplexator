@@ -184,9 +184,9 @@ struct Result<Accumulator<TValue, Average> const, Count> : Result<Accumulator<TV
 template <typename TValue>
 struct Result<Accumulator<TValue, Average>, Sum>
 {
-    typedef typename If<Is<IntegerConcept<TValue> >::VALUE,
-                        __int64,
-                        double>::Type Type;
+    typedef typename IfC<Is<IntegerConcept<TValue> >::VALUE,
+                         __int64,
+                         double>::Type Type;
 };
 
 template <typename TValue>

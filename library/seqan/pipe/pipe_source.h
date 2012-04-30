@@ -344,7 +344,7 @@ namespace SEQAN_NAMESPACE_MAIN
     template < typename TInput, typename TSpec >
     struct BufReadHandler< Pipe<TInput, TSpec> > {
 		typedef			
-			typename If<
+			typename IfC<
 				AllowsFastRandomAccess<TInput>::VALUE,
 				SourceNonCachingSpec,
 //				SourceCachingSpec>

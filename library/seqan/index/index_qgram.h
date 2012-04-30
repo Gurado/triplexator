@@ -533,23 +533,31 @@ To take effect of changing the $stepSize$ the q-gram index should be empty or re
 
 //////////////////////////////////////////////////////////////////////////////
 
-	template <typename TIndex>
-	inline __int64 _fullDirLength(TIndex const &index) 
+	template <typename TValue, typename TSpec>
+	inline __int64 _fullDirLength(Shape<TValue, TSpec> const &shape)
 	{
-		typedef typename Fibre<TIndex, FibreShape>::Type	TShape;
-		typedef typename Host<TShape>::Type					TTextValue;
-		return _intPow((__int64)ValueSize<TTextValue>::VALUE, weight(indexShape(index))) + 1;
+		return _intPow((__int64)ValueSize<TValue>::VALUE, weight(shape)) + 1;
+	}
+
+	template <typename TValue, typename TSpec>
+	inline __int64 _fullDir2Length(Shape<TValue, TSpec> const &shape)
+	{
+		return (_intPow(
+					(__int64)ValueSize<TValue>::VALUE,
+					weight(shape) + 1) - 1)
+				/ ((unsigned)ValueSize<TValue>::VALUE - 1) + 1;
 	}
 
 	template <typename TIndex>
-	inline __int64 _fullDir2Length(TIndex const &index) 
+	inline __int64 _fullDirLength(TIndex const &index)
 	{
-		typedef typename Fibre<TIndex, FibreShape>::Type	TShape;
-		typedef typename Host<TShape>::Type					TTextValue;
-		return (_intPow(
-					(__int64)ValueSize<TTextValue>::VALUE,
-					weight(indexShape(index)) + 1) - 1)
-				/ ((unsigned)ValueSize<TTextValue>::VALUE - 1) + 1;
+		return _fullDirLength(indexShape(index));
+	}
+
+	template <typename TIndex>
+	inline __int64 _fullDir2Length(TIndex const &index)
+	{
+		return _fullDir2Length(indexShape(index));
 	}
 
 
@@ -1554,7 +1562,7 @@ The resulting tables must have appropriate size before calling this function.
 		typedef typename Size<TString>::Type						TSize;
 
 		TDir lastSeqSeen;
-		resize(lastSeqSeen, length(dir));
+		resize(lastSeqSeen, length(dir), Exact());
 		
 		// 1. clear counters
 		_qgramClearDir(dir, bucketMap);
@@ -1599,7 +1607,7 @@ The resulting tables must have appropriate size before calling this function.
 		}
 
 		// 3. cumulative sum
-		resize(counts, _qgramCummulativeSum(dir, False()));
+		resize(counts, _qgramCummulativeSum(dir, False()), Exact());
 
 		// 4. fill count array
 		arrayFill(begin(lastSeqSeen, Standard()), end(lastSeqSeen, Standard()), -1);
@@ -1753,35 +1761,42 @@ The resulting tables must have appropriate size before calling this function.
 		qcomp_t	qcomp;
 		qhash_t qhash;
 
-		typename Value<TSortTuples>::Type	old_qgram;
-		typename Size<TDir>::Type			hash, old_hash = 0;
-        typename Size<TSortTuples>::Type	leftToRead = length(sorter);
-		bool first = true;
+        typename Size<TSortTuples>::Type leftToRead = length(sorter);
+        typename Size<TDir>::Type hash, old_hash = 0;
+        
+        if (leftToRead > 0)
+        {
+            typename Value<TSortTuples>::Type old_qgram = *sorter;
 
-		for (leftToRead = length(sorter); leftToRead > 0; --leftToRead, ++sorter, ++itSA)
-		{
-			// copy occurence position
-			*itSA = (*sorter).i1;
-			if (first || qcomp(old_qgram, *sorter) != 0) 
-			{
-				old_qgram = *sorter;
-				hash = qhash(old_qgram);
+            old_hash = qhash(old_qgram);
+            *itSA = (*sorter).i1;
+            *itDir = 0;
+            --leftToRead, ++sorter, ++itSA, ++itDir;
+            
+            for (; leftToRead > 0; --leftToRead, ++sorter, ++itSA)
+            {
+                // copy occurence position
+                *itSA = (*sorter).i1;
+                if (qcomp(old_qgram, *sorter) != 0) 
+                {
+                    old_qgram = *sorter;
+                    hash = qhash(old_qgram);
 
-				SEQAN_ASSERT_LT(old_hash, hash);
+                    SEQAN_ASSERT_LT(old_hash, hash);
 
-				// copy bucket begin
-				typename Size<TSortTuples>::Type i = length(sorter) - leftToRead;
-				for(; old_hash < hash; ++old_hash, ++itDir)
-					*itDir = i;
-				first = false;
-			}
-		}
+                    // copy bucket begin
+                    typename Size<TSortTuples>::Type i = length(sorter) - leftToRead;
+                    for(; old_hash < hash; ++old_hash, ++itDir)
+                        *itDir = i;
+                }
+            }
+        }
 
-		// fill bucket table
-		typename Size<TSortTuples>::Type i = length(sorter);
-		hash = length(dir);
-		for(; old_hash < hash; ++old_hash, ++itDir)
-			*itDir = i;
+        // fill bucket table
+        typename Size<TSortTuples>::Type i = length(sorter);
+        hash = length(dir);
+        for(; old_hash < hash; ++old_hash, ++itDir)
+            *itDir = i;
 
 		endRead(sorter);
 	}
@@ -1847,36 +1862,45 @@ The resulting tables must have appropriate size before calling this function.
 		qcomp_t	qcomp;
 		qhash_t qhash;
 
-		typename Value<TSortTuples>::Type	old_qgram = *sorter;
-		typename Size<TDir>::Type			hash, old_hash = 0;
-        typename Size<TSortTuples>::Type	leftToRead;
-		bool first = true;
+        typename Size<TSortTuples>::Type leftToRead = length(sorter);
+        typename Size<TDir>::Type hash, old_hash = 0;
+        
+        if (leftToRead > 0)
+        {
+            typename Value<TSortTuples>::Type old_qgram = *sorter;
 
-		for (leftToRead = length(sorter); leftToRead > 0; --leftToRead, ++sorter, ++itSA)
-		{
-			// copy occurence position
-			*itSA = (*sorter).i1;
-			
-			if (first || qcomp(old_qgram, *sorter) != 0) 
-			{
-				old_qgram = *sorter;
-				hash = qhash(old_qgram);
-				
-				SEQAN_ASSERT_LEQ(old_hash, hash);
+            old_hash = qhash(old_qgram);
+            *itSA = (*sorter).i1;
+            *itDir = 0;
+            --leftToRead, ++sorter, ++itSA, ++itDir;
+            
+            for (; leftToRead > 0; --leftToRead, ++sorter, ++itSA)
+            {
+                // copy occurence position
+                *itSA = (*sorter).i1;
+                
+                if (qcomp(old_qgram, *sorter) != 0) 
+                {
+                    old_qgram = *sorter;
+                    hash = qhash(old_qgram);
+                    
+                    SEQAN_ASSERT_LEQ(old_hash, hash);
+                    if (old_hash > hash)
+                        std::cerr << "ERROR!! " << old_qgram << "\t" << old_hash << "  > " << hash <<std::endl;
+                    
+                    // copy bucket begin
+                    typename Size<TSortTuples>::Type i = length(sorter) - leftToRead;
+                    for(; old_hash < hash; ++old_hash, ++itDir)
+                        *itDir = i;
+                }
+            }
+        }
 
-				// copy bucket begin
-				typename Size<TSortTuples>::Type i = length(sorter) - leftToRead;
-				for(; old_hash < hash; ++old_hash, ++itDir)
-					*itDir = i;
-				first = false;
-			}
-		}
-
-		// fill bucket table
-		typename Size<TSortTuples>::Type i = length(sorter);
-		hash = length(dir);
-		for(; old_hash < hash; ++old_hash, ++itDir)
-			*itDir = i;
+        // fill bucket table
+        typename Size<TSortTuples>::Type i = length(sorter);
+        hash = length(dir);
+        for(; old_hash < hash; ++old_hash, ++itDir)
+            *itDir = i;
 
 		endRead(sorter);
 	}
@@ -1969,12 +1993,12 @@ The resulting tables must have appropriate size before calling this function.
 ..param.index:A q-gram index.
 ...type:Spec.IndexQGram
 ..param.distMat:The resulting q-gram similarity matrix.
-...type:Concept.Container
+...type:Concept.Container 
 ..param.seqSet:Contains sequence numbers if only a subset of sequences should be compared.
 ...type:Concept.Container
-..remarks:$distMat$ will be resized to $seqCount*seqCount$, where $seqCount$ is the number of sequences in the index/in $seqSet$.
-The number of common q-grams between sequence $i$ and $j$ is stored at position $i*seqCount + j$.
-It sums up the minimum number of q-gram occurrences between both sequences for each q-gram.
+..remarks:$distMat$ need to be a container of a floating point type and will be resized to $seqCount*seqCount$, where $seqCount$ is the number of sequences in the index/in $seqSet$.
+The fraction of common q-grams between sequence $i$ and $j$ is stored at position $i*seqCount + j$.
+It sums up the minimum number of q-gram occurrences between both sequences for each q-gram and normalizes it.
 ..include:seqan/index.h
 */
 

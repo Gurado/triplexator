@@ -47,39 +47,9 @@
 namespace SEQAN_NAMESPACE_MAIN {
 
 //____________________________________________________________________________
-// CommandLineOption
-
-class CommandLineOption;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(126)
-
-//____________________________________________________________________________
-// CommandLineParser
-
-class CommandLineParser;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(642)
-
-//____________________________________________________________________________
 // Dequeue
 
 template <typename TValue, typename TSpec > class Dequeue;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(58)
-
-//____________________________________________________________________________
-// EditEnvironment
-
-template <typename TDistanceSpec, unsigned DISTANCE > struct EditEnvironment;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(40)
-
-//____________________________________________________________________________
-// Enumerator
-
-template <typename TObject, typename TSpec > class Enumerator;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(62)
-
-//____________________________________________________________________________
-// EnumeratorHammingModifier_
-
-template <typename TSize> struct EnumeratorHammingModifier_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(139)
-
-//____________________________________________________________________________
-// EnumeratorLevenshteinModifier_
-
-template <typename TSize> struct EnumeratorLevenshteinModifier_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(402)
 
 //____________________________________________________________________________
 // IntervalAndCargo
@@ -99,7 +69,7 @@ template <typename TInterval, typename TSpec> class IntervalTreeNode;       	// 
 //____________________________________________________________________________
 // ListType
 
-template <typename T> struct ListType;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(793)
+template <typename T> struct ListType;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(794)
 
 //____________________________________________________________________________
 // MersenneBuffer_
@@ -110,11 +80,6 @@ template <typename T > struct MersenneBuffer_;       	// "/Users/f.buske/Documen
 // Object
 
 template <typename TElement> struct Object;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_base.h"(68)
-
-//____________________________________________________________________________
-// OptionType
-
-struct OptionType;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(99)
 
 //____________________________________________________________________________
 // PointAndCargo
@@ -208,6 +173,16 @@ template <typename TValue, typename TSpec> struct Accumulator;       	// "/Users
 struct Average_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_accumulators.h"(58)
 
 //____________________________________________________________________________
+// CommandLineOption
+
+class CommandLineOption;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdoption.h"(113)
+
+//____________________________________________________________________________
+// CommandLineParser
+
+class CommandLineParser;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(72)
+
+//____________________________________________________________________________
 // Count_
 
 struct Count_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_accumulators.h"(64)
@@ -218,6 +193,16 @@ struct Count_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/
 struct DynamicWidth_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_long_word.h"(68)
 
 //____________________________________________________________________________
+// EditEnvironment
+
+template <typename TDistanceSpec, unsigned DISTANCE > struct EditEnvironment;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(51)
+
+//____________________________________________________________________________
+// HtmlToolDocPrinter_
+
+class HtmlToolDocPrinter_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(206)
+
+//____________________________________________________________________________
 // LongWord
 
 template <typename TSpec> struct LongWord;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_long_word.h"(53)
@@ -226,6 +211,26 @@ template <typename TSpec> struct LongWord;       	// "/Users/f.buske/Documents/b
 // LongWordBitProxy
 
 template <typename TWord, typename TSpec> struct LongWordBitProxy;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_long_word.h"(57)
+
+//____________________________________________________________________________
+// ManToolDocPrinter_
+
+class ManToolDocPrinter_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(194)
+
+//____________________________________________________________________________
+// MemsetConstValueWorker
+
+template <unsigned SIZE, bool direct, unsigned char c> struct MemsetConstValueWorker;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_memset.h"(153)
+
+//____________________________________________________________________________
+// MemsetWorker
+
+template <unsigned SIZE, bool direct> struct MemsetWorker;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_memset.h"(86)
+
+//____________________________________________________________________________
+// OptionType
+
+struct OptionType;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdoption.h"(48)
 
 //____________________________________________________________________________
 // Result
@@ -239,9 +244,65 @@ template <typename T, typename TTag > struct Result;       	// "/Users/f.buske/D
 template <unsigned LENGTH> struct StaticWidth;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_long_word.h"(73)
 
 //____________________________________________________________________________
+// StringEnumerator
+
+template <typename TObject, typename TSpec> class StringEnumerator;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(116)
+
+//____________________________________________________________________________
+// StringEnumeratorHammingModifier_
+
+template <typename TSize> struct StringEnumeratorHammingModifier_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(141)
+
+//____________________________________________________________________________
+// StringEnumeratorLevenshteinModifier_
+
+template <typename TSize> struct StringEnumeratorLevenshteinModifier_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(195)
+
+//____________________________________________________________________________
 // Sum_
 
 struct Sum_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_accumulators.h"(61)
+
+//____________________________________________________________________________
+// TextToolDocPrinter_
+
+class TextToolDocPrinter_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(296)
+
+//____________________________________________________________________________
+// ToolDoc
+
+class ToolDoc;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(48)
+class ToolDoc;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(588)
+
+//____________________________________________________________________________
+// ToolDocEntry_
+
+class ToolDocEntry_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(65)
+
+//____________________________________________________________________________
+// ToolDocLine_
+
+class ToolDocLine_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(127)
+
+//____________________________________________________________________________
+// ToolDocListItem_
+
+class ToolDocListItem_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(157)
+
+//____________________________________________________________________________
+// ToolDocPrinter_
+
+class ToolDocPrinter_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(182)
+
+//____________________________________________________________________________
+// ToolDocSection_
+
+class ToolDocSection_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(83)
+
+//____________________________________________________________________________
+// ToolDocSubSection_
+
+class ToolDocSubSection_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(106)
 
 //____________________________________________________________________________
 // UnionFind
@@ -339,56 +400,33 @@ template <typename TValue, typename TLess, typename TSize> inline void _adjustHe
 //____________________________________________________________________________
 // _alignNeedlemanWunschMatrix
 
-template <typename TStringSet, typename TTrace, typename TIndexPair> void _alignNeedlemanWunschMatrix(SVGFile& svg, TStringSet const& str, TTrace const& trace, TIndexPair const&);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_svg.h"(413)
+template <typename TStringSet, typename TTrace, typename TIndexPair> void _alignNeedlemanWunschMatrix(SVGFile& svg, TStringSet const& str, TTrace const& trace, TIndexPair const&);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_svg.h"(427)
 
 //____________________________________________________________________________
 // _alignTracePrint
 
-template <typename TStringSet, typename TId, typename TPos, typename TTraceValue> inline void _alignTracePrint(SVGFile& svg, TStringSet const&, TId const, TPos pos1, TId const, TPos pos2, TPos const segLen, TTraceValue const tv);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_svg.h"(462)
-
-//____________________________________________________________________________
-// _allMandatorySet
-
-inline bool _allMandatorySet(CommandLineParser const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1187)
+template <typename TStringSet, typename TId, typename TPos, typename TTraceValue> inline void _alignTracePrint(SVGFile& svg, TStringSet const&, TId const, TPos pos1, TId const, TPos pos2, TPos const segLen, TTraceValue const tv);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_svg.h"(476)
 
 //____________________________________________________________________________
 // _appendIntervalTreeNodeLists
 
-template <typename TInterval> void _appendIntervalTreeNodeLists(IntervalTreeNode<TInterval,StoreIntervals> & knot,TInterval & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(730)
-template <typename TInterval> void _appendIntervalTreeNodeLists(IntervalTreeNode<TInterval,StorePointsOnly> & knot,TInterval & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(757)
-
-//____________________________________________________________________________
-// _assignOptionValue
-
-template <typename TErrorStream> bool _assignOptionValue(CommandLineParser & me, unsigned option_index, CharString const & val, unsigned argNo, TErrorStream & estream);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1213)
-template <typename TErrorStream> inline bool _assignOptionValue(CommandLineParser & me, unsigned option_index, CharString const & val, TErrorStream & estream);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1254)
+template <typename TInterval> void _appendIntervalTreeNodeLists(IntervalTreeNode<TInterval,StoreIntervals> & knot,TInterval & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(731)
+template <typename TInterval> void _appendIntervalTreeNodeLists(IntervalTreeNode<TInterval,StorePointsOnly> & knot,TInterval & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(758)
 
 //____________________________________________________________________________
 // _calcIntervalTreeNodeCenterLeft
 
-template <typename TIntervals, typename TValue> TValue _calcIntervalTreeNodeCenterLeft(TIntervals & intervals, TValue &, TValue &, Tag<TagRandomCenter_> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1157)
+template <typename TIntervals, typename TValue> TValue _calcIntervalTreeNodeCenterLeft(TIntervals & intervals, TValue &, TValue &, Tag<TagRandomCenter_> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1177)
 
 //____________________________________________________________________________
 // _calcIntervalTreeNodeCenterRight
 
-template <typename TIntervals, typename TValue> TValue _calcIntervalTreeNodeCenterRight(TIntervals & intervals, TValue &, TValue &, Tag<TagRandomCenter_> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1169)
+template <typename TIntervals, typename TValue> TValue _calcIntervalTreeNodeCenterRight(TIntervals & intervals, TValue &, TValue &, Tag<TagRandomCenter_> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1189)
 
 //____________________________________________________________________________
 // _calcIntervalTreeRootCenter
 
-template <typename TIntervals> typename Value<typename Value<TIntervals>::Type>::Type _calcIntervalTreeRootCenter(TIntervals & intervals);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1181)
-
-//____________________________________________________________________________
-// _convertOptionValue
-
-inline bool _convertOptionValue(CommandLineOption const & opt, bool & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1477)
-inline bool _convertOptionValue(CommandLineOption const & opt, int & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1485)
-inline bool _convertOptionValue(CommandLineOption const & opt, unsigned int & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1493)
-inline bool _convertOptionValue(CommandLineOption const & opt, __int64 & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1501)
-inline bool _convertOptionValue(CommandLineOption const & opt, __uint64 & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1509)
-inline bool _convertOptionValue(CommandLineOption const & opt, float & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1517)
-inline bool _convertOptionValue(CommandLineOption const & opt, double & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1525)
-template <typename TObject> inline bool _convertOptionValue(CommandLineOption const & opt, TObject & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1534)
+template <typename TIntervals> typename Value<typename Value<TIntervals>::Type>::Type _calcIntervalTreeRootCenter(TIntervals & intervals);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1201)
 
 //____________________________________________________________________________
 // _copyHeapElement
@@ -399,45 +437,13 @@ template <typename TValue, typename TLess, typename TSize> inline void _copyHeap
 //____________________________________________________________________________
 // _createIntervalTree
 
-template <typename TGraph, typename TPropertyMap, typename TIntervalPointer, typename TValue> void _createIntervalTree(TGraph & g, TPropertyMap & pm, String<TIntervalPointer*> & intervals, typename VertexDescriptor<TGraph>::Type & knot, TValue, TValue center, typename VertexDescriptor<TGraph>::Type len, Tag<TagComputeCenter_> const tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(957)
-template <typename TGraph, typename TPropertyMap, typename TSpec, typename TInterval, typename TValue> void _createIntervalTree(TGraph & g, TPropertyMap & pm, String<TInterval*> & intervals, typename VertexDescriptor<TGraph>::Type & knot, TValue last_center, TValue center, typename VertexDescriptor<TGraph>::Type len, Tag<TSpec> const tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1056)
-
-//____________________________________________________________________________
-// _dataHost
-
-template <typename TText, typename TSpec> inline Holder<TText> & _dataHost(Enumerator<TText, TSpec> &enumerator);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(125)
-template <typename TText, typename TSpec> inline Holder<TText> const & _dataHost(Enumerator<TText, TSpec> const &enumerator);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(130)
-
-//____________________________________________________________________________
-// _getOptionValue
-
-inline CharString const & _getOptionValue(CommandLineParser const & me, unsigned option_index, unsigned argNo);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1457)
-inline CharString const & _getOptionValue(CommandLineParser const & me, unsigned option_index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1469)
-
-//____________________________________________________________________________
-// _getOptionValues
-
-inline String<CharString> const & _getOptionValues(CommandLineParser const & me, unsigned option_index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1447)
+template <typename TGraph, typename TPropertyMap, typename TIntervalPointer, typename TValue> void _createIntervalTree(TGraph & g, TPropertyMap & pm, String<TIntervalPointer*> & intervals, typename VertexDescriptor<TGraph>::Type & knot, TValue, TValue center, typename VertexDescriptor<TGraph>::Type len, Tag<TagComputeCenter_> const tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(977)
+template <typename TGraph, typename TPropertyMap, typename TSpec, typename TInterval, typename TValue> void _createIntervalTree(TGraph & g, TPropertyMap & pm, String<TInterval*> & intervals, typename VertexDescriptor<TGraph>::Type & knot, TValue last_center, TValue center, typename VertexDescriptor<TGraph>::Type len, Tag<TSpec> const tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1076)
 
 //____________________________________________________________________________
 // _greater_compI2_ITree
 
 template <typename TPair> bool _greater_compI2_ITree(TPair const& p1, TPair const& p2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(699)
-
-//____________________________________________________________________________
-// _isDigit
-
-template <typename TChar> inline bool _isDigit(TChar const c);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(53)
-
-//____________________________________________________________________________
-// _isDouble
-
-template <typename TString> inline bool _isDouble(TString const s);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(61)
-
-//____________________________________________________________________________
-// _isInt
-
-template <typename TString> inline bool _isInt(TString const s);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(83)
 
 //____________________________________________________________________________
 // _less_compI1_ITree
@@ -447,101 +453,36 @@ template <typename TPair> bool _less_compI1_ITree(TPair const& p1, TPair const& 
 //____________________________________________________________________________
 // _makePointerInterval
 
-template <typename TIntervals, typename TIntervalPointers> void _makePointerInterval(TIntervals & intervals,TIntervalPointers & interval_pointers);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1132)
-
-//____________________________________________________________________________
-// _parseAppName
-
-inline CharString _parseAppName(CharString const & candidate);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1197)
+template <typename TIntervals, typename TIntervalPointers> void _makePointerInterval(TIntervals & intervals,TIntervalPointers & interval_pointers);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1152)
 
 //____________________________________________________________________________
 // _printContig
 
-template <typename TFormatTag, typename TContigGaps, typename TContigName> inline void _printContig( SVGFile &svg, Tag<TFormatTag> const &format, AlignedReadLayout &, TContigGaps &contigGaps, TContigName const &contigName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_svg.h"(212)
+template <typename TFormatTag, typename TContigGaps, typename TContigName> inline void _printContig( SVGFile &svg, Tag<TFormatTag> const &format, AlignedReadLayout &, TContigGaps &contigGaps, TContigName const &contigName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_svg.h"(226)
 
 //____________________________________________________________________________
 // _printRead
 
-template <typename TFormatTag, typename TContigGaps, typename TReadGaps, typename TAlignedRead, typename TLine> inline void _printRead( SVGFile &svg, Tag<TFormatTag> const &, AlignedReadLayout &layout, TContigGaps &contigGaps, TReadGaps &readGaps, TAlignedRead &alignedRead, TLine line);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_svg.h"(265)
-
-//____________________________________________________________________________
-// _printStringSet
-
-template <typename TStringSet, typename TStream> inline void _printStringSet(TStringSet const & set, TStream & target);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(930)
+template <typename TFormatTag, typename TContigGaps, typename TReadGaps, typename TAlignedRead, typename TLine> inline void _printRead( SVGFile &svg, Tag<TFormatTag> const &, AlignedReadLayout &layout, TContigGaps &contigGaps, TReadGaps &readGaps, TAlignedRead &alignedRead, TLine line);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_svg.h"(279)
 
 //____________________________________________________________________________
 // _setIntervalTreeNode
 
 template <typename TValue, typename TInterval> void _setIntervalTreeNode(IntervalTreeNode<TInterval,StoreIntervals> & knot,TValue center,TInterval & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(718)
-template <typename TValue, typename TInterval> void _setIntervalTreeNode(IntervalTreeNode<TInterval,StorePointsOnly> & knot,TValue center,TInterval & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(743)
+template <typename TValue, typename TInterval> void _setIntervalTreeNode(IntervalTreeNode<TInterval,StorePointsOnly> & knot,TValue center,TInterval & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(744)
 
 //____________________________________________________________________________
 // _streamPut
 
-template <typename TChar> inline void _streamPut(SVGFile & svg, TChar character);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_svg.h"(184)
-
-//____________________________________________________________________________
-// _title
-
-template <typename TStream> inline void _title(CommandLineParser const & me, TStream & target);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(971)
-
-//____________________________________________________________________________
-// _usage
-
-template <typename TStream> inline void _usage(CommandLineParser const & me, TStream & target);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(941)
-
-//____________________________________________________________________________
-// _writeOptName
-
-template <typename TStream> inline void _writeOptName(TStream & target, CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(597)
-
-//____________________________________________________________________________
-// addArgumentText
-
-inline CommandLineOption addArgumentText(CommandLineOption const & opt, CharString const & text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(264)
-
-//____________________________________________________________________________
-// addHelpLine
-
-template <typename TString> inline void addHelpLine(CommandLineParser & me, TString const & line);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(782)
+template <typename TChar> inline void _streamPut(SVGFile & svg, TChar character);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_svg.h"(198)
 
 //____________________________________________________________________________
 // addInterval
 
-template <typename TGraph, typename TPropertyMap, typename TInterval> void addInterval(TGraph & g, TPropertyMap & pm, TInterval interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1224)
-template <typename TValue, typename TCargo, typename TInterval> void addInterval(IntervalTree<TValue,TCargo> & itree, TInterval interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1323)
-template <typename TValue, typename TCargo> void addInterval(IntervalTree<TValue,TCargo> & itree, TValue begin, TValue end, TCargo cargo);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1342)
-template <typename TValue, typename TCargo> void addInterval(IntervalTree<TValue,TCargo> & itree, TValue begin, TValue end);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1361)
-
-//____________________________________________________________________________
-// addLine
-
-template <typename TString> inline void addLine(CommandLineParser & me, TString const & line);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(762)
-
-//____________________________________________________________________________
-// addOption
-
-inline void addOption(CommandLineParser & me, CommandLineOption const & opt);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(721)
-
-//____________________________________________________________________________
-// addSection
-
-template <typename TString> inline void addSection(CommandLineParser & me, TString const & line);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(802)
-
-//____________________________________________________________________________
-// addTitleLine
-
-template <typename TString> inline void addTitleLine(CommandLineParser & me, TString const & line);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(823)
-
-//____________________________________________________________________________
-// addUsageLine
-
-inline void addUsageLine(CommandLineParser & me, CharString const & line);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(864)
-
-//____________________________________________________________________________
-// addVersionLine
-
-template <typename TString> inline void addVersionLine(CommandLineParser & me, TString const & line);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(843)
+template <typename TGraph, typename TPropertyMap, typename TInterval> void addInterval(TGraph & g, TPropertyMap & pm, TInterval interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1246)
+template <typename TValue, typename TCargo, typename TInterval> void addInterval(IntervalTree<TValue,TCargo> & itree, TInterval interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1346)
+template <typename TValue, typename TCargo> void addInterval(IntervalTree<TValue,TCargo> & itree, TValue begin, TValue end, TCargo cargo);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1365)
+template <typename TValue, typename TCargo> void addInterval(IntervalTree<TValue,TCargo> & itree, TValue begin, TValue end);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1384)
 
 //____________________________________________________________________________
 // adjustTop
@@ -549,26 +490,8 @@ template <typename TString> inline void addVersionLine(CommandLineParser & me, T
 template <typename TValue, typename TLess> inline void adjustTop (PriorityType<TValue, TLess, PriorityHeap> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/priority_type_heap.h"(185)
 
 //____________________________________________________________________________
-// argumentCount
-
-inline Size<String<CharString> >::Type argumentCount(CommandLineParser const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1734)
-
-//____________________________________________________________________________
-// argumentText
-
-inline CharString argumentText(CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(566)
-
-//____________________________________________________________________________
-// atBegin
-
-template <typename TObject, unsigned DISTANCE > inline void atBegin(Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(253)
-template <typename TObject, unsigned DISTANCE > inline bool atBegin(Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(261)
-
-//____________________________________________________________________________
 // atEnd
 
-template <typename TObject, unsigned DISTANCE > inline bool atEnd(Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(283)
-template <typename TObject, unsigned DISTANCE > inline bool atEnd(Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(299)
 template <typename TSet> inline bool atEnd(Iter<TSet, VectorSetIterator__> const &a);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_set.h"(335)
 
 //____________________________________________________________________________
@@ -580,8 +503,6 @@ template <typename TValue, typename TSpec> inline TValue const & back(Dequeue<TV
 //____________________________________________________________________________
 // begin
 
-template <typename TObject, typename TSpec > inline Iter< Enumerator<TObject, TSpec>, Standard > begin(Enumerator<TObject, TSpec> &enumerator, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(754)
-template <typename TObject, typename TSpec > inline Iter< Enumerator<TObject, TSpec>, Standard > begin(Enumerator<TObject, TSpec> const &enumerator, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(759)
 template <typename TElement, typename TSpec> inline typename Iterator< VectorSet_<TElement, TSpec> >::Type begin(VectorSet_<TElement, TSpec> &set);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_set.h"(294)
 template <typename TElement, typename TSpec> inline typename Iterator< VectorSet_<TElement, TSpec> const>::Type begin(VectorSet_<TElement, TSpec> const &set);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_set.h"(300)
 
@@ -601,15 +522,16 @@ template <typename TValue, typename TLess> inline void clear (PriorityType<TValu
 //____________________________________________________________________________
 // close
 
-inline bool close(SVGFile &svg);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_svg.h"(172)
+inline bool close(SVGFile &svg);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_svg.h"(186)
 
 //____________________________________________________________________________
 // createIntervalTree
 
-template <typename TGraph, typename TPropertyMap, typename TIntervals, typename TSpec> void createIntervalTree(TGraph & g, TPropertyMap & pm, TIntervals & intervals, Tag<TSpec> const tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(842)
-template <typename TGraph, typename TPropertyMap, typename TIntervals> void createIntervalTree(TGraph & g, TPropertyMap & pm, TIntervals & intervals);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(881)
-template <typename TGraph, typename TPropertyMap, typename TIntervals, typename TSpec> void createIntervalTree(TGraph & g, TPropertyMap & pm, TIntervals & intervals, typename Value<typename Value<TIntervals>::Type>::Type center, Tag<TSpec> const tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(897)
-template <typename TGraph, typename TPropertyMap, typename TIntervals> void createIntervalTree(TGraph & g, TPropertyMap & pm, TIntervals & intervals, typename Value<typename Value<TIntervals>::Type>::Type center);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(938)
+template <typename TGraph, typename TPropertyMap, typename TIntervals, typename TSpec> void createIntervalTree(TGraph & g, TPropertyMap & pm, TIntervals & intervals, Tag<TSpec> const tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(843)
+template <typename TGraph, typename TPropertyMap, typename TIntervals> void createIntervalTree(TGraph & g, TPropertyMap & pm, TIntervals & intervals);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(883)
+template <typename TValue,typename TCargo, typename TIntervals> void createIntervalTree(IntervalTree<TValue,TCargo> & it, TIntervals & intervals);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(899)
+template <typename TGraph, typename TPropertyMap, typename TIntervals, typename TSpec> void createIntervalTree(TGraph & g, TPropertyMap & pm, TIntervals & intervals, typename Value<typename Value<TIntervals>::Type>::Type center, Tag<TSpec> const tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(916)
+template <typename TGraph, typename TPropertyMap, typename TIntervals> void createIntervalTree(TGraph & g, TPropertyMap & pm, TIntervals & intervals, typename Value<typename Value<TIntervals>::Type>::Type center);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(958)
 
 //____________________________________________________________________________
 // empty
@@ -620,8 +542,6 @@ template <typename TValue, typename TLess> inline bool empty(PriorityType<TValue
 //____________________________________________________________________________
 // end
 
-template <typename TObject, typename TSpec > inline Iter< Enumerator<TObject, TSpec>, Standard > end(Enumerator<TObject, TSpec> &enumerator, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(769)
-template <typename TObject, typename TSpec > inline Iter< Enumerator<TObject, TSpec>, Standard > end(Enumerator<TObject, TSpec> const &enumerator, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(776)
 template <typename TElement, typename TSpec> inline typename Iterator< VectorSet_<TElement, TSpec> >::Type end(VectorSet_<TElement, TSpec> &set);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_set.h"(307)
 template <typename TElement, typename TSpec> inline typename Iterator< VectorSet_<TElement, TSpec> const>::Type end(VectorSet_<TElement, TSpec> const &set);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_set.h"(313)
 
@@ -644,17 +564,17 @@ template <typename TKey, typename TKey2, typename TSpec> inline typename Iterato
 //____________________________________________________________________________
 // findIntervals
 
-template <typename TGraph, typename TPropertyMap, typename TValue,typename TCargo> void findIntervals(TGraph & g, TPropertyMap & pm, TValue query, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1385)
-template <typename TValue,typename TCargo> void findIntervals(IntervalTree<TValue,TCargo> & it, TValue query, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1463)
-template <typename TValue,typename TCargo> void findIntervals(IntervalTree<TValue,TCargo> & tree, TValue query_begin, TValue query_end, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1587)
-template <typename TGraph, typename TPropertyMap, typename TValue,typename TCargo> void findIntervals(TGraph & g, TPropertyMap & pm, TValue query_begin, TValue query_end, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1599)
-template <typename TGraph, typename TPropertyMap, typename TValue,typename TCargo> void findIntervals(TGraph & g, TPropertyMap & pm, typename VertexDescriptor<TGraph>::Type & act_knot, TValue query_begin, TValue query_end, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1622)
+template <typename TGraph, typename TPropertyMap, typename TValue,typename TCargo> void findIntervals(TGraph & g, TPropertyMap & pm, TValue query, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1408)
+template <typename TValue,typename TCargo> void findIntervals(IntervalTree<TValue,TCargo> & it, TValue query, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1487)
+template <typename TValue,typename TCargo> void findIntervals(IntervalTree<TValue,TCargo> & tree, TValue query_begin, TValue query_end, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1612)
+template <typename TGraph, typename TPropertyMap, typename TValue,typename TCargo> void findIntervals(TGraph & g, TPropertyMap & pm, TValue query_begin, TValue query_end, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1624)
+template <typename TGraph, typename TPropertyMap, typename TValue,typename TCargo> void findIntervals(TGraph & g, TPropertyMap & pm, typename VertexDescriptor<TGraph>::Type & act_knot, TValue query_begin, TValue query_end, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1647)
 
 //____________________________________________________________________________
 // findIntervalsExcludeTouching
 
-template <typename TGraph, typename TPropertyMap, typename TValue,typename TCargo> void findIntervalsExcludeTouching(TGraph & g, TPropertyMap & pm, TValue query, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1487)
-template <typename TValue,typename TCargo> void findIntervalsExcludeTouching(IntervalTree<TValue,TCargo> & tree, TValue query, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1568)
+template <typename TGraph, typename TPropertyMap, typename TValue,typename TCargo> void findIntervalsExcludeTouching(TGraph & g, TPropertyMap & pm, TValue query, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1511)
+template <typename TValue,typename TCargo> void findIntervalsExcludeTouching(IntervalTree<TValue,TCargo> & tree, TValue query, String<TCargo> & result);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(1593)
 
 //____________________________________________________________________________
 // front
@@ -666,16 +586,6 @@ template <typename TValue, typename TSpec> inline TValue const & front(Dequeue<T
 // geomRand
 
 template <typename T> inline T geomRand();       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_random.h"(213)
-
-//____________________________________________________________________________
-// getArgumentValue
-
-inline CharString const & getArgumentValue(CommandLineParser const & me, unsigned position);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1696)
-
-//____________________________________________________________________________
-// getArgumentValues
-
-inline String<CharString> const & getArgumentValues(CommandLineParser const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1717)
 
 //____________________________________________________________________________
 // getCargo
@@ -690,66 +600,10 @@ template <typename TValue, typename TCargo> TValue getLeftBoundary(IntervalAndCa
 template <typename TValue, typename TCargo> TValue getLeftBoundary(PointAndCargo<TValue,TCargo> & point);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(622)
 
 //____________________________________________________________________________
-// getOptionValueLong
-
-template <typename TValue> inline bool getOptionValueLong(CommandLineParser & me, CharString const & longName, unsigned argNo, TValue & val);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1629)
-template <typename TValue> inline bool getOptionValueLong(CommandLineParser & me,CharString const & longName, TValue & val);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1647)
-
-//____________________________________________________________________________
-// getOptionValueShort
-
-template <typename TValue> inline bool getOptionValueShort(CommandLineParser & me, CharString const & shortName, unsigned argNo, TValue & val);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1559)
-template <typename TValue> inline bool getOptionValueShort(CommandLineParser & me, CharString const & shortName, TValue & val);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1577)
-
-//____________________________________________________________________________
-// getOptionValuesLong
-
-inline String<CharString> const & getOptionValuesLong(CommandLineParser & me, CharString const & longName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1665)
-
-//____________________________________________________________________________
-// getOptionValuesShort
-
-inline String<CharString> const & getOptionValuesShort(CommandLineParser & me,CharString const & shortName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1595)
-
-//____________________________________________________________________________
 // getRightBoundary
 
 template <typename TValue, typename TCargo> TValue getRightBoundary(IntervalAndCargo<TValue,TCargo> & interval);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(527)
 template <typename TValue, typename TCargo> TValue getRightBoundary(PointAndCargo<TValue,TCargo> & point);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(636)
-
-//____________________________________________________________________________
-// goBegin
-
-template <typename TObject, unsigned DISTANCE > inline void goBegin(Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(209)
-template <typename TObject, unsigned DISTANCE > inline void goBegin(Iter<Enumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(555)
-
-//____________________________________________________________________________
-// goEnd
-
-template <typename TObject, unsigned DISTANCE > inline void goEnd(Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(268)
-template <typename TObject, unsigned DISTANCE > inline void goEnd(Iter<Enumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(582)
-
-//____________________________________________________________________________
-// hasOptionLong
-
-inline bool hasOptionLong(CommandLineParser const & me, CharString const & _long);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(883)
-
-//____________________________________________________________________________
-// hasOptionShort
-
-inline bool hasOptionShort(CommandLineParser const & me, CharString const & _short);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(901)
-
-//____________________________________________________________________________
-// help
-
-template <typename TStream> inline void help(CommandLineParser const & me, TStream & target);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1021)
-inline void help(CommandLineParser const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1095)
-
-//____________________________________________________________________________
-// helpText
-
-inline CharString & helpText(CommandLineOption & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(363)
-inline const CharString & helpText(CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(368)
 
 //____________________________________________________________________________
 // in
@@ -761,56 +615,6 @@ template <typename TKey, typename TValue, typename TSpec> finline bool in(TKey c
 
 template <typename TElement, typename TSetKey, typename TSpec> finline void insert(TElement const &element, VectorSet_<TSetKey, TSpec> &set);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_set.h"(235)
 template <typename TElement, typename TSetKey, typename TSetObject, typename TPairSpec, typename TSpec> finline void insert(TElement const &element, VectorSet_< Pair<TSetKey, TSetObject, TPairSpec>, TSpec > &set);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_set.h"(248)
-
-//____________________________________________________________________________
-// isBooleanOption
-
-inline bool isBooleanOption(CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(421)
-
-//____________________________________________________________________________
-// isDoubleOption
-
-inline bool isDoubleOption(CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(439)
-
-//____________________________________________________________________________
-// isHiddenOption
-
-inline bool isHiddenOption(CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(475)
-
-//____________________________________________________________________________
-// isIntOption
-
-inline bool isIntOption(CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(457)
-
-//____________________________________________________________________________
-// isLabelOption
-
-inline bool isLabelOption(CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(511)
-
-//____________________________________________________________________________
-// isOptionList
-
-inline bool isOptionList(CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(529)
-
-//____________________________________________________________________________
-// isOptionMandatory
-
-inline bool isOptionMandatory(CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(493)
-
-//____________________________________________________________________________
-// isSetLong
-
-inline bool isSetLong(CommandLineParser & me,CharString const & longName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1169)
-
-//____________________________________________________________________________
-// isSetShort
-
-inline bool isSetShort(CommandLineParser & me, CharString const & shortName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1140)
-
-//____________________________________________________________________________
-// isStringOption
-
-inline bool isStringOption(CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(403)
 
 //____________________________________________________________________________
 // keyOf
@@ -831,8 +635,6 @@ template <typename TValue, typename TCargo> TValue & leftBoundary(PointAndCargo<
 //____________________________________________________________________________
 // length
 
-template <typename TObject, unsigned DISTANCE > inline typename Size< Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> > >::Type length(Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(373)
-template <typename TObject, unsigned DISTANCE > inline typename Size< Enumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> > >::Type length(Enumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(698)
 template <typename TValue, typename TSpec> inline typename Size<Dequeue<TValue, TSpec> >::Type length(Dequeue<TValue, TSpec> const &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(342)
 template <typename TObject, typename TSpec> inline typename Size< VectorSet_<TObject, TSpec> >::Type length(VectorSet_<TObject, TSpec> const &set);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_set.h"(164)
 template <typename TValue, typename TLess> inline typename Size<PriorityType<TValue, TLess, PriorityHeap> >::Type length( PriorityType<TValue, TLess, PriorityHeap> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/priority_type_heap.h"(114)
@@ -841,12 +643,6 @@ template <typename TValue, typename TLess> inline typename Size<PriorityType<TVa
 // lognormRand
 
 inline double lognormRand(double mean, double stddev);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_random.h"(280)
-
-//____________________________________________________________________________
-// longName
-
-inline CharString & longName(CommandLineOption & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(285)
-inline const CharString & longName(CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(290)
 
 //____________________________________________________________________________
 // mtRand
@@ -880,46 +676,23 @@ template <typename TSet> inline typename Object<TSet>::Type & objectOf(Iter<TSet
 //____________________________________________________________________________
 // open
 
-template <typename TFileName> inline bool open(SVGFile &svg, TFileName const &fileName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_svg.h"(164)
+template <typename TFileName> inline bool open(SVGFile &svg, TFileName const &fileName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_svg.h"(178)
 
 //____________________________________________________________________________
 // operator!=
 
-template <typename TObject, unsigned DISTANCE> inline bool operator!= ( Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const & a, Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const & b);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(841)
-template <typename TObject, unsigned DISTANCE> inline bool operator!= ( Iter<Enumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> const & a, Iter<Enumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> const & b);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(863)
 template <typename TSet> inline bool operator!=(Iter<TSet, VectorSetIterator__> const &a, Iter<TSet, VectorSetIterator__> const &b);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_set.h"(325)
-
-//____________________________________________________________________________
-// operator*
-
-template <typename TObject, typename TSpec > inline TObject const & operator* (Iter<Enumerator<TObject, TSpec>, Standard> & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(192)
-template <typename TObject, typename TSpec > inline TObject const & operator* (Iter<Enumerator<TObject, TSpec>, Standard> const & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(199)
-
-//____________________________________________________________________________
-// operator++
-
-template <typename TObject, unsigned DISTANCE > inline Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> & operator++ (Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(306)
-template <typename TObject, unsigned DISTANCE > inline Iter<Enumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> & operator++ (Iter<Enumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> &it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(599)
 
 //____________________________________________________________________________
 // operator<<
 
-template <typename TStream> inline TStream & operator<< (TStream & target, CommandLineOption const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(626)
-inline SVGFile & operator<< (SVGFile & target, char source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_svg.h"(392)
-inline SVGFile & operator<< (SVGFile & target, char const *source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_svg.h"(400)
+inline SVGFile & operator<< (SVGFile & target, char source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_svg.h"(406)
+inline SVGFile & operator<< (SVGFile & target, char const *source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_svg.h"(414)
 
 //____________________________________________________________________________
 // operator==
 
-template <typename TObject, unsigned DISTANCE> inline bool operator== ( Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const & a, Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const & b);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(791)
-template <typename TObject, unsigned DISTANCE> inline bool operator== ( Iter<Enumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> const & a, Iter<Enumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> const & b);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(813)
 template <typename TSet> inline bool operator==(Iter<TSet, VectorSetIterator__> const &a, Iter<TSet, VectorSetIterator__> const &b);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_set.h"(320)
-
-//____________________________________________________________________________
-// parse
-
-template <typename TErrorStream> bool parse(CommandLineParser & me, int argc, const char *argv[], TErrorStream & estream);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1277)
-inline bool parse(CommandLineParser & me, int argc, const char *argv[]);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1438)
 
 //____________________________________________________________________________
 // pop
@@ -952,11 +725,6 @@ template <typename TValue, typename TSpec> inline void pushBack(Dequeue<TValue, 
 template <typename TValue, typename TSpec> inline void pushFront(Dequeue<TValue, TSpec> &me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(279)
 
 //____________________________________________________________________________
-// requiredArguments
-
-inline void requiredArguments(CommandLineParser & me, unsigned count);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(920)
-
-//____________________________________________________________________________
 // reserve
 
 template <typename TValue, typename TSpec, typename TSize_, typename TExpand> inline typename Size<Dequeue<TValue, TSpec> >::Type reserve(Dequeue<TValue, TSpec> &me, TSize_ new_capacity, Tag<TExpand> const tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(356)
@@ -968,46 +736,19 @@ template <typename TValue, typename TCargo> TValue & rightBoundary(IntervalAndCa
 template <typename TValue, typename TCargo> TValue & rightBoundary(PointAndCargo<TValue,TCargo> & point);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_interval_tree.h"(608)
 
 //____________________________________________________________________________
-// setHelpText
+// svgResize
 
-inline void setHelpText(CommandLineOption & me, CharString const & newHelp);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(384)
-
-//____________________________________________________________________________
-// setLongName
-
-inline void setLongName(CommandLineOption & me, CharString const & newName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(307)
-
-//____________________________________________________________________________
-// setOptionType
-
-inline void setOptionType(CommandLineOption & me, const int _newOptionType);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(547)
-
-//____________________________________________________________________________
-// setShortName
-
-inline void setShortName(CommandLineOption & me, CharString const & newName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(346)
-
-//____________________________________________________________________________
-// shortHelp
-
-template <typename TStream> inline void shortHelp(CommandLineParser const & me, TStream & target);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(990)
-template <typename TStream> inline void shortHelp(CommandLineParser const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1001)
-
-//____________________________________________________________________________
-// shortName
-
-inline CharString & shortName(CommandLineOption & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(325)
-inline const CharString & shortName(CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(330)
+inline void svgResize(SVGFile &svg, int width, int height);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_svg.h"(124)
 
 //____________________________________________________________________________
 // svgWriteFooter
 
-inline void svgWriteFooter(SVGFile &svg);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_svg.h"(156)
+inline void svgWriteFooter(SVGFile &svg);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_svg.h"(170)
 
 //____________________________________________________________________________
 // svgWriteHeader
 
-inline void svgWriteHeader(SVGFile &svg);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_svg.h"(121)
+inline void svgWriteHeader(SVGFile &svg);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_svg.h"(130)
 
 //____________________________________________________________________________
 // top
@@ -1021,26 +762,277 @@ template <typename TValue, typename TLess> inline TValue const & top(PriorityTyp
 template <typename TValue, typename TSpec, typename TPos> inline TValue & value(Dequeue<TValue, TSpec> &me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(182)
 template <typename TValue, typename TSpec, typename TPos> inline TValue const & value(Dequeue<TValue, TSpec> const &me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_dequeue.h"(195)
 
-//____________________________________________________________________________
-// version
-
-template <typename TStream> inline void version(CommandLineParser const & me, TStream & target);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1115)
-inline void version(CommandLineParser const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(1121)
-
-//____________________________________________________________________________
-// write
-
-template <typename TStream> inline void write(TStream & target, CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_cmdparser.h"(614)
-
 } //namespace SEQAN_NAMESPACE_MAIN
 //////////////////////////////////////////////////////////////////////////////
 
 namespace seqan {
 
 //____________________________________________________________________________
+// HtmlToolDocPrinter_::print
+
+void HtmlToolDocPrinter_::print(std::ostream & stream, ToolDoc const & doc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(1069)
+
+//____________________________________________________________________________
+// ManToolDocPrinter_::print
+
+void ManToolDocPrinter_::print(std::ostream & stream, ToolDoc const & doc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(1216)
+
+//____________________________________________________________________________
+// TextToolDocPrinter_::print
+
+void TextToolDocPrinter_::print(std::ostream & stream, ToolDoc const & doc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(1156)
+
+//____________________________________________________________________________
+// _addMinMaxRestrictions
+
+inline void _addMinMaxRestrictions(StringSet<CharString> & restrictions, CommandLineOption const & opt);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser_ctd_support.h"(108)
+
+//____________________________________________________________________________
+// _addValidValuesRestrictions
+
+inline void _addValidValuesRestrictions(StringSet<CharString> & restrictions, CommandLineOption const & opt);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser_ctd_support.h"(132)
+
+//____________________________________________________________________________
+// _allMandatorySet
+
+inline bool _allMandatorySet(CommandLineParser const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(827)
+
+//____________________________________________________________________________
+// _assignOptionValue
+
+template <typename TErrorStream> bool _assignOptionValue(CommandLineParser & me, CommandLineOption & opt, CharString const & val, unsigned argNo, TErrorStream & estream);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1097)
+template <typename TErrorStream> bool _assignOptionValue(CommandLineParser & me, CommandLineOption & opt, CharString const & val, TErrorStream & estream);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1128)
+template <typename TErrorStream> bool _assignOptionValue(CommandLineParser & me, unsigned option_index, CharString const & val, unsigned argNo, TErrorStream & estream);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1136)
+template <typename TErrorStream> inline bool _assignOptionValue(CommandLineParser & me, unsigned option_index, CharString const & val, TErrorStream & estream);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1147)
+
+//____________________________________________________________________________
+// _checkMinMaxValue
+
+template <typename TValue, typename TErrorStream> bool _checkMinMaxValue(CommandLineOption const & opt, CharString const & val, TErrorStream & estream);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(989)
+
+//____________________________________________________________________________
+// _checkRestrictions
+
+template <typename TErrorStream> bool _checkRestrictions(CommandLineOption const & opt, CharString const & val, TErrorStream & estream);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1070)
+
+//____________________________________________________________________________
+// _checkValidValues
+
+template <typename TErrorStream> bool _checkValidValues(CommandLineOption const & opt, CharString const & val, TErrorStream & estream);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1030)
+
+//____________________________________________________________________________
+// _convertOptionValue
+
+inline bool _convertOptionValue(CommandLineOption const & opt, bool & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1211)
+inline bool _convertOptionValue(CommandLineOption const & opt, int & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1221)
+inline bool _convertOptionValue(CommandLineOption const & opt, unsigned int & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1231)
+inline bool _convertOptionValue(CommandLineOption const & opt, __int64 & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1241)
+inline bool _convertOptionValue(CommandLineOption const & opt, __uint64 & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1251)
+inline bool _convertOptionValue(CommandLineOption const & opt, float & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1261)
+inline bool _convertOptionValue(CommandLineOption const & opt, double & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1271)
+template <typename TObject> inline bool _convertOptionValue(CommandLineOption const & opt, TObject & dst, CharString const & src);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1282)
+
+//____________________________________________________________________________
+// _dataHost
+
+template <typename TText, typename TSpec> inline Holder<TText> & _dataHost(StringEnumerator<TText, TSpec> & enumerator);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(468)
+template <typename TText, typename TSpec> inline Holder<TText> const & _dataHost(StringEnumerator<TText, TSpec> const & enumerator);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(475)
+
+//____________________________________________________________________________
+// _getOptionIndex
+
+inline Size< String<CommandLineOption> >::Type _getOptionIndex(CommandLineParser const & me, CharString const & _name);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(412)
+
+//____________________________________________________________________________
+// _getOptionValue
+
+inline CharString const & _getOptionValue(CommandLineParser const & me, CommandLineOption const & opt, unsigned argNo);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1177)
+inline CharString const & _getOptionValue(CommandLineParser const & me, CommandLineOption const & opt);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1188)
+inline CharString const & _getOptionValue(CommandLineParser const & me, unsigned option_index, unsigned argNo);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1194)
+inline CharString const & _getOptionValue(CommandLineParser const & me, unsigned option_index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1201)
+
+//____________________________________________________________________________
+// _getOptionValues
+
+inline String<CharString> const & _getOptionValues(CommandLineParser const &, CommandLineOption const & opt);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1157)
+inline String<CharString> const & _getOptionValues(CommandLineParser const & me, unsigned option_index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1166)
+
+//____________________________________________________________________________
+// _includeInCTD
+
+inline bool _includeInCTD(CommandLineOption const & opt);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser_ctd_support.h"(161)
+
+//____________________________________________________________________________
+// _isDouble
+
+template <typename TString> inline bool _isDouble(TString const s);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser_type_support.h"(47)
+
+//____________________________________________________________________________
+// _isInt
+
+template <typename TString> inline bool _isInt(TString const s);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser_type_support.h"(60)
+
+//____________________________________________________________________________
+// _join
+
+template <typename TValue> inline CharString _join(StringSet<TValue> const & v, CharString const & delimiter);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser_ctd_support.h"(54)
+
+//____________________________________________________________________________
+// _parseAppName
+
+inline CharString _parseAppName(CharString const & candidate);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(841)
+
+//____________________________________________________________________________
+// _printStringSet
+
+template <typename TStringSet, typename TStream> inline void _printStringSet(TStringSet const & set, TStream & target);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(491)
+
+//____________________________________________________________________________
+// _printTitle
+
+template <typename TStream> inline void _printTitle(CommandLineParser const & me, TStream & target);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(541)
+
+//____________________________________________________________________________
+// _printUsage
+
+template <typename TStream> inline void _printUsage(CommandLineParser const & me, TStream & target);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(506)
+
+//____________________________________________________________________________
+// _reportInvalidFileType
+
+template <typename TErrorStream> inline void _reportInvalidFileType(CommandLineOption const & opt, CharString const & val, TErrorStream & estream);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(964)
+
+//____________________________________________________________________________
+// _reportInvalidOption
+
+template <typename TErrorStream> inline void _reportInvalidOption(CommandLineParser const & me, CharString const & option, TErrorStream & estream);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(902)
+
+//____________________________________________________________________________
+// _reportInvalidType
+
+template <typename TErrorStream> inline void _reportInvalidType(CommandLineParser const & me, CommandLineOption const & opt, CharString const & val, TErrorStream & estream);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(860)
+
+//____________________________________________________________________________
+// _reportInvalidValue
+
+template <typename TErrorStream> inline void _reportInvalidValue(CommandLineOption const & opt, CharString const & val, TErrorStream & estream);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(936)
+
+//____________________________________________________________________________
+// _reportMissingArgument
+
+template <typename TErrorStream> inline void _reportMissingArgument(CommandLineParser const & me, CommandLineOption const & opt, TErrorStream & estream);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(885)
+
+//____________________________________________________________________________
+// _reportValueNotInRange
+
+template <typename TErrorStream> inline void _reportValueNotInRange(CommandLineOption const & opt, CharString const & val, TErrorStream & estream);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(917)
+
+//____________________________________________________________________________
+// _writeOptName
+
+template <typename TStream> inline void _writeOptName(TStream & target, CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdoption.h"(540)
+
+//____________________________________________________________________________
+// _xmlEscape
+
+template <typename TSequence> inline TSequence _xmlEscape(TSequence const & original);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser_ctd_support.h"(82)
+
+//____________________________________________________________________________
+// addArgumentText
+
+inline CommandLineOption addArgumentText(CommandLineOption const & opt, CharString const & text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdoption.h"(235)
+
+//____________________________________________________________________________
+// addHelpLine
+
+template <typename TString> inline void addHelpLine(CommandLineParser & me, TString const & line);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(308)
+
+//____________________________________________________________________________
+// addLine
+
+template <typename TString> inline void addLine(CommandLineParser & me, TString const & line);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(285)
+
+//____________________________________________________________________________
+// addListItem
+
+inline void addListItem(ToolDoc & doc, CharString const & key, CharString const & value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(1013)
+
+//____________________________________________________________________________
+// addOption
+
+inline void addOption(CommandLineParser & me, CommandLineOption const & opt);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(236)
+
+//____________________________________________________________________________
+// addSection
+
+inline void addSection(ToolDoc & doc, CharString const & title);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(934)
+template <typename TString> inline void addSection(CommandLineParser & me, TString const & line);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(331)
+
+//____________________________________________________________________________
+// addSubSection
+
+inline void addSubSection(ToolDoc & doc, CharString const & title);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(956)
+
+//____________________________________________________________________________
+// addText
+
+inline void addText(ToolDoc & doc, CharString const & text, bool isParagraph);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(982)
+inline void addText(ToolDoc & doc, CharString const & text);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(987)
+
+//____________________________________________________________________________
+// addTitleLine
+
+template <typename TString> inline void addTitleLine(CommandLineParser & me, TString const & line);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(355)
+
+//____________________________________________________________________________
+// addUsageLine
+
+inline void addUsageLine(CommandLineParser & me, CharString const & line);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(402)
+
+//____________________________________________________________________________
+// addVersionLine
+
+template <typename TString> inline void addVersionLine(CommandLineParser & me, TString const & line);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(378)
+
+//____________________________________________________________________________
+// append
+
+inline void append(ToolDoc & a, ToolDoc const & b);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(679)
+
+//____________________________________________________________________________
+// argumentCount
+
+inline Size<String<CharString> >::Type argumentCount(CommandLineParser const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1535)
+
+//____________________________________________________________________________
+// argumentText
+
+inline CharString argumentText(CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdoption.h"(502)
+
+//____________________________________________________________________________
+// atBegin
+
+template <typename TObject, unsigned DISTANCE> inline void atBegin(Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(633)
+template <typename TObject, unsigned DISTANCE> inline bool atBegin(Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(641)
+
+//____________________________________________________________________________
+// atEnd
+
+template <typename TObject, unsigned DISTANCE> inline bool atEnd(Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(672)
+template <typename TObject, unsigned DISTANCE> inline bool atEnd(Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(689)
+template <typename TObject, unsigned DISTANCE> inline bool atEnd(Iter<StringEnumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> const & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(829)
+template <typename TObject, unsigned DISTANCE> inline bool atEnd(Iter<StringEnumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(846)
+
+//____________________________________________________________________________
 // average
 
 template <typename TValue> inline typename Result<Accumulator<TValue, Average>, Average>::Type average(Accumulator<TValue, Average> const & acc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_accumulators.h"(264)
+
+//____________________________________________________________________________
+// begin
+
+template <typename TObject, typename TSpec> inline Iter<StringEnumerator<TObject, TSpec>, Standard> begin(StringEnumerator<TObject, TSpec> & enumerator, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(488)
+template <typename TObject, typename TSpec> inline Iter<StringEnumerator<TObject, TSpec>, Standard> begin(StringEnumerator<TObject, TSpec> const & enumerator, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(495)
 
 //____________________________________________________________________________
 // clear
@@ -1059,9 +1051,20 @@ template <typename TWord> inline void clearBit(TWord & word, unsigned index);   
 template <typename TWord> inline void clearBits(TWord & word);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_bit_twiddling.h"(170)
 
 //____________________________________________________________________________
+// clearEntries
+
+inline void clearEntries(ToolDoc & doc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(1057)
+
+//____________________________________________________________________________
 // count
 
 template <typename TValue> inline typename Result<Accumulator<TValue, Average>, Count>::Type count(Accumulator<TValue, Average> const & acc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_accumulators.h"(311)
+
+//____________________________________________________________________________
+// end
+
+template <typename TObject, typename TSpec> inline Iter<StringEnumerator<TObject, TSpec>, Standard> end(StringEnumerator<TObject, TSpec> & enumerator, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(508)
+template <typename TObject, typename TSpec> inline Iter<StringEnumerator<TObject, TSpec>, Standard> end(StringEnumerator<TObject, TSpec> const & enumerator, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(517)
 
 //____________________________________________________________________________
 // findSet
@@ -1069,9 +1072,199 @@ template <typename TValue> inline typename Result<Accumulator<TValue, Average>, 
 template <typename TValue, typename TQuery> inline TValue findSet(UnionFind<TValue> & unionFind, TQuery const & query);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_union_find.h"(247)
 
 //____________________________________________________________________________
+// getArgumentValue
+
+inline CharString const & getArgumentValue(CommandLineParser const & me, unsigned position);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1490)
+
+//____________________________________________________________________________
+// getArgumentValues
+
+inline String<CharString> const & getArgumentValues(CommandLineParser const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1515)
+
+//____________________________________________________________________________
+// getDate
+
+inline CharString const & getDate(ToolDoc const & doc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(826)
+
+//____________________________________________________________________________
+// getManTitle
+
+inline CharString const & getManTitle(ToolDoc & doc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(912)
+
+//____________________________________________________________________________
+// getName
+
+inline CharString const & getName(ToolDoc const & doc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(740)
+
+//____________________________________________________________________________
+// getOption
+
+inline CommandLineOption & getOption(CommandLineParser & me, CharString const & _name);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(432)
+inline CommandLineOption const & getOption(CommandLineParser const & me, CharString const & _name);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(439)
+
+//____________________________________________________________________________
+// getOptionValue
+
+template <typename TValue> inline bool getOptionValue(CommandLineParser const & me, CharString const & name, unsigned argNo, TValue & val);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1313)
+template <typename TValue> inline bool getOptionValue(CommandLineParser const & me, CharString const & name, TValue & val);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1322)
+
+//____________________________________________________________________________
+// getOptionValueLong
+
+template <typename TValue> inline bool getOptionValueLong(CommandLineParser const & me, CharString const & longName, unsigned argNo, TValue & val);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1435)
+template <typename TValue> inline bool getOptionValueLong(CommandLineParser const & me, CharString const & longName, TValue & val);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1443)
+
+//____________________________________________________________________________
+// getOptionValueShort
+
+template <typename TValue> inline bool getOptionValueShort(CommandLineParser const & me, CharString const & shortName, unsigned argNo, TValue & val);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1374)
+template <typename TValue> inline bool getOptionValueShort(CommandLineParser const & me, CharString const & shortName, TValue & val);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1382)
+
+//____________________________________________________________________________
+// getOptionValues
+
+inline String<CharString> const & getOptionValues(CommandLineParser & me, CharString const & name);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1344)
+
+//____________________________________________________________________________
+// getOptionValuesLong
+
+inline String<CharString> const & getOptionValuesLong(CommandLineParser & me, CharString const & longName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1467)
+
+//____________________________________________________________________________
+// getOptionValuesShort
+
+inline String<CharString> const & getOptionValuesShort(CommandLineParser & me, CharString const & shortName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1406)
+
+//____________________________________________________________________________
+// getShortDescription
+
+inline CharString const & getShortDescription(ToolDoc const & doc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(783)
+
+//____________________________________________________________________________
+// getTerminalSize
+
+inline bool getTerminalSize(unsigned & cols, unsigned & rows);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_terminal.h"(160)
+inline bool getTerminalSize(unsigned & cols, unsigned & rows);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_terminal.h"(180)
+
+//____________________________________________________________________________
+// getVersion
+
+inline CharString const & getVersion(ToolDoc const & doc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(869)
+
+//____________________________________________________________________________
+// goBegin
+
+template <typename TObject, unsigned DISTANCE> inline void goBegin(Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(580)
+template <typename TObject, unsigned DISTANCE> inline void goBegin(Iter<StringEnumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(775)
+
+//____________________________________________________________________________
+// goEnd
+
+template <typename TObject, unsigned DISTANCE> inline void goEnd(Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(652)
+template <typename TObject, unsigned DISTANCE> inline void goEnd(Iter<StringEnumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(808)
+
+//____________________________________________________________________________
+// hasOption
+
+inline bool hasOption(CommandLineParser const & me, CharString const & _name);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(214)
+
+//____________________________________________________________________________
+// hasOptionLong
+
+inline bool hasOptionLong(CommandLineParser const & me, CharString const & _long);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(170)
+
+//____________________________________________________________________________
+// hasOptionShort
+
+inline bool hasOptionShort(CommandLineParser const & me, CharString const & _short);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(192)
+
+//____________________________________________________________________________
+// help
+
+template <typename TStream> inline void help(CommandLineParser const & me, TStream & target);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(698)
+inline void help(CommandLineParser const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(704)
+
+//____________________________________________________________________________
+// isAnsiColorTerminal
+
+inline bool isAnsiColorTerminal();       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_terminal.h"(114)
+inline bool isAnsiColorTerminal();       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_terminal.h"(121)
+
+//____________________________________________________________________________
 // isBitSet
 
 template <typename TWord> inline bool isBitSet(TWord const & word, unsigned index);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_bit_twiddling.h"(199)
+
+//____________________________________________________________________________
+// isBooleanOption
+
+inline bool isBooleanOption(CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdoption.h"(282)
+
+//____________________________________________________________________________
+// isDoubleOption
+
+inline bool isDoubleOption(CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdoption.h"(304)
+
+//____________________________________________________________________________
+// isHiddenOption
+
+inline bool isHiddenOption(CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdoption.h"(348)
+
+//____________________________________________________________________________
+// isInputFile
+
+inline bool isInputFile(CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdoption.h"(436)
+
+//____________________________________________________________________________
+// isIntOption
+
+inline bool isIntOption(CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdoption.h"(326)
+
+//____________________________________________________________________________
+// isLabelOption
+
+inline bool isLabelOption(CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdoption.h"(392)
+
+//____________________________________________________________________________
+// isOptionList
+
+inline bool isOptionList(CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdoption.h"(414)
+
+//____________________________________________________________________________
+// isOptionMandatory
+
+inline bool isOptionMandatory(CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdoption.h"(370)
+
+//____________________________________________________________________________
+// isOutputFile
+
+inline bool isOutputFile(CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdoption.h"(458)
+
+//____________________________________________________________________________
+// isSet
+
+inline bool isSet(CommandLineParser const & me, CharString const & name);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(776)
+
+//____________________________________________________________________________
+// isSetLong
+
+inline bool isSetLong(CommandLineParser & me, CharString const & longName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(817)
+
+//____________________________________________________________________________
+// isSetShort
+
+inline bool isSetShort(CommandLineParser & me, CharString const & shortName);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(797)
+
+//____________________________________________________________________________
+// isStringOption
+
+inline bool isStringOption(CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdoption.h"(260)
+
+//____________________________________________________________________________
+// isTerminal
+
+inline bool isTerminal();       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_terminal.h"(80)
+inline bool isTerminal();       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_terminal.h"(91)
 
 //____________________________________________________________________________
 // joinSets
@@ -1081,14 +1274,24 @@ template <typename TValue, typename TLeft, typename TRight> inline void joinSets
 //____________________________________________________________________________
 // length
 
+template <typename TObject, unsigned DISTANCE> inline typename Size<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> > >::Type length(StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(532)
+template <typename TObject, unsigned DISTANCE> inline typename Size<StringEnumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> > >::Type length(StringEnumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(967)
 inline size_t length(LongWord<NativeWidth> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_long_word.h"(144)
 template <unsigned LENGTH> size_t length(LongWord<StaticWidth<LENGTH> > const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_long_word.h"(276)
 size_t length(LongWord<DynamicWidth> const & a);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_long_word.h"(622)
 template <typename TValue> inline typename Size<UnionFind<TValue> >::Type length(UnionFind<TValue> const & unionFind);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_union_find.h"(171)
 
 //____________________________________________________________________________
+// memset
+
+template <unsigned SIZE> finline void memset(void* ptr, unsigned char c);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_memset.h"(145)
+template <unsigned SIZE, unsigned char c> finline void memset(void* ptr);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_memset.h"(208)
+
+//____________________________________________________________________________
 // operator!=
 
+template <typename TObject, unsigned DISTANCE> inline bool operator!=( Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const & a, Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const & b);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(1062)
+template <typename TObject, unsigned DISTANCE> inline bool operator!=( Iter<StringEnumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> const & a, Iter<StringEnumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> const & b);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(1120)
 template <unsigned LENGTH> bool operator!=(LongWord<StaticWidth<LENGTH> > const & a, LongWord<StaticWidth<LENGTH> > const & b);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_long_word.h"(297)
 bool operator!=(LongWord<DynamicWidth> const & a, LongWord<DynamicWidth> const & b);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_long_word.h"(641)
 
@@ -1106,6 +1309,18 @@ template <unsigned LENGTH> LongWord<StaticWidth<LENGTH> > & operator&=(LongWord<
 LongWord<DynamicWidth> & operator&=(LongWord<DynamicWidth> & a, LongWord<DynamicWidth> const & b);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_long_word.h"(701)
 
 //____________________________________________________________________________
+// operator*
+
+template <typename TObject, typename TSpec> inline TObject const & operator*(Iter<StringEnumerator<TObject, TSpec>, Standard> & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(562)
+template <typename TObject, typename TSpec> inline TObject const & operator*(Iter<StringEnumerator<TObject, TSpec>, Standard> const & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(569)
+
+//____________________________________________________________________________
+// operator++
+
+template <typename TObject, unsigned DISTANCE> inline Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> & operator++(Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(700)
+template <typename TObject, unsigned DISTANCE> inline Iter<StringEnumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> & operator++(Iter<StringEnumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> & it);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(857)
+
+//____________________________________________________________________________
 // operator<
 
 template <unsigned LENGTH> bool operator<(LongWord<StaticWidth<LENGTH> > const & a, LongWord<StaticWidth<LENGTH> > const & b);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_long_word.h"(338)
@@ -1116,6 +1331,7 @@ bool operator<(LongWord<DynamicWidth> const & a, LongWord<DynamicWidth> const & 
 
 template <unsigned LENGTH> LongWord<StaticWidth<LENGTH> > operator<<(LongWord<StaticWidth<LENGTH> > const & a, unsigned shift);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_long_word.h"(478)
 LongWord<DynamicWidth> operator<<(LongWord<DynamicWidth> const & a, unsigned shift);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_long_word.h"(803)
+template <typename TStream> inline TStream & operator<<(TStream & target, CommandLineOption const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdoption.h"(586)
 
 //____________________________________________________________________________
 // operator<<=
@@ -1133,6 +1349,8 @@ bool operator<=(LongWord<DynamicWidth> const & a, LongWord<DynamicWidth> const &
 //____________________________________________________________________________
 // operator==
 
+template <typename TObject, unsigned DISTANCE> inline bool operator==( Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const & a, Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const & b);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(1034)
+template <typename TObject, unsigned DISTANCE> inline bool operator==( Iter<StringEnumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> const & a, Iter<StringEnumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> const & b);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/edit_environment.h"(1090)
 template <unsigned LENGTH> bool operator==(LongWord<StaticWidth<LENGTH> > const & a, LongWord<StaticWidth<LENGTH> > const & b);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_long_word.h"(283)
 bool operator==(LongWord<DynamicWidth> const & a, LongWord<DynamicWidth> const & b);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_long_word.h"(628)
 
@@ -1188,9 +1406,40 @@ template <unsigned LENGTH> LongWord<StaticWidth<LENGTH> > & operator|=(LongWord<
 LongWord<DynamicWidth> & operator|=(LongWord<DynamicWidth> & a, LongWord<DynamicWidth> const & b);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_long_word.h"(683)
 
 //____________________________________________________________________________
+// parse
+
+template <typename TErrorStream> bool parse(CommandLineParser & me, int argc, const char * argv[], TErrorStream & estream);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser_parse.h"(65)
+inline bool parse(CommandLineParser & me, int argc, const char * argv[]);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser_parse.h"(221)
+
+//____________________________________________________________________________
+// print
+
+inline void print(std::ostream & stream, ToolDoc const & doc, CharString const & format);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(1037)
+
+//____________________________________________________________________________
+// printHelp
+
+template <typename TStream> inline void printHelp(CommandLineParser const & me, TStream & target);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(618)
+
+//____________________________________________________________________________
+// printShortHelp
+
+template <typename TStream> inline void printShortHelp(CommandLineParser const & me, TStream & target);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(563)
+
+//____________________________________________________________________________
+// printVersion
+
+template <typename TStream> inline void printVersion(CommandLineParser const & me, TStream & target);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(727)
+
+//____________________________________________________________________________
 // push
 
 template <typename TValue, typename TValue2> inline void push(Accumulator<TValue, Average> & acc, TValue2 value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_accumulators.h"(240)
+
+//____________________________________________________________________________
+// requiredArguments
+
+inline void requiredArguments(CommandLineParser & me, unsigned count);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(480)
 
 //____________________________________________________________________________
 // reserve
@@ -1225,9 +1474,85 @@ template <typename TWord> inline void setBit(TWord & word, unsigned index);     
 template <typename TWord> inline void setBitTo(TWord & word, unsigned index, bool value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_bit_twiddling.h"(87)
 
 //____________________________________________________________________________
+// setDate
+
+inline void setDate(ToolDoc & doc, CharString const & date);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(805)
+
+//____________________________________________________________________________
+// setManTitle
+
+inline void setManTitle(ToolDoc & doc, CharString const & title);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(891)
+
+//____________________________________________________________________________
+// setMaxValue
+
+inline void setMaxValue(CommandLineOption & me, const CharString _maxValue);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdoption.h"(632)
+inline void setMaxValue(CommandLineParser & me, CharString const & name, CharString const & _maxValue);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1582)
+
+//____________________________________________________________________________
+// setMinValue
+
+inline void setMinValue(CommandLineOption & me, const CharString _minValue);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdoption.h"(609)
+inline void setMinValue(CommandLineParser & me, CharString const & name, CharString const & _minValue);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1557)
+
+//____________________________________________________________________________
+// setName
+
+inline void setName(ToolDoc & doc, CharString const & name);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(719)
+
+//____________________________________________________________________________
+// setOptionType
+
+inline void setOptionType(CommandLineOption & me, const int _newOptionType);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdoption.h"(480)
+
+//____________________________________________________________________________
+// setRequiredArguments
+
+inline void setRequiredArguments(CommandLineParser & me, unsigned count);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(461)
+
+//____________________________________________________________________________
+// setShortDescription
+
+inline void setShortDescription(ToolDoc & doc, CharString const & shortDescription);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(762)
+
+//____________________________________________________________________________
+// setValidValues
+
+inline void setValidValues(CommandLineOption & me, StringSet<CharString> const & _values);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdoption.h"(655)
+inline void setValidValues(CommandLineParser & me, CharString const & name, StringSet<CharString> const & _values);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1607)
+inline void setValidValues(CommandLineParser & me, CharString const & name, CharString const & _values);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(1615)
+
+//____________________________________________________________________________
+// setVersion
+
+inline void setVersion(ToolDoc & doc, CharString const & version);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/tool_doc.h"(848)
+
+//____________________________________________________________________________
+// shortHelp
+
+template <typename TStream> inline void shortHelp(CommandLineParser const & me, TStream & target);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(588)
+template <typename TStream> inline void shortHelp(CommandLineParser const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(595)
+
+//____________________________________________________________________________
 // sum
 
 template <typename TValue> inline typename Result<Accumulator<TValue, Average>, Sum>::Type sum(Accumulator<TValue, Average> const & acc);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/misc_accumulators.h"(289)
+
+//____________________________________________________________________________
+// version
+
+template <typename TStream> inline void version(CommandLineParser const & me, TStream & target);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(748)
+inline void version(CommandLineParser const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser.h"(754)
+
+//____________________________________________________________________________
+// write
+
+template <typename TStream> inline void write(TStream & target, CommandLineOption const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdoption.h"(570)
+
+//____________________________________________________________________________
+// writeCTD
+
+inline void writeCTD(CommandLineParser const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/misc/cmdparser/cmdparser_ctd_support.h"(181)
 
 } //namespace seqan
 //////////////////////////////////////////////////////////////////////////////

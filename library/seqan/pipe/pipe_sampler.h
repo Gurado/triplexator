@@ -300,6 +300,11 @@ The m-tuples are substrings of the input stream beginning at positions $i$, with
 
 //////////////////////////////////////////////////////////////////////////////
 
+    template < typename TInput, unsigned m, typename TCompression, typename TPair, typename TLimitsString >
+    struct Size< Pipe<TInput, Multi<Sampler<m, TCompression>, TPair, TLimitsString> > >
+    {
+        typedef typename Value<TLimitsString>::Type Type;
+    };
 
     //////////////////////////////////////////////////////////////////////////////
     // sampler class

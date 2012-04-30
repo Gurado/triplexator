@@ -63,7 +63,7 @@ namespace SEQAN_NAMESPACE_MAIN
     };
 
     template < typename TConfig = MMapConfig<> >
-    struct MMap;
+    struct MMap {};
 //IOREV
 	
 	
@@ -329,14 +329,14 @@ SEQAN_CHECKPOINT
     struct Size< String<TValue, MMap<TConfig> > >
     {
 //IOREV
-        typedef size_t Type;
+        typedef typename TConfig::TSize Type;
     };
 
     template < typename TValue, typename TConfig >
     struct Difference< String<TValue, MMap<TConfig> > >
     {
 //IOREV
-		typedef typename MakeSigned_<size_t>::Type Type;
+		typedef typename MakeSigned_<typename TConfig::TSize>::Type Type;
     };
 //____________________________________________________________________________
 

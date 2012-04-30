@@ -43,16 +43,13 @@ namespace SEQAN_NAMESPACE_MAIN
 
     struct LcpConfig
     {
-        enum { DefaultWindowSize		= 512 * 1024*1024,	// 512 MB
-               DefaultAbsoluteSizes     = true };
-
-		unsigned windowSize;
-        bool     absoluteSizes;     // when false, sizes are measured in units of TValue
-                                    // when true, sizes are measured in bytes
+		unsigned long   windowSize;
+        bool            absoluteSizes;  // if false, sizes are measured in units of TValue
+                                        // if true, sizes are measured in bytes
 
 		LcpConfig():
-            windowSize(DefaultWindowSize),
-            absoluteSizes(DefaultAbsoluteSizes) {}
+            windowSize((sizeof(long) == 4)? 1ul << 30: 1ul << 31),
+            absoluteSizes(true) {}
 
 		template < typename TValue >
         void absolutize(TValue *) {
@@ -268,7 +265,7 @@ namespace SEQAN_NAMESPACE_MAIN
 			TSize newOverlap = windowEnd;
             #ifdef SEQAN_DEBUG_INDEX
 				::std::cerr << ::std::hex << "  read window[" << windowBegin << "," << windowEnd;
-				::std::cerr << ") overlay " << overlap << " rest " << rest << ::std::dec << ::std::endl;
+				::std::cerr << ") overlay " << overlap << " rest " << rest << ::std::dec << " size:"<< sizeof(TSize)<<::std::endl;
             #endif
             rest -= windowSize;
 

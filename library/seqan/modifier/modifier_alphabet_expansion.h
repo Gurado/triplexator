@@ -171,7 +171,17 @@ SEQAN_CHECKPOINT
 };
 
 
+//////////////////////////////////////////////////////////////////////////////
+// unknownValueImpl()
+//////////////////////////////////////////////////////////////////////////////
 
+template <typename THost, char CHAR, typename TSpec>
+inline ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> >
+unknownValueImpl(ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> > *)
+{
+    static const ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> > n = 'N';
+    return n;
+}
 
 //////////////////////////////////////////////////////////////////////////////
 // sizes

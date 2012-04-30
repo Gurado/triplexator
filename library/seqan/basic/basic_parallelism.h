@@ -1,7 +1,7 @@
 // ==========================================================================
 //                 SeqAn - The Library for Sequence Analysis
 // ==========================================================================
-// Copyright (c) 2006-2010, Knut Reinert, FU Berlin
+// Copyright (c) 2006-2012, Knut Reinert, FU Berlin
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -31,14 +31,14 @@
 // ==========================================================================
 // Author: Manuel Holtgrewe <manuel.holtgrewe@fu-berlin.de>
 // ==========================================================================
-// This module contains simple, generic support code for parallelism in
-// SeqAn. It mainly defines the macro SEQAN_ENABLE_PARALLELISM.
+// This sub module contains simple, generic support code for parallelism in
+// SeqAn.
+//
+// It mainly defines the macro SEQAN_ENABLE_PARALLELISM.
 // ==========================================================================
 
-// TODO(holtgrew): Move this somewhere else maybe?
-
-#ifndef SEQAN_BASIC_BASIC_PARALLELISM_H_
-#define SEQAN_BASIC_BASIC_PARALLELISM_H_
+#ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_BASIC_PARALLELISM_H_
+#define SEQAN_CORE_INCLUDE_SEQAN_BASIC_BASIC_PARALLELISM_H_
 
 /**
 .Macro.SEQAN_ENABLE_PARALLELISM
@@ -66,4 +66,4 @@ int main(int argc, char ** argv)
 #endif  // defined(_OPENMP)
 #endif  // !defined(SEQAN_ENABLE_PARALLELISM)
 
-#endif  // SEQAN_BASIC_BASIC_PARALLELISM_H_
+#endif  // SEQAN_CORE_INCLUDE_SEQAN_BASIC_BASIC_PARALLELISM_H_

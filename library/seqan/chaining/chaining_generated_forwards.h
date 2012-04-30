@@ -554,7 +554,7 @@ template <typename TObject, typename TModus, typename TSpec, typename TStructuri
 //____________________________________________________________________________
 // _deleteBase
 
-template <typename TObject, typename TSpec, typename TStructuring > void _deleteBase( SkipList< TObject, SkipListDynamic, TSpec, TStructuring > & list, SkipBaseElement< TObject, SkipListDynamic, TSpec, TStructuring > *& base );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/chaining/skip_list_dynamic.h"(354)
+template <typename TObject, typename TSpec, typename TStructuring > void _deleteBase( SkipList< TObject, SkipListDynamic, TSpec, TStructuring > & list, SkipBaseElement< TObject, SkipListDynamic, TSpec, TStructuring > *& base );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/chaining/skip_list_dynamic.h"(353)
 
 //____________________________________________________________________________
 // _deleteChainTrees
@@ -564,12 +564,12 @@ template <typename TTrees, typename TSize > void _deleteChainTrees( TTrees & tre
 //____________________________________________________________________________
 // _deleteSearchFrom
 
-template <typename TObject, typename TSpec, typename TStructuring, typename TParam > SkipBaseElement< TObject, SkipListDynamic, TSpec, TStructuring > * _deleteSearchFrom( SkipList< TObject, SkipListDynamic, TSpec, TStructuring > & list, typename Key< SkipList< TObject, SkipListDynamic, TSpec, TStructuring > >::Type theKey, SkipElement< TObject, SkipListDynamic, TSpec, TStructuring > ** search_path, TParam & param );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/chaining/skip_list_dynamic.h"(269)
+template <typename TObject, typename TSpec, typename TStructuring, typename TParam > SkipBaseElement< TObject, SkipListDynamic, TSpec, TStructuring > * _deleteSearchFrom( SkipList< TObject, SkipListDynamic, TSpec, TStructuring > & list, typename Key< SkipList< TObject, SkipListDynamic, TSpec, TStructuring > >::Type theKey, SkipElement< TObject, SkipListDynamic, TSpec, TStructuring > ** search_path, TParam & param );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/chaining/skip_list_dynamic.h"(268)
 
 //____________________________________________________________________________
 // _deleteTower
 
-template <typename TObject, typename TSpec, typename TStructuring > void _deleteTower( SkipList< TObject, SkipListDynamic, TSpec, TStructuring > & list, SkipElement< TObject, SkipListDynamic, TSpec, TStructuring > ** search_path, SkipBaseElement< TObject, SkipListDynamic, TSpec, TStructuring > * base, typename Size< SkipList< TObject, SkipListDynamic, TSpec, TStructuring > >::Type height );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/chaining/skip_list_dynamic.h"(330)
+template <typename TObject, typename TSpec, typename TStructuring > void _deleteTower( SkipList< TObject, SkipListDynamic, TSpec, TStructuring > & list, SkipElement< TObject, SkipListDynamic, TSpec, TStructuring > ** search_path, SkipBaseElement< TObject, SkipListDynamic, TSpec, TStructuring > * base, typename Size< SkipList< TObject, SkipListDynamic, TSpec, TStructuring > >::Type height );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/chaining/skip_list_dynamic.h"(329)
 
 //____________________________________________________________________________
 // _endDefault
@@ -1204,10 +1204,10 @@ template <typename TObject, typename TModus, typename TSpec, typename TStructuri
 //____________________________________________________________________________
 // erase
 
-template <typename TObject, typename TModus, typename TSpec, typename TStructuring, typename TKey > bool erase( SkipList< TObject, TModus, TSpec, TStructuring > & , TKey );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/chaining/skip_list_dynamic.h"(376)
-template <typename TObject, typename TSpec, typename TStructuring, typename TKey > bool erase( SkipList< TObject, SkipListDynamic, TSpec, TStructuring > & list, TKey theKey );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/chaining/skip_list_dynamic.h"(385)
-template <typename TObject, typename TModus, typename TSpec, typename TStructuring > bool erase( SkipList< TObject, TModus, TSpec, TStructuring > & , TObject & );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/chaining/skip_list_dynamic.h"(407)
-template <typename TObject, typename TSpec, typename TStructuring > bool erase( SkipList< TObject, SkipListDynamic, TSpec, TStructuring > & list, TObject & obj );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/chaining/skip_list_dynamic.h"(418)
+template <typename TObject, typename TModus, typename TSpec, typename TStructuring, typename TKey > bool erase( SkipList< TObject, TModus, TSpec, TStructuring > & , TKey );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/chaining/skip_list_dynamic.h"(375)
+template <typename TObject, typename TSpec, typename TStructuring, typename TKey > bool erase( SkipList< TObject, SkipListDynamic, TSpec, TStructuring > & list, TKey theKey );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/chaining/skip_list_dynamic.h"(384)
+template <typename TObject, typename TModus, typename TSpec, typename TStructuring > bool erase( SkipList< TObject, TModus, TSpec, TStructuring > & , TObject & );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/chaining/skip_list_dynamic.h"(406)
+template <typename TObject, typename TSpec, typename TStructuring > bool erase( SkipList< TObject, SkipListDynamic, TSpec, TStructuring > & list, TObject & obj );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/chaining/skip_list_dynamic.h"(417)
 
 //____________________________________________________________________________
 // fac

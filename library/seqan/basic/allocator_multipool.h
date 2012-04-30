@@ -1,7 +1,7 @@
 // ==========================================================================
 //                 SeqAn - The Library for Sequence Analysis
 // ==========================================================================
-// Copyright (c) 2006-2010, Knut Reinert, FU Berlin
+// Copyright (c) 2006-2012, Knut Reinert, FU Berlin
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -36,6 +36,8 @@
 
 #ifndef SEQAN_BASIC_BASIC_ALLOCATOR_MULTIPOOL_H_
 #define SEQAN_BASIC_BASIC_ALLOCATOR_MULTIPOOL_H_
+
+#include <seqan/basic/allocator_interface.h>
 
 namespace seqan {
 
@@ -85,7 +87,7 @@ struct Allocator<MultiPool<TParentAllocator, BLOCKING_LIMIT_> >
     char * data_recycled_blocks [BLOCKING_COUNT];
     char * data_current_begin [BLOCKING_COUNT];
     char * data_current_free [BLOCKING_COUNT];
-    Holder<TParentAllocator> data_parent_allocator;
+    Holder<TParentAllocator, Tristate> data_parent_allocator;
 
     Allocator()
     {

@@ -64,9 +64,9 @@ namespace SEQAN_NAMESPACE_MAIN
 {
 
 	void _setupCommandLineParser(CommandLineParser & parser, Options & options){
-		::std::string rev = "$Revision: 10987 $";
-		addVersionLine(parser, "Version 1.2.0 (05/01/2012) SeqAn Revision: " + rev.substr(11, 4) + "");
-		append(options.version, "Version 1.2.0 (05/01/2012) SeqAn Revision: " + rev.substr(11, 4) + "");
+		::std::string rev = "$Revision: 11739 $";
+		addVersionLine(parser, "Version 1.2.1 (30/05/2012) SeqAn Revision: " + rev.substr(11, 4) + "");
+		append(options.version, "Version 1.2.1 (30/05/2012) SeqAn Revision: " + rev.substr(11, 4) + "");
 		
 		addTitleLine(parser, "***********************************************************************************");
 		addTitleLine(parser, "*** Triplexator - Finding nucleic acid triple helices with approximate matching ***");
@@ -713,7 +713,7 @@ namespace SEQAN_NAMESPACE_MAIN
 		StringSet<CharString> 	duplexNames;	// tts names, taken from the Fasta file
 		String< Pair<CharString, unsigned> >  ttsnoToFileMap;
 		typedef Repeat<unsigned, unsigned>						TRepeat;
-		typedef std::list<TRepeat>								TRepeatString; //@TODO workaround for memory leak in seqan string
+		typedef String<TRepeat>									TRepeatString;
 		typedef typename Iterator<TRepeatString, Rooted>::Type	TRepeatIterator;
 		
 		// circumvent numerical obstacles
@@ -772,7 +772,7 @@ namespace SEQAN_NAMESPACE_MAIN
 			
 			// find low complexity regions and mask sequences if requested
 			if (options.filterRepeats){
-				TRepeatString	data_repeats;
+				TRepeatString data_repeats;
 				findRepeats(data_repeats, *it, options.minRepeatLength, options.maxRepeatPeriod);
 				for (TRepeatIterator rbeg = begin(data_repeats); rbeg != end(data_repeats); ++rbeg){
 					TRepeat repeat = *rbeg;
@@ -882,7 +882,7 @@ namespace SEQAN_NAMESPACE_MAIN
 											 Options &options)
 	{
 		typedef Repeat<unsigned, unsigned>						TRepeat;
-		typedef std::list<TRepeat>								TRepeatString; //@TODO workaround for memory leak in seqan string
+		typedef String<TRepeat>									TRepeatString;
 		typedef typename Iterator<TRepeatString, Rooted>::Type	TRepeatIterator;
 		typedef ::std::vector<unsigned>							THitList;
 		typedef TriplexPotential<TId>							TPotential;
@@ -1013,7 +1013,7 @@ namespace SEQAN_NAMESPACE_MAIN
 											Options &options)
 	{
 		typedef Repeat<unsigned, unsigned>						TRepeat;
-		typedef std::list<TRepeat>								TRepeatString; //@TODO workaround for memory leak in seqan string
+		typedef String<TRepeat>									TRepeatString;
 		typedef typename Iterator<TRepeatString, Rooted>::Type	TRepeatIterator;
 		typedef typename Iterator<TTriplexSet, Standard>::Type 	TIter;
 		typedef typename Iterator<TTargetSet, Standard>::Type 	TTIter;	
@@ -1258,7 +1258,7 @@ namespace SEQAN_NAMESPACE_MAIN
 		typedef typename Iterator<TOligoSet, Standard>::Type 	TOligoIter;
 		typedef typename Iterator<TMotifSet, Standard>::Type	Titer;
 		typedef Repeat<unsigned, unsigned>						TRepeat;
-		typedef std::list<TRepeat>								TRepeatString; //@TODO workaround for memory leak in seqan string
+		typedef String<TRepeat>									TRepeatString;
 		typedef typename Iterator<TRepeatString, Rooted>::Type	TRepeatIterator;
 		typedef TriplexPotential<TId>							TPotential;
 		typedef typename ::std::list<TPotential>				TPotentials;

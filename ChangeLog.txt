@@ -2,6 +2,10 @@
 * Changelog
 *******************
 
+2012-05-30  Fabian Buske	v1.2.1
+	Updated repeat finder directives to seqan rev 11739
+	Updated alphabet directives to seqan rev 11739
+
 2012-01-05  Fabian Buske	v1.2.0
 	Added feature: maximum guanine rate for targets can be specified (--max_guanine)
 	Refactoring: percent-guanine parameter changed to --min_guanine

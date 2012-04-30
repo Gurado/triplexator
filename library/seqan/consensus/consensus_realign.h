@@ -608,7 +608,7 @@ reAlign(FragmentStore<TSpec, TConfig>& fragStore,
     // beginTime = sysTime();
 	// Create the consensus sequence
 	TSize gapPos = ValueSize<TAlphabet>::VALUE;
-	typedef ProfileType<TAlphabet> TProfile;
+	typedef ProfileChar<TAlphabet> TProfile;
 	typedef String<TProfile> TProfileString;
 	typedef typename Iterator<TProfileString, Standard>::Type TConsIter;
 	TProfileString consensus;

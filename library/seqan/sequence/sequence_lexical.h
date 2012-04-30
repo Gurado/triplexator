@@ -94,7 +94,7 @@ struct DefaultPrefixOrder
 ...default:$size_t$
 ..remarks:
 ...text:This class implement comparator objects that perform (lexical) comparisons between two sequences.
-The result of the comparison is stored in the data members of the instance an can be
+The result of the comparison is stored in the data members of the instance and can be
 accessed by some functions, for example @Function.isLess@ or @Function.isEqual@.
 ...text:In most cases, there is no need for an explicite use of comparators,
 but sometimes this concept provide the opportunity to speed up the code.
@@ -784,51 +784,6 @@ lcpLength(Lexical<TSpec> const & _lex)
 SEQAN_CHECKPOINT
     return _lex.data_lcp;
 }
-
-//////////////////////////////////////////////////////////////////////////////
-// ordValue
-//////////////////////////////////////////////////////////////////////////////
-
-// TODO(holtgrew): Why is this the place for the definition of ordValue? Should this not go into the alphabet interface header? #838
-
-/**
-.Function.ordValue:
-..summary:Maps an alphabet 1-to-1 to the interval [0..ValueSize).
-..cat:Alphabets
-..signature:ordValue(value)
-..param.value:Arbitrary character value.
-...type:Class.SimpleType
-..returns:An $unsigned int$ between 0 and @Metafunction.ValueSize@ of the type of value.
-..note:This function first converts value to its unsigned value type and after that to an $unsigned int$.
-You can't use $(unsigned int)c$ for a character $c$ as on some systems $char$ is signed and a $-1$ would be mapped to $0xffffffff$ instead of $0x000000ff$.
-..include:seqan/sequence.h
-*/
-
-template <typename TValue>
-inline unsigned ordValue(TValue const & c)
-{
-	return convert<unsigned>(static_cast<typename MakeUnsigned_<TValue>::Type const &>(c));
-}
-
-template <typename TValue, typename TSpec>
-inline unsigned ordValue(SimpleType<TValue, TSpec> const & c)
-{
-	return convert<unsigned>(c);
-}
-
-template <typename TValue>
-inline unsigned _internalOrdValue(TValue const & c)
-{
-	return ordValue(c);
-}
-
-template <typename TValue, typename TSpec>
-inline unsigned _internalOrdValue(SimpleType<TValue, TSpec> const & c)
-{
-	return c.value;
-}
-
-//////////////////////////////////////////////////////////////////////////////
 
 } //namespace SEQAN_NAMESPACE_MAIN
 

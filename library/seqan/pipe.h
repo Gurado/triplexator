@@ -37,7 +37,7 @@
 // prerequisites
 
 #include <seqan/file.h>
-#include <seqan/basic/basic_volatile_ptr.h>
+#include <seqan/basic.h>
 
 #include <cstdio>
 #include <cassert>

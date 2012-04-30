@@ -29,855 +29,1115 @@
 // DAMAGE.
 //
 // ==========================================================================
+// Author: David Weese <david.weese@fu-berlin.de>
+// ==========================================================================
+// Utility code for enumerating all strings in edit or Hamming distance
+// around a given string.
+// ==========================================================================
 
-#ifndef SEQAN_HEADER_MISC_EDIT_ENVIRONMENT_H
-#define SEQAN_HEADER_MISC_EDIT_ENVIRONMENT_H
+// TODO(holtgrew): It would be nice if the maximal distance would be given as a run time parameter.
+// TODO(holtgrew): Document iterator?
 
-namespace SEQAN_NAMESPACE_MAIN
+#ifndef SEQAN_CORE_INCLUDE_MISC_EDIT_ENVIRONMENT_H_
+#define SEQAN_CORE_INCLUDE_MISC_EDIT_ENVIRONMENT_H_
+
+namespace seqan {
+
+// ==========================================================================
+// Forwards
+// ==========================================================================
+
+template <typename TDistanceSpec, unsigned DISTANCE /*= 1*/>
+struct EditEnvironment;
+
+// ==========================================================================
+// Tags, Classes, Enums
+// ==========================================================================
+
+// --------------------------------------------------------------------------
+// Class StringEnumerator
+// --------------------------------------------------------------------------
+
+/**
+.Class.StringEnumerator
+..cat:Miscalleneous
+..summary:Class to enumerate all strings within a given edit/Hamming distance.
+..signature:StringEnumerator<TString, TSpec>
+..param.TString:Type of the string to enumerate the environment of.
+..param.TSpec:Specialization.
+..example.text:
+..include:seqan/misc/edit_environment.h
+
+.Memfunc.StringEnumerator#StringEnumerator
+..class:Class.StringEnumerator
+..summary:Constructor
+..signature:StringEnumerator(string[, minDist])
+..param.string:The string to use as the center.
+...type:nolink:$TString$
+..param.minDist:The smallest distance to generate strings with.
+...type:nolink:$unsigned$
+...default:0
+
+.Memvar.StringEnumerator#trim
+..class:Class.StringEnumerator
+..summary:Indicate whether to ignore substitutions in first or last character of string in Levenshtein mode (optimization for approximate search).
+..signature:trim
+..remarks:
+This is useful when searching for such enumerated strings in large texts.
+Patterns with substitutions in the first base would also be found
+..default:$true$
+
+.Spec.Hamming StringEnumerator
+..general:Class.StringEnumerator
+..cat:Miscalleneous
+..summary:Enumerate all strings within a given edit distance of a "center string".
+..signature:StringEnumerator<TString, EditEnvironment<HammingDistance, DISTANCE> >
+..param.TString:Type of the string to enumerate the environment of.
+..param.DISTANCE:The maximal distance to generate strings with.
+...type:nolink:$unsigned$
+..remarks:See @Class.StringEnumerator@ for examples.
+..include:seqan/misc/edit_environment.h
+
+.Spec.Levenshtein StringEnumerator
+..general:Class.StringEnumerator
+..cat:Miscalleneous
+..summary:Enumerate all strings within a given edit distance of a "center string".
+..signature:StringEnumerator<TString, EditEnvironment<LevenshteinDistance, DISTANCE> >
+..param.TString:Type of the string to enumerate the environment of.
+..param.DISTANCE:The maximal distance to generate strings with.
+...type:nolink:$unsigned$
+..remarks:See @Class.StringEnumerator@ for examples.
+..remarks:Note that the @Function.length@ function does not work for $DISTANCE > 2$.
+..include:seqan/misc/edit_environment.h
+ */
+
+template <typename TObject, typename TSpec>
+class StringEnumerator
 {
+public:
+    Holder<TObject> data_host;
+    unsigned        minDist;
+    bool            trim;
 
-    template < typename TDistanceSpec, unsigned DISTANCE /*= 1*/ >
-    struct EditEnvironment;
+    StringEnumerator(TObject & _original) : data_host(_original), minDist(0), trim(true)
+    {}
 
-//////////////////////////////////////////////////////////////////////////////
-/*DUBLICATED DOCUMENTATION, SEE pipe_edit_environment.h
-.Spec.EditEnvironment:
-..cat:Pipelining
-..general:Class.Pipe
-..summary:Outputs tuples of the $tupleLen$ consecutive elements of the input stream.
-..signature:Pipe<TInput, Tupler<tupleLen, omitLast> >
-..param.TInput:The type of the pipeline module this module reads from.
-..param.tupleLen:The tuple length.
-...remarks:The tuples contain elements $in[i]in[i+1]...in[i+(tupleLen-1)]$.
-..param.omitLast:Omit half filled tuples.
-..param.omitLast:If $true$, the output stream is $tupleLen-1$ elements shorter than the input stream.
-..param.omitLast:If $false$, the lengths are identical and the last tuples are filled with blanks (default constructed elements) for undefined entries.
-..remarks:The output type is a @Class.Tuple@ of input elements and length $tupleLen$ (i.e. $Tuple<Value<TInput>::Type, tupleLen>$).
-..remarks:The tuples are sequences of the form $in[i]in[i-1]in[i-2]..in[i-tupleLen+1]$. For $omitLast=false$ $i$ begins with 0 and for $omitLast=true$ $i$ begins with $tupleLen-1$.
-..include:seqan/misc.h
-*/
+    StringEnumerator(TObject & _original, unsigned _minDist) : data_host(_original), minDist(_minDist), trim(true)
+    {}
 
-    template < typename TObject, typename TSpec >
-    class Enumerator
-    {
-	public:
-		Holder<TObject> data_host;
-		unsigned		minDist;
-		bool			trim;
+    StringEnumerator(TObject const & _original) : data_host(_original), minDist(0), trim(true)
+    {}
 
-        Enumerator(TObject& _original):
-            data_host(_original),
-			minDist(0),
-			trim(true) {}
+    StringEnumerator(TObject const & _original, unsigned _minDist) : data_host(_original), minDist(_minDist), trim(true)
+    {}
+};
 
-		Enumerator(TObject& _original, unsigned _minDist):
-            data_host(_original),
-			minDist(_minDist),
-			trim(true) {}
-	};
-		
-	template <typename TObject, typename TSpec>
-	struct Value< Enumerator<TObject, TSpec> >:
-		Value<TObject> {};
+// --------------------------------------------------------------------------
+// Spec EditEnvironment Iter for Hamming Distance
+// --------------------------------------------------------------------------
 
-	template <typename TObject, typename TSpec>
-	struct Reference< Enumerator<TObject, TSpec> > {
-		typedef TObject & Type;
-	};
+template <typename TSize>
+struct StringEnumeratorHammingModifier_
+{
+    TSize       errorPos;           // position of substitution
+    unsigned    character;          // replacement character
+    unsigned    skipChar;           // skip the original character
+};
 
-	template <typename TObject, typename TSpec>
-	struct Reference< Enumerator<TObject, TSpec> const > {
-		typedef TObject const & Type;
-	};
+template <typename TObject, unsigned DISTANCE>
+class Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard>
+{
+public:
+    typedef typename Value<TObject>::Type           TValue;
+    typedef typename Size<TObject>::Type            TSize;
+    typedef typename MakeSigned_<TSize>::Type       TSignedSize;
+    typedef StringEnumeratorHammingModifier_<TSignedSize> TModifier;
 
-	template <typename TObject, typename TSpec>
-	struct Size< Enumerator<TObject, TSpec> >:
-		Size<TObject> {};
-
-	template <typename TObject, typename TSpec>
-	struct Difference< Enumerator<TObject, TSpec> >:
-		Difference<TObject> {};
-
-	template <typename TObject, typename TSpec>
-	struct Position< Enumerator<TObject, TSpec> >:
-		Position<TObject> {};
-
-	template <typename TObject, typename TSpec>
-	struct Iterator< Enumerator<TObject, TSpec>, Standard > {
-		typedef Iter< Enumerator<TObject, TSpec>, Standard > Type;
-	};
-	template <typename TObject, typename TSpec>
-	struct Iterator< Enumerator<TObject, TSpec> const, Standard > {
-		typedef Iter< Enumerator<TObject, TSpec>, Standard > Type;
-	};
-
-	template <typename TObject, typename TSpec>
-	struct Host< Enumerator< TObject, TSpec> > {
-		typedef TObject Type;
-	};
-	template <typename TObject, typename TSpec>
-	struct Host< Enumerator< TObject, TSpec> const > {
-		typedef TObject const Type;
-	};
-
-	template <typename TText, typename TSpec>
-	inline Holder<TText> & 
-	_dataHost(Enumerator<TText, TSpec> &enumerator) {
-		return enumerator.data_host;
-	}
-	template <typename TText, typename TSpec>
-	inline Holder<TText> const & 
-	_dataHost(Enumerator<TText, TSpec> const &enumerator) {
-		return enumerator.data_host;
-	}
-
-
-//////////////////////////////////////////////////////////////////////////////
-
-	template <typename TSize>
-	struct EnumeratorHammingModifier_
-	{
-		TSize		errorPos;		// position of substitution
-		unsigned	character;		// replacement character 
-		unsigned	skipChar;		// skip the original character
-	};
-
-	template < typename TObject, unsigned DISTANCE >
-    class Iter< Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard >
-    {
-	public:
-		typedef typename Value<TObject>::Type			TValue;
-		typedef typename Size<TObject>::Type			TSize;
-		typedef typename MakeSigned_<TSize>::Type		TSignedSize;
-		typedef EnumeratorHammingModifier_<TSignedSize> TModifier;
-        
-		TObject									&orig;
+    TObject & orig;
 //		typename RemoveConst_<TObject>::Type	tmp;
-		String<TValue>							tmp;
+    String<TValue>                          tmp;
 
-		TModifier	mod[DISTANCE];
-		unsigned	minDist;
-		bool		trim;
-		
-		Iter(TObject& _original):
-            orig(_original),
-			minDist(0)
-		{
-			goBegin(*this);
-		}
+    TModifier   mod[DISTANCE];
+    unsigned    minDist;
+    bool        trim;
 
-		Iter(TObject& _original, unsigned _minDist, bool _trim):
-            orig(_original),
-			minDist(_minDist),
-			trim(_trim)
-		{
-			goBegin(*this);
-		}
-
-		Iter(TObject& _original, MinimalCtor):
-			orig(_original),
-			minDist(0) {}
-
-		Iter(TObject& _original, unsigned _minDist, bool _trim, MinimalCtor):
-			orig(_original),
-			minDist(_minDist),
-			trim(_trim) {}
-	};
-
-//////////////////////////////////////////////////////////////////////////////
-
-	template < typename TObject, typename TSpec >
-    inline TObject const &
-	operator * (Iter<Enumerator<TObject, TSpec>, Standard> & it)
-	{
-		return it.tmp;
-	}
-
-	template < typename TObject, typename TSpec >
-    inline TObject const &
-	operator * (Iter<Enumerator<TObject, TSpec>, Standard> const & it)
-	{
-		return it.tmp;
-	}
-
-//////////////////////////////////////////////////////////////////////////////
-// enumerate the hamming 1-environment
-
-	template < typename TObject, unsigned DISTANCE >
-    inline void
-	goBegin(Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> & it)
-	{
-		typedef typename Value<TObject>::Type			TValue;
-		typedef typename Size<TObject>::Type			TSize;
-		typedef typename MakeSigned_<TSize>::Type		TSignedSize;
-		typedef EnumeratorHammingModifier_<TSignedSize>	TModifier;
-
-		if (empty(it.orig) || it.minDist > DISTANCE || it.minDist > length(it.orig)) {
-			goEnd(it);
-			return;
-		}
-
-		it.tmp = it.orig;
-
-		unsigned i = 0;
-		unsigned mDist = it.minDist;
-
-		if (mDist > length(it.orig))
-			mDist = length(it.orig);
-
-		if (mDist == 0) {
-			it.mod[0].errorPos = 0;
-			it.mod[0].skipChar = -1;
-			it.mod[0].character = 0;
-			assignValueAt(it.tmp, 0, (TValue) 0);
-			i = 1;
-		} else
-			for(; i < mDist; ++i) {
-				TModifier &mod = it.mod[i];
-				mod.errorPos = (mDist - 1) - i;
-				mod.skipChar = (unsigned) it.orig[mod.errorPos];
-				mod.character = (0 == mod.skipChar)? 1: 0;
-				assignValueAt(it.tmp, mod.errorPos, (TValue) mod.character);
-			}
-		for(; i < DISTANCE; ++i) {
-			TModifier &mod = it.mod[i];
-			mod.errorPos = -1;
-			mod.character = 0;
-			mod.skipChar = -1;
-		}
-	}
-	
-	template < typename TObject, unsigned DISTANCE >
-    inline void
-	atBegin(Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const & it)
-	{
-		Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> tmp(it.orig, it.minDist, it.trim);
-		return tmp == it;
-	}
-
-	template < typename TObject, unsigned DISTANCE >
-    inline bool
-	atBegin(Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> & it)
-	{
-		return atBegin(const_cast<Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const &>(it));
-	}
-
-	template < typename TObject, unsigned DISTANCE >
-    inline void
-	goEnd(Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> & it)
-	{
-		typedef typename Size<TObject>::Type			TSize;
-		typedef typename MakeSigned_<TSize>::Type		TSignedSize;
-		typedef EnumeratorHammingModifier_<TSignedSize>	TModifier;
-
-		for(unsigned i = 0; i < DISTANCE; ++i) {
-			TModifier &mod = it.mod[i];
-			mod.errorPos = -1;
-			mod.character = 0;
-		}
-	}
-
-	template < typename TObject, unsigned DISTANCE >
-    inline bool
-	atEnd(Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const & it)
-	{
-		typedef typename Size<TObject>::Type			TSize;
-		typedef typename MakeSigned_<TSize>::Type		TSignedSize;
-		typedef EnumeratorHammingModifier_<TSignedSize>	TModifier;
-
-		for(unsigned i = 0; i < DISTANCE; ++i) {
-			TModifier const &mod = it.mod[i];
-			if (mod.errorPos != (TSignedSize)-1 || mod.character != 0u)
-				return false;
-		}
-		return true;
-	}
-
-	template < typename TObject, unsigned DISTANCE >
-    inline bool
-	atEnd(Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> & it)
-	{
-		return atEnd(const_cast<Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const &>(it));
-	}
-
-	template < typename TObject, unsigned DISTANCE >
-    inline Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> &
-	operator ++ (Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> & it) 
-	{
-		typedef typename Value<TObject>::Type			TValue;
-		typedef typename Size<TObject>::Type			TSize;
-		typedef typename MakeSigned_<TSize>::Type		TSignedSize;
-		typedef EnumeratorHammingModifier_<TSignedSize>	TModifier;
-
-		for(unsigned i = 0; true;)
-		{
-			TModifier *mod = &it.mod[i];
-
-			// next replacement value
-			if (++mod->character < ValueSize<TValue>::VALUE) {
-				// output the original tuple only once
-				if (mod->character == mod->skipChar) continue;
-				assignValueAt(it.tmp, mod->errorPos, (TValue) mod->character);
-				break;
-			}
-			mod->character = (0 == mod->skipChar)? 1: 0;
-			assignValueAt(it.tmp, mod->errorPos, (TValue) mod->character);
-
-			if (++i == DISTANCE || (mod + 1)->errorPos == (TSignedSize)-1)
-			{
-				for(i = 0; i < DISTANCE; ++i) 
-				{
-					mod = &it.mod[i];
-
-					// restore char at old position
-					if (mod->errorPos >= 0)
-					{
-						std::cout<<"org"<<it.orig<<"  tmp"<<it.tmp<<" ___  ";
-						assignValueAt(it.tmp, mod->errorPos, it.orig[mod->errorPos]);
-						std::cout<<"org"<<it.orig<<"  tmp"<<it.tmp<<std::endl;
-					}
-
-					// next error position
-					if (++(mod->errorPos) < (TSignedSize)(length(it.tmp) - i)) 
-					{
-						mod->skipChar = (unsigned) it.orig[mod->errorPos];
-						mod->character = (0 == mod->skipChar)? 1: 0;
-						assignValueAt(it.tmp, mod->errorPos, (TValue) mod->character);
-
-						for(; i > 0;) {
-							mod = &it.mod[i];
-							it.mod[i - 1].errorPos = mod->errorPos + 1;
-							--i;
-							mod->skipChar = (unsigned) it.orig[mod->errorPos];
-							mod->character = (0 == mod->skipChar)? 1: 0;
-							assignValueAt(it.tmp, mod->errorPos, (TValue) mod->character);
-						}
-						return it;
-					}
-				}
-				// end
-				for(i = 0; i < DISTANCE; ++i) {
-					mod = &it.mod[i];
-					mod->errorPos = -1;
-					mod->character = 0;
-				}
-				return it;
-			}
-		}
-        return it;
+    Iter(TObject & _original) :
+        orig(_original),
+        minDist(0)
+    {
+        goBegin(*this);
     }
 
-	template < typename TObject, unsigned DISTANCE >
-	inline typename Size< Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> > >::Type
-    length(Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> > const & me)
-	{
-		typedef typename Value<TObject>::Type TValue;
-		typedef typename Size<TObject>::Type TSize;
-
-		static const unsigned alphabetSize = ValueSize<TValue>::VALUE;
-		TSize sum = 0;
-		TSize numerator = 1;
-		TSize alpha = 1;
-		TSize divisor = 1;
-
-		for(unsigned i = 0; i <= DISTANCE; ++i) 
-		{
-			if (i >= me.minDist)
-				sum += alpha * (numerator / divisor);
-
-			divisor		*= i + 1;
-			numerator	*= length(host(me)) - i;
-			alpha		*= alphabetSize - 1;
-		}
-
-		return sum;
+    Iter(TObject & _original, unsigned _minDist, bool _trim) :
+        orig(_original),
+        minDist(_minDist),
+        trim(_trim)
+    {
+        goBegin(*this);
     }
 
+    Iter(TObject & _original, MinimalCtor) :
+        orig(_original),
+        minDist(0) {}
 
-//////////////////////////////////////////////////////////////////////////////
-// enumerate the levenshtein 1-environment
+    Iter(TObject & _original, unsigned _minDist, bool _trim, MinimalCtor) :
+        orig(_original),
+        minDist(_minDist),
+        trim(_trim) {}
+};
 
-	template <typename TSize>
-	struct EnumeratorLevenshteinModifier_ 
-	{
-		enum TState { DISABLED_, SUBST_, DELETE_, INSERT_, Eof_ };
-		TSize		errorPosOrig;	// position of edit operation in original string
-		TSize		errorPos;		// position of edit operation in modified string
-		TSize		errorPosEnd;	// errorPos < errorPosEnd must be fulfilled
-		unsigned	character;		// replacement character 
-		unsigned	skipChar;		// skip the original character
-		TState		state;			// current state subst/insert before/delete
-	};
+// --------------------------------------------------------------------------
+// Spec EditEnvironment Iter for Edit Distance
+// --------------------------------------------------------------------------
 
-	template < typename TObject, unsigned DISTANCE >
-	class Iter< Enumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard >
-	{
-	public:
-		typedef typename Value<TObject>::Type				TValue;
-		typedef typename Size<TObject>::Type				TSize;
-		typedef typename MakeSigned_<TSize>::Type			TSignedSize;
-		typedef EnumeratorLevenshteinModifier_<TSignedSize> TModifier;
-        
-		TObject									&orig;
+template <typename TSize>
+struct StringEnumeratorLevenshteinModifier_
+{
+    enum TState {DISABLED_, SUBST_, DELETE_, INSERT_, Eof_};
+    TSize       errorPosOrig;       // position of edit operation in original string
+    TSize       errorPos;           // position of edit operation in modified string
+    TSize       errorPosEnd;        // errorPos < errorPosEnd must be fulfilled
+    unsigned    character;          // replacement character
+    unsigned    skipChar;           // skip the original character
+    TState      state;              // current state subst/insert before/delete
+};
+
+template <typename TObject, unsigned DISTANCE>
+class Iter<StringEnumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard>
+{
+public:
+    typedef typename Value<TObject>::Type               TValue;
+    typedef typename Size<TObject>::Type                TSize;
+    typedef typename MakeSigned_<TSize>::Type           TSignedSize;
+    typedef StringEnumeratorLevenshteinModifier_<TSignedSize> TModifier;
+
+    TObject & orig;
 //		typename RemoveConst_<TObject>::Type	tmp;
-		String<TValue>							tmp;
+    String<TValue>                          tmp;
 
-		TModifier	mod[DISTANCE + 1];
-		unsigned	minDist;
-		unsigned	currentDistance;		// upper bound for dist(original, *this)
-		bool		trim;
+    TModifier   mod[DISTANCE + 1];
+    unsigned    minDist;
+    unsigned    currentDistance;            // upper bound for dist(original, *this)
+    bool        trim;
 
-		Iter(TObject& _original):
-            orig(_original),
-			minDist(0),
-			trim(true)
-		{
-			goBegin(*this);
-		}
+    Iter(TObject & _original) :
+        orig(_original),
+        minDist(0),
+        trim(true)
+    {
+        goBegin(*this);
+    }
 
-		Iter(TObject& _original, unsigned _minDist, bool _trim):
-            orig(_original),
-			minDist(_minDist),
-			trim(_trim)
-		{
-			goBegin(*this);
-		}
+    Iter(TObject & _original, unsigned _minDist, bool _trim) :
+        orig(_original),
+        minDist(_minDist),
+        trim(_trim)
+    {
+        goBegin(*this);
+    }
 
-		Iter(TObject& _original, MinimalCtor):
-			orig(_original),
-			minDist(0) {}
+    Iter(TObject & _original, MinimalCtor) :
+        orig(_original),
+        minDist(0) {}
 
-		Iter(TObject& _original, unsigned _minDist, bool _trim, MinimalCtor):
-			orig(_original),
-			minDist(_minDist),
-			trim(_trim) {}
+    Iter(TObject & _original, unsigned _minDist, bool _trim, MinimalCtor) :
+        orig(_original),
+        minDist(_minDist),
+        trim(_trim) {}
 
-		inline bool _reinit(int pos, int posOrig)
-		{
-			tmp = orig;
-			int posOrigEnd = length(tmp);
-			typename TModifier::TState lastState = TModifier::DISABLED_;
-			// i from high to low  =  modifier from left to right
-			for(int i = currentDistance - 1; i >= 0; --i)
-			{
-				TModifier &_mod = mod[i];
-				switch (_mod.state) {
-					case TModifier::SUBST_:
-						// INSERT+SUBST is SUBST+INSERT (already enumerated)
-						// DELETE+SUBST is SUBST+DELETE (already enumerated)
-						// eventually trim front SUBSTs
-						if (lastState == TModifier::INSERT_ || lastState == TModifier::DELETE_ ||
-							(trim && posOrig == 0)) 
-						{
-							++posOrig;
-							++pos;
-						}
-						if (posOrig >= posOrigEnd)
-							return false;
-						_mod.errorPosOrig = posOrig;
-						_mod.errorPos = pos;
-						_mod.skipChar = (unsigned) orig[posOrig];
-						_mod.character = (0 == _mod.skipChar)? 1: 0;
-						assignValueAt(tmp, pos, (TValue) _mod.character);
-						++pos;
-						++posOrig;
-						break;
+    inline bool _reinit(int pos, int posOrig)
+    {
+        tmp = orig;
+        int posOrigEnd = length(tmp);
+        typename TModifier::TState lastState = TModifier::DISABLED_;
+        // i from high to low  =  modifier from left to right
+        for (int i = currentDistance - 1; i >= 0; --i)
+        {
+            TModifier & _mod = mod[i];
+            switch (_mod.state)
+            {
+            case TModifier::SUBST_:
+                // INSERT+SUBST is SUBST+INSERT (already enumerated)
+                // DELETE+SUBST is SUBST+DELETE (already enumerated)
+                // eventually trim front SUBSTs
+                if (lastState == TModifier::INSERT_ || lastState == TModifier::DELETE_ ||
+                    (trim && posOrig == 0))
+                {
+                    ++posOrig;
+                    ++pos;
+                }
+                if (posOrig >= posOrigEnd)
+                    return false;
 
-					case TModifier::DELETE_:
-						// INSERT after DELETE is one SUBST (already enumerated)
-						if (lastState == TModifier::INSERT_) {
-							++posOrig;
-							++pos;
-						}
-						if (posOrig >= posOrigEnd)
-							return false;
-						_mod.errorPosOrig = posOrig;
-						_mod.errorPos = pos;
-						_mod.character = ValueSize<TValue>::VALUE - 1;
-						_mod.skipChar = -1;
-						++posOrig;
-						erase(tmp, pos);
-						break;
+                _mod.errorPosOrig = posOrig;
+                _mod.errorPos = pos;
+                _mod.skipChar = (unsigned) orig[posOrig];
+                _mod.character = (0 == _mod.skipChar) ? 1 : 0;
+                assignValueAt(tmp, pos, (TValue) _mod.character);
+                ++pos;
+                ++posOrig;
+                break;
 
-					case TModifier::INSERT_:
-					default:
-						// DELETE after INSERT is one SUBST (already enumerated)
-						// eventually trim front SUBSTs
-						if (lastState == TModifier::DELETE_ || (trim && posOrig == 0)) 
-						{
-							++posOrig;
-							++pos;
-						}
-						if (posOrig > posOrigEnd)
-							return false;
-						_mod.errorPosOrig = posOrig;
-						_mod.errorPos = pos;
-						_mod.character = 0;
-						_mod.skipChar = -1;
-						insertValue(tmp, pos, (TValue)0);
-						++pos;
-						break;
-				}
-				lastState = _mod.state;
-			}
+            case TModifier::DELETE_:
+                // INSERT after DELETE is one SUBST (already enumerated)
+                if (lastState == TModifier::INSERT_)
+                {
+                    ++posOrig;
+                    ++pos;
+                }
+                if (posOrig >= posOrigEnd)
+                    return false;
 
-			pos = length(tmp);
-			bool cut = trim;
-			for(unsigned i = 0; i < currentDistance; ++i) 
-			{
-				TModifier &_mod = mod[i];
-				if (_mod.state != TModifier::DELETE_) {
-					if (cut) {
-						if (_mod.errorPos >= (TSignedSize)(pos - 1))
-							return false;
-						_mod.errorPosEnd = pos - 1;
-					} else {
-						if (_mod.errorPos >= (TSignedSize)pos)
-							return false;
-						_mod.errorPosEnd = pos;
-					}
-					--pos;
-				} else {
-					cut = false;
-					if (_mod.errorPos > (TSignedSize)pos)
-						return false;
-					_mod.errorPosEnd = pos + 1;
-				}
-			}
-			return true;
-		}
-	};
+                _mod.errorPosOrig = posOrig;
+                _mod.errorPos = pos;
+                _mod.character = ValueSize<TValue>::VALUE - 1;
+                _mod.skipChar = -1;
+                ++posOrig;
+                erase(tmp, pos);
+                break;
 
+            case TModifier::INSERT_:
+            default:
+                // DELETE after INSERT is one SUBST (already enumerated)
+                // eventually trim front SUBSTs
+                if (lastState == TModifier::DELETE_ || (trim && posOrig == 0))
+                {
+                    ++posOrig;
+                    ++pos;
+                }
+                if (posOrig > posOrigEnd)
+                    return false;
 
-	template < typename TObject, unsigned DISTANCE >
-    inline void
-	goBegin(Iter<Enumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> & it)
-	{
-		typedef typename Value<TObject>::Type				TValue;
-		typedef typename Size<TObject>::Type				TSize;
-		typedef typename MakeSigned_<TSize>::Type			TSignedSize;
-		typedef EnumeratorLevenshteinModifier_<TSignedSize>	TModifier;
+                _mod.errorPosOrig = posOrig;
+                _mod.errorPos = pos;
+                _mod.character = 0;
+                _mod.skipChar = -1;
+                insertValue(tmp, pos, (TValue)0);
+                ++pos;
+                break;
+            }
+            lastState = _mod.state;
+        }
 
-		if (empty(it.orig) || it.minDist > DISTANCE || it.minDist > length(it.orig)) {
-			goEnd(it);
-			return;
-		}
+        pos = length(tmp);
+        bool cut = trim;
+        for (unsigned i = 0; i < currentDistance; ++i)
+        {
+            TModifier & _mod = mod[i];
+            if (_mod.state != TModifier::DELETE_)
+            {
+                if (cut)
+                {
+                    if (_mod.errorPos >= (TSignedSize)(pos - 1))
+                        return false;
 
-		it.tmp = it.orig;
-		for(unsigned i = 0; i <= DISTANCE; ++i) {
-			it.mod[i].errorPosOrig = -1;
-			it.mod[i].errorPos = -1;
-			it.mod[i].errorPosEnd = -1;
-			it.mod[i].character = ValueSize<TValue>::VALUE - 1;
-			it.mod[i].state = TModifier::DISABLED_;
-		}
-		it.currentDistance = it.minDist;
-		if (!it._reinit(0, 0))
-			goEnd(it);
-	}
+                    _mod.errorPosEnd = pos - 1;
+                }
+                else
+                {
+                    if (_mod.errorPos >= (TSignedSize)pos)
+                        return false;
 
-	template < typename TObject, unsigned DISTANCE >
-    inline void
-	goEnd(Iter<Enumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> & it)
-	{
-		typedef typename Size<TObject>::Type				TSize;
-		typedef typename MakeSigned_<TSize>::Type			TSignedSize;
-		typedef EnumeratorLevenshteinModifier_<TSignedSize>	TModifier;
+                    _mod.errorPosEnd = pos;
+                }
+                --pos;
+            }
+            else
+            {
+                cut = false;
+                if (_mod.errorPos > (TSignedSize)pos)
+                    return false;
 
-		for(unsigned i = 0; i < DISTANCE; ++i) {
-			TModifier &mod = it.mod[i];
-			mod.errorPos = -1;
-			mod.character = 0;
-			mod.state = TModifier::SUBST_;
-		}
-	}
+                _mod.errorPosEnd = pos + 1;
+            }
+        }
+        return true;
+    }
 
+};
 
-	template < typename TObject, unsigned DISTANCE >
-    inline Iter<Enumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> &
-	operator ++ (Iter<Enumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> &it) 
-	{
-		typedef typename Value<TObject>::Type				TValue;
-		typedef typename Size<TObject>::Type				TSize;
-		typedef typename MakeSigned_<TSize>::Type			TSignedSize;
-		typedef EnumeratorLevenshteinModifier_<TSignedSize>	TModifier;
-		typedef typename TModifier::TState					TState;
+// ==========================================================================
+// Metafunctions
+// ==========================================================================
 
-		// increment characters
-		TModifier *mod = it.mod;
-		do
-		{
-			// next replacement/insert value (loop core)
-			if (++(mod->character) < ValueSize<TValue>::VALUE) {
-				// output the original tuple only once
-				if (mod->character == mod->skipChar) continue;
-				assignValueAt(it.tmp, mod->errorPos, (TValue) mod->character);
-				return it;
-			}
+// --------------------------------------------------------------------------
+// Metafunction Value                                        StringEnumerator
+// --------------------------------------------------------------------------
 
-			// reset counter
-			if (mod->state != mod->DELETE_) {
-				mod->character = (0 == mod->skipChar)? 1: 0;
-				assignValueAt(it.tmp, mod->errorPos, (TValue) mod->character);
-			}
+///.Metafunction.Value.param.T.type:Class.StringEnumerator
 
-			// next modifier
-			++mod;
-		} while (mod->state != TModifier::DISABLED_);
+template <typename TObject, typename TSpec>
+struct Value<StringEnumerator<TObject, TSpec> > : Value<TObject>
+{};
 
-		// increment positions
-		mod = it.mod;
-		do
-		{
-			// restore char at old position
-			if (mod->errorPos >= 0)
-				assignValueAt(it.tmp, mod->errorPos, it.orig[mod->errorPosOrig]);
+// --------------------------------------------------------------------------
+// Metafunction Reference                                    StringEnumerator
+// --------------------------------------------------------------------------
+
+///.Metafunction.Reference.param.T.type:Class.StringEnumerator
+
+template <typename TObject, typename TSpec>
+struct Reference<StringEnumerator<TObject, TSpec> >
+{
+    typedef TObject & Type;
+};
+
+template <typename TObject, typename TSpec>
+struct Reference<StringEnumerator<TObject, TSpec> const>
+{
+    typedef TObject const & Type;
+};
+
+// --------------------------------------------------------------------------
+// Metafunction Size                                         StringEnumerator
+// --------------------------------------------------------------------------
+
+///.Metafunction.Size.param.T.type:Class.StringEnumerator
+
+template <typename TObject, typename TSpec>
+struct Size<StringEnumerator<TObject, TSpec> > : Size<TObject>
+{};
+
+// --------------------------------------------------------------------------
+// Metafunction Difference                                   StringEnumerator
+// --------------------------------------------------------------------------
+
+///.Metafunction.Difference.param.T.type:Class.StringEnumerator
+
+template <typename TObject, typename TSpec>
+struct Difference<StringEnumerator<TObject, TSpec> > : Difference<TObject>
+{};
+
+// --------------------------------------------------------------------------
+// Metafunction Position                                     StringEnumerator
+// --------------------------------------------------------------------------
+
+///.Metafunction.Position.param.T.type:Class.StringEnumerator
+
+template <typename TObject, typename TSpec>
+struct Position<StringEnumerator<TObject, TSpec> > : Position<TObject>
+{};
+
+// --------------------------------------------------------------------------
+// Metafunction Iterator                                     StringEnumerator
+// --------------------------------------------------------------------------
+
+///.Metafunction.Iterator.param.T.type:Class.StringEnumerator
+
+template <typename TObject, typename TSpec>
+struct Iterator<StringEnumerator<TObject, TSpec>, Standard>
+{
+    typedef Iter<StringEnumerator<TObject, TSpec>, Standard> Type;
+};
+
+template <typename TObject, typename TSpec>
+struct Iterator<StringEnumerator<TObject, TSpec> const, Standard>
+{
+    typedef Iter<StringEnumerator<TObject, TSpec>, Standard> Type;
+};
+
+// --------------------------------------------------------------------------
+// Metafunction Host                                         StringEnumerator
+// --------------------------------------------------------------------------
+
+///.Metafunction.Host.param.T.type:Class.StringEnumerator
+
+template <typename TObject, typename TSpec>
+struct Host<StringEnumerator<TObject, TSpec> >
+{
+    typedef TObject Type;
+};
+
+template <typename TObject, typename TSpec>
+struct Host<StringEnumerator<TObject, TSpec> const>
+{
+    typedef TObject const Type;
+};
+
+// ==========================================================================
+// Functions
+// ==========================================================================
+
+// --------------------------------------------------------------------------
+// Function _dataHost()                                      StringEnumerator
+// --------------------------------------------------------------------------
+
+template <typename TText, typename TSpec>
+inline Holder<TText> &
+_dataHost(StringEnumerator<TText, TSpec> & enumerator)
+{
+    return enumerator.data_host;
+}
+
+template <typename TText, typename TSpec>
+inline Holder<TText> const &
+_dataHost(StringEnumerator<TText, TSpec> const & enumerator)
+{
+    return enumerator.data_host;
+}
+
+// --------------------------------------------------------------------------
+// Function begin()                                          StringEnumerator
+// --------------------------------------------------------------------------
+
+///.Function.begin.param.object.type:Class.StringEnumerator
+
+template <typename TObject, typename TSpec>
+inline Iter<StringEnumerator<TObject, TSpec>, Standard>
+begin(StringEnumerator<TObject, TSpec> & enumerator, Standard)
+{
+    return Iter<StringEnumerator<TObject, TSpec>, Standard>(host(enumerator), enumerator.minDist, enumerator.trim);
+}
+
+template <typename TObject, typename TSpec>
+inline Iter<StringEnumerator<TObject, TSpec>, Standard>
+begin(StringEnumerator<TObject, TSpec> const & enumerator, Standard)
+{
+    return Iter<StringEnumerator<TObject, TSpec>, Standard>(host(enumerator), enumerator.minDist, enumerator.trim);
+}
+
+// --------------------------------------------------------------------------
+// Function end()                                            StringEnumerator
+// --------------------------------------------------------------------------
+
+///.Function.end.param.object.type:Class.StringEnumerator
+
+template <typename TObject, typename TSpec>
+inline Iter<StringEnumerator<TObject, TSpec>, Standard>
+end(StringEnumerator<TObject, TSpec> & enumerator, Standard)
+{
+    Iter<StringEnumerator<TObject, TSpec>, Standard> iter(host(enumerator), enumerator.minDist, enumerator.trim, MinimalCtor());
+    goEnd(iter);
+    return iter;
+}
+
+template <typename TObject, typename TSpec>
+inline Iter<StringEnumerator<TObject, TSpec>, Standard>
+end(StringEnumerator<TObject, TSpec> const & enumerator, Standard)
+{
+    Iter<StringEnumerator<TObject, TSpec>, Standard> iter(host(enumerator), enumerator.minDist, enumerator.trim, MinimalCtor());
+    goEnd(iter);
+    return iter;
+}
+
+// --------------------------------------------------------------------------
+// Function length()                                 Hamming StringEnumerator
+// --------------------------------------------------------------------------
+
+///.Function.length.param.object.type:Class.StringEnumerator
+
+template <typename TObject, unsigned DISTANCE>
+inline typename Size<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> > >::Type
+length(StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> > const & me)
+{
+    typedef typename Value<TObject>::Type TValue;
+    typedef typename Size<TObject>::Type  TSize;
+
+    static const unsigned alphabetSize = ValueSize<TValue>::VALUE;
+    TSize sum = 0;
+    TSize numerator = 1;
+    TSize alpha = 1;
+    TSize divisor = 1;
+
+    for (unsigned i = 0; i <= DISTANCE; ++i)
+    {
+        if (i >= me.minDist)
+            sum += alpha * (numerator / divisor);
+
+        divisor     *= i + 1;
+        numerator   *= length(host(me)) - i;
+        alpha       *= alphabetSize - 1;
+    }
+
+    return sum;
+}
+
+// --------------------------------------------------------------------------
+// Function operator*()                                 StringEnumerator Iter
+// --------------------------------------------------------------------------
+
+template <typename TObject, typename TSpec>
+inline TObject const &
+operator*(Iter<StringEnumerator<TObject, TSpec>, Standard> & it)
+{
+    return it.tmp;
+}
+
+template <typename TObject, typename TSpec>
+inline TObject const &
+operator*(Iter<StringEnumerator<TObject, TSpec>, Standard> const & it)
+{
+    return it.tmp;
+}
+
+// --------------------------------------------------------------------------
+// Function goBegin()                           Hamming StringEnumerator Iter
+// --------------------------------------------------------------------------
+
+template <typename TObject, unsigned DISTANCE>
+inline void
+goBegin(Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> & it)
+{
+    typedef typename Value<TObject>::Type                   TValue;
+    typedef typename Size<TObject>::Type                    TSize;
+    typedef typename MakeSigned_<TSize>::Type               TSignedSize;
+    typedef StringEnumeratorHammingModifier_<TSignedSize>   TModifier;
+
+    if (empty(it.orig) || it.minDist > DISTANCE || it.minDist > length(it.orig))
+    {
+        goEnd(it);
+        return;
+    }
+
+    it.tmp = it.orig;
+
+    unsigned i = 0;
+    unsigned mDist = it.minDist;
+
+    if (mDist > length(it.orig))
+        mDist = length(it.orig);
+
+    if (mDist == 0)
+    {
+        it.mod[0].errorPos = 0;
+        it.mod[0].skipChar = -1;
+        it.mod[0].character = 0;
+        assignValueAt(it.tmp, 0, (TValue) 0);
+        i = 1;
+    }
+    else
+        for (; i < mDist; ++i)
+        {
+            TModifier & mod = it.mod[i];
+            mod.errorPos = (mDist - 1) - i;
+            mod.skipChar = (unsigned) it.orig[mod.errorPos];
+            mod.character = (0 == mod.skipChar) ? 1 : 0;
+            assignValueAt(it.tmp, mod.errorPos, (TValue) mod.character);
+        }
+    for (; i < DISTANCE; ++i)
+    {
+        TModifier & mod = it.mod[i];
+        mod.errorPos = -1;
+        mod.character = 0;
+        mod.skipChar = -1;
+    }
+}
+
+// --------------------------------------------------------------------------
+// Function atBegin()                           Hamming StringEnumerator Iter
+// --------------------------------------------------------------------------
+
+template <typename TObject, unsigned DISTANCE>
+inline void
+atBegin(Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const & it)
+{
+    Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> tmp(it.orig, it.minDist, it.trim);
+    return tmp == it;
+}
+
+template <typename TObject, unsigned DISTANCE>
+inline bool
+atBegin(Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> & it)
+{
+    return atBegin(const_cast<Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const &>(it));
+}
+
+// --------------------------------------------------------------------------
+// Function goEnd()                             StringEnumerator Iter Hamming
+// --------------------------------------------------------------------------
+
+template <typename TObject, unsigned DISTANCE>
+inline void
+goEnd(Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> & it)
+{
+    typedef typename Size<TObject>::Type                    TSize;
+    typedef typename MakeSigned_<TSize>::Type               TSignedSize;
+    typedef StringEnumeratorHammingModifier_<TSignedSize>   TModifier;
+
+    for (unsigned i = 0; i < DISTANCE; ++i)
+    {
+        TModifier & mod = it.mod[i];
+        mod.errorPos = -1;
+        mod.character = 0;
+    }
+}
+
+// --------------------------------------------------------------------------
+// Function atEnd()                             Hamming StringEnumerator Iter
+// --------------------------------------------------------------------------
+
+template <typename TObject, unsigned DISTANCE>
+inline bool
+atEnd(Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const & it)
+{
+    typedef typename Size<TObject>::Type                    TSize;
+    typedef typename MakeSigned_<TSize>::Type               TSignedSize;
+    typedef StringEnumeratorHammingModifier_<TSignedSize>   TModifier;
+
+    for (unsigned i = 0; i < DISTANCE; ++i)
+    {
+        TModifier const & mod = it.mod[i];
+        if (mod.errorPos != (TSignedSize) - 1 || mod.character != 0u)
+            return false;
+    }
+    return true;
+}
+
+template <typename TObject, unsigned DISTANCE>
+inline bool
+atEnd(Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> & it)
+{
+    return atEnd(const_cast<Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const &>(it));
+}
+
+// --------------------------------------------------------------------------
+// Function operator++()                        Hamming StringEnumerator Iter
+// --------------------------------------------------------------------------
+
+template <typename TObject, unsigned DISTANCE>
+inline Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> &
+operator++(Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> & it)
+{
+    typedef typename Value<TObject>::Type                   TValue;
+    typedef typename Size<TObject>::Type                    TSize;
+    typedef typename MakeSigned_<TSize>::Type               TSignedSize;
+    typedef StringEnumeratorHammingModifier_<TSignedSize>   TModifier;
+
+    for (unsigned i = 0; true; )
+    {
+        TModifier * mod = &it.mod[i];
+
+        // next replacement value
+        if (++mod->character < ValueSize<TValue>::VALUE)
+        {
+            // output the original tuple only once
+            if (mod->character == mod->skipChar)
+                continue;
+            assignValueAt(it.tmp, mod->errorPos, (TValue) mod->character);
+            break;
+        }
+        mod->character = (0 == mod->skipChar) ? 1 : 0;
+        assignValueAt(it.tmp, mod->errorPos, (TValue) mod->character);
+
+        if (++i == DISTANCE || (mod + 1)->errorPos == (TSignedSize) - 1)
+        {
+            for (i = 0; i < DISTANCE; ++i)
+            {
+                mod = &it.mod[i];
+
+                // restore char at old position
+                if (mod->errorPos >= 0)
+                {
+                    // std::cout << "org" << it.orig << "  tmp" << it.tmp << " ___  ";
+                    assignValueAt(it.tmp, mod->errorPos, it.orig[mod->errorPos]);
+                    // std::cout << "org" << it.orig << "  tmp" << it.tmp << std::endl;
+                }
+
+                // next error position
+                if (++(mod->errorPos) < (TSignedSize)(length(it.tmp) - i))
+                {
+                    mod->skipChar = (unsigned) it.orig[mod->errorPos];
+                    mod->character = (0 == mod->skipChar) ? 1 : 0;
+                    assignValueAt(it.tmp, mod->errorPos, (TValue) mod->character);
+
+                    for (; i > 0; )
+                    {
+                        mod = &it.mod[i];
+                        it.mod[i - 1].errorPos = mod->errorPos + 1;
+                        --i;
+                        mod->skipChar = (unsigned) it.orig[mod->errorPos];
+                        mod->character = (0 == mod->skipChar) ? 1 : 0;
+                        assignValueAt(it.tmp, mod->errorPos, (TValue) mod->character);
+                    }
+                    return it;
+                }
+            }
+            // end
+            for (i = 0; i < DISTANCE; ++i)
+            {
+                mod = &it.mod[i];
+                mod->errorPos = -1;
+                mod->character = 0;
+            }
+            return it;
+        }
+    }
+    return it;
+}
+
+// --------------------------------------------------------------------------
+// Function goBegin()                       Levensthein StringEnumerator Iter
+// --------------------------------------------------------------------------
+
+template <typename TObject, unsigned DISTANCE>
+inline void
+goBegin(Iter<StringEnumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> & it)
+{
+    typedef typename Value<TObject>::Type                       TValue;
+    typedef typename Size<TObject>::Type                        TSize;
+    typedef typename MakeSigned_<TSize>::Type                   TSignedSize;
+    typedef StringEnumeratorLevenshteinModifier_<TSignedSize>   TModifier;
+
+    if (empty(it.orig) || it.minDist > DISTANCE || it.minDist > length(it.orig))
+    {
+        goEnd(it);
+        return;
+    }
+
+    it.tmp = it.orig;
+    for (unsigned i = 0; i <= DISTANCE; ++i)
+    {
+        it.mod[i].errorPosOrig = -1;
+        it.mod[i].errorPos = -1;
+        it.mod[i].errorPosEnd = -1;
+        it.mod[i].character = ValueSize<TValue>::VALUE - 1;
+        it.mod[i].state = TModifier::DISABLED_;
+    }
+    it.currentDistance = it.minDist;
+    if (!it._reinit(0, 0))
+        goEnd(it);
+}
+
+// --------------------------------------------------------------------------
+// Function goEnd()                         Levensthein StringEnumerator Iter
+// --------------------------------------------------------------------------
+
+template <typename TObject, unsigned DISTANCE>
+inline void
+goEnd(Iter<StringEnumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> & it)
+{
+    typedef typename Size<TObject>::Type                        TSize;
+    typedef typename MakeSigned_<TSize>::Type                   TSignedSize;
+    typedef StringEnumeratorLevenshteinModifier_<TSignedSize>   TModifier;
+
+    for (unsigned i = 0; i < DISTANCE; ++i)
+    {
+        TModifier & mod = it.mod[i];
+        mod.errorPos = -1;
+        mod.character = 0;
+        mod.state = TModifier::SUBST_;
+    }
+}
+
+// --------------------------------------------------------------------------
+// Function atEnd()                                Edit StringEnumerator Iter
+// --------------------------------------------------------------------------
+
+template <typename TObject, unsigned DISTANCE>
+inline bool
+atEnd(Iter<StringEnumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> const & it)
+{
+    typedef typename Size<TObject>::Type                        TSize;
+    typedef typename MakeSigned_<TSize>::Type                   TSignedSize;
+    typedef StringEnumeratorLevenshteinModifier_<TSignedSize>   TModifier;
+
+    for (unsigned i = 0; i < DISTANCE; ++i)
+    {
+        TModifier const & mod = it.mod[i];
+        if (mod.errorPos != -1 || mod.character != 0u || mod.state != TModifier::SUBST_)
+            return false;
+    }
+    return true;
+}
+
+template <typename TObject, unsigned DISTANCE>
+inline bool
+atEnd(Iter<StringEnumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> & it)
+{
+    return atEnd(const_cast<Iter<StringEnumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> const &>(it));
+}
+
+// --------------------------------------------------------------------------
+// Function operator++()                    Levensthein StringEnumerator Iter
+// --------------------------------------------------------------------------
+
+template <typename TObject, unsigned DISTANCE>
+inline Iter<StringEnumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> &
+operator++(Iter<StringEnumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> & it)
+{
+    typedef typename Value<TObject>::Type                       TValue;
+    typedef typename Size<TObject>::Type                        TSize;
+    typedef typename MakeSigned_<TSize>::Type                   TSignedSize;
+    typedef StringEnumeratorLevenshteinModifier_<TSignedSize>   TModifier;
+    typedef typename TModifier::TState                          TState;
+
+    // increment characters
+    TModifier * mod = it.mod;
+    do
+    {
+        // next replacement/insert value (loop core)
+        if (++(mod->character) < ValueSize<TValue>::VALUE)
+        {
+            // output the original tuple only once
+            if (mod->character == mod->skipChar)
+                continue;
+            if (mod->errorPos >= 0)
+                assignValueAt(it.tmp, mod->errorPos, (TValue) mod->character);
+            return it;
+        }
+
+        // reset counter
+        if (mod->state != mod->DELETE_)
+        {
+            mod->character = (0 == mod->skipChar) ? 1 : 0;
+            if (mod->errorPos >= 0)
+                assignValueAt(it.tmp, mod->errorPos, (TValue) mod->character);
+        }
+
+        // next modifier
+        ++mod;
+    }
+    while (mod->state != TModifier::DISABLED_);
+
+    // increment positions
+    mod = it.mod;
+    do
+    {
+        // restore char at old position
+        if (mod->errorPos >= 0 && static_cast<unsigned>(mod->errorPos) < length(it.tmp))
+            assignValueAt(it.tmp, mod->errorPos, it.orig[mod->errorPosOrig]);
 
 //					int iMax = (TSignedSize)(length(it.tmp) - i);
 //					if (mod->state == mod->INSERT_) ++iMax;
 
-			// next error position
-			if (++(mod->errorPos) < mod->errorPosEnd)
-			{
-				++(mod->errorPosOrig);
+        // next error position
+        if (++(mod->errorPos) < mod->errorPosEnd)
+        {
+            ++(mod->errorPosOrig);
 
-				// set next char
-				if (mod == it.mod)
-				{	// for the first modifier we use an optimization
-					if (mod->state != mod->DELETE_) {
-						if (mod->state == mod->SUBST_)
-							mod->skipChar = (unsigned) it.orig[mod->errorPosOrig];
-						else
-							mod->skipChar = -1;
-						mod->character = (0 == mod->skipChar)? 1: 0;
-						assignValueAt(it.tmp, mod->errorPos, (TValue) mod->character);
-					}
-				} else
-					if (!it._reinit(mod->errorPos, mod->errorPosOrig))
-						break;
+            // set next char
+            if (mod == it.mod) // for the first modifier we use an optimization
+            {
+                if (mod->state != mod->DELETE_)
+                {
+                    if (mod->state == mod->SUBST_)
+                        mod->skipChar = (unsigned) it.orig[mod->errorPosOrig];
+                    else
+                        mod->skipChar = -1;
+                    mod->character = (0 == mod->skipChar) ? 1 : 0;
+                    assignValueAt(it.tmp, mod->errorPos, (TValue) mod->character);
+                }
+            }
+            else if (!it._reinit(mod->errorPos, mod->errorPosOrig))
+                break;
 
-				return it;
-			}
-			++mod;
-		} while (mod->state != TModifier::DISABLED_);
-
-		// increment states
-		mod = it.mod;
-		TModifier *modEnd = mod + DISTANCE;
-		do 
-		{
-			// next edit state (subst->insert->delete)
-			if (mod->state != mod->INSERT_) 
-			{
-				mod->state = (TState)(mod->state + 1);
-				if (mod->state == TModifier::SUBST_)
-					++it.currentDistance;
-			
-				if (!it._reinit(0, 0)) {
-					mod = it.mod;
-                    continue;						
-				}
-				return it;
-			} else
-				mod->state = mod->SUBST_;
-			++mod;
-		} while (mod != modEnd);
-
-		// end
-		for(mod = it.mod; mod != modEnd; ++mod) {
-			mod->errorPos = -1;
-			mod->character = 0;
-			mod->state = mod->SUBST_;
-		}
-		return it;
+            return it;
+        }
+        ++mod;
     }
+    while (mod->state != TModifier::DISABLED_);
 
-	template < typename TObject, unsigned DISTANCE >
-	inline typename Size< Enumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> > >::Type
-    length(Enumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> > const & me)
-	{
-		typedef typename Value<TObject>::Type TValue;
-		typedef typename Size<TObject>::Type TSize;
+    // increment states
+    mod = it.mod;
+    TModifier * modEnd = mod + DISTANCE;
+    do
+    {
+        // next edit state (subst->delete->insert)
+        if (mod->state != mod->INSERT_)
+        {
+            mod->state = (TState)(mod->state + 1);
+            if (mod->state == TModifier::SUBST_)
+                ++it.currentDistance;
 
-		static const unsigned alpha = ValueSize<TValue>::VALUE;
-		TSize sum = 0;
-		TSize numerator = 1;
-		TSize divisor = 1;
-		TSize len = length(host(me));
-
-		if (me.minDist == 0 && len > 0)
-			++sum;
-
-		if (me.minDist <= 1 && DISTANCE >= 1)
-		{
-			if (me.trim) {
-				if (len > 2) sum += (alpha - 1) * (len - 2);	// substitutions
-				sum += len;										// deletions
-				if (len > 1) sum += alpha * (len - 1);			// inserts
-			} else {
-				sum += (alpha - 1) * len;						// substitutions
-				sum += len;										// deletions
-				sum += alpha * (len + 1);						// inserts
-			}
-		}
-
-		if (me.minDist <= 2 && DISTANCE >= 2)
-		{
-			if (me.trim) {
-				sum += (alpha  - 1) * (alpha - 1) *  len      * (len - 1) / 2;	// subst^2
-				sum += (alpha  - 1)               * (len - 1) * (len - 1);		// subst*del
-				sum += (alpha  - 1) *  alpha      *  len      * (len + 1);		// subst*ins
-				sum +=                               len      * (len - 1) / 2;	// del^2
-				sum +=  alpha       *  alpha      * (len + 1) * (len + 1) / 2;	// ins^2
-			} else {
-				sum += (alpha  - 1) * (alpha - 1) *  len      * (len - 1) / 2;	// subst^2
-				sum += (alpha  - 1)               * (len - 1) * (len - 1);		// subst*del
-				sum += (alpha  - 1) *  alpha      *  len      * (len + 1);		// subst*ins
-				sum +=                               len      * (len - 1) / 2;	// del^2
-				sum +=  alpha       *  alpha      * (len + 1) * (len + 1) / 2;	// ins^2
-			}
-		}
-
-		// TODO: length function for DISTANCE >= 3 (if anyone needs should this)
-
-		return sum;
+            if (!it._reinit(0, 0))
+            {
+                mod = it.mod;
+                continue;
+            }
+            return it;
+        }
+        else
+            mod->state = mod->SUBST_;
+        ++mod;
     }
+    while (mod != modEnd);
 
-//////////////////////////////////////////////////////////////////////////////
-
-	//////////////////////////////////////////////////////////////////////////////
-	// begin
-	//////////////////////////////////////////////////////////////////////////////
-
-	template < typename TObject, typename TSpec >
-	inline Iter< Enumerator<TObject, TSpec>, Standard >
-	begin(Enumerator<TObject, TSpec> &enumerator, Standard) {
-		return Iter< Enumerator<TObject, TSpec>, Standard >(host(enumerator), enumerator.minDist, enumerator.trim);
-	}
-	template < typename TObject, typename TSpec >
-	inline Iter< Enumerator<TObject, TSpec>, Standard >
-	begin(Enumerator<TObject, TSpec> const &enumerator, Standard) {
-		return Iter< Enumerator<TObject, TSpec>, Standard >(host(enumerator), enumerator.minDist, enumerator.trim);
-	}
-
-	//////////////////////////////////////////////////////////////////////////////
-	// end
-	//////////////////////////////////////////////////////////////////////////////
-
-	template < typename TObject, typename TSpec >
-	inline Iter< Enumerator<TObject, TSpec>, Standard >
-	end(Enumerator<TObject, TSpec> &enumerator, Standard) {
-		Iter< Enumerator<TObject, TSpec>, Standard > iter(host(enumerator), enumerator.minDist, enumerator.trim, MinimalCtor());
-		goEnd(iter);
-		return iter;
-	}
-	template < typename TObject, typename TSpec >
-	inline Iter< Enumerator<TObject, TSpec>, Standard >
-	end(Enumerator<TObject, TSpec> const &enumerator, Standard) {
-		Iter< Enumerator<TObject, TSpec>, Standard > iter(host(enumerator), enumerator.minDist, enumerator.trim, MinimalCtor());
-		goEnd(iter);
-		return iter;
-	}
-
-	//////////////////////////////////////////////////////////////////////////////
-	// operator ==
-	//////////////////////////////////////////////////////////////////////////////
-
-	template <typename TObject, unsigned DISTANCE>
-	inline bool
-	operator == (
-		Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const & a,
-		Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const & b)
-	{
-		typedef typename Size<TObject>::Type			TSize;
-		typedef typename MakeSigned_<TSize>::Type		TSignedSize;
-		typedef EnumeratorHammingModifier_<TSignedSize>	TModifier;
-
-		if (&a.orig != &b.orig) return false;
-
-		for(unsigned i = 0; i < DISTANCE; ++i) {
-			TModifier const &modA = a.mod[i];
-			TModifier const &modB = b.mod[i];
-			if (modA.errorPos != modB.errorPos || modA.character != modB.character)
-				return false;
-		}
-
-		return true;
-	}
-
-	template <typename TObject, unsigned DISTANCE>
-	inline bool
-	operator == (
-		Iter<Enumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> const & a,
-		Iter<Enumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> const & b)
-	{
-		typedef typename Size<TObject>::Type				TSize;
-		typedef typename MakeSigned_<TSize>::Type			TSignedSize;
-		typedef EnumeratorLevenshteinModifier_<TSignedSize>	TModifier;
-
-		if (&a.orig != &b.orig) return false;
-
-		for(unsigned i = 0; i < DISTANCE; ++i) {
-			TModifier const &modA = a.mod[i];
-			TModifier const &modB = b.mod[i];
-			if (modA.errorPos != modB.errorPos || 
-				modA.character != modB.character || 
-				modA.state != modB.state)
-				return false;
-		}
-
-		return true;
-	}
-
-	//////////////////////////////////////////////////////////////////////////////
-	// operator !=
-	//////////////////////////////////////////////////////////////////////////////
-
-	template <typename TObject, unsigned DISTANCE>
-	inline bool
-	operator != (
-		Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const & a,
-		Iter<Enumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const & b)
-	{
-		typedef typename Size<TObject>::Type			TSize;
-		typedef typename MakeSigned_<TSize>::Type		TSignedSize;
-		typedef EnumeratorHammingModifier_<TSignedSize>	TModifier;
-
-		if (&a.orig != &b.orig) return true;
-
-		for(unsigned i = 0; i < DISTANCE; ++i) {
-			TModifier const &modA = a.mod[i];
-			TModifier const &modB = b.mod[i];
-			if (modA.errorPos != modB.errorPos || modA.character != modB.character)
-				return true;
-		}
-
-		return false;
-	}
-
-	template <typename TObject, unsigned DISTANCE>
-	inline bool
-	operator != (
-		Iter<Enumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> const & a,
-		Iter<Enumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> const & b)
-	{
-		typedef typename Size<TObject>::Type				TSize;
-		typedef typename MakeSigned_<TSize>::Type			TSignedSize;
-		typedef EnumeratorLevenshteinModifier_<TSignedSize>	TModifier;
-
-		if (&a.orig != &b.orig) return true;
-
-		for(unsigned i = 0; i < DISTANCE; ++i) {
-			TModifier const &modA = a.mod[i];
-			TModifier const &modB = b.mod[i];
-			if (modA.errorPos != modB.errorPos || 
-				modA.character != modB.character || 
-				modA.state != modB.state)
-				return true;
-		}
-
-		return false;
-	}
+    // end
+    goEnd(it);
+    return it;
 }
 
-#endif
+// --------------------------------------------------------------------------
+// Function length()                        Levensthein StringEnumerator Iter
+// --------------------------------------------------------------------------
+
+template <typename TObject, unsigned DISTANCE>
+inline typename Size<StringEnumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> > >::Type
+length(StringEnumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> > const & me)
+{
+    typedef typename Value<TObject>::Type TValue;
+    typedef typename Size<TObject>::Type TSize;
+
+    static const unsigned alpha = ValueSize<TValue>::VALUE;
+    TSize sum = 0;
+    // TSize numerator = 1;
+    // TSize divisor = 1;
+    TSize len = length(host(me));
+
+    if (me.minDist == 0 && len > 0)
+        ++sum;
+
+    if (me.minDist <= 1 && DISTANCE >= 1)
+    {
+        if (me.trim)
+        {
+            if (len > 2)
+                sum += (alpha - 1) * (len - 2);                 // substitutions
+            sum += len;                                         // deletions
+            if (len > 1)
+                sum += alpha * (len - 1);                       // inserts
+        }
+        else
+        {
+            sum += (alpha - 1) * len;                           // substitutions
+            sum += len;                                         // deletions
+            sum += alpha * (len + 1);                           // inserts
+        }
+    }
+
+    if (me.minDist <= 2 && DISTANCE >= 2)
+    {
+        if (me.trim)
+        {
+            sum += (alpha  - 1) * (alpha - 1) *  len      * (len - 1) / 2;      // subst^2
+            sum += (alpha  - 1)               * (len - 1) * (len - 1);          // subst*del
+            sum += (alpha  - 1) *  alpha      *  len      * (len + 1);          // subst*ins
+            sum +=                               len      * (len - 1) / 2;      // del^2
+            sum +=  alpha       *  alpha      * (len + 1) * (len + 1) / 2;      // ins^2
+        }
+        else
+        {
+            sum += (alpha  - 1) * (alpha - 1) *  len      * (len - 1) / 2;      // subst^2
+            sum += (alpha  - 1)               * (len - 1) * (len - 1);          // subst*del
+            sum += (alpha  - 1) *  alpha      *  len      * (len + 1);          // subst*ins
+            sum +=                               len      * (len - 1) / 2;      // del^2
+            sum +=  alpha       *  alpha      * (len + 1) * (len + 1) / 2;      // ins^2
+        }
+    }
+
+    // TODO: length function for DISTANCE >= 3 (if anyone needs should this)
+    if (DISTANCE > 2u)
+        SEQAN_FAIL("length() not implemented for DISTANCE >= 3!");
+
+    return sum;
+}
+
+// --------------------------------------------------------------------------
+// Function operator==()                        Hamming StringEnumerator Iter
+// --------------------------------------------------------------------------
+
+template <typename TObject, unsigned DISTANCE>
+inline bool
+operator==(
+    Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const & a,
+    Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const & b)
+{
+    typedef typename Size<TObject>::Type                    TSize;
+    typedef typename MakeSigned_<TSize>::Type               TSignedSize;
+    typedef StringEnumeratorHammingModifier_<TSignedSize>   TModifier;
+
+    if (&a.orig != &b.orig)
+        return false;
+
+    for (unsigned i = 0; i < DISTANCE; ++i)
+    {
+        TModifier const & modA = a.mod[i];
+        TModifier const & modB = b.mod[i];
+        if (modA.errorPos != modB.errorPos || modA.character != modB.character)
+            return false;
+    }
+
+    return true;
+}
+
+// --------------------------------------------------------------------------
+// Function operator!=()                        Hamming StringEnumerator Iter
+// --------------------------------------------------------------------------
+
+template <typename TObject, unsigned DISTANCE>
+inline bool
+operator!=(
+    Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const & a,
+    Iter<StringEnumerator<TObject, EditEnvironment<HammingDistance, DISTANCE> >, Standard> const & b)
+{
+    typedef typename Size<TObject>::Type                    TSize;
+    typedef typename MakeSigned_<TSize>::Type               TSignedSize;
+    typedef StringEnumeratorHammingModifier_<TSignedSize>   TModifier;
+
+    if (&a.orig != &b.orig)
+        return true;
+
+    for (unsigned i = 0; i < DISTANCE; ++i)
+    {
+        TModifier const & modA = a.mod[i];
+        TModifier const & modB = b.mod[i];
+        if (modA.errorPos != modB.errorPos || modA.character != modB.character)
+            return true;
+    }
+
+    return false;
+}
+
+// --------------------------------------------------------------------------
+// Function operator==()                    Levensthein StringEnumerator Iter
+// --------------------------------------------------------------------------
+
+template <typename TObject, unsigned DISTANCE>
+inline bool
+operator==(
+    Iter<StringEnumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> const & a,
+    Iter<StringEnumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> const & b)
+{
+    typedef typename Size<TObject>::Type                        TSize;
+    typedef typename MakeSigned_<TSize>::Type                   TSignedSize;
+    typedef StringEnumeratorLevenshteinModifier_<TSignedSize>   TModifier;
+
+    if (&a.orig != &b.orig)
+        return false;
+
+    for (unsigned i = 0; i < DISTANCE; ++i)
+    {
+        TModifier const & modA = a.mod[i];
+        TModifier const & modB = b.mod[i];
+        if (modA.errorPos != modB.errorPos ||
+            modA.character != modB.character ||
+            modA.state != modB.state)
+            return false;
+    }
+
+    return true;
+}
+
+// --------------------------------------------------------------------------
+// Function operator!=()                    Levenshtein StringEnumerator Iter
+// --------------------------------------------------------------------------
+
+template <typename TObject, unsigned DISTANCE>
+inline bool
+operator!=(
+    Iter<StringEnumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> const & a,
+    Iter<StringEnumerator<TObject, EditEnvironment<LevenshteinDistance, DISTANCE> >, Standard> const & b)
+{
+    typedef typename Size<TObject>::Type                        TSize;
+    typedef typename MakeSigned_<TSize>::Type                   TSignedSize;
+    typedef StringEnumeratorLevenshteinModifier_<TSignedSize>   TModifier;
+
+    if (&a.orig != &b.orig)
+        return true;
+
+    for (unsigned i = 0; i < DISTANCE; ++i)
+    {
+        TModifier const & modA = a.mod[i];
+        TModifier const & modB = b.mod[i];
+        if (modA.errorPos != modB.errorPos ||
+            modA.character != modB.character ||
+            modA.state != modB.state)
+            return true;
+    }
+
+    return false;
+}
+
+}  // namespace seqan
+
+#endif  // #ifndef SEQAN_CORE_INCLUDE_MISC_EDIT_ENVIRONMENT_H_

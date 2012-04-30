@@ -59,8 +59,15 @@ namespace seqan
     template <typename TSpec = void>
     struct Pigeonhole {
         enum { ONE_PER_DIAGONAL = 1 };	// 1..record last seed diagonal and ignore seeds on the same diag. (heuristic)
+        enum { HAMMING_ONLY = 0 };		// 0..no indels; 1..allow indels
     };
 
+    template <>
+    struct Pigeonhole<Hamming_> {
+        enum { ONE_PER_DIAGONAL = 1 };	// 1..record last seed diagonal and ignore seeds on the same diag. (heuristic)
+        enum { HAMMING_ONLY = 1 };		// 0..no indels; 1..allow indels
+    };
+	
 //////////////////////////////////////////////////////////////////////////////
 
 
@@ -82,11 +89,13 @@ namespace seqan
         
     struct PigeonholeParameters {
         unsigned overlap;           // overlap length of adjacent q-grams, default is to use non-overlapping q-grams (=0)
-        bool printDots;
+        unsigned delta;             // delta length (0 = automatic detection), becomes index stepSize
+        bool printDots;             // the q-gram will have length q=delta+overlap
         bool debug;
         
         PigeonholeParameters():
             overlap(0),
+            delta(0),
             printDots(false),		// print a . for every 100kbps mapped genome
             debug(false) {}
     };
@@ -373,11 +382,9 @@ inline void _patternInit(Pattern<TIndex, Pigeonhole<TSpec> > &pattern, TFloat er
 		// settings have been changed -> initialize bucket parameters
 	
 		pattern._currentErrorRate = _newErrorRate;
-		pattern.finderPosOffset = 0;
-		pattern.finderPosNextOffset = pattern.finderLength;
 
-        TSize minQ = MaxValue<TSize>::VALUE;
-        TSize maxQ = 3;
+        TSize minDelta = MaxValue<TSize>::VALUE;
+        TSize maxDelta = 3;
         TSize maxSeqLen = 0;
         for(unsigned seqNo = 0; seqNo < seqCount; ++seqNo) 
         {
@@ -388,63 +395,74 @@ inline void _patternInit(Pattern<TIndex, Pigeonhole<TSpec> > &pattern, TFloat er
 			// sequence must have sufficient length
 			if (length <= pattern.params.overlap) continue;
 			
-			// cut ovelap many characters from the end
-			length -= pattern.params.overlap;
+			// cut overlap many characters from the end
             TSize errors = (TSize) floor(errorRate * length);
-            TSize q = length / (errors + 1);
+			length -= pattern.params.overlap;
+            TSize delta = length / (errors + 1);
 			
 			
 			// ignore too short q-grams
-			if (q < 3) continue;
-            if (minQ > q) minQ = q;
-            if (maxQ < q) maxQ = q;
+			if (delta < 3) continue;
+            if (minDelta > delta) minDelta = delta;
+            if (maxDelta < delta) maxDelta = delta;
         }
         pattern.maxSeqLen = maxSeqLen;
-        if (minQ < 3) minQ = maxQ;
+        if (minDelta < 3) minDelta = maxDelta;
 		
         TIndex &index = host(pattern);
+		pattern.finderPosOffset = 0;
+		pattern.finderPosNextOffset = pattern.maxSeqLen + pattern.finderLength;
 		
-		if (minQ == MaxValue<TSize>::VALUE)
+        if (pattern.params.delta != 0)
+		{
+			// use user-defined delta
+            minDelta = pattern.params.delta;
+        }
+
+		if (minDelta == MaxValue<TSize>::VALUE)
 		{
 			// disable index
-			minQ = pattern.maxSeqLen + 1;
+			minDelta = pattern.maxSeqLen + 1;
 		}
-		
-        if (_pigeonholeUpdateShapeLength(pattern.shape, minQ + pattern.params.overlap) || getStepSize(index) != minQ)
+        		
+        if (_pigeonholeUpdateShapeLength(pattern.shape, minDelta + pattern.params.overlap) || getStepSize(index) != minDelta)
         {
             clear(index);
-            setStepSize(index, minQ);
-            CharString str;
-            shapeToString(str, pattern.shape);
-#pragma omp critical
-			{
-				std::cout << std::endl << "Pigeonhole settings:" << std::endl;
-				std::cout << "  shape:    " << length(str) << '\t' << str << std::endl;
-				std::cout << "  stepsize: " << getStepSize(index) << std::endl;
-			}
+            setStepSize(index, minDelta);
          }
         indexShape(host(pattern)) = pattern.shape;
+//        double start = sysTime();
         indexRequire(host(pattern), QGramSADir());
+//        double stop = sysTime();
+//        std::cout << "created in " <<(stop-start) << " seconds" << std::endl;
 
         clear(pattern.lastSeedDiag);
         if (Pigeonhole<TSpec>::ONE_PER_DIAGONAL)
             resize(pattern.lastSeedDiag, seqCount, -maxSeqLen);
 		pattern.seqDisabled = -maxSeqLen - 1;
     }
+	else
+	{
+		// settings are unchanged -> reset buckets
+
+		// finderPosOffset is used to circumvent expensive resetting of all buckets
+		pattern.finderPosOffset = pattern.finderPosNextOffset;
+		pattern.finderPosNextOffset += pattern.maxSeqLen + pattern.finderLength;
+    }
 }
 
 template <
 	typename TFinder,
 	typename TIndex, 
-	typename TSpec_,
+	typename TSpec,
 	typename THValue
 >
 inline bool _pigeonholeProcessQGram(
 	TFinder &finder, 
-	Pattern<TIndex, Pigeonhole<TSpec_> > &pattern,
+	Pattern<TIndex, Pigeonhole<TSpec> > &pattern,
 	THValue hash)
 {
-	typedef Pattern<TIndex, Pigeonhole<TSpec_> >        TPattern;
+	typedef Pattern<TIndex, Pigeonhole<TSpec> >         TPattern;
 	typedef typename TFinder::THstkPos					THstkPos;
     
     typedef typename Fibre<TIndex, QGramSA>::Type       TSA;
@@ -469,7 +487,7 @@ inline bool _pigeonholeProcessQGram(
         posLocalize(ndlPos, *occ, stringSetLimits(index));
         hit.hstkPos = finder.curPos - getSeqOffset(ndlPos);		// bucket begin in haystack
         hit.ndlSeqNo = getSeqNo(ndlPos);						// needle seq. number
-        if (Pigeonhole<TSpec_>::ONE_PER_DIAGONAL)
+        if (Pigeonhole<TSpec>::ONE_PER_DIAGONAL)
         {
             __int64 diag = hit.hstkPos + (__int64)pattern.finderPosOffset;
             if (pattern.lastSeedDiag[hit.ndlSeqNo] == diag)
@@ -477,9 +495,17 @@ inline bool _pigeonholeProcessQGram(
             pattern.lastSeedDiag[hit.ndlSeqNo] = diag;
         }
 		unsigned ndlLength = sequenceLength(hit.ndlSeqNo, host(pattern));
-		unsigned errors = (unsigned)floor(pattern._currentErrorRate * ndlLength);
-		hit.bucketWidth = ndlLength + (errors << 1) + 1;
-		hit.hstkPos -= errors;
+
+		if (Pigeonhole<TSpec>::HAMMING_ONLY != 0)
+		{
+			hit.bucketWidth = ndlLength;
+		}
+		else
+		{
+			unsigned indels = (unsigned)floor(pattern._currentErrorRate * ndlLength);
+			hit.bucketWidth = ndlLength + (indels << 1);
+			hit.hstkPos -= indels;
+		}
         appendValue(finder.hits, hit);
     }
 
@@ -861,8 +887,8 @@ find(
 {
 	if (empty(finder)) 
 	{
+		pattern.finderLength = length(container(finder));
 		_patternInit(pattern, errorRate);
-		pattern.finderLength = pattern.maxSeqLen + length(container(finder));
 		_finderSetNonEmpty(finder);
 		finder.dotPos = 100000;
 		finder.dotPos2 = 10 * finder.dotPos;
@@ -932,8 +958,8 @@ windowFindBegin(
 {
 	SEQAN_CHECKPOINT
 	
-	_patternInit(pattern, errorRate);
 	pattern.finderLength = pattern.maxSeqLen + length(container(finder));
+	_patternInit(pattern, errorRate);
 	_finderSetNonEmpty(finder);
 	finder.dotPos = 100000;
 	finder.dotPos2 = 10 * finder.dotPos;
@@ -1021,9 +1047,16 @@ windowFindNext(
 					}
 //                     std::cout<<"hit at:\thpos="<<finder.curPos<<"\tnpos="<<getSeqOffset(ndlPos)<<"\treadNo="<<hit.ndlSeqNo<<"\thash="<<value(shape)<<std::endl;
 					unsigned ndlLength = sequenceLength(hit.ndlSeqNo, host(pattern));
-					unsigned errors = (unsigned)floor(errorRate * ndlLength);
-					hit.bucketWidth = ndlLength + (errors << 1) + 1;
-					hit.hstkPos -= errors;
+                    if (Pigeonhole<TSpec>::HAMMING_ONLY != 0)
+                    {
+                        hit.bucketWidth = ndlLength;
+                    }
+                    else
+                    {
+                        unsigned indels = (unsigned)floor(errorRate * ndlLength);
+                        hit.bucketWidth = ndlLength + (indels << 1);
+                        hit.hstkPos -= indels;
+                    }
 					appendValue(finder.hits, hit);
 				}
             }

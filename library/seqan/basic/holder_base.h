@@ -1,7 +1,7 @@
 // ==========================================================================
 //                 SeqAn - The Library for Sequence Analysis
 // ==========================================================================
-// Copyright (c) 2006-2010, Knut Reinert, FU Berlin
+// Copyright (c) 2006-2012, Knut Reinert, FU Berlin
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -174,6 +174,26 @@ struct Reference<Holder<TValue *, TSpec> const>
 // ============================================================================
 // Functions
 // ============================================================================
+
+// ----------------------------------------------------------------------------
+// Function getValue()
+// ----------------------------------------------------------------------------
+
+// TODO(holtgrew): We would rather have only one here.
+
+template <typename TValue, typename TSpec>
+inline typename GetValue<Holder<TValue, TSpec> >::Type
+getValue(Holder<TValue, TSpec> const & holder)
+{
+    return value(holder);
+}
+
+template <typename TValue, typename TSpec>
+inline typename GetValue<Holder<TValue, TSpec> >::Type
+getValue(Holder<TValue, TSpec> & holder)
+{
+    return value(holder);
+}
 
 }  // namespace seqan
 

@@ -158,9 +158,9 @@ struct Needle<Segment<THost, TSpec> const>
 ..signature:find(finder, pattern)
 ..signature:find(finder, pattern, k)
 ..param.finder:The @Class.Finder@ object to search through.
-...remarks:For online-algorithm $patterns$, finder can also be an arbitrary @Concept.Rooted Iterator@.
+...remarks:For online-algorithm $patterns$, finder can also be an arbitrary @Concept.RootedIteratorConcept|Rooted Iterator@.
 ...type:Class.Finder
-...type:Concept.Rooted Iterator
+...type:Concept.RootedIteratorConcept
 ..param.pattern:The @Class.Pattern@ object to search for.
 ...remarks:For index $finders$, pattern can also be a Sequence.
 ...type:Class.Pattern

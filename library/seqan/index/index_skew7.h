@@ -68,14 +68,14 @@ namespace SEQAN_NAMESPACE_MAIN
             const typename Septet::T *sa = a.i2.i;
             const typename Septet::T *sb = b.i2.i;
 
-            SizeType n = Septet::size;
+            SizeType n = Septet::SIZE;
             if (a.i1 < n) n = a.i1;
             if (b.i1 < n) n = b.i1;
             for(SizeType i = 0; i < n; i++, ++sa, ++sb) {
                 if (*sa == *sb) continue;
                 return (*sa < *sb)? -1 : 1;
             }
-            if (n < Septet::size) {
+            if (n < Septet::SIZE) {
                 return (a.i1 < b.i1)? -1 : 1;
             } else
                 return 0;
@@ -211,7 +211,7 @@ namespace SEQAN_NAMESPACE_MAIN
         // *** SPECIALIZATION ***
 
         // use compression if lessorequal 16 different values per char
-        typedef typename If< 
+        typedef typename IfC< 
             (BitsPerValue<TypeOf_(TInput)>::VALUE > 0) && 
             (BitsPerValue<TypeOf_(TInput)>::VALUE <= 4), 
             Compressed, 
@@ -465,6 +465,42 @@ namespace SEQAN_NAMESPACE_MAIN
         }
         return _leqSkew7 (sa, s124[tpos[a] + adjust[a][b]],   sb, s124[tpos[b] + adjust[b][a]],   shft);
     }
+    
+    template <typename TSAOut, typename TText, typename TSAIn, typename TEnable>
+    inline bool _fastTupleSortSkew7(TSAOut &, TText const &, TSAIn const &, TEnable)
+    {
+        return false;
+    }
+
+    template <typename TSAOut, typename TText, typename TSAIn>
+    inline bool _fastTupleSortSkew7(TSAOut &SA124, TText const &s, TSAIn const &s124, True)
+    {
+        typedef typename Value<TText>::Type TValue;
+		typedef typename Value<TSAOut>::Type TSize;
+		typedef typename Iterator<TText const, Standard>::Type TValueIter;
+		typedef typename Iterator<TSAIn const, Standard>::Type TSAIter;
+        
+        // optimized tuple sort for short alphabets
+        Shape<TValue, UngappedShape<7> > shape;
+        String<TSize, Alloc<> > cnt;
+        resize(cnt, _fullDir2Length(shape), 0, Exact());
+        
+        TValueIter textBegin = begin(s, Standard());            
+        TSAIter it = begin(s124, Standard());
+        TSAIter itEnd = end(s124, Standard());
+
+		register TSize n = length(s);
+        for(; it != itEnd; ++it)
+            ++cnt[hash2(shape, textBegin + *it, n - *it)];
+
+        _qgramCummulativeSum(cnt, False());
+
+        it = begin(s124, Standard());
+        for(; it != itEnd; ++it)
+            SA124[cnt[hash2(shape, textBegin + *it, n - *it) + 1]++] = *it;
+        
+        return true;
+    }
 
 
 	//////////////////////////////////////////////////////////////////////////////
@@ -493,7 +529,9 @@ namespace SEQAN_NAMESPACE_MAIN
     {
 		typedef typename Value<TSA>::Type TSize;
 		typedef typename Value<TText>::Type TValue;
+        typedef String<TSize, Alloc<> > TBuffer;
 		typedef typename Iterator<TSA, Standard>::Type TSAIter;
+		typedef typename Iterator<TBuffer, Standard>::Type TBufferIter;
 		typedef typename Iterator<TText const, Standard>::Type TValueIter;
 
 		SEQAN_ASSERT(IsContiguous<TText>::VALUE == true);
@@ -528,7 +566,7 @@ namespace SEQAN_NAMESPACE_MAIN
 			::std::cerr << "enter level " << depth << " (" << n << ")" << ::std::endl;
         #endif
 
-        String<TSize, Alloc<> > s124;
+        TBuffer s124;
         resize(s124, _n124, Exact());
 		// we use SA[n-n124..n-1] as a temporary buffer instead of allocating one
 		typename Suffix<TSA>::Type SA124 = suffix(SA, n - _n124);
@@ -549,6 +587,7 @@ namespace SEQAN_NAMESPACE_MAIN
 
 
 		// lsb radix sort the mod 3, mod 5 and mod 6 7-tupels
+        if (!_fastTupleSortSkew7(SA124, s, s124, typename Eval<BitsPerValue<TValue>::VALUE < 4>::Type()))
 		{
 			String<TSize, Alloc<> > cnt;
 			resize(cnt, K, Exact());	// counter array

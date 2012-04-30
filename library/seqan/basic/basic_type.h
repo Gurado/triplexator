@@ -1,7 +1,7 @@
 // ==========================================================================
 //                 SeqAn - The Library for Sequence Analysis
 // ==========================================================================
-// Copyright (c) 2006-2010, Knut Reinert, FU Berlin
+// Copyright (c) 2006-2012, Knut Reinert, FU Berlin
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -44,22 +44,11 @@ namespace seqan {
 
 //////////////////////////////////////////////////////////////////////////////
 
-/**
-.Metafunction.Value:
-..cat:Basic
-..summary:Type of the items in the container. 
-..signature:Value<T>::Type
-..param.T:Type for which the value type is determined.
-..returns.param.Type:Value type of $T$.
-..remarks.text:The value type of a container $T$ is the type of the elements in $T$.
-    For example, the value type of a sequence of $int$ is $int$.
-..example.code:Value<String<char> >::Type c; //c has type char
-..include:seqan/basic.h
-*/
 
+// TODO(holtgrew): Remove default implementation.
 // SEQREV: elements-are-containers should not have a default implementation
 
-template <typename T, const int i = 0>
+template <typename T, const int i>
 struct Value
 {
     typedef T Type;
@@ -73,21 +62,8 @@ struct Value<T const>
 
 //____________________________________________________________________________
 
-/**
-.Metafunction.GetValue:
-..cat:Basic
-..summary:Type for reading values. 
-..signature:GetValue<T>::Type
-..param.T:Type of container that holds a value.
-..returns.param.Type:GetValue type of $T$.
-..remarks.text:Depending on $T$, the $GetValue$-type can either be $Value<T>::Type &$ or $Value<T>::Type$.
-..text:$GetValue$ is the return type of @Function.getValue@ that allows a (read-only) access to objects.
-Do not confuse it with @Function.value@ that returns a @Metafunction.Reference.reference@ to the value.
-..see:Metafunction.Value
-..see:Function.getValue
-..include:seqan/basic.h
-*/
 
+// TODO(holtgrew): Remove default implementation.
 template <typename T>
 struct GetValue
 {
@@ -102,18 +78,7 @@ struct GetValue<T const>:
 
 //____________________________________________________________________________
 
-/**
-.Metafunction.Reference:
-..cat:Basic
-..summary:Reference type.
-..signature:Reference<T>::Type
-..param.T:A Type.
-..returns.param.Type:Either $Value<T>::Type &$ or a proxy object @Class.Proxy@ for $T$.
-..see:Metafunction.Value
-..see:Metafunction.GetValue
-..include:seqan/basic.h
-*/
-
+// TODO(holtgrew): Remove default implementation.
 template <typename T>
 struct Reference
 {
@@ -129,17 +94,7 @@ struct Reference<T const>
 //____________________________________________________________________________
 
 
-/**
-.Metafunction.Size:
-..cat:Basic
-..summary:Type of an object that is suitable to hold size information.
-..signature:Size<T>::Type
-..param.T:Type for which the size type is determined.
-..returns.param.Type:Size type of $T$.
-..remarks.text:In most cases this type is $size_t$.
-..include:seqan/basic.h
-*/
-
+// TODO(holtgrew): Remove default implementation.
 template <typename T>
 struct Size
 {
@@ -155,19 +110,8 @@ struct Size<T const>:
 //____________________________________________________________________________
 
 
-/**
-.Metafunction.Difference:
-..cat:Basic
-..summary:Type of an object that stores the difference between two iterators.
-..signature:Difference<T>::Type
-..param.T:Type for which the difference type is determined.
-...type:Class.Iter
-..returns.param.Type:Difference type of $T$.
-..remarks.text:In most cases this type is $ptrdiff_t$.
-..see:Metafunction.Size
-..include:seqan/basic.h
-*/
 
+// TODO(holtgrew): Remove default implementation.
 template <typename T>
 struct Difference
 {
@@ -183,19 +127,7 @@ struct Difference<T const>:
 //____________________________________________________________________________
 
 
-/**
-.Metafunction.Position:
-..cat:Basic
-..summary:Type of an object that represents a position in a container.
-..signature:Position<T>::Type
-..param.T:Type for which the position type is determined.
-...type:Class.Iter
-...type:Class.String
-..returns.param.Type:Position type of $T$.
-..see:Metafunction.Iterator
-..include:seqan/basic.h
-*/
-
+// TODO(holtgrew): Remove default implementation.
 template <typename T>
 struct Position
 {
@@ -210,16 +142,6 @@ struct Position<T const>:
 
 //____________________________________________________________________________
 
-/**
-.Metafunction.Host:
-..cat:Basic
-..summary:Type of the object a given object depends on.
-..signature:Host<T>::Type
-..param.T:Type for which the host type is determined.
-..returns.param.Type:Host type of $T$.
-..include:seqan/basic.h
-*/
-
 // SEQREV: elements-are-containers should not have a default implementation, if a type has no host, do not return self
 
 template <typename T>
@@ -229,101 +151,6 @@ struct Host
 };
 
 //____________________________________________________________________________
-
-/**
-.Metafunction.Spec:
-..cat:Basic
-..summary:The spec of a class. 
-..signature:Spec<T>::Type
-..param.T:Type for which the spec is determined.
-..returns.param.Type:Spec of $T$.
-..remarks:The spec of a SeqAn type is the class that is used in template subclassing 
- to specify the specialization. 
- For example, the spec of $String<char, Alloc<> >$ is $Alloc<>$.
-..include:seqan/basic.h
-*/
-
-// default case
-template <typename T>
-struct Spec {
-    typedef void Type;
-};
-
-
-// one argument case
-template <template <typename> class T, typename TSpec>
-struct Spec< T<TSpec> > {
-    typedef TSpec Type;
-};
-
-template <typename T>
-struct Spec<T const>:
-    public Spec<T> {};
-
-//____________________________________________________________________________
-
-/**
-.Metafunction.DeepestSpec:
-..cat:Basic
-..summary:The deepest spec of a class with nested template arguments.
-..signature:DeepestSpec<T>::Type
-..param.T:Type for which the deepest spec is determined.
-..returns.param.Type:Deepest spec of $T$.
-..remarks:The spec of a SeqAn type is the innermost class that is used in nested subclassing.
- For example, the deepest spec of $Iter<..., VSTree<BottomUp<Mums> > >$ is $Mums$.
-..include:seqan/basic.h
-*/
-
-// default case
-template <typename T>
-struct DeepestSpec {
-    typedef T Type;
-};
-
-// recursion for 1 argument
-template <
-    template <typename> class T, 
-    typename T1 >
-struct DeepestSpec< T<T1> > {
-    typedef typename 
-        If<
-            IsSameType<T1, void>::VALUE,                                        // is T1 void?
-            T<T1>,                                                          // yes, end of recursion
-            typename DeepestSpec< typename Spec< T<T1> >::Type >::Type      // no,  recurse
-        >::Type Type;
-};
-
-// recursion for 2 arguments
-template <
-    template <typename, typename> class T, 
-    typename T1, typename T2 >
-struct DeepestSpec< T<T1,T2> >:
-    DeepestSpec< typename Spec< T<T1,T2> >::Type > {};
-
-// recursion for 3 arguments
-template <
-    template <typename, typename, typename> class T, 
-    typename T1, typename T2, typename T3 >
-struct DeepestSpec< T<T1,T2,T3> >:
-    DeepestSpec< typename Spec< T<T1,T2,T3> >::Type > {};
-
-// recursion for 4 arguments
-template <
-    template <typename, typename, typename, typename> class T, 
-    typename T1, typename T2, typename T3, typename T4 >
-struct DeepestSpec< T<T1,T2,T3,T4> >:
-    DeepestSpec< typename Spec< T<T1,T2,T3,T4> >::Type > {};
-
-// recursion for 5 arguments
-template <
-    template <typename, typename, typename, typename, typename> class T, 
-    typename T1, typename T2, typename T3, typename T4, typename T5 >
-struct DeepestSpec< T<T1,T2,T3,T4,T5> >:
-    DeepestSpec< typename Spec< T<T1,T2,T3,T4,T5> >::Type > {};
-
-template <typename T>
-struct DeepestSpec<T const>:
-    public DeepestSpec<T> {};
 
 //____________________________________________________________________________
 

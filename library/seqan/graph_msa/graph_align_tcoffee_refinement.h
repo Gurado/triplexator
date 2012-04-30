@@ -305,7 +305,7 @@ _msaRefinement(String<TValue, TSpec>& mat,
 	TSize nseq1 = splitPos;
 	TSize nseq2 = nseq - nseq1;
 	TSize gapPos = ValueSize<TAlphabet>::VALUE;
-	typedef ProfileType<TAlphabet> TProfile;
+	typedef ProfileChar<TAlphabet> TProfile;
 	typedef String<TProfile> TProfileString;
 	typedef typename Iterator<TProfileString, Standard>::Type TProfIter;
 	TProfileString prof1;

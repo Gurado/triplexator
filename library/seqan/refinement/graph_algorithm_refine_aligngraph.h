@@ -40,7 +40,6 @@ namespace SEQAN_NAMESPACE_MAIN
 {
 
 	
-/////////////////////// NOCH NICHT EINSATZF�HIG!!!!! /////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////	
 //Functios for Align Graphs
 //project onto other sequence for Graph<Alignment>
@@ -175,8 +174,9 @@ SEQAN_CHECKPOINT
 
 
 //////////////////////////
-//for Graph<TAlign>
-//only for complete refinement 
+// get score for part of pairwise alignment graph starting in pos_i in first sequence and in
+// pos_j in second sequence, and with length len and len_j respectively
+// only for exact refinement 
 template<typename TScoreValue,typename TScoreSpec,typename TStringSet,typename TAlignment,typename TValue>
 TScoreValue
 _getRefinedMatchScore(Score<TScoreValue,TScoreSpec> & score_type,
@@ -215,8 +215,7 @@ SEQAN_CHECKPOINT
 	{
 		TValue rest = 0;
 		TVertexMapIter it = segment.data_pvMap.upper_bound(std::make_pair(seq_i_id, pos_i));
-		// vd definitely exists (unless the input parameters for _getRefinedMatchScore are wrong)	
-		// no! falsch gedacht... nilVertex, falls pos in einem gap liegt
+		// it->second is nilVertex if pos_i lies within gap	
 		if(it->second == nilVertex)
 		{	
 			++it;

@@ -185,6 +185,7 @@ A bucket still stores occurrences (or counts) of the same q-gram, but in contras
 	// looks up the bucket for the hash
 	// allocates a new bucket if non for this hash exsits yet
 	// returns the position of the bucket
+#if SEQAN_DISABLED_BECAUSE_INEFFICIENT
 	template < typename THashValue, typename THashValue2 >
 	inline THashValue
 	requestBucket(BucketMap<THashValue> &bucketMap, THashValue2 hash)
@@ -236,9 +237,64 @@ A bucket still stores occurrences (or counts) of the same q-gram, but in contras
 			}
 		}
 	}
-	
+#endif
+
+	template < typename THashValue, typename THashValue2 >
+	inline THashValue
+	requestBucket(BucketMap<THashValue> &bucketMap, THashValue2 hash)
+	{
+		typedef unsigned long TSize;
+		// get size of the index
+
+		// check whether bucket map is disabled and
+		// where the hash should be found if no collision took place before
+		register TSize hlen = length(bucketMap.qgramHash);
+		if (hlen == 0ul) return hash;
+
+        register TSize a = ((hash * 43) ^ (hash >> 20)) + hash;
+#ifdef SEQAN_OPENADDRESSING_COMPACT
+        --hlen;
+		register TSize h1 = (TSize)(a % hlen);
+#else
+        hlen -= 2;
+		register TSize h1 = (TSize)(a & hlen);
+#endif
+		// -1 is the undefiend value, hence the method works not for the largest word of length 32
+		// if there is no collision with another hash value
+		// the bucket is still empty
+		if (bucketMap.qgramHash[h1] == (THashValue)-1)
+		{
+			bucketMap.qgramHash[h1] = hash;
+			return h1;
+		}
+		// if there is a collision
+		else
+		{
+			// the bucket for this hash was requestet before
+			// return the same bucket
+			if (bucketMap.qgramHash[h1] == hash)
+				return h1;
+			// another hash is occupying this bucket already
+			else
+			{
+				// look one bucket further untill one is free or was requested by this hash earlier
+				do {
+#ifdef SEQAN_OPENADDRESSING_COMPACT
+					h1 = (h1 + 1) % hlen;
+#else
+					h1 = (h1 + 1) & hlen;
+#endif
+				} while (bucketMap.qgramHash[h1] != (THashValue)-1 && bucketMap.qgramHash[h1] != hash);
+				bucketMap.qgramHash[h1] = hash;
+				return h1;
+			}
+		}
+	}
+
+
 	// looks up the bucket for the hash
 	// returns the position of the bucket
+#if SEQAN_DISABLED_BECAUSE_INEFFICIENT
 	template < typename THashValue, typename THashValue2 >
 	inline THashValue
 	getBucket(BucketMap<THashValue> const &bucketMap, THashValue2 hash)
@@ -258,7 +314,7 @@ A bucket still stores occurrences (or counts) of the same q-gram, but in contras
 		register TSize h1 = (TSize)(hash & hlen);
 #endif
 		
-		// -1 is the undefiend value, hence the method works not for the largest word of length 32
+		// -1 is the undefined value, hence the method works not for the largest word of length 32
 		// if there is no collision with another hash value
 		// the bucket is still empty
 		if (bucketMap.qgramHash[h1] == (THashValue)-1)
@@ -286,6 +342,45 @@ A bucket still stores occurrences (or counts) of the same q-gram, but in contras
 			}
 		}
 	}
+#endif
+    
+	template < typename THashValue, typename THashValue2 >
+	inline THashValue
+	getBucket(BucketMap<THashValue> const &bucketMap, THashValue2 hash)
+	{
+		typedef unsigned long TSize;
+		// get size of the index
+		
+		// check whether bucket map is disabled and
+		// where the hash should be found if no collision took place before
+		register TSize hlen = length(bucketMap.qgramHash);
+		if (hlen == 0ul) return hash;
+
+        register TSize a = ((hash * 43) ^ (hash >> 20)) + hash;
+#ifdef SEQAN_OPENADDRESSING_COMPACT
+        --hlen;
+		register TSize h1 = (TSize)(a % hlen);
+#else
+        hlen -= 2;
+		register TSize h1 = (TSize)(a & hlen);
+#endif
+		
+		// -1 is the undefined value, hence the method works not for the largest word of length 32
+		// if there is no collision with another hash value
+		// the bucket is still empty
+		//
+		// look one bucket further until one is free or was requested by this hash earlier
+		while (bucketMap.qgramHash[h1] != hash && bucketMap.qgramHash[h1] != (THashValue)-1)
+		{
+#ifdef SEQAN_OPENADDRESSING_COMPACT
+			h1 = (h1 + 1) % hlen;
+#else
+			h1 = (h1 + 1) & hlen;
+#endif
+		}
+		return h1;
+	}
+    
 
 	template <typename TSize>
 	inline unsigned coprimeTest(TSize hlen)

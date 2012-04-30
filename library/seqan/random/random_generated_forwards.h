@@ -66,7 +66,7 @@ struct GeometricFairCoin;       	// "/Users/f.buske/Documents/biosim/triplexes/p
 //____________________________________________________________________________
 // GetDefaultRng
 
-template <typename T> struct GetDefaultRng;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_base.h"(149)
+template <typename T> struct GetDefaultRng;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_base.h"(151)
 
 //____________________________________________________________________________
 // LogNormal
@@ -98,12 +98,12 @@ struct Normal;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/
 //____________________________________________________________________________
 // Pdf
 
-template <typename TSpec> class Pdf;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_base.h"(73)
+template <typename TSpec> class Pdf;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_base.h"(75)
 
 //____________________________________________________________________________
 // Rng
 
-template <typename TSpec > class Rng;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_base.h"(61)
+template <typename TSpec > class Rng;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_base.h"(62)
 
 //____________________________________________________________________________
 // RngFunctor
@@ -238,8 +238,8 @@ template <typename TRNG, typename T> inline typename Value<Pdf<Uniform<T> > >::T
 //____________________________________________________________________________
 // defaultRng
 
-template <typename TRng> inline TRng & defaultRng();       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_base.h"(189)
-template <typename T> inline typename GetDefaultRng<T>::Type & defaultRng(T const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_base.h"(198)
+template <typename TRng> inline TRng & defaultRng();       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_base.h"(191)
+template <typename T> inline typename GetDefaultRng<T>::Type & defaultRng(T const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/random/random_base.h"(200)
 
 //____________________________________________________________________________
 // pickRandomNumber

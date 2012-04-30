@@ -103,7 +103,7 @@ SEQAN_CHECKPOINT
     TSize len2 = length(str2);
 
     TSize lo_row = (diagU <= 0) ? static_cast<TSize>(-diagU) : 0;
-    //TSize diagonalWidth = static_cast<TSize>(diagU - diagL + 1);
+    TSize diagonalWidth = static_cast<TSize>(diagU - diagL + 1);
 
     // Start the trace from the cell with the max value
     typename TFinder::TMatrixIterator matIt = iter(finder.matrix, finder.bestEndPos);
@@ -138,13 +138,14 @@ SEQAN_CHECKPOINT
             --row;
             goPrevious(matIt, 1); 
             goPrevious(matIt2, 1);
-        } else if (*matIt == *(matIt2+1) + scoreGapExtendVertical(sc, ((int)actualCol-1), ((int)actualRow-1), str1, str2)) {
+        } else if (col < diagonalWidth - 1 && *matIt == *(matIt2+1) + scoreGapExtendVertical(sc, ((int)actualCol-1), ((int)actualRow-1), str1, str2)) {
             nextTraceValue = Vertical;
             --actualRow; 
             --row; ++col;
             goPrevious(matIt, 1); goNext(matIt, 0);
             goPrevious(matIt2, 1); goNext(matIt2, 0);
         } else {
+			SEQAN_ASSERT_GT(col, static_cast<TSize>(0));
             SEQAN_ASSERT_EQ(*matIt, *(matIt-1) + scoreGapExtendHorizontal(sc, ((int)actualCol-1), ((int)actualRow-1), str1, str2));
             nextTraceValue = Horizontal;
             --actualCol; 
@@ -413,16 +414,16 @@ SEQAN_CHECKPOINT
             hori_val = *matIt;
         }
     }
- //   // Debug code
- //   std::cerr << std::endl;
-	//for(TSize i= 0; i<height; ++i) {
-	//	for(TSize j= 0; j<diagonalWidth; ++j) {
-	//		std::cerr << value(finder.matrix, j, i) << ',';
-	//	}
-	//	if (i > 0) std::cerr << " " << str2[i-1] << std::endl;
-	//	else std::cerr << std::endl;
-	//}
- //   if(length(finder.pQ) > 0) std::cerr << "Max score: " << top(finder.pQ).value_ << std::endl;
+//   // Debug code
+//   std::cerr << std::endl;
+//for(TSize i= 0; i<height; ++i) {
+//	for(TSize j= 0; j<diagonalWidth; ++j) {
+//		std::cerr << value(finder.matrix, j, i) << ',';
+//	}
+//	if (i > 0) std::cerr << " " << str2[i-1] << std::endl;
+//	else std::cerr << std::endl;
+//}
+//   if(length(finder.pQ) > 0) std::cerr << "Max score: " << top(finder.pQ).value_ << std::endl;
 
     if(!empty(finder.pQ)) {
         finder.bestEndPos = top(finder.pQ).id_;

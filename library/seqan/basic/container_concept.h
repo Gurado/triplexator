@@ -1,7 +1,7 @@
 // ==========================================================================
 //                 SeqAn - The Library for Sequence Analysis
 // ==========================================================================
-// Copyright (c) 2006-2011, Knut Reinert, FU Berlin
+// Copyright (c) 2006-2012, Knut Reinert, FU Berlin
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -36,14 +36,19 @@
 
 // SEQAN_NO_GENERATED_FORWARDS
 
-#ifndef CORE_INCLUDE_SEQAN_BASIC_CONTAINER_CONCEPT_H_
-#define CORE_INCLUDE_SEQAN_BASIC_CONTAINER_CONCEPT_H_
+#ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_CONTAINER_CONCEPT_H_
+#define SEQAN_CORE_INCLUDE_SEQAN_BASIC_CONTAINER_CONCEPT_H_
 
 namespace seqan {
     
 // ============================================================================
 // Concepts
 // ============================================================================
+
+// Forwards.
+struct Standard_;
+typedef Tag<Standard_> const Standard;
+template <typename TContainer, typename TSpec> struct Iterator;
 
 // mutable container concept
 template <typename TContainer>
@@ -104,11 +109,11 @@ template <typename TString>
 struct StringConcept :
     ContainerConcept<TString>
 {
-    typedef typename Value<TString>::Type       TValue;
-    typedef typename Size<TString>::Type        TSize;
-    typedef typename Position<TString>::Type    TPosition;
-    typedef typename Difference<TString>::Type  TDifference;
-    typedef typename Iterator<TString>::Type    TIterator;
+    typedef typename Value<TString>::Type                 TValue;
+    typedef typename Size<TString>::Type                  TSize;
+    typedef typename Position<TString>::Type              TPosition;
+    typedef typename Difference<TString>::Type            TDifference;
+    typedef typename Iterator<TString, Standard>::Type    TIterator;
 
     TString     str, str2;
     TValue      val;
@@ -170,4 +175,4 @@ struct StringConcept :
     
 }  // namespace seqan
 
-#endif  // #ifndef CORE_INCLUDE_SEQAN_BASIC_CONTAINER_CONCEPT_H_
+#endif  // #ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_CONTAINER_CONCEPT_H_

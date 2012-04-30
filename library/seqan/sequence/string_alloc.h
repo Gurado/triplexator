@@ -61,8 +61,8 @@ namespace seqan {
 ...default:$void$
 ..include:seqan/sequence.h
 */
-template <typename TValue>
-class String<TValue, Alloc<void> >
+template <typename TValue, typename TSpec>
+class String<TValue, Alloc<TSpec> >
 {
 public:
     typename Value<String>::Type * data_begin;
@@ -85,7 +85,8 @@ public:
           data_capacity(0)
     {
         SEQAN_CHECKPOINT;
-        assign(*this, source);
+        if (length(source) > 0u)
+            assign(*this, source);
         SEQAN_ASSERT_LEQ_MSG(data_begin, data_end, "String end is before begin!");
     }
     
@@ -96,7 +97,8 @@ public:
           data_capacity(0)
     {
         SEQAN_CHECKPOINT;
-        assign(*this, source);
+        if (length(source) > 0u)
+            assign(*this, source);
         SEQAN_ASSERT_LEQ_MSG(data_begin, data_end, "String end is before begin!");
     }
     
@@ -106,7 +108,8 @@ public:
           data_capacity(0)
     {
         SEQAN_CHECKPOINT;
-        assign(*this, source);
+        if (length(source) > 0u)
+            assign(*this, source);
         SEQAN_ASSERT_LEQ_MSG(data_begin, data_end, "String end is before begin!");
     }
     
@@ -127,7 +130,8 @@ public:
               data_capacity(0)
     {
         SEQAN_CHECKPOINT;
-        assign(*this, source, limit);
+        if (length(source) > 0u)
+            assign(*this, source, limit);
         SEQAN_ASSERT_LEQ_MSG(data_begin, data_end, "String end is before begin!");
     }
     
@@ -138,7 +142,8 @@ public:
               data_capacity(0)
     {
         SEQAN_CHECKPOINT;
-        assign(*this, source, limit);
+        if (length(source) > 0u)
+            assign(*this, source, limit);
         SEQAN_ASSERT_LEQ_MSG(data_begin, data_end, "String end is before begin!");
     }
 

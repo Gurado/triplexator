@@ -42,7 +42,7 @@ namespace SEQAN_NAMESPACE_MAIN
 struct TagExactRefinement_;
 typedef Tag<TagExactRefinement_> const ExactRefinement;
 
-//exact method, every cut is made (unless it already exists)
+// exact method, every cut is made (unless it already exists)
 template<typename TValue, typename TValue2, typename TSize>
 inline bool
 _cutIsValid(String<std::set<TValue> > & all_nodes,
@@ -60,6 +60,7 @@ SEQAN_CHECKPOINT
 }
 
 
+// necessary for reversed fragments: projected position pos_j is shifted one to the left --> ++pos_j if fragement reversed
 template<typename TSize, typename TSpec,typename TPos>
 inline void
 _updateCutPosition(Fragment<TSize, ExactReversableFragment<TSpec> > & f, TPos & pos_j)
@@ -75,7 +76,7 @@ _updateCutPosition(Fragment<TSize, ExactReversableFragment<TSpec> > & f, TPos & 
 //		++pos_j;
 //}
 
-
+// for all other fragment types --> no shifting necessary 
 template<typename TFrag,typename TPos>
 inline void
 _updateCutPosition(TFrag &, TPos &)
@@ -131,9 +132,9 @@ SEQAN_CHECKPOINT
 		{
 			all_nodes[seq_j_pos].insert(node_j);
 			_refine(node_j,seq_j_id,seqs,seq_map,alis,gs,pms,all_nodes,min_len,tag);
-			//TODO: else //verschmelzen, abschneiden und �bergehen, erst sp�ter... 	
-			//do nothing or resolve problems  
 		}
+		// TODO: else //verschmelzen, abschneiden und ergehen, erst sp�ter... 	
+		// do nothing or resolve problems  
 	
 		++segment_it;
 	}
@@ -156,8 +157,10 @@ SEQAN_CHECKPOINT
 //}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////	
-//Construct interval trees 
+// Construct interval trees 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 //construct intervals from allignments for each sequence (other Alignment types)
 template<typename TInterval, typename TStringSet, typename TAlignmentString, typename TSeqMap>
 void
@@ -223,10 +226,10 @@ SEQAN_CHECKPOINT
 	resize(gs,numSequences);
 	resize(pms,numSequences);
 	
-	//and one string of intervals for each sequence
+	// and one string of intervals for each sequence
 	String<String<TInterval> > intervals;
 	resize(intervals,numSequences);
-	//fill intervals
+	// fill intervals
 	_buildIntervalsForAllSequences(alis,intervals,seqs,seq_map);
 	
 	TValue i = 0;
@@ -234,8 +237,6 @@ SEQAN_CHECKPOINT
 	while(i < numSequences)
 	{
 		//std::cout << (numSequences-i) <<" more ("<<length(intervals[i])<<" intervals)... "<<std::flush;
-		//vllt zum speicher sparen: numSequences mal alle alis durchgehen
-		//und jedes mal nur buildIntervalsForJustOneSequence(); 
 		TValue center = length(seqs[i])/2; // center raus, hat hier nix zu suchen
 		//create interval tree!
 		createIntervalTree(gs[i],pms[i],intervals[i],center);
@@ -246,11 +247,15 @@ SEQAN_CHECKPOINT
 	}
 	// finish1 = clock();
 	// duration = (double)(finish1 - start) / CLOCKS_PER_SEC;
-	//std::cout << "\ntook " << duration << " seconds.\n";
+	// std::cout << "\ntook " << duration << " seconds.\n";
 }
 
 
-//step 1 of constructing the refined alignment graph: create all the nodes
+///////////////////////////////////////////////////////////////////////////////////////////////////////	
+// Construct refined alignment graph 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// step 1 of constructing the refined alignment graph: create all nodes
 template<typename TStringSet,typename TValue,typename TAliGraph>
 void
 _makeRefinedGraphNodes(String<std::set<TValue> > & all_nodes,
@@ -290,8 +295,8 @@ SEQAN_CHECKPOINT
 }
 
 
-//step 2 of constructing the refined alignment graph: add all edges    
-//version for exact refinement
+// step 2 of constructing the refined alignment graph: add all edges    
+// version for exact refinement
 template<typename TAlignmentString,typename TStringSet,typename TSeqMap, typename TPropertyMap,typename TScore,typename TAliGraph > 
 void
 _makeRefinedGraphEdges(TAlignmentString & alis,
@@ -393,10 +398,7 @@ SEQAN_CHECKPOINT
 
 
 
-////////////////////////////////////////////////////////////////////////////////////////
-//build refined alignment graph 
-////////////////////////////////////////////////////////////////////////////////////////
-//nodes are numbered ascendingly:
+//build refined alignment graph, nodes are numbered ascendingly:
 //seq1   0  1  2  3  4 
 //seq2   5  6  7  8  9 10
 //seq3  11 12 13 14 15 
@@ -431,7 +433,7 @@ SEQAN_CHECKPOINT
 }
 
 
-      
+//build refined alignment graph as above, but with additional annotation information
 template<typename TValue,typename TAlignmentString,typename TScore,typename TSequence, typename TSetSpec,typename TAliGraph,typename TSeqMap,typename TAnnoString,typename TTagSpec>
 void
 _makeAlignmentGraphFromRefinedSegments(String<std::set<TValue> > & all_nodes,

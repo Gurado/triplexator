@@ -139,19 +139,19 @@ namespace SEQAN_NAMESPACE_MAIN {
 //____________________________________________________________________________
 // _addAnnotationCuts
 
-template <typename TValue, typename TAliString, typename TGraph, typename TPropertyMap, typename TStringSet, typename TMap, typename TTagSpec> inline void _addAnnotationCuts(String<std::set<TValue> > &, TAliString &, String<TGraph> &, String<TPropertyMap> &, TStringSet &, TMap &, bool, TValue, Tag<TTagSpec>);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_annotation.h"(145)
-template <typename TValue, typename TAliString, typename TGraph, typename TPropertyMap, typename TStringSet, typename TMap, typename TAnnoString, typename TTagSpec> inline void _addAnnotationCuts(String<std::set<TValue> > & all_nodes, TAliString & alis, String<TGraph> & gs, String<TPropertyMap> & pms, TStringSet & seq, TMap & seq_map, TAnnoString & annotation, TValue min_fragment_len, Tag<TTagSpec> tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_annotation.h"(165)
+template <typename TValue, typename TAliString, typename TGraph, typename TPropertyMap, typename TStringSet, typename TMap, typename TTagSpec> inline void _addAnnotationCuts(String<std::set<TValue> > &, TAliString &, String<TGraph> &, String<TPropertyMap> &, TStringSet &, TMap &, bool, TValue, Tag<TTagSpec>);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_annotation.h"(157)
+template <typename TValue, typename TAliString, typename TGraph, typename TPropertyMap, typename TStringSet, typename TMap, typename TAnnoString, typename TTagSpec> inline void _addAnnotationCuts(String<std::set<TValue> > & all_nodes, TAliString & alis, String<TGraph> & gs, String<TPropertyMap> & pms, TStringSet & seq, TMap & seq_map, TAnnoString & annotation, TValue min_fragment_len, Tag<TTagSpec> tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_annotation.h"(177)
 
 //____________________________________________________________________________
 // _addNodeAnnotation
 
-template <typename TPropertyMap, typename TStringSet, typename TMap, typename TAnnoString, typename TAliGraph,typename TTagSpec> inline void _addNodeAnnotation(TStringSet &, TMap &, TAnnoString & annotation, TPropertyMap & pm, TAliGraph & ali_g, Tag<TTagSpec>);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_annotation.h"(212)
+template <typename TPropertyMap, typename TStringSet, typename TMap, typename TAnnoString, typename TAliGraph,typename TTagSpec> inline void _addNodeAnnotation(TStringSet &, TMap &, TAnnoString & annotation, TPropertyMap & pm, TAliGraph & ali_g, Tag<TTagSpec>);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_annotation.h"(224)
 
 //____________________________________________________________________________
 // _buildIntervalsForAllSequences
 
 template <typename TInterval, typename TStringSet, typename TAlignmentString, typename TSeqMap> void _buildIntervalsForAllSequences(TAlignmentString & alis, String<String<TInterval> > & intervals, TStringSet & seqs, TSeqMap & seq_map);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact.h"(153)
-template <typename TInterval, typename TStringSet, typename TAlignmentString, typename TSeqMap> void _buildIntervalsForAllSequences(TAlignmentString & alis, String<String<TInterval> > & intervals, TStringSet & seqs, TSeqMap & seq_map);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact_iterative.h"(168)
+template <typename TInterval, typename TStringSet, typename TAlignmentString, typename TSeqMap> void _buildIntervalsForAllSequences(TAlignmentString & alis, String<String<TInterval> > & intervals, TStringSet & seqs, TSeqMap & seq_map);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact_iterative.h"(171)
 
 //____________________________________________________________________________
 // _copyGraph
@@ -174,7 +174,7 @@ template <typename TStringSet, typename TCargo, typename TSpec, typename TNodeAt
 // _createTreesForAllSequences
 
 template <typename TGraph, typename TPropertyMap, typename TAlignmentString, typename TSequence, typename TSetSpec, typename TValue, typename TSeqMap> void _createTreesForAllSequences(String<TGraph> & gs, String<TPropertyMap> & pms, TAlignmentString & alis, StringSet<TSequence,TSetSpec> & seqs, TSeqMap & seq_map, TValue numSequences);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact.h"(194)
-template <typename TGraph, typename TPropertyMap, typename TAlignmentString, typename TSequence, typename TSetSpec, typename TValue, typename TSeqMap> void _createTreesForAllSequences(String<TGraph> & gs, String<TPropertyMap> & pms, TAlignmentString & alis, StringSet<TSequence,TSetSpec> & seqs, TSeqMap & seq_map, TValue numSequences);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact_iterative.h"(210)
+template <typename TGraph, typename TPropertyMap, typename TAlignmentString, typename TSequence, typename TSetSpec, typename TValue, typename TSeqMap> void _createTreesForAllSequences(String<TGraph> & gs, String<TPropertyMap> & pms, TAlignmentString & alis, StringSet<TSequence,TSetSpec> & seqs, TSeqMap & seq_map, TValue numSequences);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact_iterative.h"(213)
 
 //____________________________________________________________________________
 // _cutIsValid
@@ -186,17 +186,17 @@ template <typename TValue, typename TValue2, typename TSize> inline bool _cutIsV
 //____________________________________________________________________________
 // _getClosestRefinedNeighbor
 
-template <typename TAliGraph, typename TVertexDescriptor, typename TId, typename TPosition> TPosition _getClosestRefinedNeighbor(TAliGraph & ali_g, TVertexDescriptor & vd, TId , TPosition pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_inexact.h"(89)
+template <typename TAliGraph, typename TVertexDescriptor, typename TId, typename TPosition> TPosition _getClosestRefinedNeighbor(TAliGraph & ali_g, TVertexDescriptor & vd, TId , TPosition pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_inexact.h"(84)
 
 //____________________________________________________________________________
 // _getCutBeginPos
 
-template <typename TAliGraph, typename TId, typename TPosition> void _getCutBeginPos(TAliGraph & ali_g, typename VertexDescriptor<TAliGraph>::Type & act_knot, TId seq, TPosition act_end_pos, TPosition act_pos, TPosition & cut_act_pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_inexact.h"(133)
+template <typename TAliGraph, typename TId, typename TPosition> void _getCutBeginPos(TAliGraph & ali_g, typename VertexDescriptor<TAliGraph>::Type & act_knot, TId seq, TPosition act_end_pos, TPosition act_pos, TPosition & cut_act_pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_inexact.h"(131)
 
 //____________________________________________________________________________
 // _getCutEndPos
 
-template <typename TAliGraph, typename TId, typename TPosition> void _getCutEndPos(TAliGraph & ali_g, typename VertexDescriptor<TAliGraph>::Type & end_knot, TId seq, TPosition act_begin_pos, TPosition end_pos, TPosition & cut_end_pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_inexact.h"(107)
+template <typename TAliGraph, typename TId, typename TPosition> void _getCutEndPos(TAliGraph & ali_g, typename VertexDescriptor<TAliGraph>::Type & end_knot, TId seq, TPosition act_begin_pos, TPosition end_pos, TPosition & cut_end_pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_inexact.h"(103)
 
 //____________________________________________________________________________
 // _getEdgeIdManager
@@ -207,14 +207,14 @@ template <typename TStringSet, typename TCargo, typename TSpec> inline typename 
 // _getOtherSequenceAndProject
 
 template <typename TSource,typename TSpec,typename TValue, typename TId1, typename TPos1, typename TId2, typename TPos2,typename TMap> void _getOtherSequenceAndProject(Align<TSource,TSpec> & segment, TValue seg_num, TMap & seq_map, TId1 , TPos1 node_i, TId2 & seq_j_id, TPos2 & node_j);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_align.h"(54)
-template <typename TAlignment,typename TId1, typename TPos1, typename TId2, typename TPos2, typename TValue,typename TMap> void _getOtherSequenceAndProject(Graph<TAlignment> & segment, TValue seg_num, TMap &, TId1 seq_i_id, TPos1 pos_i, TId2 & seq_j_id, TPos2 & pos_j);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_aligngraph.h"(56)
+template <typename TAlignment,typename TId1, typename TPos1, typename TId2, typename TPos2, typename TValue,typename TMap> void _getOtherSequenceAndProject(Graph<TAlignment> & segment, TValue seg_num, TMap &, TId1 seq_i_id, TPos1 pos_i, TId2 & seq_j_id, TPos2 & pos_j);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_aligngraph.h"(55)
 template <typename TFragSize, typename TFragSpec,typename TValue,typename TId1, typename TPos1, typename TId2, typename TPos2, typename TMap> void _getOtherSequenceAndProject(Fragment<TFragSize,TFragSpec> & segment, TValue seg_num, TMap &, TId1 seq_i_id, TPos1 pos_i, TId2 & seq_j_id, TPos2 & pos_j);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_fragment.h"(56)
 
 //____________________________________________________________________________
 // _getRefinedAnnoScore
 
-template <typename TAliGraph,typename TScore, typename TPropertyMap> typename Value<TScore>::Type _getRefinedAnnoScore(TAliGraph &, TPropertyMap & pm, typename VertexDescriptor<TAliGraph>::Type vd1, typename VertexDescriptor<TAliGraph>::Type vd2, TScore &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_annotation.h"(264)
-template <typename TAliGraph,typename TScore> typename Value<TScore>::Type _getRefinedAnnoScore(TAliGraph &, bool, typename VertexDescriptor<TAliGraph>::Type, typename VertexDescriptor<TAliGraph>::Type, TScore &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_annotation.h"(296)
+template <typename TAliGraph,typename TScore, typename TPropertyMap> typename Value<TScore>::Type _getRefinedAnnoScore(TAliGraph &, TPropertyMap & pm, typename VertexDescriptor<TAliGraph>::Type vd1, typename VertexDescriptor<TAliGraph>::Type vd2, TScore &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_annotation.h"(279)
+template <typename TAliGraph,typename TScore> typename Value<TScore>::Type _getRefinedAnnoScore(TAliGraph &, bool, typename VertexDescriptor<TAliGraph>::Type, typename VertexDescriptor<TAliGraph>::Type, TScore &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_annotation.h"(311)
 
 //____________________________________________________________________________
 // _getRefinedMatchScore
@@ -229,7 +229,7 @@ template <typename TScoreValue,typename TStringSet,typename TAlign,typename TVal
 // _getSeqBeginAndEnd
 
 template <typename TAliSource,typename TAliSpec, typename TId, typename TPosition, typename TId2> void _getSeqBeginAndEnd(Align<TAliSource,TAliSpec> & segment, std::map<const void * ,int> & seq_map, TId & seq_i_id, TPosition & begin_i, TPosition & end_i, TId2 seq);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_align.h"(94)
-template <typename TAlign, typename TId, typename TPosition, typename TId2> void _getSeqBeginAndEnd(Graph<TAlign> & segment, std::map<const void * ,int> &, TId & seq_i_id, TPosition & begin_i, TPosition & end_i, TId2 seq);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_aligngraph.h"(75)
+template <typename TAlign, typename TId, typename TPosition, typename TId2> void _getSeqBeginAndEnd(Graph<TAlign> & segment, std::map<const void * ,int> &, TId & seq_i_id, TPosition & begin_i, TPosition & end_i, TId2 seq);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_aligngraph.h"(74)
 template <typename TFragSize, typename TFragSpec, typename TId, typename TPosition, typename TId2> void _getSeqBeginAndEnd(Fragment<TFragSize,TFragSpec> & segment, std::map<const void * ,int> &, TId & seq_i_id, TPosition & begin_i, TPosition & end_i, TId2 seq);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_fragment.h"(78)
 
 //____________________________________________________________________________
@@ -245,43 +245,43 @@ template <typename TStringSet, typename TCargo, typename TSpec> inline String<ty
 //____________________________________________________________________________
 // _heaviestCommonSubsequence
 
-template <typename TStringSet, typename TCargo, typename TSpec, typename TSize2, typename TSpec2, typename TPositions, typename TSize, typename TVertexDescriptor, typename TString> inline void _heaviestCommonSubsequence(Graph<Alignment<TStringSet, TCargo, TSpec> > const&, String<TSize2, TSpec2> const& , TPositions const&, TSize const, TSize const, TVertexDescriptor const, TString const&, TString const&, Nothing&);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(1837)
-template <typename TStringSet, typename TCargo, typename TSpec, typename TSize2, typename TSpec2, typename TPositions, typename TSize, typename TString, typename TOutString> inline void _heaviestCommonSubsequence(Graph<Alignment<TStringSet, TCargo, TSpec> > const& g, String<TSize2, TSpec2> const& slotToPos, TPositions const& positions, TSize const m, TSize const n, TString const& str1, TString const& str2, TOutString& align);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(1853)
+template <typename TStringSet, typename TCargo, typename TSpec, typename TSize2, typename TSpec2, typename TPositions, typename TSize, typename TVertexDescriptor, typename TString> inline void _heaviestCommonSubsequence(Graph<Alignment<TStringSet, TCargo, TSpec> > const&, String<TSize2, TSpec2> const& , TPositions const&, TSize const, TSize const, TVertexDescriptor const, TString const&, TString const&, Nothing&);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(1843)
+template <typename TStringSet, typename TCargo, typename TSpec, typename TSize2, typename TSpec2, typename TPositions, typename TSize, typename TString, typename TOutString> inline void _heaviestCommonSubsequence(Graph<Alignment<TStringSet, TCargo, TSpec> > const& g, String<TSize2, TSpec2> const& slotToPos, TPositions const& positions, TSize const m, TSize const n, TString const& str1, TString const& str2, TOutString& align);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(1859)
 
 //____________________________________________________________________________
 // _makeAlignmentGraphFromRefinedSegments
 
 template <typename TValue,typename TAlignmentString,typename TScore,typename TSequence, typename TSetSpec,typename TAliGraph,typename TSeqMap,typename TTagSpec> void _makeAlignmentGraphFromRefinedSegments(String<std::set<TValue> > & all_nodes, TAlignmentString & alis, TScore & score_type, StringSet<TSequence, TSetSpec> & seqs, TSeqMap & seq_map, TAliGraph & ali_g, Tag<TTagSpec> const tag, bool);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact.h"(365)
 template <typename TValue,typename TAlignmentString,typename TScore,typename TSequence, typename TSetSpec,typename TAliGraph,typename TSeqMap,typename TAnnoString,typename TTagSpec> void _makeAlignmentGraphFromRefinedSegments(String<std::set<TValue> > & all_nodes, TAlignmentString & alis, TScore & score_type, StringSet<TSequence, TSetSpec> & seqs, TSeqMap & seq_map, TAliGraph & ali_g, Tag<TTagSpec> const tag, TAnnoString & annotation);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact.h"(397)
-template <typename TValue,typename TAlignmentString,typename TScore,typename TSequence, typename TSetSpec,typename TAliGraph,typename TSeqMap,typename TTagSpec> void _makeAlignmentGraphFromRefinedSegments(String<std::set<TValue> > & all_nodes, TAlignmentString & alis, TScore & score_type, StringSet<TSequence, TSetSpec> & seqs, TSeqMap & seq_map, TAliGraph & ali_g, Tag<TTagSpec> const tag, bool);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact_iterative.h"(413)
-template <typename TValue,typename TAlignmentString,typename TScore,typename TSequence, typename TSetSpec,typename TAliGraph,typename TSeqMap,typename TAnnoString,typename TTagSpec> void _makeAlignmentGraphFromRefinedSegments(String<std::set<TValue> > & all_nodes, TAlignmentString & alis, TScore & score_type, StringSet<TSequence, TSetSpec> & seqs, TSeqMap & seq_map, TAliGraph & ali_g, Tag<TTagSpec> const tag, TAnnoString & annotation);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact_iterative.h"(445)
+template <typename TValue,typename TAlignmentString,typename TScore,typename TSequence, typename TSetSpec,typename TAliGraph,typename TSeqMap,typename TTagSpec> void _makeAlignmentGraphFromRefinedSegments(String<std::set<TValue> > & all_nodes, TAlignmentString & alis, TScore & score_type, StringSet<TSequence, TSetSpec> & seqs, TSeqMap & seq_map, TAliGraph & ali_g, Tag<TTagSpec> const tag, bool);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact_iterative.h"(415)
+template <typename TValue,typename TAlignmentString,typename TScore,typename TSequence, typename TSetSpec,typename TAliGraph,typename TSeqMap,typename TAnnoString,typename TTagSpec> void _makeAlignmentGraphFromRefinedSegments(String<std::set<TValue> > & all_nodes, TAlignmentString & alis, TScore & score_type, StringSet<TSequence, TSetSpec> & seqs, TSeqMap & seq_map, TAliGraph & ali_g, Tag<TTagSpec> const tag, TAnnoString & annotation);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact_iterative.h"(447)
 
 //____________________________________________________________________________
 // _makeRefinedGraphEdges
 
 template <typename TAlignmentString,typename TStringSet,typename TSeqMap, typename TPropertyMap,typename TScore,typename TAliGraph> void _makeRefinedGraphEdges(TAlignmentString & alis, TPropertyMap & pm, TStringSet & seqs, TSeqMap & seq_map, TScore & score_type, TAliGraph & ali_g, Tag<TagExactRefinement_> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact.h"(288)
-template <typename TAlignmentString,typename TStringSet,typename TSeqMap, typename TPropertyMap,typename TScore,typename TAliGraph > void _makeRefinedGraphEdges(TAlignmentString & alis, TPropertyMap & pm, TStringSet & seqs, TSeqMap & seq_map, TScore & score_type, TAliGraph & ali_g, Tag<TagExactRefinement_> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact_iterative.h"(304)
-template <typename TAlignmentString,typename TPropertyMap,typename TStringSet,typename TSeqMap, typename TScore,typename TAliGraph> void _makeRefinedGraphEdges(TAlignmentString & alis, TPropertyMap & , TStringSet & seqs, TSeqMap & seq_map, TScore & score_type, TAliGraph & ali_g, Tag<TagInexactRefinement_> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_inexact.h"(165)
+template <typename TAlignmentString,typename TStringSet,typename TSeqMap, typename TPropertyMap,typename TScore,typename TAliGraph > void _makeRefinedGraphEdges(TAlignmentString & alis, TPropertyMap & pm, TStringSet & seqs, TSeqMap & seq_map, TScore & score_type, TAliGraph & ali_g, Tag<TagExactRefinement_> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact_iterative.h"(309)
+template <typename TAlignmentString,typename TPropertyMap,typename TStringSet,typename TSeqMap, typename TScore,typename TAliGraph> void _makeRefinedGraphEdges(TAlignmentString & alis, TPropertyMap & , TStringSet & seqs, TSeqMap & seq_map, TScore & score_type, TAliGraph & ali_g, Tag<TagInexactRefinement_> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_inexact.h"(163)
 
 //____________________________________________________________________________
 // _makeRefinedGraphNodes
 
 template <typename TStringSet,typename TValue,typename TAliGraph> void _makeRefinedGraphNodes(String<std::set<TValue> > & all_nodes, TStringSet & seqs, TAliGraph & ali_g);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact.h"(243)
-template <typename TStringSet,typename TValue,typename TAliGraph> void _makeRefinedGraphNodes(String<std::set<TValue> > & all_nodes, TStringSet & seqs, TAliGraph & ali_g);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact_iterative.h"(259)
+template <typename TStringSet,typename TValue,typename TAliGraph> void _makeRefinedGraphNodes(String<std::set<TValue> > & all_nodes, TStringSet & seqs, TAliGraph & ali_g);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact_iterative.h"(264)
 
 //____________________________________________________________________________
 // _refine
 
 template <typename TValue, typename TAlignmentString, typename TStringSet,typename TGraph, typename TPropertyMap,typename TSeqMap, typename TTagSpec> inline void _refine(TValue node_i, TValue seq_i_id, TStringSet & seqs, TSeqMap & seq_map, TAlignmentString & alis, String<TGraph> & gs, String<TPropertyMap> & pms, String<std::set<TValue> > & all_nodes, TValue min_len, Tag<TTagSpec> tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact.h"(101)
-template <typename TValue, typename TAlignmentString, typename TStringSet,typename TGraph, typename TPropertyMap,typename TSeqMap, typename TTagSpec> inline void _refine(TValue node_i, TValue seq_i_id, TStringSet & seqs, TSeqMap & seq_map, TAlignmentString & alis, String<TGraph> & gs, String<TPropertyMap> & pms, String<std::set<TValue> > & all_nodes, TValue min_len, Tag<TTagSpec> tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact_iterative.h"(101)
+template <typename TValue, typename TAlignmentString, typename TStringSet,typename TGraph, typename TPropertyMap,typename TSeqMap, typename TTagSpec> inline void _refine(TValue node_i, TValue seq_i_id, TStringSet & seqs, TSeqMap & seq_map, TAlignmentString & alis, String<TGraph> & gs, String<TPropertyMap> & pms, String<std::set<TValue> > & all_nodes, TValue min_len, Tag<TTagSpec> tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact_iterative.h"(102)
 
 //____________________________________________________________________________
 // _updateCutPosition
 
 template <typename TSize, typename TSpec,typename TPos> inline void _updateCutPosition(Fragment<TSize, ExactReversableFragment<TSpec> > & f, TPos & pos_j);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact.h"(66)
 template <typename TFrag,typename TPos> inline void _updateCutPosition(TFrag &, TPos &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact.h"(82)
-template <typename TSize, typename TSpec,typename TPos> inline void _updateCutPosition(Fragment<TSize, ExactReversableFragment<TSpec> > & f, TPos & pos_j);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact_iterative.h"(66)
-template <typename TFrag,typename TPos> inline void _updateCutPosition(TFrag &, TPos &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact_iterative.h"(82)
+template <typename TSize, typename TSpec,typename TPos> inline void _updateCutPosition(Fragment<TSize, ExactReversableFragment<TSpec> > & f, TPos & pos_j);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact_iterative.h"(67)
+template <typename TFrag,typename TPos> inline void _updateCutPosition(TFrag &, TPos &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact_iterative.h"(83)
 
 //____________________________________________________________________________
 // _writeCargo
@@ -349,9 +349,9 @@ template <typename TStringSet, typename TCargo, typename TSpec> inline void clea
 //____________________________________________________________________________
 // convertAlignment
 
-template <typename TStringSet, typename TCargo, typename TSpec, typename TComponentMap, typename TOrderMap, typename TComponentLength> inline bool convertAlignment(Graph<Alignment<TStringSet, TCargo, TSpec> > const& g, TComponentMap& component, TOrderMap& order, TComponentLength& compLength);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(1516)
-template <typename TStringSet, typename TCargo, typename TSpec, typename TMatrix> inline bool convertAlignment(Graph<Alignment<TStringSet, TCargo, TSpec> > const& g, TMatrix& mat);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(1630)
-template <typename TValue, typename TSpec1, typename TStringSet, typename TCargo, typename TSpec2> inline bool convertAlignment(String<TValue, TSpec1> const& mat, Graph<Alignment<TStringSet, TCargo, TSpec2> >& g);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(1700)
+template <typename TStringSet, typename TCargo, typename TSpec, typename TComponentMap, typename TOrderMap, typename TComponentLength> inline bool convertAlignment(Graph<Alignment<TStringSet, TCargo, TSpec> > const& g, TComponentMap& component, TOrderMap& order, TComponentLength& compLength);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(1522)
+template <typename TStringSet, typename TCargo, typename TSpec, typename TMatrix> inline bool convertAlignment(Graph<Alignment<TStringSet, TCargo, TSpec> > const& g, TMatrix& mat);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(1636)
+template <typename TValue, typename TSpec1, typename TStringSet, typename TCargo, typename TSpec2> inline bool convertAlignment(String<TValue, TSpec1> const& mat, Graph<Alignment<TStringSet, TCargo, TSpec2> >& g);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(1706)
 
 //____________________________________________________________________________
 // degree
@@ -376,13 +376,13 @@ template <typename TStringSet, typename TCargo, typename TSpec, typename TSeqId,
 //____________________________________________________________________________
 // fragmentBegin
 
-template <typename TSequence,typename TValue,typename TSpec> typename Position<TSequence>::Type& fragmentBegin(Annotation<TSequence,TValue,TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_annotation.h"(105)
+template <typename TSequence,typename TValue,typename TSpec> typename Position<TSequence>::Type& fragmentBegin(Annotation<TSequence,TValue,TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_annotation.h"(116)
 template <typename TStringSet, typename TCargo, typename TSpec, typename TVertexDescriptor> inline typename Position<Graph<Alignment<TStringSet, TCargo, TSpec> > >::Type& fragmentBegin(Graph<Alignment<TStringSet, TCargo, TSpec> > const& g, TVertexDescriptor const v);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(1257)
 
 //____________________________________________________________________________
 // fragmentLength
 
-template <typename TSequence,typename TValue,typename TSpec> typename Size<TSequence>::Type& fragmentLength(Annotation<TSequence,TValue,TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_annotation.h"(113)
+template <typename TSequence,typename TValue,typename TSpec> typename Size<TSequence>::Type& fragmentLength(Annotation<TSequence,TValue,TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_annotation.h"(124)
 template <typename TStringSet, typename TCargo, typename TSpec, typename TVertexDescriptor> inline typename Size<Graph<Alignment<TStringSet, TCargo, TSpec> > >::Type& fragmentLength(Graph<Alignment<TStringSet, TCargo, TSpec> > const& g, TVertexDescriptor const v);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(1280)
 
 //____________________________________________________________________________
@@ -393,18 +393,18 @@ template <typename TStringSet, typename TCargo, typename TSpec, typename TMatrix
 //____________________________________________________________________________
 // getFirstCoveredPosition
 
-template <typename TStringSet, typename TCargo, typename TSpec, typename TSeqId> inline typename Position<Graph<Alignment<TStringSet, TCargo, TSpec> > >::Type getFirstCoveredPosition(Graph<Alignment<TStringSet, TCargo, TSpec> > const& g, TSeqId const id);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(1426)
+template <typename TStringSet, typename TCargo, typename TSpec, typename TSeqId> inline typename Position<Graph<Alignment<TStringSet, TCargo, TSpec> > >::Type getFirstCoveredPosition(Graph<Alignment<TStringSet, TCargo, TSpec> > const& g, TSeqId const id);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(1432)
 
 //____________________________________________________________________________
 // getLastCoveredPosition
 
-template <typename TStringSet, typename TCargo, typename TSpec, typename TSeqId> inline typename Position<Graph<Alignment<TStringSet, TCargo, TSpec> > >::Type getLastCoveredPosition(Graph<Alignment<TStringSet, TCargo, TSpec> >& g, TSeqId id);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(1470)
+template <typename TStringSet, typename TCargo, typename TSpec, typename TSeqId> inline typename Position<Graph<Alignment<TStringSet, TCargo, TSpec> > >::Type getLastCoveredPosition(Graph<Alignment<TStringSet, TCargo, TSpec> >& g, TSeqId id);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(1476)
 
 //____________________________________________________________________________
 // getProjectedPosition
 
-template <typename TStringSet, typename TCargo, typename TSpec, typename TSeqId, typename TPosition, typename TSeqId2, typename TPosition2> inline void getProjectedPosition(Graph<Alignment<TStringSet, TCargo, TSpec> >& g, TSeqId const id1, TPosition const pos1, TSeqId2& id2, TPosition2& pos2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(1324)
-template <typename TStringSet, typename TValue, typename TCargo, typename TSpec, typename TSeqId, typename TPosition, typename TSeqId2, typename TPosition2> inline void getProjectedPosition(Graph<Alignment<TStringSet, TCargo, TSpec> >& g, TValue seg_num, TSeqId const id1, TPosition const pos1, TSeqId2& id2, TPosition2& pos2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(1371)
+template <typename TStringSet, typename TCargo, typename TSpec, typename TSeqId, typename TPosition, typename TSeqId2, typename TPosition2> inline void getProjectedPosition(Graph<Alignment<TStringSet, TCargo, TSpec> >& g, TSeqId const id1, TPosition const pos1, TSeqId2& id2, TPosition2& pos2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(1330)
+template <typename TStringSet, typename TValue, typename TCargo, typename TSpec, typename TSeqId, typename TPosition, typename TSeqId2, typename TPosition2> inline void getProjectedPosition(Graph<Alignment<TStringSet, TCargo, TSpec> >& g, TValue seg_num, TSeqId const id1, TPosition const pos1, TSeqId2& id2, TPosition2& pos2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(1377)
 
 //____________________________________________________________________________
 // getStringSet
@@ -440,8 +440,8 @@ template <typename TStringSet, typename TCargo, typename TGraphSpec, typename TS
 //____________________________________________________________________________
 // heaviestCommonSubsequence
 
-template <typename TStringSet, typename TCargo, typename TSpec, typename TString, typename TOutString> inline TCargo heaviestCommonSubsequence(Graph<Alignment<TStringSet, TCargo, TSpec> > const& g, TString const& str1, TString const& str2, TOutString& align);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(1970)
-template <typename TStringSet, typename TCargo, typename TSpec, typename TString> inline TCargo heaviestCommonSubsequence(Graph<Alignment<TStringSet, TCargo, TSpec> > const& g, TString const& str1, TString const& str2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(2093)
+template <typename TStringSet, typename TCargo, typename TSpec, typename TString, typename TOutString> inline TCargo heaviestCommonSubsequence(Graph<Alignment<TStringSet, TCargo, TSpec> > const& g, TString const& str1, TString const& str2, TOutString& align);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(1989)
+template <typename TStringSet, typename TCargo, typename TSpec, typename TString> inline TCargo heaviestCommonSubsequence(Graph<Alignment<TStringSet, TCargo, TSpec> > const& g, TString const& str1, TString const& str2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(2112)
 
 //____________________________________________________________________________
 // inDegree
@@ -451,24 +451,24 @@ template <typename TStringSet, typename TCargo, typename TSpec, typename TVertex
 //____________________________________________________________________________
 // label
 
-template <typename TSequence,typename TValue,typename TSpec> TValue label(Annotation<TSequence,TValue,TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_annotation.h"(121)
+template <typename TSequence,typename TValue,typename TSpec> TValue label(Annotation<TSequence,TValue,TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_annotation.h"(132)
 template <typename TStringSet, typename TCargo, typename TSpec, typename TVertexDescriptor> inline typename Infix<typename Value<TStringSet>::Type>::Type label(Graph<Alignment<TStringSet, TCargo, TSpec> > const& g, TVertexDescriptor const v);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(1200)
 
 //____________________________________________________________________________
 // matchRefinement
 
-template <typename TAlignmentString, typename TScoreValue,typename TScoreSpec,typename TAnnoString,typename TOutGraph, typename TSequence, typename TSetSpec> void matchRefinement(TAlignmentString & alis, TAnnoString & anno, StringSet<TSequence, TSetSpec> & seq, Score<TScoreValue,TScoreSpec> & score_type, TOutGraph & ali_graph);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_annotation.h"(320)
-template <typename TAlignmentString, typename TScoreValue,typename TScoreSpec,typename TAnnoString, typename TOutGraph, typename TSequence, typename TSetSpec> void matchRefinement(TAlignmentString & alis, TAnnoString & anno, StringSet<TSequence, TSetSpec> & seq, Score<TScoreValue,TScoreSpec> & score_type, TOutGraph & ali_graph, unsigned int min_frag_len);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_annotation.h"(341)
-template <typename TAlignmentString, typename TOutGraph, typename TAnnoString, typename TSequence, typename TSetSpec> void matchRefinement(TAlignmentString & alis, TAnnoString & anno, StringSet<TSequence, TSetSpec> & seq, TOutGraph & ali_graph, unsigned int min_frag_len);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_annotation.h"(364)
-template <typename TAlignmentString,typename TAnnoString, typename TOutGraph, typename TSequence, typename TSetSpec> void matchRefinement(TAlignmentString & alis, TAnnoString & anno, StringSet<TSequence, TSetSpec> & seq, TOutGraph & ali_graph);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_annotation.h"(388)
+template <typename TAlignmentString, typename TScoreValue,typename TScoreSpec,typename TAnnoString,typename TOutGraph, typename TSequence, typename TSetSpec> void matchRefinement(TAlignmentString & alis, TAnnoString & anno, StringSet<TSequence, TSetSpec> & seq, Score<TScoreValue,TScoreSpec> & score_type, TOutGraph & ali_graph);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_annotation.h"(335)
+template <typename TAlignmentString, typename TScoreValue,typename TScoreSpec,typename TAnnoString, typename TOutGraph, typename TSequence, typename TSetSpec> void matchRefinement(TAlignmentString & alis, TAnnoString & anno, StringSet<TSequence, TSetSpec> & seq, Score<TScoreValue,TScoreSpec> & score_type, TOutGraph & ali_graph, unsigned int min_frag_len);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_annotation.h"(356)
+template <typename TAlignmentString, typename TOutGraph, typename TAnnoString, typename TSequence, typename TSetSpec> void matchRefinement(TAlignmentString & alis, TAnnoString & anno, StringSet<TSequence, TSetSpec> & seq, TOutGraph & ali_graph, unsigned int min_frag_len);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_annotation.h"(379)
+template <typename TAlignmentString,typename TAnnoString, typename TOutGraph, typename TSequence, typename TSetSpec> void matchRefinement(TAlignmentString & alis, TAnnoString & anno, StringSet<TSequence, TSetSpec> & seq, TOutGraph & ali_graph);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_annotation.h"(403)
 template <typename TAlignmentString, typename TAnnotation, typename TOutGraph, typename TSequence, typename TSetSpec, typename TScore,typename TTagSpec> void matchRefinement(TAlignmentString & alis, StringSet<TSequence, TSetSpec> & seq, TScore & score_type, TOutGraph & ali_graph, typename Size<typename Value<TAlignmentString>::Type>::Type min_fragment_len, TAnnotation & annotation, Tag<TTagSpec> const tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact.h"(440)
 template <typename TAlignmentString, typename TScoreValue,typename TScoreSpec,typename TOutGraph, typename TSequence, typename TSetSpec> void matchRefinement(TAlignmentString & alis, StringSet<TSequence, TSetSpec> & seq, Score<TScoreValue,TScoreSpec> & score_type, TOutGraph & ali_graph);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact.h"(544)
 template <typename TFragmentString, typename TOutGraph, typename TSequence, typename TSetSpec> void matchRefinement(TFragmentString & matches, StringSet<TSequence, TSetSpec> & strSet, TOutGraph & ali_graph);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact.h"(558)
-template <typename TAlignmentString, typename TAnnotation, typename TOutGraph, typename TSequence, typename TSetSpec, typename TScore,typename TTagSpec> void matchRefinement(TAlignmentString & alis, StringSet<TSequence, TSetSpec> & seq, TScore & score_type, TOutGraph & ali_graph, typename Size<typename Value<TAlignmentString>::Type>::Type min_fragment_len, TAnnotation & annotation, Tag<TTagSpec> const tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact_iterative.h"(488)
-template <typename TAlignmentString, typename TScoreValue,typename TScoreSpec,typename TOutGraph, typename TSequence, typename TSetSpec> void matchRefinement(TAlignmentString & alis, StringSet<TSequence, TSetSpec> & seq, Score<TScoreValue,TScoreSpec> & score_type, TOutGraph & ali_graph);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact_iterative.h"(667)
-template <typename TFragmentString, typename TOutGraph, typename TSequence, typename TSetSpec> void matchRefinement(TFragmentString & matches, StringSet<TSequence, TSetSpec> & strSet, TOutGraph & ali_graph);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact_iterative.h"(695)
-template <typename TAlignmentString, typename TScoreValue,typename TScoreSpec, typename TOutGraph, typename TSequence, typename TSetSpec> void matchRefinement(TAlignmentString & alis, StringSet<TSequence, TSetSpec> & seq, Score<TScoreValue,TScoreSpec> & score_type, TOutGraph & ali_graph, unsigned int min_frag_len);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_inexact.h"(295)
-template <typename TAlignmentString, typename TOutGraph, typename TSequence, typename TSetSpec> void matchRefinement(TAlignmentString & alis, StringSet<TSequence, TSetSpec> & seq, TOutGraph & ali_graph, unsigned int min_frag_len);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_inexact.h"(317)
+template <typename TAlignmentString, typename TAnnotation, typename TOutGraph, typename TSequence, typename TSetSpec, typename TScore,typename TTagSpec> void matchRefinement(TAlignmentString & alis, StringSet<TSequence, TSetSpec> & seq, TScore & score_type, TOutGraph & ali_graph, typename Size<typename Value<TAlignmentString>::Type>::Type min_fragment_len, TAnnotation & annotation, Tag<TTagSpec> const tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact_iterative.h"(490)
+template <typename TAlignmentString, typename TScoreValue,typename TScoreSpec,typename TOutGraph, typename TSequence, typename TSetSpec> void matchRefinement(TAlignmentString & alis, StringSet<TSequence, TSetSpec> & seq, Score<TScoreValue,TScoreSpec> & score_type, TOutGraph & ali_graph);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact_iterative.h"(669)
+template <typename TFragmentString, typename TOutGraph, typename TSequence, typename TSetSpec> void matchRefinement(TFragmentString & matches, StringSet<TSequence, TSetSpec> & strSet, TOutGraph & ali_graph);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_exact_iterative.h"(697)
+template <typename TAlignmentString, typename TScoreValue,typename TScoreSpec, typename TOutGraph, typename TSequence, typename TSetSpec> void matchRefinement(TAlignmentString & alis, StringSet<TSequence, TSetSpec> & seq, Score<TScoreValue,TScoreSpec> & score_type, TOutGraph & ali_graph, unsigned int min_frag_len);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_inexact.h"(300)
+template <typename TAlignmentString, typename TOutGraph, typename TSequence, typename TSetSpec> void matchRefinement(TAlignmentString & alis, StringSet<TSequence, TSetSpec> & seq, TOutGraph & ali_graph, unsigned int min_frag_len);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_inexact.h"(322)
 
 //____________________________________________________________________________
 // numEdges
@@ -498,7 +498,7 @@ template <typename TStringSet, typename TCargo, typename TSpec, typename TVertex
 //____________________________________________________________________________
 // rebuildGraph
 
-template <typename TStringSet, typename TCargo, typename TSpec> inline void rebuildGraph(Graph<Alignment<TStringSet, TCargo, TSpec> >& g);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(1748)
+template <typename TStringSet, typename TCargo, typename TSpec> inline void rebuildGraph(Graph<Alignment<TStringSet, TCargo, TSpec> >& g);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(1754)
 
 //____________________________________________________________________________
 // removeEdge
@@ -524,7 +524,7 @@ template <typename TStringSet, typename TCargo, typename TSpec, typename TVD> in
 //____________________________________________________________________________
 // sequenceId
 
-template <typename TSequence,typename TValue,typename TSpec> typename Id<TSequence>::Type& sequenceId(Annotation<TSequence,TValue,TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_annotation.h"(97)
+template <typename TSequence,typename TValue,typename TSpec> typename Id<TSequence>::Type& sequenceId(Annotation<TSequence,TValue,TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_algorithm_refine_annotation.h"(108)
 template <typename TStringSet, typename TCargo, typename TSpec, typename TVertexDescriptor> inline typename Id<Graph<Alignment<TStringSet, TCargo, TSpec> > >::Type& sequenceId(Graph<Alignment<TStringSet, TCargo, TSpec> > const& g, TVertexDescriptor const v);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/refinement/graph_impl_align.h"(1233)
 
 //____________________________________________________________________________

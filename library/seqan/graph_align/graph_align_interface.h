@@ -322,6 +322,24 @@ globalAlignment(TAlign& file,
 	SEQAN_CHECKPOINT
 	return _globalAlignment(file,str,sc, TAlignConfig(), diag1, diag2, BandedGotoh());
 }
+//////////////////////////////////////////////////////////////////////////////
+
+template<typename TString, typename TAlignSpec, typename TStringSet, typename TScoreValue, typename TScoreSpec, typename TDiagonal>
+inline TScoreValue
+globalAlignment(Align<TString, TAlignSpec> & align,
+                TStringSet const & stringSet,
+                Score<TScoreValue, TScoreSpec> const & sc,
+                TDiagonal diag1,
+                TDiagonal diag2,
+                BandedGotoh)
+{
+    SEQAN_CHECKPOINT;
+    typedef typename Size<TString>::Type TSize;
+    AlignTraceback<TSize> trace;
+    int alignmentScore = globalAlignment(trace, stringSet, sc, diag1, diag2, BandedGotoh());
+    _pumpTraceToAlign(align, trace);
+    return alignmentScore;
+}
 
 //////////////////////////////////////////////////////////////////////////////
 

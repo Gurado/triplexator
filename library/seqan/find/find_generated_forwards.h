@@ -59,7 +59,7 @@ struct AhoCorasick_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/
 //____________________________________________________________________________
 // AlignTextBanded
 
-template <typename TSpec, typename TFinderCharSetPolicy , typename TPatternCharSetPolicy > struct AlignTextBanded;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(78)
+template <typename TSpec, typename TFinderCharSetPolicy , typename TPatternCharSetPolicy > struct AlignTextBanded;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(80)
 
 //____________________________________________________________________________
 // Bfam
@@ -171,57 +171,57 @@ struct MultipleShiftAnd_;       	// "/Users/f.buske/Documents/biosim/triplexes/p
 // Myers
 
 template <typename TSpec, typename THasState, typename TFindBeginPatternSpec> struct Myers;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_begin.h"(53)
-template <typename TSpec , typename THasState , typename TFindBeginPatternSpec > struct Myers;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(70)
+template <typename TSpec , typename THasState , typename TFindBeginPatternSpec > struct Myers;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(72)
 
 //____________________________________________________________________________
 // MyersLargePattern_
 
-template <typename TNeedle, typename TSpec> struct MyersLargePattern_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(381)
+template <typename TNeedle, typename TSpec> struct MyersLargePattern_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(383)
 
 //____________________________________________________________________________
 // MyersLargeState_
 
-template <typename TNeedle, typename TSpec> struct MyersLargeState_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(252)
+template <typename TNeedle, typename TSpec> struct MyersLargeState_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(254)
 
 //____________________________________________________________________________
 // MyersSmallAlphabet_
 
-template <typename TValue> struct MyersSmallAlphabet_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(163)
+template <typename TValue> struct MyersSmallAlphabet_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(165)
 
 //____________________________________________________________________________
 // MyersSmallPattern_
 
-template <typename TNeedle, typename TSpec> struct MyersSmallPattern_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(349)
+template <typename TNeedle, typename TSpec> struct MyersSmallPattern_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(351)
 
 //____________________________________________________________________________
 // MyersSmallStateBandedShift_
 
-template <typename TNeedle, typename TSmallAlphabet> struct MyersSmallStateBandedShift_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(214)
+template <typename TNeedle, typename TSmallAlphabet> struct MyersSmallStateBandedShift_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(216)
 
 //____________________________________________________________________________
 // MyersSmallState_
 
-template <typename TNeedle, typename TSpec> struct MyersSmallState_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(197)
+template <typename TNeedle, typename TSpec> struct MyersSmallState_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(199)
 
 //____________________________________________________________________________
 // MyersUkkonenHP0_
 
-template <typename T> struct MyersUkkonenHP0_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(152)
+template <typename T> struct MyersUkkonenHP0_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(154)
 
 //____________________________________________________________________________
 // NMatchesAll_
 
-struct NMatchesAll_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(74)
+struct NMatchesAll_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(76)
 
 //____________________________________________________________________________
 // NMatchesN_
 
-struct NMatchesN_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(73)
+struct NMatchesN_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(75)
 
 //____________________________________________________________________________
 // NMatchesNone_
 
-struct NMatchesNone_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(72)
+struct NMatchesNone_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(74)
 
 //____________________________________________________________________________
 // Needle
@@ -246,12 +246,12 @@ template <typename TNeedle, typename TSpec > class Pattern;       	// "/Users/f.
 //____________________________________________________________________________
 // PatternState
 
-template <typename TPattern> struct PatternState;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(481)
+template <typename TPattern> struct PatternState;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(483)
 
 //____________________________________________________________________________
 // PatternState_
 
-template <typename TNeedle, typename TSpec> class PatternState_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(288)
+template <typename TNeedle, typename TSpec> class PatternState_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(290)
 
 //____________________________________________________________________________
 // Pex
@@ -360,22 +360,22 @@ typedef Tag<MultipleShiftAnd_> MultipleShiftAnd;       	// "/Users/f.buske/Docum
 //____________________________________________________________________________
 // MyersUkkonen
 
-typedef Myers<FindInfix, True, void> MyersUkkonen;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(96)
+typedef Myers<FindInfix, True, void> MyersUkkonen;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(98)
 
 //____________________________________________________________________________
 // MyersUkkonenBanded
 
-typedef Myers<AlignTextBanded<FindInfix, NMatchesN_, NMatchesN_>, True, void> MyersUkkonenBanded;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(142)
+typedef Myers<AlignTextBanded<FindInfix, NMatchesN_, NMatchesN_>, True, void> MyersUkkonenBanded;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(144)
 
 //____________________________________________________________________________
 // MyersUkkonenGlobal
 
-typedef Myers<FindPrefix, True, void> MyersUkkonenGlobal;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(112)
+typedef Myers<FindPrefix, True, void> MyersUkkonenGlobal;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(114)
 
 //____________________________________________________________________________
 // MyersUkkonenGlobalBanded
 
-typedef Myers<AlignTextBanded<FindPrefix, NMatchesN_, NMatchesN_>, True, void> MyersUkkonenGlobalBanded;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(143)
+typedef Myers<AlignTextBanded<FindPrefix, NMatchesN_, NMatchesN_>, True, void> MyersUkkonenGlobalBanded;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(145)
 
 //____________________________________________________________________________
 // PexHierarchical
@@ -491,17 +491,17 @@ template <typename TValue, typename TFormat, typename TFile, typename FileReader
 //____________________________________________________________________________
 // _findMyersLargePatterns
 
-template <typename TFinder, typename TNeedle, typename TSpec, typename THasState, typename THasState2, typename TFindBeginPatternSpec, typename TSize> inline bool _findMyersLargePatterns (TFinder & finder, Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > const & pattern, PatternState_<TNeedle, Myers<TSpec, THasState2, TFindBeginPatternSpec> > & state, TSize haystack_length);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(1289)
+template <typename TFinder, typename TNeedle, typename TSpec, typename THasState, typename THasState2, typename TFindBeginPatternSpec, typename TSize> inline bool _findMyersLargePatterns (TFinder & finder, Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > const & pattern, PatternState_<TNeedle, Myers<TSpec, THasState2, TFindBeginPatternSpec> > & state, TSize haystack_length);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(1291)
 
 //____________________________________________________________________________
 // _findMyersSmallPatterns
 
-template <typename TFinder, typename TNeedle, typename TSpec, typename THasState, typename THasState2, typename TFindBeginPatternSpec, typename TSize> inline bool _findMyersSmallPatterns( TFinder & finder, Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > const & pattern, PatternState_<TNeedle, Myers<TSpec, THasState2, TFindBeginPatternSpec> > & state, TSize haystack_length);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(1405)
+template <typename TFinder, typename TNeedle, typename TSpec, typename THasState, typename THasState2, typename TFindBeginPatternSpec, typename TSize> inline bool _findMyersSmallPatterns( TFinder & finder, Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > const & pattern, PatternState_<TNeedle, Myers<TSpec, THasState2, TFindBeginPatternSpec> > & state, TSize haystack_length);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(1407)
 
 //____________________________________________________________________________
 // _findMyersSmallPatternsBanded
 
-template <typename TFinder, typename TNeedle, typename TNeedle2, typename TSpec, typename TFinderCSP, typename TPatternCSP, typename TFindBeginPatternSpec > inline bool _findMyersSmallPatternsBanded( TFinder & finder, TNeedle const & needle, PatternState_<TNeedle2, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, True, TFindBeginPatternSpec> > & state);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(1472)
+template <typename TFinder, typename TNeedle, typename TNeedle2, typename TSpec, typename TFinderCSP, typename TPatternCSP, typename TFindBeginPatternSpec > inline bool _findMyersSmallPatternsBanded( TFinder & finder, TNeedle const & needle, PatternState_<TNeedle2, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, True, TFindBeginPatternSpec> > & state);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(1474)
 
 //____________________________________________________________________________
 // _findScoreSimpleProportional
@@ -567,38 +567,38 @@ template <typename TNeedle> unsigned _lengthWithoutWildcards(TNeedle const & nee
 //____________________________________________________________________________
 // _myersAdjustBitmask
 
-template <typename TNeedle, typename TSpec, typename TFinderCSP, typename TPatternCSP, typename TFindBeginPatternSpec, typename TValue, typename TShift> finline void _myersAdjustBitmask(PatternState_<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, True, TFindBeginPatternSpec> > &state, TValue const value, TShift, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(880)
-template <typename TNeedle, typename TSpec, typename TFinderCSP, typename TPatternCSP, typename TFindBeginPatternSpec, typename TValue, typename TShift> finline void _myersAdjustBitmask(PatternState_<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, True, TFindBeginPatternSpec> > &state, TValue const value, TShift const shift, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(933)
+template <typename TNeedle, typename TSpec, typename TFinderCSP, typename TPatternCSP, typename TFindBeginPatternSpec, typename TValue, typename TShift> finline void _myersAdjustBitmask(PatternState_<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, True, TFindBeginPatternSpec> > &state, TValue const value, TShift, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(882)
+template <typename TNeedle, typename TSpec, typename TFinderCSP, typename TPatternCSP, typename TFindBeginPatternSpec, typename TValue, typename TShift> finline void _myersAdjustBitmask(PatternState_<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, True, TFindBeginPatternSpec> > &state, TValue const value, TShift const shift, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(935)
 
 //____________________________________________________________________________
 // _myersGetBitmask
 
-template <typename TNeedle, typename TSpec, typename TValue, typename TShift> finline typename PatternState_<TNeedle, TSpec>::TWord _myersGetBitmask(PatternState_<TNeedle, TSpec> &state, TValue const value, TShift, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(906)
-template <typename TNeedle, typename TSpec, typename TFinderCSP, typename TPatternCSP, typename TFindBeginPatternSpec, typename TValue, typename TShift> finline typename PatternState_<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, True, TFindBeginPatternSpec> >::TWord _myersGetBitmask(PatternState_<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, True, TFindBeginPatternSpec> > &state, TValue const value, TShift const shift, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(951)
+template <typename TNeedle, typename TSpec, typename TValue, typename TShift> finline typename PatternState_<TNeedle, TSpec>::TWord _myersGetBitmask(PatternState_<TNeedle, TSpec> &state, TValue const value, TShift, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(908)
+template <typename TNeedle, typename TSpec, typename TFinderCSP, typename TPatternCSP, typename TFindBeginPatternSpec, typename TValue, typename TShift> finline typename PatternState_<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, True, TFindBeginPatternSpec> >::TWord _myersGetBitmask(PatternState_<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, True, TFindBeginPatternSpec> > &state, TValue const value, TShift const shift, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(953)
 
 //____________________________________________________________________________
 // _myersPostInit
 
-template <typename TNeedle, typename TSpec> finline void _myersPostInit(PatternState_<TNeedle, TSpec> &state, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(871)
-template <typename TNeedle, typename TSpec> finline void _myersPostInit(PatternState_<TNeedle, TSpec> &, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(927)
+template <typename TNeedle, typename TSpec> finline void _myersPostInit(PatternState_<TNeedle, TSpec> &state, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(873)
+template <typename TNeedle, typename TSpec> finline void _myersPostInit(PatternState_<TNeedle, TSpec> &, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(929)
 
 //____________________________________________________________________________
 // _myersPreInit
 
-template <typename TNeedle, typename TSpec> finline void _myersPreInit(PatternState_<TNeedle, TSpec> &state, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(862)
-template <typename TNeedle, typename TSpec> finline void _myersPreInit(PatternState_<TNeedle, TSpec> &state, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(918)
+template <typename TNeedle, typename TSpec> finline void _myersPreInit(PatternState_<TNeedle, TSpec> &state, True);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(864)
+template <typename TNeedle, typename TSpec> finline void _myersPreInit(PatternState_<TNeedle, TSpec> &state, False);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(920)
 
 //____________________________________________________________________________
 // _myersSetHost
 
-template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec, typename TNeedle2> inline void _myersSetHost(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > &, TNeedle2 const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(643)
-template <typename TNeedle, typename TSpec, typename TFinderCSP, typename TPatternCSP, typename THasState, typename TFindBeginPatternSpec, typename TNeedle2> inline void _myersSetHost(Pattern<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, THasState, TFindBeginPatternSpec> > & pattern, TNeedle2 const & ndl);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(649)
+template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec, typename TNeedle2> inline void _myersSetHost(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > &, TNeedle2 const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(645)
+template <typename TNeedle, typename TSpec, typename TFinderCSP, typename TPatternCSP, typename THasState, typename TFindBeginPatternSpec, typename TNeedle2> inline void _myersSetHost(Pattern<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, THasState, TFindBeginPatternSpec> > & pattern, TNeedle2 const & ndl);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(651)
 
 //____________________________________________________________________________
 // _patternFirstInit
 
-template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec, typename TNeedle2> inline void _patternFirstInit(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > & pattern, TNeedle2 & needle);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(498)
-template <typename TNeedle, typename TSpec, typename TFinderCSP, typename TPatternCSP, typename THasState, typename TFindBeginPatternSpec, typename TNeedle2> inline void _patternFirstInit(Pattern<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, THasState, TFindBeginPatternSpec> > & pattern, TNeedle2 & ndl);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(539)
+template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec, typename TNeedle2> inline void _patternFirstInit(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > & pattern, TNeedle2 & needle);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(500)
+template <typename TNeedle, typename TSpec, typename TFinderCSP, typename TPatternCSP, typename THasState, typename TFindBeginPatternSpec, typename TNeedle2> inline void _patternFirstInit(Pattern<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, THasState, TFindBeginPatternSpec> > & pattern, TNeedle2 & ndl);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(541)
 
 //____________________________________________________________________________
 // _patternInit
@@ -610,8 +610,8 @@ template <typename TNeedle, typename TSpec> inline void _patternInit (Pattern<TN
 template <typename TNeedle> inline void _patternInit (Pattern<TNeedle, Horspool> &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_horspool.h"(130)
 template <typename TNeedle, typename TAutomaton> inline void _patternInit (Pattern<TNeedle, MultiBfam<TAutomaton> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_multiple_bfam.h"(245)
 template <typename TNeedle> inline void _patternInit (Pattern<TNeedle, MultipleShiftAnd> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_multiple_shiftand.h"(233)
-template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec, typename TFinder> inline bool _patternInit(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > const & pattern, PatternState_<TNeedle, Myers<TSpec, True, TFindBeginPatternSpec> > & state, TFinder &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(819)
-template <typename TNeedle, typename TSpec, typename TFindBeginPatternSpec, typename TFinder> inline bool _patternInit(Pattern<TNeedle, Myers<TSpec, True, TFindBeginPatternSpec> > & pattern, TFinder & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(1271)
+template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec, typename TFinder> inline bool _patternInit(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > const & pattern, PatternState_<TNeedle, Myers<TSpec, True, TFindBeginPatternSpec> > & state, TFinder &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(821)
+template <typename TNeedle, typename TSpec, typename TFindBeginPatternSpec, typename TFinder> inline bool _patternInit(Pattern<TNeedle, Myers<TSpec, True, TFindBeginPatternSpec> > & pattern, TFinder & finder);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(1273)
 template <typename TNeedle, typename TFinder, typename TMultiFinder> void _patternInit(Pattern<TNeedle, Pex<NonHierarchical, TMultiFinder > > &me, TFinder &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pex.h"(292)
 template <typename TNeedle, typename TFinder, typename TMultiFinder> void _patternInit(Pattern<TNeedle, Pex<Hierarchical, TMultiFinder > > &me, TFinder &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pex.h"(571)
 template <typename TNeedle, typename TScore, typename TSpec, typename TFindBeginPatternSpec> inline void _patternInit (Pattern<TNeedle, DPSearch<TScore, TSpec, TFindBeginPatternSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_score.h"(312)
@@ -624,31 +624,31 @@ template <typename TNeedle> inline void _patternInit (Pattern<TNeedle, WuManber>
 //____________________________________________________________________________
 // _patternInitSmallStateBanded
 
-template <typename TFinder, typename TNeedle, typename TNeedle2, typename TSpec, typename TFinderCSP, typename TPatternCSP, typename TFindBeginPatternSpec> inline bool _patternInitSmallStateBanded( TFinder &finder, TNeedle2 const & needle, PatternState_<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, True, TFindBeginPatternSpec> > & state);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(985)
+template <typename TFinder, typename TNeedle, typename TNeedle2, typename TSpec, typename TFinderCSP, typename TPatternCSP, typename TFindBeginPatternSpec> inline bool _patternInitSmallStateBanded( TFinder &finder, TNeedle2 const & needle, PatternState_<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, True, TFindBeginPatternSpec> > & state);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(987)
 
 //____________________________________________________________________________
 // _patternMatchNOfFinder
 
 template <typename TNeedle> inline void _patternMatchNOfFinder(Pattern<TNeedle, HammingSimple> & pattern, bool matchN);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_hamming_simple.h"(102)
-template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec> inline void _patternMatchNOfFinder(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > & pattern, bool match);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(623)
-template <typename TNeedle, typename TSpec, typename THasState> inline void _patternMatchNOfFinder(Pattern<TNeedle, Myers<TSpec, THasState, void> > & pattern, bool match);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(633)
+template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec> inline void _patternMatchNOfFinder(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > & pattern, bool match);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(625)
+template <typename TNeedle, typename TSpec, typename THasState> inline void _patternMatchNOfFinder(Pattern<TNeedle, Myers<TSpec, THasState, void> > & pattern, bool match);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(635)
 
 //____________________________________________________________________________
 // _patternMatchNOfFinderImpl
 
-template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec> inline void _patternMatchNOfFinderImpl(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > & pattern, bool match);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(602)
+template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec> inline void _patternMatchNOfFinderImpl(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > & pattern, bool match);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(604)
 
 //____________________________________________________________________________
 // _patternMatchNOfPattern
 
 template <typename TNeedle> inline void _patternMatchNOfPattern(Pattern<TNeedle, HammingSimple> & pattern, bool matchN);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_hamming_simple.h"(91)
-template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec> inline void _patternMatchNOfPattern(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > & pattern, bool match);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(583)
-template <typename TNeedle, typename TSpec, typename THasState> inline void _patternMatchNOfPattern(Pattern<TNeedle, Myers<TSpec, THasState, void> > & pattern, bool match);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(593)
+template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec> inline void _patternMatchNOfPattern(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > & pattern, bool match);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(585)
+template <typename TNeedle, typename TSpec, typename THasState> inline void _patternMatchNOfPattern(Pattern<TNeedle, Myers<TSpec, THasState, void> > & pattern, bool match);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(595)
 
 //____________________________________________________________________________
 // _patternMatchNOfPatternImpl
 
-template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec> inline void _patternMatchNOfPatternImpl(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > & pattern, bool match);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(547)
+template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec> inline void _patternMatchNOfPatternImpl(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > & pattern, bool match);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(549)
 
 //____________________________________________________________________________
 // _printMask
@@ -691,7 +691,7 @@ template <typename TNeedle, typename THaystackIterator> inline bool _startVerify
 //____________________________________________________________________________
 // _stateInit
 
-template <typename TFinder, typename TNeedle, typename TNeedle2, typename TSpec, typename TFinderCSP, typename TPatternCSP, typename TFindBeginPatternSpec> bool _stateInit( TFinder &finder, TNeedle const & needle, PatternState_<TNeedle2, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, True, TFindBeginPatternSpec> > & state);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(1219)
+template <typename TFinder, typename TNeedle, typename TNeedle2, typename TSpec, typename TFinderCSP, typename TPatternCSP, typename TFindBeginPatternSpec> bool _stateInit( TFinder &finder, TNeedle const & needle, PatternState_<TNeedle2, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, True, TFindBeginPatternSpec> > & state);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(1221)
 
 //____________________________________________________________________________
 // _validate
@@ -765,13 +765,13 @@ template <typename TFinder, typename TNeedle2> bool find(TFinder & finder, Patte
 template <typename THaystack, typename THaystack2, typename TNeedle> inline bool find(Finder<THaystack, MultipatternFinder> & me, THaystack2 & hstk, TNeedle const & ndl);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_multi.h"(143)
 template <typename TFinder, typename TAutomaton, typename TNeedle> inline bool find(TFinder & finder, Pattern<TNeedle, MultiBfam<TAutomaton> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_multiple_bfam.h"(293)
 template <typename TFinder, typename TNeedle> inline bool find(TFinder & finder, Pattern<TNeedle, MultipleShiftAnd> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_multiple_shiftand.h"(405)
-template <typename TFinder, typename TNeedle, typename TNeedle2, typename TSpec, typename TFinderCSP, typename TPatternCSP, typename TFindBeginPatternSpec> inline bool find (TFinder & finder, TNeedle const & needle, PatternState_<TNeedle2, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, True, TFindBeginPatternSpec> > & state);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(1566)
-template <typename TFinder, typename TNeedle, typename TSpec, typename TFinderCSP, typename TPatternCSP, typename THasState, typename TFindBeginPatternSpec> inline bool find (TFinder & finder, Pattern<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, THasState, TFindBeginPatternSpec> > const & pattern, PatternState_<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, True, TFindBeginPatternSpec> > & state);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(1610)
-template <typename TFinder, typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec> inline bool find (TFinder & finder, Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > const & pattern, PatternState_<TNeedle, Myers<TSpec, True, TFindBeginPatternSpec> > & state);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(1619)
-template <typename TFinder, typename TNeedle, typename TSpec, typename TFindBeginPatternSpec> inline bool find (TFinder & finder, Pattern<TNeedle, Myers<TSpec, True, TFindBeginPatternSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(1663)
-template <typename TFinder, typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec> inline bool find (TFinder & finder, Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > const & pattern, PatternState_<TNeedle, Myers<TSpec, True, TFindBeginPatternSpec> > & state, int const minScore);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(1673)
-template <typename TFinder, typename TNeedle, typename TNeedle2, typename TSpec, typename TFindBeginPatternSpec> inline bool find (TFinder & finder, TNeedle const & needle, PatternState_<TNeedle2, Myers<TSpec, True, TFindBeginPatternSpec> > & state, int const minScore);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(1683)
-template <typename TFinder, typename TNeedle, typename TSpec, typename TFindBeginPatternSpec> inline bool find (TFinder & finder, Pattern<TNeedle, Myers<TSpec, True, TFindBeginPatternSpec> > & pattern, int const minScore);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(1692)
+template <typename TFinder, typename TNeedle, typename TNeedle2, typename TSpec, typename TFinderCSP, typename TPatternCSP, typename TFindBeginPatternSpec> inline bool find (TFinder & finder, TNeedle const & needle, PatternState_<TNeedle2, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, True, TFindBeginPatternSpec> > & state);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(1568)
+template <typename TFinder, typename TNeedle, typename TSpec, typename TFinderCSP, typename TPatternCSP, typename THasState, typename TFindBeginPatternSpec> inline bool find (TFinder & finder, Pattern<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, THasState, TFindBeginPatternSpec> > const & pattern, PatternState_<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, True, TFindBeginPatternSpec> > & state);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(1612)
+template <typename TFinder, typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec> inline bool find (TFinder & finder, Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > const & pattern, PatternState_<TNeedle, Myers<TSpec, True, TFindBeginPatternSpec> > & state);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(1621)
+template <typename TFinder, typename TNeedle, typename TSpec, typename TFindBeginPatternSpec> inline bool find (TFinder & finder, Pattern<TNeedle, Myers<TSpec, True, TFindBeginPatternSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(1665)
+template <typename TFinder, typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec> inline bool find (TFinder & finder, Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > const & pattern, PatternState_<TNeedle, Myers<TSpec, True, TFindBeginPatternSpec> > & state, int const minScore);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(1675)
+template <typename TFinder, typename TNeedle, typename TNeedle2, typename TSpec, typename TFindBeginPatternSpec> inline bool find (TFinder & finder, TNeedle const & needle, PatternState_<TNeedle2, Myers<TSpec, True, TFindBeginPatternSpec> > & state, int const minScore);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(1685)
+template <typename TFinder, typename TNeedle, typename TSpec, typename TFindBeginPatternSpec> inline bool find (TFinder & finder, Pattern<TNeedle, Myers<TSpec, True, TFindBeginPatternSpec> > & pattern, int const minScore);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(1694)
 template <typename TFinder, typename TNeedle, typename TMultiFinder> inline bool find (TFinder & finder, Pattern<TNeedle, Pex<NonHierarchical, TMultiFinder > > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pex.h"(381)
 template <typename TFinder, typename TNeedle, typename TMultiFinder> inline bool find (TFinder & finder, Pattern<TNeedle, Pex<Hierarchical, TMultiFinder > > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pex.h"(614)
 template <typename TFinder, typename TNeedle, typename TScore, typename TSpec, typename TFindBeginPatternSpec> inline bool find(TFinder & finder, Pattern<TNeedle, DPSearch<TScore, TSpec, TFindBeginPatternSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_score.h"(481)
@@ -799,8 +799,8 @@ template <typename TPattern> inline typename Value<typename ScoringScheme<TPatte
 
 template <typename TNeedle> int getScore(Pattern<TNeedle, AbndmAlgo > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_abndm.h"(257)
 template <typename TNeedle> inline int getScore(const Pattern<TNeedle, HammingSimple> &me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_hamming_simple.h"(147)
-template <typename TNeedle, typename TSpec, typename TFindBeginPatternSpec> inline int getScore(PatternState_<TNeedle, Myers<TSpec, True, TFindBeginPatternSpec> > const & state);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(803)
-template <typename TNeedle, typename TSpec, typename TFindBeginPatternSpec> inline int getScore(Pattern<TNeedle, Myers<TSpec, True, TFindBeginPatternSpec> > const & state);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(809)
+template <typename TNeedle, typename TSpec, typename TFindBeginPatternSpec> inline int getScore(PatternState_<TNeedle, Myers<TSpec, True, TFindBeginPatternSpec> > const & state);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(805)
+template <typename TNeedle, typename TSpec, typename TFindBeginPatternSpec> inline int getScore(Pattern<TNeedle, Myers<TSpec, True, TFindBeginPatternSpec> > const & state);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(811)
 template <typename TNeedle, typename TVerification, typename TMultiFinder> int getScore(Pattern<TNeedle, Pex<TVerification,TMultiFinder > > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pex.h"(256)
 template <typename TNeedle, typename TScore, typename TSpec, typename TFindBeginPatternSpec> inline typename Value<TScore>::Type getScore(Pattern<TNeedle, DPSearch<TScore, TSpec, TFindBeginPatternSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_score.h"(303)
 
@@ -831,10 +831,10 @@ template <typename TNeedle, typename TAutomaton> inline typename Host<Pattern<TN
 template <typename TNeedle, typename TAutomaton> inline typename Host<Pattern<TNeedle, MultiBfam<TAutomaton> > const>::Type & host(Pattern<TNeedle, MultiBfam<TAutomaton> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_multiple_bfam.h"(226)
 template <typename TNeedle> inline typename Host<Pattern<TNeedle, MultipleShiftAnd>const>::Type & host(Pattern<TNeedle, MultipleShiftAnd> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_multiple_shiftand.h"(251)
 template <typename TNeedle> inline typename Host<Pattern<TNeedle, MultipleShiftAnd>const>::Type & host(Pattern<TNeedle, MultipleShiftAnd> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_multiple_shiftand.h"(259)
-template <typename TNeedle, typename TSpec, typename TFinderCSP, typename TPatternCSP, typename THasState, typename TFindBeginPatternSpec> inline typename Host<Pattern<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, THasState, TFindBeginPatternSpec> > >::Type & host(Pattern<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, THasState, TFindBeginPatternSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(681)
-template <typename TNeedle, typename TSpec, typename TFinderCSP, typename TPatternCSP, typename THasState, typename TFindBeginPatternSpec> inline typename Host<Pattern<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, THasState, TFindBeginPatternSpec> > const>::Type & host(Pattern<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, THasState, TFindBeginPatternSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(690)
-template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec> inline TNeedle host(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(699)
-template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec> inline TNeedle host(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(723)
+template <typename TNeedle, typename TSpec, typename TFinderCSP, typename TPatternCSP, typename THasState, typename TFindBeginPatternSpec> inline typename Host<Pattern<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, THasState, TFindBeginPatternSpec> > >::Type & host(Pattern<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, THasState, TFindBeginPatternSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(683)
+template <typename TNeedle, typename TSpec, typename TFinderCSP, typename TPatternCSP, typename THasState, typename TFindBeginPatternSpec> inline typename Host<Pattern<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, THasState, TFindBeginPatternSpec> > const>::Type & host(Pattern<TNeedle, Myers<AlignTextBanded<TSpec, TFinderCSP, TPatternCSP>, THasState, TFindBeginPatternSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(692)
+template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec> inline TNeedle host(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(701)
+template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec> inline TNeedle host(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(725)
 template <typename TNeedle, typename TSpec> inline typename Host<Pattern<TNeedle, TSpec> >::Type & host(Pattern<TNeedle, TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(264)
 template <typename TNeedle, typename TSpec> inline typename Host<Pattern<TNeedle, TSpec> const>::Type & host(Pattern<TNeedle, TSpec> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(272)
 template <typename TNeedle, typename TVerification, typename TMultiFinder> inline typename Host<Pattern<TNeedle, Pex<TVerification,TMultiFinder > > >::Type & host(Pattern<TNeedle, Pex<TVerification,TMultiFinder > > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pex.h"(222)
@@ -880,8 +880,8 @@ template <typename THaystack, typename TSpec> inline typename Size<THaystack con
 
 template <typename THaystack> inline unsigned int & needle(Finder<THaystack, MultipatternFinder> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_multi.h"(105)
 template <typename THaystack> inline unsigned int const & needle(Finder<THaystack, MultipatternFinder> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_multi.h"(112)
-template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec> inline TNeedle needle(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(734)
-template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec> inline TNeedle needle(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(742)
+template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec> inline TNeedle needle(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(736)
+template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec> inline TNeedle needle(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(744)
 template <typename TObject > inline typename Needle<TObject>::Type & needle(TObject &obj);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(299)
 template <typename TObject > inline typename Needle<TObject const>::Type & needle(TObject const &obj);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(306)
 template <typename TNeedle, typename TSpec > inline typename Needle< Pattern<TNeedle, TSpec> >::Type & needle(Pattern<TNeedle, TSpec> & obj);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(316)
@@ -942,8 +942,8 @@ template <typename TNeedle> inline int score(const Pattern<TNeedle, HammingSimpl
 // scoreLimit
 
 template <typename TNeedle> inline int scoreLimit(Pattern<TNeedle, AbndmAlgo > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_abndm.h"(580)
-template <typename TNeedle, typename TSpec, typename TFindBeginPatternSpec> inline int scoreLimit(PatternState_<TNeedle, Myers<TSpec, True, TFindBeginPatternSpec> > const & state);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(755)
-template <typename TNeedle, typename TSpec, typename TFindBeginPatternSpec> inline int scoreLimit(Pattern<TNeedle, Myers<TSpec, True, TFindBeginPatternSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(763)
+template <typename TNeedle, typename TSpec, typename TFindBeginPatternSpec> inline int scoreLimit(PatternState_<TNeedle, Myers<TSpec, True, TFindBeginPatternSpec> > const & state);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(757)
+template <typename TNeedle, typename TSpec, typename TFindBeginPatternSpec> inline int scoreLimit(Pattern<TNeedle, Myers<TSpec, True, TFindBeginPatternSpec> > const & pattern);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(765)
 template <typename TNeedle, typename TVerification, typename TMultiFinder> inline int scoreLimit(Pattern<TNeedle, Pex<TVerification,TMultiFinder > > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pex.h"(267)
 template <typename TNeedle, typename TScore, typename TSpec, typename TFindBeginPatternSpec> inline typename Value<TScore>::Type scoreLimit(Pattern<TNeedle, DPSearch<TScore, TSpec, TFindBeginPatternSpec> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_score.h"(258)
 
@@ -1001,8 +1001,8 @@ template <typename TNeedle, typename TAutomaton, typename TNeedle2> void setHost
 template <typename TNeedle, typename TAutomaton, typename TNeedle2> inline void setHost(Pattern<TNeedle, MultiBfam<TAutomaton> > & me, TNeedle2 & needle);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_multiple_bfam.h"(209)
 template <typename TNeedle, typename TNeedle2> void setHost (Pattern<TNeedle, MultipleShiftAnd> & me, TNeedle2 const & needle);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_multiple_shiftand.h"(139)
 template <typename TNeedle, typename TNeedle2> void setHost (Pattern<TNeedle, MultipleShiftAnd> & me, TNeedle2 & needle);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_multiple_shiftand.h"(224)
-template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec, typename TNeedle2> inline void setHost(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > & pattern, TNeedle2 & ndl);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(656)
-template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec, typename TNeedle2> inline void setHost(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > & pattern, TNeedle2 const & ndl);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(667)
+template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec, typename TNeedle2> inline void setHost(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > & pattern, TNeedle2 & ndl);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(658)
+template <typename TNeedle, typename TSpec, typename THasState, typename TFindBeginPatternSpec, typename TNeedle2> inline void setHost(Pattern<TNeedle, Myers<TSpec, THasState, TFindBeginPatternSpec> > & pattern, TNeedle2 const & ndl);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(669)
 template <typename TNeedle, typename TSpec, typename TNeedle2> inline void setHost(Pattern<TNeedle, TSpec> & me, TNeedle2 const & ndl);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(183)
 template <typename TNeedle, typename TSpec, typename TNeedle2> inline void setHost(Pattern<TNeedle, TSpec> & me, TNeedle2 & ndl);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pattern_base.h"(190)
 template <typename TNeedle, typename TNeedle2, typename TVerification, typename TMultiFinder> void setHost (Pattern<TNeedle, Pex<TVerification,TMultiFinder > > & me, TNeedle2 const & needle);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pex.h"(202)
@@ -1038,8 +1038,8 @@ template <typename THaystack, typename TSpec, typename TPosition> inline void se
 
 template <typename TNeedle, typename TScoreValue> inline void setScoreLimit(Pattern<TNeedle, AbndmAlgo > & me, TScoreValue _limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_abndm.h"(593)
 template <typename TNeedle> inline void setScoreLimit(Pattern<TNeedle, HammingSimple> & me, int _limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_hamming_simple.h"(154)
-template <typename TNeedle, typename TSpec, typename TFindBeginPatternSpec, typename TScoreValue> inline void setScoreLimit(PatternState_<TNeedle, Myers<TSpec, True, TFindBeginPatternSpec> > & state, TScoreValue minScore);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(777)
-template <typename TNeedle, typename TSpec, typename TFindBeginPatternSpec, typename TScoreValue> inline void setScoreLimit(Pattern<TNeedle, Myers<TSpec, True, TFindBeginPatternSpec> > & pattern, TScoreValue minScore);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(787)
+template <typename TNeedle, typename TSpec, typename TFindBeginPatternSpec, typename TScoreValue> inline void setScoreLimit(PatternState_<TNeedle, Myers<TSpec, True, TFindBeginPatternSpec> > & state, TScoreValue minScore);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(779)
+template <typename TNeedle, typename TSpec, typename TFindBeginPatternSpec, typename TScoreValue> inline void setScoreLimit(Pattern<TNeedle, Myers<TSpec, True, TFindBeginPatternSpec> > & pattern, TScoreValue minScore);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_myers_ukkonen.h"(789)
 template <typename TNeedle, typename TScoreValue,typename TVerification, typename TMultiFinder> inline void setScoreLimit(Pattern<TNeedle, Pex<TVerification,TMultiFinder > > & me, TScoreValue _limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_pex.h"(280)
 template <typename TNeedle, typename TScore, typename TSpec, typename TFindBeginPatternSpec, typename TScoreValue> inline void setScoreLimit(Pattern<TNeedle, DPSearch<TScore, TSpec, TFindBeginPatternSpec> > & me, TScoreValue _limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/find/find_score.h"(279)
 

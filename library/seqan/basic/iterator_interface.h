@@ -1,7 +1,7 @@
 // ==========================================================================
 //                 SeqAn - The Library for Sequence Analysis
 // ==========================================================================
-// Copyright (c) 2006-2010, Knut Reinert, FU Berlin
+// Copyright (c) 2006-2012, Knut Reinert, FU Berlin
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -36,8 +36,8 @@
 
 // TODO(holtgrew): Split into iterator_interface.h and iterator_adapt_pointer.h.
 
-#ifndef SEQAN_BASIC_BASIC_ITERATOR_H_
-#define SEQAN_BASIC_BASIC_ITERATOR_H_
+#ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_ITERATOR_INTERFACE_H_
+#define SEQAN_CORE_INCLUDE_SEQAN_BASIC_ITERATOR_INTERFACE_H_
 
 namespace seqan {
 
@@ -57,15 +57,14 @@ namespace seqan {
 ...remarks
 ....text:This iterator implements some more advanced functions like
 @Function.container@ and @Function.position@.
-....concept:Concept.Rooted Iterator
+....concept:Concept.RootedIteratorConcept
 ..tag.Standard:Standard conform iterator.
 ...remarks
 ....text:Note that standard iterators need not to implement all functions
 that are available for rooted iterators.
-....concept:Concept.Iterator
 ..remarks.text:The default iterator spec is given by @Metafunction.DefaultIteratorSpec@.
 ..see:Metafunction.DefaultIteratorSpec
-..see:Concept.Iterator
+..see:Concept.IteratorAssociatedTypesConcept
 ..include:seqan/basic.h
 */
 
@@ -177,7 +176,7 @@ struct Iterator : Iterator_Default_Imp<T, TSpec>
 ..signature:Container<T>::Type
 ..param.T:Iterator type.
 ...type:Class.Iter
-...concept:Concept.Iterator
+...concept:Concept.RootedIteratorConcept
 ..returns.param.Type:The container type to $T$.
 ..include:seqan/basic.h
 */
@@ -203,7 +202,7 @@ struct Container
 ..signature:Reference value(object)
 ..param.object:An object that holds a value or an iterator that points to a value.
 ...type:Class.Iter
-...concept:Concept.Iterator
+...concept:Concept.IteratorAssociatedTypesConcept
 ..include:seqan/basic.h
 */
 
@@ -223,14 +222,6 @@ value(T const & me)
     return *me;
 }
 
-template <typename T>
-inline T &
-value(T * me)
-{
-    SEQAN_CHECKPOINT;
-    return *me;
-}
-
 // ---------------------------------------------------------------------------
 // Function getValue()
 // ---------------------------------------------------------------------------
@@ -241,7 +232,7 @@ value(T * me)
 ..signature:GetValue getValue(object)
 ..param.object:An object that holds a value or points to a value.
 ...type:Class.Iter
-...concept:Concept.Iterator
+...concept:Concept.IteratorAssociated
 ..see:Metafunction.GetValue
 ..include:seqan/basic.h
 */
@@ -257,14 +248,6 @@ getValue(T & me)
 template <typename T>
 inline typename GetValue<T const>::Type
 getValue(T const & me)
-{
-    SEQAN_CHECKPOINT;
-    return value(me);
-}
-
-template <typename T>
-inline T &
-getValue(T * me)
 {
     SEQAN_CHECKPOINT;
     return value(me);
@@ -288,7 +271,7 @@ getValue(T * me)
 ..signature:assignValue(object, value)
 ..param.object:An object that holds a value or points to a value.
 ...type:Class.Iter
-...concept:Concept.Iterator
+...concept:Concept.BasicOutputIteratorConcept
 ..param.value:A value that is assigned to the item $object$ holds or points to.
 ..remarks.text:This function is similar to @Function.assign@.
 The difference is, that $assignValue$ just changes a value stored in $object$ or the value $object$ points to,
@@ -327,7 +310,7 @@ assignValue(T const & me,
 ..signature:moveValue(object, value)
 ..param.object:An object that holds a value or points to a value.
 ...type:Class.Iter
-...concept:Concept.Iterator
+...concept:Concept.BasicOutputIteratorConcept
 ..param.value:A value that is handed over to the item $object$ holds or points to.
 ..remarks.text:This function is similar to @Function.move@.
 The difference is, that $moveValue$ just changes a value stored in $object$ or the value $object$ points to,
@@ -360,7 +343,7 @@ moveValue(T const & me,
 // Function setValue()
 // ---------------------------------------------------------------------------
 
-///.Function.setValue.param.object.holder.type:Concept.Iterator
+///.Function.setValue.param.object.holder.type:Concept.BasicOutputIteratorConcept
 
 template <typename T, typename TValue>
 inline void
@@ -392,7 +375,7 @@ setValue(T const * & ptr,
 ..signature:Container container(iterator)
 ..param.iterator:An iterator.
 ...type:Class.Iter
-...concept:Concept.Rooted Iterator
+...concept:Concept.RootedIteratorConcept
 ..returns:The container that $iterator$ traverses.
 ...metafunction:Metafunction.Container
 ..include:seqan/basic.h
@@ -419,10 +402,10 @@ container(T me)
 ..signature:Position position(iterator [, container])
 ..param.iterator:An iterator.
 ...type:Class.Iter
-...concept:Concept.Iterator
+...concept:Concept.RootedRandomAccessIteratorConcept
 ..param.container:A container.
 ...concept:Concept.Container
-...remarks:If $iterator$ implements @Concept.Rooted Iterator@, then $container$ is optional.
+...remarks:If $iterator$ implements @Concept.RootedIteratorConcept@, then $container$ is optional.
 ...remarks:If $container$ is specified, $iterator$ must be a container of $container$.
 ..returns:The position of the value in the container $iterator$ points to.
 ...metafunction:Metafunction.Position
@@ -458,9 +441,9 @@ position(TIterator const & it,
 ..signature:bool atBegin(iterator [, container])
 ..param.iterator:An iterator.
 ...type:Class.Iter
-...concept:Concept.Iterator
+...concept:Concept.RootedIteratorConcept
 ..param.container:Container of $iterator$. (optional)
-...remarks.text:If $iterator$ implements @Concept.Rooted Iterator@ then $container$ is optional otherwise $container$ is required.
+...remarks.text:If $iterator$ implements @Concept.RootedIteratorConcept@ then $container$ is optional otherwise $container$ is required.
 ..returns:$true$ if $iterator$ points to the fist item of the container, otherwise $false$.
 ..see:Function.begin
 ..include:seqan/basic.h
@@ -519,9 +502,9 @@ atBegin(T const & it)
 ..signature:bool atEnd(iterator [, container])
 ..param.iterator:An iterator.
 ...type:Class.Iter
-...concept:Concept.Iterator
+...concept:Concept.RootedIteratorConcept
 ..param.container:Container of $iterator$.
-...remarks.text:If $iterator$ implements @Concept.Rooted Iterator@ then $container$ is optional.
+...remarks.text:If $iterator$ implements @Concept.RootedIteratorConcept@ then $container$ is optional.
 ....text:$container$ is also optional for iterators to @Adaption.char array.char arrays@.
 ....text:Otherwise, $container$ is required.
 ..returns:$true$ if $iterator$ points behind the last item of the container, otherwise $false$.
@@ -593,10 +576,10 @@ atEnd(T const & it)
 ..signature:goBegin(iterator [, container])
 ..param.iterator:Object that iterates through $container$.
 ...type:Class.Iter
-...concept:Concept.Iterator
+...concept:Concept.RootedIteratorConcept
 ...text:$iterator$ is set to the position of the first item in $container$.
 ..param.container:Container of $iterator$.
-...remarks.text:If $iterator$ implements @Concept.Rooted Iterator@ then $container$ is optional,
+...remarks.text:If $iterator$ implements @Concept.RootedIteratorConcept@ then $container$ is optional,
 otherwise $container$ is required.
 ..remarks:This function is equivalent to $iterator = begin(container)$.
 ..see:Function.begin
@@ -644,10 +627,10 @@ goBegin(TIterator & it)
 ..signature:goEnd(iterator [, container])
 ..param.iterator:Object that iterates through $container$.
 ...type:Class.Iter
-...concept:Concept.Iterator
+...concept:Concept.RootedIteratorConcept
 ...text:$iterator$ is set to the position behin the last item in $container$.
 ..param.container:Container of $iterator$.
-...remarks.text:If $iterator$ implements @Concept.Rooted Iterator@ then $container$ is optional,
+...remarks.text:If $iterator$ implements @Concept.RootedIteratorConcept@ then $container$ is optional,
 otherwise $container$ is required.
 ..remarks:This function is equivalent to $iterator = end(container)$.
 ..see:Function.end
@@ -694,7 +677,7 @@ goEnd(TIterator & it)
 ..signature:goNext(iterator)
 ..param.iterator:An iterator.
 ...type:Class.Iter
-...concept:Concept.Iterator
+...concept:Concept.ForwardIteratorConcept
 ...text:$iterator$ is set to the next position of an iteration through its container.
 ..remarks:This function is equivalent to $++iterator$.
 ..see:Function.goBegin
@@ -721,7 +704,7 @@ goNext(TIterator & it)
 ..signature:goFurther(iterator, steps)
 ..param.iterator:An iterator.
 ...type:Class.Iter
-...concept:Concept.Iterator
+...concept:Concept.RandomAccessIteratorConcept
 ...text:$iterator$ is set $steps$ positions further in the iteration through the container.
 ..param.steps:Number of steps $iterator$ should be moved further.
 ...remarks:If $iterator$ supports bidirectional iteration, $steps$ could also be negativ.
@@ -777,10 +760,10 @@ goPrevious(TIterator & it)
 ..signature:difference(begin, end)
 ..param.begin:Iterator to the first position of a range.
 ...type:Class.Iter
-...Concept.Iterator
+...Concept.RandomAccessIteratorConcept
 ..param.end:Iterator behind the last position of a range.
 ...type:Class.Iter
-...Concept.Iterator
+...Concept.RandomAccessIteratorConcept
 ..returns:Length of the range between $begin$ and $end$.
 ..remarks:This function is equivalent to $end - begin$.
 ...text:Usually, $begin$ and $end$ have the same type.
@@ -867,4 +850,4 @@ atNil(TIterator * me)
 
 }  // namespace seqan
 
-#endif  // #ifndef SEQAN_BASIC_BASIC_ITERATOR_H_
+#endif  // #ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_ITERATOR_INTERFACE_H_

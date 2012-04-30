@@ -152,7 +152,7 @@ namespace SEQAN_NAMESPACE_MAIN
                typename TText >
     inline void createSuffixArray(
 		TSA &SA,
-		TText &s,
+		TText const &s,
 		SAQSort const &)
 	{
 	SEQAN_CHECKPOINT

@@ -49,12 +49,12 @@ namespace SEQAN_NAMESPACE_MAIN {
 //____________________________________________________________________________
 // CompareTypeModExpandImpl_
 
-template <typename TModExpand, typename THost, typename TRight, typename TCompareHostRight> struct CompareTypeModExpandImpl_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(467)
+template <typename TModExpand, typename THost, typename TRight, typename TCompareHostRight> struct CompareTypeModExpandImpl_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(477)
 
 //____________________________________________________________________________
 // ConvertImplModExpand_
 
-template <int SIZE_OF_SOURCE> struct ConvertImplModExpand_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(251)
+template <int SIZE_OF_SOURCE> struct ConvertImplModExpand_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(261)
 
 //____________________________________________________________________________
 // FunctorComplement
@@ -120,7 +120,7 @@ template <typename TTarget, typename TSource> struct AlphabetConversionTable_;  
 //____________________________________________________________________________
 // AlphabetOrdTable_
 
-template <typename TSource> struct AlphabetOrdTable_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet.h"(745)
+template <typename TSource> struct AlphabetOrdTable_;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet.h"(740)
 
 //____________________________________________________________________________
 // ModView
@@ -263,24 +263,24 @@ template <typename THost, typename TSpec> inline Holder<THost> const & _dataHost
 //____________________________________________________________________________
 // _initializeAlphabetConversionTable
 
-template <typename THost, char CHAR, typename TSpec, typename TSource> inline void _initializeAlphabetConversionTable(ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> > * buf, TSource const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(231)
-template <typename TTarget, typename THost, char CHAR, typename TSpec> inline void _initializeAlphabetConversionTable(TTarget * buf, ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> > const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(342)
+template <typename THost, char CHAR, typename TSpec, typename TSource> inline void _initializeAlphabetConversionTable(ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> > * buf, TSource const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(241)
+template <typename TTarget, typename THost, char CHAR, typename TSpec> inline void _initializeAlphabetConversionTable(TTarget * buf, ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> > const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(352)
 
 //____________________________________________________________________________
 // _initializeAlphabetOrdTable
 
-template <typename TTarget, typename THost, char CHAR, typename TSpec> inline void _initializeAlphabetOrdTable(TTarget * buf, ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> > const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(363)
+template <typename TTarget, typename THost, char CHAR, typename TSpec> inline void _initializeAlphabetOrdTable(TTarget * buf, ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> > const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(373)
 
 //____________________________________________________________________________
 // _internalCreateChar
 
-template <typename TValue, typename TNum> inline TValue _internalCreateChar(TValue const &, TNum i);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(208)
-template <typename TValue, typename TSpec, typename TNum> inline SimpleType<TValue, TSpec> _internalCreateChar(SimpleType<TValue, TSpec> const &, TNum i);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(215)
+template <typename TValue, typename TNum> inline TValue _internalCreateChar(TValue const &, TNum i);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(218)
+template <typename TValue, typename TSpec, typename TNum> inline SimpleType<TValue, TSpec> _internalCreateChar(SimpleType<TValue, TSpec> const &, TNum i);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(225)
 
 //____________________________________________________________________________
 // _internalOrdValue
 
-template <typename THost, char CHAR, typename TSpec> inline unsigned _internalOrdValue(ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> > const & c);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(448)
+template <typename THost, char CHAR, typename TSpec> inline unsigned _internalOrdValue(ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> > const & c);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(458)
 
 //____________________________________________________________________________
 // assign
@@ -351,13 +351,13 @@ template <typename THost, typename TSpec> inline typename Container<ModifiedIter
 //____________________________________________________________________________
 // convertImpl
 
-template <typename THost, char CHAR, typename TSpec, typename T, typename TSource> inline typename Convert<ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> >, TSource>::Type convertImpl(Convert<ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> >, T> const convert_, TSource const & source_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(291)
-template <typename THost, char CHAR, typename TSpec, typename T, typename TSourceValue, typename TSourceSpec> inline typename Convert<ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> >, SimpleType<TSourceValue, TSourceSpec> >::Type convertImpl(Convert<ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> >, T> const, SimpleType<TSourceValue, TSourceSpec> const & source_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(300)
-template <char CHAR, typename TSpec, typename T, typename TSourceValue, typename TSourceSpec> inline typename Convert<ModifiedAlphabet<SimpleType<TSourceValue, TSourceSpec>, ModExpand<CHAR, TSpec> >, SimpleType<TSourceValue, TSourceSpec> >::Type convertImpl(Convert<ModifiedAlphabet<SimpleType<TSourceValue, TSourceSpec>, ModExpand<CHAR, TSpec> >, T> const, SimpleType<TSourceValue, TSourceSpec> const & source_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(313)
-template <typename THost, char CHAR, typename TSpec, typename T, typename TSpec2> inline typename Convert<ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> >, Proxy<TSpec2> >::Type convertImpl(Convert<ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> >, T> const, Proxy<TSpec2> const & source_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(329)
-template <typename TTarget, typename T, typename THost, char CHAR, typename TSpec> inline typename Convert<TTarget, ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> > >::Type convertImpl(Convert<TTarget, T> const, ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> > const & source_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(390)
-template <typename TTargetValue, typename TTargetSpec, char CHAR, typename TSpec> inline typename Convert<SimpleType<TTargetValue, TTargetSpec>, ModifiedAlphabet<SimpleType<TTargetValue, TTargetSpec>, ModExpand<CHAR, TSpec> > >::Type convertImpl(Convert<SimpleType<TTargetValue, TTargetSpec>, ModifiedAlphabet<SimpleType<TTargetValue, TTargetSpec>, ModExpand<CHAR, TSpec> > > const, ModifiedAlphabet<SimpleType<TTargetValue, TTargetSpec>, ModExpand<CHAR, TSpec> > const & source_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(402)
-template <typename THost, char CHAR, typename TSpec, typename T> inline ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> > convertImpl(Convert<ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> >, T> const, ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> > const & source_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(438)
+template <typename THost, char CHAR, typename TSpec, typename T, typename TSource> inline typename Convert<ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> >, TSource>::Type convertImpl(Convert<ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> >, T> const convert_, TSource const & source_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(301)
+template <typename THost, char CHAR, typename TSpec, typename T, typename TSourceValue, typename TSourceSpec> inline typename Convert<ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> >, SimpleType<TSourceValue, TSourceSpec> >::Type convertImpl(Convert<ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> >, T> const, SimpleType<TSourceValue, TSourceSpec> const & source_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(310)
+template <char CHAR, typename TSpec, typename T, typename TSourceValue, typename TSourceSpec> inline typename Convert<ModifiedAlphabet<SimpleType<TSourceValue, TSourceSpec>, ModExpand<CHAR, TSpec> >, SimpleType<TSourceValue, TSourceSpec> >::Type convertImpl(Convert<ModifiedAlphabet<SimpleType<TSourceValue, TSourceSpec>, ModExpand<CHAR, TSpec> >, T> const, SimpleType<TSourceValue, TSourceSpec> const & source_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(323)
+template <typename THost, char CHAR, typename TSpec, typename T, typename TSpec2> inline typename Convert<ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> >, Proxy<TSpec2> >::Type convertImpl(Convert<ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> >, T> const, Proxy<TSpec2> const & source_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(339)
+template <typename TTarget, typename T, typename THost, char CHAR, typename TSpec> inline typename Convert<TTarget, ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> > >::Type convertImpl(Convert<TTarget, T> const, ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> > const & source_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(400)
+template <typename TTargetValue, typename TTargetSpec, char CHAR, typename TSpec> inline typename Convert<SimpleType<TTargetValue, TTargetSpec>, ModifiedAlphabet<SimpleType<TTargetValue, TTargetSpec>, ModExpand<CHAR, TSpec> > >::Type convertImpl(Convert<SimpleType<TTargetValue, TTargetSpec>, ModifiedAlphabet<SimpleType<TTargetValue, TTargetSpec>, ModExpand<CHAR, TSpec> > > const, ModifiedAlphabet<SimpleType<TTargetValue, TTargetSpec>, ModExpand<CHAR, TSpec> > const & source_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(412)
+template <typename THost, char CHAR, typename TSpec, typename T> inline ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> > convertImpl(Convert<ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> >, T> const, ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> > const & source_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(448)
 
 //____________________________________________________________________________
 // end
@@ -505,7 +505,7 @@ template <typename TStream, typename THost, typename TSpec > inline TStream & op
 //____________________________________________________________________________
 // ordValue
 
-template <typename THost, char CHAR, typename TSpec> inline unsigned ordValue(ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> > const & c);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(455)
+template <typename THost, char CHAR, typename TSpec> inline unsigned ordValue(ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> > const & c);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(465)
 
 //____________________________________________________________________________
 // position
@@ -577,6 +577,11 @@ template <typename TSequence, typename TSpec > inline void toUpper(StringSet<TSe
 template <typename TSequence, typename TSpec > inline void toUpper(StringSet<TSequence, TSpec> const & stringSet);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_shortcuts.h"(302)
 
 //____________________________________________________________________________
+// unknownValueImpl
+
+template <typename THost, char CHAR, typename TSpec> inline ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> > unknownValueImpl(ModifiedAlphabet<THost, ModExpand<CHAR, TSpec> > *);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet_expansion.h"(181)
+
+//____________________________________________________________________________
 // value
 
 template <typename THost, typename TSpec> inline typename Reference<ModifiedIterator<THost, TSpec> >::Type value(ModifiedIterator<THost, TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_iterator.h"(361)
@@ -599,7 +604,7 @@ template <typename TTarget, typename TSource> inline void _initializeAlphabetCon
 //____________________________________________________________________________
 // _initializeAlphabetOrdTable
 
-template <typename TTarget, typename TSource> inline void _initializeAlphabetOrdTable(TTarget *, TSource const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet.h"(736)
+template <typename TTarget, typename TSource> inline void _initializeAlphabetOrdTable(TTarget *, TSource const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/modifier/modifier_alphabet.h"(731)
 
 //____________________________________________________________________________
 // assignModViewFunctor

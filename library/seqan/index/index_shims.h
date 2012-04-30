@@ -722,7 +722,7 @@ If the fibre doesn't exist then @Function.indexCreate@ is called to create it.
 	SEQAN_CHECKPOINT
 		String<TValue, External< ExternalConfigLarge<> > > extString;
 		if (!open(extString, fileName, openMode & ~OPEN_CREATE)) return false;
-		assign(string, extString);
+		assign(string, extString, Exact());
 		return true;
 	}
 	template < typename TValue, typename TSpec >
@@ -736,7 +736,7 @@ If the fibre doesn't exist then @Function.indexCreate@ is called to create it.
 	SEQAN_CHECKPOINT
 		String<typename Value<THost>::Type, External< ExternalConfigLarge<> > > extString;
 		if (!open(extString, fileName, openMode & ~OPEN_CREATE)) return false;
-		assign(string, extString);
+		assign(string, extString, Exact());
 		return true;
 	}
 	template < typename THost, typename TSpec >
@@ -809,7 +809,7 @@ If the fibre doesn't exist then @Function.indexCreate@ is called to create it.
 //		if (length(string) == 0) return true;
 		String<TValue, External< ExternalConfigLarge<> > > extString;
 		if (!open(extString, fileName, openMode)) return false;
-		assign(extString, string);
+		assign(extString, string, Exact());
 		return true;
 	}
 	template < typename TValue, typename TSpec >
@@ -824,7 +824,7 @@ If the fibre doesn't exist then @Function.indexCreate@ is called to create it.
 		if (length(string) == 0) return true;
 		String<typename Value<THost>::Type, External< ExternalConfigLarge<> > > extString;
 		if (!open(extString, fileName, openMode)) return false;
-		assign(extString, string);
+		assign(extString, string, Exact());
 		return true;
 	}
 	template < typename THost, typename TSpec >

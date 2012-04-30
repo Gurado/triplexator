@@ -35,8 +35,8 @@
 #ifndef FBUSKE_APPS_TRIPLEXATOR_HEADER_TRIPLEX_ALPHABET_H
 #define FBUSKE_APPS_TRIPLEXATOR_HEADER_TRIPLEX_ALPHABET_H
 
-#include <seqan/basic/basic_alphabet_simple.h>
-#include <seqan/basic/basic_alphabet_simple_tabs.h>
+#include <seqan/basic/alphabet_simple_type.h>
+#include <seqan/basic/alphabet_residue_tabs.h>
 
 namespace SEQAN_NAMESPACE_MAIN
 {
@@ -478,8 +478,14 @@ specialization tag class.
 struct Triplex_ {};
 typedef SimpleType<unsigned char, Triplex_> Triplex;
 
-template <> struct ValueSize< Triplex > { enum { VALUE = 9 }; };
-template <> struct BitsPerValue< Triplex > { enum { VALUE = 4 }; };
+template <> struct ValueSize< Triplex > { 
+	typedef __uint8 Type;
+	static const Type VALUE = 9;
+};
+template <> struct BitsPerValue< Triplex > { 
+	typedef __uint8 Type;
+    static const Type VALUE = 4;
+};
 
 //____________________________________________________________________________
 
@@ -502,8 +508,14 @@ specialization tag class.
 struct DnaRY_ {};
 typedef SimpleType<unsigned char, DnaRY_> DnaRY;
 
-template <> struct ValueSize< DnaRY > { enum { VALUE = 3 }; };
-template <> struct BitsPerValue< DnaRY > { enum { VALUE = 2 }; };
+template <> struct ValueSize< DnaRY > { 
+	typedef __uint8 Type;
+	static const Type VALUE = 3;
+};
+template <> struct BitsPerValue< DnaRY > { 
+	typedef __uint8 Type;
+    static const Type VALUE = 2;
+};
 
 //____________________________________________________________________________
 
@@ -527,8 +539,14 @@ specialization tag class.
 struct DnaKM_ {};
 typedef SimpleType<unsigned char, DnaKM_> DnaKM;
 
-template <> struct ValueSize< DnaKM > { enum { VALUE = 3 }; };
-template <> struct BitsPerValue< DnaKM > { enum { VALUE = 2 }; };
+template <> struct ValueSize< DnaKM > { 
+	typedef __uint8 Type;
+	static const Type VALUE = 3;
+};
+template <> struct BitsPerValue< DnaKM > { 
+	typedef __uint8 Type;
+    static const Type VALUE = 2;
+};
 
 //////////////////////////////////////////////////////////////////////////////
 //ASCII

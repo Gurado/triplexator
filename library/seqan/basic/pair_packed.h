@@ -1,7 +1,7 @@
 // ==========================================================================
 //                 SeqAn - The Library for Sequence Analysis
 // ==========================================================================
-// Copyright (c) 2006-2010, Knut Reinert, FU Berlin
+// Copyright (c) 2006-2012, Knut Reinert, FU Berlin
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -36,8 +36,8 @@
 
 // Should this be called Packed and the tag be Packed?
 
-#ifndef SEQAN_BASIC_PAIR_PACKED_H_
-#define SEQAN_BASIC_PAIR_PACKED_H_
+#ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_PAIR_PACKED_H_
+#define SEQAN_CORE_INCLUDE_SEQAN_BASIC_PAIR_PACKED_H_
 
 namespace seqan {
 
@@ -181,4 +181,4 @@ inline void moveValueI2(Pair<T1, T2, Compressed> & pair, T & _i)
 
 }  // namespace seqan
 
-#endif  // #ifndef SEQAN_BASIC_PAIR_PACKED_H_
+#endif  // #ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_PAIR_PACKED_H_

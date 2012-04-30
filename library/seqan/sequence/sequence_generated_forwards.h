@@ -364,37 +364,37 @@ namespace SEQAN_NAMESPACE_MAIN {
 //____________________________________________________________________________
 // CharString
 
-typedef String<char, Alloc<void> > CharString;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_shortcuts.h"(53)
+typedef String<char, Alloc<void> > CharString;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_shortcuts.h"(56)
 
 //____________________________________________________________________________
 // Dna5String
 
-typedef String<Dna5, Alloc<void> > Dna5String;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_shortcuts.h"(135)
+typedef String<Dna5, Alloc<void> > Dna5String;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_shortcuts.h"(138)
 
 //____________________________________________________________________________
 // DnaString
 
-typedef String<Dna, Alloc<void> > DnaString;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_shortcuts.h"(106)
+typedef String<Dna, Alloc<void> > DnaString;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_shortcuts.h"(109)
 
 //____________________________________________________________________________
 // IupacString
 
-typedef String<Iupac, Alloc<void> > IupacString;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_shortcuts.h"(222)
+typedef String<Iupac, Alloc<void> > IupacString;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_shortcuts.h"(225)
 
 //____________________________________________________________________________
 // Peptide
 
-typedef String<AminoAcid, Alloc<void> > Peptide;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_shortcuts.h"(250)
+typedef String<AminoAcid, Alloc<void> > Peptide;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_shortcuts.h"(253)
 
 //____________________________________________________________________________
 // Rna5String
 
-typedef String<Rna5, Alloc<void> > Rna5String;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_shortcuts.h"(193)
+typedef String<Rna5, Alloc<void> > Rna5String;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_shortcuts.h"(196)
 
 //____________________________________________________________________________
 // RnaString
 
-typedef String<Rna, Alloc<void> > RnaString;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_shortcuts.h"(164)
+typedef String<Rna, Alloc<void> > RnaString;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_shortcuts.h"(167)
 
 //____________________________________________________________________________
 // TagPrefixGreater
@@ -409,7 +409,7 @@ typedef Tag<TagPrefixLess_> const TagPrefixLess;       	// "/Users/f.buske/Docum
 //____________________________________________________________________________
 // UnicodeString
 
-typedef String<wchar_t, Alloc<void> > UnicodeString;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_shortcuts.h"(79)
+typedef String<wchar_t, Alloc<void> > UnicodeString;       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_shortcuts.h"(82)
 
 } //namespace SEQAN_NAMESPACE_MAIN
 //////////////////////////////////////////////////////////////////////////////
@@ -449,12 +449,6 @@ typedef Tag<TagInsist_> const Tight;       	// "/Users/f.buske/Documents/biosim/
 //////////////////////////////////////////////////////////////////////////////
 
 namespace SEQAN_NAMESPACE_MAIN {
-
-//____________________________________________________________________________
-// _internalOrdValue
-
-template <typename TValue> inline unsigned _internalOrdValue(TValue const & c);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_lexical.h"(821)
-template <typename TValue, typename TSpec> inline unsigned _internalOrdValue(SimpleType<TValue, TSpec> const & c);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_lexical.h"(827)
 
 //____________________________________________________________________________
 // _setLength
@@ -845,12 +839,6 @@ template <typename TStream, typename THost, typename TSpec> inline TStream & ope
 template <typename TStream, typename THost, typename TSpec> inline TStream & operator>> (TStream & source, Segment<THost, TSpec> const & target);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/segment_base.h"(1363)
 
 //____________________________________________________________________________
-// ordValue
-
-template <typename TValue> inline unsigned ordValue(TValue const & c);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_lexical.h"(809)
-template <typename TValue, typename TSpec> inline unsigned ordValue(SimpleType<TValue, TSpec> const & c);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_lexical.h"(815)
-
-//____________________________________________________________________________
 // prefix
 
 template <typename T, typename TPosEnd> inline typename Prefix<T>::Type prefix(T & t, TPosEnd pos_end);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/segment_prefix.h"(554)
@@ -984,7 +972,7 @@ namespace seqan {
 //____________________________________________________________________________
 // _allocateStorage
 
-template <typename TValue, typename TSpec> inline typename Value<String<TValue, Alloc<TSpec> > >::Type * _allocateStorage(String<TValue, Alloc<TSpec> > & me, size_t new_capacity);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(383)
+template <typename TValue, typename TSpec> inline typename Value<String<TValue, Alloc<TSpec> > >::Type * _allocateStorage(String<TValue, Alloc<TSpec> > & me, size_t new_capacity);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(388)
 
 //____________________________________________________________________________
 // _assignCopyPackedString
@@ -1014,16 +1002,16 @@ template <typename TContainer, typename THostspec> inline unsigned char _bitpos(
 //____________________________________________________________________________
 // _capacityReturned
 
-template <typename T, typename TSize, typename TExpand> inline typename Size<T>::Type _capacityReturned(T & me, TSize, Tag<TExpand> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1440)
-template <typename T, typename TSize> inline typename Size<T>::Type _capacityReturned(T &, TSize new_capacity, Insist const & );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1449)
+template <typename T, typename TSize, typename TExpand> inline typename Size<T>::Type _capacityReturned(T & me, TSize, Tag<TExpand> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1446)
+template <typename T, typename TSize> inline typename Size<T>::Type _capacityReturned(T &, TSize new_capacity, Insist const & );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1455)
 
 //____________________________________________________________________________
 // _clearSpace
 
-template <typename TValue, typename TExpand> inline size_t _clearSpace(TValue * me, size_t size, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(397)
-template <typename TValue, typename TExpand> inline size_t _clearSpace(TValue * me, size_t size, size_t limit, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(408)
-template <typename TValue, typename TPosition, typename TExpand> inline size_t _clearSpace(TValue * me, size_t size, TPosition pos_begin, TPosition pos_end, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(420)
-template <typename TValue, typename TPosition, typename TExpand> inline size_t _clearSpace(TValue * me, size_t size, TPosition pos_begin, TPosition pos_end, size_t limit, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(433)
+template <typename TValue, typename TExpand> inline size_t _clearSpace(TValue * me, size_t size, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(439)
+template <typename TValue, typename TExpand> inline size_t _clearSpace(TValue * me, size_t size, size_t limit, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(450)
+template <typename TValue, typename TPosition, typename TExpand> inline size_t _clearSpace(TValue * me, size_t size, TPosition pos_begin, TPosition pos_end, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(462)
+template <typename TValue, typename TPosition, typename TExpand> inline size_t _clearSpace(TValue * me, size_t size, TPosition pos_begin, TPosition pos_end, size_t limit, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(475)
 template <typename TValue, typename TSpec, typename TSize, typename TExpand> inline typename Size< String<TValue, TSpec> >::Type _clearSpace(String<TValue, TSpec> & me, TSize size, Tag<TExpand> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(715)
 template <typename TValue, typename TSpec, typename TSize, typename TExpand> inline typename Size< String<TValue, TSpec> >::Type _clearSpace(String<TValue, TSpec> & me, TSize size, TSize limit, Tag<TExpand> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(726)
 template <typename TValue, typename TSpec, typename TSize, typename TPosition, typename TExpand> inline typename Size< String<TValue, TSpec> >::Type _clearSpace(String<TValue, TSpec> & me, TSize size, TPosition pos_begin, TPosition pos_end, Tag<TExpand> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(738)
@@ -1036,7 +1024,7 @@ template <typename TValue, typename THostspec, typename TPosition, typename TExp
 //____________________________________________________________________________
 // _computeSizeForCapacity
 
-template <typename T, typename TSize> inline TSize _computeSizeForCapacity(T const & , TSize capacity);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(978)
+template <typename T, typename TSize> inline TSize _computeSizeForCapacity(T const & , TSize capacity);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(984)
 
 //____________________________________________________________________________
 // _countNonZeroValues
@@ -1046,16 +1034,16 @@ template <typename TValue, typename TSpec, typename TPos > inline typename Size<
 //____________________________________________________________________________
 // _deallocateStorage
 
-template <typename TValue, typename TSpec, typename TPtr> inline void _deallocateStorage(String<TValue, Alloc<TSpec> > & me, TPtr * ptr, size_t capacity);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(414)
+template <typename TValue, typename TSpec, typename TPtr> inline void _deallocateStorage(String<TValue, Alloc<TSpec> > & me, TPtr * ptr, size_t capacity);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(419)
 template <typename TValue> inline void _deallocateStorage( String <TValue, CStyle > & me, TValue * ptr, size_t capacity);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_cstyle.h"(402)
 
 //____________________________________________________________________________
 // _endDefault
 
-template <typename T> inline typename Iterator<T, Standard>::Type _endDefault(T & me, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(478)
-template <typename T> inline typename Iterator<T const, Standard>::Type _endDefault(T const & me, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(486)
-template <typename T> inline typename Iterator<T, Rooted>::Type _endDefault(T & me, Rooted);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(496)
-template <typename T> inline typename Iterator<T const, Rooted>::Type _endDefault(T const & me, Rooted);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(505)
+template <typename T> inline typename Iterator<T, Standard>::Type _endDefault(T & me, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(484)
+template <typename T> inline typename Iterator<T const, Standard>::Type _endDefault(T const & me, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(492)
+template <typename T> inline typename Iterator<T, Rooted>::Type _endDefault(T & me, Rooted);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(502)
+template <typename T> inline typename Iterator<T const, Rooted>::Type _endDefault(T const & me, Rooted);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(511)
 
 //____________________________________________________________________________
 // _findIthNonZeroValue
@@ -1098,13 +1086,13 @@ template <typename TValue, typename TSpec, typename TSize_, typename TExpand> in
 //____________________________________________________________________________
 // _setBegin
 
-template <typename TValue, typename TSpec, typename TPtr> inline void _setBegin(String<TValue, Alloc<TSpec> > & me, TPtr * new_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(316)
+template <typename TValue, typename TSpec, typename TPtr> inline void _setBegin(String<TValue, Alloc<TSpec> > & me, TPtr * new_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(321)
 template <typename TValue, typename TValue2> inline void _setBegin(String <TValue, CStyle > & me, TValue2 new_begin);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_cstyle.h"(306)
 
 //____________________________________________________________________________
 // _setCapacity
 
-template <typename TValue, typename TSpec> inline void _setCapacity(String<TValue, Alloc<TSpec> > & me, size_t new_capacity);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(356)
+template <typename TValue, typename TSpec> inline void _setCapacity(String<TValue, Alloc<TSpec> > & me, size_t new_capacity);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(361)
 
 //____________________________________________________________________________
 // _setEnd
@@ -1114,8 +1102,8 @@ template <typename TValue, typename TValue2> inline void _setEnd(String <TValue,
 //____________________________________________________________________________
 // _setLength
 
-template <typename TValue> inline void _setLength(TValue * me, size_t new_length);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(365)
-template <typename TValue, typename TSpec> inline void _setLength(String<TValue, Alloc<TSpec> > & me, size_t new_length);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(339)
+template <typename TValue> inline void _setLength(TValue * me, size_t new_length);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(407)
+template <typename TValue, typename TSpec> inline void _setLength(String<TValue, Alloc<TSpec> > & me, size_t new_length);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(344)
 template <typename TValue, unsigned int LENGTH> inline void _setLength(String<TValue, Array<LENGTH> > & me, size_t new_length);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_array.h"(297)
 template <typename TValue, typename THostspec, typename TSize> inline void _setLength( String<TValue, Packed<THostspec> > & me, TSize new_length);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(463)
 
@@ -1139,10 +1127,10 @@ template <typename TString, typename TSpec > inline bool _validStringSetLimits(S
 //____________________________________________________________________________
 // append
 
-template <typename TTargetValue, typename TSource, typename TExpand> inline void append(TTargetValue * target, TSource const & source, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(541)
-template <typename TTargetValue, typename TSource, typename TExpand> inline void append(TTargetValue * target, TSource const & source, size_t limit, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(552)
-template <typename TTargetValue, typename TSourceValue, typename TExpand> inline void append(TTargetValue * target, TSourceValue const * source, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(565)
-template <typename TTargetValue, typename TSourceValue, typename TExpand> inline void append(TTargetValue * target, TSourceValue const * source, size_t limit, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(576)
+template <typename TTargetValue, typename TSource, typename TExpand> inline void append(TTargetValue * target, TSource const & source, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(583)
+template <typename TTargetValue, typename TSource, typename TExpand> inline void append(TTargetValue * target, TSource const & source, size_t limit, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(594)
+template <typename TTargetValue, typename TSourceValue, typename TExpand> inline void append(TTargetValue * target, TSourceValue const * source, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(607)
+template <typename TTargetValue, typename TSourceValue, typename TExpand> inline void append(TTargetValue * target, TSourceValue const * source, size_t limit, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(618)
 template <typename TChar, typename TCharTraits, typename TAlloc, typename TSource> inline void append(::std::basic_string<TChar, TCharTraits, TAlloc> & target, TSource const & source, Generous);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_string.h"(449)
 template <typename TChar, typename TCharTraits, typename TAlloc, typename TSource> inline void append(::std::basic_string<TChar, TCharTraits, TAlloc> & target, TSource const & source, typename Size< ::std::basic_string<TChar, TCharTraits, TAlloc> >::Type limit, Generous);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_string.h"(460)
 template <typename TChar, typename TCharTraits, typename TAlloc, typename TSource> inline void append(::std::basic_string<TChar, TCharTraits, TAlloc> & target, TSource const & source, Limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_string.h"(487)
@@ -1151,14 +1139,14 @@ template <typename TChar, typename TAlloc, typename TSource> inline void append(
 template <typename TChar, typename TAlloc, typename TSource> inline void append(::std::vector<TChar, TAlloc> & target, TSource const & source, typename Size< ::std::vector<TChar, TAlloc> >::Type limit, Generous);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_vector.h"(443)
 template <typename TChar, typename TAlloc, typename TSource> inline void append(::std::vector<TChar, TAlloc> & target, TSource const & source, Limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_vector.h"(471)
 template <typename TChar, typename TAlloc, typename TSource> inline void append(::std::vector<TChar, TAlloc> & target, TSource const & source, typename Size< ::std::vector<TChar, TAlloc> >::Type limit, Limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_vector.h"(482)
-template <typename TTarget, typename TSource> inline void append(TTarget & target, TSource & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1110)
-template <typename TTarget, typename TSource> inline void append(TTarget const & target, TSource & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1119)
-template <typename TTarget, typename TSource> inline void append(TTarget & target, TSource const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1128)
-template <typename TTarget, typename TSource> inline void append(TTarget const & target, TSource const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1137)
-template <typename TTarget, typename TSource> inline void append(TTarget & target, TSource & source, typename Size<TTarget>::Type limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1147)
-template <typename TTarget, typename TSource> inline void append(TTarget const & target, TSource & source, typename Size<TTarget>::Type limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1157)
-template <typename TTarget, typename TSource> inline void append(TTarget & target, TSource const & source, typename Size<TTarget>::Type limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1167)
-template <typename TTarget, typename TSource> inline void append(TTarget const & target, TSource const & source, typename Size<TTarget>::Type limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1177)
+template <typename TTarget, typename TSource> inline void append(TTarget & target, TSource & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1116)
+template <typename TTarget, typename TSource> inline void append(TTarget const & target, TSource & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1125)
+template <typename TTarget, typename TSource> inline void append(TTarget & target, TSource const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1134)
+template <typename TTarget, typename TSource> inline void append(TTarget const & target, TSource const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1143)
+template <typename TTarget, typename TSource> inline void append(TTarget & target, TSource & source, typename Size<TTarget>::Type limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1153)
+template <typename TTarget, typename TSource> inline void append(TTarget const & target, TSource & source, typename Size<TTarget>::Type limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1163)
+template <typename TTarget, typename TSource> inline void append(TTarget & target, TSource const & source, typename Size<TTarget>::Type limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1173)
+template <typename TTarget, typename TSource> inline void append(TTarget const & target, TSource const & source, typename Size<TTarget>::Type limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1183)
 template <typename TTargetValue, typename TTargetSpec, typename TSource, typename TExpand> inline void append(String<TTargetValue, TTargetSpec> & target, TSource const & source, Tag<TExpand> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(1128)
 template <typename TTargetValue, typename TTargetSpec, typename TSource, typename TExpand> inline void append(String<TTargetValue, TTargetSpec> & target, TSource const & source, typename Size< String<TTargetValue, TTargetSpec> >::Type limit, Tag<TExpand> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(1140)
 template <typename TTargetValue, typename TTargetSpec, typename TSourceValue, typename TExpand> inline void append(String<TTargetValue, TTargetSpec> & target, TSourceValue * source, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(1154)
@@ -1172,8 +1160,8 @@ template <typename TChar, typename TCharTraits, typename TAlloc, typename TValue
 template <typename TChar, typename TCharTraits, typename TAlloc, typename TValue> inline void appendValue(::std::basic_string<TChar, TCharTraits, TAlloc> & me, TValue const & _value, Limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_string.h"(526)
 template <typename TChar, typename TAlloc, typename TValue, typename TTag> inline void appendValue(::std::vector<TChar, TAlloc> & me, TValue const & _value, TTag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_vector.h"(500)
 template <typename TChar, typename TAlloc, typename TValue> inline void appendValue(::std::vector<TChar, TAlloc> & me, TValue const & _value, Limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_vector.h"(510)
-template <typename T, typename TValue> inline void appendValue(T & me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1204)
-template <typename T, typename TValue> inline void appendValue(T const & me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1213)
+template <typename T, typename TValue> inline void appendValue(T & me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1210)
+template <typename T, typename TValue> inline void appendValue(T const & me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1219)
 template <typename TTargetValue, typename TTargetSpec, typename TValue, typename TExpand> inline void appendValue(String<TTargetValue, TTargetSpec> & me, TValue const & _value, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(1211)
 template <typename TValue, unsigned int SPACE, typename TVal, typename TExpand> inline void appendValue( String<TValue, Block<SPACE> >& me, TVal const& source, Tag<TExpand> const tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_block.h"(428)
 template <typename TString, typename TString2, typename TExpand > inline void appendValue( StringSet<TString, Owner<ConcatDirect<void> > > & me, TString2 const & obj, Tag<TExpand> const & tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_concat_direct.h"(235)
@@ -1185,12 +1173,12 @@ template <typename TString, typename TString2, typename TExpand > inline void ap
 //____________________________________________________________________________
 // assign
 
-template <typename TTargetValue, typename TSource> inline typename EnableIf<IsCharType<TTargetValue>::VALUE>::Type assign(TTargetValue * target, TSource & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(447)
-template <typename TTargetValue, typename TSource> inline typename EnableIf<IsCharType<TTargetValue>::VALUE>::Type assign(TTargetValue * target, TSource const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(456)
-template <typename TTargetValue, typename TSource, typename TExpand> inline void assign(TTargetValue * target, TSource const & source, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(467)
-template <typename TTargetValue, typename TSource, typename TExpand> inline void assign(TTargetValue * target, TSource const & source, size_t limit, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(478)
-template <typename TTargetValue, typename TSourceValue, typename TExpand> inline void assign(TTargetValue * target, TSourceValue const * source, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(491)
-template <typename TTargetValue, typename TSourceValue, typename TExpand> inline void assign(TTargetValue * target, TSourceValue const * source, size_t limit, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(502)
+template <typename TTargetValue, typename TSource> inline typename EnableIf<IsCharType<TTargetValue> >::Type assign(TTargetValue * target, TSource & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(489)
+template <typename TTargetValue, typename TSource> inline typename EnableIf<IsCharType<TTargetValue> >::Type assign(TTargetValue * target, TSource const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(498)
+template <typename TTargetValue, typename TSource, typename TExpand> inline void assign(TTargetValue * target, TSource const & source, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(509)
+template <typename TTargetValue, typename TSource, typename TExpand> inline void assign(TTargetValue * target, TSource const & source, size_t limit, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(520)
+template <typename TTargetValue, typename TSourceValue, typename TExpand> inline void assign(TTargetValue * target, TSourceValue const * source, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(533)
+template <typename TTargetValue, typename TSourceValue, typename TExpand> inline void assign(TTargetValue * target, TSourceValue const * source, size_t limit, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(544)
 template <typename TChar, typename TCharTraits, typename TAlloc, typename TSource> inline void assign(::std::basic_string<TChar, TCharTraits, TAlloc> & target, TSource & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_string.h"(296)
 template <typename TChar, typename TCharTraits, typename TAlloc, typename TSource> inline void assign(::std::basic_string<TChar, TCharTraits, TAlloc> & target, TSource const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_string.h"(304)
 template <typename TChar, typename TCharTraits, typename TAlloc, typename TSource, typename TSize> inline void assign(::std::basic_string<TChar, TCharTraits, TAlloc> & target, TSource & source, TSize limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_string.h"(314)
@@ -1215,10 +1203,10 @@ template <typename TChar, typename TAlloc, typename TSource> inline void assign(
 template <typename TChar, typename TAlloc, typename TSource> inline void assign(::std::vector<TChar, TAlloc> & target, TSource const & source, Limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_vector.h"(385)
 template <typename TChar, typename TAlloc, typename TSource> inline void assign(::std::vector<TChar, TAlloc> & target, TSource & source, typename Size< ::std::vector<TChar, TAlloc> >::Type limit, Limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_vector.h"(396)
 template <typename TChar, typename TAlloc, typename TSource> inline void assign(::std::vector<TChar, TAlloc> & target, TSource const & source, typename Size< ::std::vector<TChar, TAlloc> >::Type limit, Limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_vector.h"(411)
-template <typename TTarget, typename TSource> inline void assign(TTarget & target, TSource & source, typename Size<TTarget>::Type limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1050)
-template <typename TTarget, typename TSource> inline void assign(TTarget const & target, TSource & source, typename Size<TTarget>::Type limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1060)
-template <typename TTarget, typename TSource> inline void assign(TTarget & target, TSource const & source, typename Size<TTarget>::Type limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1070)
-template <typename TTarget, typename TSource> inline void assign(TTarget const & target, TSource const & source, typename Size<TTarget>::Type limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1080)
+template <typename TTarget, typename TSource> inline void assign(TTarget & target, TSource & source, typename Size<TTarget>::Type limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1056)
+template <typename TTarget, typename TSource> inline void assign(TTarget const & target, TSource & source, typename Size<TTarget>::Type limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1066)
+template <typename TTarget, typename TSource> inline void assign(TTarget & target, TSource const & source, typename Size<TTarget>::Type limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1076)
+template <typename TTarget, typename TSource> inline void assign(TTarget const & target, TSource const & source, typename Size<TTarget>::Type limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1086)
 template <typename TTargetValue, typename TTargetSpec, typename TSource> inline void assign(String<TTargetValue, TTargetSpec> & target, TSource & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(820)
 template <typename TTargetValue, typename TTargetSpec, typename TSource> inline void assign(String<TTargetValue, TTargetSpec> & target, TSource const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(830)
 template <typename TTargetValue, typename TTargetSpec, typename TSource, typename TExpand> inline void assign(String<TTargetValue, TTargetSpec> & target, TSource const & source, Tag<TExpand> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(900)
@@ -1242,8 +1230,8 @@ template <typename TValue, typename THostspec, typename TSize, typename TTag> vo
 //____________________________________________________________________________
 // assignValue
 
-template <typename TValue, typename TPos> inline void assignValue(TValue * me, TPos pos, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(285)
-template <typename T, typename TValue, typename TPos> inline void assignValue(T & me, TPos pos, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(837)
+template <typename TValue, typename TPos> inline void assignValue(TValue * me, TPos pos, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(327)
+template <typename T, typename TValue, typename TPos> inline void assignValue(T & me, TPos pos, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(843)
 template <typename TContainer, typename THostspec, typename TValue> inline void assignValue(Iter<TContainer, Packed<THostspec> > const & me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(1078)
 template <typename TContainer, typename THostspec, typename TValue> inline void assignValue(Iter<TContainer, Packed<THostspec> > & me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(1089)
 template <typename TString, typename TSpec, typename TPos, typename TSequence > inline void assignValue( StringSet<TString, Owner<TSpec> > & me, TPos pos, TSequence const & seq);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_owner.h"(144)
@@ -1251,12 +1239,12 @@ template <typename TString, typename TSpec, typename TPos, typename TSequence > 
 //____________________________________________________________________________
 // assignValueById
 
-template <typename TString, typename TSpec, typename TString2> inline typename Id<StringSet<TString, TSpec> >::Type assignValueById(StringSet<TString, TSpec>& me, TString2& obj);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1222)
-template <typename TString, typename TSpec1, typename TSpec2, typename TId> inline typename Id<StringSet<TString, TSpec1> >::Type assignValueById(StringSet<TString, TSpec1>& dest, StringSet<TString, TSpec2>& source, TId id);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1234)
+template <typename TString, typename TSpec, typename TString2> inline typename Id<StringSet<TString, TSpec> >::Type assignValueById(StringSet<TString, TSpec>& me, TString2& obj);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1235)
+template <typename TString, typename TSpec1, typename TSpec2, typename TId> inline typename Id<StringSet<TString, TSpec1> >::Type assignValueById(StringSet<TString, TSpec1>& dest, StringSet<TString, TSpec2>& source, TId id);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1247)
 template <typename TString, typename TId> inline typename Id<StringSet<TString, Dependent<Generous> > >::Type assignValueById(StringSet<TString, Dependent<Generous> >& me, TString& obj, TId id);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_dependent_generous.h"(194)
 template <typename TString, typename TString2> inline typename Id<StringSet<TString, Dependent<Tight> > >::Type assignValueById(StringSet<TString, Dependent<Tight> >& me, TString2& obj);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_dependent_tight.h"(215)
 template <typename TString, typename TId1> inline typename Id<StringSet<TString, Dependent<Tight> > >::Type assignValueById(StringSet<TString, Dependent<Tight> >& me, TString& obj, TId1 id);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_dependent_tight.h"(228)
-template <typename TString, typename TSpec, typename TId> inline typename Id<StringSet<TString, Owner<TSpec> > >::Type assignValueById(StringSet<TString, Owner<TSpec> > & me, TString& obj, TId id);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_owner.h"(240)
+template <typename TString, typename TSpec, typename TId> inline typename Id<StringSet<TString, Owner<TSpec> > >::Type assignValueById(StringSet<TString, Owner<TSpec> > & me, TString& obj, TId id);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_owner.h"(241)
 
 //____________________________________________________________________________
 // assign_std_string_Generous_impl
@@ -1277,8 +1265,8 @@ template <typename TSSet, typename TSpec> inline bool atBegin(Iter<TSSet, Concat
 //____________________________________________________________________________
 // atEnd
 
-template <typename TValue> inline bool atEnd(TValue * pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(307)
-template <typename TValue> inline bool atEnd(TValue const * pos, TValue const * );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(316)
+template <typename TValue> inline bool atEnd(TValue * pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(349)
+template <typename TValue> inline bool atEnd(TValue const * pos, TValue const * );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(358)
 template <typename TSSet, typename TSpec> inline bool atEnd(Iter<TSSet, ConcatVirtual<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(461)
 template <typename TSSet, typename TSpec> inline bool atEnd(Iter<TSSet, ConcatVirtual<TSpec> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(468)
 template <typename TValue, unsigned int SPACE, typename TIteratorSpec> inline bool atEnd( Iter<String<TValue, Block<SPACE> >, TIteratorSpec>& it, String<TValue, Block<SPACE> >& container);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_block.h"(287)
@@ -1293,19 +1281,19 @@ template <typename TIterator> inline bool atEndOfSequence(TIterator & me);      
 //____________________________________________________________________________
 // back
 
-template <typename T> inline typename Reference<T const>::Type back(T const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(736)
-template <typename T> inline typename Reference<T>::Type back(T & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(744)
+template <typename T> inline typename Reference<T const>::Type back(T const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(742)
+template <typename T> inline typename Reference<T>::Type back(T & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(750)
 template <typename TValue, unsigned int SPACE> inline TValue & back(String<TValue, Block<SPACE> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_block.h"(521)
 template <typename TValue, unsigned int SPACE> inline TValue const & back(String<TValue, Block<SPACE> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_block.h"(531)
 
 //____________________________________________________________________________
 // begin
 
-template <typename T> inline typename Iterator<T *, typename DefaultGetIteratorSpec<T>::Type>::Type begin(T * me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(172)
-template <typename TValue> inline typename Iterator<TValue *, Standard>::Type begin(TValue * me, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(183)
-template <typename TValue> inline typename Iterator<TValue const *, Standard>::Type begin(TValue const * me, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(194)
-template <typename TValue, typename TSpec> inline typename Iterator<TValue *, Tag<TSpec> const>::Type begin(TValue * me, Tag<TSpec> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(203)
-template <typename TValue, typename TSpec> inline typename Iterator<TValue const *, Tag<TSpec> const>::Type begin(TValue const * me, Tag<TSpec> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(213)
+template <typename T> inline typename Iterator<T *, typename DefaultGetIteratorSpec<T>::Type>::Type begin(T * me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(214)
+template <typename TValue> inline typename Iterator<TValue *, Standard>::Type begin(TValue * me, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(225)
+template <typename TValue> inline typename Iterator<TValue const *, Standard>::Type begin(TValue const * me, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(236)
+template <typename TValue, typename TSpec> inline typename Iterator<TValue *, Tag<TSpec> const>::Type begin(TValue * me, Tag<TSpec> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(245)
+template <typename TValue, typename TSpec> inline typename Iterator<TValue const *, Tag<TSpec> const>::Type begin(TValue const * me, Tag<TSpec> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(255)
 template <typename TChar, typename TCharTraits, typename TAlloc> inline typename Iterator< ::std::basic_string<TChar, TCharTraits, TAlloc>, Standard>::Type begin(::std::basic_string<TChar, TCharTraits, TAlloc> & me, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_string.h"(201)
 template <typename TChar, typename TCharTraits, typename TAlloc> inline typename Iterator< ::std::basic_string<TChar, TCharTraits, TAlloc> const, Standard>::Type begin(::std::basic_string<TChar, TCharTraits, TAlloc> const & me, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_string.h"(209)
 template <typename TChar, typename TAlloc> inline typename Iterator< ::std::vector<TChar, TAlloc>, Standard>::Type begin(::std::vector<TChar, TAlloc> & me, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_vector.h"(184)
@@ -1316,8 +1304,8 @@ template <typename T> inline typename Iterator<T, typename DefaultGetIteratorSpe
 template <typename T> inline typename Iterator<T const, typename DefaultGetIteratorSpec<T>::Type>::Type begin(T const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(363)
 template <typename T, typename TSpec> inline typename Iterator<T, Tag<TSpec> const>::Type begin(T & me, Tag<TSpec> const tag_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(379)
 template <typename T, typename TSpec> inline typename Iterator<T const, Tag<TSpec> const>::Type begin(T const & me, Tag<TSpec> const tag_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(387)
-template <typename TValue, typename TSpec> inline typename Iterator<String<TValue, Alloc<TSpec> >, Standard>::Type begin(String<TValue, Alloc<TSpec> > & me, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(250)
-template <typename TValue, typename TSpec> inline typename Iterator<String<TValue, Alloc<TSpec> > const, Standard>::Type begin(String<TValue, Alloc<TSpec> > const & me, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(258)
+template <typename TValue, typename TSpec> inline typename Iterator<String<TValue, Alloc<TSpec> >, Standard>::Type begin(String<TValue, Alloc<TSpec> > & me, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(255)
+template <typename TValue, typename TSpec> inline typename Iterator<String<TValue, Alloc<TSpec> > const, Standard>::Type begin(String<TValue, Alloc<TSpec> > const & me, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(263)
 template <typename TValue, unsigned int LENGTH> inline typename Iterator<String<TValue, Array<LENGTH> >, Standard>::Type begin(String<TValue, Array<LENGTH> > & me, Standard const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_array.h"(217)
 template <typename TValue, unsigned int LENGTH> inline typename Iterator<String<TValue, Array<LENGTH> > const, Standard>::Type begin(String<TValue, Array<LENGTH> > const & me, Standard const & );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_array.h"(225)
 template <typename TValue, unsigned int SPACE, typename TSpec> inline typename Iterator<String<TValue, Block<SPACE> >, Tag<TSpec> const >::Type begin(String<TValue, Block<SPACE> > & me, Tag<TSpec> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_block.h"(203)
@@ -1326,23 +1314,23 @@ template <typename TValue> inline typename Iterator<String<TValue, CStyle >, Sta
 template <typename TValue> inline typename Iterator<String<TValue, CStyle > const, Standard>::Type begin(String <TValue, CStyle > const & me, Standard const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_cstyle.h"(294)
 template <typename TValue, typename THostspec, typename TTag> inline typename Iterator<String<TValue, Packed<THostspec> >, Tag<TTag> const>::Type begin(String<TValue, Packed<THostspec> > & me, Tag<TTag> const & tag_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(601)
 template <typename TValue, typename THostspec, typename TTag> inline typename Iterator<String<TValue, Packed<THostspec> > const, Tag<TTag> const>::Type begin(String<TValue, Packed<THostspec> > const & me, Tag<TTag> const & tag_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(610)
-template <typename TString, typename TSpec, typename TTag> inline typename Iterator<StringSet<TString, TSpec >, Tag<TTag> const>::Type begin(StringSet<TString, TSpec > & me, Tag<TTag> const & tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1105)
-template <typename TString, typename TSpec, typename TTag> inline typename Iterator<StringSet<TString, TSpec > const, Tag<TTag> const>::Type begin(StringSet<TString, TSpec > const & me, Tag<TTag> const & tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1113)
+template <typename TString, typename TSpec, typename TTag> inline typename Iterator<StringSet<TString, TSpec >, Tag<TTag> const>::Type begin(StringSet<TString, TSpec > & me, Tag<TTag> const & tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1118)
+template <typename TString, typename TSpec, typename TTag> inline typename Iterator<StringSet<TString, TSpec > const, Tag<TTag> const>::Type begin(StringSet<TString, TSpec > const & me, Tag<TTag> const & tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1126)
 
 //____________________________________________________________________________
 // beginPosition
 
-template <typename T> inline typename Position<T>::Type beginPosition(T &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(456)
-template <typename T> inline typename Position<T>::Type beginPosition(T const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(464)
+template <typename T> inline typename Position<T>::Type beginPosition(T &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(462)
+template <typename T> inline typename Position<T>::Type beginPosition(T const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(470)
 
 //____________________________________________________________________________
 // capacity
 
 template <typename TChar, typename TCharTraits, typename TAlloc> inline typename Size< ::std::basic_string<TChar, TCharTraits, TAlloc> >::Type capacity(::std::basic_string<TChar, TCharTraits, TAlloc> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_string.h"(263)
 template <typename TChar, typename TAlloc> inline typename Size< ::std::vector<TChar, TAlloc> >::Type capacity(::std::vector<TChar, TAlloc> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_vector.h"(246)
-template <typename T> inline typename Size<T const>::Type capacity(T const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(933)
-template <typename TValue, typename TSpec> inline size_t capacity(String<TValue, Alloc<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(291)
-template <typename TValue, typename TSpec> inline size_t capacity(String<TValue, Alloc<TSpec> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(299)
+template <typename T> inline typename Size<T const>::Type capacity(T const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(939)
+template <typename TValue, typename TSpec> inline size_t capacity(String<TValue, Alloc<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(296)
+template <typename TValue, typename TSpec> inline size_t capacity(String<TValue, Alloc<TSpec> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(304)
 template <typename TValue, unsigned int LENGTH> inline size_t capacity(String<TValue, Array<LENGTH> > &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_array.h"(258)
 template <typename TValue, unsigned int LENGTH> inline size_t capacity(String<TValue, Array<LENGTH> > const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_array.h"(266)
 template <typename TValue, unsigned int SPACE> inline typename Size<String<TValue, Block<SPACE> > >::Type capacity(String<TValue, Block<SPACE> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_block.h"(662)
@@ -1352,7 +1340,7 @@ template <typename TValue, typename THostspec> inline typename Size<String<TValu
 //____________________________________________________________________________
 // clear
 
-template <typename TValue> inline void clear(TValue * me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(375)
+template <typename TValue> inline void clear(TValue * me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(417)
 template <typename TChar, typename TCharTraits, typename TAlloc> inline void clear(::std::basic_string<TChar, TCharTraits, TAlloc> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_string.h"(281)
 template <typename TChar, typename TAlloc> inline void clear(::std::vector<TChar, TAlloc> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_vector.h"(264)
 template <typename TValue, typename TSpec> inline void clear(String<TValue, TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(293)
@@ -1362,20 +1350,20 @@ template <typename TValue, typename THostspec> inline void clear(String<TValue, 
 template <typename TString, typename TDelimiter > inline void clear(StringSet<TString, Owner<ConcatDirect<TDelimiter> > > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_concat_direct.h"(310)
 template <typename TString > inline void clear(StringSet<TString, Dependent<Generous> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_dependent_generous.h"(134)
 template <typename TString > inline void clear(StringSet<TString, Dependent<Tight> >& me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_dependent_tight.h"(164)
-template <typename TString > inline void clear(StringSet<TString, Owner<Default> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_owner.h"(167)
+template <typename TString > inline void clear(StringSet<TString, Owner<Default> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_owner.h"(168)
 
 //____________________________________________________________________________
 // computeGenerousCapacity
 
-template <typename T, typename TSize> inline TSize computeGenerousCapacity(T const & , TSize capacity);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1008)
+template <typename T, typename TSize> inline TSize computeGenerousCapacity(T const & , TSize capacity);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1014)
 
 //____________________________________________________________________________
 // concat
 
-template <typename TString> inline typename Concatenator<TString>::Type & concat(TString & string);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1301)
-template <typename TString> inline typename Concatenator<TString const>::Type & concat(TString const & string);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1309)
-template <typename TString, typename TSpec> inline typename Concatenator<StringSet<TString, TSpec> >::Type & concat(StringSet<TString, TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1316)
-template <typename TString, typename TSpec> inline typename Concatenator<StringSet<TString, TSpec> const>::Type & concat(StringSet<TString, TSpec> const & constMe);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1324)
+template <typename TString> inline typename Concatenator<TString>::Type & concat(TString & string);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1314)
+template <typename TString> inline typename Concatenator<TString const>::Type & concat(TString const & string);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1322)
+template <typename TString, typename TSpec> inline typename Concatenator<StringSet<TString, TSpec> >::Type & concat(StringSet<TString, TSpec> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1329)
+template <typename TString, typename TSpec> inline typename Concatenator<StringSet<TString, TSpec> const>::Type & concat(StringSet<TString, TSpec> const & constMe);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1337)
 template <typename TString, typename TSpec> inline typename Concatenator<StringSet<TString, Owner<ConcatDirect<TSpec> > > >::Type & concat(StringSet<TString, Owner<ConcatDirect<TSpec> > > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_concat_direct.h"(456)
 template <typename TString, typename TSpec> inline typename Concatenator<StringSet<TString, Owner<ConcatDirect<TSpec> > > const>::Type & concat(StringSet<TString, Owner<ConcatDirect<TSpec> > > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_concat_direct.h"(463)
 
@@ -1413,32 +1401,32 @@ template <typename TValue> inline bool dependent(String <TValue, CStyle > & me);
 //____________________________________________________________________________
 // empty
 
-template <typename TValue> inline bool empty(TValue * me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(387)
+template <typename TValue> inline bool empty(TValue * me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(429)
 template <typename TChar, typename TCharTraits, typename TAlloc> inline bool empty(::std::basic_string<TChar, TCharTraits, TAlloc> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_string.h"(272)
 template <typename TChar, typename TAlloc> inline bool empty(::std::vector<TChar, TAlloc> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_vector.h"(255)
-template <typename T> inline bool empty(T const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(957)
+template <typename T> inline bool empty(T const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(963)
 template <typename TValue, typename TSpec> inline bool empty(String<TValue, TSpec> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(265)
 template <typename TValue, unsigned int SPACE> inline bool empty(String<TValue, Block<SPACE> > const& me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_block.h"(635)
 
 //____________________________________________________________________________
 // end
 
-template <typename TValue> inline typename Iterator<TValue *, Standard>::Type end(TValue * me, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(225)
-template <typename TValue> inline typename Iterator<TValue const *, Standard>::Type end(TValue const * me, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(235)
-template <typename TValue, typename TSpec> inline typename Iterator<TValue *, Tag<TSpec> const>::Type end(TValue * me, Tag<TSpec> const tag_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(244)
-template <typename TValue, typename TSpec> inline typename Iterator<TValue const *, Tag<TSpec> const>::Type end(TValue const * me, Tag<TSpec> const tag_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(253)
+template <typename TValue> inline typename Iterator<TValue *, Standard>::Type end(TValue * me, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(267)
+template <typename TValue> inline typename Iterator<TValue const *, Standard>::Type end(TValue const * me, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(277)
+template <typename TValue, typename TSpec> inline typename Iterator<TValue *, Tag<TSpec> const>::Type end(TValue * me, Tag<TSpec> const tag_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(286)
+template <typename TValue, typename TSpec> inline typename Iterator<TValue const *, Tag<TSpec> const>::Type end(TValue const * me, Tag<TSpec> const tag_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(295)
 template <typename TChar, typename TCharTraits, typename TAlloc> inline typename Iterator< ::std::basic_string<TChar, TCharTraits, TAlloc>, Standard>::Type end(::std::basic_string<TChar, TCharTraits, TAlloc> & me, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_string.h"(219)
 template <typename TChar, typename TCharTraits, typename TAlloc> inline typename Iterator< ::std::basic_string<TChar, TCharTraits, TAlloc> const, Standard>::Type end(::std::basic_string<TChar, TCharTraits, TAlloc> const & me, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_string.h"(227)
 template <typename TChar, typename TAlloc> inline typename Iterator< ::std::vector<TChar, TAlloc>, Standard>::Type end(::std::vector<TChar, TAlloc> & me, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_vector.h"(202)
 template <typename TChar, typename TAlloc> inline typename Iterator< ::std::vector<TChar, TAlloc> const, Standard>::Type end(::std::vector<TChar, TAlloc> const & me, Standard);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_vector.h"(210)
 template <typename TStringSet, typename TSpec > inline typename Iterator<ConcatenatorManyToOne<TStringSet const>, Tag<TSpec> const>::Type end(ConcatenatorManyToOne<TStringSet const> concat, Tag<TSpec> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_concatenator.h"(243)
 template <typename TStringSet, typename TSpec > inline typename Iterator<ConcatenatorManyToOne<TStringSet>, Tag<TSpec> const>::Type end(ConcatenatorManyToOne<TStringSet> concat, Tag<TSpec> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_concatenator.h"(251)
-template <typename T> inline typename Iterator<T, typename DefaultGetIteratorSpec<T>::Type>::Type end(T & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(536)
-template <typename T> inline typename Iterator<T const, typename DefaultGetIteratorSpec<T>::Type>::Type end(T const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(544)
-template <typename T, typename TSpec> inline typename Iterator<T, Tag<TSpec> const>::Type end(T & me, Tag<TSpec> const tag_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(553)
-template <typename T, typename TSpec> inline typename Iterator<T const, Tag<TSpec> const>::Type end(T const & me, Tag<TSpec> const tag_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(562)
-template <typename TValue, typename TSpec> inline typename Iterator<String<TValue, Alloc<TSpec> >, Standard>::Type end(String<TValue, Alloc<TSpec> > & me, Standard const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(271)
-template <typename TValue, typename TSpec> inline typename Iterator<String<TValue, Alloc<TSpec> > const, Standard>::Type end(String<TValue, Alloc<TSpec> > const & me, Standard const & );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(279)
+template <typename T> inline typename Iterator<T, typename DefaultGetIteratorSpec<T>::Type>::Type end(T & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(542)
+template <typename T> inline typename Iterator<T const, typename DefaultGetIteratorSpec<T>::Type>::Type end(T const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(550)
+template <typename T, typename TSpec> inline typename Iterator<T, Tag<TSpec> const>::Type end(T & me, Tag<TSpec> const tag_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(559)
+template <typename T, typename TSpec> inline typename Iterator<T const, Tag<TSpec> const>::Type end(T const & me, Tag<TSpec> const tag_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(568)
+template <typename TValue, typename TSpec> inline typename Iterator<String<TValue, Alloc<TSpec> >, Standard>::Type end(String<TValue, Alloc<TSpec> > & me, Standard const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(276)
+template <typename TValue, typename TSpec> inline typename Iterator<String<TValue, Alloc<TSpec> > const, Standard>::Type end(String<TValue, Alloc<TSpec> > const & me, Standard const & );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(284)
 template <typename TValue, unsigned int LENGTH> inline typename Iterator<String<TValue, Array<LENGTH> >, Standard>::Type end(String<TValue, Array<LENGTH> > & me, Standard const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_array.h"(238)
 template <typename TValue, unsigned int LENGTH> inline typename Iterator<String<TValue, Array<LENGTH> > const, Standard>::Type end(String<TValue, Array<LENGTH> > const & me, Standard const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_array.h"(246)
 template <typename TValue, unsigned int SPACE, typename TSpec> inline typename Iterator<String<TValue, Block<SPACE> >, Tag<TSpec> const >::Type end(String<TValue, Block<SPACE> > & me, Tag<TSpec> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_block.h"(223)
@@ -1447,30 +1435,30 @@ template <typename TValue> inline typename Iterator<String <TValue, CStyle >, St
 template <typename TValue> inline typename Iterator<String <TValue, CStyle > const, Standard>::Type end(String <TValue, CStyle > const & me, Standard const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_cstyle.h"(328)
 template <typename TValue, typename THostspec, typename TTag> inline typename Iterator<String<TValue, Packed<THostspec> >, Tag<TTag> const>::Type end(String<TValue, Packed<THostspec> > & me, Tag<TTag> const & tag_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(623)
 template <typename TValue, typename THostspec, typename TTag> inline typename Iterator<String<TValue, Packed<THostspec> > const, Tag<TTag> const>::Type end(String<TValue, Packed<THostspec> > const & me, Tag<TTag> const & tag_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(632)
-template <typename TString, typename TSpec, typename TTag> inline typename Iterator<StringSet<TString, TSpec >, Tag<TTag> const>::Type end(StringSet<TString, TSpec > & me, Tag<TTag> const & tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1126)
-template <typename TString, typename TSpec, typename TTag> inline typename Iterator<StringSet<TString, TSpec > const, Tag<TTag> const>::Type end(StringSet<TString, TSpec > const & me, Tag<TTag> const & tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1134)
+template <typename TString, typename TSpec, typename TTag> inline typename Iterator<StringSet<TString, TSpec >, Tag<TTag> const>::Type end(StringSet<TString, TSpec > & me, Tag<TTag> const & tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1139)
+template <typename TString, typename TSpec, typename TTag> inline typename Iterator<StringSet<TString, TSpec > const, Tag<TTag> const>::Type end(StringSet<TString, TSpec > const & me, Tag<TTag> const & tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1147)
 
 //____________________________________________________________________________
 // endPosition
 
-template <typename T> inline typename Position<T>::Type endPosition(T & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(588)
-template <typename T> inline typename Position<T>::Type endPosition(T const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(596)
+template <typename T> inline typename Position<T>::Type endPosition(T & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(594)
+template <typename T> inline typename Position<T>::Type endPosition(T const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(602)
 
 //____________________________________________________________________________
 // erase
 
-template <typename T, typename TBeginPosition, typename TEndPosition> inline void erase(T & me, TBeginPosition pos, TEndPosition pos_end);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1615)
-template <typename T, typename TPosition> inline void erase(T & me, TPosition pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1624)
-template <typename T, typename TBeginPosition, typename TEndPosition> inline void erase(T const & me, TBeginPosition pos, TEndPosition pos_end);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1636)
-template <typename T, typename TPosition> inline void erase(T const & me, TPosition pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1645)
+template <typename T, typename TBeginPosition, typename TEndPosition> inline void erase(T & me, TBeginPosition pos, TEndPosition pos_end);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1621)
+template <typename T, typename TPosition> inline void erase(T & me, TPosition pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1630)
+template <typename T, typename TBeginPosition, typename TEndPosition> inline void erase(T const & me, TBeginPosition pos, TEndPosition pos_end);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1642)
+template <typename T, typename TPosition> inline void erase(T const & me, TPosition pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1651)
 template <typename TString, typename TDelimiter, typename TPos > inline void erase( StringSet<TString, Owner<ConcatDirect<TDelimiter> > > & me, TPos pos, TPos pos_end);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_concat_direct.h"(285)
-template <typename TString, typename TPos> inline typename Size<StringSet<TString, Owner<Default> > >::Type erase(StringSet<TString, Owner<Default> > & me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_owner.h"(201)
-template <typename TString, typename TPos, typename TPosEnd> inline typename Size<StringSet<TString, Owner<Default> > >::Type erase(StringSet<TString, Owner<Default> > & me, TPos pos, TPosEnd posEnd);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_owner.h"(210)
+template <typename TString, typename TPos> inline typename Size<StringSet<TString, Owner<Default> > >::Type erase(StringSet<TString, Owner<Default> > & me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_owner.h"(202)
+template <typename TString, typename TPos, typename TPosEnd> inline typename Size<StringSet<TString, Owner<Default> > >::Type erase(StringSet<TString, Owner<Default> > & me, TPos pos, TPosEnd posEnd);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_owner.h"(211)
 
 //____________________________________________________________________________
 // eraseBack
 
-template <typename T> inline void eraseBack(T & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1668)
+template <typename T> inline void eraseBack(T & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1674)
 
 //____________________________________________________________________________
 // fill
@@ -1480,8 +1468,8 @@ template <typename TChar, typename TAlloc, typename TSize, typename TExpand> inl
 //____________________________________________________________________________
 // front
 
-template <typename T> inline typename Reference<T>::Type front(T & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(701)
-template <typename T> inline typename Reference<T const>::Type front(T const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(708)
+template <typename T> inline typename Reference<T>::Type front(T & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(707)
+template <typename T> inline typename Reference<T const>::Type front(T const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(714)
 
 //____________________________________________________________________________
 // getObjectId
@@ -1519,8 +1507,8 @@ template <typename TSeqNo, typename TString, typename TSpec> inline typename Get
 //____________________________________________________________________________
 // getValue
 
-template <typename T, typename TPos> inline typename GetValue<T>::Type getValue(T & me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(665)
-template <typename T, typename TPos> inline typename GetValue<T const>::Type getValue(T const & me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(674)
+template <typename T, typename TPos> inline typename GetValue<T>::Type getValue(T & me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(671)
+template <typename T, typename TPos> inline typename GetValue<T const>::Type getValue(T const & me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(680)
 template <typename TContainer, typename THostspec> inline typename GetValue<Iter<TContainer, Packed<THostspec> > >::Type getValue(Iter<TContainer, Packed<THostspec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(1041)
 template <typename TContainer, typename THostspec> inline typename GetValue<Iter<TContainer, Packed<THostspec> > const>::Type getValue(Iter<TContainer, Packed<THostspec> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(1049)
 
@@ -1529,7 +1517,7 @@ template <typename TContainer, typename THostspec> inline typename GetValue<Iter
 
 template <typename TString, typename TId> inline typename Reference<StringSet<TString, Dependent<Generous> > >::Type getValueById(StringSet<TString, Dependent<Generous> >& me, TId const id);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_dependent_generous.h"(177)
 template <typename TString, typename TId> inline typename Reference<StringSet<TString, Dependent<Tight> > >::Type getValueById(StringSet<TString, Dependent<Tight> > & me, TId const id);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_dependent_tight.h"(202)
-template <typename TString, typename TSpec, typename TId> inline typename Reference<StringSet<TString, Owner<TSpec> > >::Type getValueById(StringSet<TString, Owner<TSpec> >& me, TId const id);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_owner.h"(224)
+template <typename TString, typename TSpec, typename TId> inline typename Reference<StringSet<TString, Owner<TSpec> > >::Type getValueById(StringSet<TString, Owner<TSpec> >& me, TId const id);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_owner.h"(225)
 
 //____________________________________________________________________________
 // goNext
@@ -1560,7 +1548,7 @@ template <typename TContainer, typename THostspec> inline typename HostIterator<
 
 template <typename TString, typename TId> inline typename Id<StringSet<TString, Dependent<Generous> > >::Type idToPosition(StringSet<TString, Dependent<Generous> > const& me, TId const id);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_dependent_generous.h"(255)
 template <typename TString, typename TId> inline typename Id<StringSet<TString, Dependent<Tight> > >::Type idToPosition(StringSet<TString, Dependent<Tight> > const & me, TId const id);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_dependent_tight.h"(309)
-template <typename TString, typename TSpec, typename TId> inline typename Id<StringSet<TString, Owner<TSpec> > >::Type idToPosition(StringSet<TString, Owner<TSpec> > const&, TId const id);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_owner.h"(300)
+template <typename TString, typename TSpec, typename TId> inline typename Id<StringSet<TString, Owner<TSpec> > >::Type idToPosition(StringSet<TString, Owner<TSpec> > const&, TId const id);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_owner.h"(301)
 
 //____________________________________________________________________________
 // infix
@@ -1581,94 +1569,95 @@ template <typename TString, typename TDelimiter, typename TPosition, typename TS
 //____________________________________________________________________________
 // insert
 
-template <typename T, typename TPosition, typename TSeq, typename TExpand> inline void insert(T & me, TPosition pos, TSeq const & insertSeq, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1243)
-template <typename T, typename TPosition, typename TSeq, typename TExpand> inline void insert(T const & me, TPosition pos, TSeq const & insertSeq, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1254)
-template <typename T, typename TPosition, typename TSeq> inline void insert(T & me, TPosition pos, TSeq const & insertSeq);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1264)
-template <typename T, typename TPosition, typename TSeq> inline void insert(T const & me, TPosition pos, TSeq const & insertSeq);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1274)
+template <typename T, typename TPosition, typename TSeq, typename TExpand> inline void insert(T & me, TPosition pos, TSeq const & insertSeq, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1249)
+template <typename T, typename TPosition, typename TSeq, typename TExpand> inline void insert(T const & me, TPosition pos, TSeq const & insertSeq, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1260)
+template <typename T, typename TPosition, typename TSeq> inline void insert(T & me, TPosition pos, TSeq const & insertSeq);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1270)
+template <typename T, typename TPosition, typename TSeq> inline void insert(T const & me, TPosition pos, TSeq const & insertSeq);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1280)
 
 //____________________________________________________________________________
 // insertValue
 
-template <typename T, typename TPosition, typename TValue> inline void insertValue(T & me, TPosition pos, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1303)
-template <typename T, typename TPosition, typename TValue> inline void insertValue(T const & me, TPosition pos, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1313)
+template <typename T, typename TPosition, typename TValue> inline void insertValue(T & me, TPosition pos, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1309)
+template <typename T, typename TPosition, typename TValue> inline void insertValue(T const & me, TPosition pos, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1319)
 template <typename TTargetValue, typename TTargetSpec, typename TPosition, typename TValue, typename TExpand> inline void insertValue(String<TTargetValue, TTargetSpec> & me, TPosition pos, TValue const & _value, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(1248)
 template <typename TString, typename TDelimiter, typename TPos, typename TSequence, typename TExpand > inline void insertValue( StringSet<TString, Owner<ConcatDirect<TDelimiter> > > & me, TPos pos, TSequence const & seq, Tag<TExpand> const tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_concat_direct.h"(262)
 
 //____________________________________________________________________________
 // isEqual
 
-template <typename TLeftValue, typename TRight > inline bool isEqual(TLeftValue * left, TRight const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(712)
+template <typename TLeftValue, typename TRight > inline bool isEqual(TLeftValue * left, TRight const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(754)
 
 //____________________________________________________________________________
 // isGreater
 
-template <typename TLeftValue, typename TRight> inline bool isGreater(TLeftValue * left, TRight const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(797)
+template <typename TLeftValue, typename TRight> inline bool isGreater(TLeftValue * left, TRight const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(839)
 
 //____________________________________________________________________________
 // isGreaterOrEqual
 
-template <typename TLeftValue, typename TRight> inline bool isGreaterOrEqual(TLeftValue * left, TRight const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(817)
+template <typename TLeftValue, typename TRight> inline bool isGreaterOrEqual(TLeftValue * left, TRight const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(859)
 
 //____________________________________________________________________________
 // isLess
 
-template <typename TLeftValue, typename TRight> inline bool isLess(TLeftValue * left, TRight const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(757)
+template <typename TLeftValue, typename TRight> inline bool isLess(TLeftValue * left, TRight const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(799)
 
 //____________________________________________________________________________
 // isLessOrEqual
 
-template <typename TLeftValue, typename TRight> inline bool isLessOrEqual(TLeftValue * left, TRight const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(777)
+template <typename TLeftValue, typename TRight> inline bool isLessOrEqual(TLeftValue * left, TRight const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(819)
 
 //____________________________________________________________________________
 // isNotEqual
 
-template <typename TLeftValue, typename TRight > inline bool isNotEqual(TLeftValue * left, TRight const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(734)
+template <typename TLeftValue, typename TRight > inline bool isNotEqual(TLeftValue * left, TRight const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(776)
 
 //____________________________________________________________________________
 // iter
 
-template <typename T, typename TPos> inline typename Iterator<T, typename DefaultGetIteratorSpec<T>::Type>::Type iter(T & me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(777)
-template <typename T, typename TPos> inline typename Iterator<T const, typename DefaultGetIteratorSpec<T>::Type>::Type iter(T const & me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(786)
-template <typename T, typename TPos, typename TTag> inline typename Iterator<T, Tag<TTag> const>::Type iter(T & me, TPos pos, Tag<TTag> const tag_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(796)
-template <typename T, typename TPos, typename TTag> inline typename Iterator<T const, Tag<TTag> const>::Type iter(T const & me, TPos pos, Tag<TTag> const tag_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(807)
+template <typename T, typename TPos> inline typename Iterator<T, typename DefaultGetIteratorSpec<T>::Type>::Type iter(T & me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(783)
+template <typename T, typename TPos> inline typename Iterator<T const, typename DefaultGetIteratorSpec<T>::Type>::Type iter(T const & me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(792)
+template <typename T, typename TPos, typename TTag> inline typename Iterator<T, Tag<TTag> const>::Type iter(T & me, TPos pos, Tag<TTag> const tag_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(802)
+template <typename T, typename TPos, typename TTag> inline typename Iterator<T const, Tag<TTag> const>::Type iter(T const & me, TPos pos, Tag<TTag> const tag_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(813)
 template <typename TValue, typename THostspec, typename TPos, typename TTag> inline typename Iterator<String<TValue, Packed<THostspec> >, Tag<TTag> const>::Type iter(String<TValue, Packed<THostspec> > & me, TPos pos_, Tag<TTag> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(576)
 template <typename TValue, typename THostspec, typename TPos, typename TTag> inline typename Iterator<String<TValue, Packed<THostspec> > const, Tag<TTag> const>::Type iter(String<TValue, Packed<THostspec> > const & me, TPos pos_, Tag<TTag> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(587)
-template <typename TString, typename TSpec, typename TPos, typename TTag> inline typename Iterator<StringSet<TString, TSpec >, Tag<TTag> const>::Type iter(StringSet<TString, TSpec > & me, TPos pos, Tag<TTag> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1077)
-template <typename TString, typename TSpec, typename TPos, typename TTag> inline typename Iterator<StringSet<TString, TSpec > const, Tag<TTag> const>::Type iter(StringSet<TString, TSpec > const & me, TPos pos, Tag<TTag> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1089)
+template <typename TString, typename TSpec, typename TPos, typename TTag> inline typename Iterator<StringSet<TString, TSpec >, Tag<TTag> const>::Type iter(StringSet<TString, TSpec > & me, TPos pos, Tag<TTag> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1090)
+template <typename TString, typename TSpec, typename TPos, typename TTag> inline typename Iterator<StringSet<TString, TSpec > const, Tag<TTag> const>::Type iter(StringSet<TString, TSpec > const & me, TPos pos, Tag<TTag> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1102)
 
 //____________________________________________________________________________
 // length
 
-template <typename TValue> inline size_t length(TValue * me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(326)
-template <typename TValue> inline size_t length(TValue const * me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(338)
-inline size_t length(char * me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(349)
-inline size_t length(char const * me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(356)
+template <typename TValue> inline size_t length(TValue * me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(368)
+template <typename TValue> inline size_t length(TValue const * me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(380)
+inline size_t length(char * me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(391)
+inline size_t length(char const * me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(398)
 template <typename TChar, typename TCharTraits, typename TAlloc> inline typename Size< ::std::basic_string<TChar, TCharTraits, TAlloc> >::Type length(::std::basic_string<TChar, TCharTraits, TAlloc> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_string.h"(254)
 template <typename TChar, typename TAlloc> inline typename Size< ::std::vector<TChar, TAlloc> >::Type length(::std::vector<TChar, TAlloc> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_vector.h"(237)
 template <typename TStringSet > inline typename Size<ConcatenatorManyToOne<TStringSet> >::Type length(ConcatenatorManyToOne<TStringSet> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_concatenator.h"(212)
-template <typename T> inline typename Size<T>::Type length(T const & );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(905)
+template <typename T> inline typename Size<T>::Type length(T const & );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(911)
 template <typename TValue, typename TSpec> inline typename Size< String<TValue, TSpec> const>::Type length(String<TValue, TSpec> const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(251)
 template <typename TValue, unsigned int SPACE> inline typename Size<String<TValue, Block<SPACE> > >::Type length(String<TValue, Block<SPACE> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_block.h"(647)
 template <typename TValue, typename THostspec> inline typename Size<String<TValue, Packed<THostspec> > >::Type length(String<TValue, Packed<THostspec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(441)
 template <typename TValue, typename THostspec> inline typename Size<String<TValue, Packed<THostspec> > const>::Type length(String<TValue, Packed<THostspec> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(449)
-template <typename TString, typename TSpec > inline typename Size<StringSet<TString, TSpec > >::Type length(StringSet<TString, TSpec > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1063)
+template <typename TString, typename TSpec > inline typename Size<StringSet<TString, TSpec > >::Type length(StringSet<TString, TSpec > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1076)
 template <typename TString, typename TDelimiter> inline typename Size<StringSet<TString, Owner<ConcatDirect<TDelimiter> > > >::Type length(StringSet<TString, Owner<ConcatDirect<TDelimiter> > > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_concat_direct.h"(323)
 
 //____________________________________________________________________________
 // lengthSum
 
-template <typename TString > inline typename Size<TString>::Type lengthSum(TString const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1040)
-template <typename TString, typename TSpec > inline typename Size<TString>::Type lengthSum(StringSet< TString, TSpec > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1046)
+template <typename TString > inline typename Size<TString>::Type lengthSum(TString const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1042)
+template <typename TString, typename TSpec > inline typename Value<typename StringSetLimits<StringSet< TString, TSpec > >::Type>::Type lengthSum(StringSet< TString, TSpec > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1049)
+template <typename TString, typename TSpec > inline typename Value<typename StringSetLimits<StringSet< TString, TSpec > >::Type>::Type lengthSum(StringSet< TString, TSpec > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1058)
 
 //____________________________________________________________________________
 // move
 
-template <typename TTargetValue, typename TSource> inline void move(TTargetValue * & target, TSource & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(515)
-template <typename TTargetValue, typename TSource> inline void move(TTargetValue * & target, TSource const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(523)
-template <typename TTargetValue, typename TSourceValue, typename TSpec> inline void move(String<TTargetValue, Alloc<TSpec> > & target, String<TSourceValue, Alloc<TSpec> > & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(446)
-template <typename TTargetValue, typename TSourceValue, typename TSpec> inline void move(String<TTargetValue, Alloc<TSpec> > & target, String<TSourceValue, Alloc<TSpec> > const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(454)
-template <typename TValue, typename TSpec> inline void move(String<TValue, Alloc<TSpec> > & target, String<TValue, Alloc<TSpec> > & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(462)
-template <typename TValue, typename TSpec> inline void move(String<TValue, Alloc<TSpec> > & target, String<TValue, Alloc<TSpec> > const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(479)
+template <typename TTargetValue, typename TSource> inline void move(TTargetValue * & target, TSource & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(557)
+template <typename TTargetValue, typename TSource> inline void move(TTargetValue * & target, TSource const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(565)
+template <typename TTargetValue, typename TSourceValue, typename TSpec> inline void move(String<TTargetValue, Alloc<TSpec> > & target, String<TSourceValue, Alloc<TSpec> > & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(451)
+template <typename TTargetValue, typename TSourceValue, typename TSpec> inline void move(String<TTargetValue, Alloc<TSpec> > & target, String<TSourceValue, Alloc<TSpec> > const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(459)
+template <typename TValue, typename TSpec> inline void move(String<TValue, Alloc<TSpec> > & target, String<TValue, Alloc<TSpec> > & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(467)
+template <typename TValue, typename TSpec> inline void move(String<TValue, Alloc<TSpec> > & target, String<TValue, Alloc<TSpec> > const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(484)
 template <typename TTargetValue, typename TTargetSpec, typename TSource> inline void move(String<TTargetValue, TTargetSpec> & target, TSource & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(1002)
 template <typename TTargetValue, typename TTargetSpec, typename TSource> inline void move(String<TTargetValue, TTargetSpec> & target, TSource const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(1012)
 template <typename TTargetValue, typename TTargetSpec, typename TSource, typename TTag> inline void move(String<TTargetValue, TTargetSpec> & target, TSource & source, Tag<TTag> const & tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(1023)
@@ -1679,9 +1668,9 @@ template <typename TValue> inline void move(String<TValue, CStyle> & target, Str
 //____________________________________________________________________________
 // moveValue
 
-template <typename TValue, typename TPos> inline void moveValue(TValue * me, TPos pos, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(297)
-template <typename T, typename TValue, typename TPos> inline void moveValue(T & me, TPos pos, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(868)
-template <typename T, typename TValue, typename TPos> inline void moveValue(T const & me, TPos pos, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(878)
+template <typename TValue, typename TPos> inline void moveValue(TValue * me, TPos pos, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(339)
+template <typename T, typename TValue, typename TPos> inline void moveValue(T & me, TPos pos, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(874)
+template <typename T, typename TValue, typename TPos> inline void moveValue(T const & me, TPos pos, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(884)
 template <typename TContainer, typename THostspec, typename TValue> inline void moveValue(Iter<TContainer, Packed<THostspec> > & me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(1103)
 template <typename TContainer, typename THostspec, typename TValue> inline void moveValue(Iter<TContainer, Packed<THostspec> > const & me, TValue const & _value);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_packed.h"(1112)
 
@@ -1887,8 +1876,8 @@ template <typename TString, typename TPos> inline typename Id<StringSet<TString,
 template <typename TString, typename TPos> inline typename Id<StringSet<TString, Dependent<Generous> > >::Type positionToId(StringSet<TString, Dependent<Generous> > const& me, TPos const pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_dependent_generous.h"(242)
 template <typename TString, typename TPos> inline typename Id<StringSet<TString, Dependent<Tight> > >::Type positionToId(StringSet<TString, Dependent<Tight> > & me, TPos const pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_dependent_tight.h"(287)
 template <typename TString, typename TPos> inline typename Id<StringSet<TString, Dependent<Tight> > >::Type positionToId(StringSet<TString, Dependent<Tight> > const & me, TPos const pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_dependent_tight.h"(296)
-template <typename TString, typename TSpec, typename TPos> inline typename Id<StringSet<TString, Owner<TSpec> > >::Type positionToId(StringSet<TString, Owner<TSpec> > &, TPos const pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_owner.h"(274)
-template <typename TString, typename TSpec, typename TPos> inline typename Id<StringSet<TString, Owner<TSpec> > >::Type positionToId(StringSet<TString, Owner<TSpec> > const &, TPos const pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_owner.h"(287)
+template <typename TString, typename TSpec, typename TPos> inline typename Id<StringSet<TString, Owner<TSpec> > >::Type positionToId(StringSet<TString, Owner<TSpec> > &, TPos const pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_owner.h"(275)
+template <typename TString, typename TSpec, typename TPos> inline typename Id<StringSet<TString, Owner<TSpec> > >::Type positionToId(StringSet<TString, Owner<TSpec> > const &, TPos const pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_owner.h"(288)
 
 //____________________________________________________________________________
 // prefix
@@ -1914,15 +1903,15 @@ template <typename TValue, unsigned int SPACE, typename TVal> inline void push_b
 
 template <typename TString, typename TId> inline void removeValueById(StringSet<TString, Dependent<Generous> >& me, TId const id);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_dependent_generous.h"(213)
 template <typename TString, typename TId> inline void removeValueById(StringSet<TString, Dependent<Tight> >& me, TId const id);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_dependent_tight.h"(257)
-template <typename TString, typename TSpec, typename TId> inline void removeValueById(StringSet<TString, Owner<TSpec> > & me, TId const id);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_owner.h"(259)
+template <typename TString, typename TSpec, typename TId> inline void removeValueById(StringSet<TString, Owner<TSpec> > & me, TId const id);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_owner.h"(260)
 
 //____________________________________________________________________________
 // replace
 
-template <typename TTargetValue, typename TSource, typename TExpand> inline void replace(TTargetValue * target, size_t pos_begin, size_t pos_end, TSource const & source, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(595)
-template <typename TTargetValue, typename TSource, typename TExpand> inline void replace(TTargetValue * target, size_t pos_begin, size_t pos_end, TSource const & source, size_t limit, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(608)
-template <typename TTargetValue, typename TSourceValue, typename TExpand> inline void replace(TTargetValue * target, size_t pos_begin, size_t pos_end, TSourceValue const * source, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(622)
-template <typename TTargetValue, typename TSourceValue, typename TExpand> inline void replace(TTargetValue * target, size_t pos_begin, size_t pos_end, TSourceValue const * source, size_t limit, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(635)
+template <typename TTargetValue, typename TSource, typename TExpand> inline void replace(TTargetValue * target, size_t pos_begin, size_t pos_end, TSource const & source, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(637)
+template <typename TTargetValue, typename TSource, typename TExpand> inline void replace(TTargetValue * target, size_t pos_begin, size_t pos_end, TSource const & source, size_t limit, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(650)
+template <typename TTargetValue, typename TSourceValue, typename TExpand> inline void replace(TTargetValue * target, size_t pos_begin, size_t pos_end, TSourceValue const * source, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(664)
+template <typename TTargetValue, typename TSourceValue, typename TExpand> inline void replace(TTargetValue * target, size_t pos_begin, size_t pos_end, TSourceValue const * source, size_t limit, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(677)
 template <typename TChar, typename TCharTraits, typename TAlloc, typename TSource> inline void replace(::std::basic_string<TChar, TCharTraits, TAlloc> & target, typename Position< ::std::basic_string<TChar, TCharTraits, TAlloc> >::Type pos_begin, typename Position< ::std::basic_string<TChar, TCharTraits, TAlloc> >::Type pos_end, TSource const & source, Generous);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_string.h"(544)
 template <typename TChar, typename TCharTraits, typename TAlloc, typename TSource> inline void replace(::std::basic_string<TChar, TCharTraits, TAlloc> & target, typename Position< ::std::basic_string<TChar, TCharTraits, TAlloc> >::Type pos_begin, typename Position< ::std::basic_string<TChar, TCharTraits, TAlloc> >::Type pos_end, TSource const & source, typename Size< ::std::basic_string<TChar, TCharTraits, TAlloc> >::Type limit, Generous);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_string.h"(557)
 template <typename TChar, typename TCharTraits, typename TAlloc, typename TSource> inline void replace(::std::basic_string<TChar, TCharTraits, TAlloc> & target, typename Position< ::std::basic_string<TChar, TCharTraits, TAlloc> >::Type pos_begin, typename Position< ::std::basic_string<TChar, TCharTraits, TAlloc> >::Type pos_end, TSource const & source, Limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_string.h"(591)
@@ -1932,14 +1921,14 @@ template <typename TChar, typename TAlloc, typename TSource> inline void replace
 template <typename TChar, typename TAlloc, typename TSource> inline void replace(::std::vector<TChar, TAlloc> & target, typename Position< ::std::vector<TChar, TAlloc> >::Type pos_begin, typename Position< ::std::vector<TChar, TAlloc> >::Type pos_end, TSource const & source, Limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_vector.h"(590)
 template <typename TChar, typename TAlloc, typename TSource> inline void replace(::std::vector<TChar, TAlloc> & target, typename Position< ::std::vector<TChar, TAlloc> >::Type pos_begin, typename Position< ::std::vector<TChar, TAlloc> >::Type pos_end, TSource const & source, typename Size< ::std::vector<TChar, TAlloc> >::Type limit, Limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_vector.h"(603)
 template <typename TChar, typename TCharTraits, typename TAlloc, typename TSource, typename TExpand> inline void replace(::std::vector<TChar, TAlloc> & target, typename Iterator< ::std::vector<TChar, TAlloc>, Rooted>::Type pos_begin, typename Iterator< ::std::vector<TChar, TAlloc>, Rooted>::Type pos_end, TSource & source, Tag<TExpand> const tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_vector.h"(623)
-template <typename TTarget, typename TPositionBegin, typename TPositionEnd, typename TSource> inline void replace(TTarget & target, TPositionBegin pos_begin, TPositionEnd pos_end, TSource & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1351)
-template <typename TTarget, typename TPositionBegin, typename TPositionEnd, typename TSource> inline void replace(TTarget const & target, TPositionBegin pos_begin, TPositionEnd pos_end, TSource & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1361)
-template <typename TTarget, typename TPositionBegin, typename TPositionEnd, typename TSource> inline void replace(TTarget & target, TPositionBegin pos_begin, TPositionEnd pos_end, TSource const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1371)
-template <typename TTarget, typename TPositionBegin, typename TPositionEnd, typename TSource> inline void replace(TTarget const & target, TPositionBegin pos_begin, TPositionEnd pos_end, TSource const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1381)
-template <typename TTarget, typename TPositionBegin, typename TPositionEnd, typename TSource> inline void replace(TTarget & target, TPositionBegin pos_begin, TPositionEnd pos_end, TSource & source, typename Size<TTarget>::Type limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1392)
-template <typename TTarget, typename TPositionBegin, typename TPositionEnd, typename TSource> inline void replace(TTarget const & target, TPositionBegin pos_begin, TPositionEnd pos_end, TSource & source, typename Size<TTarget>::Type limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1403)
-template <typename TTarget, typename TPositionBegin, typename TPositionEnd, typename TSource> inline void replace(TTarget & target, TPositionBegin pos_begin, TPositionEnd pos_end, TSource const & source, typename Size<TTarget>::Type limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1414)
-template <typename TTarget, typename TPositionBegin, typename TPositionEnd, typename TSource> inline void replace(TTarget const & target, TPositionBegin pos_begin, TPositionEnd pos_end, TSource const & source, typename Size<TTarget>::Type limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1425)
+template <typename TTarget, typename TPositionBegin, typename TPositionEnd, typename TSource> inline void replace(TTarget & target, TPositionBegin pos_begin, TPositionEnd pos_end, TSource & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1357)
+template <typename TTarget, typename TPositionBegin, typename TPositionEnd, typename TSource> inline void replace(TTarget const & target, TPositionBegin pos_begin, TPositionEnd pos_end, TSource & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1367)
+template <typename TTarget, typename TPositionBegin, typename TPositionEnd, typename TSource> inline void replace(TTarget & target, TPositionBegin pos_begin, TPositionEnd pos_end, TSource const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1377)
+template <typename TTarget, typename TPositionBegin, typename TPositionEnd, typename TSource> inline void replace(TTarget const & target, TPositionBegin pos_begin, TPositionEnd pos_end, TSource const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1387)
+template <typename TTarget, typename TPositionBegin, typename TPositionEnd, typename TSource> inline void replace(TTarget & target, TPositionBegin pos_begin, TPositionEnd pos_end, TSource & source, typename Size<TTarget>::Type limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1398)
+template <typename TTarget, typename TPositionBegin, typename TPositionEnd, typename TSource> inline void replace(TTarget const & target, TPositionBegin pos_begin, TPositionEnd pos_end, TSource & source, typename Size<TTarget>::Type limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1409)
+template <typename TTarget, typename TPositionBegin, typename TPositionEnd, typename TSource> inline void replace(TTarget & target, TPositionBegin pos_begin, TPositionEnd pos_end, TSource const & source, typename Size<TTarget>::Type limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1420)
+template <typename TTarget, typename TPositionBegin, typename TPositionEnd, typename TSource> inline void replace(TTarget const & target, TPositionBegin pos_begin, TPositionEnd pos_end, TSource const & source, typename Size<TTarget>::Type limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1431)
 template <typename TTargetValue, typename TTargetSpec, typename TPositionBegin, typename TPositionEnd, typename TSource, typename TExpand> inline void replace(String<TTargetValue, TTargetSpec> & target, TPositionBegin pos_begin, TPositionEnd pos_end, TSource const & source, Tag<TExpand> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(1328)
 template <typename TTargetValue, typename TTargetSpec, typename TPositionBegin, typename TPositionEnd, typename TSource, typename TExpand> inline void replace(String<TTargetValue, TTargetSpec> & target, TPositionBegin pos_begin, TPositionEnd pos_end, TSource const & source, typename Size< String<TTargetValue, TTargetSpec> >::Type limit, Tag<TExpand> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(1342)
 template <typename TTargetValue, typename TTargetSpec, typename TPositionBegin, typename TPositionEnd, typename TSourceValue, typename TExpand> inline void replace(String<TTargetValue, TTargetSpec> & target, TPositionBegin pos_begin, TPositionEnd pos_end, TSourceValue const * source, Tag<TExpand> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(1358)
@@ -1954,8 +1943,8 @@ template <typename TChar, typename TCharTraits, typename TAlloc, typename TSize>
 template <typename TChar, typename TAlloc, typename TSize, typename TExpand> inline typename Size< ::std::vector<TChar, TAlloc> >::Type reserve( ::std::vector<TChar, TAlloc> & seq, TSize new_capacity, Tag<TExpand> const & tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_vector.h"(650)
 template <typename TChar, typename TAlloc, typename TSize> inline typename Size< ::std::vector<TChar, TAlloc> >::Type reserve( ::std::vector<TChar, TAlloc> & seq, TSize new_capacity, Insist const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_vector.h"(662)
 template <typename TChar, typename TAlloc, typename TSize> inline typename Size< ::std::vector<TChar, TAlloc> >::Type reserve( ::std::vector<TChar, TAlloc> & seq, TSize new_capacity, Limit const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_vector.h"(674)
-template <typename T, typename TSize, typename TExpand> inline typename Size<T>::Type reserve(T & me, TSize const & new_capacity, Tag<TExpand> const & tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1484)
-template <typename T, typename TSize> inline typename Size<T>::Type reserve(T & me, TSize const & new_capacity);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1493)
+template <typename T, typename TSize, typename TExpand> inline typename Size<T>::Type reserve(T & me, TSize const & new_capacity, Tag<TExpand> const & tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1490)
+template <typename T, typename TSize> inline typename Size<T>::Type reserve(T & me, TSize const & new_capacity);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1499)
 template <typename TValue, unsigned int LENGTH, typename TExpand> inline size_t reserve(String<TValue, Array<LENGTH> > & me, size_t, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_array.h"(280)
 template <typename TValue, typename TSpec, typename TSize_, typename TExpand> inline typename Size< String<TValue, TSpec> >::Type reserve( String<TValue, TSpec> & seq, TSize_ new_capacity, Tag<TExpand> const tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(1596)
 template <typename TValue, unsigned int SPACE, typename TSize, typename TExpand> inline typename Size< String<TValue, Block<SPACE> > >::Type reserve(String<TValue, Block<SPACE> > & , TSize new_capacity, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_block.h"(394)
@@ -1964,13 +1953,13 @@ template <typename TValue, typename TSpec, typename TSize_, typename TExpand> in
 //____________________________________________________________________________
 // resize
 
-template <typename TValue, typename TSize, typename TExpand> inline size_t resize( TValue * me, TSize new_length, Tag<TExpand> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(674)
-template <typename TValue, typename TSize, typename TExpand> inline size_t resize( TValue * me, TSize new_length, TValue const & val, Tag<TExpand> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(686)
+template <typename TValue, typename TSize, typename TExpand> inline size_t resize( TValue * me, TSize new_length, Tag<TExpand> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(716)
+template <typename TValue, typename TSize, typename TExpand> inline size_t resize( TValue * me, TSize new_length, TValue const & val, Tag<TExpand> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(728)
 template <typename TChar, typename TCharTraits, typename TAlloc, typename TSize, typename TExpand> inline typename Size< ::std::basic_string<TChar, TCharTraits, TAlloc> >::Type resize( ::std::basic_string<TChar, TCharTraits, TAlloc> & me, TSize new_length, Tag<TExpand> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_string.h"(687)
 template <typename TChar, typename TCharTraits, typename TAlloc, typename TSize, typename TExpand> inline typename Size< ::std::basic_string<TChar, TCharTraits, TAlloc> >::Type resize( ::std::basic_string<TChar, TCharTraits, TAlloc> & me, TSize new_length, TChar const & val, Tag<TExpand> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_string.h"(700)
 template <typename TChar, typename TAlloc, typename TSize, typename TExpand> inline typename Size< ::std::vector<TChar, TAlloc> >::Type resize( ::std::vector<TChar, TAlloc> & me, TSize new_length, Tag<TExpand> const &);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_vector.h"(687)
-template <typename T, typename TSize> inline typename Size<T>::Type resize(T & me, TSize new_length);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1527)
-template <typename T, typename TSize, typename TValue> inline typename Size<T>::Type resize(T & me, TSize new_length, TValue const & val);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1537)
+template <typename T, typename TSize> inline typename Size<T>::Type resize(T & me, TSize new_length);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1533)
+template <typename T, typename TSize, typename TValue> inline typename Size<T>::Type resize(T & me, TSize new_length, TValue const & val);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1543)
 template <typename TValue, typename TSpec, typename TSize, typename TExpand> inline typename Size< String<TValue, TSpec> >::Type resize( String<TValue, TSpec> & me, TSize new_length, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(1693)
 template <typename TValue, typename TSpec, typename TSize, typename TValue2, typename TExpand> inline TSize resize(String<TValue, TSpec> & me, TSize new_length, TValue2 const & val, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(1704)
 template <typename TValue, unsigned int SPACE, typename TSize2, typename TExpand> inline typename Size< String<TValue, Block<SPACE> > >::Type resize(String<TValue, Block<SPACE> > & me, TSize2 new_length, Tag<TExpand> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_block.h"(326)
@@ -1981,8 +1970,8 @@ template <typename TString, typename TSpec, typename TSize, typename TExpand > i
 //____________________________________________________________________________
 // resizeSpace
 
-template <typename T, typename TSize, typename TBeginPosition, typename TEndPosition> inline TSize resizeSpace(T & me, TSize size, TBeginPosition pos_begin, TEndPosition pos_end);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1573)
-template <typename T, typename TSize, typename TBeginPosition, typename TEndPosition, typename TLimit> inline TSize resizeSpace(T & me, TSize size, TBeginPosition pos_begin, TEndPosition pos_end, TLimit limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1585)
+template <typename T, typename TSize, typename TBeginPosition, typename TEndPosition> inline TSize resizeSpace(T & me, TSize size, TBeginPosition pos_begin, TEndPosition pos_end);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1579)
+template <typename T, typename TSize, typename TBeginPosition, typename TEndPosition, typename TLimit> inline TSize resizeSpace(T & me, TSize size, TBeginPosition pos_begin, TEndPosition pos_end, TLimit limit);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1591)
 template <typename TValue, typename TSpec, typename TSize, typename TBeginPosition, typename TEndPosition, typename TExpand> inline typename Size< String<TValue, TSpec> >::Type resizeSpace(String<TValue, TSpec> & me, TSize size, TBeginPosition pos_begin, TEndPosition pos_end, Tag<TExpand> const & tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(769)
 template <typename TValue, typename TSpec, typename TSize, typename TBeginPosition, typename TEndPosition, typename TLimit, typename TExpand> inline typename Size< String<TValue, TSpec> >::Type resizeSpace(String<TValue, TSpec> & me, TSize size, TBeginPosition pos_begin, TEndPosition pos_end, TLimit limit, Tag<TExpand> const & tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(791)
 
@@ -2011,7 +2000,7 @@ template <typename TValue, typename TSpec> inline bool shareResources(TValue con
 //____________________________________________________________________________
 // shrinkToFit
 
-template <typename T, typename TSize, typename TValue> inline void shrinkToFit(T & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1695)
+template <typename T> inline void shrinkToFit(T & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(1701)
 
 //____________________________________________________________________________
 // stringSetLimits
@@ -2037,7 +2026,7 @@ template <typename TPos, typename TString, typename TSpec> inline typename Size<
 //____________________________________________________________________________
 // swap
 
-template <typename TValue, typename TSpec> inline void swap(String<TValue, Alloc<TSpec> > & a, String<TValue, Alloc<TSpec> > & b);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(236)
+template <typename TValue, typename TSpec> inline void swap(String<TValue, Alloc<TSpec> > & a, String<TValue, Alloc<TSpec> > & b);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_alloc.h"(241)
 template <typename TAlphabet, typename TSpec> inline void swap(String<TAlphabet, TSpec> & left, String<TAlphabet, TSpec> & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(176)
 template <typename TString, typename TSpec> inline void swap(StringSet<TString, TSpec> & left, StringSet<TString, TSpec> & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(291)
 
@@ -2066,8 +2055,8 @@ template <typename TValue, unsigned int SPACE> inline TValue const & topPrev(Str
 //____________________________________________________________________________
 // value
 
-template <typename TValue, typename TPos> inline TValue & value(TValue * me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(264)
-template <typename TValue, typename TPos> inline TValue const & value(TValue const * me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(273)
+template <typename TValue, typename TPos> inline TValue & value(TValue * me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(306)
+template <typename TValue, typename TPos> inline TValue const & value(TValue const * me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_array_pointer.h"(315)
 template <typename TChar, typename TCharTraits, typename TAlloc, typename TPos> inline typename GetValue< ::std::basic_string<TChar, TCharTraits, TAlloc> >::Type value(::std::basic_string<TChar, TCharTraits, TAlloc> & me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_string.h"(237)
 template <typename TChar, typename TCharTraits, typename TAlloc, typename TPos> inline typename GetValue< ::std::basic_string<TChar, TCharTraits, TAlloc> const>::Type value(::std::basic_string<TChar, TCharTraits, TAlloc> const & me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_string.h"(245)
 template <typename TChar, typename TAlloc, typename TPos> inline typename GetValue< ::std::vector<TChar, TAlloc> >::Type value(::std::vector<TChar, TAlloc> & me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/adapt_std_vector.h"(220)
@@ -2076,8 +2065,8 @@ template <typename TStringSet, typename TSpec> inline typename Reference<Iter<TS
 template <typename TStringSet, typename TSpec> inline typename Reference<Iter<TStringSet, ConcatVirtual<TSpec> > >::Type value(Iter<TStringSet, ConcatVirtual<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/iter_concat_virtual.h"(233)
 template <typename TStringSet, typename TPos > inline typename Reference<ConcatenatorManyToOne<TStringSet> >::Type value(ConcatenatorManyToOne<TStringSet> & me, TPos globalPos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_concatenator.h"(189)
 template <typename TStringSet, typename TPos > inline typename Reference<ConcatenatorManyToOne<TStringSet> const >::Type value(ConcatenatorManyToOne<TStringSet> const & me, TPos globalPos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_concatenator.h"(198)
-template <typename T, typename TPos> inline typename Reference<T>::Type value(T & me, TPos );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(622)
-template <typename T, typename TPos> inline typename Reference<T const>::Type value(T const & me, TPos );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(631)
+template <typename T, typename TPos> inline typename Reference<T>::Type value(T & me, TPos );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(628)
+template <typename T, typename TPos> inline typename Reference<T const>::Type value(T const & me, TPos );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/sequence_interface.h"(637)
 template <typename TValue, typename TSpec, typename TPos> inline typename Reference< String<TValue, TSpec> >::Type value(String<TValue, TSpec> & me, TPos const & pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(224)
 template <typename TValue, typename TSpec, typename TPos> inline typename Reference< String<TValue, TSpec> const >::Type value(String<TValue, TSpec> const & me, TPos const & pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_base.h"(235)
 template <typename TValue, unsigned int SPACE, typename TPos> inline typename Reference<String<TValue, Block<SPACE> > >::Type value( String<TValue, Block<SPACE> >& stack, TPos const pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_block.h"(262)
@@ -2092,13 +2081,13 @@ template <typename TString, typename TPos > inline typename Reference<StringSet<
 template <typename TString, typename TPos > inline typename Reference<StringSet<TString, Dependent<Generous> > const >::Type value(StringSet<TString, Dependent<Generous> > const & me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_dependent_generous.h"(160)
 template <typename TString, typename TPos > inline typename Reference<StringSet<TString, Dependent<Tight> > >::Type value(StringSet<TString, Dependent<Tight> >& me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_dependent_tight.h"(182)
 template <typename TString, typename TPos > inline typename Reference<StringSet<TString, Dependent<Tight> > const >::Type value(StringSet<TString, Dependent<Tight> >const & me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_dependent_tight.h"(190)
-template <typename TString, typename TPos > inline typename Reference<StringSet<TString, Owner<Default> > >::Type value(StringSet<TString, Owner<Default> > & me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_owner.h"(181)
-template <typename TString, typename TPos > inline typename Reference<StringSet<TString, Owner<Default> > const >::Type value(StringSet<TString, Owner<Default> > const & me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_owner.h"(188)
+template <typename TString, typename TPos > inline typename Reference<StringSet<TString, Owner<Default> > >::Type value(StringSet<TString, Owner<Default> > & me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_owner.h"(182)
+template <typename TString, typename TPos > inline typename Reference<StringSet<TString, Owner<Default> > const >::Type value(StringSet<TString, Owner<Default> > const & me, TPos pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_owner.h"(189)
 
 //____________________________________________________________________________
 // valueById
 
-template <typename TString, typename TSpec, typename TId> inline typename Reference<StringSet<TString, TSpec> >::Type valueById(StringSet<TString, TSpec> & me, TId const id);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1188)
+template <typename TString, typename TSpec, typename TId> inline typename Reference<StringSet<TString, TSpec> >::Type valueById(StringSet<TString, TSpec> & me, TId const id);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/sequence/string_set_base.h"(1201)
 
 //____________________________________________________________________________
 // valueConstruct

@@ -113,12 +113,12 @@ template <typename TAlign, typename TStringSet, typename TTrace, typename TValPa
 //____________________________________________________________________________
 // _alignBandedSmithWaterman
 
-template <typename TTrace, typename TStringSet, typename TScore, typename TIndexPair, typename TDiagonal, typename TForbidden> inline typename Value<TScore>::Type _alignBandedSmithWaterman(TTrace& trace, TStringSet const& str, TScore const& sc, typename Value<TTrace>::Type& initialDir, TIndexPair& indexPair, TDiagonal diagL, TDiagonal diagU, TForbidden forbidden);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_banded_smith_waterman_clump.h"(151)
+template <typename TTrace, typename TStringSet, typename TScore, typename TIndexPair, typename TDiagonal, typename TForbidden> inline typename Value<TScore>::Type _alignBandedSmithWaterman(TTrace& trace, TStringSet const& str, TScore const& sc, typename Value<TTrace>::Type& initialDir, TIndexPair& indexPair, TDiagonal diagL, TDiagonal diagU, TForbidden forbidden);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_banded_smith_waterman_clump.h"(172)
 
 //____________________________________________________________________________
 // _alignBandedSmithWatermanTrace
 
-template <typename TStringSet, typename TAlign, typename TTrace, typename TVal, typename TIndexPair, typename TDiagonal, typename TForbidden> inline void _alignBandedSmithWatermanTrace(TStringSet const& str, TAlign& align, TTrace const& trace, TVal const initialDir, TIndexPair const& indexPair, TDiagonal diagL, TDiagonal diagU, TForbidden& forbidden);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_banded_smith_waterman_clump.h"(73)
+template <typename TStringSet, typename TAlign, typename TTrace, typename TVal, typename TIndexPair, typename TDiagonal, typename TForbidden> inline void _alignBandedSmithWatermanTrace(TStringSet const& str, TAlign& align, TTrace const& trace, TVal const initialDir, TIndexPair const& indexPair, TDiagonal diagL, TDiagonal diagU, TForbidden& forbidden);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_banded_smith_waterman_clump.h"(94)
 
 //____________________________________________________________________________
 // _alignGotoh
@@ -200,7 +200,8 @@ template <bool TLeft, bool TRight, bool TBottom, typename TSpec> inline bool _co
 //____________________________________________________________________________
 // _finishAlign
 
-template <typename TString, typename TPos> inline void _finishAlign(Graph<Alignment<StringSet<TString, Dependent<> > > >&, TPos, TPos, TPos, TPos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_banded_smith_waterman_clump.h"(55)
+template <typename TString, typename TPos> inline void _finishAlign(Graph<Alignment<StringSet<TString, Dependent<> > > >&, TPos, TPos, TPos, TPos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_banded_smith_waterman_clump.h"(63)
+template <typename T, typename TPos> inline void _finishAlign(T &, TPos, TPos, TPos, TPos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_banded_smith_waterman_clump.h"(76)
 
 //____________________________________________________________________________
 // _globalAlignment
@@ -222,6 +223,7 @@ template <typename TStringSet, typename TScore, typename TAlignConfig> inline ty
 // _initAlign
 
 template <typename TString> inline void _initAlign(Graph<Alignment<StringSet<TString, Dependent<> > > >& align, StringSet<TString, Dependent<> > const& str);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_banded_smith_waterman_clump.h"(44)
+template <typename T, typename TString> inline void _initAlign(T & , StringSet<TString, Dependent<> > const& );       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_banded_smith_waterman_clump.h"(52)
 
 //____________________________________________________________________________
 // _initFirstColumn
@@ -260,8 +262,8 @@ template <bool TTop, bool TLeft, bool TRight, typename TSpec, typename TValue1, 
 //____________________________________________________________________________
 // _localAlignment
 
-template <typename TAlign, typename TStringSet, typename TForbidden, typename TScore, typename TDiagonal> inline typename Value<TScore>::Type _localAlignment(TStringSet& str, TAlign& align, TForbidden& forbidden, TScore const& sc, TDiagonal diag1, TDiagonal diag2, BandedSmithWatermanClump);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_banded_smith_waterman_clump.h"(284)
-template <typename TString, typename TAlignments, typename TScores, typename TScoreValue, typename TSpec2, typename TDiagonal> inline void _localAlignment(StringSet<TString, Dependent<> > const& str, TAlignments& alignments, TScores& scores, Score<TScoreValue, TSpec2> const& sc, TScoreValue minScore, TDiagonal diag1, TDiagonal diag2, BandedSmithWatermanClump);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_banded_smith_waterman_clump.h"(314)
+template <typename TAlign, typename TStringSet, typename TForbidden, typename TScore, typename TDiagonal> inline typename Value<TScore>::Type _localAlignment(TStringSet& str, TAlign& align, TForbidden& forbidden, TScore const& sc, TDiagonal diag1, TDiagonal diag2, BandedSmithWatermanClump);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_banded_smith_waterman_clump.h"(305)
+template <typename TString, typename TAlignments, typename TScores, typename TScoreValue, typename TSpec2, typename TDiagonal> inline void _localAlignment(StringSet<TString, Dependent<> > const& str, TAlignments& alignments, TScores& scores, Score<TScoreValue, TSpec2> const& sc, TScoreValue minScore, TDiagonal diag1, TDiagonal diag2, BandedSmithWatermanClump);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_banded_smith_waterman_clump.h"(335)
 template <typename TAlign, typename TStringSet, typename TScore> inline typename Value<TScore>::Type _localAlignment(TAlign& align, TStringSet const& str, TScore const& sc, SmithWaterman);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_smith_waterman.h"(347)
 template <typename TStringSet, typename TScore> inline typename Value<TScore>::Type _localAlignment(TStringSet const& str, TScore const& sc, SmithWaterman);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_smith_waterman.h"(375)
 template <typename TAlign, typename TStringSet, typename TForbidden, typename TScore> inline typename Value<TScore>::Type _localAlignment(TAlign& align, TStringSet& str, TForbidden& forbidden, TScore const& sc, SmithWatermanClump);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_smith_waterman_clump.h"(53)
@@ -306,20 +308,21 @@ template <typename TStringSet, typename TCargo, typename TSpec, typename TScoreV
 template <typename TStringSet, typename TScoreValue, typename TSpec, typename TAlignConfig, typename TDiagonal> inline TScoreValue globalAlignment(TStringSet const& str, Score<TScoreValue, TSpec> const& sc, TAlignConfig const, TDiagonal diag1, TDiagonal diag2, BandedGotoh);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_interface.h"(289)
 template <typename TAlign, typename TStringSet, typename TScoreValue, typename TSpec, typename TDiagonal> inline TScoreValue globalAlignment(TAlign& file, TStringSet const& str, Score<TScoreValue, TSpec> const& sc, TDiagonal diag1, TDiagonal diag2, BandedGotoh);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_interface.h"(305)
 template <typename TAlign, typename TStringSet, typename TScoreValue, typename TSpec, typename TAlignConfig, typename TDiagonal> inline TScoreValue globalAlignment(TAlign& file, TStringSet const& str, Score<TScoreValue, TSpec> const& sc, TAlignConfig const, TDiagonal diag1, TDiagonal diag2, BandedGotoh);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_interface.h"(321)
-template <typename TStringSet, typename TCargo, typename TSpec> inline int globalAlignment(Graph<Alignment<TStringSet, TCargo, TSpec> >& g, Lcs);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_interface.h"(332)
+template <typename TString, typename TAlignSpec, typename TStringSet, typename TScoreValue, typename TScoreSpec, typename TDiagonal> inline TScoreValue globalAlignment(Align<TString, TAlignSpec> & align, TStringSet const & stringSet, Score<TScoreValue, TScoreSpec> const & sc, TDiagonal diag1, TDiagonal diag2, BandedGotoh);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_interface.h"(335)
+template <typename TStringSet, typename TCargo, typename TSpec> inline int globalAlignment(Graph<Alignment<TStringSet, TCargo, TSpec> >& g, Lcs);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_interface.h"(350)
 
 //____________________________________________________________________________
 // localAlignment
 
-template <typename TAlign, typename TStringSet, typename TScoreValue, typename TSpec, typename TTag> inline TScoreValue localAlignment(TAlign& file, TStringSet const& str, Score<TScoreValue, TSpec> const& sc, TTag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_interface.h"(366)
-template <typename TStringSet, typename TScoreValue, typename TSpec, typename TTag> inline TScoreValue localAlignment(TStringSet const& str, Score<TScoreValue, TSpec> const& sc, TTag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_interface.h"(377)
-template <typename TStringSet, typename TCargo, typename TSpec, typename TScoreValue, typename TSpec2, typename TTag> inline TScoreValue localAlignment(Graph<Alignment<TStringSet, TCargo, TSpec> >& g, Score<TScoreValue, TSpec2> const& sc, TTag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_interface.h"(389)
+template <typename TAlign, typename TStringSet, typename TScoreValue, typename TSpec, typename TTag> inline TScoreValue localAlignment(TAlign& file, TStringSet const& str, Score<TScoreValue, TSpec> const& sc, TTag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_interface.h"(384)
+template <typename TStringSet, typename TScoreValue, typename TSpec, typename TTag> inline TScoreValue localAlignment(TStringSet const& str, Score<TScoreValue, TSpec> const& sc, TTag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_interface.h"(395)
+template <typename TStringSet, typename TCargo, typename TSpec, typename TScoreValue, typename TSpec2, typename TTag> inline TScoreValue localAlignment(Graph<Alignment<TStringSet, TCargo, TSpec> >& g, Score<TScoreValue, TSpec2> const& sc, TTag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_interface.h"(407)
 
 //____________________________________________________________________________
 // multiLocalAlignment
 
-template <typename TString, typename TMatches, typename TScores, typename TScoreValue, typename TSpec2, typename TSize, typename TTag> inline void multiLocalAlignment(StringSet<TString, Dependent<> > const& str, TMatches& matches, TScores& scores, Score<TScoreValue, TSpec2> const& sc, TSize numAlignments, TTag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_interface.h"(432)
-template <typename TString, typename TAlignments, typename TScores, typename TScoreValue, typename TSpec2, typename TDiagonal, typename TTag> inline void multiLocalAlignment(StringSet<TString, Dependent<> > const& str, TAlignments& alignments, TScores& scores, Score<TScoreValue, TSpec2> const& sc, TScoreValue minScore, TDiagonal diag1, TDiagonal diag2, TTag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_interface.h"(446)
+template <typename TString, typename TMatches, typename TScores, typename TScoreValue, typename TSpec2, typename TSize, typename TTag> inline void multiLocalAlignment(StringSet<TString, Dependent<> > const& str, TMatches& matches, TScores& scores, Score<TScoreValue, TSpec2> const& sc, TSize numAlignments, TTag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_interface.h"(450)
+template <typename TString, typename TAlignments, typename TScores, typename TScoreValue, typename TSpec2, typename TDiagonal, typename TTag> inline void multiLocalAlignment(StringSet<TString, Dependent<> > const& str, TAlignments& alignments, TScores& scores, Score<TScoreValue, TSpec2> const& sc, TScoreValue minScore, TDiagonal diag1, TDiagonal diag2, TTag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/graph_align/graph_align_interface.h"(464)
 
 } //namespace SEQAN_NAMESPACE_MAIN
 

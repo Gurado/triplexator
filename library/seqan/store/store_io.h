@@ -884,7 +884,9 @@ bool loadContigs(FragmentStore<TFSSpec, TFSConfig> &store, StringSet<CharString>
 {
 //IOREV _nodoc_ although there is dddoc, there is no entry in html-doc
 	typedef FragmentStore<TFSSpec, TFSConfig>			TFragmentStore;
+	typedef typename TFragmentStore::TContigStore		TContigStore;
 	typedef typename TFragmentStore::TContigFileStore	TContigFileStore;
+	typedef typename Value<TContigStore>::Type			TContig;
 	typedef typename Value<TContigFileStore>::Type		TContigFile;
 	
 	unsigned seqOfs = length(store.contigStore);
@@ -914,7 +916,10 @@ bool loadContigs(FragmentStore<TFSSpec, TFSConfig> &store, StringSet<CharString>
 			if (loadSeqs)
 				assignSeq(store.contigStore[seqOfs + i].seq, multiSeqFile[i], contigFile.format);	// read Genome sequence
 			else
-				clear(store.contigStore[seqOfs + i].seq);
+            {
+                typename TContig::TContigSeq emptySeq;
+                swap(store.contigStore[seqOfs + i].seq, emptySeq);
+            }
 			assignCroppedSeqId(store.contigNameStore[seqOfs + i], multiSeqFile[i], contigFile.format);
 		}
 		seqOfs += seqCount;
@@ -1053,7 +1058,8 @@ bool unlockAndFreeContig(FragmentStore<TSpec, TConfig> &store, TId _id)
 
 	if (--contig.usage == 0 && contig.fileId < length(store.contigFileStore))
 	{
-		clear(contig.seq);
+        typename TContig::TContigSeq emptySeq;
+        swap(contig.seq, emptySeq);
 		return true;
 	}
 	return false;
@@ -1173,7 +1179,7 @@ bool loadReads(FragmentStore<TFSSpec, TFSConfig> &store, TFileName &fileName)
 	{
 		assignSeq(seq, multiSeqFile[i], format);    // read sequence
 		assignQual(qual, multiSeqFile[i], format);  // read ascii quality values
-		assignSeqId(_id, multiSeqFile[i], format);   // read sequence id
+		assignSeqId(_id, multiSeqFile[i], format);  // read sequence id
 
 		// convert ascii to values from 0..62
 		// store dna and quality together in Dna5Q
@@ -1181,7 +1187,7 @@ bool loadReads(FragmentStore<TFSSpec, TFSConfig> &store, TFileName &fileName)
 		assignQualities(seq, qual);
 		appendRead(store, seq, _id);
 	}
-	return true;
+    return true;
 }
 
 
@@ -1224,10 +1230,10 @@ bool loadReads(FragmentStore<TFSSpec, TFSConfig> & store, TFileName & fileNameL,
 	for (unsigned i = 0; i < seqCountL; ++i) {
 		assignSeq(seq[0], multiSeqFileL[i], formatL);    // read sequence
 		assignQual(qual[0], multiSeqFileL[i], formatL);  // read ascii quality values
-		assignSeqId(_id[0], multiSeqFileL[i], formatL);   // read sequence id
+		assignSeqId(_id[0], multiSeqFileL[i], formatL);  // read sequence id
 		assignSeq(seq[1], multiSeqFileR[i], formatR);    // read sequence
 		assignQual(qual[1], multiSeqFileR[i], formatR);  // read ascii quality values
-		assignSeqId(_id[1], multiSeqFileR[i], formatR);   // read sequence id
+		assignSeqId(_id[1], multiSeqFileR[i], formatR);  // read sequence id
 
 		// convert ascii to values from 0..62
 		// store dna and quality together in Dna5Q

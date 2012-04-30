@@ -328,7 +328,7 @@ To get a reference or the type of a specific fibre use @Function.getFibre@ or @M
 
 	typedef Tag<FibreText_> const		FibreText;
 	typedef Tag<FibreRawText_> const	FibreRawText;
-	typedef Tag<FibreSA_> const		FibreSA;
+	typedef Tag<FibreSA_> const         FibreSA;
 	typedef Tag<FibreRawSA_> const		FibreRawSA;
 	typedef Tag<FibreSae_> const		FibreSae;
 	typedef Tag<FibreLcp_> const		FibreLcp;

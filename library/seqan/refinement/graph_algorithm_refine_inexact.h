@@ -73,13 +73,8 @@ SEQAN_CHECKPOINT
 }
 
 
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////
-//step 2 of constructing the refined alignment graph: add all edges    
-//version for inexact refinement
+// returns node begin or end position closest to pos
+// i.e. closest refined position 
 template<typename TAliGraph, typename TVertexDescriptor, typename TId, typename TPosition>
 TPosition
 _getClosestRefinedNeighbor(TAliGraph & ali_g,
@@ -95,7 +90,8 @@ SEQAN_CHECKPOINT
 }
 
 
-
+// get closest refined position to end position of fragment (cut_end_pos)
+// and corresponding node (end_knot)
 template<typename TAliGraph, typename TId, typename TPosition>
 void
 _getCutEndPos(TAliGraph & ali_g, 
@@ -122,6 +118,8 @@ SEQAN_CHECKPOINT
 }
 
 
+// get closest refined position to begin position of fragment (cut_act_pos)
+// and corresponding node (act_knot)
 template<typename TAliGraph, typename TId, typename TPosition>
 void
 _getCutBeginPos(TAliGraph & ali_g, 
@@ -253,9 +251,16 @@ SEQAN_CHECKPOINT
 				//seq2 = ...c.r...rc....
 //					score += getLeftRestScore(score_type,seqs,seq1,seq2,act_pos1,cut_act_pos1,act_pos2,cut_act_pos2);
 				if(score > 0)
-					if(findEdge(ali_g,act_knot1,act_knot2)==0)
+				{	if(findEdge(ali_g,act_knot1,act_knot2)==0)
 						addEdge(ali_g,act_knot1,act_knot2,score);
-				
+					else
+					{
+						TEdgeDescriptor ed = findEdge(ali_g, act_knot1, act_knot2);
+						//if((TCargo)score > getCargo(ed))
+							//assignCargo(ed, score);
+						assignCargo(ed, getCargo(ed)+score);
+					}
+				}
 				if(act_knot2==act_end_knot2)
 					break;
 				act_pos2 = cut_act_pos2 + fragmentLength(ali_g,act_knot2);

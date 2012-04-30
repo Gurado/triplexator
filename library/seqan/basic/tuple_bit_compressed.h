@@ -1,7 +1,7 @@
 // ==========================================================================
 //                 SeqAn - The Library for Sequence Analysis
 // ==========================================================================
-// Copyright (c) 2006-2010, Knut Reinert, FU Berlin
+// Copyright (c) 2006-2012, Knut Reinert, FU Berlin
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -36,8 +36,8 @@
 
 // TODO(holtgrew): Should this be called Packed and the tag be BitPacked?
 
-#ifndef SEQAN_BASIC_TUPLE_BIT_COMPRESSED_H_
-#define SEQAN_BASIC_TUPLE_BIT_COMPRESSED_H_
+#ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_TUPLE_BIT_COMPRESSED_H_
+#define SEQAN_CORE_INCLUDE_SEQAN_BASIC_TUPLE_BIT_COMPRESSED_H_
 
 namespace seqan {
 
@@ -78,6 +78,18 @@ template <> struct BitVector_<255> { typedef __uint64 Type; };
 
 // TODO(holtgrew): There is a lot of stuff defined within the class itself. A lot of it could be moved into global functions.
 
+// template <typename T_, unsigned _size>
+// const unsigned Tuple<T_, _size, Compressed>::BIT_SIZE = BitsPerValue<T_>::VALUE;
+// template <typename T_, unsigned _size>
+// const unsigned Tuple<T_, _size, Compressed>::BIT_MASK = (1 << Tuple<T_, _size, Compressed>::BIT_SIZE) - 1;
+// template <typename T_, unsigned _size>
+// const unsigned Tuple<T_, _size, Compressed>::MASK = (1 << (_size * Tuple<T_, _size, Compressed>::BIT_SIZE)) - 1;
+// enum { size = _size };
+// enum { BIT_SIZE = BitsPerValue<T_>::VALUE };
+// enum { bitMASK = (1 << BIT_SIZE) - 1 };
+// // TODO(holtgrew): The following two computations are bogus, in cases of overflow, MaxValue<CT>::VALUE should be used.
+// enum { MASK = (1 << (size * BIT_SIZE)) - 1 };
+
 // bit-compressed storage (space efficient)
 #ifdef PLATFORM_WINDOWS
     #pragma pack(push,1)
@@ -86,12 +98,16 @@ template <typename T_, unsigned _size>
 struct Tuple<T_, _size, Compressed>
 {
     typedef T_ T;
-    enum { size = _size };
-    enum { bitSize = BitsPerValue<T_>::VALUE };
-    enum { bitMask = (1 << bitSize) - 1 };
-    // TODO(holtgrew): The following two computations are bogus, in cases of overflow, MaxValue<CT>::VALUE should be used.
-    enum { mask = (1 << (size * bitSize)) - 1 };
-    typedef typename BitVector_< bitSize * size >::Type CT;
+    static const unsigned SIZE = _size;
+    static const unsigned BIT_SIZE = BitsPerValue<T_>::VALUE;
+    static const unsigned BIT_MASK = (1 << Tuple<T_, SIZE, Compressed>::BIT_SIZE) - 1;
+    static const unsigned MASK = (1 << (SIZE * Tuple<T_, SIZE, Compressed>::BIT_SIZE)) - 1;
+    // enum { size = _size };
+    // enum { BIT_SIZE = BitsPerValue<T_>::VALUE };
+    // enum { bitMask = (1 << BIT_SIZE) - 1 };
+    // // TODO(holtgrew): The following two computations are bogus, in cases of overflow, MaxValue<CT>::VALUE should be used.
+    // enum { mask = (1 << (size * BIT_SIZE)) - 1 };
+    typedef typename BitVector_<BIT_SIZE * SIZE>::Type CT;
 
     // -----------------------------------------------------------------------
     // Members
@@ -106,7 +122,7 @@ struct Tuple<T_, _size, Compressed>
     // TODO(holtgrew): There is the unresolved issue whether the initialize costs critical performance. Since Tuples are PODs, it should be able to initialize Strings/arrays of them with memset().
     inline Tuple() : i(0)
     {
-        SEQAN_ASSERT_LEQ(static_cast<__uint64>(bitSize * size), static_cast<__uint64>(sizeof(CT) * 8));
+        SEQAN_ASSERT_LEQ(static_cast<__uint64>(BIT_SIZE * SIZE), static_cast<__uint64>(sizeof(CT) * 8));
     }
 
     // -----------------------------------------------------------------------
@@ -118,8 +134,8 @@ struct Tuple<T_, _size, Compressed>
     operator[](TPos k) const
     {
         SEQAN_ASSERT_GEQ(static_cast<__int64>(k), 0);
-        SEQAN_ASSERT_LT(static_cast<__int64>(k), static_cast<__int64>(size));
-        return (i >> (size - 1 - k) * bitSize) & bitMask;
+        SEQAN_ASSERT_LT(static_cast<__int64>(k), static_cast<__int64>(SIZE));
+        return (i >> (SIZE - 1 - k) * BIT_SIZE) & BIT_MASK;
     }
 
     // -----------------------------------------------------------------------
@@ -138,25 +154,25 @@ struct Tuple<T_, _size, Compressed>
     template <typename TShiftSize>
     inline CT operator<<=(TShiftSize shift)
     {
-        return i = (i << (shift * bitSize)) & mask;
+        return i = (i << (shift * BIT_SIZE)) & MASK;
     }
 
     template <typename TShiftSize>
     inline CT operator<<(TShiftSize shift) const
     {
-        return (i << (shift * bitSize)) & mask;
+        return (i << (shift * BIT_SIZE)) & MASK;
     }
 
     template <typename TShiftSize>
     inline CT operator>>=(TShiftSize shift)
     {
-        return i = (i >> (shift * bitSize));
+        return i = (i >> (shift * BIT_SIZE));
     }
 
     template <typename TShiftSize>
     inline CT operator>>(TShiftSize shift) const
     {
-        return i >> (shift * bitSize);
+        return i >> (shift * BIT_SIZE);
     }
 
     template <typename T>
@@ -188,8 +204,8 @@ struct Tuple<T_, _size, Compressed>
     assignValueAt(TPos k, tmpS const source)
     {
         typedef Tuple<T_, _size, Compressed> Tup;
-        typename Tup::CT mask = Tup::bitMask << ((_size - 1 - k) * bitSize);
-        i = (i & ~mask) | ((CT)ordValue(source) << ((_size - 1 - k) * bitSize));
+        typename Tup::CT MASK = Tup::BIT_MASK << ((_size - 1 - k) * BIT_SIZE);
+        i = (i & ~MASK) | ((CT)ordValue(source) << ((_size - 1 - k) * BIT_SIZE));
         return source;
     }
 }
@@ -246,8 +262,8 @@ assignValueAt(Tuple<T_, _size, Compressed> & me,
               tmpS const source)
 {
     typedef Tuple<T_, _size, Compressed> Tup;
-    typename Tup::CT mask = Tup::bitMask << ((_size - 1 - k) * me.bitSize);
-    me.i = (me.i & ~mask) | source << ((_size - 1 - k) * me.bitSize);
+    typename Tup::CT MASK = Tup::BIT_MASK << ((_size - 1 - k) * me.BIT_SIZE);
+    me.i = (me.i & ~MASK) | source << ((_size - 1 - k) * me.BIT_SIZE);
     return source;
 }
 
@@ -258,8 +274,8 @@ assignValueAt(Tuple<T_, _size, Compressed> & me,
               SimpleType<tmpS, Spec_> const & source)
 {
     typedef Tuple<T_, _size, Compressed> Tup;
-    typename Tup::CT mask = Tup::bitMask << ((_size - 1 - k) * me.bitSize);
-    me.i = (me.i & ~mask) | source.value << ((_size - 1 - k) * me.bitSize);
+    typename Tup::CT MASK = Tup::BIT_MASK << ((_size - 1 - k) * me.BIT_SIZE);
+    me.i = (me.i & ~MASK) | source.value << ((_size - 1 - k) * me.BIT_SIZE);
     return source;
 }
 
@@ -476,4 +492,4 @@ inline bool operator!=(Tuple<T_, _size, Compressed> & _left,
 
 }  // namespace seqan
 
-#endif  // #ifndef SEQAN_BASIC_TUPLE_BIT_COMPRESSED_H_
+#endif  // #ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_TUPLE_BIT_COMPRESSED_H_

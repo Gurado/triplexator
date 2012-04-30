@@ -1,7 +1,7 @@
 // ==========================================================================
 //                 SeqAn - The Library for Sequence Analysis
 // ==========================================================================
-// Copyright (c) 2006-2010, Knut Reinert, FU Berlin
+// Copyright (c) 2006-2012, Knut Reinert, FU Berlin
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -35,15 +35,20 @@
 // ==========================================================================
 
 // TODO(holtgrew): Perform some benchmarks and use a better malloc, e.g. tcmalloc and see whether our allocator infrastructure is worth keeping around.
+// TODO(holtgrew): Rename to allocator_base.h?
 
-#ifndef SEQAN_BASIC_BASIC_ALLOCATOR_INTERFACE_H_
-#define SEQAN_BASIC_BASIC_ALLOCATOR_INTERFACE_H_
+#ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_ALLOCATOR_INTERFACE_H_
+#define SEQAN_CORE_INCLUDE_SEQAN_BASIC_ALLOCATOR_INTERFACE_H_
 
 namespace seqan {
 
 // ============================================================================
 // Forwards
 // ============================================================================
+
+struct Tristate_;
+typedef Tag<Tristate_> Tristate;
+template <typename TValue, typename TSpec> struct Holder;
 
 // ============================================================================
 // Tags, Classes, Enums
@@ -324,4 +329,4 @@ deallocate(
 
 }  // namespace seqan
 
-#endif  // #ifndef SEQAN_BASIC_BASIC_ALLOCATOR_INTERFACE_H_
+#endif  // #ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_ALLOCATOR_INTERFACE_H_

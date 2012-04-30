@@ -1,7 +1,7 @@
 // ==========================================================================
 //                 SeqAn - The Library for Sequence Analysis
 // ==========================================================================
-// Copyright (c) 2006-2010, Knut Reinert, FU Berlin
+// Copyright (c) 2006-2012, Knut Reinert, FU Berlin
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -36,8 +36,8 @@
 // construction type (simple, non-simple) and storage size.
 // ==========================================================================
 
-#ifndef SEQAN_BASIC_ALPHABET_STORAGE_H_
-#define SEQAN_BASIC_ALPHABET_STORAGE_H_
+#ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_ALPHABET_STORAGE_H_
+#define SEQAN_CORE_INCLUDE_SEQAN_BASIC_ALPHABET_STORAGE_H_
 
 #include <float.h>
 
@@ -46,6 +46,9 @@ namespace seqan {
 // ============================================================================
 // Forwards
 // ============================================================================
+
+template <typename TValue, typename TSpec>
+class SimpleType;
 
 // ============================================================================
 // Tags, Classes, Enums
@@ -64,56 +67,72 @@ typedef wchar_t Unicode;
 // Metafunction BitsPerValue
 // ----------------------------------------------------------------------------
 
-/**
-.Metafunction.BitsPerValue:
-..cat:Basic
-..summary:Number of bits needed to store a value.
-..signature:BitsPerValue<T>::VALUE
-..param.T:A class.
-..returns.param.VALUE:Number of bits needed to store $T$.
-...default:$sizeof<T> * 8$
-..see:Metafunction.ValueSize
-..include:seqan/basic.h
-*/
-
 template <typename TValue>
 struct BitsPerValue
 {
-    enum { VALUE = sizeof(TValue) * 8 };
+    static const unsigned VALUE = sizeof(TValue) * 8;
+    typedef unsigned Type;
 };
 
 template <typename TValue>
 struct BitsPerValue<TValue const> : public BitsPerValue<TValue>
 {};
 
+// template <typename TValue>
+// const unsigned BitsPerValue<TValue>::VALUE = ;
+
 // ----------------------------------------------------------------------------
 // Metafunction ValueSize
 // ----------------------------------------------------------------------------
 
-/**
-.Metafunction.ValueSize:
-..cat:Basic
-..summary:Number of different values a value type object can have.
-..signature:ValueSize<T>::VALUE
-..param.T:A class.
-..returns.param.VALUE:Value size of $T$.
-..remarks
-...text:This function is only defined for integral types like $unsigned int$, $double$ or @Spec.Dna@.
-..see:Metafunction.Value
-..include:seqan/basic.h
-*/
+// TODO(holtgrew): Enable default implementation only for integers? Move to adapt builtins?
 
 template <typename T>
 struct ValueSize
 {
-    enum { VALUE = 1 << BitsPerValue<T>::VALUE };
+    typedef __uint64  Type;
+    static const Type VALUE = (__uint64(1) << BitsPerValue<T>::VALUE);
 };
-template <typename TValue>
-struct ValueSize<TValue const>
-        : public ValueSize<TValue>
+
+template <typename T>
+struct ValueSize<T const> : ValueSize<T>
 {};
 
-// TODO(holtgrew): What is this used for?
+// TODO(holtgrew): Use static assertion to make sure that ValueSize is never called on floating point numbers? Include assertion for __int64 and __uint64?
+
+template <>
+struct ValueSize<__int64>
+{
+    typedef __uint64  Type;
+    static const Type VALUE = 0;
+};
+
+template <>
+struct ValueSize<__uint64>
+{
+    typedef __uint64  Type;
+    static const Type VALUE = 0;
+};
+
+template <>
+struct ValueSize<double>
+{
+    typedef __uint64  Type;
+    static const Type VALUE = 0;
+};
+
+template <>
+struct ValueSize<float>
+{
+    typedef __uint64  Type;
+    static const Type VALUE = 0;
+};
+
+
+// The internal value size is used for alphabets with piggyback qualities,
+// for example Dna5Q.  Here, the public value size is 5 but the internal
+// value size is 256.  
+
 template <typename TValue> 
 struct InternalValueSize_
         : public ValueSize<TValue>
@@ -174,6 +193,7 @@ struct IntegralForValueImpl_
     typedef __int64 Type;
 };
 
+// TODO(holtgrew): Switch to __uint8, __uint16, __uint32?
 template <>
 struct IntegralForValueImpl_<1>
 {
@@ -199,14 +219,46 @@ struct IntegralForValueImpl_<4>
 };
 
 template <typename TValue>
-struct IntegralForValue
-        : IntegralForValueImpl_<BytesPerValue<TValue>::VALUE>
+struct IntegralForValue : IntegralForValueImpl_<BytesPerValue<TValue>::VALUE>
 {};
 
 // ============================================================================
 // Functions
 // ============================================================================
 
+// ----------------------------------------------------------------------------
+// Function ordValue()
+// ----------------------------------------------------------------------------
+
+// TODO(holtgrew): Enable only for integers, move to adapt builtins?
+
+template <typename TValue>
+inline typename ValueSize<TValue>::Type
+ordValue(TValue const & c)
+{
+	return convert<unsigned>(static_cast<typename MakeUnsigned_<TValue>::Type const &>(c));
+}
+
+// The internal ord value is used for alphabets with piggyback qualities.
+
+template <typename TValue>
+inline typename ValueSize<TValue>::Type
+_internalOrdValue(TValue const & c)
+{
+	return ordValue(c);
+}
+
+// ----------------------------------------------------------------------------
+// Function valueSize<T>()
+// ----------------------------------------------------------------------------
+
+template <typename T>
+inline typename ValueSize<T>::Type
+valueSize()
+{
+    return +ValueSize<T>::VALUE;
+}
+
 }  // namespace seqan
 
-#endif  // #ifndef SEQAN_BASIC_ALPHABET_STORAGE_H_
+#endif  // #ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_ALPHABET_STORAGE_H_

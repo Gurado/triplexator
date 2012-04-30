@@ -68,14 +68,14 @@ namespace SEQAN_NAMESPACE_MAIN
             const typename Triplet::T *sa = a.i2.i;
             const typename Triplet::T *sb = b.i2.i;
 
-            SizeType n = Triplet::size;
+            SizeType n = Triplet::SIZE;
             if (a.i1 < n) n = a.i1;
             if (b.i1 < n) n = b.i1;
             for(SizeType i = 0; i < n; i++, ++sa, ++sb) {
                 if (*sa == *sb) continue;
                 return (*sa < *sb)? -1 : 1;
             }
-            if (n < Triplet::size) {
+            if (n < Triplet::SIZE) {
                 return (a.i1 < b.i1)? -1 : 1;
             } else
                 return 0;

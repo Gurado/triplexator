@@ -1,7 +1,7 @@
 // ==========================================================================
 //                 SeqAn - The Library for Sequence Analysis
 // ==========================================================================
-// Copyright (c) 2006-2010, Knut Reinert, FU Berlin
+// Copyright (c) 2006-2012, Knut Reinert, FU Berlin
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -36,8 +36,8 @@
 
 // TODO(holtgrew): What about move construction? Useful for pairs of strings and such. Tricky to implement since ints have no move constructor, for example.
 
-#ifndef SEQAN_BASIC_PAIR_BASE_H_
-#define SEQAN_BASIC_PAIR_BASE_H_
+#ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_PAIR_BASE_H_
+#define SEQAN_CORE_INCLUDE_SEQAN_BASIC_PAIR_BASE_H_
 
 namespace seqan {
 
@@ -169,34 +169,6 @@ template <typename T1, typename T2, typename TSpec>
 struct Spec<Pair<T1, T2, TSpec> >
 {
     typedef TSpec Type;
-};
-
-// ----------------------------------------------------------------------------
-// Metafunction Key
-// ----------------------------------------------------------------------------
-
-// TODO(holtgrew): Is this part of some adaption?
-
-///.Metafunction.Key.param.T.type:Class.Pair
-
-template <typename TKey, typename TObject, typename TSpec>
-struct Key<Pair<TKey, TObject, TSpec> > 
-{
-    typedef TKey Type;
-};
-
-// ----------------------------------------------------------------------------
-// Metafunction Cargo
-// ----------------------------------------------------------------------------
-
-// TODO(holtgrew): Is this part of some adaption?
-
-///.Metafunction.Cargo.param.T.type:Class.Pair
-
-template <typename TKey, typename TCargo, typename TSpec>
-struct Cargo<Pair<TKey, TCargo, TSpec> > 
-{
-    typedef TCargo Type;
 };
 
 // ============================================================================
@@ -386,4 +358,4 @@ operator!=(Pair<L1, L2, LCompression> const & _left,
 
 }  // namespace seqan
 
-#endif  // #ifndef SEQAN_BASIC_PAIR_BASE_H_
+#endif  // #ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_PAIR_BASE_H_

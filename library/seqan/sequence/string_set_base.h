@@ -1037,17 +1037,30 @@ _countNonZeroValues(String<TValue, TSpec> const & me, TPos i)
 // --------------------------------------------------------------------------
 
 template < typename TString >
-inline typename Size<TString>::Type lengthSum(TString const & me) {
+inline typename Size<TString>::Type 
+lengthSum(TString const & me)
+{
     return length(me);
 }
 
 template < typename TString, typename TSpec >
-inline typename Size<TString>::Type lengthSum(StringSet< TString, TSpec > const & me)
+inline typename Value<typename StringSetLimits<StringSet< TString, TSpec > >::Type>::Type 
+lengthSum(StringSet< TString, TSpec > & me)
 {
     if (!_validStringSetLimits(me))
         _refreshStringSetLimits(me);
     return back(stringSetLimits(me));
 }
+
+template < typename TString, typename TSpec >
+inline typename Value<typename StringSetLimits<StringSet< TString, TSpec > >::Type>::Type 
+lengthSum(StringSet< TString, TSpec > const & me)
+{
+    if (!_validStringSetLimits(me))
+        _refreshStringSetLimits(me);
+    return back(stringSetLimits(me));
+}
+
 
 // --------------------------------------------------------------------------
 // Function length()

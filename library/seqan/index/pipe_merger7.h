@@ -141,7 +141,7 @@ namespace SEQAN_NAMESPACE_MAIN
         {
             typedef typename T2::T SizeType;
             int shft = SkewShift_<7>::VALUE[a.stream][b.stream];
-            typename T3::CT mask = ~((1 << ((_size - shft) * T3::bitSize)) - 1);
+            typename T3::CT mask = ~((1 << ((_size - shft) * T3::BIT_SIZE)) - 1);
 
             if ((a.i.i3.i & mask) < (b.i.i3.i & mask)) return false;
             if ((a.i.i3.i & mask) > (b.i.i3.i & mask)) return true;
@@ -220,7 +220,7 @@ namespace SEQAN_NAMESPACE_MAIN
 			typedef typename InType0::T3 CharTuple;
             memcpy(&dst.i.i2, &src.i2, sizeof(T2));
             dst.i.i3 = src.i3;
-            dst.i.i3 <<= CharTuple::size - _size;
+            dst.i.i3 <<= CharTuple::SIZE - _size;
         }
 
         inline typename Value<Pipe>::Type const operator*() {
@@ -361,7 +361,7 @@ namespace SEQAN_NAMESPACE_MAIN
             memcpy(&dst.i.i1, &src.i1, sizeof(T1));
             memcpy(&dst.i.i2, &src.i2, sizeof(T2));
             dst.i.i3 = src.i3;
-            dst.i.i3 <<= CharTuple::size - _size;
+            dst.i.i3 <<= CharTuple::SIZE - _size;
         }
 
         inline typename Value<Pipe>::Type const operator*() {

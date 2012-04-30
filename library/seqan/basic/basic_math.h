@@ -1,7 +1,7 @@
 // ==========================================================================
 //                 SeqAn - The Library for Sequence Analysis
 // ==========================================================================
-// Copyright (c) 2006-2010, Knut Reinert, FU Berlin
+// Copyright (c) 2006-2012, Knut Reinert, FU Berlin
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -29,176 +29,30 @@
 // DAMAGE.
 //
 // ==========================================================================
-// Author: Andres Gogol-Döring <andreas.doering@mdc-berlin.de>
+// Author: Manuel Holtgrewe <manuel.holtgrewe@fu-berlin.de>
 // ==========================================================================
-// Math-related utility routines.
+// Facade header for the basic/math sub module.
 // ==========================================================================
 
-#ifndef SEQAN_BASIC_BASIC_MATH_H_
-#define SEQAN_BASIC_BASIC_MATH_H_
+#ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_BASIC_MATH_H_
+#define SEQAN_CORE_INCLUDE_SEQAN_BASIC_BASIC_MATH_H_
 
-namespace seqan {
+// --------------------------------------------------------------------------
+// Dependencies
+// --------------------------------------------------------------------------
 
-// ============================================================================
-// Forwards
-// ============================================================================
+#include <cmath>
+#include <seqan/platform.h>
 
-// ============================================================================
-// Tags, Classes, Enums
-// ============================================================================
+#include <seqan/basic/basic_fundamental.h>
+#include <seqan/basic/basic_concept.h>
 
-// ============================================================================
-// Metafunctions
-// ============================================================================
+// --------------------------------------------------------------------------
+// Sub Module Headers
+// --------------------------------------------------------------------------
 
-// ============================================================================
-// Functions
-// ============================================================================
+#include <seqan/basic/math_functions.h>
+#include <seqan/basic/math_log_space_value.h>
 
-// ----------------------------------------------------------------------------
-// Function _intPow()
-// ----------------------------------------------------------------------------
-
-// TODO(holtgrew): Document and make public.
-
-template <typename TValue, typename TExponent>
-inline TValue _intPow(TValue a, TExponent b)
-{
-    SEQAN_CHECKPOINT;
-    TValue ret = 1;
-    while (b != 0) {
-        if (b & 1) ret *= a;
-        a *= a;
-        b >>= 1;
-    }   
-    return ret;
-}
-
-// ----------------------------------------------------------------------------
-// Function log2()
-// ----------------------------------------------------------------------------
-
-/**
-.Function.log2:
-..cat:Miscellaneous
-..summary:Computes floored logarithm of base 2 for integer types
-..signature:unsigned int log2(i)
-..param.i:An integer type.
-..returns:The largest integer smaller or equal than
-the logarithm of $i$.
-..include:seqan/basic.h
-*/
-
-// TODO(holtgrew): Should this maybe called log2floor for consistency with Log2Floor<>::VALUE?
-
-template <int BITS_MAX>
-struct Log2Impl_
-{
-    template <typename T>
-    static inline unsigned int
-    log2(T val, unsigned int offset)
-    {
-        unsigned int val2 = val >> (BITS_MAX / 2);
-        if (val2)
-        {
-            val = val2;
-            offset += BITS_MAX / 2;
-        }
-        return Log2Impl_<BITS_MAX / 2>::log2(val, offset);
-    }
-};
-
-template <>
-struct Log2Impl_<1>
-{
-    template <typename T>
-    static inline unsigned int
-    log2(T /*val*/, unsigned int offset)
-    {
-        return offset;
-    }
-};
-
-template <typename T>
-inline unsigned int
-log2(T val)
-{
-    enum
-    {
-//      BITS_PER_VALUE = BitsPerValue<T>::VALUE //  TODO(holtgrew): portable bits-per-char!
-        BITS_PER_VALUE = sizeof(T) * 8
-    };
-
-    return Log2Impl_<BITS_PER_VALUE>::log2(val, 0);
-}
-
-// ----------------------------------------------------------------------------
-// Function _min()
-// ----------------------------------------------------------------------------
-
-// TODO(holtgrew): Subject to removal.  http://trac.mi.fu-berlin.de/seqan/ticket/855
-
-// to avoid conflicts with non-standard macros and namespaces
-// we define our own Min/Max functions
-
-template<typename Tx_> inline
-const Tx_& _min(const Tx_& _Left, const Tx_& Right_)
-{   // return smaller of _Left and Right_
-    if (_Left < Right_)
-        return _Left;
-    else
-        return Right_;
-}
-
-template<typename Tx_, typename Ty_> inline
-Tx_ _min(const Tx_& _Left, const Ty_& Right_)
-{   // return smaller of _Left and Right_
-    return (Right_ < _Left ? Right_ : _Left);
-}
-
-// ----------------------------------------------------------------------------
-// Function _max()
-// ----------------------------------------------------------------------------
-
-// TODO(holtgrew): Subject to removal.  http://trac.mi.fu-berlin.de/seqan/ticket/855
-
-// to avoid conflicts with non-standard macros and namespaces
-// we define our own Min/Max functions
-
-template<typename Ty_>
-inline Ty_ const &
-_max(const Ty_& _Left, const Ty_& Right_)
-{   // return larger of _Left and Right_
-    if (_Left < Right_)
-        return Right_;
-    else
-        return _Left;
-}
-
-template<typename Tx_, typename Ty_>
-inline Tx_
-_max(const Tx_& _Left, const Ty_& Right_)
-{   // return smaller of _Left and Right_
-    return (Right_ < _Left ? _Left : Right_);
-}
-
-// ----------------------------------------------------------------------------
-// Function _abs()
-// ----------------------------------------------------------------------------
-
-// TODO(holtgrew): Make public, document.  This is here since cmath's abs is only defined for floats/doubles.
-
-template <typename T>
-inline
-T _abs(T const & x)
-{
-    if (x < static_cast<T>(0))
-        return -x;
-    else
-        return x;
-}
-
-}  // namespace seqan
-
-#endif  // #ifndef SEQAN_BASIC_BASIC_MATH_H_
+#endif  // #ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_BASIC_MATH_H_
 

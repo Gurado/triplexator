@@ -162,6 +162,48 @@ struct IsSequence< TValue const [SIZE] >
     enum { VALUE = true };
 };
 
+// ----------------------------------------------------------------------------
+// Metafunction Iterator
+// ----------------------------------------------------------------------------
+
+///.Metafunction.Iterator.param.T.type:Adaption.char array
+
+template <typename TValue>
+struct Iterator<TValue *, Standard>
+{
+    typedef TValue * Type;
+};
+
+template <typename TValue>
+struct Iterator<TValue * const, Standard>
+{
+    typedef TValue * Type;
+};
+
+template <typename TValue, size_t SIZE>
+struct Iterator<TValue [SIZE], Standard>
+        : Iterator<TValue *, Standard>
+{
+};
+
+template <typename TValue, size_t SIZE>
+struct Iterator<TValue const [SIZE], Standard>
+        : Iterator<TValue const *, Standard>
+{
+};
+
+template <typename TValue, size_t SIZE>
+struct Iterator<TValue [SIZE], Rooted>
+        : Iterator<TValue *, Rooted>
+{
+};
+
+template <typename TValue, size_t SIZE>
+struct Iterator<TValue const [SIZE], Rooted>
+        : Iterator<TValue const *, Rooted>
+{
+};
+
 // ===========================================================================
 // Functions
 // ===========================================================================
@@ -441,7 +483,7 @@ SEQAN_CHECKPOINT
 //overload of binary version for strings:
 
 template<typename TTargetValue, typename TSource>
-inline typename EnableIf<IsCharType<TTargetValue>::VALUE>::Type
+inline typename EnableIf<IsCharType<TTargetValue> >::Type
 assign(TTargetValue * target,
        TSource & source)
 {
@@ -450,7 +492,7 @@ SEQAN_CHECKPOINT
     assign(target, source, typename DefaultOverflowImplicit<TTarget>::Type());
 }
 template<typename TTargetValue, typename TSource>
-inline typename EnableIf<IsCharType<TTargetValue>::VALUE>::Type
+inline typename EnableIf<IsCharType<TTargetValue> >::Type
 assign(TTargetValue * target,
        TSource const & source)
 {

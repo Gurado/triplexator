@@ -249,7 +249,7 @@ struct SeedScore<Seed<TSpec, TConfig> const>
 .Function.getLowerDiagonal:
 ..summary: Returns the most left diagonal of the seed (maximum diagonal value).
 ..cat:Seed Handling
-..signature:lowerDiagonal(seed)
+..signature:getLowerDiagonal(seed)
 ..param.seed:The seed whose database position should be returned.
 ...type:Class.Seed
 ..returns:The most left diagonal.
@@ -267,7 +267,7 @@ getLowerDiagonal(Seed<TSpec, TConfig> const & seed)
 .Function.setLowerDiagonal:
 ..summary: Sets a new value for the most left diagonal.
 ..cat:Seed Handling
-..signature:setLeftDiagonal(seed, diag)
+..signature:setLowerDiagonal(seed, diag)
 ..param.seed:The seed whose left diagonal value should be updated.
 ...type:Class.Seed
 ..param.diag:The new value for the most left diagonal.
@@ -286,7 +286,7 @@ setLowerDiagonal(Seed<TSpec, TConfig> & seed,
 .Function.getUpperDiagonal:
 ..summary: Returns the most right diagonal of the seed (minimum diagonal value).
 ..cat:Seed Handling
-..signature:upperDiagonal(seed)
+..signature:getUpperDiagonal(seed)
 ..param.seed:The seed whose database position should be returned.
 ...type:Class.Seed
 ..returns:The most right diagonal.
@@ -304,7 +304,7 @@ getUpperDiagonal(Seed<TSpec, TConfig> const & seed)
 .Function.setUpperDiagonal:
 ..summary: Sets a new value for the most right diagonal.
 ..cat:Seed Handling
-..signature:setRightDiagonal(seed, diag)
+..signature:setUpperDiagonal(seed, diag)
 ..param.seed:The seed whose right diagonal value should be updated.
 ...type:Class.Seed
 ..param.diag:The new value for the most right diagonal.

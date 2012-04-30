@@ -3796,7 +3796,7 @@ namespace SEQAN_NAMESPACE_MAIN
 		typedef Map<Pair<TPotKey, TPotPair>, Skiplist<> >			TPotentials;
 		
 		typedef Repeat<unsigned, unsigned>							TRepeat;
-		typedef std::list<TRepeat>									TRepeatString; //@TODO workaround for memory leak in seqan string
+		typedef String<TRepeat>										TRepeatString; 
 		typedef typename Iterator<TRepeatString, Rooted>::Type		TRepeatIterator;
 		
 		// open duplex file
@@ -3885,7 +3885,7 @@ namespace SEQAN_NAMESPACE_MAIN
 		typedef Map<Pair<TPotKey, TPotPair>, Skiplist<> >			TPotentials;
 		
 		typedef Repeat<unsigned, unsigned>							TRepeat;
-		typedef std::list<TRepeat>									TRepeatString; //@TODO workaround for memory leak in seqan string
+		typedef String<TRepeat>										TRepeatString; 
 		typedef typename Iterator<TRepeatString, Rooted>::Type		TRepeatIterator;
 		
 		// open duplex file
@@ -3975,7 +3975,7 @@ namespace SEQAN_NAMESPACE_MAIN
 		typedef Triple<TId, CharString, TDuplex>				TSeq;
 		typedef ::std::vector<TSeq>								TDataContainer;
 		typedef Repeat<unsigned, unsigned>						TRepeat;
-		typedef std::list<TRepeat>								TRepeatString; //@TODO workaround for memory leak in seqan string
+		typedef String<TRepeat>									TRepeatString; 
 		typedef typename Iterator<TRepeatString, Rooted>::Type	TRepeatIterator;
 		
 		TDataContainer data;

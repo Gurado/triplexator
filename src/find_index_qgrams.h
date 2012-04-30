@@ -70,16 +70,16 @@ namespace SEQAN_NAMESPACE_MAIN
 	class Finder<THaystack, QGramsLookup<TShape, TSpec> >
 	{
 	public:
-		typedef typename Iterator<THaystack, Rooted>::Type			TIterator;
-		typedef typename Position<THaystack>::Type					THstkPos;
-		typedef typename MakeSigned_<THstkPos>::Type				TDiag;
-		typedef _QGramHit<TSpec, THstkPos, TDiag>					TQGramHit;
-		typedef std::list<TQGramHit>								THitString; //@TODO workaround for memory leak in seqan string
-		typedef typename Iterator<THitString, Rooted>::Type			THitIterator;
-		typedef typename SAValue<THaystack>::Type					TSAValue;
-		typedef Repeat<TSAValue, unsigned>							TRepeat;
-		typedef std::list<TRepeat>									TRepeatString; //@TODO workaround for memory leak in seqan string
-		typedef typename Iterator<TRepeatString, Rooted>::Type		TRepeatIterator;
+		typedef typename Iterator<THaystack, Rooted>::Type		TIterator;
+		typedef typename Position<THaystack>::Type				THstkPos;
+		typedef typename MakeSigned_<THstkPos>::Type			TDiag;
+		typedef _QGramHit<TSpec, THstkPos, TDiag>				TQGramHit;
+		typedef std::list<TQGramHit>							THitString; //@TODO workaround for memory leak in seqan string
+		typedef typename Iterator<THitString, Rooted>::Type		THitIterator;
+		typedef typename SAValue<THaystack>::Type				TSAValue;
+		typedef Repeat<TSAValue, unsigned>						TRepeat;
+		typedef String<TRepeat>									TRepeatString;
+		typedef typename Iterator<TRepeatString, Rooted>::Type	TRepeatIterator;
 		
 		TIterator		data_iterator;
 		TIterator		haystackEnd;

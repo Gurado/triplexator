@@ -1,7 +1,7 @@
 // ==========================================================================
 //                 SeqAn - The Library for Sequence Analysis
 // ==========================================================================
-// Copyright (c) 2006-2010, Knut Reinert, FU Berlin
+// Copyright (c) 2006-2012, Knut Reinert, FU Berlin
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -36,8 +36,8 @@
 
 // TODO(holtgrew): What about move construction? Useful for pairs of strings and such. Tricky to implement since ints have no move constructor, for example.
 
-#ifndef SEQAN_BASIC_TUPLE_BASE_H_
-#define SEQAN_BASIC_TUPLE_BASE_H_
+#ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_TUPLE_BASE_H_
+#define SEQAN_CORE_INCLUDE_SEQAN_BASIC_TUPLE_BASE_H_
 
 namespace seqan {
 
@@ -67,7 +67,7 @@ template <typename T_, unsigned _size, typename TSpec = void>
 struct Tuple
 {
     typedef T_ T;
-    enum { size = _size };
+    static const unsigned SIZE;
 
     // -----------------------------------------------------------------------
     // Members
@@ -86,7 +86,7 @@ struct Tuple
     operator[](TPos k)
     {
         SEQAN_ASSERT_GEQ(static_cast<__int64>(k), 0);
-        SEQAN_ASSERT_LT(static_cast<__int64>(k), static_cast<__int64>(size));
+        SEQAN_ASSERT_LT(static_cast<__int64>(k), static_cast<__int64>(SIZE));
         return i[k];
     }
 
@@ -95,7 +95,7 @@ struct Tuple
     operator[](TPos k) const
     {
         SEQAN_ASSERT_GEQ(static_cast<__int64>(k), 0);
-        SEQAN_ASSERT_LT(static_cast<__int64>(k), static_cast<__int64>(size));
+        SEQAN_ASSERT_LT(static_cast<__int64>(k), static_cast<__int64>(SIZE));
         return i[k];
         
     }
@@ -117,6 +117,9 @@ struct Tuple
         return i[k] = source;
     }
 };
+
+template <typename T_, unsigned _size, typename TSpec>
+const unsigned Tuple<T_, _size, TSpec>::SIZE = _size;
 
 // ============================================================================
 // Metafunctions
@@ -170,9 +173,9 @@ template <typename T_, unsigned _size, typename TSpec>
 inline std::ostream &
 operator<<(std::ostream & out, Tuple<T_,_size,TSpec> const &a) {
     out << "[";
-    if (a.size > 0)
+    if (a.SIZE > 0)
             out << a[0];
-    for(unsigned j = 1; j < a.size; ++j)
+    for(unsigned j = 1; j < a.SIZE; ++j)
         out << " " << a[j];
     out << "]";
     return out;
@@ -379,7 +382,7 @@ inline unsigned length(Tuple<T_, _size, TSpec> const &)
 template <typename T_, unsigned _size, typename TSpec>
 inline void clear(Tuple<T_, _size, TSpec> & me)
 {
-    memset<sizeof(me.i), 0>(&(me.i));
+   memset<sizeof(me.i), 0>(&(me.i));
 }
 
 // -----------------------------------------------------------------------
@@ -522,4 +525,4 @@ operator>=(Tuple<T_, _size, TSpec> const & _left,
 
 }  // namespace seqan
 
-#endif  // #ifndef SEQAN_BASIC_TUPLE_BASE_H_
+#endif  // #ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_TUPLE_BASE_H_

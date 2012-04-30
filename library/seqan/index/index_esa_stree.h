@@ -161,7 +161,7 @@ The iterator starts in the root node by default.
 ..param.TContainer:Type of the container that can be iterated.
 ...type:Spec.IndexEsa
 ...metafunction:Metafunction.Container
-..implements:Concept.Iterator
+..implements:Concept.ForwardIteratorConcept
 ..param.TSpec:The specialization type. Specifies the depth-first search mode.
 ...type:Tag.Preorder
 ...type:Tag.PreorderEmptyEdges
@@ -247,7 +247,7 @@ Depending on the depth-first search mode the root is not the first DFS node. To 
 ..param.TContainer:Type of the container that can be iterated.
 ...type:Spec.IndexEsa
 ...metafunction:Metafunction.Container
-..implements:Concept.Iterator
+..implements:Concept.ForwardIteratorConcept
 ..param.TSpec:The specialization type.
 ..include:seqan/index.h
 
@@ -876,7 +876,7 @@ If $iterator$'s container type is $TIndex$ the return type is $Infix<Fibre<TInde
 /**
 .Function.alignment:
 ..summary:Returns an alignment of the occurences of the @Function.representative@ substring in the index text.
-..cat:Index
+..cat:internal
 ..signature:alignment(iterator)
 ..param.iterator:An iterator of a suffix tree.
 ...type:Spec.VSTree Iterator
@@ -1010,6 +1010,26 @@ If $iterator$'s container type is $TIndex$ the return type is $Infix<Fibre<TInde
 ..returns:The number of children of a tree node.
 If $iterator$'s container type is $TIndex$, the return type is $Size<TIndex>::Type$.
 ..include:seqan/index.h
+..example.code:
+ 
+ // this code is in seqan/index/index_esa_stree.h
+ 
+ typedef Index< String<char> > TMyIndex;
+ TMyIndex myIndex(myString);
+ 
+ Iterator< TMyIndex, TopDown<ParentLinks<PreorderEmptyEdges> > >::Type tdIterator(myIndex);
+ Size<TMyIndex>::Type count;
+ 
+ while (!atEnd(tdIterator)) {
+ // We print out the representatives of all nodes that have more than 3 children and the number of occurrences.
+ count = countChildren(tdIterator);
+ if (count >= 3)
+ {
+     ::std::cout << "Representative " << representative(tdIterator) << " has " <<  count << " children  and " << countOccurrences(tdIterator) << " Occurrences " << ::std::endl;
+ 
+     ++tdIterator;
+ }
+
 */
 
 	template < typename TIndex, typename TSpec >
@@ -2152,7 +2172,7 @@ If $iterator$'s container type is $TIndex$ the return type is $Infix<Fibre<TInde
 	}
 
 /**
-.Function.Index#isLeaf:
+.Function.isLeaf:
 ..summary:Test whether iterator points to a leaf.
 ..cat:Index
 ..signature:bool isLeaf(iterator)

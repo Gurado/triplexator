@@ -1,7 +1,7 @@
 // ==========================================================================
 //                 SeqAn - The Library for Sequence Analysis
 // ==========================================================================
-// Copyright (c) 2006-2010, Knut Reinert, FU Berlin
+// Copyright (c) 2006-2012, Knut Reinert, FU Berlin
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -32,13 +32,16 @@
 // Author: Andreas Gogol-Doering <andreas.doering@mdc-berlin.de>
 // Author: Manuel Holtgrewe <manuel.holtgrewe@fu-berlin.de>
 // ==========================================================================
-// Alphabet concepts stemming from mathematics.
+// Math functions for alphabets.
 // ==========================================================================
 
+#include <climits>
 #include <float.h>
 
 #ifndef SEQAN_BASIC_ALPHABET_MATH_H_
 #define SEQAN_BASIC_ALPHABET_MATH_H_
+
+// TODO(holtgrew): Move actual implementations to alphabet_adapt_builtins. IF POSSIBLE
 
 namespace seqan {
 
@@ -50,16 +53,6 @@ namespace seqan {
 // Tags, Classes, Enums
 // ============================================================================
 
-/**
-.Concept.Alphabet Finite Total Ordered
-..summary:An type that is of finite domain and totally ordered and thus has a minimum and maximum value.
-
-.Function.minValue.concept:Concept.Alphabet Finite Total Ordered
-.Function.infimumValueImpl.concept:Concept.Alphabet Finite Total Ordered
-.Function.maxValue.concept:Concept.Alphabet Finite Total Ordered
-.Function.supremumValueImpl.concept:Concept.Alphabet Finite Total Ordered
- */
-
 // ============================================================================
 // Metafunctions
 // ============================================================================
@@ -67,18 +60,6 @@ namespace seqan {
 // ----------------------------------------------------------------------------
 // Metafunction MaxValue
 // ----------------------------------------------------------------------------
-
-/**
-.Metafunction.MaxValue:
-..cat:Miscellaneous
-..summary:Supremum for a given type.
-..signature:MaxValue<T>::VALUE
-..param.T:An ordered type.
-..returns.param.VALUE:A value $sup$ for which holds: $sup >= i$ for all values $i$ of type $T$.
-..remarks:Note tat
-..see:Function.maxValue
-..include:seqan/basic.h
- */
 
 template <typename T>
 struct MaximumValueUnsigned_ { static const T VALUE; };
@@ -99,15 +80,26 @@ const float MaximumValueFloat_<T>::VALUE = FLT_MAX;
 template <typename T>
 const double MaximumValueDouble_<T>::VALUE = DBL_MAX;
 
+template <>
+struct MaximumValueSigned_<bool>
+{
+    static const bool VALUE = true;
+};
+
+// template <>
+// const char MaximumValueUnsigned_<char>::VALUE = CHAR_MAX;
+// template <>
+// const char MaximumValueSigned_<char>::VALUE = CHAR_MAX;
+
 template <
     typename T,
-    typename TParent = typename If<
+    typename TParent = typename IfC<
       IsSameType<double, T>::VALUE,
       MaximumValueDouble_<>,
-      typename If<
+      typename IfC<
       IsSameType<float, T>::VALUE,
       MaximumValueFloat_<>,
-      typename If<
+      typename IfC<
         IsSameType< typename MakeSigned_<T>::Type, T >::VALUE,
         MaximumValueSigned_<T>,
         MaximumValueUnsigned_<T>
@@ -115,26 +107,20 @@ template <
       >::Type
     >::Type
   >
-struct MaxValue : TParent {};
+struct MaxValue_ : TParent {};
+
+// We use two levels here, so we can forward declare MaxValue with one
+// template parameter.
+
+template <typename T>
+struct MaxValue : MaxValue_<T> {};
 
 // ----------------------------------------------------------------------------
 // Metafunction MinValue
 // ----------------------------------------------------------------------------
 
-/**
-.Metafunction.MinValue:
-..cat:Miscellaneous
-..summary:Infimum for a given type.
-..signature:MinValue<T>::VALUE
-..param.T:An ordered type.
-..returns.param.VALUE:A value $inf$ for which holds: $inf <= i$ for all values $i$ of type $T$.
-..remarks:Note tat
-..see:Function.minValue
-..include:seqan/basic.h
- */
-
 template <typename T>
-struct MinimumValueUnsigned_ {  static const T VALUE; };
+struct MinimumValueUnsigned_ { static const T VALUE; };
 template <typename T>
 struct MinimumValueSigned_ { static const T VALUE; };
 
@@ -144,7 +130,7 @@ template <typename T = void>
 struct MinimumValueDouble_ { static const double VALUE; };
 
 template <typename T>
-const T MinimumValueUnsigned_<T>::VALUE = 0;
+const T MinimumValueUnsigned_<T>::VALUE = T(0);
 template <typename T>
 const T MinimumValueSigned_<T>::VALUE = ~(T)MaximumValueSigned_<T>::VALUE;
 template <typename T>
@@ -152,15 +138,26 @@ const float MinimumValueFloat_<T>::VALUE = -FLT_MAX;
 template <typename T>
 const double MinimumValueDouble_<T>::VALUE = -DBL_MAX;
 
+template <>
+struct MinimumValueSigned_<bool>
+{
+    static const bool VALUE = false;
+};
+
+// template <>
+// const char MinimumValueUnsigned_<char>::VALUE = 0;
+// template <>
+// const char MinimumValueSigned_<char>::VALUE = 0;
+
 template <
     typename T,
-    typename TParent = typename If<
+    typename TParent = typename IfC<
       IsSameType<double, T>::VALUE,
       MinimumValueDouble_<>,
-      typename If<
+      typename IfC<
       IsSameType<float, T>::VALUE,
       MinimumValueFloat_<>,
-      typename If<
+      typename IfC<
         IsSameType< typename MakeSigned_<T>::Type, T >::VALUE,
         MinimumValueSigned_<T>,
         MinimumValueUnsigned_<T>
@@ -168,7 +165,13 @@ template <
       >::Type
     >::Type
   >
-struct MinValue : TParent {};
+struct MinValue_ : TParent {};
+
+// We use two levels here, so we can forward declare MinValue with one
+// template parameter.
+
+template <typename T>
+struct MinValue : MinValue_<T> {};
 
 // ============================================================================
 // Functions
@@ -178,38 +181,13 @@ struct MinValue : TParent {};
 // Function supremumValueImpl
 // ----------------------------------------------------------------------------
 
-/**
-.Function.supremumValueImpl:
-..hidefromindex
-..cat:Alphabets
-..summary:Implements @Function.maxValue@.
-..signature:supremumValueImpl(value_pointer_tag)
-..param.value_pointer_tag:A pointer that is used as a tag to specify the value type.
-...remarks:The pointer needs not to point to a valid object, so it is possible to use a null pointer here.
-..returns:A value $inf$ that holds: $inf >= i$ for all values $i$.
-..remarks.text:This function implements @Function.maxValue@. 
-It is recommended to use @Function.maxValue@ rather than $supremumValueImpl$.
-..status:deprecated, will be removed in favour of @Metafunction.MaxValue@
-..include:seqan/basic.h
-*/
+template <typename T> inline T const & supremumValueImpl(T *);
 
 // ----------------------------------------------------------------------------
 // Function maxValue
 // ----------------------------------------------------------------------------
 
-/**
-.Function.maxValue:
-..cat:Alphabets
-..summary:Supremum for a given type.
-..signature:maxValue<T>()
-..param.T:An ordered type.
-..returns:A value $inf$ that holds: $inf >= i$ for all values $i$ of type $T$.
-..remarks.text:The function is implemented in @Function.supremumValueImpl@. 
-Do not specialize $maxValue$, specialize @Function.supremumValueImpl@ instead!
-..see:Function.supremumValueImpl
-..status:deprecated, will be removed in favour of @Metafunction.MaxValue@
-..include:seqan/basic.h
-*/
+// Forward to supremumValueImpl() only.
 
 template <typename T>
 inline T const &
@@ -222,7 +200,7 @@ maxValue()
 
 template <typename T>
 inline T const &
-maxValue(T)
+maxValue(T /*tag*/)
 {
     SEQAN_CHECKPOINT;
     T * _tag = 0;
@@ -233,41 +211,13 @@ maxValue(T)
 // Function infimumValueImpl
 // ----------------------------------------------------------------------------
 
-// TODO(holtgrew): Rename to minValueImpl!
-
-/**
-.Function.infimumValueImpl:
-..hidefromindex
-..cat:Alphabets
-..summary:Implements @Function.minValue@.
-..signature:infimumValueImpl(value_pointer_tag)
-..param.value_pointer_tag:A pointer that is used as a tag to specify the value type.
-...remarks:The pointer needs not to point to a valid object, so it is possible to use a null pointer here.
-..returns:A value $inf$ that holds: $inf <= i$ for all values $i$.
-..remarks.text:This function implements @Function.minValue@. 
-It is recommended to use @Function.minValue@ rather than $infimumValueImpl$.
-..status:deprecated, will be removed in favour of @Metafunction.MinValue@
-..include:seqan/basic.h
-*/
+template <typename T> inline T const & infimumValueImpl(T *);
 
 // ----------------------------------------------------------------------------
 // Function minValue
 // ----------------------------------------------------------------------------
 
-/**
-.Function.minValue:
-..cat:Alphabets
-..summary:Infimum for a given type.
-..signature:minValue<T>()
-..param.T:An ordered type.
-..returns:A value $inf$ that holds: $inf <= i$ for all values $i$ of type $T$.
-..remarks.text:The function is implemented in @Function.infimumValueImpl@. 
-Do not specialize $minValue$, specialize @Function.infimumValueImpl@ instead!
-..see:Function.infimumValueImpl
-..see:Function.maxValue
-..status:deprecated, will be removed in favour of @Metafunction.MinValue@
-..include:seqan/basic.h
-*/
+// Forward to infimumValueImpl() only.
 
 template <typename T>
 inline T const &
@@ -280,7 +230,7 @@ minValue()
 
 template <typename T>
 inline T const &
-minValue(T)
+minValue(T /*tag*/)
 {
     SEQAN_CHECKPOINT;
     T * _tag = 0;

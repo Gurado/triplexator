@@ -46,6 +46,7 @@ struct SVGFile
 	std::fstream file;
 
 	Pair<int> cursor;
+    Pair<int> size;
 	String<CharString> style;
 	
 	int dpSequence;
@@ -68,13 +69,15 @@ struct SVGFile
 	friend inline bool close(SVGFile &svg);
 	
 	SVGFile():
-		cursor(0,0) 
+		cursor(0,0),
+        size(0,0)
 	{
 		resetStyles();
 	}
 
 	SVGFile(char const *fileName):
-		cursor(0,0) 
+		cursor(0,0),
+        size(0,0)
 	{
 		resetStyles();
 		open(*this, fileName);
@@ -117,6 +120,12 @@ private:
 	}
 };
 
+inline void svgResize(SVGFile &svg, int width, int height)
+{
+    svg.size.i1 = width;
+    svg.size.i2 = height;
+}
+
 inline void svgWriteHeader(SVGFile &svg)
 {
 	svg.file << "<?xml version=\"1.0\"?>" << std::endl;
@@ -125,7 +134,12 @@ inline void svgWriteHeader(SVGFile &svg)
 	svg.file << std::endl;
 	svg.file << "<svg version=\"1.1\"" << std::endl;
 	svg.file << "    xmlns=\"http://www.w3.org/2000/svg\"" << std::endl;
-	svg.file << "    xmlns:xlink=\"http://www.w3.org/1999/xlink\">" << std::endl;
+	svg.file << "    xmlns:xlink=\"http://www.w3.org/1999/xlink\"" << std::endl;
+    if (svg.size.i1 != 0)
+    {
+        svg.file << "    width=\"" << svg.size.i1 * 20 << "px\" height=\"" << svg.size.i2 * 20 << "px\"" << std::endl;
+    }
+    svg.file << ">" << std::endl;
     svg.file << "<defs>" << std::endl;
 
 	// trace back arrow markers

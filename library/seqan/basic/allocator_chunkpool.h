@@ -1,7 +1,7 @@
 // ==========================================================================
 //                 SeqAn - The Library for Sequence Analysis
 // ==========================================================================
-// Copyright (c) 2006-2010, Knut Reinert, FU Berlin
+// Copyright (c) 2006-2012, Knut Reinert, FU Berlin
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -35,8 +35,10 @@
 // size.
 // ==========================================================================
 
-#ifndef SEQAN_BASIC_BASIC_ALLOCATOR_CHUNKPOOL_H_
-#define SEQAN_BASIC_BASIC_ALLOCATOR_CHUNKPOOL_H_
+#ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_ALLOCATOR_CHUNKPOOL_H_
+#define SEQAN_CORE_INCLUDE_SEQAN_BASIC_ALLOCATOR_CHUNKPOOL_H_
+
+#include <seqan/basic/allocator_interface.h>
 
 namespace seqan {
 
@@ -94,7 +96,7 @@ struct Allocator<ChunkPool<SIZE, MAX_COUNT, TParentAllocator> >
     char * data_current_begin;
     char * data_current_end;
     char * data_current_free;
-    Holder<TParentAllocator> data_parent_allocator;
+    Holder<TParentAllocator, Tristate> data_parent_allocator;
 
     Allocator()
     {
@@ -273,4 +275,4 @@ deallocate(Allocator<ChunkPool<SIZE, MAX_COUNT, TParentAllocator> > & me,
 
 }  // namespace seqan
 
-#endif  // SEQAN_BASIC_BASIC_ALLOCATOR_CHUNKPOOL_H_
+#endif  // SEQAN_CORE_INCLUDE_SEQAN_BASIC_ALLOCATOR_CHUNKPOOL_H_

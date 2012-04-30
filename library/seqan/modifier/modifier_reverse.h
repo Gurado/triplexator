@@ -54,7 +54,7 @@ namespace SEQAN_NAMESPACE_MAIN
 ..signature:ModifiedIterator<THost, ModReverse>
 ..signature:ModifiedString<THost, ModReverse>
 ..param.THost:Original string/iterator.
-...type:Concept.Iterator
+...type:Concept.RandomAccessIteratorConcept
 ..include:seqan/modifier.h
 */
 

@@ -844,7 +844,7 @@ transitionProbability(Graph<Hmm<TAlphabet, TCargo, TSpec> >&,
 /**
 .Function.assignTransitionProbability:
 ..cat:Graph
-..summary:Assigns a new transition probability.
+..summary:Assigns a new transition probability to an existing edge.
 ..signature:assignTransitionProbability(g, s1, s2, prob)
 ..param.g:A HMM.
 ...type:Spec.Hmm

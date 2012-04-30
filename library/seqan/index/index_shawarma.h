@@ -35,16 +35,23 @@
 #ifndef SEQAN_HEADER_INDEX_SHAWARMA_H
 #define SEQAN_HEADER_INDEX_SHAWARMA_H
 
+// adapt external C libraries
+extern "C" {
+
+    void ds_ssort(unsigned char *t, int *sa, int n);
+    int init_ds_ssort(int adist, int bs_ratio);
+
+}
 
 namespace SEQAN_NAMESPACE_MAIN {
 
-	namespace shawarma {
+/*	namespace shawarma {
 
 		extern void ds_ssort(unsigned char *t, int *sa, int n);
 		extern int init_ds_ssort(int adist, int bs_ratio);
 
 	}
-
+*/
 //////////////////////////////////////////////////////////////////////////////
 // SeqAn interface
 
@@ -67,7 +74,7 @@ namespace SEQAN_NAMESPACE_MAIN {
                typename TText >
     void createSuffixArray(
 		TSA &SA,
-		TText &s,
+		TText const &s,
 		Shawarma<DeepShallow> const)
 	{
 		typedef typename Value<TText>::Type	TValue;
@@ -75,13 +82,13 @@ namespace SEQAN_NAMESPACE_MAIN {
 
 		SEQAN_ASSERT_EQ(sizeof(TValue), sizeof(unsigned char));
 		SEQAN_ASSERT_EQ(sizeof(TSAValue), sizeof(int));
-		SEQAN_ASSERT(IsContiguous<TSA>::VALUE);
+//		SEQAN_ASSERT(IsContiguous<TSA>::VALUE);
 
-		int overshoot = shawarma::init_ds_ssort(500, 2000);
+		int overshoot = init_ds_ssort(500, 2000);
 
 		SEQAN_ASSERT_GT(overshoot, 0);
 		reserve(s, length(s) + overshoot);
-		shawarma::ds_ssort(
+		ds_ssort(
 			(unsigned char*)toCString(s),		// text
 			(int*)begin(SA, Standard()),		// SA
 			length(s));							// n

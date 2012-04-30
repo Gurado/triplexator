@@ -42,6 +42,7 @@
 
 #include <seqan/find.h>
 #include <seqan/misc/misc_set.h>
+#include <seqan/misc/misc_memset.h>
 
 #include <climits>
 #include <functional>
@@ -69,6 +70,18 @@
 #endif  // #ifdef SEQAN_PARALLEL
 
 #include <seqan/index/index_base.h>
+
+//____________________________________________________________________________
+// q-gram index creator
+
+#include <seqan/index/shape_base.h>
+#include <seqan/index/shape_gapped.h>
+#include <seqan/index/shape_onegapped.h>
+#include <seqan/index/shape_predefined.h>
+#include <seqan/index/shape_threshold.h>
+#include <seqan/index/index_qgram.h>
+#include <seqan/index/index_qgram_openaddressing.h>
+//#include <seqan/index/index_qgram_nested.h>
 
 //____________________________________________________________________________
 // suffix array creators
@@ -100,19 +113,6 @@
 
 #include <seqan/index/index_childtab.h>
 #include <seqan/index/index_bwt.h>
-
-//____________________________________________________________________________
-// q-gram index creator
-
-#include <seqan/index/shape_base.h>
-#include <seqan/index/shape_gapped.h>
-#include <seqan/index/shape_onegapped.h>
-#include <seqan/index/shape_predefined.h>
-#include <seqan/index/shape_threshold.h>
-#include <seqan/index/index_qgram.h>
-#include <seqan/index/index_qgram_openaddressing.h>
-//#include <seqan/index/index_qgram_nested.h>
-
 
 //////////////////////////////////////////////////////////////////////////////
 // INDEX USAGE

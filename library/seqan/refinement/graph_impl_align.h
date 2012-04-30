@@ -1314,6 +1314,12 @@ findVertex(Graph<Alignment<TStringSet, TCargo, TSpec> >& g,
 
 //////////////////////////////////////////////////////////////////////////////
 
+/**
+.Function.getProjectedPosition:
+..signature:getProjectedPosition(g,seqId,pos,seqId2,pos2)
+..param.g:An alignment graph.
+...type:Spec.Alignment Graph
+*/
 template<typename TStringSet, typename TCargo, typename TSpec, typename TSeqId, typename TPosition, typename TSeqId2, typename TPosition2> 
 inline void
 getProjectedPosition(Graph<Alignment<TStringSet, TCargo, TSpec> >& g,
@@ -1960,7 +1966,20 @@ _heaviestCommonSubsequence(Graph<Alignment<TStringSet, TCargo, TSpec> > const& g
 
 
 //////////////////////////////////////////////////////////////////////////////
-
+/**
+.Function.heaviestCommonSubsequence:
+..summary:Computes the heaviest common subsequence between two strings using the match information given in an alignment graph.
+..cat:Alignments
+..signature:heaviestCommonSubsequence(g, str1, str2, align)
+..signature:heaviestCommonSubsequence(g, str1, str2)
+..param.g:An alignment graph.
+...type:Spec.Alignment Graph
+..param.str1:A string.
+..param.str2:Another string.
+..param.align:Out-parameter: A String of vertex strings that indicate the members of the heaviest common subsequence.
+..returns:Score of the heaviest common subsequence.
+..include:seqan/graph_algorithms.h
+*/
 template<typename TStringSet, typename TCargo, typename TSpec, typename TString, typename TOutString>
 inline TCargo
 heaviestCommonSubsequence(Graph<Alignment<TStringSet, TCargo, TSpec> > const& g,

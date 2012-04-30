@@ -161,7 +161,7 @@ struct Value<ConcatenatorManyToOne<TStringSet> const >
 template <typename TStringSet>
 struct Size<ConcatenatorManyToOne<TStringSet> >
 {
-    typedef typename Size<typename Value<TStringSet>::Type >::Type Type;
+    typedef typename Value<typename StringSetLimits<TStringSet>::Type >::Type Type;
 };
 
 // --------------------------------------------------------------------------

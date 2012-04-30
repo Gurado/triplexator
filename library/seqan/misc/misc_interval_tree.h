@@ -711,7 +711,7 @@ SEQAN_CHECKPOINT
 
 
 
-//internal set functions
+// internal set node functions
 template<typename TValue, typename TInterval>
 void
 _setIntervalTreeNode(IntervalTreeNode<TInterval,StoreIntervals> & knot,TValue center,TInterval & interval)
@@ -724,6 +724,7 @@ SEQAN_CHECKPOINT
 
 }
 
+// append intervals to lists in node knot
 template<typename TInterval>
 void
 _appendIntervalTreeNodeLists(IntervalTreeNode<TInterval,StoreIntervals> & knot,TInterval & interval)
@@ -736,7 +737,7 @@ SEQAN_CHECKPOINT
 }
 
 
-//internal set functions
+//internal set node functions
 template<typename TValue, typename TInterval>
 void
 _setIntervalTreeNode(IntervalTreeNode<TInterval,StorePointsOnly> & knot,TValue center,TInterval & interval)
@@ -858,6 +859,7 @@ SEQAN_CHECKPOINT
 
         String<TInterval*> interval_pointers;
         resize(interval_pointers,length(intervals));
+        // interval tree stores pointers to intervals, not original intervals
         _makePointerInterval(intervals,interval_pointers);
 
         _createIntervalTree(g,pm,interval_pointers,root,(TValue)0.0,center,length(intervals),tag);
@@ -884,6 +886,23 @@ SEQAN_CHECKPOINT
 }
 
 
+
+/**
+.signature:createIntervalTree(intervalTree, intervals)
+..param.intervalTree:An interval tree
+..param.intervals:A container of intervals
+*/
+template<typename TValue,typename TCargo, typename TIntervals>
+void 
+createIntervalTree(IntervalTree<TValue,TCargo> & it,
+				   TIntervals & intervals)
+{
+SEQAN_CHECKPOINT
+	createIntervalTree(it.g,it.pm,intervals);
+}
+
+
+
 /**
 ..signature:createIntervalTree(TGraph &g, TPropertyMap &pm, TIntervals &intervals, center, tag)
  */
@@ -906,24 +925,25 @@ SEQAN_CHECKPOINT
 	TVertexDescriptor root = addVertex(g);
 	resizeVertexMap(g,pm);
 	
-	TInterval a;
-	typename Iterator<TIntervals, Standard>::Type begin_ = begin(intervals);
-	typename Iterator<TIntervals, Standard>::Type end_ = end(intervals);
-	std::sort(begin_, end_ ,_less_compI1_ITree<TInterval>);
+    if (length(intervals) > 0u) {
+	    TInterval a;
+	    typename Iterator<TIntervals, Standard>::Type begin_ = begin(intervals);
+	    typename Iterator<TIntervals, Standard>::Type end_ = end(intervals);
+	    std::sort(begin_, end_ ,_less_compI1_ITree<TInterval>);
 
-	String<TInterval*> interval_pointers;
-	resize(interval_pointers,length(intervals));
+	    String<TInterval*> interval_pointers;
+	    resize(interval_pointers,length(intervals));
 
-	_makePointerInterval(intervals,interval_pointers);
+	    _makePointerInterval(intervals,interval_pointers);
 
-	if(length(intervals)==1)
-		center = (rightBoundary(intervals[0])-leftBoundary(intervals[0]))/(TValue)2.0;
+	    if(length(intervals)==1) // if there is just one interval ->  center = center of this interval
+		    center = (rightBoundary(intervals[0])-leftBoundary(intervals[0]))/(TValue)2.0;
 
-	_createIntervalTree(g,pm,interval_pointers,root,(TValue)0.0,center,length(intervals),tag);
+	    _createIntervalTree(g,pm,interval_pointers,root,(TValue)0.0,center,length(intervals),tag);
 		
-	reserve(pm, length(pm), Exact());
-	reserve(g.data_vertex, length(g.data_vertex), Exact());
-
+	    reserve(pm, length(pm), Exact());
+	    reserve(g.data_vertex, length(g.data_vertex), Exact());
+    }
 }
 
 /**
@@ -1192,6 +1212,7 @@ _calcIntervalTreeRootCenter(TIntervals & intervals)
 	TValue min = maxValue<TValue>();
 	TValue max = minValue<TValue>();
 
+    // get min and max
 	while(it != it_end)
 	{
 		if(leftBoundary(*it)<min) min = leftBoundary(*it);
@@ -1202,6 +1223,7 @@ _calcIntervalTreeRootCenter(TIntervals & intervals)
 
 	SEQAN_ASSERT_LEQ(min, max);
 	
+    // return middle between max and min
 	return (min+(max-min)/(TValue)2.0);
 
 }
@@ -1243,12 +1265,13 @@ SEQAN_CHECKPOINT
 	TVertexDescriptor act_knot = 0;
 	TProperty act_prop = property(pm,act_knot);
 	TProperty next_prop;
-		
+	
+    // look for the right node to add interval to
 	while(true)
 	{
 		TOutEdgeIterator it(g, act_knot);
 		act_prop = property(pm,act_knot);
-		if(act_prop.center < leftBoundary(interval))
+		if(act_prop.center < leftBoundary(interval)) // interval to the left of current node?
 		{
 			if(atEnd(it)){
 				TVertexDescriptor vd = addVertex(g);
@@ -1274,7 +1297,7 @@ SEQAN_CHECKPOINT
 			act_knot = targetVertex(it);
 		}
 		else{
-			if(rightBoundary(interval) <= act_prop.center)
+			if(rightBoundary(interval) <= act_prop.center) // interval to the right of current node?
 			{
 				if(atEnd(it)){
 					TVertexDescriptor vd = addVertex(g);
@@ -1300,7 +1323,7 @@ SEQAN_CHECKPOINT
 				}
 				act_knot = targetVertex(it);
 			}
-			else{
+			else{ // need to create new node for interval
 				_appendIntervalTreeNodeLists(property(pm, act_knot),interval);
 				std::sort(begin(property(pm,act_knot).list1),end(property(pm,act_knot).list1),_less_compI1_ITree<typename Value<TList>::Type>);
 				std::sort(begin(property(pm,act_knot).list2),end(property(pm,act_knot).list2),_greater_compI2_ITree<typename Value<TList>::Type>);
@@ -1389,8 +1412,9 @@ SEQAN_CHECKPOINT
 	typedef typename Value<TPropertyMap>::Type TProperty;
 	typedef typename Value<TProperty>::Type    TPropertyValue;
 	typedef typename Iterator<TGraph, OutEdgeIterator>::Type TOutEdgeIterator;
-
-	resize(result,0);
+    
+    resize(result,0);
+    if (empty(g)) return;
 
 	// start at root
 	TVertexDescriptor act_knot = 0;
@@ -1401,7 +1425,7 @@ SEQAN_CHECKPOINT
 	{
 		TOutEdgeIterator it(g, act_knot);
 		act_prop = property(pm,act_knot);
-		if(act_prop.center < (TPropertyValue)query)
+		if(act_prop.center < (TPropertyValue)query) // look in current node and right subtree
 		{
 			unsigned int i = 0;
 			while(i < length(act_prop.list2) && rightBoundary(value(act_prop.list2,i)) > (TPropertyValue)query)
@@ -1421,7 +1445,7 @@ SEQAN_CHECKPOINT
 			act_knot = targetVertex(it);
 		}
 		else{
-			if((TPropertyValue)query < act_prop.center)
+			if((TPropertyValue)query < act_prop.center) // look in current node and left subtree
 			{
 				unsigned int i = 0;
 				while(i < length(act_prop.list1) && leftBoundary(value(act_prop.list1,i)) <= (TPropertyValue)query)
@@ -1441,7 +1465,7 @@ SEQAN_CHECKPOINT
 				}
 				act_knot = targetVertex(it);
 			}
-			else{
+			else{ // look in current node only, as query is center
 				for(unsigned int i = 0; i < length(act_prop.list1); ++i)
                     appendValue(result, cargo(value(act_prop.list1,i)), Generous());
 				break;
@@ -1492,6 +1516,7 @@ SEQAN_CHECKPOINT
 	typedef typename Value<TPropertyMap>::Type TProperty;
 	
 	resize(result,0);
+    if (empty(g)) return;
 
 	// start at root
 	TVertexDescriptor act_knot = 0;
@@ -1502,7 +1527,7 @@ SEQAN_CHECKPOINT
 	{
 		TOutEdgeIterator it(g, act_knot);
 		act_prop = property(pm,act_knot);
-		if( (TValue) act_prop.center < query)
+		if( (TValue) act_prop.center < query) // look in current node and right subtree
 		{
 			int i = 0;
 			while(i < (int) length(act_prop.list2) && (TValue) rightBoundary(value(act_prop.list2,i)) > query)
@@ -1522,7 +1547,7 @@ SEQAN_CHECKPOINT
 			act_knot = targetVertex(it);
 		}
 		else{
-			if(query < (TValue) act_prop.center)
+			if(query < (TValue) act_prop.center) // look in current node and left subtree
 			{
 				int i = 0;
 				while(i < (int) length(act_prop.list1) && (TValue) leftBoundary(value(act_prop.list1,i)) < query)
@@ -1542,7 +1567,7 @@ SEQAN_CHECKPOINT
 				}
 				act_knot = targetVertex(it);
 			}
-			else{
+			else{ // look in current node only
 				int i = 0;
 				while(i < (int) length(act_prop.list1) && (TValue) leftBoundary(value(act_prop.list1,i)) < query)
 				{
@@ -1603,7 +1628,7 @@ SEQAN_CHECKPOINT
 	typedef typename Value<TPropertyMap>::Type TProperty;
 	typedef typename Iterator<TGraph, OutEdgeIterator>::Type TOutEdgeIterator;
 
-	resize(result,0);
+    resize(result,0);
 
 	// start at root
 	TVertexDescriptor act_knot = 0;
@@ -1626,7 +1651,9 @@ SEQAN_CHECKPOINT
 	typedef typename Value<TPropertyMap>::Type TProperty;
 	typedef typename Iterator<TGraph, OutEdgeIterator>::Type TOutEdgeIterator;
 
-	TProperty act_prop = property(pm,act_knot);
+    if (empty(g)) return;
+
+    TProperty act_prop = property(pm,act_knot);
 	TProperty next_prop;
 		
 	while(true)
@@ -1690,7 +1717,6 @@ SEQAN_CHECKPOINT
 			}
 		}
 	}
-
 }
 
 

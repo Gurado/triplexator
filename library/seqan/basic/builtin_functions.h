@@ -1,7 +1,7 @@
 // ==========================================================================
 //                            builtin_functions.h
 // ==========================================================================
-// Copyright (c) 2006-2010, Knut Reinert, FU Berlin
+// Copyright (c) 2006-2012, Knut Reinert, FU Berlin
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -37,8 +37,8 @@
 // are overridden for some classes.
 // ==========================================================================
 
-#ifndef CORE_INCLUDE_SEQAN_BASIC_BUILTIN_FUNCTIONS_H_
-#define CORE_INCLUDE_SEQAN_BASIC_BUILTIN_FUNCTIONS_H_
+#ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_BUILTIN_FUNCTIONS_H_
+#define SEQAN_CORE_INCLUDE_SEQAN_BASIC_BUILTIN_FUNCTIONS_H_
 
 namespace seqan {
 
@@ -266,4 +266,4 @@ namespace seqan {
 
 }  // namespace seqan
 
-#endif  // #ifndef CORE_INCLUDE_SEQAN_BASIC_BUILTIN_FUNCTIONS_H_
+#endif  // #ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_BUILTIN_FUNCTIONS_H_

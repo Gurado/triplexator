@@ -1,7 +1,7 @@
 // ==========================================================================
 //                 SeqAn - The Library for Sequence Analysis
 // ==========================================================================
-// Copyright (c) 2006-2010, Knut Reinert, FU Berlin
+// Copyright (c) 2006-2012, Knut Reinert, FU Berlin
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -36,8 +36,10 @@
 // concepts they are in.
 // ==========================================================================
 
-#ifndef SEQAN_BASIC_ALPHABET_ADAPT_BUILTINS_H_
-#define SEQAN_BASIC_ALPHABET_ADAPT_BUILTINS_H_
+#ifndef SEQAN_CORE_INCLUDE_BASIC_ALPHABET_ADAPT_BUILTINS_H_
+#define SEQAN_CORE_INCLUDE_BASIC_ALPHABET_ADAPT_BUILTINS_H_
+
+#include <limits>
 
 namespace seqan {
 
@@ -54,36 +56,28 @@ namespace seqan {
 // ============================================================================
 
 // ----------------------------------------------------------------------------
-// Metafunction IsSimple
+// Metafunctions MaxValue_, MinValue_
 // ----------------------------------------------------------------------------
 
-template <> struct IsSimple_<bool> { typedef True Type; };
-template <> struct IsSimple_<char> { typedef True Type; };
-
-template <> struct IsSimple_<unsigned char> { typedef True Type; };
-template <> struct IsSimple_<unsigned short> { typedef True Type; };
-template <> struct IsSimple_<unsigned int> { typedef True Type; };
-template <> struct IsSimple_<unsigned long> { typedef True Type; };
-
-template <> struct IsSimple_<signed char> { typedef True Type; };
-template <> struct IsSimple_<signed short> { typedef True Type; };
-template <> struct IsSimple_<signed int> { typedef True Type; };
-template <> struct IsSimple_<signed long> { typedef True Type; };
-
-template <> struct IsSimple_<float> { typedef True Type; };
-template <> struct IsSimple_<double> { typedef True Type; };
-template <> struct IsSimple_<long double> { typedef True Type; };
-
-// user defined types (re-specializations are allowed here)
-template <> struct IsSimple<wchar_t> { typedef True Type; };
-template <> struct IsSimple<__int64> { typedef True Type; };
-template <> struct IsSimple<__uint64> { typedef True Type; };
+// We would want to have this here, however this is not possible with the
+// current implementation.
 
 // ----------------------------------------------------------------------------
 // Metafunction BitsPerValue
 // ----------------------------------------------------------------------------
 
-template <> struct BitsPerValue<bool> { enum { VALUE = 1 }; };
+template <>
+struct BitsPerValue<bool>
+{
+    typedef int Type;
+    enum { VALUE = 1 };
+};
+
+// ----------------------------------------------------------------------------
+// Metafunction IsCharType
+// ----------------------------------------------------------------------------
+
+// TODO(holtgrew): This should probably become a concept.
 
 /**
 .Metafunction.IsCharType
@@ -96,8 +90,6 @@ template <> struct BitsPerValue<bool> { enum { VALUE = 1 }; };
 ..remarks:The return value is $True$/$true$ for $char$, $wchar_t$, $char const$, and $wchar_t const$.
 ..include:seqan/sequence.h
 */
-
-// TODO(holtgrew): Write tests for this.
 
 template <typename T>
 struct IsCharType;
@@ -132,15 +124,12 @@ struct IsCharType<wchar_t>
 // ============================================================================
 
 // ----------------------------------------------------------------------------
-// Function gapValueImpl()
+// Function gapValueImpl()                                               [char]
 // ----------------------------------------------------------------------------
-
-// TODO(holtgrew): Why references? Profiles are faster then...
 
 inline char const &
 gapValueImpl(char *)
 {
-    SEQAN_CHECKPOINT;
     static char const _gap = '-';
     return _gap;
 }
@@ -148,19 +137,17 @@ gapValueImpl(char *)
 inline char const &
 gapValueImpl(char const *)
 {
-    SEQAN_CHECKPOINT;
     static char const _gap = '-';
     return _gap;
 }
 
 // ----------------------------------------------------------------------------
-// Function unknownValueImpl()
+// Function unknownValueImpl()                                           [char]
 // ----------------------------------------------------------------------------
 
 inline char const &
 unknownValueImpl(char *)
 {
-    SEQAN_CHECKPOINT;
     static char const _unknown = 'N';
     return _unknown;
 }
@@ -168,7 +155,6 @@ unknownValueImpl(char *)
 inline char const &
 unknownValueImpl(char const *)
 {
-    SEQAN_CHECKPOINT;
     static char const _unknown = 'N';
     return _unknown;
 }
@@ -181,15 +167,13 @@ template <typename T>
 inline T const &
 supremumValueImpl(T *)
 {
-    // TODO(holtgrew): We probably do not want a default specialization.
-    SEQAN_CHECKPOINT;
-    return MaxValue<T>::VALUE;
+    static T const x = MaxValue<T>::VALUE;
+    return x;
 }
 
 inline long double const &
 supremumValueImpl(long double *)
 {
-    SEQAN_CHECKPOINT;
 #ifdef PLATFORM_WINDOWS
     static long double const _value = ::std::numeric_limits<long double>::infinity( );
 #else
@@ -201,7 +185,6 @@ supremumValueImpl(long double *)
 inline double const &
 supremumValueImpl(double *)
 {
-    SEQAN_CHECKPOINT;
 #ifdef PLATFORM_WINDOWS
     static double const _value = ::std::numeric_limits<double>::infinity( );
 #else
@@ -212,7 +195,6 @@ supremumValueImpl(double *)
 inline float const &
 supremumValueImpl(float *)
 {
-    SEQAN_CHECKPOINT;
 #ifdef PLATFORM_WINDOWS
     static float const _value = ::std::numeric_limits<float>::infinity( );
 #else
@@ -229,15 +211,13 @@ template <typename T>
 inline T const &
 infimumValueImpl(T *)
 {
-    // TODO(holtgrew): We probably do not want a default specialization.
-    SEQAN_CHECKPOINT;
-    return MinValue<T>::VALUE;
+    static T const x = MinValue<T>::VALUE;
+    return x;
 }
 
 inline float const &
 infimumValueImpl(float *)
 {
-    SEQAN_CHECKPOINT;
 #ifdef PLATFORM_WINDOWS
     static float const _value = -::std::numeric_limits<float>::infinity( );
 #else
@@ -249,7 +229,6 @@ infimumValueImpl(float *)
 inline double const &
 infimumValueImpl(double *)
 {
-    SEQAN_CHECKPOINT;
 #ifdef PLATFORM_WINDOWS
     static double const _value = -::std::numeric_limits<double>::infinity( );
 #else
@@ -261,7 +240,6 @@ infimumValueImpl(double *)
 inline long double const &
 infimumValueImpl(long double *)
 {
-    SEQAN_CHECKPOINT;
 #ifdef PLATFORM_WINDOWS
     static long double const _value = -::std::numeric_limits<long double>::infinity( );
 #else
@@ -270,224 +248,6 @@ infimumValueImpl(long double *)
     return _value;
 }
 
-// TODO(holtgrew): The following functions were in basic_alphabet_traits.h but commented out because of infimumValue->minValue, supremumValue->maxValue change. Eventually, they might die out since infimumValue/supremumValue are only worth keeping for floating point numbers where there are infinity values.
-
-/*
-//////////////////////////////////////////////////////////////////////////////
-// char 
-//////////////////////////////////////////////////////////////////////////////
-
-inline char const &
-supremumValueImpl(char *)
-{
-SEQAN_CHECKPOINT
-    static char const _value = (char) 127;
-    return _value;
-}
-inline char const &
-infimumValueImpl(char *)
-{
-SEQAN_CHECKPOINT
-    static char const _value = (char) -128;
-    return _value;
-}
-
-//////////////////////////////////////////////////////////////////////////////
-// signed char 
-//////////////////////////////////////////////////////////////////////////////
-
-inline signed char const &
-supremumValueImpl(signed char *)
-{
-SEQAN_CHECKPOINT
-    static signed char const _value = 127;
-    return _value;
-}
-inline signed char const &
-infimumValueImpl(signed char *)
-{
-SEQAN_CHECKPOINT
-    static signed char const _value = -128;
-    return _value;
-}
-
-//////////////////////////////////////////////////////////////////////////////
-// unsigned char 
-//////////////////////////////////////////////////////////////////////////////
-
-inline unsigned char const &
-supremumValueImpl(unsigned char *)
-{
-SEQAN_CHECKPOINT
-    static unsigned char const _value = 255;
-    return _value;
-}
-inline unsigned char const &
-infimumValueImpl(unsigned char *)
-{
-SEQAN_CHECKPOINT
-    static unsigned char const _value = 0;
-    return _value;
-}
-
-//////////////////////////////////////////////////////////////////////////////
-// wchar_t
-//////////////////////////////////////////////////////////////////////////////
-
-inline wchar_t const &
-supremumValueImpl(wchar_t *)
-{
-SEQAN_CHECKPOINT
-    static wchar_t const _value = 1UL << (BitsPerValue<wchar_t>::VALUE) - 1;
-    return _value;
-}
-inline wchar_t const &
-infimumValueImpl(wchar_t *)
-{
-SEQAN_CHECKPOINT
-    static wchar_t const _value = 0;
-    return _value;
-}
-
-//////////////////////////////////////////////////////////////////////////////
-// signed short 
-//////////////////////////////////////////////////////////////////////////////
-
-inline signed short const &
-supremumValueImpl(signed short *)
-{
-SEQAN_CHECKPOINT
-    static signed short const _value = (((1 << (BitsPerValue<signed short>::VALUE - 2)) - 1) << 1) + 1;
-    return _value;
-}
-inline signed short const &
-infimumValueImpl(signed short *dummy)
-{
-SEQAN_CHECKPOINT
-    static signed short const _value = -supremumValueImpl(dummy) - 1;
-    return _value;
-}
-
-//////////////////////////////////////////////////////////////////////////////
-// unsigned short 
-//////////////////////////////////////////////////////////////////////////////
-
-inline unsigned short const &
-supremumValueImpl(unsigned short *)
-{
-SEQAN_CHECKPOINT
-    static unsigned short const _value = (((1 << (BitsPerValue<unsigned short>::VALUE - 1)) - 1) << 1) + 1;
-    return _value;
-}
-inline unsigned short const &
-infimumValueImpl(unsigned short *)
-{
-SEQAN_CHECKPOINT
-    static unsigned short const _value = 0;
-    return _value;
-}
-
-//////////////////////////////////////////////////////////////////////////////
-// signed int 
-//////////////////////////////////////////////////////////////////////////////
-
-inline signed int const &
-supremumValueImpl(signed int *)
-{
-SEQAN_CHECKPOINT
-    static signed int const _value = (((1 << (BitsPerValue<signed int>::VALUE - 2)) - 1) << 1) + 1;
-    return _value;
-}
-
-inline signed int const &
-infimumValueImpl(signed int *dummy)
-{
-SEQAN_CHECKPOINT
-    static signed int const _value = -supremumValueImpl(dummy) - 1;
-    return _value;
-}
-
-//////////////////////////////////////////////////////////////////////////////
-// unsigned int 
-//////////////////////////////////////////////////////////////////////////////
-
-inline unsigned int const &
-supremumValueImpl(unsigned int *)
-{
-SEQAN_CHECKPOINT
-    static unsigned int const _value = ~0ul;
-    return _value;
-}
-
-inline unsigned int const &
-infimumValueImpl(unsigned int *)
-{
-SEQAN_CHECKPOINT
-    static unsigned int const _value = 0;
-    return _value;
-}
-
-//////////////////////////////////////////////////////////////////////////////
-// signed long
-//////////////////////////////////////////////////////////////////////////////
-
-inline signed long const &
-supremumValueImpl(signed long *)
-{
-SEQAN_CHECKPOINT
-    static signed long const _value = (((1 << (BitsPerValue<signed long>::VALUE - 2)) - 1) << 1) + 1;
-    return _value;
-}
-
-inline signed long const &
-infimumValueImpl(signed long *dummy)
-{
-SEQAN_CHECKPOINT
-    static signed long const _value = -supremumValueImpl(dummy) - 1;
-    return _value;
-}
-
-//////////////////////////////////////////////////////////////////////////////
-// unsigned long
-//////////////////////////////////////////////////////////////////////////////
-
-inline unsigned long const &
-supremumValueImpl(unsigned long *)
-{
-SEQAN_CHECKPOINT
-    static unsigned long const _value = ~0ul;
-    return _value;
-}
-
-inline unsigned long const &
-infimumValueImpl(unsigned long *)
-{
-SEQAN_CHECKPOINT
-    static unsigned long const _value = 0;
-    return _value;
-}
-
-//////////////////////////////////////////////////////////////////////////////
-// signed 64bit int (cannot use long long <- no ISO C++)
-//////////////////////////////////////////////////////////////////////////////
-
-inline __int64 const &
-supremumValueImpl(__int64 *)
-{
-SEQAN_CHECKPOINT
-    static __int64 const _value = ((((__int64)1 << (BitsPerValue<__int64>::VALUE - 2)) - 1) << 1) + 1;
-    return _value;
-}
-
-inline __int64 const &
-infimumValueImpl(__int64 *dummy)
-{
-SEQAN_CHECKPOINT
-    static __int64 const _value = -supremumValueImpl(dummy) - 1;
-    return _value;
-}
-*/
-
 }  // namespace seqan
 
-#endif  // #ifndef SEQAN_BASIC_ALPHABET_ADAPT_BUILTINS_H_
+#endif  // #ifndef SEQAN_CORE_INCLUDE_BASIC_ALPHABET_ADAPT_BUILTINS_H_

@@ -1,7 +1,7 @@
 // ==========================================================================
 //                 SeqAn - The Library for Sequence Analysis
 // ==========================================================================
-// Copyright (c) 2006-2010, Knut Reinert, FU Berlin
+// Copyright (c) 2006-2012, Knut Reinert, FU Berlin
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -29,13 +29,13 @@
 // DAMAGE.
 //
 // ==========================================================================
-// Author: Andres Gogol-Döring <andreas.doering@mdc-berlin.de>
+// Author: Andreas Gogol-Döring <andreas.doering@mdc-berlin.de>
 // ==========================================================================
 // Positional iterator implementation.
 // ==========================================================================
 
-#ifndef SEQAN_BASIC_BASIC_ITERATOR_POSITION_H_
-#define SEQAN_BASIC_BASIC_ITERATOR_POSITION_H_
+#ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_ITERATOR_POSITION_H_x
+#define SEQAN_CORE_INCLUDE_SEQAN_BASIC_ITERATOR_POSITION_H_
 
 namespace seqan {
 
@@ -50,15 +50,15 @@ namespace seqan {
 struct PositionIterator;
 
 /**
-.Spec.Position Iterator:
+.Spec.Position Iterator
 ..cat:Iterators
 ..general:Class.Iter
-..summary:Adapts @Metafunction.Position.position@ to @Concept.Rooted Iterator.iterator@.
+..summary:Adapts @Metafunction.Position|Position Iterator@ to @Concept.RootedIteratorConcept|Rooted Iterator@.
 ..signature:Iter<TContainer, PositionIterator>
 ..param.TContainer:Type of the container.
 ...metafunction:Metafunction.Container
 ..remarks
-...text:Position Iterators provide the concept @Concept.Rooted Iterator@.
+...text:Position Iterators provide the concept @Concept.RootedIteratorConcept|Rooted Iterator@.
 ..see:Metafunction.Position
 ..include:seqan/basic.h
 
@@ -544,4 +544,4 @@ assign(Iter<TTargetContainer, PositionIterator> & target,
 
 }  // namespace seqan
 
-#endif  // #ifndef SEQAN_BASIC_BASIC_ITERATOR_POSITION_H_
+#endif  // #ifndef SEQAN_CORE_INCLUDE_SEQAN_BASIC_ITERATOR_POSITION_H_

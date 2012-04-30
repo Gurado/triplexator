@@ -267,7 +267,7 @@ The entries are the characters left of the corresponding suffix in the suffix ar
 
 	typedef FibreText		EsaText;
 	typedef FibreRawText	EsaRawText;
-	typedef FibreSA		EsaSA;
+	typedef FibreSA         EsaSA;
 	typedef FibreRawSA		EsaRawSA;
 	typedef FibreSae		EsaSae;
 	typedef FibreLcp		EsaLcp;

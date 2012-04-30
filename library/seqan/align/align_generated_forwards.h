@@ -173,12 +173,12 @@ namespace SEQAN_NAMESPACE_MAIN {
 //____________________________________________________________________________
 // _alignBandedSmithWaterman
 
-template <typename TScoreValue, typename TStringSet, typename TScore, typename TDiagonal> inline TScoreValue _alignBandedSmithWaterman(LocalAlignmentFinder<TScoreValue>& finder, TStringSet const& str, TScore const& sc, TScoreValue const cutoff, TDiagonal const diagL, TDiagonal const diagU);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_local_dynprog_banded.h"(341)
+template <typename TScoreValue, typename TStringSet, typename TScore, typename TDiagonal> inline TScoreValue _alignBandedSmithWaterman(LocalAlignmentFinder<TScoreValue>& finder, TStringSet const& str, TScore const& sc, TScoreValue const cutoff, TDiagonal const diagL, TDiagonal const diagU);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_local_dynprog_banded.h"(342)
 
 //____________________________________________________________________________
 // _alignBandedSmithWatermanDeclump
 
-template <typename TScoreValue, typename TStringSet, typename TScore, typename TDiagonal> inline void _alignBandedSmithWatermanDeclump(LocalAlignmentFinder<TScoreValue>& finder, TStringSet const& str, TScore const& sc, TScoreValue const cutoff, TDiagonal const diagL, TDiagonal const diagU);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_local_dynprog_banded.h"(182)
+template <typename TScoreValue, typename TStringSet, typename TScore, typename TDiagonal> inline void _alignBandedSmithWatermanDeclump(LocalAlignmentFinder<TScoreValue>& finder, TStringSet const& str, TScore const& sc, TScoreValue const cutoff, TDiagonal const diagL, TDiagonal const diagU);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_local_dynprog_banded.h"(183)
 
 //____________________________________________________________________________
 // _alignBandedSmithWatermanTrace
@@ -256,7 +256,7 @@ template <typename TAlignCols> inline typename Position<TAlignCols>::Type _endPo
 //____________________________________________________________________________
 // _finishAlign
 
-template <typename TSource, typename TSpec, typename TPos> inline void _finishAlign(Align<TSource, TSpec>& align, TPos const begin1, TPos const end1, TPos const begin2, TPos const end2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_local_dynprog_banded.h"(443)
+template <typename TSource, typename TSpec, typename TPos> inline void _finishAlign(Align<TSource, TSpec>& align, TPos const begin1, TPos const end1, TPos const begin2, TPos const end2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_local_dynprog_banded.h"(444)
 
 //____________________________________________________________________________
 // _getBitsPerEntry
@@ -317,12 +317,12 @@ template <typename TGaps, typename TPosition> inline typename Iterator<TGaps, St
 //____________________________________________________________________________
 // _localAlignment
 
-template <typename TScoreValue, typename TSource, typename TSpec, typename TStringSet, typename TScore, typename TDiagonal> inline TScoreValue _localAlignment(LocalAlignmentFinder<TScoreValue> & finder, TStringSet& str, Align<TSource, TSpec> & align, TScore const& sc, TScoreValue cutoff, TDiagonal diag1, TDiagonal diag2, BandedWatermanEggert);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_local_dynprog_banded.h"(464)
+template <typename TScoreValue, typename TSource, typename TSpec, typename TStringSet, typename TScore, typename TDiagonal> inline TScoreValue _localAlignment(LocalAlignmentFinder<TScoreValue> & finder, TStringSet& str, Align<TSource, TSpec> & align, TScore const& sc, TScoreValue cutoff, TDiagonal diag1, TDiagonal diag2, BandedWatermanEggert);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_local_dynprog_banded.h"(465)
 
 //____________________________________________________________________________
 // _localAlignmentNext
 
-template <typename TScoreValue, typename TSource, typename TSpec, typename TStringSet, typename TScore, typename TDiagonal> inline TScoreValue _localAlignmentNext(LocalAlignmentFinder<TScoreValue> & finder, TStringSet& str, Align<TSource, TSpec> & align, TScore const& sc, TScoreValue cutoff, TDiagonal diag1, TDiagonal diag2, BandedWatermanEggert);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_local_dynprog_banded.h"(491)
+template <typename TScoreValue, typename TSource, typename TSpec, typename TStringSet, typename TScore, typename TDiagonal> inline TScoreValue _localAlignmentNext(LocalAlignmentFinder<TScoreValue> & finder, TStringSet& str, Align<TSource, TSpec> & align, TScore const& sc, TScoreValue cutoff, TDiagonal diag1, TDiagonal diag2, BandedWatermanEggert);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_local_dynprog_banded.h"(492)
 
 //____________________________________________________________________________
 // _needlemanWunsch
@@ -470,8 +470,8 @@ template <typename TAlign, typename TTag> inline typename Iterator<AlignCols<TAl
 template <typename TAlign, typename TTag> inline typename Iterator<AlignCols<TAlign> const, Tag<TTag> const>::Type begin(AlignCols<TAlign> const & me, Tag<TTag> const tag_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_cols_base.h"(351)
 template <typename TSource, typename TSpec, typename TTag> inline typename Iterator<Gaps<TSource, TSpec>, Tag<TTag> const>::Type begin(Gaps<TSource, TSpec> & me, Tag<TTag> const tag_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(309)
 template <typename TSource, typename TSpec, typename TTag> inline typename Iterator<Gaps<TSource, TSpec> const, Tag<TTag> const>::Type begin(Gaps<TSource, TSpec> const & me, Tag<TTag> const tag_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(317)
-template <typename TValue, unsigned DIMENSION, typename TTag> inline typename Iterator<Matrix <TValue, DIMENSION>, Tag<TTag> const>::Type begin(Matrix<TValue, DIMENSION> & me, Tag<TTag> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(554)
-template <typename TValue, unsigned DIMENSION, typename TTag> inline typename Iterator<Matrix <TValue, DIMENSION> const, Tag<TTag> const>::Type begin(Matrix<TValue, DIMENSION> const & me, Tag<TTag> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(561)
+template <typename TValue, unsigned DIMENSION, typename TTag> inline typename Iterator<Matrix <TValue, DIMENSION>, Tag<TTag> const>::Type begin(Matrix<TValue, DIMENSION> & me, Tag<TTag> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(556)
+template <typename TValue, unsigned DIMENSION, typename TTag> inline typename Iterator<Matrix <TValue, DIMENSION> const, Tag<TTag> const>::Type begin(Matrix<TValue, DIMENSION> const & me, Tag<TTag> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(563)
 
 //____________________________________________________________________________
 // beginPosition
@@ -541,9 +541,9 @@ template <typename TGaps, typename TSpec> inline TGaps & container(Iter<TGaps, G
 //____________________________________________________________________________
 // coordinate
 
-template <typename TValue, unsigned DIMENSION, typename TPosition> inline typename Size< Matrix <TValue, DIMENSION> >::Type coordinate(Matrix<TValue, DIMENSION> & me, TPosition position_, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(535)
-template <typename TValue, unsigned DIMENSION> inline typename Size< Matrix<TValue, DIMENSION> >::Type coordinate(Iter<Matrix<TValue, DIMENSION>, PositionIterator > & me, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(744)
-template <typename TValue, unsigned DIMENSION> inline typename Size< Matrix<TValue, DIMENSION> >::Type coordinate(Iter<Matrix<TValue, DIMENSION> const, PositionIterator > & me, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(752)
+template <typename TValue, unsigned DIMENSION, typename TPosition> inline typename Size< Matrix <TValue, DIMENSION> >::Type coordinate(Matrix<TValue, DIMENSION> & me, TPosition position_, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(537)
+template <typename TValue, unsigned DIMENSION> inline typename Size< Matrix<TValue, DIMENSION> >::Type coordinate(Iter<Matrix<TValue, DIMENSION>, PositionIterator > & me, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(746)
+template <typename TValue, unsigned DIMENSION> inline typename Size< Matrix<TValue, DIMENSION> >::Type coordinate(Iter<Matrix<TValue, DIMENSION> const, PositionIterator > & me, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(754)
 
 //____________________________________________________________________________
 // copyGaps
@@ -610,8 +610,8 @@ template <typename TAlign, typename TTag> inline typename Iterator<AlignCols<TAl
 template <typename TAlign, typename TTag> inline typename Iterator<AlignCols<TAlign> const, Tag<TTag> const>::Type end(AlignCols<TAlign> const & me, Tag<TTag> const tag_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_cols_base.h"(413)
 template <typename TSource, typename TSpec, typename TTag> inline typename Iterator<Gaps<TSource, TSpec>, Tag<TTag> const>::Type end(Gaps<TSource, TSpec> & me, Tag<TTag> const tag_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(330)
 template <typename TSource, typename TSpec, typename TTag> inline typename Iterator<Gaps<TSource, TSpec> const, Tag<TTag> const>::Type end(Gaps<TSource, TSpec> const & me, Tag<TTag> const tag_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(338)
-template <typename TValue, unsigned DIMENSION, typename TTag> inline typename Iterator<Matrix <TValue, DIMENSION>, Tag<TTag> const >::Type end(Matrix<TValue, DIMENSION> & me, Tag<TTag> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(571)
-template <typename TValue, unsigned DIMENSION, typename TTag> inline typename Iterator<Matrix <TValue, DIMENSION> const, Tag<TTag> const >::Type end(Matrix<TValue, DIMENSION> const & me, Tag<TTag> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(578)
+template <typename TValue, unsigned DIMENSION, typename TTag> inline typename Iterator<Matrix <TValue, DIMENSION>, Tag<TTag> const >::Type end(Matrix<TValue, DIMENSION> & me, Tag<TTag> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(573)
+template <typename TValue, unsigned DIMENSION, typename TTag> inline typename Iterator<Matrix <TValue, DIMENSION> const, Tag<TTag> const >::Type end(Matrix<TValue, DIMENSION> const & me, Tag<TTag> const);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(580)
 
 //____________________________________________________________________________
 // endPosition
@@ -674,10 +674,10 @@ template <typename TAlign, typename TSpec> inline void goNext(Iter<TAlign, Align
 template <typename TSize, typename TSpec, typename TSpec2> inline void goNext(Navi< AlignTrace<TSize, TSpec>, TSpec2 > & me, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_trace.h"(312)
 template <typename TGaps> inline void goNext(Iter<TGaps, GapsIterator<ArrayGaps> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(918)
 template <typename TGaps> inline void goNext(Iter<TGaps, GapsIterator<ArrayGaps> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(924)
-template <typename TValue, unsigned DIMENSION> inline void goNext(Iter<Matrix<TValue, DIMENSION>, PositionIterator> & me, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(642)
-template <typename TValue, unsigned DIMENSION> inline void goNext(Iter<Matrix<TValue, DIMENSION> const, PositionIterator> & me, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(650)
-template <typename TValue, unsigned DIMENSION> inline void goNext(Iter<Matrix<TValue, DIMENSION>, PositionIterator> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(657)
-template <typename TValue, unsigned DIMENSION> inline void goNext(Iter<Matrix<TValue, DIMENSION> const, PositionIterator> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(664)
+template <typename TValue, unsigned DIMENSION> inline void goNext(Iter<Matrix<TValue, DIMENSION>, PositionIterator> & me, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(644)
+template <typename TValue, unsigned DIMENSION> inline void goNext(Iter<Matrix<TValue, DIMENSION> const, PositionIterator> & me, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(652)
+template <typename TValue, unsigned DIMENSION> inline void goNext(Iter<Matrix<TValue, DIMENSION>, PositionIterator> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(659)
+template <typename TValue, unsigned DIMENSION> inline void goNext(Iter<Matrix<TValue, DIMENSION> const, PositionIterator> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(666)
 
 //____________________________________________________________________________
 // goPrevious
@@ -686,18 +686,18 @@ template <typename TAlign, typename TSpec> inline void goPrevious(Iter<TAlign, A
 template <typename TSize, typename TSpec, typename TSpec2> inline void goPrevious(Navi< AlignTrace<TSize, TSpec>, TSpec2 > & me, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_trace.h"(352)
 template <typename TGaps> inline void goPrevious(Iter<TGaps, GapsIterator<ArrayGaps> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(957)
 template <typename TGaps> inline void goPrevious(Iter<TGaps, GapsIterator<ArrayGaps> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_array.h"(963)
-template <typename TValue, unsigned DIMENSION> inline void goPrevious(Iter< Matrix<TValue, DIMENSION>, PositionIterator > & me, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(676)
-template <typename TValue, unsigned DIMENSION> inline void goPrevious(Iter< Matrix<TValue, DIMENSION> const, PositionIterator > & me, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(684)
-template <typename TValue, unsigned DIMENSION> inline void goPrevious(Iter< Matrix<TValue, DIMENSION>, PositionIterator > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(691)
-template <typename TValue, unsigned DIMENSION> inline void goPrevious(Iter< Matrix<TValue, DIMENSION> const, PositionIterator > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(698)
+template <typename TValue, unsigned DIMENSION> inline void goPrevious(Iter< Matrix<TValue, DIMENSION>, PositionIterator > & me, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(678)
+template <typename TValue, unsigned DIMENSION> inline void goPrevious(Iter< Matrix<TValue, DIMENSION> const, PositionIterator > & me, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(686)
+template <typename TValue, unsigned DIMENSION> inline void goPrevious(Iter< Matrix<TValue, DIMENSION>, PositionIterator > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(693)
+template <typename TValue, unsigned DIMENSION> inline void goPrevious(Iter< Matrix<TValue, DIMENSION> const, PositionIterator > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(700)
 
 //____________________________________________________________________________
 // goTo
 
-template <typename TValue, unsigned DIMENSION, typename TPosition0, typename TPosition1> inline void goTo(Iter<Matrix<TValue, DIMENSION>, PositionIterator> & me, TPosition0 pos0, TPosition1 pos1);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(709)
-template <typename TValue, unsigned DIMENSION, typename TPosition0, typename TPosition1> inline void goTo(Iter<Matrix<TValue, DIMENSION> const, PositionIterator> & me, TPosition0 pos0, TPosition1 pos1);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(717)
-template <typename TValue, unsigned DIMENSION, typename TPosition0, typename TPosition1, typename TPosition2> inline void goTo(Iter<Matrix<TValue, DIMENSION>, PositionIterator> & me, TPosition0 pos0, TPosition1 pos1, TPosition2 pos2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(725)
-template <typename TValue, unsigned DIMENSION, typename TPosition0, typename TPosition1, typename TPosition2> inline void goTo(Iter<Matrix<TValue, DIMENSION> const, PositionIterator> & me, TPosition0 pos0, TPosition1 pos1, TPosition2 pos2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(733)
+template <typename TValue, unsigned DIMENSION, typename TPosition0, typename TPosition1> inline void goTo(Iter<Matrix<TValue, DIMENSION>, PositionIterator> & me, TPosition0 pos0, TPosition1 pos1);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(711)
+template <typename TValue, unsigned DIMENSION, typename TPosition0, typename TPosition1> inline void goTo(Iter<Matrix<TValue, DIMENSION> const, PositionIterator> & me, TPosition0 pos0, TPosition1 pos1);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(719)
+template <typename TValue, unsigned DIMENSION, typename TPosition0, typename TPosition1, typename TPosition2> inline void goTo(Iter<Matrix<TValue, DIMENSION>, PositionIterator> & me, TPosition0 pos0, TPosition1 pos1, TPosition2 pos2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(727)
+template <typename TValue, unsigned DIMENSION, typename TPosition0, typename TPosition1, typename TPosition2> inline void goTo(Iter<Matrix<TValue, DIMENSION> const, PositionIterator> & me, TPosition0 pos0, TPosition1 pos1, TPosition2 pos2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(735)
 
 //____________________________________________________________________________
 // host
@@ -763,9 +763,9 @@ template <typename TSource, typename TSpec, typename TScoreValue> inline TScoreV
 template <typename TSource, typename TSpec, typename TScoreValue> inline TScoreValue localAlignment(Align<TSource, TSpec> & align_, Score<TScoreValue, Simple> const & score_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_local_dynprog.h"(844)
 template <typename TSource, typename TSpec, typename TScoreValue1, typename TScoreValue2, typename TScoreValue3> inline TScoreValue1 localAlignment(Align<TSource, TSpec> & align_, LocalAlignmentFinder<TScoreValue1> & sw_finder, Score<TScoreValue2, Simple> const & score_, TScoreValue3 cutoff, WatermanEggert);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_local_dynprog.h"(857)
 template <typename TSource, typename TSpec, typename TScoreValue1, typename TScoreValue2, typename TScoreValue3> inline TScoreValue1 localAlignment(Align<TSource, TSpec> & align_, LocalAlignmentFinder<TScoreValue1> & sw_finder, Score<TScoreValue2, Simple> const & score_, TScoreValue3 cutoff);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_local_dynprog.h"(873)
-template <typename TSource, typename TSpec, typename TScoreValue, typename TDiagonal> inline TScoreValue localAlignment(Align<TSource, TSpec> & align, Score<TScoreValue, Simple> const & score, TDiagonal lowerDiag, TDiagonal upperDiag, BandedSmithWaterman);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_local_dynprog_banded.h"(519)
-template <typename TSource, typename TSpec, typename TScoreValue, typename TDiagonal> inline TScoreValue localAlignment(Align<TSource, TSpec> & align_, Score<TScoreValue, Simple> const & score_, TDiagonal lowerDiag, TDiagonal upperDiag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_local_dynprog_banded.h"(544)
-template <typename TSource, typename TSpec, typename TScoreValue1, typename TScoreValue2, typename TScoreValue3, typename TDiagonal, typename TTag> inline TScoreValue1 localAlignment(Align<TSource, TSpec> & align, LocalAlignmentFinder<TScoreValue1> & finder, Score<TScoreValue2, Simple> const & score, TScoreValue3 cutoff, TDiagonal lowerDiag, TDiagonal upperDiag, TTag tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_local_dynprog_banded.h"(558)
+template <typename TSource, typename TSpec, typename TScoreValue, typename TDiagonal> inline TScoreValue localAlignment(Align<TSource, TSpec> & align, Score<TScoreValue, Simple> const & score, TDiagonal lowerDiag, TDiagonal upperDiag, BandedSmithWaterman);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_local_dynprog_banded.h"(520)
+template <typename TSource, typename TSpec, typename TScoreValue, typename TDiagonal> inline TScoreValue localAlignment(Align<TSource, TSpec> & align_, Score<TScoreValue, Simple> const & score_, TDiagonal lowerDiag, TDiagonal upperDiag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_local_dynprog_banded.h"(545)
+template <typename TSource, typename TSpec, typename TScoreValue1, typename TScoreValue2, typename TScoreValue3, typename TDiagonal, typename TTag> inline TScoreValue1 localAlignment(Align<TSource, TSpec> & align, LocalAlignmentFinder<TScoreValue1> & finder, Score<TScoreValue2, Simple> const & score, TScoreValue3 cutoff, TDiagonal lowerDiag, TDiagonal upperDiag, TTag tag);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_local_dynprog_banded.h"(559)
 
 //____________________________________________________________________________
 // move
@@ -806,8 +806,8 @@ template <typename TGaps, typename TSpec, typename TValue> inline void moveValue
 //____________________________________________________________________________
 // nextPosition
 
-template <typename TValue, unsigned DIMENSION, typename TPosition> inline typename Position<Matrix <TValue, DIMENSION> >::Type nextPosition(Matrix<TValue, DIMENSION> & me, TPosition position_, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(497)
-template <typename TValue, unsigned DIMENSION, typename TPosition> inline typename Position<Matrix <TValue, DIMENSION> >::Type nextPosition(Matrix<TValue, DIMENSION> const & me, TPosition position_, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(506)
+template <typename TValue, unsigned DIMENSION, typename TPosition> inline typename Position<Matrix <TValue, DIMENSION> >::Type nextPosition(Matrix<TValue, DIMENSION> & me, TPosition position_, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(499)
+template <typename TValue, unsigned DIMENSION, typename TPosition> inline typename Position<Matrix <TValue, DIMENSION> >::Type nextPosition(Matrix<TValue, DIMENSION> const & me, TPosition position_, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(508)
 
 //____________________________________________________________________________
 // operator!=
@@ -827,14 +827,14 @@ template <typename TLeft, typename TRightSource, typename TRightSpec > inline bo
 //____________________________________________________________________________
 // operator*
 
-template <typename TValue> Matrix<TValue, 2> operator* (Matrix<TValue, 2> const & matrix1, Matrix<TValue, 2> const & matrix2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(815)
-template <typename TValue> Matrix<TValue, 2> operator* (TValue const & scalar, Matrix<TValue, 2> const & matrix);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(845)
-template <typename TValue> Matrix<TValue, 2> operator* (Matrix<TValue, 2> const & matrix, TValue const & scalar);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(860)
+template <typename TValue> Matrix<TValue, 2> operator* (Matrix<TValue, 2> const & matrix1, Matrix<TValue, 2> const & matrix2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(817)
+template <typename TValue> Matrix<TValue, 2> operator* (TValue const & scalar, Matrix<TValue, 2> const & matrix);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(847)
+template <typename TValue> Matrix<TValue, 2> operator* (Matrix<TValue, 2> const & matrix, TValue const & scalar);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(862)
 
 //____________________________________________________________________________
 // operator+
 
-template <typename TValue,unsigned DIMENSION> Matrix<TValue,DIMENSION> operator+ (Matrix<TValue,DIMENSION> const & matrix1,Matrix<TValue,DIMENSION> const & matrix2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(771)
+template <typename TValue,unsigned DIMENSION> Matrix<TValue,DIMENSION> operator+ (Matrix<TValue,DIMENSION> const & matrix1,Matrix<TValue,DIMENSION> const & matrix2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(773)
 
 //____________________________________________________________________________
 // operator++
@@ -848,7 +848,7 @@ template <typename TGaps, typename TSpec> inline Iter<TGaps, GapsIterator<TSpec>
 //____________________________________________________________________________
 // operator-
 
-template <typename TValue,unsigned DIMENSION> Matrix<TValue,DIMENSION> operator- (Matrix<TValue,DIMENSION> const & matrix1,Matrix<TValue,DIMENSION> const & matrix2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(793)
+template <typename TValue,unsigned DIMENSION> Matrix<TValue,DIMENSION> operator- (Matrix<TValue,DIMENSION> const & matrix1,Matrix<TValue,DIMENSION> const & matrix2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(795)
 
 //____________________________________________________________________________
 // operator--
@@ -873,7 +873,7 @@ template <typename TLeft, typename TRightSource, typename TRightSpec > inline bo
 
 template <typename TStream, typename TSource, typename TSpec> inline TStream & operator<< (TStream & target, Align<TSource, TSpec> const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_base.h"(558)
 template <typename TStream, typename TSource, typename TSpec> inline TStream & operator<< (TStream & target, Gaps<TSource, TSpec> const & source);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(1144)
-template <typename TValue > ::std::ostream& operator<<(::std::ostream &out, const Matrix<TValue,2> &matrix);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(1065)
+template <typename TValue > ::std::ostream& operator<<(::std::ostream &out, const Matrix<TValue,2> &matrix);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(1067)
 
 //____________________________________________________________________________
 // operator<=
@@ -898,7 +898,7 @@ template <typename TLeftSource, typename TLeftSpec, typename TRightSource, typen
 template <typename TLeftSource, typename TLeftSpec, typename TRight > inline bool operator== (Gaps<TLeftSource, TLeftSpec> const & left, TRight const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(1180)
 template <typename TLeft, typename TRightSource, typename TRightSpec > inline bool operator== (TLeft const & left, Gaps<TRightSource, TRightSpec> const & right);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(1189)
 inline bool operator== (_HirschbergSet const & lhs, _HirschbergSet const & rhs);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/hirschberg_set.h"(217)
-template <typename TValue, unsigned DIMENSION1, unsigned DIMENSION2> bool operator== (Matrix<TValue, DIMENSION1> const & matrix1, Matrix<TValue, DIMENSION2> const & matrix2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(876)
+template <typename TValue, unsigned DIMENSION1, unsigned DIMENSION2> bool operator== (Matrix<TValue, DIMENSION1> const & matrix1, Matrix<TValue, DIMENSION2> const & matrix2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(878)
 
 //____________________________________________________________________________
 // operator>
@@ -919,8 +919,8 @@ template <typename TLeft, typename TRightSource, typename TRightSpec > inline bo
 //____________________________________________________________________________
 // previousPosition
 
-template <typename TValue, unsigned DIMENSION, typename TPosition> inline typename Position<Matrix <TValue, DIMENSION> >::Type previousPosition(Matrix<TValue, DIMENSION> & me, TPosition position_, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(515)
-template <typename TValue, unsigned DIMENSION, typename TPosition> inline typename Position<Matrix <TValue, DIMENSION> >::Type previousPosition(Matrix<TValue, DIMENSION> const & me, TPosition position_, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(524)
+template <typename TValue, unsigned DIMENSION, typename TPosition> inline typename Position<Matrix <TValue, DIMENSION> >::Type previousPosition(Matrix<TValue, DIMENSION> & me, TPosition position_, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(517)
+template <typename TValue, unsigned DIMENSION, typename TPosition> inline typename Position<Matrix <TValue, DIMENSION> >::Type previousPosition(Matrix<TValue, DIMENSION> const & me, TPosition position_, unsigned int dimension_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(526)
 
 //____________________________________________________________________________
 // print
@@ -942,8 +942,8 @@ template <typename TSource, typename TSpec, typename TPosition, typename TSize> 
 //____________________________________________________________________________
 // resize
 
-template <typename TValue, unsigned DIMENSION> inline void resize(Matrix<TValue, DIMENSION> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(444)
-template <typename TValue, unsigned DIMENSION, typename TFillValue> inline void resize(Matrix<TValue, DIMENSION> & me, TFillValue myValue);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(470)
+template <typename TValue, unsigned DIMENSION> inline void resize(Matrix<TValue, DIMENSION> & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(446)
+template <typename TValue, unsigned DIMENSION, typename TFillValue> inline void resize(Matrix<TValue, DIMENSION> & me, TFillValue myValue);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(472)
 
 //____________________________________________________________________________
 // row
@@ -998,7 +998,7 @@ template <typename TValue, unsigned DIMENSION, typename THost> inline void setHo
 // setLength
 
 template <typename TSize, typename TSpec> inline void setLength(AlignTrace<TSize, TSpec> & me, unsigned int _dim, TSize _length);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/align_trace.h"(105)
-template <typename TValue, unsigned DIMENSION, typename TSize> inline void setLength(Matrix<TValue, DIMENSION> & me, unsigned int dim_, TSize length_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(432)
+template <typename TValue, unsigned DIMENSION, typename TLength> inline void setLength(Matrix<TValue, DIMENSION> & me, unsigned int dim_, TLength length_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(432)
 
 //____________________________________________________________________________
 // setSource
@@ -1062,7 +1062,7 @@ template <typename TSource> inline typename Position< Gaps<TSource, ArrayGaps> >
 //____________________________________________________________________________
 // transpose
 
-template <typename TValue> Matrix<TValue,2> transpose(Matrix<TValue,2> const & matrix);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(1036)
+template <typename TValue> Matrix<TValue,2> transpose(Matrix<TValue,2> const & matrix);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(1038)
 
 //____________________________________________________________________________
 // value
@@ -1075,10 +1075,10 @@ template <typename TSource, typename TSpec, typename TPosition> inline typename 
 template <typename TSource, typename TSpec, typename TPosition> inline typename Reference<Gaps<TSource, TSpec> const>::Type value(Gaps<TSource, TSpec> const & me, TPosition view_pos);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_base.h"(756)
 template <typename TGaps, typename TSpec> inline typename Reference< Iter<TGaps, GapsIterator<TSpec> > >::Type value(Iter<TGaps, GapsIterator<TSpec> > & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_iterator_base.h"(201)
 template <typename TGaps, typename TSpec> inline typename Reference< Iter<TGaps, GapsIterator<TSpec> > const>::Type value(Iter<TGaps, GapsIterator<TSpec> > const & me);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/gaps_iterator_base.h"(209)
-template <typename TValue, unsigned DIMENSION, typename TPosition> inline typename Reference<Matrix<TValue, DIMENSION> >::Type value(Matrix<TValue, DIMENSION> & me, TPosition position_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(588)
-template <typename TValue, unsigned DIMENSION, typename TOrdinate1, typename TOrdinate2> inline typename Reference<Matrix<TValue, DIMENSION> >::Type value(Matrix<TValue, DIMENSION> & me, TOrdinate1 i1, TOrdinate2 i2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(600)
-template <typename TValue, unsigned DIMENSION, typename TOrdinate1, typename TOrdinate2, typename TOrdinate3> inline typename Reference<Matrix<TValue, DIMENSION> >::Type value(Matrix<TValue, DIMENSION> & me, TOrdinate1 i1, TOrdinate2 i2, TOrdinate3 i3);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(614)
-template <typename TValue, unsigned DIMENSION, typename TOrdinate1, typename TOrdinate2, typename TOrdinate3, typename TOrdinate4> inline typename Reference<Matrix<TValue, DIMENSION> >::Type value(Matrix<TValue, DIMENSION> & me, TOrdinate1 i1, TOrdinate2 i2, TOrdinate3 i3, TOrdinate4 i4);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(629)
+template <typename TValue, unsigned DIMENSION, typename TPosition> inline typename Reference<Matrix<TValue, DIMENSION> >::Type value(Matrix<TValue, DIMENSION> & me, TPosition position_);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(590)
+template <typename TValue, unsigned DIMENSION, typename TOrdinate1, typename TOrdinate2> inline typename Reference<Matrix<TValue, DIMENSION> >::Type value(Matrix<TValue, DIMENSION> & me, TOrdinate1 i1, TOrdinate2 i2);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(602)
+template <typename TValue, unsigned DIMENSION, typename TOrdinate1, typename TOrdinate2, typename TOrdinate3> inline typename Reference<Matrix<TValue, DIMENSION> >::Type value(Matrix<TValue, DIMENSION> & me, TOrdinate1 i1, TOrdinate2 i2, TOrdinate3 i3);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(616)
+template <typename TValue, unsigned DIMENSION, typename TOrdinate1, typename TOrdinate2, typename TOrdinate3, typename TOrdinate4> inline typename Reference<Matrix<TValue, DIMENSION> >::Type value(Matrix<TValue, DIMENSION> & me, TOrdinate1 i1, TOrdinate2 i2, TOrdinate3 i3, TOrdinate4 i4);       	// "/Users/f.buske/Documents/biosim/triplexes/progs/seqan/core/include/seqan/align/matrix_base.h"(631)
 
 //____________________________________________________________________________
 // write

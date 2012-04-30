@@ -187,7 +187,7 @@ you should think of using @Tag.ExternalConfig@.
     };
 
     template < typename TConfig = ExternalConfig<> >
-    struct External;
+    struct External {};
 //IOREV
 
 

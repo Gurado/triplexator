@@ -449,6 +449,12 @@ begin(TValue const * me,
 ...text:For most classes $beginPosition$ always returns 0. Exceptions are e.g. @Spec.InfixSegment@ and @Spec.SuffixSegment@.
 ..see:Function.begin
 ..include:seqan/sequence.h
+..example.code:
+CharString str = "ABCDEF";
+std::cout << beginPosition(str) << std::endl;
+
+Infix<CharString >::Type myInfix = infix(str, 1, 5);
+std::cout << beginPosition(myInfix) << std::endl;
 */
 template <typename T>
 inline typename Position<T>::Type
@@ -1689,12 +1695,20 @@ inline void eraseBack(T & me)
 ..include:seqan/sequence.h
 */
 
-template <typename T, typename TSize, typename TValue>
+template <typename T>
 inline void
 shrinkToFit(T & me)
 {
     SEQAN_CHECKPOINT;
-    reserve(me, length(me), Exact());
+
+//  following line has no effect as in SeqAn it is not yet possible
+//  to reduce the memory consumption of a string with resize/reserve
+//
+//  reserve(me, length(me), Exact());
+
+    T tmp;
+    assign(tmp, me, Exact());
+    swap(me, tmp);
 }
 
 }  // namespace seqan

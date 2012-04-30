@@ -47,10 +47,10 @@ namespace SEQAN_NAMESPACE_MAIN
 ..cat:Modifier
 ..signature:ModifiedIterator<THost[, TSpec]>
 ..param.THost:Original iterator.
-...type:Concept.Iterator
+...type:Concept.RandomAccessIteratorConcept
 ..param.TSpec:The modifier type.
 ...metafunction:Metafunction.Spec
-..implements:Concept.Iterator
+..implements:Concept.RandomAccessIteratorConcept
 ..remarks:$THost$ can also be a modified iterator, so you can create custom iterators by combining predefined ones.
 ..include:seqan/modifier.h
 */

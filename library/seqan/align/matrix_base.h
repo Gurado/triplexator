@@ -424,16 +424,18 @@ inline bool empty(Matrix<TValue, DIMENSION> const & me)
 
 //////////////////////////////////////////////////////////////////////////////
 
-template <typename TValue, unsigned DIMENSION, typename TSize>
+template <typename TValue, unsigned DIMENSION, typename TLength>
 inline void
 setLength(Matrix<TValue, DIMENSION> & me,
 		  unsigned int dim_,
-		  TSize length_)
+		  TLength length_)
 {
-	SEQAN_ASSERT_GT(length_, static_cast<TSize>(0));
+	SEQAN_ASSERT_GT(length_, static_cast<TLength>(0));
 	SEQAN_ASSERT_LT(dim_, dimension(me));
 
-	_dataLengths(me)[dim_] = length_;
+    typedef typename SizeArr_<Matrix<TValue, DIMENSION> >::TSize_ TSize_;
+
+	_dataLengths(me)[dim_] = static_cast<TSize_>(length_);
 }
 
 //////////////////////////////////////////////////////////////////////////////

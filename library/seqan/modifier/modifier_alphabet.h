@@ -702,13 +702,12 @@ template <typename TTarget, typename TSource>
 struct AlphabetConversionTable_
 {
 	enum { SIZE = InternalValueSize_<TSource>::VALUE };
-private:
-	static TTarget table_store[SIZE];
 public:
 	static TTarget * table;
 	static TTarget * initialize()
 	{
         SEQAN_CHECKPOINT;
+        static TTarget table_store[SIZE];
 		static bool _is_initialized = false;
 		if (! _is_initialized)
 		{
@@ -718,10 +717,6 @@ public:
 		return table_store;
 	}
 };
-
-template <typename TTarget, typename TSource>
-TTarget AlphabetConversionTable_<TTarget, TSource>::table_store[AlphabetConversionTable_<TTarget, TSource>::SIZE];
-
 
 template <typename TTarget, typename TSource>
 TTarget * AlphabetConversionTable_<TTarget, TSource>::table = AlphabetConversionTable_<TTarget, TSource>::initialize();
@@ -744,13 +739,12 @@ template <typename TSource>
 struct AlphabetOrdTable_
 {
 	enum { SIZE = InternalValueSize_<TSource>::VALUE };
-private:
-	static unsigned table_store[SIZE];
 public:
 	static unsigned * table;
 	static unsigned * initialize()
 	{
         SEQAN_CHECKPOINT;
+        static unsigned table_store[SIZE];
 		static bool _is_initialized = false;
 		if (! _is_initialized)
 		{
@@ -760,10 +754,6 @@ public:
 		return table_store;
 	}
 };
-
-
-template <typename TSource>
-unsigned AlphabetOrdTable_<TSource>::table_store[AlphabetOrdTable_<TSource>::SIZE];
 
 
 template <typename TSource>
