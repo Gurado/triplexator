@@ -25,20 +25,21 @@ CXXFLAGS+=-O3 -DNDEBUG -DSEQAN_ENABLE_TESTING=0 -DSEQAN_ENABLE_DEBUG=0
 LDFLAGS+=$(OPENMP) $(BOOSTLIB) -static 
 
 SRC=src
+TARGET=bin
 
 default: all
 
 all: main test
 
 main: $(SRC)/triplexator.o
-	if ! test -d bin; then mkdir bin; fi 
-	$(CXX) $(LDFLAGS) -o bin/triplexator $(SRC)/triplexator.o
+	mkdir -p $(TARGET)
+	$(CXX) $(LDFLAGS) -o $(TARGET)/triplexator $(SRC)/triplexator.o
 
 triplexator.o: $(SRC)/triplexator.cpp
 	$(CXX) $(CXXFLAGS) -c -o $(SRC)/triplexator.o $(SRC)/triplexator.cpp
 
 test: main
-	./demos/smoketest_triplexator.sh ./bin/triplexator
+	./demos/smoketest_triplexator.sh ./$(TARGET)/triplexator
 	
 clean:
 	rm -f $(SRC)/triplexator.o bin/triplexator 
