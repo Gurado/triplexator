@@ -2,6 +2,11 @@
 * Changelog
 *******************
 
+2012-07-06  Fabian Buske	v1.3.0
+	Updated repeat finder directives to seqan rev 12251
+	Migrated to cmake for cross platform compatibility and packaging
+	Incorporated triplex-inspector v0.1.0
+
 2012-05-30  Fabian Buske	v1.2.1
 	Updated repeat finder directives to seqan rev 11739
 	Updated alphabet directives to seqan rev 11739

@@ -1,0 +1,187 @@
+body {
+	background-color:white; 
+	font-size: 12px; 
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	margin:0 auto;
+}
+.block_container {position:relative; width:99%; padding:0px; margin:0px;}
+.block_motif {position:absolute; z-index:3; height:10px; top:0px; text-align:center; vertical-align:middle; background-color:#555555;}
+.block_id {position:absolute; z-index:5; font-size: 9px; top:0px;}
+.block_rule {position:absolute; z-index:2; width:100%; height:1px; top:12px; left:0px; background-color:grey;}
+.monospace {font-family: "Courier", monospace; white-space: pre; display:block; line-height:14px; }
+.flank_triad {color: rgb(100, 100, 100); }
+.valid_triad {color: rgb(0, 175, 0); }
+.invalid_triad {color: rgb(175, 0, 0); }
+.small { font-size: 10px; }
+td { vertical-align: top; }
+img {margin: 2px; border: 1px solid #CCCCCC; vertical-align:top}
+img.btn_detail {margin: 0px; padding: 0px; border: 0px; }
+div.infobox {background-color:#dfdfdf;  width: 100%;} 
+div.cbox {border: 2px solid #CCCCCC; float: left; }
+.center
+{
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+    
+}
+div.warning {
+	font: 120%/1.45em "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+	position:relative; 
+	z-index:1000; 
+	border: 2px solid #000;
+	margin: 30px ;
+	padding:20px 50px; 
+	color: #000;
+	text-align:center;
+	background-color: #faa; background-image: -moz-linear-gradient(0, transparent 50%, rgba(255,255,255,.5) 50%); background-size: 50px; 
+}
+
+div.spacer {margin: 5px; float: left; width: 200px; }
+
+.tooltip {
+	display:none;
+	background:transparent url(../image/black_arrow.png);
+	font-size:12px;
+	height:70px;
+	width:160px;
+	padding:25px;
+	color:#fff;	
+}
+/* style the trigger elements */
+table thead th {
+	border:0;
+	cursor:pointer;
+	margin:0px;
+} 
+table {
+	font-size: 12px;
+}
+
+#target_region_head { background-color: #0000aa; color:white; margin-top: 10px; padding:5px; font-weight:bold;}
+#on_target_head { background-color: #00aa00; color:white; margin-top: 10px; padding:5px; font-weight:bold; }
+#off_target_head { background-color: #aa0000; color:white; margin-top: 10px; padding:5px; font-weight:bold; }
+#log_head { background-color: #aaaaaa; color:white; margin-top: 10px; padding:5px; font-weight:bold; }
+
+#target_region_overview { border: 2px solid #0000aa; margin-bottom: 10px; padding:10px 5px 25px 5px ;}
+#on_target_bowser { border: 2px solid #00aa00; margin-bottom: 10px; padding:10px 5px 25px 5px ;}
+#off_target_inspector { border: 2px solid #aa0000; margin-bottom: 10px; padding:10px 5px 25px 5px ;}
+#log_browser { border: 2px solid #aaaaaa; margin-bottom: 10px; padding:10px 5px 25px 5px ;}
+
+div.hidden {visibility:hidden; height:10px; width:10px; overflow: hidden}
+.btn_details { width:14px; }
+
+div.wrapper {
+	font: 80%/1.45em "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+	margin: 5px;
+	padding: 0;
+	color: #333;
+	background-color: #fff;	
+}
+
+div.container {	
+	width: 100%;
+	margin: 30px auto;
+	padding: 0;
+}
+
+div.blocks {
+	position: relative;
+	min-height: 602px;
+	clear: both;
+	_height: 602px;
+	zoom: 1; /* Feeling sorry for IE */
+	
+}
+
+#offtargets {
+	background-color: #FFFFFF; 
+	margin: 0 auto;
+	clear: both;
+	width: 100%;
+	padding : 0px;
+	border: 0px;
+	border-spacing: 0px;
+}
+
+#tbl_sequences {
+	margin: 0px;
+	width: 100%;
+	padding : 0px;
+	border: 0px;
+	table-layout:fixed;
+	vertical-align: top; 
+	font-size: 12px;
+}
+
+#tbl_infobox {
+	border: 0px;
+	width:100%; 
+	table-layout:fixed; 
+	padding:0px; 
+	margin:0px;
+	vertical-align: top; 
+	font-size: 12px;
+}
+
+#tbl_sequences {
+	margin: 0px;
+	width: 100%;
+	padding : 0px;
+	border: 0px;
+	table-layout:fixed;
+	vertical-align: top; 
+	font-size: 12px;
+}
+
+.encoding{
+	font-family: "Courier", monospace; 
+	white-space: pre; 
+}
+
+#tfo-b{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	margin: 5px;
+	width: 550px;
+	text-align: left;
+	border-collapse: collapse;
+	border: 1px solid #69c;
+} 
+#tfo-b th{
+	padding: 15px 10px 10px 10px;
+	font-weight: bold;
+	font-size: 12px;color: #039;
+} 
+#tfo-b tbody{
+	background: #e8edff;
+} 
+#tfo-b td{
+	padding: 10px;
+	color: #669;
+	border-top: 1px dashed #fff;
+} 
+#tfo-b tbody tr:hover td{
+	color: #339;
+	background: #d0dafd;
+}
+.legend {
+	font-size:10px;
+    padding: 0px 5px 25px 10px;
+}
+
+.rank0 {
+	color: #aa0000;	
+	font-family: "Courier";
+}
+.rank1 {
+	text-decoration:underline;
+	font-family: "Courier";
+}
+.rank2 {
+	text-decoration:overline;
+	font-family: "Courier";
+}
+

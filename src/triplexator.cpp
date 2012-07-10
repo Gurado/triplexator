@@ -64,13 +64,13 @@ namespace SEQAN_NAMESPACE_MAIN
 {
 
 	void _setupCommandLineParser(CommandLineParser & parser, Options & options){
-		::std::string rev = "$Revision: 11739 $";
-		addVersionLine(parser, "Version 1.2.1 (30/05/2012) SeqAn Revision: " + rev.substr(11, 4) + "");
-		append(options.version, "Version 1.2.1 (30/05/2012) SeqAn Revision: " + rev.substr(11, 4) + "");
+		::std::string rev = "$Revision: 12251 $";
+		addVersionLine(parser, "Version 1.3.0 (06/07/2012) SeqAn Revision: " + rev.substr(11, 4) + "");
+		append(options.version, "Version 1.3.0 (06/07/2012) SeqAn Revision: " + rev.substr(11, 4) + "");
 		
 		addTitleLine(parser, "***********************************************************************************");
 		addTitleLine(parser, "*** Triplexator - Finding nucleic acid triple helices with approximate matching ***");
-		addTitleLine(parser, "***                     (c) Copyright 2011 by Fabian Buske                      ***");
+		addTitleLine(parser, "***                  (c) Copyright 2011, 2012 by Fabian Buske                   ***");
 		addTitleLine(parser, "***                 Comments, Bugs, Feedback: f.buske@uq.edu.au                 ***");
 		addTitleLine(parser, "***********************************************************************************");
 		addUsageLine(parser, "[OPTIONS] -ss <FASTA FILE> -ds <FASTA FILE>");
