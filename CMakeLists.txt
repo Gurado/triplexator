@@ -10,7 +10,7 @@ set (triplexator_VERSION_PATCH 0)
 # does this system provide the required dependencies?
 include (${CMAKE_ROOT}/Modules/CheckFunctionExists.cmake)
 find_package (Boost COMPONENTS iostreams)
-find_package (OpenMp)
+find_package (OpenMP)
 
 #SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 SET(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin)
