@@ -156,7 +156,7 @@ $(document).ready(function(){
         var nTds = $('td', this);
         var regionId = $(nTds[0]).text();
         var region = $(nTds[1]).text();
-        var annotation = $(nTds[7]).text();
+        var annotation = $(nTds[8]).text();
 		window.open('inspector_detail.html?rId='+regionId+'&region='+region+'&annotation='+annotation, '_blank');
     } );
     

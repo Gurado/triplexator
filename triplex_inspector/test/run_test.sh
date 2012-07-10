@@ -19,7 +19,7 @@ BEDTOOLS=/Users/Shared/BEDTools_v2.16.2/bin/
 # -----------------------------------------------------
 DATA=${DIR}/data
 # annotation file
-ANNOTATION=${DATA}/M_tuberculosis_H37Rv_2_transcripts.gtf
+ANNOTATION=${DATA}/M_tuberculosis_H37Rv_2_exons.gtf
 # genome in fasta format
 GENOME=${DATA}/M_tuberculosis_H37Rv.fasta
 # chromosome sizes

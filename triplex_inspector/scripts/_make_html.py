@@ -198,7 +198,7 @@ def write_html(signature, tpx, tts, lois, parameters):
 	<body>
 	<div class="wrapper">
 
-	<div id="target_region_head">On-target regions</div>
+	<div id="target_region_head">Targetable regions</div>
 	<div id="target_region_overview">
 		<table id="tbl_sequences">
 		<colgroup>
@@ -207,8 +207,8 @@ def write_html(signature, tpx, tts, lois, parameters):
 		</colgroup>
 		<thead>
 			<tr>
-				<th>Genomic region</th>
-				<th>Block Diagram of putative primary target regions</th>
+				<th>Genomic locus</th>
+				<th>Target Region Block Diagram</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -299,13 +299,13 @@ def write_html(signature, tpx, tts, lois, parameters):
 	</table>
 	</div>
 
-	<div id="on_target_head">On-target browser</div>
+	<div id="on_target_head">Pool of putative targets</div>
 	<div id="on_target_bowser">
 	<table class="display" id="filter_table">
 	    <thead>
 	    	<tr>
-	    		<th colspan="8" style="background-color:#DDFFDD">on-target properties</th>
-	    		<th colspan="5" style="background-color:#FFDDDD">number of off-targets with binding properties</th>
+	    		<th colspan="8" style="background-color:#DDFFDD">primary targets &amp; properties</th>
+	    		<th colspan="5" style="background-color:#FFDDDD">off-target abundance</th>
 	    	</tr>
 	        <tr>
 	            <th></th>
@@ -382,7 +382,7 @@ def write_html(signature, tpx, tts, lois, parameters):
 	<body>
 	<div class="wrapper">
 
-	<div id="off_target_head">Off-target inspector: <span id="target_details">-</span> <div style="float:right"><a href="inspector_report.html" style="color:#fff">Back to report</a></div></div>
+	<div id="off_target_head">Off-targets for primary target at <span id="target_details">-</span> <div style="float:right"><a href="inspector_report.html" style="color:#fff">Back to report</a></div></div>
 	<div id="off_target_inspector">
 	<table class="display" id="offtarget_table">
 	    <thead>

@@ -881,7 +881,7 @@ def writeAnnotationOverlapData(targetid, off_targets, chromsizes, annotations, a
 	step_size = int(f_configuration["conf"]["genomesize"] * options.offtargetResolution / (360. - f_configuration["conf"]["target_radius"] )) 
 
 	if (options.verbose):
-		print "annotatoion stepsize: %d nts" % (step_size)
+		print "annotation stepsize: %d nts" % (step_size)
 
 	# convert chromsizes into dict
 	cs = {}
