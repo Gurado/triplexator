@@ -159,8 +159,6 @@ def write_html(signature, tpx, tts, lois, parameters):
 	<!-- include local version of jquery to support offline functionality -->
 	<script type="text/javascript" src="includes/js/jquery.min.js"></script>
 	<script type="text/javascript" src="includes/js/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="includes/js/jquery.ui.core.js"></script>
-	<script type="text/javascript" src="includes/js/jquery.ui.widget.js"></script>
 
 	<!-- data tables -->
 	<script type="text/javascript" src="includes/js/jquery.dataTables.min.js"></script>

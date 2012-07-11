@@ -32,7 +32,7 @@ Requirements (in PATH environment or specified):
 "
 
 DIR=`dirname $0`
-VERSION="0.1.0"
+VERSION="0.1.1"
 
 [ $# -lt 4 ] && echo "$USAGEMSG" >&2 && exit 1
 

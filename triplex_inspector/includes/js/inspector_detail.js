@@ -431,7 +431,7 @@ $(document).ready(function(){
         
 	        // create table
 			dTable= $('#offtarget_table').dataTable(json);
-			// new FixedHeader( dTable , { "bottom": true }  ); // TODO disabled as it breaks the table
+			new FixedHeader( dTable ); 
 			
 			fnCollapseOfftargetCategories(dTable);
 			

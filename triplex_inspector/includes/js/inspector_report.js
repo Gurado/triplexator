@@ -45,7 +45,7 @@ $(document).ready(function(){
 			json["aLengthMenu"] = [[10, 25, 50, -1], [10, 25, 50, "All"]];
 
 			oTable= $('#filter_table').dataTable(json);
-			new FixedHeader( oTable, { "bottom": true }  );
+			new FixedHeader( oTable ); 
 			
 	       	// add filter in the footer
 	       	$("#filter_table tfoot th").each( function ( i ) {
