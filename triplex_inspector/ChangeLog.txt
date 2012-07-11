@@ -1,0 +1,9 @@
+*******************
+* Changelog
+*******************
+
+2012-07-11  Fabian Buske	v0.1.1
+	Datatables FixedHeader plugin and jquery slider incompatibility patched
+
+2012-07-10  Fabian Buske	v0.1.0
+	First release of Triplex-Inspector
