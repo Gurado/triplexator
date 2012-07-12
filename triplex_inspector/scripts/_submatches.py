@@ -301,18 +301,18 @@ def process():
 	"aoColumns": [
 			{ "sTitle": "region Id", "sToolTip":"internal id used to identify regions of overlapping primary targets" },
 			{ "sTitle": "target region", "sToolTip":"target-region spanned by the primary target" },
-			{ "sTitle": "length", "sToolTip":"number of nucleotides spanned by the primary target" },
-			{ "sTitle": "G-ratio", "sToolTip":"proportion of guanines in the purine tract of the target" }, 
-			{ "sTitle": "GGG tracks", "sToolTip":"number of GpGpG tracks in the target, which can be indicative for putative self-association" }, 
-			{ "sTitle": "match run", "sToolTip":"the longest continuous polypurine/polypurimidine run in the target" },
-			{ "sTitle": "errors", "sToolTip":"number of interruption in the target" },
-			{ "sTitle": "error-rate", "sToolTip":"number of interruption in the target normalized over length" },
+			{ "sTitle": "length", "sType": "numeric", "sToolTip":"number of nucleotides spanned by the primary target" },
+			{ "sTitle": "G-ratio", "sType": "numeric", "sToolTip":"proportion of guanines in the purine tract of the target" }, 
+			{ "sTitle": "GGG tracks", "sType": "numeric", "sToolTip":"number of GpGpG tracks in the target, which can be indicative for putative self-association" }, 
+			{ "sTitle": "match run", "sType": "numeric", "sToolTip":"the longest continuous polypurine/polypurimidine run in the target" },
+			{ "sTitle": "errors", "sType": "numeric", "sToolTip":"number of interruption in the target" },
+			{ "sTitle": "error-rate", "sType": "numeric", "sToolTip":"number of interruption in the target normalized over length" },
 			{ "sTitle": "annotation", "sToolTip":"type of annotation supplied by the user" },
-			{ "sTitle": "as good", "sToolTip":"number of off-targets that have the same affinity as the primary target" }'''
+			{ "sTitle": "as good", "sType": "numeric", "sToolTip":"number of off-targets that have the same affinity as the primary target" }'''
 	for i in range(options.shorterUpTo):
-		output += ',\n			{ "sTitle": "-%d nt(s)", "sToolTip":"number of off-targets that are %d nucleotides shorter" }' % (i+1,i+1)
+		output += ',\n			{ "sTitle": "-%d nt(s)", "sType": "numeric", "sToolTip":"number of off-targets that are %d nucleotides shorter" }' % (i+1,i+1)
 	for i in range(options.errorsUpTo):
-		output += ',\n			{ "sTitle": "+%d error(s)", "sToolTip":"number of off-targets that have %d more errors" }' % (i+1,i+1)
+		output += ',\n			{ "sTitle": "+%d error(s)", "sType": "numeric", "sToolTip":"number of off-targets that have %d more errors" }' % (i+1,i+1)
 	# add table properties
 	output += '''],
 	"bPaginate": true,

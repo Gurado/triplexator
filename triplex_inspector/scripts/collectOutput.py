@@ -491,13 +491,13 @@ def process():
 	"aaSorting": [[2, "asc"]],
 	"aoColumns": [
 		{ "sTitle":"%s","sClass":"monospace left", "sToolTip":"shows the part of the primary target that is responsible for off-targets" },
-		{ "sTitle":"overlap", "sToolTip":"number of nucleotide positions off-targets overlap the primary target" },
-		{ "sTitle":"errors", "sToolTip":"expected number of mismatches between the triplex-forming molecule designed against the primary target and off-targets" },
-		{ "sTitle":"offset","bSearchable":false,"bVisible":false, "sToolTip":"the offset is used internally for computing the lefthand-side alignment"  },
+		{ "sTitle":"overlap", "sType": "numeric","sToolTip":"number of nucleotide positions off-targets overlap the primary target" },
+		{ "sTitle":"errors", "sType": "numeric","sToolTip":"expected number of mismatches between the triplex-forming molecule designed against the primary target and off-targets" },
+		{ "sTitle":"offset","sType": "numeric","bSearchable":false,"bVisible":false, "sToolTip":"the offset is used internally for computing the lefthand-side alignment"  },
 		{ "sTitle":"sub region", "sToolTip":"region of the primary target this off-target spans" },
-		{ "sTitle":"copies", "sToolTip":"number of copies of this off-target category" },
+		{ "sTitle":"copies", "sType": "numeric","sToolTip":"number of copies of this off-target category" },
 		{ "sTitle":"max. chromatin", "bVisible": %s, "sToolTip":"maximal chromatin score observed in any of the off-targets" },
-		{ "sTitle":"length", "sToolTip":"length of the off-target", "bVisible":false },
+		{ "sTitle":"length", "sType": "numeric","sToolTip":"length of the off-target", "bVisible":false },
 		{ "sTitle":"offtargets","bVisible": false, "sToolTip":"detailed off-target list with location and annotation"  } '''+output_offtargets[:-1]+"\n	]\n}") % (output_sequence_w+"<br/>"+output_sequence_c, withChromatin)
 
 		
@@ -557,16 +557,16 @@ def process():
 	"aoColumns": [
 		{ "sTitle": "region Id", "sToolTip":"internal id used to identify regions of overlapping putative primary targets" },
 		{ "sTitle": "chr", "sToolTip":"chromosome this region is located in" },
-		{ "sTitle": "start", "sToolTip":"chromosomal start position of this region" },
-		{ "sTitle": "end", "sToolTip":"chromosomal end position of this region" },
-		{ "sTitle": "length", "sToolTip":"number of nucleotides spanned by this target region" },
+		{ "sTitle": "start", "sType": "numeric", "sToolTip":"chromosomal start position of this region" },
+		{ "sTitle": "end", "sType": "numeric", "sToolTip":"chromosomal end position of this region" },
+		{ "sTitle": "length", "sType": "numeric", "sToolTip":"number of nucleotides spanned by this target region" },
 		{ "sTitle": "chromatin", "bVisible": '''+withChromatin+''', "sToolTip":"chromatin score averaged over the shown region" },
-		{ "sTitle": "interruptions", "sToolTip":"number of pyrimdine interruptions in the polypurine/polypyrimidine tract of the region" },
+		{ "sTitle": "interruptions", "sType": "numeric", "sToolTip":"number of pyrimdine interruptions in the polypurine/polypyrimidine tract of the region" },
 		{ "sTitle": "on-target region", "bSortable": false, "sClass": "left", "sToolTip":"sequence of the region (plus additional flanking positions if specified)"  },
 		{ "sTitle": "off-targets", "bSearchable": false, "bVisible": false, "sToolTip":"total number of off-targets accumulated over all putative primary targets in this region" },
 		{ "sTitle": "strand", "bSearchable": false, "bVisible": false, "sToolTip":"strand on which the purine tract is located" },
-		{ "sTitle": "offset left", "bSearchable": false, "bVisible": false, "sToolTip":"number of upstream flanking positions shown in the sequence" },
-		{ "sTitle": "offset right", "bSearchable": false, "bVisible": false, "sToolTip":"number of downstream flanking positions shown in the sequence" }
+		{ "sTitle": "offset left", "sType": "numeric", "bSearchable": false, "bVisible": false, "sToolTip":"number of upstream flanking positions shown in the sequence" },
+		{ "sTitle": "offset right", "sType": "numeric", "bSearchable": false, "bVisible": false, "sToolTip":"number of downstream flanking positions shown in the sequence" }
 	],	
 	"aaData": [''' + output_ontargets[:-1] + '\n	]\n}' 
 	

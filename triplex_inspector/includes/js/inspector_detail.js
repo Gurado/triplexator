@@ -315,28 +315,51 @@ $.fn.dataTableExt.oApi.fnCalculateMismatches = function (oSettings){
 	tfo_motifs();
 }
 
+function handleAjaxError( xhr, textStatus, error ) {
+    if ( textStatus === 'timeout' ) {
+        alert( 'The server took too long to send the data.' );
+    } else {
+        alert( 'An error occurred on the server. Please try again in a minute.' );
+    }
+    dTable.fnProcessingIndicator( false );
+}
+
+
 // populate table when the document is ready
 $(document).ready(function(){
 	thisUrlVars = $.getUrlVars();
-
-	// get ontarget entry
-	$.ajax({
-		url: 'json/primary_target_regions.json',
-		async: false,
-		dataType: 'json',
-		success: function (json) {
-			// json works, hide warning
-			$('#warning').css('visibility','hidden');
-
-			for (i=0;i<json["aaData"].length;i++){
-				if (json["aaData"][i][0] === $.getUrlVar('rId')){
-					onTargetRegion = jQuery.extend({},json["aaData"][i]);
-					break;
+	
+	// check if a region Id has been provided
+	if ($.getUrlVar('rId') == undefined){
+		$('#browsererror').css('visibility','hidden');
+		$('#datawarning').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0});
+	}
+	else {
+	
+		// get ontarget entry
+		$.ajax({
+			url: 'json/primary_target_regions.json',
+			async: false,
+			dataType: 'json',
+			success: function (json) {
+				// json works, hide warning
+				$('#browsererror').css('visibility','hidden');
+				$('#datanotice').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0});
+				for (i=0;i<json["aaData"].length;i++){
+					if (json["aaData"][i][0] === $.getUrlVar('rId')){
+						onTargetRegion = jQuery.extend({},json["aaData"][i]);
+						break;
+					}
 				}
 			}
-		}
-	});
 	
+		});
+		setTimeout("loadOfftargets()",250);
+	}
+});
+
+function loadOfftargets(){
+		
 	var tid_details = onTargetRegion[1] +':'+ onTargetRegion[2] +'-'+ onTargetRegion[3] + ' ('+ $.getUrlVar('rId')+')';
 	if ($.getUrlVar('region') != ""){
 		tid_details += "; subregion "+$.getUrlVar('region');
@@ -431,6 +454,11 @@ $(document).ready(function(){
         
 	        // create table
 			dTable= $('#offtarget_table').dataTable(json);
+			
+			// data obtained now start processing
+			$('#datanotice').css({opacity: 1.0, visibility: "hidden"}).animate({opacity: 0.0});
+			dTable.fnProcessingIndicator( true );
+			
 			new FixedHeader( dTable ); 
 			
 			fnCollapseOfftargetCategories(dTable);
@@ -528,7 +556,12 @@ $(document).ready(function(){
 			
 			dTable.fnDraw();
 			
-		}
-	}); 
-});
+			dTable.fnProcessingIndicator( false );
+			// just to be sure
+			$('#datanotice').css('visibility','hidden');
 
+		},
+		"error": handleAjaxError // this sets up jQuery to give me errors
+		
+	}); 
+}

@@ -393,7 +393,6 @@ def write_html(signature, tpx, tts, lois, parameters):
 	    </tfoot>
 	    <tbody>
 	        <tr>
-				<td bgcolor="#ffaaaa">processing...</td>
 	        </tr>
 	    </tbody>
 	</table>
@@ -457,8 +456,11 @@ def write_html(signature, tpx, tts, lois, parameters):
 	</div>
 	'''
 	
-	html_footer = '''<div id='footer'>Copyright &copy; 2012, <a href='mailto:f.buske@uq.edu.au'>Fabian Buske</a>. All rights reserved.</a> Check <a href='./FAQs.txt'>FAQs</a> when encountering issues.</div></div>
-	<div id="warning" class="center" style="position:absolute;top:100px;"><div class="warning">If you can read this, check the <a href="FAQs.txt">FAQs</a>.</div></div>
+	html_footer = '''<div id='footer'>Copyright &copy; 2012, <a href='mailto:fabian.buske@gmail.com'>Fabian Buske</a>. All rights reserved.</a> Check <a href='./FAQs.txt'>FAQs</a> when encountering issues.</div></div>
+	<div id="browsererror" class="center" style="position:absolute;top:100px;"><div class="error">If you can read this, check the <a href="FAQs.txt">FAQs</a>.</div></div>
+	<div id="datawarning" class="center" style="position:absolute;top:100px;visibility:hidden"><div class="warning">No region has been specified. Go to the report and select a target.</div></div>
+	<div id="datanotice" class="center" style="position:absolute;top:100px;visibility:hidden"><div class="notice">Obtain data from server. Please wait</div></div>
+
 </body>\n</html>'''
 
 	report = open(options.output+"inspector_report.html","w");

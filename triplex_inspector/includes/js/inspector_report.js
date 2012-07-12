@@ -6,35 +6,8 @@ var thisUrlVars;
 function showDetail(rId){
 	window.open('inspector_detail.html?rId='+rId+'&region=&annotation=', '_blank');
 }
-		
-$(document).ready(function(){
-	// load primary target regions
-	$.ajax({
-		url: 'json/primary_target_regions.json',
-		async: false,
-		dataType: 'json',
-		success: function (json) {
-			// json works, hide warning
-			$('#warning').css('visibility','hidden');
-			
-			rTable= $('#onregion_table').dataTable(json);
-			
-		    // add tooltip		   
-			$('#onregion_table thead tr th').each( function(i) {
-				this.setAttribute( 'title', json["aoColumns"][rTable.fnGetTh(i)]["sToolTip"] );
-			} );
-			// Apply the tooltips
-			$('#onregion_table thead tr th[title]').tooltip( {
-				position:'bottom center',
-				slideInSpeed:500,
-				opacity:1,
-				predelay:2000,
-				direction:'up',
-				effect:'slide'
-			} );		
-			$('#onregion_table').dataTable().fnDraw();
-		}
-	});
+	
+function loadPrimaryTargets(){
 	// load all primary targets
 	$.ajax({
 		url: 'json/'+submatches_file,
@@ -43,8 +16,12 @@ $(document).ready(function(){
 		success: function (json) {
 //			json["sDom"] = 'C<"clear">lfrtip'; // deactivate due to bug for the time
 			json["aLengthMenu"] = [[10, 25, 50, -1], [10, 25, 50, "All"]];
-
+			json["bStateSave"] = true;
+			
 			oTable= $('#filter_table').dataTable(json);
+			$('#datanotice').css({opacity: 1.0, visibility: "hidden"}).animate({opacity: 0.0});
+			oTable.fnProcessingIndicator( true );
+			
 			new FixedHeader( oTable ); 
 			
 	       	// add filter in the footer
@@ -125,8 +102,45 @@ $(document).ready(function(){
 			} );
 			
 			$('#filter_table').dataTable().fnDraw();
+			oTable.fnProcessingIndicator( false );
+
+			// just to be sure
+			$('#datanotice').css('visibility','hidden');  
+		}
+	});	
+}	
+		
+$(document).ready(function(){
+	// load primary target regions
+	$.ajax({
+		url: 'json/primary_target_regions.json',
+		async: false,
+		dataType: 'json',
+		success: function (json) {
+			// json works, hide warning
+			$('#browsererror').css('visibility','hidden');
+			$('#datanotice').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0});
+
+			rTable= $('#onregion_table').dataTable(json);
+			
+		    // add tooltip		   
+			$('#onregion_table thead tr th').each( function(i) {
+				this.setAttribute( 'title', json["aoColumns"][rTable.fnGetTh(i)]["sToolTip"] );
+			} );
+			// Apply the tooltips
+			$('#onregion_table thead tr th[title]').tooltip( {
+				position:'bottom center',
+				slideInSpeed:500,
+				opacity:1,
+				predelay:2000,
+				direction:'up',
+				effect:'slide'
+			} );		
+			$('#onregion_table').dataTable().fnDraw();
 		}
 	});
+
+	setTimeout("loadPrimaryTargets()",250);
 	
 	/* preselect annotation  */
 	$('#filter_table tfoot tr th:eq(8) select option').filter(function() {
@@ -166,5 +180,5 @@ $(document).ready(function(){
         });
         $(event.target.parentNode).addClass('row_selected');
     });
-
+  
 });

@@ -27,7 +27,7 @@ div.cbox {border: 2px solid #CCCCCC; float: left; }
     z-index: 1000;
     
 }
-div.warning {
+div.error {
 	font: 120%/1.45em "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
 	position:relative; 
 	z-index:1000; 
@@ -37,6 +37,28 @@ div.warning {
 	color: #000;
 	text-align:center;
 	background-color: #faa; background-image: -moz-linear-gradient(0, transparent 50%, rgba(255,255,255,.5) 50%); background-size: 50px; 
+}
+div.warning {
+	font: 120%/1.45em "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+	position:relative; 
+	z-index:1000; 
+	border: 2px solid #000;
+	margin: 30px ;
+	padding:20px 50px; 
+	color: #000;
+	text-align:center;
+	background-color: #aaf; background-image: -moz-linear-gradient(0, transparent 50%, rgba(255,255,255,.5) 50%); background-size: 50px; 
+}
+div.notice {
+	font: 120%/1.45em "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+	position:relative; 
+	z-index:1000; 
+	border: 2px solid #000;
+	margin: 30px ;
+	padding:20px 50px; 
+	color: #000;
+	text-align:center;
+	background-color: #afa; background-image: -moz-linear-gradient(0, transparent 50%, rgba(255,255,255,.5) 50%); background-size: 50px; 
 }
 
 div.spacer {margin: 5px; float: left; width: 200px; }
