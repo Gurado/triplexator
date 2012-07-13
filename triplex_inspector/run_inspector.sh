@@ -346,7 +346,8 @@ if [ ! -f ${OUTPUT}/json/${JSON} ] || [ ! ${SKIPIFEXISTS} = "TRUE" ]; then
 		echo "... collect all primary targets"  >> ${LOGFILE} 
 		${TRIPLEXATOR} ${TTSOPTIONS} --all-matches -od ${OUTPUT}/tts -o ${LOISHORT}.submatches.TTS -ds ${OUTPUT}/tts/${LOISHORT}.submatches
 	fi
-	echo "... intersect primary targets with previously obtained off-targets"  >> ${LOGFILE} 	${PYTHON} ${DIR}/scripts/_submatches.py --verbose ${OUTPUT}/tts/${LOISHORT}.TTSpool ${OUTPUT}/tts/${LOISHORT}.submatches.TTS ${OUTPUT}/tpx/${LOISHORT}.TPX ${OUTPUT}/tpx/${LOISHORT}.TPX.log > ${OUTPUT}/json/${JSON} 2>> ${DEBUGFILE}
+	echo "... intersect primary targets with previously obtained off-targets"  >> ${LOGFILE} 	
+	${PYTHON} ${DIR}/scripts/_submatches.py --verbose ${OUTPUT}/tts/${LOISHORT}.TTSpool ${OUTPUT}/tts/${LOISHORT}.submatches.TTS ${OUTPUT}/tpx/${LOISHORT}.TPX ${OUTPUT}/tpx/${LOISHORT}.TPX.log > ${OUTPUT}/json/${JSON} 2>> ${DEBUGFILE}
 	echo "*** "`date +%H:%M:%S`" done     " >> ${LOGFILE}
 else
 	echo "... skipping primary target detection due to pre-existing results" >> ${LOGFILE}
@@ -392,9 +393,9 @@ if hash ${CIRCOS} 2>&- ; then
 	echo "*** CIRCOS " >> ${DEBUGFILE}
 	mkdir -p ${OUTPUT}/circos
 	if [ "${CHROMATIN}" != "NONE" ]; then
-		${PYTHON} ${DIR}/scripts/_make_circos_data.py ${VERBOSE} --chromatin ${CHROMATIN} --chromatin-format ${CHROMATINFORMAT} --output-dir ${OUTPUT}/circos/ --fasta-file ${LOISEQ} ${LOI} ${LOC} ${OUTPUT}/tts/${LOISHORT}.TTSpool ${OUTPUT}/tpx/${LOISHORT}.TPX ${OUTPUT}/json/primary_targets.json ${GENOMESIZE} >> ${LOGFILE} 2>> ${DEBUGFILE}
+		${PYTHON} ${DIR}/scripts/_make_circos_data.py ${VERBOSE} --chromatin ${CHROMATIN} --chromatin-format ${CHROMATINFORMAT} --output-dir ${OUTPUT}/circos/ --fasta-file ${LOISEQ} ${LOI} ${LOC} ${OUTPUT}/tts/${LOISHORT}.TTSpool ${OUTPUT}/tpx/${LOISHORT}.TPX ${OUTPUT}/json/primary_targets.json ${GENOMESIZE} >> ${DEBUGFILE} 2>&1
 	else
-		${PYTHON} ${DIR}/scripts/_make_circos_data.py ${VERBOSE} --output-dir ${OUTPUT}/circos/ --fasta-file ${LOISEQ} ${LOI} ${LOC} ${OUTPUT}/tts/${LOISHORT}.TTSpool ${OUTPUT}/tpx/${LOISHORT}.TPX ${OUTPUT}/json/primary_targets.json ${GENOMESIZE} >> ${LOGFILE} 2>> ${DEBUGFILE}
+		${PYTHON} ${DIR}/scripts/_make_circos_data.py ${VERBOSE} --output-dir ${OUTPUT}/circos/ --fasta-file ${LOISEQ} ${LOI} ${LOC} ${OUTPUT}/tts/${LOISHORT}.TTSpool ${OUTPUT}/tpx/${LOISHORT}.TPX ${OUTPUT}/json/primary_targets.json ${GENOMESIZE} >> ${DEBUGFILE} 2>&1
 	fi
 	
 	ORIGINDIR=`pwd` # save current directory
@@ -432,5 +433,5 @@ fi
 # finish
 #---------------------------
 echo "-------     " >> ${LOGFILE}
-echo "*** "`date +%H:%M:%S`" inspector finished" 	>> ${LOGFILE} 
+echo "*** "`date +%H:%M:%S`" inspector finished" >> ${LOGFILE} 
 
