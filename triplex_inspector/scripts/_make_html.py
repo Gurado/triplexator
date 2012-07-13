@@ -356,11 +356,11 @@ def write_html(signature, tpx, tts, lois, parameters):
 	        </tr>
 	    </tbody>
 	</table>
-	<table border="0" class="small"><tr><td><u>Color-coding:</u></td>
-	<td style="background-color:#ddffdd;width:15px;">&nbsp;</td><td>0-10 off-targets</td>
-	<td style="background-color:#ddddff;width:15px;">&nbsp;</td><td>11-100 off-targets</td>
-	<td style="background-color:#ffdddd;width:15px;">&nbsp;</td><td>101-1000 off-targets</td>
-	<td style="background-color:#dddddd;width:15px;">&nbsp;</td><td>>1000 off-targets</td></tr></table>
+	<table border="0" class="small"><tr><td>Color-coding indicates the number of &#39;as good&#39; off-targets: </td>
+	<td style="background-color:#ddffdd;width:15px;">&nbsp;</td><td>0-10</td>
+	<td style="background-color:#ddddff;width:15px;">&nbsp;</td><td>11-100</td>
+	<td style="background-color:#ffdddd;width:15px;">&nbsp;</td><td>101-1000</td>
+	<td style="background-color:#dddddd;width:15px;">&nbsp;</td><td>&gt;1000</td></tr></table>
 	</div>'''
 	
 	report_body += '''
@@ -448,7 +448,7 @@ def write_html(signature, tpx, tts, lois, parameters):
 
 	<u>Legend:</u> with respect to the <a href='http://acb.qfab.org/acb/triplexator/biology.html' target='_blank'>canonical triplex formation ruleset</a><br/>
 	'-': valid triplex triad formed between the third strand and the target duplex at this position (primary and off-target respectively), <br/>
-	'o': error due to the triplex-forming molecule (third strand), <br/> 
+	'o': error due to the triplex-forming molecule (third strand) as consequence of an error in the primary target, <br/> 
 	'd': error due to the off-target duplex (pyrimidine interruption), <br/>
 	'b': error due to both the triplex-forming molecule and the duplex,<br/>
 	't': error due to the triplex pairing between the third strand nucleotide and the duplex,<br/>
@@ -486,13 +486,13 @@ def process():
 def main():
 	global options
 	global args
-	usage = '''usage: %prog [options] LOI.bed TTS.bed TPX.file primaryTargets.json
+	usage = '''usage: %prog [options] loi.bed tts.bed tpx.file primaryTargets.json
 
 takes two bed files containing 
-(1) the generell regions of interest, 
-(2) the location of the primary target region 
-(3) a triplexator output file containing information about the off-targets 
-(4) the location of the primary target json file
+(1) generell regions of interest, 
+(2) location of the primary target region 
+(3) triplexator output file containing information about the off-targets 
+(4) location of the primary target json file
 and generates a report in html format. 
 	'''
 	parser = OptionParser(usage)
@@ -505,7 +505,7 @@ and generates a report in html format.
 	parser.add_option("-x", "--off-target-log", type="string", dest="tpx_logfile", default="", 
 					help="triplexator log file to retrieve additional parameters (default: looks for tpx.log file in the TFP.file location)")
 	parser.add_option("-p", "--primary-target-log", type="string", dest="tts_logfile", default="", 
-					help="triplexator log file for primary target detection (default: derived from TTS.bed)")
+					help="triplexator log file for primary target detection (default: derived from tts.bed)")
 	parser.add_option("-w", "--workflow-log", type="string", dest="workflow_logfile", default="log.txt", 
 					help="location of the workflow log file w/r/t the output (default: log.txt)")
 	parser.add_option("-c", "--with-chromatin", type="string", dest="chromatin", default="NONE", 

@@ -2,6 +2,9 @@
 * Changelog
 *******************
 
+2012-07-12  Fabian Buske	v0.1.2
+	Version number of dependency programs reported in log
+
 2012-07-12  Fabian Buske	v0.1.1
 	Datatables FixedHeader plugin and jquery slider incompatibility patched
 	Improved data loading and user feedback during processing
