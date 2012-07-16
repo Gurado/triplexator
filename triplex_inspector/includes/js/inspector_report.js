@@ -6,6 +6,47 @@ var thisUrlVars;
 function showDetail(rId){
 	window.open('inspector_detail.html?rId='+rId+'&region=&annotation=', '_blank');
 }
+
+function addFilter(){
+	/* preselect annotation  */
+	$('#filter_table tfoot tr th:eq(8) select option').filter(function() {
+		//may want to use $.trim in here
+		return $(this).text().trim() == "-"; 
+	}).attr('selected', true).change();
+
+	/* Add events */
+    $('#onregion_table tbody tr').live('click', function () {
+        var nTds = $('td', this);
+        var regionId = $(nTds[0]).text();
+        $('#filter_table tfoot tr th:eq(0) option:selected').attr('selected', false);
+        $('#filter_table tfoot tr th:eq(0) select option').filter(function() {
+		    //may want to use $.trim in here
+		    return $(this).text() == regionId; 
+		}).attr('selected', true).change();
+    } );
+    
+	$("#onregion_table tbody").click(function(event) {
+        $(rTable.fnSettings().aoData).each(function (){
+            $(this.nTr).removeClass('row_selected');
+        });
+        $(event.target.parentNode).addClass('row_selected');
+    });
+    
+    $('#filter_table tbody tr').live('click', function () {
+        var nTds = $('td', this);
+        var regionId = $(nTds[0]).text();
+        var region = $(nTds[1]).text();
+        var annotation = $(nTds[8]).text();
+		window.open('inspector_detail.html?rId='+regionId+'&region='+region+'&annotation='+annotation, '_blank');
+    } );
+    
+	$("#filter_table tbody").click(function(event) {
+        $(oTable.fnSettings().aoData).each(function (){
+            $(this.nTr).removeClass('row_selected');
+        });
+        $(event.target.parentNode).addClass('row_selected');
+    });	
+}
 	
 function loadPrimaryTargets(){
 	// load all primary targets
@@ -16,7 +57,7 @@ function loadPrimaryTargets(){
 		success: function (json) {
 //			json["sDom"] = 'C<"clear">lfrtip'; // deactivate due to bug for the time
 			json["aLengthMenu"] = [[10, 25, 50, -1], [10, 25, 50, "All"]];
-			json["bStateSave"] = true;
+//			json["bStateSave"] = true; // TODO conflicts with filters at table bottom
 			
 			oTable= $('#filter_table').dataTable(json);
 			$('#datanotice').css({opacity: 1.0, visibility: "hidden"}).animate({opacity: 0.0});
@@ -106,6 +147,8 @@ function loadPrimaryTargets(){
 
 			// just to be sure
 			$('#datanotice').css('visibility','hidden');  
+			
+			addFilter();
 		}
 	});	
 }	
@@ -141,44 +184,5 @@ $(document).ready(function(){
 	});
 
 	setTimeout("loadPrimaryTargets()",250);
-	
-	/* preselect annotation  */
-	$('#filter_table tfoot tr th:eq(8) select option').filter(function() {
-		//may want to use $.trim in here
-		return $(this).text() == "-"; 
-	}).attr('selected', true).change();
-
-	/* Add events */
-    $('#onregion_table tbody tr').live('click', function () {
-        var nTds = $('td', this);
-        var regionId = $(nTds[0]).text();
-        $('#filter_table tfoot tr th:eq(0) option:selected').attr('selected', false);
-        $('#filter_table tfoot tr th:eq(0) select option').filter(function() {
-		    //may want to use $.trim in here
-		    return $(this).text() == regionId; 
-		}).attr('selected', true).change();
-    } );
-    
-	$("#onregion_table tbody").click(function(event) {
-        $(rTable.fnSettings().aoData).each(function (){
-            $(this.nTr).removeClass('row_selected');
-        });
-        $(event.target.parentNode).addClass('row_selected');
-    });
-    
-    $('#filter_table tbody tr').live('click', function () {
-        var nTds = $('td', this);
-        var regionId = $(nTds[0]).text();
-        var region = $(nTds[1]).text();
-        var annotation = $(nTds[8]).text();
-		window.open('inspector_detail.html?rId='+regionId+'&region='+region+'&annotation='+annotation, '_blank');
-    } );
-    
-	$("#filter_table tbody").click(function(event) {
-        $(oTable.fnSettings().aoData).each(function (){
-            $(this.nTr).removeClass('row_selected');
-        });
-        $(event.target.parentNode).addClass('row_selected');
-    });
   
 });
