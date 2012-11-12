@@ -32,25 +32,37 @@ Triplexator binaries are available for some plattforms from
      tar xf triplexator.<plattform>.tar.gz
   2) change directory:
      cd triplexator
-  3) run smoketests:
-     ./demos/smoketest_triplexator.sh ./bin/triplexator
-     These test indicate whether the binary work for your system.
+  3) run triplexator:
+     ./bin/triplexator --help
+     This should output a brief usage message.
 
 ---------------------------------------------------------------------------
 2.2 Installation - from source
 ---------------------------------------------------------------------------
 
-Triplexator sources can be obtained from googlecode using git:
+Triplexator sources can be obtained from googlecode using git and build 
+using cmake:
 
-  1)  git clone http://code.google.com/p/triplexator/ triplexator
-  3)  cd triplexator
-  4)  # modify Makefile or Makefile.osx to specify BOOST libraries (optional)
-  on linux:
-     5)  make
-  on mac osx:
-     5)  make -f Makefile.osx
-  6)  cd bin/
-  7)  ./triplexator --help
+    1) obtain triplexator:
+    >git clone https://code.google.com/p/triplexator/ triplexator
+    
+    2) change directory:
+      >cd triplexator
+    
+    3) create directory and change into it:
+      >mkdir -p build/Release && cd build/Release
+    
+    4) run cmake and make:
+      >cmake ../.. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=g++ -G "Unix Makefiles" && make
+    
+    5) change directory:
+      >cd ../..
+    
+    6) try the binary:
+      >./bin/triplexator --help
+    
+    7) run the smoketest:
+      >./demos/smoketest_triplexator.sh ./bin/triplexator 
 
 On success, an executable file triplexator was build and a brief usage 
 description has been dumped.

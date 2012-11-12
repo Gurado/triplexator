@@ -552,6 +552,7 @@ namespace SEQAN_NAMESPACE_MAIN
 		{
 			// Set defaults.
 			showHelp = true;
+			showVersion = false;
 			hashsize = 127;
 			ttsFileSupplied = false;
 			tfoFileSupplied = false;

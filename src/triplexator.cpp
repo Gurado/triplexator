@@ -65,8 +65,8 @@ namespace SEQAN_NAMESPACE_MAIN
 
 	void _setupCommandLineParser(CommandLineParser & parser, Options & options){
 		::std::string rev = "$Revision: 12251 $";
-		addVersionLine(parser, "Version 1.3.0 (06/07/2012) SeqAn Revision: " + rev.substr(11, 4) + "");
-		append(options.version, "Version 1.3.0 (06/07/2012) SeqAn Revision: " + rev.substr(11, 4) + "");
+		addVersionLine(parser, "Version 1.3.1 (12/11/2012) SeqAn Revision: " + rev.substr(11, 4) + "");
+		append(options.version, "Version 1.3.1 (12/11/2012) SeqAn Revision: " + rev.substr(11, 4) + "");
 		
 		addTitleLine(parser, "***********************************************************************************");
 		addTitleLine(parser, "*** Triplexator - Finding nucleic acid triple helices with approximate matching ***");
@@ -171,6 +171,8 @@ namespace SEQAN_NAMESPACE_MAIN
 		if (isSetLong(parser, "version")) {
 			options.showVersion = true;
 			return 0;
+		} else {
+			options.showVersion = false;
 		}
 		
 		//////////////////////////////////////////////////////////////////////////////

@@ -5,7 +5,7 @@ project (triplexator)
 # The version number.
 set (triplexator_VERSION_MAJOR 1)
 set (triplexator_VERSION_MINOR 3)
-set (triplexator_VERSION_PATCH 0)
+set (triplexator_VERSION_PATCH 1)
 
 # does this system provide the required dependencies?
 include (${CMAKE_ROOT}/Modules/CheckFunctionExists.cmake)

@@ -58,6 +58,16 @@ function loadPrimaryTargets(){
 //			json["sDom"] = 'C<"clear">lfrtip'; // deactivate due to bug for the time
 			json["aLengthMenu"] = [[10, 25, 50, -1], [10, 25, 50, "All"]];
 //			json["bStateSave"] = true; // TODO conflicts with filters at table bottom
+			json["fnRowCallback"] = function( nRow, aData, iDisplayIndex ) {
+				// indicate shorter off-target categories that have not been processed due to parameter setting
+				if (aData[10] == 0 && aData[2]-1 < parameters["minLength"]){
+					jQuery('td:eq(10)', nRow).html( '-' );
+				}
+				if (aData[11] == 0 && aData[2]-2 < parameters["minLength"]){
+					jQuery('td:eq(11)', nRow).html( '-' );
+				}
+				return nRow;
+			};
 			
 			oTable= $('#filter_table').dataTable(json);
 			$('#datanotice').css({opacity: 1.0, visibility: "hidden"}).animate({opacity: 0.0});

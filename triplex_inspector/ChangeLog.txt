@@ -2,12 +2,14 @@
 * Changelog
 *******************
 
-2012-07-12  Fabian Buske	v0.1.2
-	Version number of dependency programs reported in log
+2012-07-24  Fabian Buske	v0.1.2
+	- Version number of dependency programs reported in log
+	- Distinguish off-targets with zero shorter off-targets from ones that have not been processed due to the minimum length constraint 
+	- Bugfix: removed duplicate entries in detailed view
 
 2012-07-12  Fabian Buske	v0.1.1
-	Datatables FixedHeader plugin and jquery slider incompatibility patched
-	Improved data loading and user feedback during processing
+	- Datatables FixedHeader plugin and jquery slider incompatibility patched
+	- Improved data loading and user feedback during processing
 
 2012-07-10  Fabian Buske	v0.1.0
-	First release of Triplex-Inspector
+	- First release of Triplex-Inspector

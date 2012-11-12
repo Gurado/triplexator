@@ -2,6 +2,9 @@
 * Changelog
 *******************
 
+2012-11-12 Fabian Buske		v1.3.1
+	Bugfix: Variable initialization
+
 2012-07-06  Fabian Buske	v1.3.0
 	Updated repeat finder directives to seqan rev 12251
 	Migrated to cmake for cross platform compatibility and packaging

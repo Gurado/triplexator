@@ -182,7 +182,6 @@ function fnCollapseOfftargetCategories(dTable){
 	}
 	// clear table
 	dTable.fnClearTable(false);
-	dTable.fnAddData(entries, true);
 	
 	// add new collapsed entries
 	// check for suitable intersection
