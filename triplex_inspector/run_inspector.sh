@@ -7,7 +7,7 @@ Starts the triplex target analysis workflow on the given dataset.
 Requirements (in PATH environment or specified):
 	Python 2.7 + Biopython
 	Triplexator v1.2+
-	BEDtools v2.12.0
+	BEDtools v2.12.0+
 	Samtools and pysam (bam) or bx-python (bigwig) need to be installed when chromatin data (e.g. DNase I hypersensitivity) are taken into account
 	Circos v0.62+
 
@@ -26,7 +26,7 @@ Requirements (in PATH environment or specified):
 * -B BEDtools - path to BEDtools executables with terminal directory delimiter (i.e. "/"), if no path is given BEDtool binaries are expected to be found in the PATH variable.
 * -C Circos - path to Circos executable, if no path is given circos binaries are expected to be found in the PATH variable.
 * -a annotation - The full path to a gtf file specifying (gene) annotation data
-* -x - skips commands for which there already exists an result  (e.g. from a previous, disrupted run). This is to reduce runtime, but can result in undefined behavior.
+* -x - skips commands for which there already exists an result  (e.g. from a previous, disrupted run). This can reduce the runtime for subsequent calls, but may result in undefined behavior.
 * -v - print progress information (verbose).
 
 "
@@ -252,7 +252,7 @@ else
 fi
 # have we found any region that could be a putative primary target at all?
 FOUNDTTS=`cat ${OUTPUT}/tts/${LOISHORT}.TTS | awk '{if (NR!=1) {print $0}}' | awk '/./{n++}; END {print n+0}'` 
-test ${FOUNDTTS} == 0 && \
+test ${FOUNDTTS} -eq 0 && \
 	( echo "[WARNING] No primary targets found. \nEither increase the loci of interest or relax the constraints for finding primary targets" >> ${LOGFILE} 2>> ${DEBUGFILE} ) \
 	&& exit 1
 
@@ -402,7 +402,9 @@ if hash ${CIRCOS} 2>&- ; then
 	cat /dev/null > ${OUTPUT}/circos/log.txt
 	# make one circos plot for each target
 	for FOLDER in `ls -d ${OUTPUT}/circos/t*/`; do
-		cd ${FOLDER} && ${CIRCOS} -conf ./circos.conf >> ${ORIGINDIR}/${DEBUGFILE} 2>&1 && cd ${ORIGINDIR}
+		cd ${FOLDER} 
+		${CIRCOS} -conf ./circos.conf >> ${ORIGINDIR}/${DEBUGFILE} 2>&1
+		cd ${ORIGINDIR}
 	done
 
 	# augment html	
