@@ -28,13 +28,18 @@ add_executable(triplexator triplexator.cpp
 				triplex_pattern.h
 )
 
-# The boost compontent iostreams is optional and only be used to compress output files on request
+# The boost component iostreams is optional and only be used to compress output files on request
 if (Boost_IOSTREAMS_FOUND)
 	set(Boost_USE_STATIC_LIBS ON)
 	include_directories(${Boost_INCLUDE_DIRS})
 	target_link_libraries(triplexator ${Boost_IOSTREAMS_LIBRARIES})
 	message("Boost_IOSTREAMS_LIBRARY_RELEASE = ${Boost_IOSTREAMS_LIBRARY_RELEASE}")
 endif (Boost_IOSTREAMS_FOUND)
+
+if(UNIX AND NOT APPLE)
+	target_link_libraries(triplexator rt)
+endif()
+
 
 install(TARGETS triplexator RUNTIME DESTINATION bin COMPONENT applications) 
 
