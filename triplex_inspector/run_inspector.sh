@@ -31,8 +31,8 @@ Requirements (in PATH environment or specified):
 
 "
 
-DIR=`dirname $0`
-VERSION="0.1.2"
+DIR=$(dirname $0)
+VERSION="0.1.3"
 
 [ $# -lt 4 ] && echo "$USAGEMSG" >&2 && exit 1
 
@@ -197,7 +197,7 @@ echo "1) loci of interest" >> ${LOGFILE} 2>> ${DEBUGFILE}
 
 if	[ ! -f ${OUTPUT}/${LOISHORT}.fasta ] || [ ! ${SKIPIFEXISTS} = "TRUE" ]; then	
 	echo "... getting sequence data for loci of interest" >> ${LOGFILE} 
-	${BEDTOOLS}fastaFromBed -name -s -fi ${GENOME} -bed ${LOI} -fo ${OUTPUT}/${LOISHORT}.fasta
+	${BEDTOOLS}fastaFromBed -name -s -fi ${GENOME} -bed ${LOI} -fo ${OUTPUT}/${LOISHORT}.fasta 2>> ${DEBUGFILE}
 fi
 LOISEQ=${OUTPUT}/${LOISHORT}.fasta
 echo "LOISEQ:     "${LOISEQ} >> ${LOGFILE} 2>> ${DEBUGFILE}
@@ -212,7 +212,7 @@ else
 	if	[ -f ${LOC} ]  && ([ ! -f ${OUTPUT}/${LOCSHORT}.fasta ] || [ ! ${SKIPIFEXISTS} = "TRUE" ]); then
 		LOCSEQ=${OUTPUT}/${LOCSHORT}.fasta 
 		echo "... getting sequence data for alternative regions" >> ${LOGFILE} 
-		${BEDTOOLS}fastaFromBed -name -fi ${GENOME} -bed ${LOC} -fo ${OUTPUT}/${LOCSHORT}.fasta 
+		${BEDTOOLS}fastaFromBed -name -fi ${GENOME} -bed ${LOC} -fo ${OUTPUT}/${LOCSHORT}.fasta 2>> ${DEBUGFILE}
 		LOCSEQ=${OUTPUT}/${LOCSHORT}.fasta
 	fi
 fi
@@ -228,10 +228,10 @@ if [ "$ANNOTATION" != "NONE" ]; then
 	echo "*** PREPARE ANNOTATION " >> ${DEBUGFILE}
 	echo "... convert annotation into BED files" >> ${LOGFILE} 
 	[ ! -d ${OUTPUT}/annotation ] && mkdir ${OUTPUT}/annotation
-	for ANNO in `cat ${ANNOTATION} | awk -F\\t '{print $2}' | sort -u`; do
+	for ANNO in $(cat ${ANNOTATION} | grep -v '^#' | awk -F\\t '{print $2}' | sort -u); do
+		echo "... processing annotation" ${ANNO} >> ${LOGFILE} 2>> ${DEBUGFILE} 	
 		if [ ! -f ${OUTPUT}/annotation/${ANNO}.bed ] || [ ! ${SKIPIFEXISTS} = "TRUE" ]; then
-			echo "... processing annotation" ${ANNO} >> ${LOGFILE} 2>> ${DEBUGFILE} 
-			cat ${ANNOTATION} | awk -F\\t -v d1="${ANNO}" '$2==d1 {print $1"\t"$4"\t"$5"\t"$3"\t"$6"\t"$7}' > ${OUTPUT}/annotation/${ANNO}.bed
+			cat ${ANNOTATION} | awk -F\\t -v d1="${ANNO}" '$2==d1 {print $1"\t"$4"\t"$5"\t"$3"\t"$6"\t"$7}' > ${OUTPUT}/annotation/${ANNO}.bed 2>> ${DEBUGFILE}
 		fi
 	done
 	echo "*** "`date +%H:%M:%S`" done     " >> ${LOGFILE}
@@ -251,7 +251,7 @@ else
 	echo "... skipping primary target region detection due to pre-existing results" >> ${LOGFILE}
 fi
 # have we found any region that could be a putative primary target at all?
-FOUNDTTS=`cat ${OUTPUT}/tts/${LOISHORT}.TTS | awk '{if (NR!=1) {print $0}}' | awk '/./{n++}; END {print n+0}'` 
+FOUNDTTS=$(cat ${OUTPUT}/tts/${LOISHORT}.TTS | awk '{if (NR!=1) {print $0}}' | awk '/./{n++}; END {print n+0}') 
 test ${FOUNDTTS} -eq 0 && \
 	( echo "[WARNING] No primary targets found. \nEither increase the loci of interest or relax the constraints for finding primary targets" >> ${LOGFILE} 2>> ${DEBUGFILE} ) \
 	&& exit 1
@@ -310,16 +310,16 @@ if [ ! -f ${OUTPUT}/tpx/${TFOSHORT}.TPX ] || [ ! ${SKIPIFEXISTS} = "TRUE" ]; the
 		
 		# get number of off-targets and extract their coordinates
 		cat ${OUTPUT}/tpx/${TFOSHORT}.TPX | awk -F\\t '{if (NR!=1) {print  $4"\t"$5"\t"$6"\t"NR"\t"$7"\t"$11}}' > ${OUTPUT}/tpx/${TFOSHORT}.bed
-		FOUNDOFFS=`cat ${OUTPUT}/tpx/${TFOSHORT}.bed | awk '/./{n++}; END {print n+0}'` 
+		FOUNDOFFS=$(cat ${OUTPUT}/tpx/${TFOSHORT}.bed | awk '/./{n++}; END {print n+0}')
 		echo "... Number of off-targets found: ${FOUNDOFFS}" >> ${LOGFILE} 2>> ${DEBUGFILE}
 	
 		if [ ! "${FOUNDOFFS}" = "0" ]; then
 			# intersect with each annotation file
-			for ANNO in `cat ${ANNOTATION} | awk -F\\t '{print $2}' | sort -u`; do
+			for ANNO in $(cat ${ANNOTATION} | awk -F\\t '{print $2}' | sort -u); do
 				echo "... intersecting with ${ANNO}" >> ${LOGFILE} 2>> ${DEBUGFILE}
 				${BEDTOOLS}intersectBed -wo -a ${OUTPUT}/tpx/${TFOSHORT}.bed -b ${OUTPUT}/annotation/${ANNO}.bed | sort -k4,4n > ${OUTPUT}/tpx/${TFOSHORT}.${ANNO}
 				# append annotation to tpx file (additional columns, multiple entries are comma separated)
-				${PYTHON} ${DIR}/scripts/_annotationtpx.py ${OUTPUT}/tpx/${TFOSHORT}.TPX ${OUTPUT}/tpx/${TFOSHORT}.${ANNO} ${ANNO} > ${OUTPUT}/tpx/${TFOSHORT}.TPXanno
+				${PYTHON} ${DIR}/scripts/_annotationTPX.py ${OUTPUT}/tpx/${TFOSHORT}.TPX ${OUTPUT}/tpx/${TFOSHORT}.${ANNO} ${ANNO} > ${OUTPUT}/tpx/${TFOSHORT}.TPXanno
 				mv ${OUTPUT}/tpx/${TFOSHORT}.TPXanno ${OUTPUT}/tpx/${TFOSHORT}.TPX
 				rm ${OUTPUT}/tpx/${TFOSHORT}.${ANNO}
 			done	
@@ -398,10 +398,10 @@ if hash ${CIRCOS} 2>&- ; then
 		${PYTHON} ${DIR}/scripts/_make_circos_data.py ${VERBOSE} --output-dir ${OUTPUT}/circos/ --fasta-file ${LOISEQ} ${LOI} ${LOC} ${OUTPUT}/tts/${LOISHORT}.TTSpool ${OUTPUT}/tpx/${LOISHORT}.TPX ${OUTPUT}/json/primary_targets.json ${GENOMESIZE} >> ${DEBUGFILE} 2>&1
 	fi
 	
-	ORIGINDIR=`pwd` # save current directory
+	ORIGINDIR=$(pwd) # save current directory
 	cat /dev/null > ${OUTPUT}/circos/log.txt
 	# make one circos plot for each target
-	for FOLDER in `ls -d ${OUTPUT}/circos/t*/`; do
+	for FOLDER in $(ls -d ${OUTPUT}/circos/t*/); do
 		cd ${FOLDER} 
 		${CIRCOS} -conf ./circos.conf >> ${ORIGINDIR}/${DEBUGFILE} 2>&1
 		cd ${ORIGINDIR}
@@ -418,7 +418,7 @@ if hash ${CIRCOS} 2>&- ; then
 	mv ${OUTPUT}/circos/*.png ${OUTPUT}/img/
 	
 	# adjust html		
-	for HTML in `ls -f ${OUTPUT}/circos/t*.html`; do
+	for HTML in $(ls -f ${OUTPUT}/circos/t*.html); do
 		TID=${HTML##*/}
 		TID=${TID%.*}
 				
