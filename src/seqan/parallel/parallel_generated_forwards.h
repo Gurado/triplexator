@@ -57,7 +57,7 @@ namespace seqan {
 //____________________________________________________________________________
 // computeSplitters
 
-template <typename TPos, typename TSize, typename TCount> void computeSplitters(String<TPos> & splitters, TSize size, TCount count);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/parallel/parallel_splitting.h"(64)
+template <typename TPos, typename TSize, typename TCount> void computeSplitters(String<TPos> & splitters, TSize size, TCount count);       	// "/Users/fabianbuske/Documents/research/triplex/seqan/core/include/seqan/parallel/parallel_splitting.h"(64)
 
 } //namespace seqan
 

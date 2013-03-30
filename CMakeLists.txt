@@ -47,6 +47,3 @@ SET(CPACK_PACKAGE_EXECUTABLES "triplexator" "triplexator")
 INCLUDE(CPack)
 
 
-DE(CPack)
-
-

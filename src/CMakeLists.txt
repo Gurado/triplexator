@@ -21,6 +21,7 @@ include_directories(${triplexator_SOURCE_DIR})
 add_executable(triplexator triplexator.cpp 
 				triplexator.h
 				triplex.h
+                helper.h
 				find_index_qgrams.h
 				gardener.h
 				triplex_alphabet.h
