@@ -40,6 +40,5 @@ if(UNIX AND NOT APPLE)
 	target_link_libraries(triplexator rt)
 endif()
 
-
 install(TARGETS triplexator RUNTIME DESTINATION bin COMPONENT applications) 
 

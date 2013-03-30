@@ -36,7 +36,6 @@
 #define FBUSKE_APPS_TRIPLEXATOR_TRIPLEX_H_
 
 #include <seqan/misc/misc_cmdparser.h>
-#include <seqan/parallel.h> 
 #include <seqan/index.h>
 #include <seqan/modifier/modifier_view.h>
 #include <seqan/sequence.h>
@@ -45,9 +44,14 @@
 #include <seqan/find.h>
 #include <seqan/score.h>
 
+#include "helper.h"
 #include "triplex_alphabet.h"
 #include "triplex_pattern.h"
 #include "gardener.h"
+
+#if SEQAN_ENABLE_PARALLELISM
+#include <seqan/parallel.h>
+#endif  // #if SEQAN_ENABLE_PARALLELISM
 
 #ifndef SEQAN_PRAGMA_IF_PARALLEL
 #if SEQAN_ENABLE_PARALLELISM
@@ -59,6 +63,7 @@ _Pragma(STRINGIFY(code))
 #endif // SEQAN_ENABLE_PARALLELISM
 #endif // SEQAN_PRAGMA_IF_PARALLEL
 
+
 #ifdef BOOST
 #include <boost/iostreams/device/file.hpp>
 #include <boost/iostreams/filter/gzip.hpp>
@@ -69,8 +74,7 @@ namespace io = boost::iostreams;
 using namespace std;
 namespace SEQAN_NAMESPACE_MAIN
 {
-
-
+    
 // ============================================================================
 // Tags, Classes, Enums
 // ============================================================================
@@ -2274,7 +2278,7 @@ namespace SEQAN_NAMESPACE_MAIN
 			SEQAN_PRAGMA_IF_PARALLEL(omp parallel)
 			{
 				SEQAN_PRAGMA_IF_PARALLEL(omp for schedule(dynamic) )
-				for (int tts=0; tts<length(ttsSet); ++tts){
+				for (unsigned int tts=0; tts<length(ttsSet); ++tts){
 					
 					TTtsSet tmp_ttsSet;
 					appendValue(tmp_ttsSet, ttsSet[tts]);
@@ -3177,6 +3181,10 @@ namespace SEQAN_NAMESPACE_MAIN
 										  Options const &options,
 										  TTag
 										  ){
+        (void)filter_rate; // deceive compiler these paramters are used to suppress warning
+        (void)error_rate;
+        (void)orientation;
+        (void)options;
 #ifdef TRIPLEX_DEBUG
 		::std::cerr << " filter:" << filter_rate << " errors:" << error_rate << " orientation:" << orientation << ::std::endl;
 #endif
@@ -3192,6 +3200,8 @@ namespace SEQAN_NAMESPACE_MAIN
 										  Options const &options,
 										  MIXEDMOTIF
 										  ){
+        (void)error_rate; // deceive compiler these paramters are used to suppress warning
+
 #ifdef TRIPLEX_DEBUG
 		::std::cerr << " filter:" << filter_rate << " errors:" << error_rate << " orientation:" << orientation << " qualifies" << ::std::endl;
 #endif
@@ -3781,7 +3791,7 @@ namespace SEQAN_NAMESPACE_MAIN
 	>
 	int inline startTriplexSearchSerial(TMotifSet					&tfoMotifSet,
 										StringSet<CharString> const	&tfoNames,
-										TPattern const				&pattern,			 
+										TPattern const				&pattern,
 										TFile						&outputfile,
 										TId							duplexSeqNo,
 										Options						&options,
@@ -3841,7 +3851,7 @@ namespace SEQAN_NAMESPACE_MAIN
 				}
 			}
 			
-#if SEQAN_ENABLE_PARALLELISM	
+#if SEQAN_ENABLE_PARALLELISM
 			// run in parallel if requested and both strands are actually searched
 			if (options.runtimeMode==RUN_PARALLEL_STRANDS && options.forward && options.reverse)
 				_detectTriplexParallelStrands(matches, potentials, pattern, duplexSeq, duplexSeqNoWithinFile, options, TGardener());
@@ -3865,13 +3875,13 @@ namespace SEQAN_NAMESPACE_MAIN
 	// by reading in all duplex sequences and storing the results on memory
 	template <
 	typename TMotifSet,
-	typename TFile,
 	typename TPattern,
+	typename TFile,
 	typename TId
 	>
 	int inline startTriplexSearchSerial(TMotifSet					&tfoMotifSet,
 										StringSet<CharString> const	&tfoNames,
-										TPattern const				&pattern,			 
+										TPattern const				&pattern,
 										TFile						&outputfile,
 										TId							duplexSeqNo,
 										Options						&options,
@@ -3889,6 +3899,8 @@ namespace SEQAN_NAMESPACE_MAIN
 		typedef String<TRepeat>										TRepeatString; 
 		typedef typename Iterator<TRepeatString, Rooted>::Type		TRepeatIterator;
 		
+        (void)pattern; // deceive compiler to suppress warning of unused parameter
+        
 		// open duplex file
 		::std::ifstream file;
 		file.open(toCString(options.duplexFileNames[0]), ::std::ios_base::in | ::std::ios_base::binary);
@@ -4126,6 +4138,8 @@ namespace SEQAN_NAMESPACE_MAIN
 		typedef TriplexPotential<unsigned>				TPotSingle;
 		typedef Map<Pair<TPotKey,TPotPair>, Skiplist<> >	TPotentials;
 		
+        (void)pattern; // deceive compiler to suppress warning
+        
 		// parallel section 
 		SEQAN_PRAGMA_IF_PARALLEL(omp parallel)
 		{

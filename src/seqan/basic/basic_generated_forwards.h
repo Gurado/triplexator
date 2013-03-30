@@ -49,952 +49,952 @@ namespace seqan {
 //____________________________________________________________________________
 // AdaptorIterator
 
-template <typename TIterator, typename TSpec > struct AdaptorIterator;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(52)
+template <typename TIterator, typename TSpec > struct AdaptorIterator;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(52)
 
 //____________________________________________________________________________
 // AllocateStorage_
 
-struct AllocateStorage_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_interface.h"(77)
+struct AllocateStorage_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_interface.h"(77)
 
 //____________________________________________________________________________
 // AllocateTemp_
 
-struct AllocateTemp_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_interface.h"(74)
+struct AllocateTemp_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_interface.h"(74)
 
 //____________________________________________________________________________
 // AllocateUnspecified_
 
-struct AllocateUnspecified_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_interface.h"(71)
+struct AllocateUnspecified_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_interface.h"(71)
 
 //____________________________________________________________________________
 // Allocator
 
-template <typename TSpec> struct Allocator;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_interface.h"(100)
+template <typename TSpec> struct Allocator;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_interface.h"(100)
 
 //____________________________________________________________________________
 // AminoAcid_
 
-struct AminoAcid_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(522)
+struct AminoAcid_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(522)
 
 //____________________________________________________________________________
 // And
 
-template <typename TBool1, typename TBool2> struct And;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_logic.h"(233)
+template <typename TBool1, typename TBool2> struct And;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_logic.h"(233)
 
 //____________________________________________________________________________
 // AndC
 
-template <bool B1, bool B2> struct AndC;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_logic.h"(271)
+template <bool B1, bool B2> struct AndC;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_logic.h"(271)
 
 //____________________________________________________________________________
 // BandedGotoh_
 
-struct BandedGotoh_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(363)
+struct BandedGotoh_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(363)
 
 //____________________________________________________________________________
 // BandedNeedlemanWunsch_
 
-struct BandedNeedlemanWunsch_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(335)
+struct BandedNeedlemanWunsch_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(335)
 
 //____________________________________________________________________________
 // BandedSmithWaterman_
 
-struct BandedSmithWaterman_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(458)
+struct BandedSmithWaterman_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(458)
 
 //____________________________________________________________________________
 // BandedWatermanEggert_
 
-struct BandedWatermanEggert_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(491)
+struct BandedWatermanEggert_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(491)
 
 //____________________________________________________________________________
 // BaseAlphabet
 
-template <typename T> struct BaseAlphabet;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(57)
+template <typename T> struct BaseAlphabet;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(57)
 
 //____________________________________________________________________________
 // BitCompressed
 
-template <unsigned BITSIZE1 , unsigned BITSIZE2 > struct BitCompressed;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/aggregate_concept.h"(88)
+template <unsigned BITSIZE1 , unsigned BITSIZE2 > struct BitCompressed;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/aggregate_concept.h"(88)
 
 //____________________________________________________________________________
 // BitVector_
 
-template <unsigned char _size> struct BitVector_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(69)
+template <unsigned char _size> struct BitVector_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_bit_compressed.h"(69)
 
 //____________________________________________________________________________
 // BitsPerValue
 
-template <typename TValue> struct BitsPerValue;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_storage.h"(72)
+template <typename TValue> struct BitsPerValue;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_storage.h"(72)
 
 //____________________________________________________________________________
 // Blat_
 
-struct Blat_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(501)
+struct Blat_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(501)
 
 //____________________________________________________________________________
 // BytesPerValue
 
-template <typename TValue> struct BytesPerValue;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_storage.h"(160)
+template <typename TValue> struct BytesPerValue;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_storage.h"(160)
 
 //____________________________________________________________________________
 // Cargo
 
-template <typename T> struct Cargo;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/basic_type.h"(171)
+template <typename T> struct Cargo;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/basic_type.h"(171)
 
 //____________________________________________________________________________
 // Case
 
-template <int TAG, typename Type_, typename Next_ > struct Case;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_control.h"(135)
+template <int TAG, typename Type_, typename Next_ > struct Case;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_control.h"(135)
 
 //____________________________________________________________________________
 // ChunkPool
 
-template <size_t SIZE, size_t MAX_COUNT , typename TParentAllocator > struct ChunkPool;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_chunkpool.h"(79)
+template <size_t SIZE, size_t MAX_COUNT , typename TParentAllocator > struct ChunkPool;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_chunkpool.h"(79)
 
 //____________________________________________________________________________
 // ClassIdentifier_
 
-template <typename T> struct ClassIdentifier_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_type.h"(313)
+template <typename T> struct ClassIdentifier_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_type.h"(313)
 
 //____________________________________________________________________________
 // CompareType
 
-template <typename T1, typename T2> struct CompareType;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_comparison.h"(87)
-template <typename T1, typename T2> struct CompareType;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_comparison.h"(100)
+template <typename T1, typename T2> struct CompareType;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_comparison.h"(87)
+template <typename T1, typename T2> struct CompareType;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_comparison.h"(100)
 
 //____________________________________________________________________________
 // CompareTypeImpl
 
-template <typename T1, typename T2> struct CompareTypeImpl;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_comparison.h"(90)
+template <typename T1, typename T2> struct CompareTypeImpl;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_comparison.h"(90)
 
 //____________________________________________________________________________
 // ComparisonWorkerContext_
 
-template <typename TTuple> struct ComparisonWorkerContext_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(394)
+template <typename TTuple> struct ComparisonWorkerContext_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(394)
 
 //____________________________________________________________________________
 // Compressed_
 
-struct Compressed_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/aggregate_concept.h"(72)
+struct Compressed_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/aggregate_concept.h"(72)
 
 //____________________________________________________________________________
 // ConstParameter_
 
-template <typename T> struct ConstParameter_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/basic_type.h"(381)
+template <typename T> struct ConstParameter_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/basic_type.h"(381)
 
 //____________________________________________________________________________
 // Container
 
-template <typename T> struct Container;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_base.h"(207)
-template <typename T> struct Container;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(188)
+template <typename T> struct Container;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_base.h"(207)
+template <typename T> struct Container;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(188)
 
 //____________________________________________________________________________
 // Convert
 
-template <typename TTarget, typename TSource > struct Convert;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_conversion.h"(74)
+template <typename TTarget, typename TSource > struct Convert;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_conversion.h"(74)
 
 //____________________________________________________________________________
 // CopyConst_
 
-template <typename TFrom, typename TTo> struct CopyConst_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_type.h"(267)
+template <typename TFrom, typename TTo> struct CopyConst_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_type.h"(267)
 
 //____________________________________________________________________________
 // DeepestSpec
 
-template <typename T> struct DeepestSpec;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_metafunctions.h"(242)
+template <typename T> struct DeepestSpec;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_metafunctions.h"(242)
 
 //____________________________________________________________________________
 // DefaultGetIteratorSpec
 
-template <typename T> struct DefaultGetIteratorSpec;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(124)
+template <typename T> struct DefaultGetIteratorSpec;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(124)
 
 //____________________________________________________________________________
 // DefaultIteratorSpec
 
-template <typename T> struct DefaultIteratorSpec;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(99)
+template <typename T> struct DefaultIteratorSpec;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(99)
 
 //____________________________________________________________________________
 // Default_
 
-struct Default_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(100)
+struct Default_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(100)
 
 //____________________________________________________________________________
 // Difference
 
-template <typename T> struct Difference;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/basic_type.h"(117)
-template <typename T> struct Difference;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_metafunctions.h"(160)
+template <typename T> struct Difference;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/basic_type.h"(117)
+template <typename T> struct Difference;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_metafunctions.h"(160)
 
 //____________________________________________________________________________
 // Dna5Q_
 
-struct Dna5Q_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(268)
+struct Dna5Q_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(268)
 
 //____________________________________________________________________________
 // Dna5_
 
-struct Dna5_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(131)
+struct Dna5_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(131)
 
 //____________________________________________________________________________
 // DnaQ_
 
-struct DnaQ_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(175)
+struct DnaQ_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(175)
 
 //____________________________________________________________________________
 // Dna_
 
-struct Dna_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(92)
+struct Dna_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(92)
 
 //____________________________________________________________________________
 // DotDrawing_
 
-struct DotDrawing_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(268)
+struct DotDrawing_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(268)
 
 //____________________________________________________________________________
 // Eval
 
-template <bool B> struct Eval;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_logic.h"(128)
+template <bool B> struct Eval;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_logic.h"(128)
 
 //____________________________________________________________________________
 // False
 
-struct False;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_logic.h"(83)
+struct False;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_logic.h"(83)
 
 //____________________________________________________________________________
 // Finite
 
-template <unsigned SIZE> struct Finite;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(562)
+template <unsigned SIZE> struct Finite;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(562)
 
 //____________________________________________________________________________
 // GetValue
 
-template <typename T> struct GetValue;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/basic_type.h"(69)
-template <typename T> struct GetValue;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_metafunctions.h"(103)
+template <typename T> struct GetValue;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/basic_type.h"(69)
+template <typename T> struct GetValue;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_metafunctions.h"(103)
 
 //____________________________________________________________________________
 // GoEnd_
 
-struct GoEnd_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(184)
+struct GoEnd_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(184)
 
 //____________________________________________________________________________
 // Gotoh_
 
-struct Gotoh_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(349)
+struct Gotoh_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(349)
 
 //____________________________________________________________________________
 // HammingDistance_
 
-struct HammingDistance_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(290)
+struct HammingDistance_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(290)
 
 //____________________________________________________________________________
 // HasMoveConstructor
 
-template <typename T> struct HasMoveConstructor;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_transport.h"(73)
+template <typename T> struct HasMoveConstructor;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_transport.h"(73)
 
 //____________________________________________________________________________
 // HasQualities
 
-template <typename TValue> struct HasQualities;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_qualities.h"(78)
+template <typename TValue> struct HasQualities;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_qualities.h"(78)
 
 //____________________________________________________________________________
 // Hirschberg_
 
-struct Hirschberg_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(408)
+struct Hirschberg_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(408)
 
 //____________________________________________________________________________
 // Holder
 
-template <typename TValue, typename TSpec> struct Holder;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_interface.h"(51)
-template <typename TValue, typename TSpec > struct Holder;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_base.h"(97)
+template <typename TValue, typename TSpec> struct Holder;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_interface.h"(51)
+template <typename TValue, typename TSpec > struct Holder;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_base.h"(97)
 
 //____________________________________________________________________________
 // Host
 
-template <typename T> struct Host;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/basic_type.h"(149)
-template <typename T> struct Host;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/hosted_type_interface.h"(76)
+template <typename T> struct Host;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/basic_type.h"(149)
+template <typename T> struct Host;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/hosted_type_interface.h"(76)
 
 //____________________________________________________________________________
 // Id
 
-template <typename T> struct Id;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/basic_type.h"(225)
+template <typename T> struct Id;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/basic_type.h"(225)
 
 //____________________________________________________________________________
 // If
 
-template <typename TCondition, typename T1, typename T2> struct If;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_logic.h"(301)
+template <typename TCondition, typename T1, typename T2> struct If;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_logic.h"(301)
 
 //____________________________________________________________________________
 // IfC
 
-template <bool FLAG, typename T1, typename T2> struct IfC;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_logic.h"(336)
+template <bool FLAG, typename T1, typename T2> struct IfC;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_logic.h"(336)
 
 //____________________________________________________________________________
 // IntegralForValue
 
-template <typename TValue> struct IntegralForValue;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_storage.h"(223)
+template <typename TValue> struct IntegralForValue;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_storage.h"(223)
 
 //____________________________________________________________________________
 // IntegralForValueImpl_
 
-template <int SIZE> struct IntegralForValueImpl_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_storage.h"(192)
+template <int SIZE> struct IntegralForValueImpl_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_storage.h"(192)
 
 //____________________________________________________________________________
 // InternalValueSize_
 
-template <typename TValue> struct InternalValueSize_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_storage.h"(139)
+template <typename TValue> struct InternalValueSize_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_storage.h"(139)
 
 //____________________________________________________________________________
 // IsCharType
 
-template <typename T> struct IsCharType;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_adapt_builtins.h"(95)
-template <typename T> struct IsCharType;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_adapt_builtins.h"(99)
+template <typename T> struct IsCharType;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_adapt_builtins.h"(95)
+template <typename T> struct IsCharType;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_adapt_builtins.h"(99)
 
 //____________________________________________________________________________
 // IsConst_
 
-template <typename T> struct IsConst_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_type.h"(291)
+template <typename T> struct IsConst_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_type.h"(291)
 
 //____________________________________________________________________________
 // IsSameType
 
-template <class Type1, class Type2> struct IsSameType;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_type.h"(74)
+template <class Type1, class Type2> struct IsSameType;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_type.h"(74)
 
 //____________________________________________________________________________
 // IsSimple
 
-template <typename T> struct IsSimple;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(113)
-template <typename T> struct IsSimple;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(50)
+template <typename T> struct IsSimple;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(113)
+template <typename T> struct IsSimple;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(50)
 
 //____________________________________________________________________________
 // IsSimple_
 
-template <typename T> struct IsSimple_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(85)
+template <typename T> struct IsSimple_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(85)
 
 //____________________________________________________________________________
 // Iter
 
-template <typename TContainer, typename TSpec> class Iter;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_base.h"(66)
+template <typename TContainer, typename TSpec> class Iter;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_base.h"(66)
 
 //____________________________________________________________________________
 // IterComplementConst
 
-template <typename TIterator> struct IterComplementConst;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_base.h"(86)
+template <typename TIterator> struct IterComplementConst;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_base.h"(86)
 
 //____________________________________________________________________________
 // IterMakeConst
 
-template <typename TIterator> struct IterMakeConst;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_base.h"(117)
+template <typename TIterator> struct IterMakeConst;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_base.h"(117)
 
 //____________________________________________________________________________
 // Iterator
 
-template <typename T, typename TSpec > struct Iterator;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(165)
+template <typename T, typename TSpec > struct Iterator;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(165)
 
 //____________________________________________________________________________
 // IteratorProxy
 
-template <typename TIterator> struct IteratorProxy;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_iterator.h"(68)
+template <typename TIterator> struct IteratorProxy;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_iterator.h"(68)
 
 //____________________________________________________________________________
 // Iterator_Default_Imp
 
-template <typename T, typename TSpec> struct Iterator_Default_Imp;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(152)
+template <typename T, typename TSpec> struct Iterator_Default_Imp;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(152)
 
 //____________________________________________________________________________
 // Iupac_
 
-struct Iupac_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(476)
+struct Iupac_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(476)
 
 //____________________________________________________________________________
 // Key
 
-template <typename T > struct Key;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/basic_type.h"(249)
+template <typename T > struct Key;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/basic_type.h"(249)
 
 //____________________________________________________________________________
 // LENGTH
 
-template <typename T> struct LENGTH;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/basic_type.h"(521)
-template <typename T> struct LENGTH;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_metafunctions.h"(312)
+template <typename T> struct LENGTH;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/basic_type.h"(521)
+template <typename T> struct LENGTH;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_metafunctions.h"(312)
 
 //____________________________________________________________________________
 // Lcs_
 
-struct Lcs_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(422)
+struct Lcs_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(422)
 
 //____________________________________________________________________________
 // LevenshteinDistance_
 
-struct LevenshteinDistance_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(291)
+struct LevenshteinDistance_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(291)
 
 //____________________________________________________________________________
 // Log2
 
-template <__int64 numerus> struct Log2;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_math.h"(73)
+template <__int64 numerus> struct Log2;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_math.h"(73)
 
 //____________________________________________________________________________
 // Log2Floor
 
-template <__int64 numerus> struct Log2Floor;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_math.h"(98)
+template <__int64 numerus> struct Log2Floor;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_math.h"(98)
 
 //____________________________________________________________________________
 // Log2Impl_
 
-template <int BITS_MAX> struct Log2Impl_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_functions.h"(96)
+template <int BITS_MAX> struct Log2Impl_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_functions.h"(96)
 
 //____________________________________________________________________________
 // LogProb
 
-template <typename TValue , typename TSpec > class LogProb;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_log_space_value.h"(73)
-template <typename TValue, typename TSpec> class LogProb;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_log_space_value.h"(97)
+template <typename TValue , typename TSpec > class LogProb;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_log_space_value.h"(73)
+template <typename TValue, typename TSpec> class LogProb;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_log_space_value.h"(97)
 
 //____________________________________________________________________________
 // Loop
 
-template <typename Worker, int I> class Loop;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_control.h"(203)
+template <typename Worker, int I> class Loop;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_control.h"(203)
 
 //____________________________________________________________________________
 // LoopReverse
 
-template <typename Worker, int I> class LoopReverse;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_control.h"(255)
+template <typename Worker, int I> class LoopReverse;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_control.h"(255)
 
 //____________________________________________________________________________
 // MakeSigned
 
-template <typename T> struct MakeSigned;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_type.h"(141)
+template <typename T> struct MakeSigned;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_type.h"(141)
 
 //____________________________________________________________________________
 // MakeSigned_
 
-template <typename T> struct MakeSigned_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_type.h"(166)
+template <typename T> struct MakeSigned_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_type.h"(166)
 
 //____________________________________________________________________________
 // MakeUnsigned
 
-template <typename T> struct MakeUnsigned;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_type.h"(96)
+template <typename T> struct MakeUnsigned;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_type.h"(96)
 
 //____________________________________________________________________________
 // MakeUnsigned_
 
-template <typename T> struct MakeUnsigned_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_type.h"(121)
+template <typename T> struct MakeUnsigned_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_type.h"(121)
 
 //____________________________________________________________________________
 // MaxValue
 
-template <typename T> struct MaxValue;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_math.h"(116)
+template <typename T> struct MaxValue;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_math.h"(116)
 
 //____________________________________________________________________________
 // MaxValue_
 
-template <typename T, typename TParent > struct MaxValue_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_math.h"(110)
+template <typename T, typename TParent > struct MaxValue_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_math.h"(110)
 
 //____________________________________________________________________________
 // MaximumValueDouble_
 
-template <typename T > struct MaximumValueDouble_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_math.h"(72)
+template <typename T > struct MaximumValueDouble_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_math.h"(72)
 
 //____________________________________________________________________________
 // MaximumValueFloat_
 
-template <typename T > struct MaximumValueFloat_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_math.h"(70)
+template <typename T > struct MaximumValueFloat_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_math.h"(70)
 
 //____________________________________________________________________________
 // MaximumValueSigned_
 
-template <typename T> struct MaximumValueSigned_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_math.h"(67)
+template <typename T> struct MaximumValueSigned_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_math.h"(67)
 
 //____________________________________________________________________________
 // MaximumValueUnsigned_
 
-template <typename T> struct MaximumValueUnsigned_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_math.h"(65)
+template <typename T> struct MaximumValueUnsigned_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_math.h"(65)
 
 //____________________________________________________________________________
 // MinValue
 
-template <typename T> struct MinValue;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_math.h"(174)
+template <typename T> struct MinValue;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_math.h"(174)
 
 //____________________________________________________________________________
 // MinValue_
 
-template <typename T, typename TParent > struct MinValue_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_math.h"(168)
+template <typename T, typename TParent > struct MinValue_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_math.h"(168)
 
 //____________________________________________________________________________
 // MinimalCtor_
 
-struct MinimalCtor_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(164)
+struct MinimalCtor_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(164)
 
 //____________________________________________________________________________
 // MinimumValueDouble_
 
-template <typename T > struct MinimumValueDouble_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_math.h"(130)
+template <typename T > struct MinimumValueDouble_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_math.h"(130)
 
 //____________________________________________________________________________
 // MinimumValueFloat_
 
-template <typename T > struct MinimumValueFloat_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_math.h"(128)
+template <typename T > struct MinimumValueFloat_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_math.h"(128)
 
 //____________________________________________________________________________
 // MinimumValueSigned_
 
-template <typename T> struct MinimumValueSigned_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_math.h"(125)
+template <typename T> struct MinimumValueSigned_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_math.h"(125)
 
 //____________________________________________________________________________
 // MinimumValueUnsigned_
 
-template <typename T> struct MinimumValueUnsigned_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_math.h"(123)
+template <typename T> struct MinimumValueUnsigned_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_math.h"(123)
 
 //____________________________________________________________________________
 // Move_
 
-struct Move_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(154)
+struct Move_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(154)
 
 //____________________________________________________________________________
 // MultiPool
 
-template <typename TParentAllocator , unsigned int BLOCKING_LIMIT > struct MultiPool;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_multipool.h"(72)
+template <typename TParentAllocator , unsigned int BLOCKING_LIMIT > struct MultiPool;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_multipool.h"(72)
 
 //____________________________________________________________________________
 // MyersBitVector_
 
-struct MyersBitVector_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(378)
+struct MyersBitVector_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(378)
 
 //____________________________________________________________________________
 // MyersHirschberg_
 
-struct MyersHirschberg_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(392)
+struct MyersHirschberg_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(392)
 
 //____________________________________________________________________________
 // NeedlemanWunsch_
 
-struct NeedlemanWunsch_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(321)
+struct NeedlemanWunsch_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(321)
 
 //____________________________________________________________________________
 // NilCase
 
-struct NilCase;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_control.h"(131)
+struct NilCase;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_control.h"(131)
 
 //____________________________________________________________________________
 // NonConstPointer_
 
-template <typename T> struct NonConstPointer_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/basic_type.h"(458)
+template <typename T> struct NonConstPointer_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/basic_type.h"(458)
 
 //____________________________________________________________________________
 // NonMinimalCtor_
 
-struct NonMinimalCtor_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(174)
+struct NonMinimalCtor_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(174)
 
 //____________________________________________________________________________
 // Nothing
 
-struct Nothing;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(115)
+struct Nothing;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(115)
 
 //____________________________________________________________________________
 // Object
 
-template <typename T> struct Object;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/basic_type.h"(269)
+template <typename T> struct Object;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/basic_type.h"(269)
 
 //____________________________________________________________________________
 // Or
 
-template <typename TBool1, typename TBool2> struct Or;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_logic.h"(164)
+template <typename TBool1, typename TBool2> struct Or;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_logic.h"(164)
 
 //____________________________________________________________________________
 // OrC
 
-template <bool B1, bool B2> struct OrC;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_logic.h"(202)
+template <bool B1, bool B2> struct OrC;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_logic.h"(202)
 
 //____________________________________________________________________________
 // Pair
 
-template <typename T1_, typename T2_ , typename TSpec > struct Pair;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_base.h"(86)
+template <typename T1_, typename T2_ , typename TSpec > struct Pair;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_base.h"(86)
 
 //____________________________________________________________________________
 // Parameter_
 
-template <typename T> struct Parameter_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/basic_type.h"(315)
+template <typename T> struct Parameter_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/basic_type.h"(315)
 
 //____________________________________________________________________________
 // Pointer_
 
-template <typename T> struct Pointer_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/basic_type.h"(432)
+template <typename T> struct Pointer_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/basic_type.h"(432)
 
 //____________________________________________________________________________
 // Position
 
-template <typename T> struct Position;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/basic_type.h"(133)
-template <typename T> struct Position;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_metafunctions.h"(180)
+template <typename T> struct Position;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/basic_type.h"(133)
+template <typename T> struct Position;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_metafunctions.h"(180)
 
 //____________________________________________________________________________
 // PositionIterator
 
-struct PositionIterator;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(50)
+struct PositionIterator;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(50)
 
 //____________________________________________________________________________
 // Power
 
-template <__int64 base, __int64 exponent> struct Power;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_math.h"(124)
+template <__int64 base, __int64 exponent> struct Power;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_math.h"(124)
 
 //____________________________________________________________________________
 // ProfileChar
 
-template <typename TValue, typename TCount , typename TSpec > class ProfileChar;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_profile.h"(70)
-template <typename TValue, typename TCount, typename TSpec> class ProfileChar;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_profile.h"(74)
+template <typename TValue, typename TCount , typename TSpec > class ProfileChar;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_profile.h"(70)
+template <typename TValue, typename TCount, typename TSpec> class ProfileChar;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_profile.h"(74)
 
 //____________________________________________________________________________
 // Proxy
 
-template <typename TSpec> class Proxy;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_transport.h"(124)
-template <typename TSpec> class Proxy;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(67)
+template <typename TSpec> class Proxy;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_transport.h"(124)
+template <typename TSpec> class Proxy;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(67)
 
 //____________________________________________________________________________
 // QualityValueSize
 
-template <typename TValue> struct QualityValueSize;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_qualities.h"(64)
+template <typename TValue> struct QualityValueSize;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_qualities.h"(64)
 
 //____________________________________________________________________________
 // Reference
 
-template <typename T> struct Reference;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/basic_type.h"(84)
-template <typename T> struct Reference;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_metafunctions.h"(122)
+template <typename T> struct Reference;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/basic_type.h"(84)
+template <typename T> struct Reference;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_metafunctions.h"(122)
 
 //____________________________________________________________________________
 // RemoveConst
 
-template <typename T> struct RemoveConst;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_type.h"(228)
+template <typename T> struct RemoveConst;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_type.h"(228)
 
 //____________________________________________________________________________
 // RemoveConst_
 
-template <typename T> struct RemoveConst_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_type.h"(255)
+template <typename T> struct RemoveConst_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_type.h"(255)
 
 //____________________________________________________________________________
 // RemoveReference
 
-template <typename T> struct RemoveReference;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_type.h"(194)
+template <typename T> struct RemoveReference;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_type.h"(194)
 
 //____________________________________________________________________________
 // RemoveReference_
 
-template <typename T> struct RemoveReference_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_type.h"(202)
+template <typename T> struct RemoveReference_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_type.h"(202)
 
 //____________________________________________________________________________
 // Rna5_
 
-struct Rna5_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(431)
+struct Rna5_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(431)
 
 //____________________________________________________________________________
 // Rna_
 
-struct Rna_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(392)
+struct Rna_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(392)
 
 //____________________________________________________________________________
 // Rooted_
 
-struct Rooted_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(71)
+struct Rooted_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(71)
 
 //____________________________________________________________________________
 // SimpleAlloc
 
-template <typename TParentAllocator > struct SimpleAlloc;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_simple.h"(66)
+template <typename TParentAllocator > struct SimpleAlloc;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_simple.h"(66)
 
 //____________________________________________________________________________
 // SimpleType
 
-template <typename TValue, typename TSpec> class SimpleType;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(84)
-template <typename TValue, typename TSpec> class SimpleType;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_storage.h"(51)
+template <typename TValue, typename TSpec> class SimpleType;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(84)
+template <typename TValue, typename TSpec> class SimpleType;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_storage.h"(51)
 
 //____________________________________________________________________________
 // Simple_
 
-struct Simple_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_base.h"(93)
+struct Simple_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_base.h"(93)
 
 //____________________________________________________________________________
 // SinglePool
 
-template <size_t SIZE, typename TParentAllocator > struct SinglePool;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_singlepool.h"(74)
+template <size_t SIZE, typename TParentAllocator > struct SinglePool;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_singlepool.h"(74)
 
 //____________________________________________________________________________
 // Size
 
-template <typename T> struct Size;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/basic_type.h"(100)
-template <typename T> struct Size;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_metafunctions.h"(140)
+template <typename T> struct Size;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/basic_type.h"(100)
+template <typename T> struct Size;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_metafunctions.h"(140)
 
 //____________________________________________________________________________
 // SmithWatermanClump_
 
-struct SmithWatermanClump_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(474)
+struct SmithWatermanClump_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(474)
 
 //____________________________________________________________________________
 // SmithWaterman_
 
-struct SmithWaterman_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(444)
+struct SmithWaterman_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(444)
 
 //____________________________________________________________________________
 // Source
 
-template <typename TSpec > struct Source;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/basic_type.h"(288)
+template <typename TSpec > struct Source;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/basic_type.h"(288)
 
 //____________________________________________________________________________
 // SourceValue
 
-template <typename T> struct SourceValue;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_profile.h"(183)
+template <typename T> struct SourceValue;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_profile.h"(183)
 
 //____________________________________________________________________________
 // Spec
 
-template <typename T> struct Spec;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_metafunctions.h"(206)
+template <typename T> struct Spec;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_metafunctions.h"(206)
 
 //____________________________________________________________________________
 // Standard_
 
-struct Standard_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(74)
+struct Standard_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(74)
 
 //____________________________________________________________________________
 // StdAllocator
 
-template <typename T, typename TData> struct StdAllocator;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_to_std.h"(171)
+template <typename T, typename TData> struct StdAllocator;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_to_std.h"(171)
 
 //____________________________________________________________________________
 // StdContainerIterator
 
-template <typename TStdContainer> struct StdContainerIterator;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(68)
-template <typename TStdContainer> struct StdContainerIterator;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(237)
-template <typename TStdContainer> struct StdContainerIterator;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(241)
+template <typename TStdContainer> struct StdContainerIterator;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(68)
+template <typename TStdContainer> struct StdContainerIterator;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(237)
+template <typename TStdContainer> struct StdContainerIterator;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(241)
 
 //____________________________________________________________________________
 // StdIteratorAdaptor_
 
-struct StdIteratorAdaptor_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(86)
+struct StdIteratorAdaptor_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(86)
 
 //____________________________________________________________________________
 // Switch
 
-template <int TAG, typename Case_> struct Switch;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_control.h"(143)
+template <int TAG, typename Case_> struct Switch;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_control.h"(143)
 
 //____________________________________________________________________________
 // Tag
 
-template <typename T> struct Tag;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(87)
+template <typename T> struct Tag;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(87)
 
 //____________________________________________________________________________
 // TagList
 
-template <typename TTag , typename TSubList > struct TagList;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(206)
+template <typename TTag , typename TSubList > struct TagList;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(206)
 
 //____________________________________________________________________________
 // TagSelector
 
-template <typename TTagList > struct TagSelector;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(231)
+template <typename TTagList > struct TagSelector;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(231)
 
 //____________________________________________________________________________
 // ToStdAllocator
 
-template <typename THost, typename TValue> struct ToStdAllocator;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_to_std.h"(79)
+template <typename THost, typename TValue> struct ToStdAllocator;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_to_std.h"(79)
 
 //____________________________________________________________________________
 // TranslateTableAAToAscii_
 
-template <typename T > struct TranslateTableAAToAscii_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue_tabs.h"(489)
+template <typename T > struct TranslateTableAAToAscii_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue_tabs.h"(489)
 
 //____________________________________________________________________________
 // TranslateTableAsciiToAA_
 
-template <typename T > struct TranslateTableAsciiToAA_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue_tabs.h"(523)
+template <typename T > struct TranslateTableAsciiToAA_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue_tabs.h"(523)
 
 //____________________________________________________________________________
 // TranslateTableAsciiToDna5_
 
-template <typename T > struct TranslateTableAsciiToDna5_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue_tabs.h"(108)
+template <typename T > struct TranslateTableAsciiToDna5_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue_tabs.h"(108)
 
 //____________________________________________________________________________
 // TranslateTableAsciiToDna_
 
-template <typename T > struct TranslateTableAsciiToDna_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue_tabs.h"(71)
+template <typename T > struct TranslateTableAsciiToDna_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue_tabs.h"(71)
 
 //____________________________________________________________________________
 // TranslateTableAsciiToIupac_
 
-template <typename T > struct TranslateTableAsciiToIupac_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue_tabs.h"(422)
+template <typename T > struct TranslateTableAsciiToIupac_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue_tabs.h"(422)
 
 //____________________________________________________________________________
 // TranslateTableAsciiToRna5_
 
-template <typename T > struct TranslateTableAsciiToRna5_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue_tabs.h"(247)
+template <typename T > struct TranslateTableAsciiToRna5_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue_tabs.h"(247)
 
 //____________________________________________________________________________
 // TranslateTableAsciiToRna_
 
-template <typename T > struct TranslateTableAsciiToRna_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue_tabs.h"(211)
+template <typename T > struct TranslateTableAsciiToRna_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue_tabs.h"(211)
 
 //____________________________________________________________________________
 // TranslateTableByteToAA_
 
-template <typename T > struct TranslateTableByteToAA_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue_tabs.h"(559)
+template <typename T > struct TranslateTableByteToAA_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue_tabs.h"(559)
 
 //____________________________________________________________________________
 // TranslateTableByteToDna5_
 
-template <typename T > struct TranslateTableByteToDna5_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue_tabs.h"(171)
+template <typename T > struct TranslateTableByteToDna5_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue_tabs.h"(171)
 
 //____________________________________________________________________________
 // TranslateTableByteToDna_
 
-template <typename T > struct TranslateTableByteToDna_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue_tabs.h"(144)
+template <typename T > struct TranslateTableByteToDna_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue_tabs.h"(144)
 
 //____________________________________________________________________________
 // TranslateTableByteToIupac_
 
-template <typename T > struct TranslateTableByteToIupac_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue_tabs.h"(458)
+template <typename T > struct TranslateTableByteToIupac_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue_tabs.h"(458)
 
 //____________________________________________________________________________
 // TranslateTableByteToRna5_
 
-template <typename T > struct TranslateTableByteToRna5_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue_tabs.h"(310)
+template <typename T > struct TranslateTableByteToRna5_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue_tabs.h"(310)
 
 //____________________________________________________________________________
 // TranslateTableByteToRna_
 
-template <typename T > struct TranslateTableByteToRna_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue_tabs.h"(283)
+template <typename T > struct TranslateTableByteToRna_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue_tabs.h"(283)
 
 //____________________________________________________________________________
 // TranslateTableDna5ToAscii_
 
-template <typename T > struct TranslateTableDna5ToAscii_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue_tabs.h"(52)
+template <typename T > struct TranslateTableDna5ToAscii_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue_tabs.h"(52)
 
 //____________________________________________________________________________
 // TranslateTableDna5ToIupac_
 
-template <typename T > struct TranslateTableDna5ToIupac_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue_tabs.h"(62)
+template <typename T > struct TranslateTableDna5ToIupac_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue_tabs.h"(62)
 
 //____________________________________________________________________________
 // TranslateTableIupacToAscii_
 
-template <typename T > struct TranslateTableIupacToAscii_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue_tabs.h"(341)
+template <typename T > struct TranslateTableIupacToAscii_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue_tabs.h"(341)
 
 //____________________________________________________________________________
 // TranslateTableIupacToDna5_
 
-template <typename T > struct TranslateTableIupacToDna5_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue_tabs.h"(395)
+template <typename T > struct TranslateTableIupacToDna5_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue_tabs.h"(395)
 
 //____________________________________________________________________________
 // TranslateTableIupacToDna_
 
-template <typename T > struct TranslateTableIupacToDna_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue_tabs.h"(368)
+template <typename T > struct TranslateTableIupacToDna_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue_tabs.h"(368)
 
 //____________________________________________________________________________
 // TranslateTableRna5ToAscii_
 
-template <typename T > struct TranslateTableRna5ToAscii_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue_tabs.h"(202)
+template <typename T > struct TranslateTableRna5ToAscii_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue_tabs.h"(202)
 
 //____________________________________________________________________________
 // Triple
 
-template <typename T1_, typename T2_ , typename T3_ , typename TSpec > struct Triple;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_base.h"(89)
+template <typename T1_, typename T2_ , typename T3_ , typename TSpec > struct Triple;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_base.h"(89)
 
 //____________________________________________________________________________
 // Tristate_
 
-struct Tristate_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_interface.h"(49)
-struct Tristate_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_base.h"(89)
+struct Tristate_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_interface.h"(49)
+struct Tristate_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_base.h"(89)
 
 //____________________________________________________________________________
 // True
 
-struct True;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_logic.h"(77)
+struct True;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_logic.h"(77)
 
 //____________________________________________________________________________
 // Tuple
 
-template <typename T_, unsigned _size, typename TSpec > struct Tuple;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(68)
+template <typename T_, unsigned _size, typename TSpec > struct Tuple;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(68)
 
 //____________________________________________________________________________
 // TupleComparisonWorkerEq_
 
-struct TupleComparisonWorkerEq_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(405)
+struct TupleComparisonWorkerEq_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(405)
 
 //____________________________________________________________________________
 // TupleComparisonWorkerGt_
 
-struct TupleComparisonWorkerGt_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(476)
+struct TupleComparisonWorkerGt_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(476)
 
 //____________________________________________________________________________
 // TupleComparisonWorkerLt_
 
-struct TupleComparisonWorkerLt_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(445)
+struct TupleComparisonWorkerLt_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(445)
 
 //____________________________________________________________________________
 // TupleMoveSetWorkerContext_
 
-template <typename TTuple1, typename TTuple2> struct TupleMoveSetWorkerContext_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(190)
+template <typename TTuple1, typename TTuple2> struct TupleMoveSetWorkerContext_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(190)
 
 //____________________________________________________________________________
 // TupleMoveWorker_
 
-struct TupleMoveWorker_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(230)
+struct TupleMoveWorker_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(230)
 
 //____________________________________________________________________________
 // TupleSetWorker_
 
-struct TupleSetWorker_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(200)
+struct TupleSetWorker_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(200)
 
 //____________________________________________________________________________
 // TupleShiftLeftWorker_
 
-struct TupleShiftLeftWorker_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(333)
+struct TupleShiftLeftWorker_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(333)
 
 //____________________________________________________________________________
 // TupleShiftRightWorker_
 
-struct TupleShiftRightWorker_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(354)
+struct TupleShiftRightWorker_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(354)
 
 //____________________________________________________________________________
 // Value
 
-template <typename T, const int i> struct Value;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/basic_type.h"(53)
-template <typename T, const int I > struct Value;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_metafunctions.h"(81)
+template <typename T, const int i> struct Value;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/basic_type.h"(53)
+template <typename T, const int I > struct Value;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_metafunctions.h"(81)
 
 //____________________________________________________________________________
 // ValueConstructorProxy_
 
-struct ValueConstructorProxy_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(277)
+struct ValueConstructorProxy_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(277)
 
 //____________________________________________________________________________
 // ValueConstructor_
 
-struct ValueConstructor_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(240)
+struct ValueConstructor_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(240)
 
 //____________________________________________________________________________
 // ValueDestructorProxy_
 
-struct ValueDestructorProxy_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(376)
+struct ValueDestructorProxy_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(376)
 
 //____________________________________________________________________________
 // ValueDestructor_
 
-struct ValueDestructor_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(355)
+struct ValueDestructor_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(355)
 
 //____________________________________________________________________________
 // ValueSize
 
-template <typename T> struct ValueSize;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_storage.h"(92)
+template <typename T> struct ValueSize;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_storage.h"(92)
 
 //____________________________________________________________________________
 // VertexDescriptor
 
-template <typename T> struct VertexDescriptor;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/basic_type.h"(198)
+template <typename T> struct VertexDescriptor;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/basic_type.h"(198)
 
 //____________________________________________________________________________
 // VolatilePtr
 
-template <typename Type > struct VolatilePtr;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/volatile_ptr.h"(69)
+template <typename Type > struct VolatilePtr;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/volatile_ptr.h"(69)
 
 //____________________________________________________________________________
 // WEIGHT
 
-template <typename T> struct WEIGHT;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/basic_type.h"(549)
+template <typename T> struct WEIGHT;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/basic_type.h"(549)
 
 //____________________________________________________________________________
 // WorkerNothing
 
-struct WorkerNothing;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/metaprogramming_control.h"(196)
+struct WorkerNothing;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/metaprogramming_control.h"(196)
 
 } //namespace seqan
 
@@ -1008,228 +1008,228 @@ namespace seqan {
 //____________________________________________________________________________
 // AminoAcid
 
-typedef SimpleType<unsigned char, AminoAcid_> AminoAcid;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(523)
+typedef SimpleType<unsigned char, AminoAcid_> AminoAcid;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(523)
 
 //____________________________________________________________________________
 // Ascii
 
-typedef char Ascii;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_storage.h"(58)
+typedef char Ascii;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_storage.h"(58)
 
 //____________________________________________________________________________
 // BandedGotoh
 
-typedef Tag<BandedGotoh_> BandedGotoh;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(364)
+typedef Tag<BandedGotoh_> BandedGotoh;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(364)
 
 //____________________________________________________________________________
 // BandedNeedlemanWunsch
 
-typedef Tag<BandedNeedlemanWunsch_> BandedNeedlemanWunsch;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(336)
+typedef Tag<BandedNeedlemanWunsch_> BandedNeedlemanWunsch;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(336)
 
 //____________________________________________________________________________
 // BandedSmithWaterman
 
-typedef Tag<BandedSmithWaterman_> BandedSmithWaterman;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(459)
+typedef Tag<BandedSmithWaterman_> BandedSmithWaterman;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(459)
 
 //____________________________________________________________________________
 // BandedSmithWatermanClump
 
-typedef Tag<BandedWatermanEggert_> BandedSmithWatermanClump;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(492)
+typedef Tag<BandedWatermanEggert_> BandedSmithWatermanClump;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(492)
 
 //____________________________________________________________________________
 // BandedWatermanEggert
 
-typedef Tag<BandedWatermanEggert_> BandedWatermanEggert;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(493)
+typedef Tag<BandedWatermanEggert_> BandedWatermanEggert;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(493)
 
 //____________________________________________________________________________
 // Blat
 
-typedef Tag<Blat_> Blat;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(502)
+typedef Tag<Blat_> Blat;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(502)
 
 //____________________________________________________________________________
 // Compressed
 
-typedef Tag<Compressed_> Compressed;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/aggregate_concept.h"(73)
+typedef Tag<Compressed_> Compressed;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/aggregate_concept.h"(73)
 
 //____________________________________________________________________________
 // Default
 
-typedef Tag<Default_> Default;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(101)
+typedef Tag<Default_> Default;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(101)
 
 //____________________________________________________________________________
 // Dna
 
-typedef SimpleType<unsigned char, Dna_> Dna;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(93)
+typedef SimpleType<unsigned char, Dna_> Dna;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(93)
 
 //____________________________________________________________________________
 // Dna5
 
-typedef SimpleType<unsigned char, Dna5_> Dna5;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(132)
+typedef SimpleType<unsigned char, Dna5_> Dna5;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(132)
 
 //____________________________________________________________________________
 // Dna5Q
 
-typedef SimpleType <unsigned char, Dna5Q_> Dna5Q;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(269)
+typedef SimpleType <unsigned char, Dna5Q_> Dna5Q;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(269)
 
 //____________________________________________________________________________
 // DnaQ
 
-typedef SimpleType <unsigned char, DnaQ_> DnaQ;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(176)
+typedef SimpleType <unsigned char, DnaQ_> DnaQ;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(176)
 
 //____________________________________________________________________________
 // DotDrawing
 
-typedef Tag<DotDrawing_> DotDrawing;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(269)
+typedef Tag<DotDrawing_> DotDrawing;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(269)
 
 //____________________________________________________________________________
 // EditDistance
 
-typedef Tag<LevenshteinDistance_>  EditDistance;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(295)
+typedef Tag<LevenshteinDistance_>  EditDistance;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(295)
 
 //____________________________________________________________________________
 // GoEnd
 
-typedef Tag<GoEnd_> GoEnd;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(185)
+typedef Tag<GoEnd_> GoEnd;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(185)
 
 //____________________________________________________________________________
 // Gotoh
 
-typedef Tag<Gotoh_> Gotoh;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(350)
+typedef Tag<Gotoh_> Gotoh;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(350)
 
 //____________________________________________________________________________
 // HammingDistance
 
-typedef Tag<HammingDistance_>    HammingDistance;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(293)
+typedef Tag<HammingDistance_>    HammingDistance;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(293)
 
 //____________________________________________________________________________
 // Hirschberg
 
-typedef Tag<Hirschberg_> Hirschberg;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(409)
+typedef Tag<Hirschberg_> Hirschberg;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(409)
 
 //____________________________________________________________________________
 // Iupac
 
-typedef SimpleType<unsigned char, Iupac_> Iupac;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(477)
+typedef SimpleType<unsigned char, Iupac_> Iupac;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(477)
 
 //____________________________________________________________________________
 // Lcs
 
-typedef Tag<Lcs_> Lcs;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(423)
+typedef Tag<Lcs_> Lcs;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(423)
 
 //____________________________________________________________________________
 // LevenshteinDistance
 
-typedef Tag<LevenshteinDistance_>  LevenshteinDistance;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(294)
+typedef Tag<LevenshteinDistance_>  LevenshteinDistance;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(294)
 
 //____________________________________________________________________________
 // MinimalCtor
 
-typedef Tag<MinimalCtor_> MinimalCtor;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(165)
+typedef Tag<MinimalCtor_> MinimalCtor;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(165)
 
 //____________________________________________________________________________
 // Move
 
-typedef Tag<Move_> Move;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(155)
+typedef Tag<Move_> Move;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(155)
 
 //____________________________________________________________________________
 // MyersBitVector
 
-typedef Tag<MyersBitVector_> MyersBitVector;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(379)
+typedef Tag<MyersBitVector_> MyersBitVector;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(379)
 
 //____________________________________________________________________________
 // MyersHirschberg
 
-typedef Tag<MyersHirschberg_> MyersHirschberg;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(393)
+typedef Tag<MyersHirschberg_> MyersHirschberg;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(393)
 
 //____________________________________________________________________________
 // NeedlemanWunsch
 
-typedef Tag<NeedlemanWunsch_> NeedlemanWunsch;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(322)
+typedef Tag<NeedlemanWunsch_> NeedlemanWunsch;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(322)
 
 //____________________________________________________________________________
 // NonMinimalCtor
 
-typedef Tag<NonMinimalCtor_> NonMinimalCtor;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(175)
+typedef Tag<NonMinimalCtor_> NonMinimalCtor;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(175)
 
 //____________________________________________________________________________
 // PoolAllocator
 
-typedef Allocator<MultiPool<Allocator<SimpleAlloc<Default> >, 0x100> > PoolAllocator;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_multipool.h"(74)
+typedef Allocator<MultiPool<Allocator<SimpleAlloc<Default> >, 0x100> > PoolAllocator;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_multipool.h"(74)
 
 //____________________________________________________________________________
 // Rna
 
-typedef SimpleType<unsigned char, Rna_> Rna;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(393)
+typedef SimpleType<unsigned char, Rna_> Rna;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(393)
 
 //____________________________________________________________________________
 // Rna5
 
-typedef SimpleType<unsigned char, Rna5_> Rna5;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(432)
+typedef SimpleType<unsigned char, Rna5_> Rna5;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(432)
 
 //____________________________________________________________________________
 // Rooted
 
-typedef Tag<Rooted_> const Rooted;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(72)
+typedef Tag<Rooted_> const Rooted;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(72)
 
 //____________________________________________________________________________
 // Simple
 
-typedef Tag<Simple_> Simple;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_base.h"(94)
+typedef Tag<Simple_> Simple;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_base.h"(94)
 
 //____________________________________________________________________________
 // SimpleAllocator
 
-typedef Allocator<SimpleAlloc<Default> > SimpleAllocator;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_simple.h"(68)
+typedef Allocator<SimpleAlloc<Default> > SimpleAllocator;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_simple.h"(68)
 
 //____________________________________________________________________________
 // SmithWaterman
 
-typedef Tag<SmithWaterman_> SmithWaterman;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(445)
+typedef Tag<SmithWaterman_> SmithWaterman;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(445)
 
 //____________________________________________________________________________
 // SmithWatermanClump
 
-typedef Tag<SmithWatermanClump_> SmithWatermanClump;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(475)
+typedef Tag<SmithWatermanClump_> SmithWatermanClump;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(475)
 
 //____________________________________________________________________________
 // Standard
 
-typedef Tag<Standard_> const Standard;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(75)
+typedef Tag<Standard_> const Standard;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(75)
 
 //____________________________________________________________________________
 // StdIteratorAdaptor
 
-typedef Tag<StdIteratorAdaptor_> StdIteratorAdaptor;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(87)
+typedef Tag<StdIteratorAdaptor_> StdIteratorAdaptor;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(87)
 
 //____________________________________________________________________________
 // TagAllocateStorage
 
-typedef Tag<AllocateStorage_> TagAllocateStorage;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_interface.h"(78)
+typedef Tag<AllocateStorage_> TagAllocateStorage;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_interface.h"(78)
 
 //____________________________________________________________________________
 // TagAllocateTemp
 
-typedef Tag<AllocateTemp_> TagAllocateTemp;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_interface.h"(75)
+typedef Tag<AllocateTemp_> TagAllocateTemp;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_interface.h"(75)
 
 //____________________________________________________________________________
 // TagAllocateUnspecified
 
-typedef Tag<AllocateUnspecified_> TagAllocateUnspecified;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_interface.h"(72)
+typedef Tag<AllocateUnspecified_> TagAllocateUnspecified;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_interface.h"(72)
 
 //____________________________________________________________________________
 // Tristate
 
-typedef Tag<Tristate_> Tristate;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_interface.h"(50)
-typedef Tag<Tristate_> Tristate;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_base.h"(90)
+typedef Tag<Tristate_> Tristate;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_interface.h"(50)
+typedef Tag<Tristate_> Tristate;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_base.h"(90)
 
 //____________________________________________________________________________
 // Unicode
 
-typedef wchar_t Unicode;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_storage.h"(60)
+typedef wchar_t Unicode;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_storage.h"(60)
 
 //____________________________________________________________________________
 // WatermanEggert
 
-typedef Tag<SmithWatermanClump_> WatermanEggert;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_tags.h"(476)
+typedef Tag<SmithWatermanClump_> WatermanEggert;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_tags.h"(476)
 
 } //namespace seqan
 
@@ -1243,1277 +1243,1277 @@ namespace seqan {
 //____________________________________________________________________________
 // TValue
 
-template <typename TValue, size_t I> inline void setValue(Holder<TValue *, Tristate> & me, TValue (& value_)[I]);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(886)
-template <typename TValue, size_t I> inline void setValue(Holder<TValue * const, Tristate> & me, TValue (& value_)[I]);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(908)
+template <typename TValue, size_t I> inline void setValue(Holder<TValue *, Tristate> & me, TValue (& value_)[I]);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(886)
+template <typename TValue, size_t I> inline void setValue(Holder<TValue * const, Tristate> & me, TValue (& value_)[I]);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(908)
 
 //____________________________________________________________________________
 // _abs
 
-template <typename T> inline T _abs(T const & x);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_functions.h"(194)
+template <typename T> inline T _abs(T const & x);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_functions.h"(194)
 
 //____________________________________________________________________________
 // _allocatorBlockNumber
 
-template <typename TParentAllocator, unsigned int BLOCKING_LIMIT> inline unsigned int _allocatorBlockNumber(Allocator<MultiPool<TParentAllocator, BLOCKING_LIMIT> > &, size_t size_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_multipool.h"(179)
+template <typename TParentAllocator, unsigned int BLOCKING_LIMIT> inline unsigned int _allocatorBlockNumber(Allocator<MultiPool<TParentAllocator, BLOCKING_LIMIT> > &, size_t size_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_multipool.h"(179)
 
 //____________________________________________________________________________
 // _arrayClearSpaceDefault
 
-template <typename TIterator> void _arrayClearSpaceDefault(TIterator array_begin, size_t array_length, size_t keep_from, size_t move_to);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(966)
+template <typename TIterator> void _arrayClearSpaceDefault(TIterator array_begin, size_t array_length, size_t keep_from, size_t move_to);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(966)
 
 //____________________________________________________________________________
 // _arrayClearSpacePointer
 
-template <typename TValue> inline void _arrayClearSpacePointer(TValue * array_begin, size_t array_length, size_t keep_from, size_t move_to, True const & );       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1348)
-template <typename TValue> inline void _arrayClearSpacePointer(TValue * array_begin, size_t array_length, size_t keep_from, size_t move_to, False const & );       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1363)
+template <typename TValue> inline void _arrayClearSpacePointer(TValue * array_begin, size_t array_length, size_t keep_from, size_t move_to, True const & );       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1348)
+template <typename TValue> inline void _arrayClearSpacePointer(TValue * array_begin, size_t array_length, size_t keep_from, size_t move_to, False const & );       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1363)
 
 //____________________________________________________________________________
 // _arrayConstructCopyDefault
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void _arrayConstructCopyDefault(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(512)
+template <typename TTarget, typename TSource1, typename TSource2> inline void _arrayConstructCopyDefault(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(512)
 
 //____________________________________________________________________________
 // _arrayConstructCopyPointer
 
-template <typename TValueSource, typename TValueTarget> inline void _arrayConstructCopyPointer(TValueSource * source_begin, TValueSource * source_end, TValueTarget * target_begin, True);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1088)
-template <typename TValueSource, typename TValueTarget> inline void _arrayConstructCopyPointer(TValueSource * source_begin, TValueSource * source_end, TValueTarget const* target_begin, True);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1099)
-template <typename TValueSource, typename TValueTarget> inline void _arrayConstructCopyPointer(TValueSource * source_begin, TValueSource * source_end, TValueTarget * target_begin, False);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1110)
+template <typename TValueSource, typename TValueTarget> inline void _arrayConstructCopyPointer(TValueSource * source_begin, TValueSource * source_end, TValueTarget * target_begin, True);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1088)
+template <typename TValueSource, typename TValueTarget> inline void _arrayConstructCopyPointer(TValueSource * source_begin, TValueSource * source_end, TValueTarget const* target_begin, True);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1099)
+template <typename TValueSource, typename TValueTarget> inline void _arrayConstructCopyPointer(TValueSource * source_begin, TValueSource * source_end, TValueTarget * target_begin, False);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1110)
 
 //____________________________________________________________________________
 // _arrayConstructDefault
 
-template <typename TIterator1, typename TIterator2> inline void _arrayConstructDefault(TIterator1 begin_, TIterator2 end_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(441)
-template <typename TIterator1, typename TIterator2, typename TParam> inline void _arrayConstructDefault(TIterator1 begin_, TIterator2 end_, TParam const & param_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(464)
+template <typename TIterator1, typename TIterator2> inline void _arrayConstructDefault(TIterator1 begin_, TIterator2 end_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(441)
+template <typename TIterator1, typename TIterator2, typename TParam> inline void _arrayConstructDefault(TIterator1 begin_, TIterator2 end_, TParam const & param_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(464)
 
 //____________________________________________________________________________
 // _arrayConstructMoveDefault
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void _arrayConstructMoveDefault(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(564)
+template <typename TTarget, typename TSource1, typename TSource2> inline void _arrayConstructMoveDefault(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(564)
 
 //____________________________________________________________________________
 // _arrayConstructMovePointer
 
-template <typename TValue> inline void _arrayConstructMovePointer(TValue * source_begin, TValue * source_end, TValue * target_begin, True);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1134)
-template <typename TValue> inline void _arrayConstructMovePointer(TValue * source_begin, TValue * source_end, TValue * target_begin, False);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1145)
+template <typename TValue> inline void _arrayConstructMovePointer(TValue * source_begin, TValue * source_end, TValue * target_begin, True);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1134)
+template <typename TValue> inline void _arrayConstructMovePointer(TValue * source_begin, TValue * source_end, TValue * target_begin, False);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1145)
 
 //____________________________________________________________________________
 // _arrayConstructPointer
 
-template <typename TIterator> inline void _arrayConstructPointer(TIterator, TIterator, True);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1022)
-template <typename TIterator> inline void _arrayConstructPointer(TIterator begin_, TIterator end_, False);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1032)
-template <typename TIterator, typename TParam> inline void _arrayConstructPointer(TIterator begin_, TIterator end_, TParam const & param_, True);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1052)
-template <typename TIterator, typename TParam> inline void _arrayConstructPointer(TIterator begin_, TIterator end_, TParam const & param_, False);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1063)
+template <typename TIterator> inline void _arrayConstructPointer(TIterator, TIterator, True);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1022)
+template <typename TIterator> inline void _arrayConstructPointer(TIterator begin_, TIterator end_, False);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1032)
+template <typename TIterator, typename TParam> inline void _arrayConstructPointer(TIterator begin_, TIterator end_, TParam const & param_, True);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1052)
+template <typename TIterator, typename TParam> inline void _arrayConstructPointer(TIterator begin_, TIterator end_, TParam const & param_, False);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1063)
 
 //____________________________________________________________________________
 // _arrayCopyBackwardDefault
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void _arrayCopyBackwardDefault(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(731)
+template <typename TTarget, typename TSource1, typename TSource2> inline void _arrayCopyBackwardDefault(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(731)
 
 //____________________________________________________________________________
 // _arrayCopyBackwardPointer
 
-template <typename TValue> inline void _arrayCopyBackwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, True);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1243)
-template <typename TValue> inline void _arrayCopyBackwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, False);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1254)
+template <typename TValue> inline void _arrayCopyBackwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, True);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1243)
+template <typename TValue> inline void _arrayCopyBackwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, False);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1254)
 
 //____________________________________________________________________________
 // _arrayCopyForwardDefault
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void _arrayCopyForwardDefault(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(685)
+template <typename TTarget, typename TSource1, typename TSource2> inline void _arrayCopyForwardDefault(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(685)
 
 //____________________________________________________________________________
 // _arrayCopyForwardPointer
 
-template <typename TValue> inline void _arrayCopyForwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, True);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1211)
-template <typename TValue> inline void _arrayCopyForwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, False);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1222)
+template <typename TValue> inline void _arrayCopyForwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, True);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1211)
+template <typename TValue> inline void _arrayCopyForwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, False);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1222)
 
 //____________________________________________________________________________
 // _arrayDestructDefault
 
-template <typename TIterator1, typename TIterator2> inline void _arrayDestructDefault(TIterator1 begin_, TIterator2 end_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(609)
+template <typename TIterator1, typename TIterator2> inline void _arrayDestructDefault(TIterator1 begin_, TIterator2 end_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(609)
 
 //____________________________________________________________________________
 // _arrayDestructPointer
 
-template <typename TValue> inline void _arrayDestructPointer(TValue * , TValue * , True);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1169)
-template <typename TValue> inline void _arrayDestructPointer(TValue * begin_, TValue * end_, False);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1179)
+template <typename TValue> inline void _arrayDestructPointer(TValue * , TValue * , True);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1169)
+template <typename TValue> inline void _arrayDestructPointer(TValue * begin_, TValue * end_, False);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1179)
 
 //____________________________________________________________________________
 // _arrayMoveBackwardDefault
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void _arrayMoveBackwardDefault(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(867)
+template <typename TTarget, typename TSource1, typename TSource2> inline void _arrayMoveBackwardDefault(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(867)
 
 //____________________________________________________________________________
 // _arrayMoveBackwardPointer
 
-template <typename TValue> inline void _arrayMoveBackwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, True);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1311)
-template <typename TValue> inline void _arrayMoveBackwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, False);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1321)
+template <typename TValue> inline void _arrayMoveBackwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, True);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1311)
+template <typename TValue> inline void _arrayMoveBackwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, False);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1321)
 
 //____________________________________________________________________________
 // _arrayMoveForwardDefault
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void _arrayMoveForwardDefault(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(815)
+template <typename TTarget, typename TSource1, typename TSource2> inline void _arrayMoveForwardDefault(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(815)
 
 //____________________________________________________________________________
 // _arrayMoveForwardPointer
 
-template <typename TValue> inline void _arrayMoveForwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, True);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1279)
-template <typename TValue> inline void _arrayMoveForwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, False);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1290)
+template <typename TValue> inline void _arrayMoveForwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, True);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1279)
+template <typename TValue> inline void _arrayMoveForwardPointer(TValue * source_begin, TValue * source_end, TValue * target_begin, False);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1290)
 
 //____________________________________________________________________________
 // _compareBinaryFiles
 
-inline bool _compareBinaryFiles(const char * file1, const char * file2);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/debug_helper.h"(65)
+inline bool _compareBinaryFiles(const char * file1, const char * file2);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/debug_helper.h"(65)
 
 //____________________________________________________________________________
 // _compareTextFiles
 
-inline bool _compareTextFiles(const char * file1, const char * file2);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/debug_helper.h"(134)
+inline bool _compareTextFiles(const char * file1, const char * file2);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/debug_helper.h"(134)
 
 //____________________________________________________________________________
 // _compareTextFilesReadChar
 
-inline void _compareTextFilesReadChar(FILE * fl, char & c, int & num_lb, bool & is_eof);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/debug_helper.h"(101)
+inline void _compareTextFilesReadChar(FILE * fl, char & c, int & num_lb, bool & is_eof);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/debug_helper.h"(101)
 
 //____________________________________________________________________________
 // _dataValue
 
-template <typename TValue> inline typename Reference<Holder<TValue, Tristate> >::Type _dataValue(Holder<TValue, Tristate> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(439)
-template <typename TValue> inline typename Reference<Holder<TValue, Tristate> const>::Type _dataValue(Holder<TValue, Tristate> const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(446)
-template <typename TValue> inline typename Reference<Holder<TValue *, Tristate> >::Type _dataValue(Holder<TValue *, Tristate> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(454)
-template <typename TValue> inline typename Reference<Holder<TValue *, Tristate> const>::Type _dataValue(Holder<TValue *, Tristate> const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(461)
-template <typename TValue> inline typename Reference<Holder<TValue * const, Tristate> >::Type _dataValue(Holder<TValue * const, Tristate> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(468)
-template <typename TValue> inline typename Reference<Holder<TValue * const, Tristate> const>::Type _dataValue(Holder<TValue * const, Tristate> const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(475)
+template <typename TValue> inline typename Reference<Holder<TValue, Tristate> >::Type _dataValue(Holder<TValue, Tristate> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(439)
+template <typename TValue> inline typename Reference<Holder<TValue, Tristate> const>::Type _dataValue(Holder<TValue, Tristate> const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(446)
+template <typename TValue> inline typename Reference<Holder<TValue *, Tristate> >::Type _dataValue(Holder<TValue *, Tristate> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(454)
+template <typename TValue> inline typename Reference<Holder<TValue *, Tristate> const>::Type _dataValue(Holder<TValue *, Tristate> const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(461)
+template <typename TValue> inline typename Reference<Holder<TValue * const, Tristate> >::Type _dataValue(Holder<TValue * const, Tristate> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(468)
+template <typename TValue> inline typename Reference<Holder<TValue * const, Tristate> const>::Type _dataValue(Holder<TValue * const, Tristate> const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(475)
 
 //____________________________________________________________________________
 // _getMaxIndex
 
-template <typename TSourceValue, typename TSourceCount, typename TSourceSpec> inline typename Size<ProfileChar<TSourceValue, TSourceCount, TSourceSpec> const>::Type _getMaxIndex(ProfileChar<TSourceValue, TSourceCount, TSourceSpec> const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_profile.h"(264)
+template <typename TSourceValue, typename TSourceCount, typename TSourceSpec> inline typename Size<ProfileChar<TSourceValue, TSourceCount, TSourceSpec> const>::Type _getMaxIndex(ProfileChar<TSourceValue, TSourceCount, TSourceSpec> const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_profile.h"(264)
 
 //____________________________________________________________________________
 // _holderAllocateObject
 
-template <typename THolder, typename TValue> inline typename Value<THolder, 0>::Type * _holderAllocateObject(THolder & me, TValue const & data);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(572)
+template <typename THolder, typename TValue> inline typename Value<THolder, 0>::Type * _holderAllocateObject(THolder & me, TValue const & data);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(572)
 
 //____________________________________________________________________________
 // _holderAllocatePointer
 
-template <typename THolder, typename TValue> inline typename Value<THolder, 0>::Type _holderAllocatePointer(THolder & me, TValue * data, True);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(583)
-template <typename THolder, typename TValue> inline typename Value<THolder, 0>::Type _holderAllocatePointer(THolder & , TValue * data, False);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(594)
-template <typename THolder, typename TValue> inline typename Value<THolder, 0>::Type _holderAllocatePointer(THolder & me, TValue * data);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(601)
+template <typename THolder, typename TValue> inline typename Value<THolder, 0>::Type _holderAllocatePointer(THolder & me, TValue * data, True);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(583)
+template <typename THolder, typename TValue> inline typename Value<THolder, 0>::Type _holderAllocatePointer(THolder & , TValue * data, False);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(594)
+template <typename THolder, typename TValue> inline typename Value<THolder, 0>::Type _holderAllocatePointer(THolder & me, TValue * data);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(601)
 
 //____________________________________________________________________________
 // _holderDeallocate
 
-template <typename THolder, typename TValue> inline void _holderDeallocate(THolder & me, TValue const & data);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(515)
-template <typename THolder, typename TValue> inline void _holderDeallocate(THolder & me, TValue * data, True);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(523)
-template <typename THolder, typename TValue> inline void _holderDeallocate(THolder & , TValue * , False);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(532)
-template <typename THolder, typename TValue> inline void _holderDeallocate(THolder & me, TValue * data);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(538)
+template <typename THolder, typename TValue> inline void _holderDeallocate(THolder & me, TValue const & data);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(515)
+template <typename THolder, typename TValue> inline void _holderDeallocate(THolder & me, TValue * data, True);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(523)
+template <typename THolder, typename TValue> inline void _holderDeallocate(THolder & , TValue * , False);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(532)
+template <typename THolder, typename TValue> inline void _holderDeallocate(THolder & me, TValue * data);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(538)
 
 //____________________________________________________________________________
 // _intPow
 
-template <typename TValue, typename TExponent> inline TValue _intPow(TValue a, TExponent b);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_functions.h"(66)
+template <typename TValue, typename TExponent> inline TValue _intPow(TValue a, TExponent b);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_functions.h"(66)
 
 //____________________________________________________________________________
 // _internalOrdValue
 
-template <typename TValue, typename TSpec> inline typename ValueSize<SimpleType<TValue, TSpec> >::Type _internalOrdValue(SimpleType<TValue, TSpec> const & c);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(1027)
-template <typename TValue> inline typename ValueSize<TValue>::Type _internalOrdValue(TValue const & c);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_storage.h"(247)
+template <typename TValue, typename TSpec> inline typename ValueSize<SimpleType<TValue, TSpec> >::Type _internalOrdValue(SimpleType<TValue, TSpec> const & c);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(1027)
+template <typename TValue> inline typename ValueSize<TValue>::Type _internalOrdValue(TValue const & c);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_storage.h"(247)
 
 //____________________________________________________________________________
 // _max
 
-template <typename Ty_> inline Ty_ const & _max(const Ty_& _Left, const Ty_& Right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_functions.h"(171)
-template <typename Tx_, typename Ty_> inline Tx_ _max(const Tx_& _Left, const Ty_& Right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_functions.h"(181)
+template <typename Ty_> inline Ty_ const & _max(const Ty_& _Left, const Ty_& Right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_functions.h"(171)
+template <typename Tx_, typename Ty_> inline Tx_ _max(const Tx_& _Left, const Ty_& Right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_functions.h"(181)
 
 //____________________________________________________________________________
 // _min
 
-template <typename Tx_> inline const Tx_& _min(const Tx_& _Left, const Tx_& Right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_functions.h"(146)
-template <typename Tx_, typename Ty_> inline Tx_ _min(const Tx_& _Left, const Ty_& Right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_functions.h"(155)
+template <typename Tx_> inline const Tx_& _min(const Tx_& _Left, const Tx_& Right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_functions.h"(146)
+template <typename Tx_, typename Ty_> inline Tx_ _min(const Tx_& _Left, const Ty_& Right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_functions.h"(155)
 
 //____________________________________________________________________________
 // _toParameter
 
-template <typename T> typename Parameter_<T>::Type _toParameter(T * _object);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/basic_type.h"(349)
-template <typename T> typename Parameter_<T>::Type _toParameter(T _object);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/basic_type.h"(357)
+template <typename T> typename Parameter_<T>::Type _toParameter(T * _object);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/basic_type.h"(349)
+template <typename T> typename Parameter_<T>::Type _toParameter(T _object);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/basic_type.h"(357)
 
 //____________________________________________________________________________
 // _toPointer
 
-template <typename T> typename NonConstPointer_<T>::Type _toPointer(T & _object);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/basic_type.h"(482)
-template <typename T> typename NonConstPointer_<T const>::Type _toPointer(T const & _object);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/basic_type.h"(489)
-template <typename T> typename NonConstPointer_<T *>::Type _toPointer(T * _object);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/basic_type.h"(497)
+template <typename T> typename NonConstPointer_<T>::Type _toPointer(T & _object);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/basic_type.h"(482)
+template <typename T> typename NonConstPointer_<T const>::Type _toPointer(T const & _object);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/basic_type.h"(489)
+template <typename T> typename NonConstPointer_<T *>::Type _toPointer(T * _object);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/basic_type.h"(497)
 
 //____________________________________________________________________________
 // allocate
 
-template <size_t SIZE, size_t MAX_COUNT, typename TParentAllocator, typename TValue, typename TSize, typename TUsage> inline void allocate(Allocator<ChunkPool<SIZE, MAX_COUNT, TParentAllocator> > & me, TValue * & data, TSize count, Tag<TUsage> const tag_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_chunkpool.h"(209)
-template <typename T, typename TValue, typename TSize> inline void allocate(T const & me, TValue * & data, TSize count);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_interface.h"(164)
-template <typename T, typename TValue, typename TSize> inline void allocate(T & me, TValue * & data, TSize count);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_interface.h"(173)
-template <typename T, typename TValue, typename TSize, typename TUsage> inline void allocate(T const &, TValue * & data, TSize count, Tag<TUsage> const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_interface.h"(183)
-template <typename T, typename TValue, typename TSize, typename TUsage> inline void allocate(T &, TValue * & data, TSize count, Tag<TUsage> const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_interface.h"(210)
-template <typename TParentAllocator, unsigned int BLOCKING_LIMIT, typename TValue, typename TSize, typename TUsage> inline void allocate(Allocator<MultiPool<TParentAllocator, BLOCKING_LIMIT> > & me, TValue * & data, TSize count, Tag<TUsage> const & tag_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_multipool.h"(205)
-template <typename TParentAllocator, typename TValue, typename TSize, typename TUsage> inline void allocate(Allocator<SimpleAlloc<TParentAllocator> > & me, TValue * & data, TSize count, Tag<TUsage> const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_simple.h"(181)
-template <size_t SIZE, typename TParentAllocator, typename TValue, typename TSize, typename TUsage> inline void allocate(Allocator<SinglePool<SIZE, TParentAllocator> > & me, TValue * & data, TSize count, Tag<TUsage> const tag_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_singlepool.h"(200)
+template <size_t SIZE, size_t MAX_COUNT, typename TParentAllocator, typename TValue, typename TSize, typename TUsage> inline void allocate(Allocator<ChunkPool<SIZE, MAX_COUNT, TParentAllocator> > & me, TValue * & data, TSize count, Tag<TUsage> const tag_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_chunkpool.h"(209)
+template <typename T, typename TValue, typename TSize> inline void allocate(T const & me, TValue * & data, TSize count);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_interface.h"(164)
+template <typename T, typename TValue, typename TSize> inline void allocate(T & me, TValue * & data, TSize count);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_interface.h"(173)
+template <typename T, typename TValue, typename TSize, typename TUsage> inline void allocate(T const &, TValue * & data, TSize count, Tag<TUsage> const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_interface.h"(183)
+template <typename T, typename TValue, typename TSize, typename TUsage> inline void allocate(T &, TValue * & data, TSize count, Tag<TUsage> const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_interface.h"(210)
+template <typename TParentAllocator, unsigned int BLOCKING_LIMIT, typename TValue, typename TSize, typename TUsage> inline void allocate(Allocator<MultiPool<TParentAllocator, BLOCKING_LIMIT> > & me, TValue * & data, TSize count, Tag<TUsage> const & tag_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_multipool.h"(205)
+template <typename TParentAllocator, typename TValue, typename TSize, typename TUsage> inline void allocate(Allocator<SimpleAlloc<TParentAllocator> > & me, TValue * & data, TSize count, Tag<TUsage> const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_simple.h"(181)
+template <size_t SIZE, typename TParentAllocator, typename TValue, typename TSize, typename TUsage> inline void allocate(Allocator<SinglePool<SIZE, TParentAllocator> > & me, TValue * & data, TSize count, Tag<TUsage> const tag_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_singlepool.h"(200)
 
 //____________________________________________________________________________
 // arrayClearSpace
 
-template <typename TIterator> void arrayClearSpace(TIterator array_begin, size_t array_length, size_t keep_from, size_t move_to);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1009)
-template <typename TValue> void arrayClearSpace(TValue * array_begin, size_t array_length, size_t keep_from, size_t move_to);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1372)
+template <typename TIterator> void arrayClearSpace(TIterator array_begin, size_t array_length, size_t keep_from, size_t move_to);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1009)
+template <typename TValue> void arrayClearSpace(TValue * array_begin, size_t array_length, size_t keep_from, size_t move_to);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1372)
 
 //____________________________________________________________________________
 // arrayConstruct
 
-template <typename TIterator1, typename TIterator2> inline void arrayConstruct(TIterator1 begin_, TIterator2 end_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(454)
-template <typename TIterator1, typename TIterator2, typename TParam> inline void arrayConstruct(TIterator1 begin_, TIterator2 end_, TParam const & param_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(478)
-template <typename TValue> inline void arrayConstruct(TValue * begin_, TValue * end_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1041)
-template <typename TValue, typename TParam> inline void arrayConstruct(TValue * begin_, TValue * end_, TParam const & param_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1073)
+template <typename TIterator1, typename TIterator2> inline void arrayConstruct(TIterator1 begin_, TIterator2 end_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(454)
+template <typename TIterator1, typename TIterator2, typename TParam> inline void arrayConstruct(TIterator1 begin_, TIterator2 end_, TParam const & param_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(478)
+template <typename TValue> inline void arrayConstruct(TValue * begin_, TValue * end_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1041)
+template <typename TValue, typename TParam> inline void arrayConstruct(TValue * begin_, TValue * end_, TParam const & param_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1073)
 
 //____________________________________________________________________________
 // arrayConstructCopy
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void arrayConstructCopy(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(529)
-template <typename TValueSource, typename TValueTarget> inline void arrayConstructCopy(TValueSource * source_begin, TValueSource * source_end, TValueTarget * target_begin);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1119)
+template <typename TTarget, typename TSource1, typename TSource2> inline void arrayConstructCopy(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(529)
+template <typename TValueSource, typename TValueTarget> inline void arrayConstructCopy(TValueSource * source_begin, TValueSource * source_end, TValueTarget * target_begin);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1119)
 
 //____________________________________________________________________________
 // arrayConstructMove
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void arrayConstructMove(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(583)
-template <typename TValue> inline void arrayConstructMove(TValue * source_begin, TValue * source_end, TValue * target_begin);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1155)
+template <typename TTarget, typename TSource1, typename TSource2> inline void arrayConstructMove(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(583)
+template <typename TValue> inline void arrayConstructMove(TValue * source_begin, TValue * source_end, TValue * target_begin);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1155)
 
 //____________________________________________________________________________
 // arrayCopy
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void arrayCopy(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(777)
+template <typename TTarget, typename TSource1, typename TSource2> inline void arrayCopy(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(777)
 
 //____________________________________________________________________________
 // arrayCopyBackward
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void arrayCopyBackward(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(741)
-template <typename TValue> inline void arrayCopyBackward(TValue * source_begin, TValue * source_end, TValue * target_begin);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1264)
+template <typename TTarget, typename TSource1, typename TSource2> inline void arrayCopyBackward(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(741)
+template <typename TValue> inline void arrayCopyBackward(TValue * source_begin, TValue * source_end, TValue * target_begin);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1264)
 
 //____________________________________________________________________________
 // arrayCopyForward
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void arrayCopyForward(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(695)
-template <typename TValue> inline void arrayCopyForward(TValue * source_begin, TValue * source_end, TValue * target_begin);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1232)
+template <typename TTarget, typename TSource1, typename TSource2> inline void arrayCopyForward(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(695)
+template <typename TValue> inline void arrayCopyForward(TValue * source_begin, TValue * source_end, TValue * target_begin);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1232)
 
 //____________________________________________________________________________
 // arrayDestruct
 
-template <typename TIterator1, typename TIterator2> inline void arrayDestruct(TIterator1 begin_, TIterator2 end_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(622)
-template <typename TValue> inline void arrayDestruct(TValue * begin_, TValue * end_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1188)
+template <typename TIterator1, typename TIterator2> inline void arrayDestruct(TIterator1 begin_, TIterator2 end_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(622)
+template <typename TValue> inline void arrayDestruct(TValue * begin_, TValue * end_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1188)
 
 //____________________________________________________________________________
 // arrayFill
 
-template <typename TIterator1, typename TIterator2, typename TValue> inline void arrayFill(TIterator1 begin_, TIterator2 end_, TValue const & value);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(654)
+template <typename TIterator1, typename TIterator2, typename TValue> inline void arrayFill(TIterator1 begin_, TIterator2 end_, TValue const & value);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(654)
 
 //____________________________________________________________________________
 // arrayMove
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void arrayMove(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(922)
+template <typename TTarget, typename TSource1, typename TSource2> inline void arrayMove(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(922)
 
 //____________________________________________________________________________
 // arrayMoveBackward
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void arrayMoveBackward(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(882)
-template <typename TValue> inline void arrayMoveBackward(TValue * source_begin, TValue * source_end, TValue * target_begin);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1331)
+template <typename TTarget, typename TSource1, typename TSource2> inline void arrayMoveBackward(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(882)
+template <typename TValue> inline void arrayMoveBackward(TValue * source_begin, TValue * source_end, TValue * target_begin);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1331)
 
 //____________________________________________________________________________
 // arrayMoveForward
 
-template <typename TTarget, typename TSource1, typename TSource2> inline void arrayMoveForward(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(830)
-template <typename TValue> inline void arrayMoveForward(TValue * source_begin, TValue * source_end, TValue * target_begin);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(1300)
+template <typename TTarget, typename TSource1, typename TSource2> inline void arrayMoveForward(TSource1 source_begin, TSource2 source_end, TTarget target_begin);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(830)
+template <typename TValue> inline void arrayMoveForward(TValue * source_begin, TValue * source_end, TValue * target_begin);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(1300)
 
 //____________________________________________________________________________
 // assign
 
-template <typename TTargetValue, typename TTargetSpec, typename TSourceValue, typename TSourceCount, typename TSourceSpec> inline void assign(SimpleType<TTargetValue, TTargetSpec> & target, ProfileChar<TSourceValue, TSourceCount, TSourceSpec> const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_profile.h"(290)
-inline void assign(char & c_target, Dna const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(588)
-inline void assign(char & c_target, Dna5 const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(594)
-inline void assign(char& target, Rna const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(600)
-inline void assign(char& target, Rna5 const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(606)
-inline void assign(char & c_target, Iupac const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(611)
-inline void assign(char & c_target, AminoAcid const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(616)
-inline void assign(Dna & target, __uint8 c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(631)
-inline void assign(Dna & target, char c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(642)
-inline void assign(Dna & target, Unicode c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(653)
-inline void assign(Dna & target, Dna5 const & c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(664)
-inline void assign(Dna & target, Iupac const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(675)
-inline void assign(Dna5 & target, __uint8 c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(690)
-inline void assign(Dna5 & target, char c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(701)
-inline void assign(Dna5 & target, Unicode c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(712)
-inline void assign(Dna5 & target, Iupac const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(723)
-inline void assign(Dna5 & target, Dna const & c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(734)
-inline void assign(Rna & target, __uint8 c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(749)
-inline void assign(Rna & target, char c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(760)
-inline void assign(Rna & target, Unicode c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(771)
-inline void assign(Rna & target, Rna5 const & c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(782)
-inline void assign(Rna5 & target, __uint8 c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(797)
-inline void assign(Rna5 & target, char c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(808)
-inline void assign(Rna5 & target, Unicode c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(819)
-inline void assign(Rna5 & target, Rna const & c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(830)
-inline void assign(Iupac & target, __uint8 c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(845)
-inline void assign(Iupac & target, char c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(856)
-inline void assign(Iupac & target, Unicode c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(867)
-inline void assign(Iupac & target, Dna const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(872)
-inline void assign(Iupac & target, Dna5 const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(877)
-inline void assign(AminoAcid & target, __uint8 c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(892)
-inline void assign(AminoAcid & target, char c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(903)
-inline void assign(AminoAcid & target, Unicode c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(914)
-inline void assign(DnaQ & target, Dna const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(947)
-inline void assign(Dna & target, DnaQ const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(958)
-inline void assign(DnaQ & target, Iupac const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(969)
-inline void assign(DnaQ & target, Dna5 const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(980)
-inline void assign(DnaQ & target, __uint8 c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(991)
-inline void assign(DnaQ & target, char c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1002)
-inline void assign(DnaQ & target, Unicode c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1013)
-inline void assign(DnaQ & target, DnaQ const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1019)
-template <typename TSource> inline void assign(DnaQ & target, TSource const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1026)
-inline void assign(__int64 & c_target, DnaQ & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1033)
-inline void assign(__int64 & c_target, DnaQ const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1040)
-inline void assign(__uint64 & c_target, DnaQ & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1049)
-inline void assign(__uint64 & c_target, DnaQ const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1056)
-inline void assign(int & c_target, DnaQ & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1065)
-inline void assign(int & c_target, DnaQ const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1072)
-inline void assign(unsigned int & c_target, DnaQ & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1081)
-inline void assign(unsigned int & c_target, DnaQ const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1088)
-inline void assign(short & c_target, DnaQ & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1097)
-inline void assign(short & c_target, DnaQ const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1104)
-inline void assign(unsigned short & c_target, DnaQ & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1113)
-inline void assign(unsigned short & c_target, DnaQ const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1120)
-inline void assign(char & c_target, DnaQ & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1129)
-inline void assign(char & c_target, DnaQ const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1136)
-inline void assign(signed char & c_target, DnaQ & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1145)
-inline void assign(signed char & c_target, DnaQ const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1152)
-inline void assign(unsigned char & c_target, DnaQ & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1161)
-inline void assign(unsigned char & c_target, DnaQ const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1168)
-inline void assign(DnaQ & target, Dna5Q const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1202)
-inline void assign(Dna5Q & target, DnaQ const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1236)
-inline void assign(Dna5 & target, Dna5Q const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1248)
-inline void assign(Dna5Q & target, Dna5 const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1281)
-inline void assign(Dna5Q & target, Dna const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1301)
-inline void assign(Dna & target, Dna5Q const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1312)
-inline void assign(Dna5 & target, DnaQ const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1323)
-inline void assign(Dna5Q & target, __uint8 c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1334)
-inline void assign(Dna5Q & target, char c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1345)
-inline void assign(Dna5Q & target, Unicode c_source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1356)
-inline void assign(Dna5Q & target, Iupac const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1367)
-inline void assign(Dna5Q & target, Dna5Q const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1373)
-template <typename TSource> inline void assign(Dna5Q & target, TSource const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1380)
-inline void assign(__int64 & c_target, Dna5Q & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1389)
-inline void assign(__int64 & c_target, Dna5Q const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1396)
-inline void assign(__uint64 & c_target, Dna5Q & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1405)
-inline void assign(__uint64 & c_target, Dna5Q const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1412)
-inline void assign(int & c_target, Dna5Q & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1421)
-inline void assign(int & c_target, Dna5Q const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1428)
-inline void assign(unsigned int & c_target, Dna5Q & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1437)
-inline void assign(unsigned int & c_target, Dna5Q const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1444)
-inline void assign(short & c_target, Dna5Q & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1454)
-inline void assign(short & c_target, Dna5Q const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1461)
-inline void assign(unsigned short & c_target, Dna5Q & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1470)
-inline void assign(unsigned short & c_target, Dna5Q const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1477)
-inline void assign(char & c_target, Dna5Q & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1486)
-inline void assign(char & c_target, Dna5Q const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1493)
-inline void assign(signed char & c_target, Dna5Q & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1502)
-inline void assign(signed char & c_target, Dna5Q const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1509)
-inline void assign(unsigned char & c_target, Dna5Q & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1518)
-inline void assign(unsigned char & c_target, Dna5Q const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(1525)
-template <typename TTargetValue, typename TTargetSpec, typename TSourceValue, typename TSourceSpec> inline void assign(SimpleType<TTargetValue, TTargetSpec> & target, SimpleType<TSourceValue, TSourceSpec> & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(376)
-template <typename TTargetValue, typename TTargetSpec, typename TSourceValue, typename TSourceSpec> inline void assign(SimpleType<TTargetValue, TTargetSpec> & target, SimpleType<TSourceValue, TSourceSpec> const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(384)
-template <typename TTargetValue, typename TTargetSpec, typename TSource> inline void assign(SimpleType<TTargetValue, TTargetSpec> & target, TSource & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(392)
-template <typename TTargetValue, typename TTargetSpec, typename TSource> inline void assign(SimpleType<TTargetValue, TTargetSpec> & target, TSource const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(400)
-template <typename TTargetValue, typename TTargetSpec, typename TSourceSpec> inline void assign(SimpleType<TTargetValue, TTargetSpec> & target, Proxy<TSourceSpec> & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(412)
-template <typename TTargetValue, typename TTargetSpec, typename TSourceSpec> inline void assign(SimpleType<TTargetValue, TTargetSpec> & target, Proxy<TSourceSpec> const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(420)
-template <typename TValue, typename TSpec> inline void assign(__int64 & c_target, SimpleType<TValue, TSpec> & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(431)
-template <typename TValue, typename TSpec> inline void assign(__int64 & c_target, SimpleType<TValue, TSpec> const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(439)
-template <typename TValue, typename TSpec> inline void assign(__uint64 & c_target, SimpleType<TValue, TSpec> & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(447)
-template <typename TValue, typename TSpec> inline void assign(__uint64 & c_target, SimpleType<TValue, TSpec> const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(455)
-template <typename TValue, typename TSpec> inline void assign(int & c_target, SimpleType<TValue, TSpec> & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(463)
-template <typename TValue, typename TSpec> inline void assign(int & c_target, SimpleType<TValue, TSpec> const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(471)
-template <typename TValue, typename TSpec> inline void assign(unsigned int & c_target, SimpleType<TValue, TSpec> & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(479)
-template <typename TValue, typename TSpec> inline void assign(unsigned int & c_target, SimpleType<TValue, TSpec> const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(487)
-template <typename TValue, typename TSpec> inline void assign(short & c_target, SimpleType<TValue, TSpec> & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(495)
-template <typename TValue, typename TSpec> inline void assign(short & c_target, SimpleType<TValue, TSpec> const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(503)
-template <typename TValue, typename TSpec> inline void assign(unsigned short & c_target, SimpleType<TValue, TSpec> & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(511)
-template <typename TValue, typename TSpec> inline void assign(unsigned short & c_target, SimpleType<TValue, TSpec> const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(519)
-template <typename TValue, typename TSpec> inline void assign(char & c_target, SimpleType<TValue, TSpec> & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(527)
-template <typename TValue, typename TSpec> inline void assign(char & c_target, SimpleType<TValue, TSpec> const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(535)
-template <typename TValue, typename TSpec> inline void assign(signed char & c_target, SimpleType<TValue, TSpec> & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(543)
-template <typename TValue, typename TSpec> inline void assign(signed char & c_target, SimpleType<TValue, TSpec> const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(551)
-template <typename TValue, typename TSpec> inline void assign(unsigned char & c_target, SimpleType<TValue, TSpec> & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(559)
-template <typename TValue, typename TSpec> inline void assign(unsigned char & c_target, SimpleType<TValue, TSpec> const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(567)
-template <typename TTarget, typename TSource> inline void assign(TTarget & target, TSource & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_transport.h"(108)
-template <typename TTarget, typename TSource> inline void assign(TTarget & target, TSource const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_transport.h"(117)
-template <typename TTargetSpec, typename TSource> inline void assign(Proxy<TTargetSpec> & target, TSource & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_transport.h"(130)
-template <typename TTargetSpec, typename TSource> inline void assign(Proxy<TTargetSpec> & target, TSource const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_transport.h"(139)
-template <typename TValue> inline void assign(Holder<TValue, Simple> & target_, Holder<TValue, Simple> const & source_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_simple.h"(318)
-template <typename TValue> inline void assign(Holder<TValue, Tristate> & target_, Holder<TValue, Tristate> const & source_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(1026)
-template <typename TTargetContainer, typename TSource> inline void assign(Iter<TTargetContainer, StdIteratorAdaptor> & target, TSource const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(564)
-template <typename TTargetContainer, typename TIterator, typename TSpec, typename TSource> inline void assign(Iter<TTargetContainer, AdaptorIterator<TIterator, TSpec> > & target, TSource const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(615)
-template <typename TTargetContainer, typename TSource> inline void assign(Iter<TTargetContainer, PositionIterator> & target, TSource const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(539)
+template <typename TTargetValue, typename TTargetSpec, typename TSourceValue, typename TSourceCount, typename TSourceSpec> inline void assign(SimpleType<TTargetValue, TTargetSpec> & target, ProfileChar<TSourceValue, TSourceCount, TSourceSpec> const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_profile.h"(290)
+inline void assign(char & c_target, Dna const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(588)
+inline void assign(char & c_target, Dna5 const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(594)
+inline void assign(char& target, Rna const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(600)
+inline void assign(char& target, Rna5 const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(606)
+inline void assign(char & c_target, Iupac const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(611)
+inline void assign(char & c_target, AminoAcid const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(616)
+inline void assign(Dna & target, __uint8 c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(631)
+inline void assign(Dna & target, char c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(642)
+inline void assign(Dna & target, Unicode c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(653)
+inline void assign(Dna & target, Dna5 const & c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(664)
+inline void assign(Dna & target, Iupac const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(675)
+inline void assign(Dna5 & target, __uint8 c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(690)
+inline void assign(Dna5 & target, char c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(701)
+inline void assign(Dna5 & target, Unicode c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(712)
+inline void assign(Dna5 & target, Iupac const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(723)
+inline void assign(Dna5 & target, Dna const & c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(734)
+inline void assign(Rna & target, __uint8 c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(749)
+inline void assign(Rna & target, char c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(760)
+inline void assign(Rna & target, Unicode c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(771)
+inline void assign(Rna & target, Rna5 const & c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(782)
+inline void assign(Rna5 & target, __uint8 c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(797)
+inline void assign(Rna5 & target, char c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(808)
+inline void assign(Rna5 & target, Unicode c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(819)
+inline void assign(Rna5 & target, Rna const & c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(830)
+inline void assign(Iupac & target, __uint8 c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(845)
+inline void assign(Iupac & target, char c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(856)
+inline void assign(Iupac & target, Unicode c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(867)
+inline void assign(Iupac & target, Dna const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(872)
+inline void assign(Iupac & target, Dna5 const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(877)
+inline void assign(AminoAcid & target, __uint8 c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(892)
+inline void assign(AminoAcid & target, char c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(903)
+inline void assign(AminoAcid & target, Unicode c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(914)
+inline void assign(DnaQ & target, Dna const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(947)
+inline void assign(Dna & target, DnaQ const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(958)
+inline void assign(DnaQ & target, Iupac const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(969)
+inline void assign(DnaQ & target, Dna5 const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(980)
+inline void assign(DnaQ & target, __uint8 c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(991)
+inline void assign(DnaQ & target, char c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1002)
+inline void assign(DnaQ & target, Unicode c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1013)
+inline void assign(DnaQ & target, DnaQ const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1019)
+template <typename TSource> inline void assign(DnaQ & target, TSource const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1026)
+inline void assign(__int64 & c_target, DnaQ & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1033)
+inline void assign(__int64 & c_target, DnaQ const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1040)
+inline void assign(__uint64 & c_target, DnaQ & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1049)
+inline void assign(__uint64 & c_target, DnaQ const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1056)
+inline void assign(int & c_target, DnaQ & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1065)
+inline void assign(int & c_target, DnaQ const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1072)
+inline void assign(unsigned int & c_target, DnaQ & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1081)
+inline void assign(unsigned int & c_target, DnaQ const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1088)
+inline void assign(short & c_target, DnaQ & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1097)
+inline void assign(short & c_target, DnaQ const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1104)
+inline void assign(unsigned short & c_target, DnaQ & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1113)
+inline void assign(unsigned short & c_target, DnaQ const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1120)
+inline void assign(char & c_target, DnaQ & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1129)
+inline void assign(char & c_target, DnaQ const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1136)
+inline void assign(signed char & c_target, DnaQ & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1145)
+inline void assign(signed char & c_target, DnaQ const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1152)
+inline void assign(unsigned char & c_target, DnaQ & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1161)
+inline void assign(unsigned char & c_target, DnaQ const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1168)
+inline void assign(DnaQ & target, Dna5Q const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1202)
+inline void assign(Dna5Q & target, DnaQ const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1236)
+inline void assign(Dna5 & target, Dna5Q const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1248)
+inline void assign(Dna5Q & target, Dna5 const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1281)
+inline void assign(Dna5Q & target, Dna const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1301)
+inline void assign(Dna & target, Dna5Q const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1312)
+inline void assign(Dna5 & target, DnaQ const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1323)
+inline void assign(Dna5Q & target, __uint8 c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1334)
+inline void assign(Dna5Q & target, char c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1345)
+inline void assign(Dna5Q & target, Unicode c_source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1356)
+inline void assign(Dna5Q & target, Iupac const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1367)
+inline void assign(Dna5Q & target, Dna5Q const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1373)
+template <typename TSource> inline void assign(Dna5Q & target, TSource const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1380)
+inline void assign(__int64 & c_target, Dna5Q & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1389)
+inline void assign(__int64 & c_target, Dna5Q const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1396)
+inline void assign(__uint64 & c_target, Dna5Q & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1405)
+inline void assign(__uint64 & c_target, Dna5Q const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1412)
+inline void assign(int & c_target, Dna5Q & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1421)
+inline void assign(int & c_target, Dna5Q const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1428)
+inline void assign(unsigned int & c_target, Dna5Q & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1437)
+inline void assign(unsigned int & c_target, Dna5Q const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1444)
+inline void assign(short & c_target, Dna5Q & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1454)
+inline void assign(short & c_target, Dna5Q const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1461)
+inline void assign(unsigned short & c_target, Dna5Q & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1470)
+inline void assign(unsigned short & c_target, Dna5Q const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1477)
+inline void assign(char & c_target, Dna5Q & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1486)
+inline void assign(char & c_target, Dna5Q const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1493)
+inline void assign(signed char & c_target, Dna5Q & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1502)
+inline void assign(signed char & c_target, Dna5Q const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1509)
+inline void assign(unsigned char & c_target, Dna5Q & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1518)
+inline void assign(unsigned char & c_target, Dna5Q const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(1525)
+template <typename TTargetValue, typename TTargetSpec, typename TSourceValue, typename TSourceSpec> inline void assign(SimpleType<TTargetValue, TTargetSpec> & target, SimpleType<TSourceValue, TSourceSpec> & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(376)
+template <typename TTargetValue, typename TTargetSpec, typename TSourceValue, typename TSourceSpec> inline void assign(SimpleType<TTargetValue, TTargetSpec> & target, SimpleType<TSourceValue, TSourceSpec> const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(384)
+template <typename TTargetValue, typename TTargetSpec, typename TSource> inline void assign(SimpleType<TTargetValue, TTargetSpec> & target, TSource & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(392)
+template <typename TTargetValue, typename TTargetSpec, typename TSource> inline void assign(SimpleType<TTargetValue, TTargetSpec> & target, TSource const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(400)
+template <typename TTargetValue, typename TTargetSpec, typename TSourceSpec> inline void assign(SimpleType<TTargetValue, TTargetSpec> & target, Proxy<TSourceSpec> & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(412)
+template <typename TTargetValue, typename TTargetSpec, typename TSourceSpec> inline void assign(SimpleType<TTargetValue, TTargetSpec> & target, Proxy<TSourceSpec> const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(420)
+template <typename TValue, typename TSpec> inline void assign(__int64 & c_target, SimpleType<TValue, TSpec> & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(431)
+template <typename TValue, typename TSpec> inline void assign(__int64 & c_target, SimpleType<TValue, TSpec> const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(439)
+template <typename TValue, typename TSpec> inline void assign(__uint64 & c_target, SimpleType<TValue, TSpec> & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(447)
+template <typename TValue, typename TSpec> inline void assign(__uint64 & c_target, SimpleType<TValue, TSpec> const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(455)
+template <typename TValue, typename TSpec> inline void assign(int & c_target, SimpleType<TValue, TSpec> & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(463)
+template <typename TValue, typename TSpec> inline void assign(int & c_target, SimpleType<TValue, TSpec> const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(471)
+template <typename TValue, typename TSpec> inline void assign(unsigned int & c_target, SimpleType<TValue, TSpec> & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(479)
+template <typename TValue, typename TSpec> inline void assign(unsigned int & c_target, SimpleType<TValue, TSpec> const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(487)
+template <typename TValue, typename TSpec> inline void assign(short & c_target, SimpleType<TValue, TSpec> & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(495)
+template <typename TValue, typename TSpec> inline void assign(short & c_target, SimpleType<TValue, TSpec> const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(503)
+template <typename TValue, typename TSpec> inline void assign(unsigned short & c_target, SimpleType<TValue, TSpec> & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(511)
+template <typename TValue, typename TSpec> inline void assign(unsigned short & c_target, SimpleType<TValue, TSpec> const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(519)
+template <typename TValue, typename TSpec> inline void assign(char & c_target, SimpleType<TValue, TSpec> & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(527)
+template <typename TValue, typename TSpec> inline void assign(char & c_target, SimpleType<TValue, TSpec> const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(535)
+template <typename TValue, typename TSpec> inline void assign(signed char & c_target, SimpleType<TValue, TSpec> & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(543)
+template <typename TValue, typename TSpec> inline void assign(signed char & c_target, SimpleType<TValue, TSpec> const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(551)
+template <typename TValue, typename TSpec> inline void assign(unsigned char & c_target, SimpleType<TValue, TSpec> & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(559)
+template <typename TValue, typename TSpec> inline void assign(unsigned char & c_target, SimpleType<TValue, TSpec> const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(567)
+template <typename TTarget, typename TSource> inline void assign(TTarget & target, TSource & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_transport.h"(108)
+template <typename TTarget, typename TSource> inline void assign(TTarget & target, TSource const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_transport.h"(117)
+template <typename TTargetSpec, typename TSource> inline void assign(Proxy<TTargetSpec> & target, TSource & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_transport.h"(130)
+template <typename TTargetSpec, typename TSource> inline void assign(Proxy<TTargetSpec> & target, TSource const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_transport.h"(139)
+template <typename TValue> inline void assign(Holder<TValue, Simple> & target_, Holder<TValue, Simple> const & source_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_simple.h"(318)
+template <typename TValue> inline void assign(Holder<TValue, Tristate> & target_, Holder<TValue, Tristate> const & source_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(1026)
+template <typename TTargetContainer, typename TSource> inline void assign(Iter<TTargetContainer, StdIteratorAdaptor> & target, TSource const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(564)
+template <typename TTargetContainer, typename TIterator, typename TSpec, typename TSource> inline void assign(Iter<TTargetContainer, AdaptorIterator<TIterator, TSpec> > & target, TSource const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(615)
+template <typename TTargetContainer, typename TSource> inline void assign(Iter<TTargetContainer, PositionIterator> & target, TSource const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(539)
 
 //____________________________________________________________________________
 // assignHost
 
-template <typename T, typename THost> inline void assignHost(T & me, THost const & host_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/hosted_type_interface.h"(261)
+template <typename T, typename THost> inline void assignHost(T & me, THost const & host_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/hosted_type_interface.h"(261)
 
 //____________________________________________________________________________
 // assignQualities
 
-template <typename TDest, typename TSource> void assignQualities(TDest &dst, TSource const &src);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/basic_tangle.h"(127)
+template <typename TDest, typename TSource> void assignQualities(TDest &dst, TSource const &src);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/basic_tangle.h"(127)
 
 //____________________________________________________________________________
 // assignQualityValue
 
-inline void assignQualityValue(DnaQ & c, int q);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(224)
-inline void assignQualityValue(DnaQ & c, char q);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(233)
-inline void assignQualityValue(char & q, DnaQ c);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(243)
-inline void assignQualityValue(Dna5Q &c, int q);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(346)
-inline void assignQualityValue(Dna5Q &c, char q);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(356)
-inline void assignQualityValue(char & q, Dna5Q c);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(366)
+inline void assignQualityValue(DnaQ & c, int q);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(224)
+inline void assignQualityValue(DnaQ & c, char q);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(233)
+inline void assignQualityValue(char & q, DnaQ c);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(243)
+inline void assignQualityValue(Dna5Q &c, int q);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(346)
+inline void assignQualityValue(Dna5Q &c, char q);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(356)
+inline void assignQualityValue(char & q, Dna5Q c);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(366)
 
 //____________________________________________________________________________
 // assignValue
 
-template <typename TValue, typename TSource> inline void assignValue(Holder<TValue, Simple> & me, TSource const & value_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_simple.h"(292)
-template <typename TValue, typename TSource> inline void assignValue(Holder<TValue, Tristate> & me, TSource const & value_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(986)
-template <typename TContainer, typename TValue> inline void assignValue(Iter<TContainer, StdIteratorAdaptor> & me, TValue & val);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(299)
-template <typename TContainer, typename TValue> inline void assignValue(Iter<TContainer, StdIteratorAdaptor> & me, TValue const & val);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(307)
-template <typename TContainer, typename TIterator, typename TSpec, typename TValue> inline void assignValue(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & me, TValue const & _value);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(336)
-template <typename TContainer, typename TIterator, typename TSpec, typename TValue> inline void assignValue(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & me, TValue const & _value);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(345)
-template <typename T, typename TValue> inline void assignValue(T & me, TValue const & _value);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(287)
-template <typename T, typename TValue> inline void assignValue(T const & me, TValue const & _value);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(297)
-template <typename TContainer, typename TValue> inline void assignValue(Iter<TContainer, PositionIterator> & me, TValue const & _value);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(265)
-template <typename TContainer, typename TValue> inline void assignValue(Iter<TContainer, PositionIterator> const & me, TValue const & _value);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(274)
-template <typename T_, unsigned _size, typename tmpS, typename TPos> inline void assignValue(Tuple<T_, _size, void> & me, TPos k, tmpS const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(297)
-template <typename T_, unsigned _size, typename tmpS, typename TPos> inline tmpS const assignValue(Tuple<T_, _size, Compressed> & me, TPos k, tmpS const source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(291)
-template <typename T_, typename tmpS, typename Spec_, unsigned _size, typename TPos> inline SimpleType<tmpS, Spec_> const & assignValue(Tuple<T_, _size, Compressed> & me, TPos k, SimpleType<tmpS, Spec_> const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(300)
+template <typename TValue, typename TSource> inline void assignValue(Holder<TValue, Simple> & me, TSource const & value_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_simple.h"(292)
+template <typename TValue, typename TSource> inline void assignValue(Holder<TValue, Tristate> & me, TSource const & value_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(986)
+template <typename TContainer, typename TValue> inline void assignValue(Iter<TContainer, StdIteratorAdaptor> & me, TValue & val);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(299)
+template <typename TContainer, typename TValue> inline void assignValue(Iter<TContainer, StdIteratorAdaptor> & me, TValue const & val);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(307)
+template <typename TContainer, typename TIterator, typename TSpec, typename TValue> inline void assignValue(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & me, TValue const & _value);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(336)
+template <typename TContainer, typename TIterator, typename TSpec, typename TValue> inline void assignValue(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & me, TValue const & _value);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(345)
+template <typename T, typename TValue> inline void assignValue(T & me, TValue const & _value);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(287)
+template <typename T, typename TValue> inline void assignValue(T const & me, TValue const & _value);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(297)
+template <typename TContainer, typename TValue> inline void assignValue(Iter<TContainer, PositionIterator> & me, TValue const & _value);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(265)
+template <typename TContainer, typename TValue> inline void assignValue(Iter<TContainer, PositionIterator> const & me, TValue const & _value);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(274)
+template <typename T_, unsigned _size, typename tmpS, typename TPos> inline void assignValue(Tuple<T_, _size, void> & me, TPos k, tmpS const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(297)
+template <typename T_, unsigned _size, typename tmpS, typename TPos> inline tmpS const assignValue(Tuple<T_, _size, Compressed> & me, TPos k, tmpS const source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_bit_compressed.h"(291)
+template <typename T_, typename tmpS, typename Spec_, unsigned _size, typename TPos> inline SimpleType<tmpS, Spec_> const & assignValue(Tuple<T_, _size, Compressed> & me, TPos k, SimpleType<tmpS, Spec_> const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_bit_compressed.h"(300)
 
 //____________________________________________________________________________
 // assignValueAt
 
-template <typename TObject, typename TPos, typename TSource> inline TSource & assignValueAt(TObject & me, TPos k, TSource &source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(257)
-template <typename TObject, typename TPos, typename TSource> inline TSource const & assignValueAt(TObject & me, TPos k, TSource const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(265)
-template <typename T_, unsigned _size, typename tmpS, typename TPos> inline tmpS const assignValueAt(Tuple<T_, _size, void> & me, TPos k, tmpS const source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(273)
-template <typename T_, unsigned _size, typename tmpS, typename TPos> inline tmpS const assignValueAt(Tuple<T_, _size, Compressed> & me, TPos k, tmpS const source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(263)
-template <typename T_, typename tmpS, typename Spec_, unsigned _size, typename TPos> inline SimpleType<tmpS, Spec_> const & assignValueAt(Tuple<T_, _size, Compressed> & me, TPos k, SimpleType<tmpS, Spec_> const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(275)
+template <typename TObject, typename TPos, typename TSource> inline TSource & assignValueAt(TObject & me, TPos k, TSource &source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(257)
+template <typename TObject, typename TPos, typename TSource> inline TSource const & assignValueAt(TObject & me, TPos k, TSource const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(265)
+template <typename T_, unsigned _size, typename tmpS, typename TPos> inline tmpS const assignValueAt(Tuple<T_, _size, void> & me, TPos k, tmpS const source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(273)
+template <typename T_, unsigned _size, typename tmpS, typename TPos> inline tmpS const assignValueAt(Tuple<T_, _size, Compressed> & me, TPos k, tmpS const source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_bit_compressed.h"(263)
+template <typename T_, typename tmpS, typename Spec_, unsigned _size, typename TPos> inline SimpleType<tmpS, Spec_> const & assignValueAt(Tuple<T_, _size, Compressed> & me, TPos k, SimpleType<tmpS, Spec_> const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_bit_compressed.h"(275)
 
 //____________________________________________________________________________
 // assignValueI1
 
-template <typename T1, typename T2, typename TSpec, typename T> inline void assignValueI1(Pair<T1, T2, TSpec> & pair, T const & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_base.h"(241)
-template <typename T1, typename T2, typename T3, typename TSpec, typename T> inline void assignValueI1(Triple<T1, T2, T3, TSpec> & triple, T const & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_base.h"(238)
+template <typename T1, typename T2, typename TSpec, typename T> inline void assignValueI1(Pair<T1, T2, TSpec> & pair, T const & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_base.h"(241)
+template <typename T1, typename T2, typename T3, typename TSpec, typename T> inline void assignValueI1(Triple<T1, T2, T3, TSpec> & triple, T const & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_base.h"(238)
 
 //____________________________________________________________________________
 // assignValueI2
 
-template <typename T1, typename T2, typename TSpec, typename T> inline void assignValueI2(Pair<T1, T2, TSpec> & pair, T const & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_base.h"(247)
-template <typename T1, typename T2, typename T3, typename TSpec, typename T> inline void assignValueI2(Triple<T1, T2, T3, TSpec> & triple, T const & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_base.h"(244)
+template <typename T1, typename T2, typename TSpec, typename T> inline void assignValueI2(Pair<T1, T2, TSpec> & pair, T const & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_base.h"(247)
+template <typename T1, typename T2, typename T3, typename TSpec, typename T> inline void assignValueI2(Triple<T1, T2, T3, TSpec> & triple, T const & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_base.h"(244)
 
 //____________________________________________________________________________
 // assignValueI3
 
-template <typename T1, typename T2, typename T3, typename TSpec, typename T> inline void assignValueI3(Triple<T1, T2, T3, TSpec> & triple, T const & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_base.h"(250)
+template <typename T1, typename T2, typename T3, typename TSpec, typename T> inline void assignValueI3(Triple<T1, T2, T3, TSpec> & triple, T const & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_base.h"(250)
 
 //____________________________________________________________________________
 // atBegin
 
-template <typename T, typename TContainer> inline bool atBegin(T const & it, TContainer const & cont);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(457)
-template <typename T, typename TContainer> inline bool atBegin(T const & it, TContainer & cont);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(465)
-template <typename T, typename TContainer> inline bool atBegin(T & it, TContainer & cont);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(473)
-template <typename T, typename TContainer> inline bool atBegin(T & it, TContainer const & cont);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(481)
-template <typename T> inline bool atBegin(T const & it);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(489)
+template <typename T, typename TContainer> inline bool atBegin(T const & it, TContainer const & cont);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(457)
+template <typename T, typename TContainer> inline bool atBegin(T const & it, TContainer & cont);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(465)
+template <typename T, typename TContainer> inline bool atBegin(T & it, TContainer & cont);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(473)
+template <typename T, typename TContainer> inline bool atBegin(T & it, TContainer const & cont);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(481)
+template <typename T> inline bool atBegin(T const & it);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(489)
 
 //____________________________________________________________________________
 // atEnd
 
-template <typename TContainer, typename TIterator, typename TSpec> inline bool atEnd(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(591)
-template <typename TContainer, typename TIterator, typename TSpec> inline bool atEnd(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(599)
-template <typename T, typename TContainer> inline bool atEnd(T & it, TContainer const & cont);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(520)
-template <typename T, typename TContainer> inline bool atEnd(T const & it, TContainer const & cont);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(529)
-template <typename T, typename TContainer> inline bool atEnd(T & it, TContainer & cont);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(538)
-template <typename T, typename TContainer> inline bool atEnd(T const & it, TContainer & cont);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(547)
-template <typename T> inline bool atEnd(T & it);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(555)
-template <typename T> inline bool atEnd(T const & it);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(563)
+template <typename TContainer, typename TIterator, typename TSpec> inline bool atEnd(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(591)
+template <typename TContainer, typename TIterator, typename TSpec> inline bool atEnd(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(599)
+template <typename T, typename TContainer> inline bool atEnd(T & it, TContainer const & cont);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(520)
+template <typename T, typename TContainer> inline bool atEnd(T const & it, TContainer const & cont);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(529)
+template <typename T, typename TContainer> inline bool atEnd(T & it, TContainer & cont);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(538)
+template <typename T, typename TContainer> inline bool atEnd(T const & it, TContainer & cont);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(547)
+template <typename T> inline bool atEnd(T & it);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(555)
+template <typename T> inline bool atEnd(T const & it);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(563)
 
 //____________________________________________________________________________
 // atNil
 
-template <typename TIterator> inline bool atNil(TIterator & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(838)
-template <typename TIterator> inline bool atNil(TIterator * me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(846)
+template <typename TIterator> inline bool atNil(TIterator & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(838)
+template <typename TIterator> inline bool atNil(TIterator * me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(846)
 
 //____________________________________________________________________________
 // clear
 
-template <size_t SIZE, size_t MAX_COUNT, typename TParentAllocator> void clear(Allocator<ChunkPool<SIZE, MAX_COUNT, TParentAllocator> > & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_chunkpool.h"(191)
-template <typename TParentAllocator, unsigned int BLOCKING_LIMIT> void clear(Allocator<MultiPool<TParentAllocator, BLOCKING_LIMIT> > & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_multipool.h"(162)
-template <typename TParentAllocator> void clear(Allocator<SimpleAlloc<TParentAllocator> > & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_simple.h"(159)
-template <size_t SIZE, typename TParentAllocator> void clear(Allocator<SinglePool<SIZE, TParentAllocator> > & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_singlepool.h"(182)
-template <typename TValue> inline void clear(Holder<TValue, Simple> & );       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_simple.h"(184)
-template <typename TValue> inline void clear(Holder<TValue, Tristate> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(549)
-template <typename T_, unsigned _size, typename TSpec> inline void clear(Tuple<T_, _size, TSpec> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(384)
-template <typename T_, unsigned _size> inline void clear(Tuple<T_, _size, Compressed> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(375)
+template <size_t SIZE, size_t MAX_COUNT, typename TParentAllocator> void clear(Allocator<ChunkPool<SIZE, MAX_COUNT, TParentAllocator> > & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_chunkpool.h"(191)
+template <typename TParentAllocator, unsigned int BLOCKING_LIMIT> void clear(Allocator<MultiPool<TParentAllocator, BLOCKING_LIMIT> > & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_multipool.h"(162)
+template <typename TParentAllocator> void clear(Allocator<SimpleAlloc<TParentAllocator> > & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_simple.h"(159)
+template <size_t SIZE, typename TParentAllocator> void clear(Allocator<SinglePool<SIZE, TParentAllocator> > & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_singlepool.h"(182)
+template <typename TValue> inline void clear(Holder<TValue, Simple> & );       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_simple.h"(184)
+template <typename TValue> inline void clear(Holder<TValue, Tristate> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(549)
+template <typename T_, unsigned _size, typename TSpec> inline void clear(Tuple<T_, _size, TSpec> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(384)
+template <typename T_, unsigned _size> inline void clear(Tuple<T_, _size, Compressed> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_bit_compressed.h"(375)
 
 //____________________________________________________________________________
 // clearHost
 
-template <typename T> inline void clearHost(T & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/hosted_type_interface.h"(148)
+template <typename T> inline void clearHost(T & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/hosted_type_interface.h"(148)
 
 //____________________________________________________________________________
 // const
 
-template <typename TValue, size_t I> inline void setValue(Holder<TValue *, Tristate> & me, TValue const (& value_)[I]);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(897)
-template <typename TValue, size_t I> inline void setValue(Holder<TValue * const, Tristate> & me, TValue const (& value_)[I]);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(919)
+template <typename TValue, size_t I> inline void setValue(Holder<TValue *, Tristate> & me, TValue const (& value_)[I]);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(897)
+template <typename TValue, size_t I> inline void setValue(Holder<TValue * const, Tristate> & me, TValue const (& value_)[I]);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(919)
 
 //____________________________________________________________________________
 // container
 
-template <typename TContainer, typename TIterator, typename TSpec> inline typename Parameter_<TContainer>::Type container(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(190)
-template <typename TContainer, typename TIterator, typename TSpec> inline typename Parameter_<TContainer>::Type container(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(198)
-template <typename T> inline typename Container<T>::Type & container(T me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(388)
-template <typename TContainer> inline typename Parameter_<TContainer>::Type container(Iter<TContainer, PositionIterator> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(171)
-template <typename TContainer> inline typename Parameter_<TContainer>::Type container(Iter<TContainer, PositionIterator> const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(179)
+template <typename TContainer, typename TIterator, typename TSpec> inline typename Parameter_<TContainer>::Type container(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(190)
+template <typename TContainer, typename TIterator, typename TSpec> inline typename Parameter_<TContainer>::Type container(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(198)
+template <typename T> inline typename Container<T>::Type & container(T me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(388)
+template <typename TContainer> inline typename Parameter_<TContainer>::Type container(Iter<TContainer, PositionIterator> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(171)
+template <typename TContainer> inline typename Parameter_<TContainer>::Type container(Iter<TContainer, PositionIterator> const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(179)
 
 //____________________________________________________________________________
 // convert
 
-template <typename TTarget, typename TSource> inline typename Convert<TTarget, TSource>::Type convert(TSource const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_conversion.h"(140)
+template <typename TTarget, typename TSource> inline typename Convert<TTarget, TSource>::Type convert(TSource const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_conversion.h"(140)
 
 //____________________________________________________________________________
 // convertImpl
 
-template <typename TTarget, typename T, typename TSourceValue, typename TSourceCount, typename TSourceSpec> inline typename Convert<TTarget, ProfileChar<TSourceValue, TSourceCount, TSourceSpec> >::Type convertImpl(Convert<TTarget, T> const &, ProfileChar<TSourceValue, TSourceCount, TSourceSpec> const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_profile.h"(302)
-template <typename TTarget, typename T, typename TSourceValue, typename TSourceSpec> inline typename RemoveConst_<TTarget>::Type convertImpl(Convert<TTarget, T> const, SimpleType<TSourceValue, TSourceSpec> const & source_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(331)
-template <typename TTarget, typename T, typename TSource> inline typename Convert<TTarget, TSource>::Type convertImpl(Convert<TTarget, T> const, TSource const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_conversion.h"(112)
-template <typename TTarget, typename T, typename TSpec> inline typename Convert<TTarget, Proxy<TSpec> >::Type convertImpl(Convert<TTarget, T> const, Proxy<TSpec> & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(117)
-template <typename TTarget, typename T, typename TSpec> inline typename Convert<TTarget, Proxy<TSpec> const>::Type convertImpl(Convert<TTarget, T> const, Proxy<TSpec> const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(125)
+template <typename TTarget, typename T, typename TSourceValue, typename TSourceCount, typename TSourceSpec> inline typename Convert<TTarget, ProfileChar<TSourceValue, TSourceCount, TSourceSpec> >::Type convertImpl(Convert<TTarget, T> const &, ProfileChar<TSourceValue, TSourceCount, TSourceSpec> const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_profile.h"(302)
+template <typename TTarget, typename T, typename TSourceValue, typename TSourceSpec> inline typename RemoveConst_<TTarget>::Type convertImpl(Convert<TTarget, T> const, SimpleType<TSourceValue, TSourceSpec> const & source_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(331)
+template <typename TTarget, typename T, typename TSource> inline typename Convert<TTarget, TSource>::Type convertImpl(Convert<TTarget, T> const, TSource const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_conversion.h"(112)
+template <typename TTarget, typename T, typename TSpec> inline typename Convert<TTarget, Proxy<TSpec> >::Type convertImpl(Convert<TTarget, T> const, Proxy<TSpec> & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(117)
+template <typename TTarget, typename T, typename TSpec> inline typename Convert<TTarget, Proxy<TSpec> const>::Type convertImpl(Convert<TTarget, T> const, Proxy<TSpec> const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(125)
 
 //____________________________________________________________________________
 // convertQuality
 
-inline void convertQuality(char & c, int q);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_qualities.h"(121)
+inline void convertQuality(char & c, int q);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_qualities.h"(121)
 
 //____________________________________________________________________________
 // create
 
-template <typename TValue> inline void create(Holder<TValue, Simple> & );       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_simple.h"(195)
-template <typename TValue> inline void create(Holder<TValue, Simple> & me, TValue const & value_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_simple.h"(204)
-template <typename TValue> inline void create(Holder<TValue, Simple> & me, TValue const & value_, Move const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_simple.h"(214)
-template <typename TValue> inline void create(Holder<TValue, Tristate> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(628)
-template <typename TValue> inline void create(Holder<TValue *, Tristate> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(652)
-template <typename TValue> inline void create(Holder<TValue * const, Tristate> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(672)
-template <typename TValue, typename TValue2> inline void create(Holder<TValue, Tristate> & me, TValue2 & value_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(694)
-template <typename TValue, typename TValue2> inline void create(Holder<TValue const, Tristate> & me, TValue2 & value_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(711)
-template <typename TValue, typename TValue2> inline void create(Holder<TValue *, Tristate> & me, TValue2 & value_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(724)
-template <typename TValue, typename TValue2> inline void create(Holder<TValue * const, Tristate> & me, TValue2 & value_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(736)
-template <typename TValue, typename TValue2> inline void create(Holder<TValue const, Tristate> & me, TValue2 & value_, Move const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(750)
-template <typename TValue, typename TValue2> inline void create(Holder<TValue, Tristate> & me, TValue2 & value_, Move const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(761)
+template <typename TValue> inline void create(Holder<TValue, Simple> & );       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_simple.h"(195)
+template <typename TValue> inline void create(Holder<TValue, Simple> & me, TValue const & value_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_simple.h"(204)
+template <typename TValue> inline void create(Holder<TValue, Simple> & me, TValue const & value_, Move const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_simple.h"(214)
+template <typename TValue> inline void create(Holder<TValue, Tristate> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(628)
+template <typename TValue> inline void create(Holder<TValue *, Tristate> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(652)
+template <typename TValue> inline void create(Holder<TValue * const, Tristate> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(672)
+template <typename TValue, typename TValue2> inline void create(Holder<TValue, Tristate> & me, TValue2 & value_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(694)
+template <typename TValue, typename TValue2> inline void create(Holder<TValue const, Tristate> & me, TValue2 & value_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(711)
+template <typename TValue, typename TValue2> inline void create(Holder<TValue *, Tristate> & me, TValue2 & value_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(724)
+template <typename TValue, typename TValue2> inline void create(Holder<TValue * const, Tristate> & me, TValue2 & value_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(736)
+template <typename TValue, typename TValue2> inline void create(Holder<TValue const, Tristate> & me, TValue2 & value_, Move const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(750)
+template <typename TValue, typename TValue2> inline void create(Holder<TValue, Tristate> & me, TValue2 & value_, Move const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(761)
 
 //____________________________________________________________________________
 // createHost
 
-template <typename T> inline void createHost(T & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/hosted_type_interface.h"(174)
-template <typename T, typename THost> inline void createHost(T & me, THost const & host_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/hosted_type_interface.h"(183)
+template <typename T> inline void createHost(T & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/hosted_type_interface.h"(174)
+template <typename T, typename THost> inline void createHost(T & me, THost const & host_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/hosted_type_interface.h"(183)
 
 //____________________________________________________________________________
 // deallocate
 
-template <size_t SIZE, size_t MAX_COUNT, typename TParentAllocator, typename TValue, typename TSize, typename TUsage> inline void deallocate(Allocator<ChunkPool<SIZE, MAX_COUNT, TParentAllocator> > & me, TValue * data, TSize count, Tag<TUsage> const tag_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_chunkpool.h"(260)
-template <typename T, typename TValue, typename TSize> inline void deallocate(T const & me, TValue * data, TSize const count);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_interface.h"(267)
-template <typename T, typename TValue, typename TSize> inline void deallocate(T & me, TValue * data, TSize const count);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_interface.h"(276)
-template <typename T, typename TValue, typename TSize, typename TUsage> inline void deallocate( T const & , TValue * data, TSize count, TSize, Tag<TUsage> const);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_interface.h"(291)
-template <typename T, typename TValue, typename TSize, typename TUsage> inline void deallocate( T & , TValue * data, TSize count, TSize, Tag<TUsage> const);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_interface.h"(316)
-template <typename TParentAllocator, unsigned int BLOCKING_LIMIT, typename TValue, typename TSize, typename TUsage> inline void deallocate(Allocator<MultiPool<TParentAllocator, BLOCKING_LIMIT> > & me, TValue * data, TSize count, Tag<TUsage> const tag_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_multipool.h"(249)
-template <typename TParentAllocator, typename TValue, typename TSize, typename TUsage> inline void deallocate(Allocator<SimpleAlloc<TParentAllocator> > & me, TValue * data, TSize, Tag<TUsage> const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_simple.h"(218)
-template <size_t SIZE, typename TParentAllocator, typename TValue, typename TSize, typename TUsage> inline void deallocate(Allocator<SinglePool<SIZE, TParentAllocator> > & me, TValue * data, TSize count, Tag<TUsage> const tag_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_singlepool.h"(242)
+template <size_t SIZE, size_t MAX_COUNT, typename TParentAllocator, typename TValue, typename TSize, typename TUsage> inline void deallocate(Allocator<ChunkPool<SIZE, MAX_COUNT, TParentAllocator> > & me, TValue * data, TSize count, Tag<TUsage> const tag_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_chunkpool.h"(260)
+template <typename T, typename TValue, typename TSize> inline void deallocate(T const & me, TValue * data, TSize const count);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_interface.h"(267)
+template <typename T, typename TValue, typename TSize> inline void deallocate(T & me, TValue * data, TSize const count);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_interface.h"(276)
+template <typename T, typename TValue, typename TSize, typename TUsage> inline void deallocate( T const & , TValue * data, TSize count, TSize, Tag<TUsage> const);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_interface.h"(291)
+template <typename T, typename TValue, typename TSize, typename TUsage> inline void deallocate( T & , TValue * data, TSize count, TSize, Tag<TUsage> const);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_interface.h"(316)
+template <typename TParentAllocator, unsigned int BLOCKING_LIMIT, typename TValue, typename TSize, typename TUsage> inline void deallocate(Allocator<MultiPool<TParentAllocator, BLOCKING_LIMIT> > & me, TValue * data, TSize count, Tag<TUsage> const tag_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_multipool.h"(249)
+template <typename TParentAllocator, typename TValue, typename TSize, typename TUsage> inline void deallocate(Allocator<SimpleAlloc<TParentAllocator> > & me, TValue * data, TSize, Tag<TUsage> const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_simple.h"(218)
+template <size_t SIZE, typename TParentAllocator, typename TValue, typename TSize, typename TUsage> inline void deallocate(Allocator<SinglePool<SIZE, TParentAllocator> > & me, TValue * data, TSize count, Tag<TUsage> const tag_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_singlepool.h"(242)
 
 //____________________________________________________________________________
 // dependent
 
-template <typename TValue> inline bool dependent(Holder<TValue, Simple> const & );       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_simple.h"(172)
-template <typename TValue> inline bool dependent(Holder<TValue, Tristate> const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(503)
+template <typename TValue> inline bool dependent(Holder<TValue, Simple> const & );       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_simple.h"(172)
+template <typename TValue> inline bool dependent(Holder<TValue, Tristate> const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(503)
 
 //____________________________________________________________________________
 // dependentHost
 
-template <typename T> inline bool dependentHost(T const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/hosted_type_interface.h"(125)
+template <typename T> inline bool dependentHost(T const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/hosted_type_interface.h"(125)
 
 //____________________________________________________________________________
 // detach
 
-template <typename TValue> inline void detach(Holder<TValue, Simple> & );       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_simple.h"(227)
-template <typename TValue> inline void detach(Holder<TValue, Tristate> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(788)
+template <typename TValue> inline void detach(Holder<TValue, Simple> & );       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_simple.h"(227)
+template <typename TValue> inline void detach(Holder<TValue, Tristate> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(788)
 
 //____________________________________________________________________________
 // difference
 
-template <typename TIterator> inline typename Difference<TIterator>::Type difference(TIterator const & begin, TIterator const & end);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(781)
+template <typename TIterator> inline typename Difference<TIterator>::Type difference(TIterator const & begin, TIterator const & end);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(781)
 
 //____________________________________________________________________________
 // empty
 
-template <typename TSourceValue, typename TSourceCount, typename TSourceSpec> inline bool empty(ProfileChar<TSourceValue, TSourceCount, TSourceSpec> const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_profile.h"(248)
-template <typename TValue> inline bool empty(Holder<TValue, Simple> const & );       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_simple.h"(160)
-template <typename TValue> inline bool empty(Holder<TValue, Tristate> const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(489)
+template <typename TSourceValue, typename TSourceCount, typename TSourceSpec> inline bool empty(ProfileChar<TSourceValue, TSourceCount, TSourceSpec> const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_profile.h"(248)
+template <typename TValue> inline bool empty(Holder<TValue, Simple> const & );       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_simple.h"(160)
+template <typename TValue> inline bool empty(Holder<TValue, Tristate> const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(489)
 
 //____________________________________________________________________________
 // emptyHost
 
-template <typename T> inline bool emptyHost(T const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/hosted_type_interface.h"(101)
+template <typename T> inline bool emptyHost(T const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/hosted_type_interface.h"(101)
 
 //____________________________________________________________________________
 // gapValue
 
-template <typename T> inline T gapValue();       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_bio.h"(82)
+template <typename T> inline T gapValue();       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_bio.h"(82)
 
 //____________________________________________________________________________
 // gapValueImpl
 
-inline char const & gapValueImpl(char *);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_adapt_builtins.h"(132)
-inline char const & gapValueImpl(char const *);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_adapt_builtins.h"(139)
-template <typename T> inline T gapValueImpl(T *);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_bio.h"(70)
+inline char const & gapValueImpl(char *);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_adapt_builtins.h"(132)
+inline char const & gapValueImpl(char const *);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_adapt_builtins.h"(139)
+template <typename T> inline T gapValueImpl(T *);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_bio.h"(70)
 
 //____________________________________________________________________________
 // getQualityValue
 
-inline int getQualityValue(DnaQ const & c);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(216)
-inline int getQualityValue(Dna5Q const &c);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(317)
+inline int getQualityValue(DnaQ const & c);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(216)
+inline int getQualityValue(Dna5Q const &c);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(317)
 
 //____________________________________________________________________________
 // getValue
 
-template <typename T> inline T & getValue(T * me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(210)
-template <typename TValue, typename TSpec> inline typename GetValue<Holder<TValue, TSpec> >::Type getValue(Holder<TValue, TSpec> const & holder);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_base.h"(187)
-template <typename TValue, typename TSpec> inline typename GetValue<Holder<TValue, TSpec> >::Type getValue(Holder<TValue, TSpec> & holder);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_base.h"(194)
-template <typename TValue> inline typename GetValue<Holder<TValue, Simple> >::Type getValue(Holder<TValue, Simple> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_simple.h"(271)
-template <typename TValue> inline typename GetValue<Holder<TValue, Simple> const>::Type getValue(Holder<TValue, Simple> const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_simple.h"(279)
-template <typename T> inline typename GetValue<T>::Type getValue(T & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(243)
-template <typename T> inline typename GetValue<T const>::Type getValue(T const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(251)
-template <typename TIterator> typename GetValue<Proxy<IteratorProxy<TIterator> > >::Type getValue(Proxy<IteratorProxy<TIterator> > & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_iterator.h"(263)
-template <typename TIterator> typename GetValue<Proxy<IteratorProxy<TIterator> > const>::Type getValue(Proxy<IteratorProxy<TIterator> > const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_iterator.h"(270)
-template <typename T_, unsigned _size, typename TPos> inline T_ getValue(Tuple<T_, _size, void> & me, TPos k);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(285)
-template <typename T_, unsigned _size, typename TPos> T_ getValue(Tuple<T_, _size, Compressed> const & me, TPos k);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(236)
-template <typename T_, unsigned _size, typename TPos> T_ getValue(Tuple<T_, _size, Compressed> & me, TPos k);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(247)
+template <typename T> inline T & getValue(T * me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(210)
+template <typename TValue, typename TSpec> inline typename GetValue<Holder<TValue, TSpec> >::Type getValue(Holder<TValue, TSpec> const & holder);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_base.h"(187)
+template <typename TValue, typename TSpec> inline typename GetValue<Holder<TValue, TSpec> >::Type getValue(Holder<TValue, TSpec> & holder);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_base.h"(194)
+template <typename TValue> inline typename GetValue<Holder<TValue, Simple> >::Type getValue(Holder<TValue, Simple> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_simple.h"(271)
+template <typename TValue> inline typename GetValue<Holder<TValue, Simple> const>::Type getValue(Holder<TValue, Simple> const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_simple.h"(279)
+template <typename T> inline typename GetValue<T>::Type getValue(T & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(243)
+template <typename T> inline typename GetValue<T const>::Type getValue(T const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(251)
+template <typename TIterator> typename GetValue<Proxy<IteratorProxy<TIterator> > >::Type getValue(Proxy<IteratorProxy<TIterator> > & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_iterator.h"(263)
+template <typename TIterator> typename GetValue<Proxy<IteratorProxy<TIterator> > const>::Type getValue(Proxy<IteratorProxy<TIterator> > const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_iterator.h"(270)
+template <typename T_, unsigned _size, typename TPos> inline T_ getValue(Tuple<T_, _size, void> & me, TPos k);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(285)
+template <typename T_, unsigned _size, typename TPos> T_ getValue(Tuple<T_, _size, Compressed> const & me, TPos k);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_bit_compressed.h"(236)
+template <typename T_, unsigned _size, typename TPos> T_ getValue(Tuple<T_, _size, Compressed> & me, TPos k);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_bit_compressed.h"(247)
 
 //____________________________________________________________________________
 // getValueI1
 
-template <typename T1, typename T2, typename TSpec> inline T1 getValueI1(Pair<T1, T2, TSpec> const & pair);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_base.h"(223)
-template <typename T1, typename T2, typename T3, typename TSpec> inline T1 getValueI1(Triple<T1, T2, T3, TSpec> const & triple);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_base.h"(214)
+template <typename T1, typename T2, typename TSpec> inline T1 getValueI1(Pair<T1, T2, TSpec> const & pair);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_base.h"(223)
+template <typename T1, typename T2, typename T3, typename TSpec> inline T1 getValueI1(Triple<T1, T2, T3, TSpec> const & triple);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_base.h"(214)
 
 //____________________________________________________________________________
 // getValueI2
 
-template <typename T1, typename T2, typename TSpec> inline T2 getValueI2(Pair<T1, T2, TSpec> const & pair);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_base.h"(229)
-template <typename T1, typename T2, typename T3, typename TSpec> inline T2 getValueI2(Triple<T1, T2, T3, TSpec> const & triple);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_base.h"(221)
+template <typename T1, typename T2, typename TSpec> inline T2 getValueI2(Pair<T1, T2, TSpec> const & pair);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_base.h"(229)
+template <typename T1, typename T2, typename T3, typename TSpec> inline T2 getValueI2(Triple<T1, T2, T3, TSpec> const & triple);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_base.h"(221)
 
 //____________________________________________________________________________
 // getValueI3
 
-template <typename T1, typename T2, typename T3, typename TSpec> inline T3 getValueI3(Triple<T1, T2, T3, TSpec> const & triple);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_base.h"(228)
+template <typename T1, typename T2, typename T3, typename TSpec> inline T3 getValueI3(Triple<T1, T2, T3, TSpec> const & triple);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_base.h"(228)
 
 //____________________________________________________________________________
 // goBegin
 
-template <typename TIterator, typename TContainer> inline void goBegin(TIterator & it, TContainer & container);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(595)
-template <typename TIterator> inline void goBegin(TIterator & it);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(614)
+template <typename TIterator, typename TContainer> inline void goBegin(TIterator & it, TContainer & container);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(595)
+template <typename TIterator> inline void goBegin(TIterator & it);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(614)
 
 //____________________________________________________________________________
 // goEnd
 
-template <typename TIterator, typename TContainer> inline void goEnd(TIterator & it, TContainer & container);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(647)
-template <typename TIterator, typename TContainer> inline void goEnd(TIterator & it, TContainer const & container);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(656)
-template <typename TIterator> inline void goEnd(TIterator & it);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(664)
+template <typename TIterator, typename TContainer> inline void goEnd(TIterator & it, TContainer & container);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(647)
+template <typename TIterator, typename TContainer> inline void goEnd(TIterator & it, TContainer const & container);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(656)
+template <typename TIterator> inline void goEnd(TIterator & it);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(664)
 
 //____________________________________________________________________________
 // goFurther
 
-template <typename TIterator, typename TDiff> inline void goFurther(TIterator & it, TDiff steps);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(721)
+template <typename TIterator, typename TDiff> inline void goFurther(TIterator & it, TDiff steps);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(721)
 
 //____________________________________________________________________________
 // goNext
 
-template <typename TContainer> inline void goNext(Iter<TContainer, StdIteratorAdaptor> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(414)
-template <typename TContainer, typename TIterator, typename TSpec> inline void goNext(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(440)
-template <typename TIterator> inline void goNext(TIterator & it);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(691)
-template <typename TContainer> inline void goNext(Iter<TContainer, PositionIterator> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(389)
+template <typename TContainer> inline void goNext(Iter<TContainer, StdIteratorAdaptor> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(414)
+template <typename TContainer, typename TIterator, typename TSpec> inline void goNext(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(440)
+template <typename TIterator> inline void goNext(TIterator & it);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(691)
+template <typename TContainer> inline void goNext(Iter<TContainer, PositionIterator> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(389)
 
 //____________________________________________________________________________
 // goNil
 
-template <typename TIterator> inline void goNil(TIterator & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(805)
-template <typename TIterator> inline void goNil(TIterator * & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(813)
+template <typename TIterator> inline void goNil(TIterator & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(805)
+template <typename TIterator> inline void goNil(TIterator * & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(813)
 
 //____________________________________________________________________________
 // goPrevious
 
-template <typename TContainer> inline void goPrevious(Iter<TContainer, StdIteratorAdaptor> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(426)
-template <typename TContainer, typename TIterator, typename TSpec> inline void goPrevious(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(452)
-template <typename TIterator> inline void goPrevious(TIterator & it);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(747)
-template <typename TContainer> inline void goPrevious(Iter<TContainer, PositionIterator> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(401)
+template <typename TContainer> inline void goPrevious(Iter<TContainer, StdIteratorAdaptor> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(426)
+template <typename TContainer, typename TIterator, typename TSpec> inline void goPrevious(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(452)
+template <typename TIterator> inline void goPrevious(TIterator & it);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(747)
+template <typename TContainer> inline void goPrevious(Iter<TContainer, PositionIterator> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(401)
 
 //____________________________________________________________________________
 // host
 
-template <typename THost, typename TValue> THost & host(ToStdAllocator<THost, TValue> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_to_std.h"(197)
-template <typename T> inline typename Host<T>::Type & host(T & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/hosted_type_interface.h"(199)
-template <typename T> inline typename Host<T const>::Type & host(T const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/hosted_type_interface.h"(208)
+template <typename THost, typename TValue> THost & host(ToStdAllocator<THost, TValue> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_to_std.h"(197)
+template <typename T> inline typename Host<T>::Type & host(T & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/hosted_type_interface.h"(199)
+template <typename T> inline typename Host<T const>::Type & host(T const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/hosted_type_interface.h"(208)
 
 //____________________________________________________________________________
 // hostIterator
 
-template <typename TContainer> inline typename StdContainerIterator<TContainer>::Type & hostIterator(Iter<TContainer, StdIteratorAdaptor> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(262)
-template <typename TContainer> inline typename StdContainerIterator<TContainer>::Type const & hostIterator(Iter<TContainer, StdIteratorAdaptor> const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(269)
-template <typename TContainer, typename TIterator, typename TSpec> inline TIterator & hostIterator(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(251)
-template <typename TContainer, typename TIterator, typename TSpec> inline TIterator const & hostIterator(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(259)
+template <typename TContainer> inline typename StdContainerIterator<TContainer>::Type & hostIterator(Iter<TContainer, StdIteratorAdaptor> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(262)
+template <typename TContainer> inline typename StdContainerIterator<TContainer>::Type const & hostIterator(Iter<TContainer, StdIteratorAdaptor> const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(269)
+template <typename TContainer, typename TIterator, typename TSpec> inline TIterator & hostIterator(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(251)
+template <typename TContainer, typename TIterator, typename TSpec> inline TIterator const & hostIterator(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(259)
 
 //____________________________________________________________________________
 // infimumValueImpl
 
-template <typename T> inline T const & infimumValueImpl(T *);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_adapt_builtins.h"(213)
-inline float const & infimumValueImpl(float *);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_adapt_builtins.h"(220)
-inline double const & infimumValueImpl(double *);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_adapt_builtins.h"(231)
-inline long double const & infimumValueImpl(long double *);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_adapt_builtins.h"(242)
-template <typename TValue, typename TSpec> inline SimpleType<TValue, TSpec> const & infimumValueImpl(SimpleType<TValue, TSpec> *);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(258)
+template <typename T> inline T const & infimumValueImpl(T *);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_adapt_builtins.h"(213)
+inline float const & infimumValueImpl(float *);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_adapt_builtins.h"(220)
+inline double const & infimumValueImpl(double *);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_adapt_builtins.h"(231)
+inline long double const & infimumValueImpl(long double *);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_adapt_builtins.h"(242)
+template <typename TValue, typename TSpec> inline SimpleType<TValue, TSpec> const & infimumValueImpl(SimpleType<TValue, TSpec> *);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(258)
 
 //____________________________________________________________________________
 // iter
 
-template <typename TIterator> inline TIterator & iter(Proxy<IteratorProxy<TIterator> > & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_iterator.h"(243)
-template <typename TIterator> inline TIterator const & iter(Proxy<IteratorProxy<TIterator> > const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_iterator.h"(250)
+template <typename TIterator> inline TIterator & iter(Proxy<IteratorProxy<TIterator> > & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_iterator.h"(243)
+template <typename TIterator> inline TIterator const & iter(Proxy<IteratorProxy<TIterator> > const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_iterator.h"(250)
 
 //____________________________________________________________________________
 // length
 
-template <typename T_, unsigned _size, typename TSpec> inline unsigned length(Tuple<T_, _size, TSpec> const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(374)
+template <typename T_, unsigned _size, typename TSpec> inline unsigned length(Tuple<T_, _size, TSpec> const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(374)
 
 //____________________________________________________________________________
 // lexLess
 
-template <typename T_, typename TSpec> inline bool lexLess(SimpleType<T_, TSpec> const &_Left, SimpleType<T_, TSpec> const &Right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(966)
-template <typename T_> inline bool lexLess(const T_& _Left, const T_& Right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_comparison.h"(114)
+template <typename T_, typename TSpec> inline bool lexLess(SimpleType<T_, TSpec> const &_Left, SimpleType<T_, TSpec> const &Right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(966)
+template <typename T_> inline bool lexLess(const T_& _Left, const T_& Right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_comparison.h"(114)
 
 //____________________________________________________________________________
 // log
 
-template <typename TValue, typename TSpec> inline TValue log(LogProb<TValue, TSpec> const & value);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_log_space_value.h"(83)
-template <typename TValue> inline double log(TValue const & value);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_log_space_value.h"(90)
+template <typename TValue, typename TSpec> inline TValue log(LogProb<TValue, TSpec> const & value);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_log_space_value.h"(83)
+template <typename TValue> inline double log(TValue const & value);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_log_space_value.h"(90)
 
 //____________________________________________________________________________
 // log2
 
-template <typename T> inline unsigned int log2(T val);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_functions.h"(125)
+template <typename T> inline unsigned int log2(T val);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_functions.h"(125)
 
 //____________________________________________________________________________
 // maxValue
 
-template <typename T> inline T const & maxValue();       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_math.h"(195)
-template <typename T> inline T const & maxValue(T );       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_math.h"(204)
+template <typename T> inline T const & maxValue();       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_math.h"(195)
+template <typename T> inline T const & maxValue(T );       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_math.h"(204)
 
 //____________________________________________________________________________
 // minValue
 
-template <typename T> inline T const & minValue();       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_math.h"(225)
-template <typename T> inline T const & minValue(T );       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_math.h"(234)
+template <typename T> inline T const & minValue();       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_math.h"(225)
+template <typename T> inline T const & minValue(T );       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_math.h"(234)
 
 //____________________________________________________________________________
 // move
 
-template <typename TTarget, typename TSource> inline void move(TTarget & target, TSource & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_transport.h"(221)
-template <typename TTarget, typename TSource> inline void move(TTarget const & target, TSource & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_transport.h"(230)
-template <typename TTarget, typename TSource> inline void move(TTarget & target, TSource const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_transport.h"(239)
-template <typename TTarget, typename TSource> inline void move(TTarget const & target, TSource const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_transport.h"(248)
-template <typename T1_, typename T2_, typename TSpec> inline void move(Pair<T1_, T2_, TSpec> & p1, Pair<T1_, T2_, TSpec> & p2);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_base.h"(197)
-template <typename T1_, typename T2_, unsigned BITSIZE1, unsigned BITSIZE2> inline void move(Pair<T1_, T2_, BitCompressed<BITSIZE1, BITSIZE2> > & p1, Pair<T1_, T2_, BitCompressed<BITSIZE1, BITSIZE2> > & p2);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_bit_compressed.h"(130)
-template <typename T1_, typename T2_> inline void move(Pair<T1_, T2_, Compressed> & p1, Pair<T1_, T2_, Compressed> & p2);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_packed.h"(142)
-template <typename T1, typename T2, typename T3, typename T> inline void move(Triple<T1, T2, T3, Compressed> & t1, Triple<T1, T2, T3, Compressed> & t2);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_packed.h"(140)
-template <typename T_, unsigned _size> inline void move(Tuple<T_, _size, void> & t1, Tuple<T_, _size, void> & t2);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(241)
+template <typename TTarget, typename TSource> inline void move(TTarget & target, TSource & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_transport.h"(221)
+template <typename TTarget, typename TSource> inline void move(TTarget const & target, TSource & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_transport.h"(230)
+template <typename TTarget, typename TSource> inline void move(TTarget & target, TSource const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_transport.h"(239)
+template <typename TTarget, typename TSource> inline void move(TTarget const & target, TSource const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_transport.h"(248)
+template <typename T1_, typename T2_, typename TSpec> inline void move(Pair<T1_, T2_, TSpec> & p1, Pair<T1_, T2_, TSpec> & p2);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_base.h"(197)
+template <typename T1_, typename T2_, unsigned BITSIZE1, unsigned BITSIZE2> inline void move(Pair<T1_, T2_, BitCompressed<BITSIZE1, BITSIZE2> > & p1, Pair<T1_, T2_, BitCompressed<BITSIZE1, BITSIZE2> > & p2);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_bit_compressed.h"(130)
+template <typename T1_, typename T2_> inline void move(Pair<T1_, T2_, Compressed> & p1, Pair<T1_, T2_, Compressed> & p2);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_packed.h"(142)
+template <typename T1, typename T2, typename T3, typename T> inline void move(Triple<T1, T2, T3, Compressed> & t1, Triple<T1, T2, T3, Compressed> & t2);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_packed.h"(140)
+template <typename T_, unsigned _size> inline void move(Tuple<T_, _size, void> & t1, Tuple<T_, _size, void> & t2);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(241)
 
 //____________________________________________________________________________
 // moveHost
 
-template <typename T, typename THost> inline void moveHost(T & me, THost & host_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/hosted_type_interface.h"(287)
+template <typename T, typename THost> inline void moveHost(T & me, THost & host_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/hosted_type_interface.h"(287)
 
 //____________________________________________________________________________
 // moveValue
 
-template <typename TValue, typename TSource> inline void moveValue(Holder<TValue, Simple> & me, TSource const & value_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_simple.h"(305)
-template <typename TValue, typename TSource> inline void moveValue(Holder<TValue, Tristate> & me, TSource const & value_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(1006)
-template <typename TContainer, typename TValue> inline void moveValue(Iter<TContainer, StdIteratorAdaptor> & me, TValue & val);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(319)
-template <typename TContainer, typename TValue> inline void moveValue(Iter<TContainer, StdIteratorAdaptor> & me, TValue const & val);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(326)
-template <typename TContainer, typename TIterator, typename TSpec, typename TValue> inline void moveValue(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & me, TValue const & _value);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(358)
-template <typename TContainer, typename TIterator, typename TSpec, typename TValue> inline void moveValue(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & me, TValue const & _value);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(366)
-template <typename T, typename TValue> inline void moveValue(T & me, TValue const & _value);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(327)
-template <typename T, typename TValue> inline void moveValue(T const & me, TValue const & _value);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(337)
-template <typename TContainer, typename TValue> inline void moveValue(Iter<TContainer, PositionIterator> & me, TValue const & _value);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(294)
-template <typename TContainer, typename TValue> inline void moveValue(Iter<TContainer, PositionIterator> const & me, TValue const & _value);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(303)
-template <typename T_, unsigned _size, typename tmpS, typename TPos> inline void moveValue(Tuple<T_, _size, void> & me, TPos k, tmpS & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(321)
-template <typename T_, unsigned _size, typename tmpS, typename TPos> inline tmpS const moveValue(Tuple<T_, _size, Compressed> & me, TPos k, tmpS const source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(335)
-template <typename T_, typename tmpS, typename Spec_, unsigned _size, typename TPos> inline SimpleType<tmpS, Spec_> const & moveValue(Tuple<T_, _size, Compressed> & me, TPos k, SimpleType<tmpS, Spec_> const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(344)
+template <typename TValue, typename TSource> inline void moveValue(Holder<TValue, Simple> & me, TSource const & value_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_simple.h"(305)
+template <typename TValue, typename TSource> inline void moveValue(Holder<TValue, Tristate> & me, TSource const & value_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(1006)
+template <typename TContainer, typename TValue> inline void moveValue(Iter<TContainer, StdIteratorAdaptor> & me, TValue & val);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(319)
+template <typename TContainer, typename TValue> inline void moveValue(Iter<TContainer, StdIteratorAdaptor> & me, TValue const & val);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(326)
+template <typename TContainer, typename TIterator, typename TSpec, typename TValue> inline void moveValue(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & me, TValue const & _value);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(358)
+template <typename TContainer, typename TIterator, typename TSpec, typename TValue> inline void moveValue(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & me, TValue const & _value);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(366)
+template <typename T, typename TValue> inline void moveValue(T & me, TValue const & _value);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(327)
+template <typename T, typename TValue> inline void moveValue(T const & me, TValue const & _value);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(337)
+template <typename TContainer, typename TValue> inline void moveValue(Iter<TContainer, PositionIterator> & me, TValue const & _value);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(294)
+template <typename TContainer, typename TValue> inline void moveValue(Iter<TContainer, PositionIterator> const & me, TValue const & _value);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(303)
+template <typename T_, unsigned _size, typename tmpS, typename TPos> inline void moveValue(Tuple<T_, _size, void> & me, TPos k, tmpS & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(321)
+template <typename T_, unsigned _size, typename tmpS, typename TPos> inline tmpS const moveValue(Tuple<T_, _size, Compressed> & me, TPos k, tmpS const source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_bit_compressed.h"(335)
+template <typename T_, typename tmpS, typename Spec_, unsigned _size, typename TPos> inline SimpleType<tmpS, Spec_> const & moveValue(Tuple<T_, _size, Compressed> & me, TPos k, SimpleType<tmpS, Spec_> const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_bit_compressed.h"(344)
 
 //____________________________________________________________________________
 // moveValueI1
 
-template <typename T1, typename T2, typename TSpec, typename T> inline void moveValueI1(Pair<T1, T2, TSpec> & pair, T & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_base.h"(277)
-template <typename T1, typename T2, typename T, unsigned BITSIZE1, unsigned BITSIZE2> inline void moveValueI1(Pair<T1, T2, BitCompressed<BITSIZE1, BITSIZE2> > & pair, T & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_bit_compressed.h"(160)
-template <typename T1, typename T2, typename T> inline void moveValueI1(Pair<T1, T2, Compressed> & pair, T & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_packed.h"(172)
-template <typename T1, typename T2, typename T3, typename TSpec, typename T> inline void moveValueI1(Triple<T1, T2, T3, TSpec> & triple, T const & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_base.h"(282)
-template <typename T1, typename T2, typename T3, typename T> inline void moveValueI1(Triple<T1, T2, T3, Compressed> & triple, T const & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_packed.h"(176)
+template <typename T1, typename T2, typename TSpec, typename T> inline void moveValueI1(Pair<T1, T2, TSpec> & pair, T & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_base.h"(277)
+template <typename T1, typename T2, typename T, unsigned BITSIZE1, unsigned BITSIZE2> inline void moveValueI1(Pair<T1, T2, BitCompressed<BITSIZE1, BITSIZE2> > & pair, T & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_bit_compressed.h"(160)
+template <typename T1, typename T2, typename T> inline void moveValueI1(Pair<T1, T2, Compressed> & pair, T & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_packed.h"(172)
+template <typename T1, typename T2, typename T3, typename TSpec, typename T> inline void moveValueI1(Triple<T1, T2, T3, TSpec> & triple, T const & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_base.h"(282)
+template <typename T1, typename T2, typename T3, typename T> inline void moveValueI1(Triple<T1, T2, T3, Compressed> & triple, T const & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_packed.h"(176)
 
 //____________________________________________________________________________
 // moveValueI2
 
-template <typename T1, typename T2, typename TSpec, typename T> inline void moveValueI2(Pair<T1, T2, TSpec> & pair, T & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_base.h"(283)
-template <typename T1, typename T2, typename T, unsigned BITSIZE1, unsigned BITSIZE2> inline void moveValueI2(Pair<T1, T2, BitCompressed<BITSIZE1, BITSIZE2> > & pair, T & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_bit_compressed.h"(166)
-template <typename T1, typename T2, typename T> inline void moveValueI2(Pair<T1, T2, Compressed> & pair, T & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_packed.h"(178)
-template <typename T1, typename T2, typename T3, typename TSpec, typename T> inline void moveValueI2(Triple<T1, T2, T3, TSpec> & triple, T const & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_base.h"(288)
-template <typename T1, typename T2, typename T3, typename T> inline void moveValueI2(Triple<T1, T2, T3, Compressed> & triple, T const & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_packed.h"(182)
+template <typename T1, typename T2, typename TSpec, typename T> inline void moveValueI2(Pair<T1, T2, TSpec> & pair, T & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_base.h"(283)
+template <typename T1, typename T2, typename T, unsigned BITSIZE1, unsigned BITSIZE2> inline void moveValueI2(Pair<T1, T2, BitCompressed<BITSIZE1, BITSIZE2> > & pair, T & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_bit_compressed.h"(166)
+template <typename T1, typename T2, typename T> inline void moveValueI2(Pair<T1, T2, Compressed> & pair, T & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_packed.h"(178)
+template <typename T1, typename T2, typename T3, typename TSpec, typename T> inline void moveValueI2(Triple<T1, T2, T3, TSpec> & triple, T const & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_base.h"(288)
+template <typename T1, typename T2, typename T3, typename T> inline void moveValueI2(Triple<T1, T2, T3, Compressed> & triple, T const & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_packed.h"(182)
 
 //____________________________________________________________________________
 // moveValueI3
 
-template <typename T1, typename T2, typename T3, typename TSpec, typename T> inline void moveValueI3(Triple<T1, T2, T3, TSpec> & triple, T const & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_base.h"(294)
-template <typename T1, typename T2, typename T3, typename T> inline void moveValueI3(Triple<T1, T2, T3, Compressed> & triple, T const & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_packed.h"(188)
+template <typename T1, typename T2, typename T3, typename TSpec, typename T> inline void moveValueI3(Triple<T1, T2, T3, TSpec> & triple, T const & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_base.h"(294)
+template <typename T1, typename T2, typename T3, typename T> inline void moveValueI3(Triple<T1, T2, T3, Compressed> & triple, T const & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_packed.h"(188)
 
 //____________________________________________________________________________
 // nukeCopies
 
-template <typename TValue> inline void nukeCopies(TValue * &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/volatile_ptr.h"(208)
-template <typename TValue> inline void nukeCopies(VolatilePtr<TValue> & ptr);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/volatile_ptr.h"(213)
+template <typename TValue> inline void nukeCopies(TValue * &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/volatile_ptr.h"(208)
+template <typename TValue> inline void nukeCopies(VolatilePtr<TValue> & ptr);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/volatile_ptr.h"(213)
 
 //____________________________________________________________________________
 // operator!=
 
-template <typename TValue, typename TCount, typename TSpec> inline bool operator!=(ProfileChar<TValue, TCount, TSpec> const & lhs, ProfileChar<TValue, TCount, TSpec> const & rhs);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_profile.h"(227)
-template <typename TValue, typename TSpec, typename TRight> inline bool operator!=(SimpleType<TValue, TSpec> const & left_, TRight const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(644)
-template <typename TLeft, typename TValue, typename TSpec> inline bool operator!=(TLeft const & left_, SimpleType<TValue, TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(654)
-template <typename TLeftValue, typename TLeftSpec, typename TRightValue, typename TRightSpec> inline bool operator!=(SimpleType<TLeftValue, TLeftSpec> const & left_, SimpleType<TRightValue, TRightSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(664)
-template <typename TValue, typename TSpec> inline bool operator!=(SimpleType<TValue, TSpec> const & left_, SimpleType<TValue, TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(675)
-template <typename TSpec, typename TValue, typename TSpec2> inline bool operator!=(Proxy<TSpec> const & left_, SimpleType<TValue, TSpec2> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(683)
-template <typename TSpec, typename TValue, typename TSpec2> inline bool operator!=(SimpleType<TValue, TSpec2> const & left_, Proxy<TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(693)
-template <typename TContainer> inline bool operator!=(Iter<TContainer, StdIteratorAdaptor> const & left, Iter<TContainer, StdIteratorAdaptor> const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(351)
-template <typename TContainer, typename TIterator, typename TSpec> inline bool operator!=(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & left, Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(410)
-template <typename TContainer, typename TIterator, typename TSpec> inline bool operator!=(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & left, typename IterComplementConst<TIterator>::Type const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(419)
-template <typename TContainer, typename TIterator, typename TSpec> inline bool operator!=(typename IterComplementConst<TIterator>::Type const & left, Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(428)
-template <typename TContainer> inline bool operator!=(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(329)
-template <typename TValue, typename TSpec, typename TRhs> inline bool operator!=(LogProb<TValue, TSpec> const & lhs, TRhs const & rhs);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_log_space_value.h"(399)
-template <typename L1, typename L2, typename LCompression, typename R1, typename R2, typename RCompression> inline bool operator!=(Pair<L1, L2, LCompression> const & _left, Pair<R1, R2, RCompression> const & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_base.h"(355)
-template <typename TSpec, typename TRight> inline bool operator!=(Proxy<TSpec> const & left_, TRight const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(185)
-template <typename TLeft, typename TSpec> inline bool operator!=(TLeft const & left_, Proxy<TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(196)
-template <typename TLeftSpec, typename TRightSpec> inline bool operator!=(Proxy<TLeftSpec> const & left_, Proxy<TRightSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(207)
-template <typename TSpec> inline bool operator!=(Proxy<TSpec> const & left_, Proxy<TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(219)
-template <typename L1, typename L2, typename L3, typename LCompression, typename R1, typename R2, typename R3, typename RCompression> inline bool operator!=(Triple<L1, L2, L3, LCompression> const & _left, Triple<R1, R2, R3, RCompression> const & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_base.h"(378)
-template <typename T_, unsigned _size, typename TSpec> inline bool operator!=(Tuple<T_, _size, TSpec> const & _left, Tuple<T_, _size, TSpec> const & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(436)
-template <typename T_, unsigned _size> inline bool operator!=(Tuple<T_, _size, Compressed> const & _left, Tuple<T_, _size, Compressed> const & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(482)
-template <typename T_, unsigned _size> inline bool operator!=(Tuple<T_, _size, Compressed> & _left, Tuple<T_, _size, Compressed> & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(489)
+template <typename TValue, typename TCount, typename TSpec> inline bool operator!=(ProfileChar<TValue, TCount, TSpec> const & lhs, ProfileChar<TValue, TCount, TSpec> const & rhs);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_profile.h"(227)
+template <typename TValue, typename TSpec, typename TRight> inline bool operator!=(SimpleType<TValue, TSpec> const & left_, TRight const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(644)
+template <typename TLeft, typename TValue, typename TSpec> inline bool operator!=(TLeft const & left_, SimpleType<TValue, TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(654)
+template <typename TLeftValue, typename TLeftSpec, typename TRightValue, typename TRightSpec> inline bool operator!=(SimpleType<TLeftValue, TLeftSpec> const & left_, SimpleType<TRightValue, TRightSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(664)
+template <typename TValue, typename TSpec> inline bool operator!=(SimpleType<TValue, TSpec> const & left_, SimpleType<TValue, TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(675)
+template <typename TSpec, typename TValue, typename TSpec2> inline bool operator!=(Proxy<TSpec> const & left_, SimpleType<TValue, TSpec2> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(683)
+template <typename TSpec, typename TValue, typename TSpec2> inline bool operator!=(SimpleType<TValue, TSpec2> const & left_, Proxy<TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(693)
+template <typename TContainer> inline bool operator!=(Iter<TContainer, StdIteratorAdaptor> const & left, Iter<TContainer, StdIteratorAdaptor> const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(351)
+template <typename TContainer, typename TIterator, typename TSpec> inline bool operator!=(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & left, Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(410)
+template <typename TContainer, typename TIterator, typename TSpec> inline bool operator!=(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & left, typename IterComplementConst<TIterator>::Type const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(419)
+template <typename TContainer, typename TIterator, typename TSpec> inline bool operator!=(typename IterComplementConst<TIterator>::Type const & left, Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(428)
+template <typename TContainer> inline bool operator!=(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(329)
+template <typename TValue, typename TSpec, typename TRhs> inline bool operator!=(LogProb<TValue, TSpec> const & lhs, TRhs const & rhs);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_log_space_value.h"(399)
+template <typename L1, typename L2, typename LCompression, typename R1, typename R2, typename RCompression> inline bool operator!=(Pair<L1, L2, LCompression> const & _left, Pair<R1, R2, RCompression> const & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_base.h"(355)
+template <typename TSpec, typename TRight> inline bool operator!=(Proxy<TSpec> const & left_, TRight const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(185)
+template <typename TLeft, typename TSpec> inline bool operator!=(TLeft const & left_, Proxy<TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(196)
+template <typename TLeftSpec, typename TRightSpec> inline bool operator!=(Proxy<TLeftSpec> const & left_, Proxy<TRightSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(207)
+template <typename TSpec> inline bool operator!=(Proxy<TSpec> const & left_, Proxy<TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(219)
+template <typename L1, typename L2, typename L3, typename LCompression, typename R1, typename R2, typename R3, typename RCompression> inline bool operator!=(Triple<L1, L2, L3, LCompression> const & _left, Triple<R1, R2, R3, RCompression> const & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_base.h"(378)
+template <typename T_, unsigned _size, typename TSpec> inline bool operator!=(Tuple<T_, _size, TSpec> const & _left, Tuple<T_, _size, TSpec> const & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(436)
+template <typename T_, unsigned _size> inline bool operator!=(Tuple<T_, _size, Compressed> const & _left, Tuple<T_, _size, Compressed> const & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_bit_compressed.h"(482)
+template <typename T_, unsigned _size> inline bool operator!=(Tuple<T_, _size, Compressed> & _left, Tuple<T_, _size, Compressed> & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_bit_compressed.h"(489)
 
 //____________________________________________________________________________
 // operator*
 
-template <typename TContainer, typename TSpec> inline typename Reference<Iter<TContainer, TSpec> >::Type operator*(Iter<TContainer, TSpec> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_base.h"(232)
-template <typename TContainer, typename TSpec> inline typename Reference<Iter<TContainer, TSpec> const>::Type operator*(Iter<TContainer, TSpec> const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_base.h"(240)
-template <typename TValue, typename TSpec, typename TRhs> inline LogProb<TValue, TSpec> operator*(LogProb<TValue, TSpec> const & lhs, TRhs const & rhs);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_log_space_value.h"(203)
-template <typename TValue, typename TSpec, typename TValue2, typename TSpec2> inline LogProb<TValue, TSpec> operator*(LogProb<TValue, TSpec> const & lhs, LogProb<TValue2, TSpec2> const & rhs);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_log_space_value.h"(214)
+template <typename TContainer, typename TSpec> inline typename Reference<Iter<TContainer, TSpec> >::Type operator*(Iter<TContainer, TSpec> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_base.h"(232)
+template <typename TContainer, typename TSpec> inline typename Reference<Iter<TContainer, TSpec> const>::Type operator*(Iter<TContainer, TSpec> const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_base.h"(240)
+template <typename TValue, typename TSpec, typename TRhs> inline LogProb<TValue, TSpec> operator*(LogProb<TValue, TSpec> const & lhs, TRhs const & rhs);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_log_space_value.h"(203)
+template <typename TValue, typename TSpec, typename TValue2, typename TSpec2> inline LogProb<TValue, TSpec> operator*(LogProb<TValue, TSpec> const & lhs, LogProb<TValue2, TSpec2> const & rhs);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_log_space_value.h"(214)
 
 //____________________________________________________________________________
 // operator*=
 
-template <typename TValue, typename TSpec, typename TRhs> inline LogProb<TValue, TSpec> & operator*=(LogProb<TValue, TSpec> & lhs, TRhs const & rhs);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_log_space_value.h"(189)
+template <typename TValue, typename TSpec, typename TRhs> inline LogProb<TValue, TSpec> & operator*=(LogProb<TValue, TSpec> & lhs, TRhs const & rhs);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_log_space_value.h"(189)
 
 //____________________________________________________________________________
 // operator+
 
-template <typename TValue, typename TSpec> inline SimpleType<TValue, TSpec> operator+(SimpleType<TValue, TSpec> const & v);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(1020)
-template <typename TContainer, typename TIntegral> inline Iter<TContainer, StdIteratorAdaptor> operator+(Iter<TContainer, StdIteratorAdaptor> const & left, TIntegral right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(439)
-template <typename TContainer> inline Iter<TContainer, StdIteratorAdaptor> operator+(Iter<TContainer, StdIteratorAdaptor> const & left, int right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(449)
-template <typename TContainer, typename TIntegral> inline Iter<TContainer, StdIteratorAdaptor> operator+(TIntegral left, Iter<TContainer, StdIteratorAdaptor> const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(458)
-template <typename TContainer> inline Iter<TContainer, StdIteratorAdaptor> operator+(int left, Iter<TContainer, StdIteratorAdaptor> const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(468)
-template <typename TContainer, typename TIterator, typename TSpec, typename TIntegral> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > operator+(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & left, TIntegral right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(467)
-template <typename TContainer, typename TIterator, typename TSpec> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > operator+(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & left, int right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(477)
-template <typename TContainer, typename TIterator, typename TSpec, typename TIntegral> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > operator+(TIntegral left, Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(486)
-template <typename TContainer, typename TIterator, typename TSpec> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > operator+(int left, Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(496)
-template <typename TContainer, typename TSpec, typename TSize> inline Iter<TContainer, TSpec> operator+(Iter<TContainer, TSpec> const & me, TSize size);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_base.h"(298)
-template <typename TContainer, typename TIntegral> inline Iter<TContainer, PositionIterator> operator+(Iter<TContainer, PositionIterator> const & left, TIntegral right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(414)
-template <typename TContainer> inline Iter<TContainer, PositionIterator> operator+(Iter<TContainer, PositionIterator> const & left, int right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(424)
-template <typename TContainer, typename TIntegral> inline Iter<TContainer, PositionIterator> operator+(TIntegral left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(433)
-template <typename TContainer> inline Iter<TContainer, PositionIterator> operator+(int left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(443)
-template <typename TValue, typename TSpec, typename TRhs> inline LogProb<TValue, TSpec> operator+(LogProb<TValue, TSpec> const & lhs, TRhs const & rhs);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_log_space_value.h"(301)
-template <typename TValue, typename TSpec, typename TValue2, typename TSpec2> inline LogProb<TValue, TSpec> operator+(LogProb<TValue, TSpec> const & lhs, LogProb<TValue2, TSpec2> const & rhs);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_log_space_value.h"(312)
+template <typename TValue, typename TSpec> inline SimpleType<TValue, TSpec> operator+(SimpleType<TValue, TSpec> const & v);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(1020)
+template <typename TContainer, typename TIntegral> inline Iter<TContainer, StdIteratorAdaptor> operator+(Iter<TContainer, StdIteratorAdaptor> const & left, TIntegral right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(439)
+template <typename TContainer> inline Iter<TContainer, StdIteratorAdaptor> operator+(Iter<TContainer, StdIteratorAdaptor> const & left, int right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(449)
+template <typename TContainer, typename TIntegral> inline Iter<TContainer, StdIteratorAdaptor> operator+(TIntegral left, Iter<TContainer, StdIteratorAdaptor> const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(458)
+template <typename TContainer> inline Iter<TContainer, StdIteratorAdaptor> operator+(int left, Iter<TContainer, StdIteratorAdaptor> const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(468)
+template <typename TContainer, typename TIterator, typename TSpec, typename TIntegral> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > operator+(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & left, TIntegral right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(467)
+template <typename TContainer, typename TIterator, typename TSpec> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > operator+(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & left, int right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(477)
+template <typename TContainer, typename TIterator, typename TSpec, typename TIntegral> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > operator+(TIntegral left, Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(486)
+template <typename TContainer, typename TIterator, typename TSpec> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > operator+(int left, Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(496)
+template <typename TContainer, typename TSpec, typename TSize> inline Iter<TContainer, TSpec> operator+(Iter<TContainer, TSpec> const & me, TSize size);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_base.h"(298)
+template <typename TContainer, typename TIntegral> inline Iter<TContainer, PositionIterator> operator+(Iter<TContainer, PositionIterator> const & left, TIntegral right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(414)
+template <typename TContainer> inline Iter<TContainer, PositionIterator> operator+(Iter<TContainer, PositionIterator> const & left, int right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(424)
+template <typename TContainer, typename TIntegral> inline Iter<TContainer, PositionIterator> operator+(TIntegral left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(433)
+template <typename TContainer> inline Iter<TContainer, PositionIterator> operator+(int left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(443)
+template <typename TValue, typename TSpec, typename TRhs> inline LogProb<TValue, TSpec> operator+(LogProb<TValue, TSpec> const & lhs, TRhs const & rhs);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_log_space_value.h"(301)
+template <typename TValue, typename TSpec, typename TValue2, typename TSpec2> inline LogProb<TValue, TSpec> operator+(LogProb<TValue, TSpec> const & lhs, LogProb<TValue2, TSpec2> const & rhs);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_log_space_value.h"(312)
 
 //____________________________________________________________________________
 // operator++
 
-template <typename TValue, typename TSpec> inline SimpleType<TValue, TSpec> & operator++(SimpleType<TValue, TSpec> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(978)
-template <typename TValue, typename TSpec> inline SimpleType<TValue, TSpec> operator++(SimpleType<TValue, TSpec> & me, int);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(986)
-template <typename TContainer, typename TSpec> inline Iter<TContainer, TSpec> const & operator++(Iter<TContainer, TSpec> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_base.h"(252)
-template <typename TContainer, typename TSpec> inline Iter<TContainer, TSpec> operator++(Iter<TContainer, TSpec> & me, int);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_base.h"(261)
+template <typename TValue, typename TSpec> inline SimpleType<TValue, TSpec> & operator++(SimpleType<TValue, TSpec> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(978)
+template <typename TValue, typename TSpec> inline SimpleType<TValue, TSpec> operator++(SimpleType<TValue, TSpec> & me, int);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(986)
+template <typename TContainer, typename TSpec> inline Iter<TContainer, TSpec> const & operator++(Iter<TContainer, TSpec> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_base.h"(252)
+template <typename TContainer, typename TSpec> inline Iter<TContainer, TSpec> operator++(Iter<TContainer, TSpec> & me, int);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_base.h"(261)
 
 //____________________________________________________________________________
 // operator+=
 
-template <typename TContainer, typename TIntegral> inline Iter<TContainer, StdIteratorAdaptor> & operator+=(Iter<TContainer, StdIteratorAdaptor> & left, TIntegral right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(481)
-template <typename TContainer> inline Iter<TContainer, StdIteratorAdaptor> & operator+=(Iter<TContainer, StdIteratorAdaptor> & left, int right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(492)
-template <typename TContainer, typename TIterator, typename TSpec, typename TIntegral> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & operator+=(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & left, TIntegral right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(509)
-template <typename TContainer, typename TIterator, typename TSpec> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & operator+=(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & left, int right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(520)
-template <typename TContainer, typename TSpec, typename TSize> inline Iter<TContainer, TSpec> const & operator+=(Iter<TContainer, TSpec> & me, TSize size);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_base.h"(312)
-template <typename TContainer, typename TIntegral> inline Iter<TContainer, PositionIterator> & operator+=(Iter<TContainer, PositionIterator> & left, TIntegral right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(456)
-template <typename TContainer> inline Iter<TContainer, PositionIterator> & operator+=(Iter<TContainer, PositionIterator> & left, int right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(467)
-template <typename TValue, typename TSpec, typename TRhs> inline LogProb<TValue, TSpec> & operator+=(LogProb<TValue, TSpec> & lhs, TRhs const & rhs);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_log_space_value.h"(268)
-template <typename TValue, typename TSpec, typename TValue2, typename TSpec2> inline LogProb<TValue, TSpec> & operator+=(LogProb<TValue, TSpec> & lhs, LogProb<TValue2, TSpec2> const & rhs);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_log_space_value.h"(278)
+template <typename TContainer, typename TIntegral> inline Iter<TContainer, StdIteratorAdaptor> & operator+=(Iter<TContainer, StdIteratorAdaptor> & left, TIntegral right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(481)
+template <typename TContainer> inline Iter<TContainer, StdIteratorAdaptor> & operator+=(Iter<TContainer, StdIteratorAdaptor> & left, int right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(492)
+template <typename TContainer, typename TIterator, typename TSpec, typename TIntegral> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & operator+=(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & left, TIntegral right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(509)
+template <typename TContainer, typename TIterator, typename TSpec> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & operator+=(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & left, int right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(520)
+template <typename TContainer, typename TSpec, typename TSize> inline Iter<TContainer, TSpec> const & operator+=(Iter<TContainer, TSpec> & me, TSize size);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_base.h"(312)
+template <typename TContainer, typename TIntegral> inline Iter<TContainer, PositionIterator> & operator+=(Iter<TContainer, PositionIterator> & left, TIntegral right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(456)
+template <typename TContainer> inline Iter<TContainer, PositionIterator> & operator+=(Iter<TContainer, PositionIterator> & left, int right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(467)
+template <typename TValue, typename TSpec, typename TRhs> inline LogProb<TValue, TSpec> & operator+=(LogProb<TValue, TSpec> & lhs, TRhs const & rhs);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_log_space_value.h"(268)
+template <typename TValue, typename TSpec, typename TValue2, typename TSpec2> inline LogProb<TValue, TSpec> & operator+=(LogProb<TValue, TSpec> & lhs, LogProb<TValue2, TSpec2> const & rhs);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_log_space_value.h"(278)
 
 //____________________________________________________________________________
 // operator-
 
-template <typename TContainer, typename TIntegral> inline Iter<TContainer, StdIteratorAdaptor> operator-(Iter<TContainer, StdIteratorAdaptor> const & left, TIntegral right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(506)
-template <typename TContainer> inline Iter<TContainer, StdIteratorAdaptor> operator-(Iter<TContainer, StdIteratorAdaptor> const & left, int right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(516)
-template <typename TContainer> inline typename Difference<Iter<TContainer, StdIteratorAdaptor> >::Type operator-(Iter<TContainer, StdIteratorAdaptor> const & left, Iter<TContainer, StdIteratorAdaptor> const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(525)
-template <typename TContainer, typename TIterator, typename TSpec, typename TIntegral> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > operator-(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & left, TIntegral right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(534)
-template <typename TContainer, typename TIterator, typename TSpec> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > operator-(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & left, int right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(544)
-template <typename TContainer, typename TIterator, typename TSpec, typename TContainer2, typename TIterator2, typename TSpec2> inline typename Difference<Iter<TContainer, AdaptorIterator<TIterator, TSpec> > >::Type operator-(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & left, Iter<TContainer2, AdaptorIterator<TIterator2, TSpec2> > const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(554)
-template <typename TContainer, typename TIntegral> inline Iter<TContainer, PositionIterator> operator-(Iter<TContainer, PositionIterator> const & left, TIntegral right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(481)
-template <typename TContainer> inline Iter<TContainer, PositionIterator> operator-(Iter<TContainer, PositionIterator> const & left, int right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(491)
-template <typename TContainer> inline typename Difference<TContainer>::Type operator-(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(500)
-template <typename TValue, typename TSpec, typename TRhs> inline LogProb<TValue, TSpec> operator-(LogProb<TValue, TSpec> const & lhs, TRhs const & rhs);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_log_space_value.h"(360)
-template <typename TValue, typename TSpec, typename TValue2, typename TSpec2> inline LogProb<TValue, TSpec> operator-(LogProb<TValue, TSpec> const & lhs, LogProb<TValue2, TSpec2> const & rhs);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_log_space_value.h"(371)
+template <typename TContainer, typename TIntegral> inline Iter<TContainer, StdIteratorAdaptor> operator-(Iter<TContainer, StdIteratorAdaptor> const & left, TIntegral right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(506)
+template <typename TContainer> inline Iter<TContainer, StdIteratorAdaptor> operator-(Iter<TContainer, StdIteratorAdaptor> const & left, int right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(516)
+template <typename TContainer> inline typename Difference<Iter<TContainer, StdIteratorAdaptor> >::Type operator-(Iter<TContainer, StdIteratorAdaptor> const & left, Iter<TContainer, StdIteratorAdaptor> const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(525)
+template <typename TContainer, typename TIterator, typename TSpec, typename TIntegral> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > operator-(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & left, TIntegral right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(534)
+template <typename TContainer, typename TIterator, typename TSpec> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > operator-(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & left, int right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(544)
+template <typename TContainer, typename TIterator, typename TSpec, typename TContainer2, typename TIterator2, typename TSpec2> inline typename Difference<Iter<TContainer, AdaptorIterator<TIterator, TSpec> > >::Type operator-(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & left, Iter<TContainer2, AdaptorIterator<TIterator2, TSpec2> > const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(554)
+template <typename TContainer, typename TIntegral> inline Iter<TContainer, PositionIterator> operator-(Iter<TContainer, PositionIterator> const & left, TIntegral right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(481)
+template <typename TContainer> inline Iter<TContainer, PositionIterator> operator-(Iter<TContainer, PositionIterator> const & left, int right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(491)
+template <typename TContainer> inline typename Difference<TContainer>::Type operator-(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(500)
+template <typename TValue, typename TSpec, typename TRhs> inline LogProb<TValue, TSpec> operator-(LogProb<TValue, TSpec> const & lhs, TRhs const & rhs);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_log_space_value.h"(360)
+template <typename TValue, typename TSpec, typename TValue2, typename TSpec2> inline LogProb<TValue, TSpec> operator-(LogProb<TValue, TSpec> const & lhs, LogProb<TValue2, TSpec2> const & rhs);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_log_space_value.h"(371)
 
 //____________________________________________________________________________
 // operator--
 
-template <typename TValue, typename TSpec> inline SimpleType<TValue, TSpec> & operator--(SimpleType<TValue, TSpec> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(999)
-template <typename TValue, typename TSpec> inline SimpleType<TValue, TSpec> operator--(SimpleType<TValue, TSpec> & me, int);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(1007)
-template <typename TContainer, typename TSpec> inline Iter<TContainer, TSpec> const & operator--(Iter<TContainer, TSpec> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_base.h"(275)
-template <typename TContainer, typename TSpec> inline Iter<TContainer, TSpec> operator--(Iter<TContainer, TSpec> & me, int);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_base.h"(284)
+template <typename TValue, typename TSpec> inline SimpleType<TValue, TSpec> & operator--(SimpleType<TValue, TSpec> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(999)
+template <typename TValue, typename TSpec> inline SimpleType<TValue, TSpec> operator--(SimpleType<TValue, TSpec> & me, int);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(1007)
+template <typename TContainer, typename TSpec> inline Iter<TContainer, TSpec> const & operator--(Iter<TContainer, TSpec> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_base.h"(275)
+template <typename TContainer, typename TSpec> inline Iter<TContainer, TSpec> operator--(Iter<TContainer, TSpec> & me, int);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_base.h"(284)
 
 //____________________________________________________________________________
 // operator-=
 
-template <typename TContainer, typename TIntegral> inline Iter<TContainer, StdIteratorAdaptor> & operator-=(Iter<TContainer, StdIteratorAdaptor> & left, TIntegral right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(538)
-template <typename TContainer> inline Iter<TContainer, StdIteratorAdaptor> & operator-= (Iter<TContainer, StdIteratorAdaptor> & left, int right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(549)
-template <typename TContainer, typename TIterator, typename TSpec, typename TIntegral> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & operator-=(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & left, TIntegral right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(567)
-template <typename TContainer, typename TIterator, typename TSpec> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & operator-=(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & left, int right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(578)
-template <typename TContainer, typename TIntegral> inline Iter<TContainer, PositionIterator> & operator-=(Iter<TContainer, PositionIterator> & left, TIntegral right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(513)
-template <typename TContainer> inline Iter<TContainer, PositionIterator> & operator-=(Iter<TContainer, PositionIterator> & left, int right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(524)
-template <typename TValue, typename TSpec, typename TRhs> inline LogProb<TValue, TSpec> & operator-=(LogProb<TValue, TSpec> & lhs, TRhs const & rhs);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_log_space_value.h"(327)
-template <typename TValue, typename TSpec, typename TValue2, typename TSpec2> inline LogProb<TValue, TSpec> & operator-=(LogProb<TValue, TSpec> & lhs, LogProb<TValue2, TSpec2> const & rhs);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_log_space_value.h"(337)
+template <typename TContainer, typename TIntegral> inline Iter<TContainer, StdIteratorAdaptor> & operator-=(Iter<TContainer, StdIteratorAdaptor> & left, TIntegral right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(538)
+template <typename TContainer> inline Iter<TContainer, StdIteratorAdaptor> & operator-= (Iter<TContainer, StdIteratorAdaptor> & left, int right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(549)
+template <typename TContainer, typename TIterator, typename TSpec, typename TIntegral> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & operator-=(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & left, TIntegral right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(567)
+template <typename TContainer, typename TIterator, typename TSpec> inline Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & operator-=(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & left, int right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(578)
+template <typename TContainer, typename TIntegral> inline Iter<TContainer, PositionIterator> & operator-=(Iter<TContainer, PositionIterator> & left, TIntegral right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(513)
+template <typename TContainer> inline Iter<TContainer, PositionIterator> & operator-=(Iter<TContainer, PositionIterator> & left, int right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(524)
+template <typename TValue, typename TSpec, typename TRhs> inline LogProb<TValue, TSpec> & operator-=(LogProb<TValue, TSpec> & lhs, TRhs const & rhs);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_log_space_value.h"(327)
+template <typename TValue, typename TSpec, typename TValue2, typename TSpec2> inline LogProb<TValue, TSpec> & operator-=(LogProb<TValue, TSpec> & lhs, LogProb<TValue2, TSpec2> const & rhs);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_log_space_value.h"(337)
 
 //____________________________________________________________________________
 // operator/
 
-template <typename TValue, typename TSpec, typename TRhs> inline LogProb<TValue, TSpec> operator/(LogProb<TValue, TSpec> const & lhs, TRhs const & rhs);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_log_space_value.h"(243)
-template <typename TValue, typename TSpec, typename TValue2, typename TSpec2> inline LogProb<TValue, TSpec> operator/(LogProb<TValue, TSpec> const & lhs, LogProb<TValue2, TSpec2> const & rhs);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_log_space_value.h"(254)
+template <typename TValue, typename TSpec, typename TRhs> inline LogProb<TValue, TSpec> operator/(LogProb<TValue, TSpec> const & lhs, TRhs const & rhs);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_log_space_value.h"(243)
+template <typename TValue, typename TSpec, typename TValue2, typename TSpec2> inline LogProb<TValue, TSpec> operator/(LogProb<TValue, TSpec> const & lhs, LogProb<TValue2, TSpec2> const & rhs);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_log_space_value.h"(254)
 
 //____________________________________________________________________________
 // operator/=
 
-template <typename TValue, typename TSpec, typename TRhs> inline LogProb<TValue, TSpec> & operator/=(LogProb<TValue, TSpec> & lhs, TRhs const & rhs);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_log_space_value.h"(229)
+template <typename TValue, typename TSpec, typename TRhs> inline LogProb<TValue, TSpec> & operator/=(LogProb<TValue, TSpec> & lhs, TRhs const & rhs);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_log_space_value.h"(229)
 
 //____________________________________________________________________________
 // operator<
 
-template <typename TValue, typename TSpec, typename TRight> inline bool operator<(SimpleType<TValue, TSpec> const & left_, TRight const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(708)
-template <typename TLeft, typename TValue, typename TSpec> inline bool operator<(TLeft const & left_, SimpleType<TValue, TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(718)
-template <typename TLeftValue, typename TLeftSpec, typename TRightValue, typename TRightSpec> inline bool operator<(SimpleType<TLeftValue, TLeftSpec> const & left_, SimpleType<TRightValue, TRightSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(728)
-template <typename TValue, typename TSpec> inline bool operator<(SimpleType<TValue, TSpec> const & left_, SimpleType<TValue, TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(739)
-template <typename TSpec, typename TValue, typename TSpec2> inline bool operator<(Proxy<TSpec> const & left_, SimpleType<TValue, TSpec2> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(747)
-template <typename TSpec, typename TValue, typename TSpec2> inline bool operator<(SimpleType<TValue, TSpec2> const & left_, Proxy<TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(758)
-template <typename TContainer> inline bool operator<(Iter<TContainer, StdIteratorAdaptor> const & left, Iter<TContainer, StdIteratorAdaptor> const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(364)
-template <typename TContainer> inline bool operator<(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(342)
-template <typename TValue, typename TSpec, typename TRhs> inline bool operator<(LogProb<TValue, TSpec> const & lhs, TRhs const & rhs);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_log_space_value.h"(412)
-template <typename L1, typename L2, typename LCompression, typename R1, typename R2, typename RCompression> inline bool operator<(Pair<L1, L2, LCompression> const & _left, Pair<R1, R2, RCompression> const & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_base.h"(295)
-template <typename TSpec, typename TRight> inline bool operator<(Proxy<TSpec> const & left_, TRight const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(233)
-template <typename TLeft, typename TSpec> inline bool operator<(TLeft const & left_, Proxy<TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(244)
-template <typename TLeftSpec, typename TRightSpec> inline bool operator<(Proxy<TLeftSpec> const & left_, Proxy<TRightSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(255)
-template <typename TSpec> inline bool operator<(Proxy<TSpec> const & left_, Proxy<TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(267)
-template <typename L1, typename L2, typename L3, typename LCompression, typename R1, typename R2, typename R3, typename RCompression> inline bool operator<(Triple<L1, L2, L3, LCompression> const & _left, Triple<R1, R2, R3, RCompression> const & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_base.h"(308)
-template <typename T_, unsigned _size, typename TSpec> inline bool operator<(Tuple<T_, _size, TSpec> const & _left, Tuple<T_, _size, TSpec> const & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(464)
-template <typename T_, unsigned _size> inline bool operator<(Tuple<T_, _size, Compressed> const &_left, Tuple<T_, _size, Compressed> const & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(387)
-template <typename T_, unsigned _size> inline bool operator<(Tuple<T_, _size, Compressed> &_left, Tuple<T_, _size, Compressed> & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(394)
+template <typename TValue, typename TSpec, typename TRight> inline bool operator<(SimpleType<TValue, TSpec> const & left_, TRight const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(708)
+template <typename TLeft, typename TValue, typename TSpec> inline bool operator<(TLeft const & left_, SimpleType<TValue, TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(718)
+template <typename TLeftValue, typename TLeftSpec, typename TRightValue, typename TRightSpec> inline bool operator<(SimpleType<TLeftValue, TLeftSpec> const & left_, SimpleType<TRightValue, TRightSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(728)
+template <typename TValue, typename TSpec> inline bool operator<(SimpleType<TValue, TSpec> const & left_, SimpleType<TValue, TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(739)
+template <typename TSpec, typename TValue, typename TSpec2> inline bool operator<(Proxy<TSpec> const & left_, SimpleType<TValue, TSpec2> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(747)
+template <typename TSpec, typename TValue, typename TSpec2> inline bool operator<(SimpleType<TValue, TSpec2> const & left_, Proxy<TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(758)
+template <typename TContainer> inline bool operator<(Iter<TContainer, StdIteratorAdaptor> const & left, Iter<TContainer, StdIteratorAdaptor> const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(364)
+template <typename TContainer> inline bool operator<(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(342)
+template <typename TValue, typename TSpec, typename TRhs> inline bool operator<(LogProb<TValue, TSpec> const & lhs, TRhs const & rhs);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_log_space_value.h"(412)
+template <typename L1, typename L2, typename LCompression, typename R1, typename R2, typename RCompression> inline bool operator<(Pair<L1, L2, LCompression> const & _left, Pair<R1, R2, RCompression> const & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_base.h"(295)
+template <typename TSpec, typename TRight> inline bool operator<(Proxy<TSpec> const & left_, TRight const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(233)
+template <typename TLeft, typename TSpec> inline bool operator<(TLeft const & left_, Proxy<TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(244)
+template <typename TLeftSpec, typename TRightSpec> inline bool operator<(Proxy<TLeftSpec> const & left_, Proxy<TRightSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(255)
+template <typename TSpec> inline bool operator<(Proxy<TSpec> const & left_, Proxy<TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(267)
+template <typename L1, typename L2, typename L3, typename LCompression, typename R1, typename R2, typename R3, typename RCompression> inline bool operator<(Triple<L1, L2, L3, LCompression> const & _left, Triple<R1, R2, R3, RCompression> const & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_base.h"(308)
+template <typename T_, unsigned _size, typename TSpec> inline bool operator<(Tuple<T_, _size, TSpec> const & _left, Tuple<T_, _size, TSpec> const & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(464)
+template <typename T_, unsigned _size> inline bool operator<(Tuple<T_, _size, Compressed> const &_left, Tuple<T_, _size, Compressed> const & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_bit_compressed.h"(387)
+template <typename T_, unsigned _size> inline bool operator<(Tuple<T_, _size, Compressed> &_left, Tuple<T_, _size, Compressed> & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_bit_compressed.h"(394)
 
 //____________________________________________________________________________
 // operator<<
 
-template <typename TStream, typename TValue, typename TCount, typename TSpec> inline TStream & operator<<(TStream & os, ProfileChar<TValue, TCount, TSpec> const & rhs);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_profile.h"(313)
-template <typename TStream, typename TValue, typename TSpec> inline TStream & operator<<(TStream & stream, SimpleType<TValue, TSpec> const & data);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(345)
-template <typename TStream, typename TValue, typename TSpec> inline TStream & operator<<(TStream & stream, LogProb<TValue, TSpec> const & rhs);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_log_space_value.h"(465)
-template <typename T1_, typename T2_, typename TSpec> inline std::ostream & operator<<(std::ostream & out, Pair<T1_, T2_, TSpec> const & p);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_base.h"(209)
-template <typename TStream, typename TSpec> inline TStream & operator<<(TStream & strm, Proxy<TSpec> & proxy);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(458)
-template <typename TStream, typename TSpec> inline TStream & operator<<(TStream & strm, Proxy<TSpec> const & proxy);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(467)
-template <typename T1_, typename T2_, typename T3_, typename TSpec> std::ostream & operator<<(std::ostream & out, Triple<T1_,T2_,T3_,TSpec> const & t);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_base.h"(202)
-template <typename T_, unsigned _size, typename TSpec> inline std::ostream & operator<<(std::ostream & out, Tuple<T_,_size,TSpec> const &a);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(174)
+template <typename TStream, typename TValue, typename TCount, typename TSpec> inline TStream & operator<<(TStream & os, ProfileChar<TValue, TCount, TSpec> const & rhs);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_profile.h"(313)
+template <typename TStream, typename TValue, typename TSpec> inline TStream & operator<<(TStream & stream, SimpleType<TValue, TSpec> const & data);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(345)
+template <typename TStream, typename TValue, typename TSpec> inline TStream & operator<<(TStream & stream, LogProb<TValue, TSpec> const & rhs);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_log_space_value.h"(465)
+template <typename T1_, typename T2_, typename TSpec> inline std::ostream & operator<<(std::ostream & out, Pair<T1_, T2_, TSpec> const & p);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_base.h"(209)
+template <typename TStream, typename TSpec> inline TStream & operator<<(TStream & strm, Proxy<TSpec> & proxy);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(458)
+template <typename TStream, typename TSpec> inline TStream & operator<<(TStream & strm, Proxy<TSpec> const & proxy);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(467)
+template <typename T1_, typename T2_, typename T3_, typename TSpec> std::ostream & operator<<(std::ostream & out, Triple<T1_,T2_,T3_,TSpec> const & t);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_base.h"(202)
+template <typename T_, unsigned _size, typename TSpec> inline std::ostream & operator<<(std::ostream & out, Tuple<T_,_size,TSpec> const &a);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(174)
 
 //____________________________________________________________________________
 // operator<=
 
-template <typename TValue, typename TSpec, typename TRight> inline bool operator<=(SimpleType<TValue, TSpec> const & left_, TRight const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(773)
-template <typename TLeft, typename TValue, typename TSpec> inline bool operator<=(TLeft const & left_, SimpleType<TValue, TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(783)
-template <typename TLeftValue, typename TLeftSpec, typename TRightValue, typename TRightSpec> inline bool operator<=(SimpleType<TLeftValue, TLeftSpec> const & left_, SimpleType<TRightValue, TRightSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(793)
-template <typename TValue, typename TSpec> inline bool operator<=(SimpleType<TValue, TSpec> const & left_, SimpleType<TValue, TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(804)
-template <typename TSpec, typename TValue, typename TSpec2> inline bool operator<=(Proxy<TSpec> const & left_, SimpleType<TValue, TSpec2> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(812)
-template <typename TSpec, typename TValue, typename TSpec2> inline bool operator<=(SimpleType<TValue, TSpec2> const & left_, Proxy<TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(822)
-template <typename TContainer> inline bool operator<=(Iter<TContainer, StdIteratorAdaptor> const & left, Iter<TContainer, StdIteratorAdaptor> const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(390)
-template <typename TContainer> inline bool operator<=(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(364)
-template <typename TValue, typename TSpec, typename TRhs> inline bool operator<=(LogProb<TValue, TSpec> const & lhs, TRhs const & rhs);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_log_space_value.h"(438)
-template <typename L1, typename L2, typename LCompression, typename R1, typename R2, typename RCompression> inline bool operator<=(Pair<L1, L2, LCompression> const & _left, Pair<R1, R2, RCompression> const & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_base.h"(331)
-template <typename TSpec, typename TRight> inline bool operator<=(Proxy<TSpec> const & left_, TRight const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(281)
-template <typename TLeft, typename TSpec> inline bool operator<=(TLeft const & left_, Proxy<TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(292)
-template <typename TLeftSpec, typename TRightSpec> inline bool operator<=(Proxy<TLeftSpec> const & left_, Proxy<TRightSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(303)
-template <typename TSpec> inline bool operator<=(Proxy<TSpec> const & left_, Proxy<TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(315)
-template <typename L1, typename L2, typename L3, typename LCompression, typename R1, typename R2, typename R3, typename RCompression> inline bool operator<=(Triple<L1, L2, L3, LCompression> const & _left, Triple<R1, R2, R3, RCompression> const & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_base.h"(336)
-template <typename T_, unsigned _size, typename TSpec> inline bool operator<=(Tuple<T_, _size, TSpec> const & _left, Tuple<T_, _size, TSpec> const & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(510)
-template <typename T_, unsigned _size> inline bool operator<=(Tuple<T_, _size, Compressed> const &_left, Tuple<T_, _size, Compressed> const & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(425)
-template <typename T_, unsigned _size> inline bool operator<=(Tuple<T_, _size, Compressed> &_left, Tuple<T_, _size, Compressed> & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(432)
+template <typename TValue, typename TSpec, typename TRight> inline bool operator<=(SimpleType<TValue, TSpec> const & left_, TRight const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(773)
+template <typename TLeft, typename TValue, typename TSpec> inline bool operator<=(TLeft const & left_, SimpleType<TValue, TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(783)
+template <typename TLeftValue, typename TLeftSpec, typename TRightValue, typename TRightSpec> inline bool operator<=(SimpleType<TLeftValue, TLeftSpec> const & left_, SimpleType<TRightValue, TRightSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(793)
+template <typename TValue, typename TSpec> inline bool operator<=(SimpleType<TValue, TSpec> const & left_, SimpleType<TValue, TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(804)
+template <typename TSpec, typename TValue, typename TSpec2> inline bool operator<=(Proxy<TSpec> const & left_, SimpleType<TValue, TSpec2> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(812)
+template <typename TSpec, typename TValue, typename TSpec2> inline bool operator<=(SimpleType<TValue, TSpec2> const & left_, Proxy<TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(822)
+template <typename TContainer> inline bool operator<=(Iter<TContainer, StdIteratorAdaptor> const & left, Iter<TContainer, StdIteratorAdaptor> const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(390)
+template <typename TContainer> inline bool operator<=(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(364)
+template <typename TValue, typename TSpec, typename TRhs> inline bool operator<=(LogProb<TValue, TSpec> const & lhs, TRhs const & rhs);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_log_space_value.h"(438)
+template <typename L1, typename L2, typename LCompression, typename R1, typename R2, typename RCompression> inline bool operator<=(Pair<L1, L2, LCompression> const & _left, Pair<R1, R2, RCompression> const & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_base.h"(331)
+template <typename TSpec, typename TRight> inline bool operator<=(Proxy<TSpec> const & left_, TRight const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(281)
+template <typename TLeft, typename TSpec> inline bool operator<=(TLeft const & left_, Proxy<TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(292)
+template <typename TLeftSpec, typename TRightSpec> inline bool operator<=(Proxy<TLeftSpec> const & left_, Proxy<TRightSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(303)
+template <typename TSpec> inline bool operator<=(Proxy<TSpec> const & left_, Proxy<TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(315)
+template <typename L1, typename L2, typename L3, typename LCompression, typename R1, typename R2, typename R3, typename RCompression> inline bool operator<=(Triple<L1, L2, L3, LCompression> const & _left, Triple<R1, R2, R3, RCompression> const & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_base.h"(336)
+template <typename T_, unsigned _size, typename TSpec> inline bool operator<=(Tuple<T_, _size, TSpec> const & _left, Tuple<T_, _size, TSpec> const & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(510)
+template <typename T_, unsigned _size> inline bool operator<=(Tuple<T_, _size, Compressed> const &_left, Tuple<T_, _size, Compressed> const & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_bit_compressed.h"(425)
+template <typename T_, unsigned _size> inline bool operator<=(Tuple<T_, _size, Compressed> &_left, Tuple<T_, _size, Compressed> & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_bit_compressed.h"(432)
 
 //____________________________________________________________________________
 // operator==
 
-template <typename TValue, typename TCount, typename TSpec> inline bool operator==(ProfileChar<TValue, TCount, TSpec> const & lhs, ProfileChar<TValue, TCount, TSpec> const & rhs);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_profile.h"(208)
-template <typename TValue, typename TSpec, typename TRight> inline bool operator==(SimpleType<TValue, TSpec> const & left_, TRight const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(579)
-template <typename TLeft, typename TValue, typename TSpec> inline bool operator==(TLeft const & left_, SimpleType<TValue, TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(589)
-template <typename TLeftValue, typename TLeftSpec, typename TRightValue, typename TRightSpec> inline bool operator==(SimpleType<TLeftValue, TLeftSpec> const & left_, SimpleType<TRightValue, TRightSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(599)
-template <typename TValue, typename TSpec> inline bool operator==(SimpleType<TValue, TSpec> const & left_, SimpleType<TValue, TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(610)
-template <typename TSpec, typename TValue, typename TSpec2> inline bool operator==(Proxy<TSpec> const & left_, SimpleType<TValue, TSpec2> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(618)
-template <typename TSpec, typename TValue, typename TSpec2> inline bool operator==(SimpleType<TValue, TSpec2> const & left_, Proxy<TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(629)
-template <typename TContainer> inline bool operator==(Iter<TContainer, StdIteratorAdaptor> const & left, Iter<TContainer, StdIteratorAdaptor> const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(338)
-template <typename TContainer, typename TIterator, typename TSpec> inline bool operator==(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & left, Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(379)
-template <typename TContainer, typename TIterator, typename TSpec> inline bool operator==(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & left, typename IterComplementConst<TIterator>::Type const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(388)
-template <typename TContainer, typename TIterator, typename TSpec> inline bool operator==(typename IterComplementConst<TIterator>::Type const & left, Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(397)
-template <typename TContainer> inline bool operator==(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(316)
-template <typename TValue, typename TSpec, typename TRhs> inline bool operator==(LogProb<TValue, TSpec> const & lhs, TRhs const & rhs);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_log_space_value.h"(386)
-template <typename L1, typename L2, typename LCompression, typename R1, typename R2, typename RCompression> inline bool operator==(Pair<L1, L2, LCompression> const & _left, Pair<R1, R2, RCompression> const & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_base.h"(319)
-template <typename TSpec, typename TRight> inline bool operator==(Proxy<TSpec> const & left_, TRight const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(137)
-template <typename TLeft, typename TSpec> inline bool operator==(TLeft const & left_, Proxy<TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(148)
-template <typename TLeftSpec, typename TRightSpec> inline bool operator==(Proxy<TLeftSpec> const & left_, Proxy<TRightSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(159)
-template <typename TSpec> inline bool operator==(Proxy<TSpec> const & left_, Proxy<TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(171)
-template <typename L1, typename L2, typename L3, typename LCompression, typename R1, typename R2, typename R3, typename RCompression> inline bool operator==(Triple<L1, L2, L3, LCompression> const & _left, Triple<R1, R2, R3, RCompression> const & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_base.h"(350)
-template <typename T_, unsigned _size, typename TSpec> inline bool operator==(Tuple<T_, _size, TSpec> const & _left, Tuple<T_, _size, TSpec> const & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(420)
-template <typename T_, unsigned _size> inline bool operator==(Tuple<T_, _size, Compressed> const & _left, Tuple<T_, _size, Compressed> const & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(463)
-template <typename T_, unsigned _size> inline bool operator==(Tuple<T_, _size, Compressed> & _left, Tuple<T_, _size, Compressed> & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(470)
+template <typename TValue, typename TCount, typename TSpec> inline bool operator==(ProfileChar<TValue, TCount, TSpec> const & lhs, ProfileChar<TValue, TCount, TSpec> const & rhs);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_profile.h"(208)
+template <typename TValue, typename TSpec, typename TRight> inline bool operator==(SimpleType<TValue, TSpec> const & left_, TRight const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(579)
+template <typename TLeft, typename TValue, typename TSpec> inline bool operator==(TLeft const & left_, SimpleType<TValue, TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(589)
+template <typename TLeftValue, typename TLeftSpec, typename TRightValue, typename TRightSpec> inline bool operator==(SimpleType<TLeftValue, TLeftSpec> const & left_, SimpleType<TRightValue, TRightSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(599)
+template <typename TValue, typename TSpec> inline bool operator==(SimpleType<TValue, TSpec> const & left_, SimpleType<TValue, TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(610)
+template <typename TSpec, typename TValue, typename TSpec2> inline bool operator==(Proxy<TSpec> const & left_, SimpleType<TValue, TSpec2> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(618)
+template <typename TSpec, typename TValue, typename TSpec2> inline bool operator==(SimpleType<TValue, TSpec2> const & left_, Proxy<TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(629)
+template <typename TContainer> inline bool operator==(Iter<TContainer, StdIteratorAdaptor> const & left, Iter<TContainer, StdIteratorAdaptor> const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(338)
+template <typename TContainer, typename TIterator, typename TSpec> inline bool operator==(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & left, Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(379)
+template <typename TContainer, typename TIterator, typename TSpec> inline bool operator==(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & left, typename IterComplementConst<TIterator>::Type const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(388)
+template <typename TContainer, typename TIterator, typename TSpec> inline bool operator==(typename IterComplementConst<TIterator>::Type const & left, Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(397)
+template <typename TContainer> inline bool operator==(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(316)
+template <typename TValue, typename TSpec, typename TRhs> inline bool operator==(LogProb<TValue, TSpec> const & lhs, TRhs const & rhs);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_log_space_value.h"(386)
+template <typename L1, typename L2, typename LCompression, typename R1, typename R2, typename RCompression> inline bool operator==(Pair<L1, L2, LCompression> const & _left, Pair<R1, R2, RCompression> const & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_base.h"(319)
+template <typename TSpec, typename TRight> inline bool operator==(Proxy<TSpec> const & left_, TRight const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(137)
+template <typename TLeft, typename TSpec> inline bool operator==(TLeft const & left_, Proxy<TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(148)
+template <typename TLeftSpec, typename TRightSpec> inline bool operator==(Proxy<TLeftSpec> const & left_, Proxy<TRightSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(159)
+template <typename TSpec> inline bool operator==(Proxy<TSpec> const & left_, Proxy<TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(171)
+template <typename L1, typename L2, typename L3, typename LCompression, typename R1, typename R2, typename R3, typename RCompression> inline bool operator==(Triple<L1, L2, L3, LCompression> const & _left, Triple<R1, R2, R3, RCompression> const & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_base.h"(350)
+template <typename T_, unsigned _size, typename TSpec> inline bool operator==(Tuple<T_, _size, TSpec> const & _left, Tuple<T_, _size, TSpec> const & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(420)
+template <typename T_, unsigned _size> inline bool operator==(Tuple<T_, _size, Compressed> const & _left, Tuple<T_, _size, Compressed> const & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_bit_compressed.h"(463)
+template <typename T_, unsigned _size> inline bool operator==(Tuple<T_, _size, Compressed> & _left, Tuple<T_, _size, Compressed> & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_bit_compressed.h"(470)
 
 //____________________________________________________________________________
 // operator>
 
-template <typename TValue, typename TSpec, typename TRight> inline bool operator>(SimpleType<TValue, TSpec> const & left_, TRight const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(837)
-template <typename TLeft, typename TValue, typename TSpec> inline bool operator>(TLeft const & left_, SimpleType<TValue, TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(847)
-template <typename TLeftValue, typename TLeftSpec, typename TRightValue, typename TRightSpec> inline bool operator>(SimpleType<TLeftValue, TLeftSpec> const & left_, SimpleType<TRightValue, TRightSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(857)
-template <typename TValue, typename TSpec> inline bool operator>(SimpleType<TValue, TSpec> const & left_, SimpleType<TValue, TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(868)
-template <typename TSpec, typename TValue, typename TSpec2> inline bool operator>(Proxy<TSpec> const & left_, SimpleType<TValue, TSpec2> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(876)
-template <typename TSpec, typename TValue, typename TSpec2> inline bool operator>(SimpleType<TValue, TSpec2> const & left_, Proxy<TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(887)
-template <typename TContainer> inline bool operator>(Iter<TContainer, StdIteratorAdaptor> const & left, Iter<TContainer, StdIteratorAdaptor> const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(377)
-template <typename TContainer> inline bool operator>(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(351)
-template <typename TValue, typename TSpec, typename TRhs> inline bool operator>(LogProb<TValue, TSpec> const & lhs, TRhs const & rhs);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_log_space_value.h"(425)
-template <typename L1, typename L2, typename LCompression, typename R1, typename R2, typename RCompression> inline bool operator>(Pair<L1, L2, LCompression> const & _left, Pair<R1, R2, RCompression> const & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_base.h"(307)
-template <typename TSpec, typename TRight> inline bool operator>(Proxy<TSpec> const & left_, TRight const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(330)
-template <typename TLeft, typename TSpec> inline bool operator>(TLeft const & left_, Proxy<TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(341)
-template <typename TLeftSpec, typename TRightSpec> inline bool operator>(Proxy<TLeftSpec> const & left_, Proxy<TRightSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(352)
-template <typename TSpec> inline bool operator>(Proxy<TSpec> const & left_, Proxy<TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(364)
-template <typename L1, typename L2, typename L3, typename LCompression, typename R1, typename R2, typename R3, typename RCompression> inline bool operator>(Triple<L1, L2, L3, LCompression> const & _left, Triple<R1, R2, R3, RCompression> const & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_base.h"(322)
-template <typename T_, unsigned _size, typename TSpec> inline bool operator>(Tuple<T_, _size, TSpec> const & _left, Tuple<T_, _size, TSpec> const & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(495)
-template <typename T_, unsigned _size> inline bool operator>(Tuple<T_, _size, Compressed> const &_left, Tuple<T_, _size, Compressed> const & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(406)
-template <typename T_, unsigned _size> inline bool operator>(Tuple<T_, _size, Compressed> &_left, Tuple<T_, _size, Compressed> & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(413)
+template <typename TValue, typename TSpec, typename TRight> inline bool operator>(SimpleType<TValue, TSpec> const & left_, TRight const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(837)
+template <typename TLeft, typename TValue, typename TSpec> inline bool operator>(TLeft const & left_, SimpleType<TValue, TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(847)
+template <typename TLeftValue, typename TLeftSpec, typename TRightValue, typename TRightSpec> inline bool operator>(SimpleType<TLeftValue, TLeftSpec> const & left_, SimpleType<TRightValue, TRightSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(857)
+template <typename TValue, typename TSpec> inline bool operator>(SimpleType<TValue, TSpec> const & left_, SimpleType<TValue, TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(868)
+template <typename TSpec, typename TValue, typename TSpec2> inline bool operator>(Proxy<TSpec> const & left_, SimpleType<TValue, TSpec2> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(876)
+template <typename TSpec, typename TValue, typename TSpec2> inline bool operator>(SimpleType<TValue, TSpec2> const & left_, Proxy<TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(887)
+template <typename TContainer> inline bool operator>(Iter<TContainer, StdIteratorAdaptor> const & left, Iter<TContainer, StdIteratorAdaptor> const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(377)
+template <typename TContainer> inline bool operator>(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(351)
+template <typename TValue, typename TSpec, typename TRhs> inline bool operator>(LogProb<TValue, TSpec> const & lhs, TRhs const & rhs);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_log_space_value.h"(425)
+template <typename L1, typename L2, typename LCompression, typename R1, typename R2, typename RCompression> inline bool operator>(Pair<L1, L2, LCompression> const & _left, Pair<R1, R2, RCompression> const & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_base.h"(307)
+template <typename TSpec, typename TRight> inline bool operator>(Proxy<TSpec> const & left_, TRight const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(330)
+template <typename TLeft, typename TSpec> inline bool operator>(TLeft const & left_, Proxy<TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(341)
+template <typename TLeftSpec, typename TRightSpec> inline bool operator>(Proxy<TLeftSpec> const & left_, Proxy<TRightSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(352)
+template <typename TSpec> inline bool operator>(Proxy<TSpec> const & left_, Proxy<TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(364)
+template <typename L1, typename L2, typename L3, typename LCompression, typename R1, typename R2, typename R3, typename RCompression> inline bool operator>(Triple<L1, L2, L3, LCompression> const & _left, Triple<R1, R2, R3, RCompression> const & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_base.h"(322)
+template <typename T_, unsigned _size, typename TSpec> inline bool operator>(Tuple<T_, _size, TSpec> const & _left, Tuple<T_, _size, TSpec> const & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(495)
+template <typename T_, unsigned _size> inline bool operator>(Tuple<T_, _size, Compressed> const &_left, Tuple<T_, _size, Compressed> const & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_bit_compressed.h"(406)
+template <typename T_, unsigned _size> inline bool operator>(Tuple<T_, _size, Compressed> &_left, Tuple<T_, _size, Compressed> & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_bit_compressed.h"(413)
 
 //____________________________________________________________________________
 // operator>=
 
-template <typename TValue, typename TSpec, typename TRight> inline bool operator>=(SimpleType<TValue, TSpec> const & left_, TRight const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(902)
-template <typename TLeft, typename TValue, typename TSpec> inline bool operator>=(TLeft const & left_, SimpleType<TValue, TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(912)
-template <typename TLeftValue, typename TLeftSpec, typename TRightValue, typename TRightSpec> inline bool operator>=(SimpleType<TLeftValue, TLeftSpec> const & left_, SimpleType<TRightValue, TRightSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(922)
-template <typename TValue, typename TSpec> inline bool operator>=(SimpleType<TValue, TSpec> const & left_, SimpleType<TValue, TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(933)
-template <typename TSpec, typename TValue, typename TSpec2> inline bool operator>=(Proxy<TSpec> const & left_, SimpleType<TValue, TSpec2> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(941)
-template <typename TSpec, typename TValue, typename TSpec2> inline bool operator>=(SimpleType<TValue, TSpec2> const & left_, Proxy<TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(951)
-template <typename TContainer> inline bool operator>=(Iter<TContainer, StdIteratorAdaptor> const & left, Iter<TContainer, StdIteratorAdaptor> const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(402)
-template <typename TContainer> inline bool operator>=(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(377)
-template <typename TValue, typename TSpec, typename TRhs> inline bool operator>=(LogProb<TValue, TSpec> const & lhs, TRhs const & rhs);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/math_log_space_value.h"(451)
-template <typename L1, typename L2, typename LCompression, typename R1, typename R2, typename RCompression> inline bool operator>=(Pair<L1, L2, LCompression> const & _left, Pair<R1, R2, RCompression> const & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_base.h"(343)
-template <typename TSpec, typename TRight> inline bool operator>=(Proxy<TSpec> const & left_, TRight const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(378)
-template <typename TLeft, typename TSpec> inline bool operator>=(TLeft const & left_, Proxy<TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(389)
-template <typename TLeftSpec, typename TRightSpec> inline bool operator>=(Proxy<TLeftSpec> const & left_, Proxy<TRightSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(400)
-template <typename TSpec> inline bool operator>=(Proxy<TSpec> const & left_, Proxy<TSpec> const & right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(412)
-template <typename L1, typename L2, typename L3, typename LCompression, typename R1, typename R2, typename R3, typename RCompression> inline bool operator>=(Triple<L1, L2, L3, LCompression> const & _left, Triple<R1, R2, R3, RCompression> const & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_base.h"(364)
-template <typename T_, unsigned _size, typename TSpec> inline bool operator>=(Tuple<T_, _size, TSpec> const & _left, Tuple<T_, _size, TSpec> const & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(522)
-template <typename T_, unsigned _size> inline bool operator>=(Tuple<T_, _size, Compressed> const &_left, Tuple<T_, _size, Compressed> const & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(444)
-template <typename T_, unsigned _size> inline bool operator>=(Tuple<T_, _size, Compressed> &_left, Tuple<T_, _size, Compressed> & _right);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(451)
+template <typename TValue, typename TSpec, typename TRight> inline bool operator>=(SimpleType<TValue, TSpec> const & left_, TRight const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(902)
+template <typename TLeft, typename TValue, typename TSpec> inline bool operator>=(TLeft const & left_, SimpleType<TValue, TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(912)
+template <typename TLeftValue, typename TLeftSpec, typename TRightValue, typename TRightSpec> inline bool operator>=(SimpleType<TLeftValue, TLeftSpec> const & left_, SimpleType<TRightValue, TRightSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(922)
+template <typename TValue, typename TSpec> inline bool operator>=(SimpleType<TValue, TSpec> const & left_, SimpleType<TValue, TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(933)
+template <typename TSpec, typename TValue, typename TSpec2> inline bool operator>=(Proxy<TSpec> const & left_, SimpleType<TValue, TSpec2> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(941)
+template <typename TSpec, typename TValue, typename TSpec2> inline bool operator>=(SimpleType<TValue, TSpec2> const & left_, Proxy<TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(951)
+template <typename TContainer> inline bool operator>=(Iter<TContainer, StdIteratorAdaptor> const & left, Iter<TContainer, StdIteratorAdaptor> const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(402)
+template <typename TContainer> inline bool operator>=(Iter<TContainer, PositionIterator> const & left, Iter<TContainer, PositionIterator> const & right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(377)
+template <typename TValue, typename TSpec, typename TRhs> inline bool operator>=(LogProb<TValue, TSpec> const & lhs, TRhs const & rhs);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/math_log_space_value.h"(451)
+template <typename L1, typename L2, typename LCompression, typename R1, typename R2, typename RCompression> inline bool operator>=(Pair<L1, L2, LCompression> const & _left, Pair<R1, R2, RCompression> const & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_base.h"(343)
+template <typename TSpec, typename TRight> inline bool operator>=(Proxy<TSpec> const & left_, TRight const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(378)
+template <typename TLeft, typename TSpec> inline bool operator>=(TLeft const & left_, Proxy<TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(389)
+template <typename TLeftSpec, typename TRightSpec> inline bool operator>=(Proxy<TLeftSpec> const & left_, Proxy<TRightSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(400)
+template <typename TSpec> inline bool operator>=(Proxy<TSpec> const & left_, Proxy<TSpec> const & right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(412)
+template <typename L1, typename L2, typename L3, typename LCompression, typename R1, typename R2, typename R3, typename RCompression> inline bool operator>=(Triple<L1, L2, L3, LCompression> const & _left, Triple<R1, R2, R3, RCompression> const & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_base.h"(364)
+template <typename T_, unsigned _size, typename TSpec> inline bool operator>=(Tuple<T_, _size, TSpec> const & _left, Tuple<T_, _size, TSpec> const & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(522)
+template <typename T_, unsigned _size> inline bool operator>=(Tuple<T_, _size, Compressed> const &_left, Tuple<T_, _size, Compressed> const & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_bit_compressed.h"(444)
+template <typename T_, unsigned _size> inline bool operator>=(Tuple<T_, _size, Compressed> &_left, Tuple<T_, _size, Compressed> & _right);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_bit_compressed.h"(451)
 
 //____________________________________________________________________________
 // operator>>
 
-template <typename TStream, typename TValue, typename TSpec> inline TStream & operator>>(TStream & stream, SimpleType<TValue, TSpec> & data);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(358)
-template <typename TStream, typename TSpec> inline TStream & operator>>(TStream & strm, Proxy<TSpec> & proxy);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(426)
-template <typename TStream, typename TSpec> inline TStream & operator>>(TStream & strm, Proxy<TSpec> const& proxy);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/proxy_base.h"(439)
+template <typename TStream, typename TValue, typename TSpec> inline TStream & operator>>(TStream & stream, SimpleType<TValue, TSpec> & data);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(358)
+template <typename TStream, typename TSpec> inline TStream & operator>>(TStream & strm, Proxy<TSpec> & proxy);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(426)
+template <typename TStream, typename TSpec> inline TStream & operator>>(TStream & strm, Proxy<TSpec> const& proxy);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/proxy_base.h"(439)
 
 //____________________________________________________________________________
 // ordValue
 
-template <typename TValue, typename TSpec> inline typename ValueSize<SimpleType<TValue, TSpec> >::Type ordValue(SimpleType<TValue, TSpec> const & c);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(1034)
-template <typename TValue> inline typename ValueSize<TValue>::Type ordValue(TValue const & c);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_storage.h"(238)
+template <typename TValue, typename TSpec> inline typename ValueSize<SimpleType<TValue, TSpec> >::Type ordValue(SimpleType<TValue, TSpec> const & c);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(1034)
+template <typename TValue> inline typename ValueSize<TValue>::Type ordValue(TValue const & c);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_storage.h"(238)
 
 //____________________________________________________________________________
 // parentAllocator
 
-template <size_t SIZE, size_t MAX_COUNT, typename TParentAllocator> inline TParentAllocator & parentAllocator(Allocator<ChunkPool<SIZE, MAX_COUNT, TParentAllocator> > & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_chunkpool.h"(179)
-template <typename TParentAllocator, unsigned int BLOCKING_LIMIT> inline TParentAllocator & parentAllocator(Allocator<MultiPool<TParentAllocator, BLOCKING_LIMIT> > & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_multipool.h"(150)
-template <typename TParentAllocator> inline TParentAllocator & parentAllocator(Allocator<SimpleAlloc<TParentAllocator> > & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_simple.h"(131)
-template <size_t SIZE, typename TParentAllocator> inline TParentAllocator & parentAllocator(Allocator<SinglePool<SIZE, TParentAllocator> > & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/allocator_singlepool.h"(170)
+template <size_t SIZE, size_t MAX_COUNT, typename TParentAllocator> inline TParentAllocator & parentAllocator(Allocator<ChunkPool<SIZE, MAX_COUNT, TParentAllocator> > & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_chunkpool.h"(179)
+template <typename TParentAllocator, unsigned int BLOCKING_LIMIT> inline TParentAllocator & parentAllocator(Allocator<MultiPool<TParentAllocator, BLOCKING_LIMIT> > & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_multipool.h"(150)
+template <typename TParentAllocator> inline TParentAllocator & parentAllocator(Allocator<SimpleAlloc<TParentAllocator> > & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_simple.h"(131)
+template <size_t SIZE, typename TParentAllocator> inline TParentAllocator & parentAllocator(Allocator<SinglePool<SIZE, TParentAllocator> > & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/allocator_singlepool.h"(170)
 
 //____________________________________________________________________________
 // position
 
-template <typename TContainer, typename TIterator, typename TSpec> inline typename Position<Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const>::Type position(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(273)
-template <typename TContainer, typename TIterator, typename TSpec, typename TContainer2> inline typename Position<Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const>::Type position(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & me, TContainer2 const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(282)
-template <typename TContainer, typename TSpec, typename TContainer2> inline typename Position<Iter<TContainer, TSpec> const>::Type position(Iter<TContainer, TSpec> const & me, TContainer2 const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_base.h"(363)
-template <typename T> inline typename Position<T>::Type position(T * );       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(418)
-template <typename TContainer, typename TIterator> inline typename Position<TContainer>::Type position(TIterator const & it, TContainer const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(428)
-template <typename TContainer> inline typename Position<TContainer>::Type & position(Iter<TContainer, PositionIterator> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(210)
-template <typename TContainer> inline typename Position<TContainer>::Type const & position(Iter<TContainer, PositionIterator> const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(218)
+template <typename TContainer, typename TIterator, typename TSpec> inline typename Position<Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const>::Type position(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(273)
+template <typename TContainer, typename TIterator, typename TSpec, typename TContainer2> inline typename Position<Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const>::Type position(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & me, TContainer2 const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(282)
+template <typename TContainer, typename TSpec, typename TContainer2> inline typename Position<Iter<TContainer, TSpec> const>::Type position(Iter<TContainer, TSpec> const & me, TContainer2 const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_base.h"(363)
+template <typename T> inline typename Position<T>::Type position(T * );       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(418)
+template <typename TContainer, typename TIterator> inline typename Position<TContainer>::Type position(TIterator const & it, TContainer const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(428)
+template <typename TContainer> inline typename Position<TContainer>::Type & position(Iter<TContainer, PositionIterator> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(210)
+template <typename TContainer> inline typename Position<TContainer>::Type const & position(Iter<TContainer, PositionIterator> const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(218)
 
 //____________________________________________________________________________
 // set
 
-template <typename TTarget, typename TSource> inline void set(TTarget & target, TSource & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_transport.h"(165)
-template <typename TTarget, typename TSource> inline void set(TTarget const & target, TSource & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_transport.h"(174)
-template <typename TTarget, typename TSource> inline void set(TTarget & target, TSource const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_transport.h"(183)
-template <typename TTarget, typename TSource> inline void set(TTarget const & target, TSource const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/fundamental_transport.h"(192)
-template <typename T1_, typename T2_, typename TSpec> inline void set(Pair<T1_, T2_, TSpec> & p1, Pair<T1_, T2_, TSpec> & p2);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_base.h"(185)
-template <typename T1_, typename T2_, unsigned BITSIZE1, unsigned BITSIZE2> inline void set(Pair<T1_, T2_, BitCompressed<BITSIZE1, BITSIZE2> > & p1, Pair<T1_, T2_, BitCompressed<BITSIZE1, BITSIZE2> > & p2);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_bit_compressed.h"(117)
-template <typename T1_, typename T2_> inline void set(Pair<T1_, T2_, Compressed> & p1, Pair<T1_, T2_, Compressed> & p2);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_packed.h"(129)
-template <typename T1, typename T2, typename T3, typename T> inline void set(Triple<T1, T2, T3, Compressed> & t1, Triple<T1, T2, T3, Compressed> & t2);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_packed.h"(127)
-template <typename T_, unsigned _size> inline void set(Tuple<T_, _size, void> & t1, Tuple<T_, _size, void> const & t2);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(211)
-template <typename T_, unsigned _size> inline void set(Tuple<T_, _size, void> & t1, Tuple<T_, _size, void> & t2);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(221)
+template <typename TTarget, typename TSource> inline void set(TTarget & target, TSource & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_transport.h"(165)
+template <typename TTarget, typename TSource> inline void set(TTarget const & target, TSource & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_transport.h"(174)
+template <typename TTarget, typename TSource> inline void set(TTarget & target, TSource const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_transport.h"(183)
+template <typename TTarget, typename TSource> inline void set(TTarget const & target, TSource const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/fundamental_transport.h"(192)
+template <typename T1_, typename T2_, typename TSpec> inline void set(Pair<T1_, T2_, TSpec> & p1, Pair<T1_, T2_, TSpec> & p2);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_base.h"(185)
+template <typename T1_, typename T2_, unsigned BITSIZE1, unsigned BITSIZE2> inline void set(Pair<T1_, T2_, BitCompressed<BITSIZE1, BITSIZE2> > & p1, Pair<T1_, T2_, BitCompressed<BITSIZE1, BITSIZE2> > & p2);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_bit_compressed.h"(117)
+template <typename T1_, typename T2_> inline void set(Pair<T1_, T2_, Compressed> & p1, Pair<T1_, T2_, Compressed> & p2);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_packed.h"(129)
+template <typename T1, typename T2, typename T3, typename T> inline void set(Triple<T1, T2, T3, Compressed> & t1, Triple<T1, T2, T3, Compressed> & t2);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_packed.h"(127)
+template <typename T_, unsigned _size> inline void set(Tuple<T_, _size, void> & t1, Tuple<T_, _size, void> const & t2);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(211)
+template <typename T_, unsigned _size> inline void set(Tuple<T_, _size, void> & t1, Tuple<T_, _size, void> & t2);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(221)
 
 //____________________________________________________________________________
 // setContainer
 
-template <typename TContainer, typename TIterator, typename TSpec> inline void setContainer(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & me, typename Parameter_<TContainer>::Type container_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(222)
-template <typename TContainer> inline void setContainer(Iter<TContainer, PositionIterator> & me, typename Parameter_<TContainer>::Type container_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(193)
+template <typename TContainer, typename TIterator, typename TSpec> inline void setContainer(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & me, typename Parameter_<TContainer>::Type container_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(222)
+template <typename TContainer> inline void setContainer(Iter<TContainer, PositionIterator> & me, typename Parameter_<TContainer>::Type container_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(193)
 
 //____________________________________________________________________________
 // setHost
 
-template <typename T, typename THost> inline void setHost(T & me, THost & host_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/hosted_type_interface.h"(226)
-template <typename T, typename THost> inline void setHost(T & me, THost const & host_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/hosted_type_interface.h"(235)
+template <typename T, typename THost> inline void setHost(T & me, THost & host_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/hosted_type_interface.h"(226)
+template <typename T, typename THost> inline void setHost(T & me, THost const & host_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/hosted_type_interface.h"(235)
 
 //____________________________________________________________________________
 // setPosition
 
-template <typename TContainer, typename TIterator, typename TSpec, typename TPosition> inline void setPosition(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & me, TPosition pos_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(303)
-template <typename TContainer, typename TPosition> inline void setPosition(Iter<TContainer, PositionIterator> & me, TPosition position_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(232)
+template <typename TContainer, typename TIterator, typename TSpec, typename TPosition> inline void setPosition(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & me, TPosition pos_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(303)
+template <typename TContainer, typename TPosition> inline void setPosition(Iter<TContainer, PositionIterator> & me, TPosition position_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(232)
 
 //____________________________________________________________________________
 // setValue
 
-template <typename TValue> inline void setValue(Holder<TValue, Simple> & me, TValue const & value_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_simple.h"(239)
-template <typename TValue> inline void setValue(Holder<TValue, Tristate> & me, TValue & value_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(815)
-template <typename TValue> inline void setValue(Holder<TValue const, Tristate> & me, TValue & value_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(826)
-template <typename TValue> inline void setValue(Holder<TValue *, Tristate> & me, TValue * & value_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(842)
-template <typename TValue> inline void setValue(Holder<TValue *, Tristate> & me, TValue * const & value_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(853)
-template <typename TValue> inline void setValue(Holder<TValue * const, Tristate> & me, TValue * & value_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(864)
-template <typename TValue> inline void setValue(Holder<TValue * const, Tristate> & me, TValue * const & value_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(875)
-template <typename TValue, typename TValue2> inline void setValue(Holder<TValue, Tristate> & me, TValue2 & value_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(931)
-template <typename TValue, typename TValue2> inline void setValue(Holder<TValue, Tristate> & me, TValue2 const & value_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(940)
-template <typename T, typename TValue> inline void setValue(T * & ptr, TValue & _value);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(352)
-template <typename T, typename TValue> inline void setValue(T const * & ptr, TValue const & _value);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(362)
-template <typename T_, unsigned _size, typename tmpS, typename TPos> inline void setValue(Tuple<T_, _size, void> & me, TPos k, tmpS const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(309)
-template <typename T_, unsigned _size, typename tmpS, typename TPos> inline tmpS const setValue(Tuple<T_, _size, Compressed> & me, TPos k, tmpS const source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(313)
-template <typename T_, typename tmpS, typename Spec_, unsigned _size, typename TPos> inline SimpleType<tmpS, Spec_> const & setValue(Tuple<T_, _size, Compressed> & me, TPos k, SimpleType<tmpS, Spec_> const & source);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(322)
+template <typename TValue> inline void setValue(Holder<TValue, Simple> & me, TValue const & value_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_simple.h"(239)
+template <typename TValue> inline void setValue(Holder<TValue, Tristate> & me, TValue & value_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(815)
+template <typename TValue> inline void setValue(Holder<TValue const, Tristate> & me, TValue & value_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(826)
+template <typename TValue> inline void setValue(Holder<TValue *, Tristate> & me, TValue * & value_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(842)
+template <typename TValue> inline void setValue(Holder<TValue *, Tristate> & me, TValue * const & value_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(853)
+template <typename TValue> inline void setValue(Holder<TValue * const, Tristate> & me, TValue * & value_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(864)
+template <typename TValue> inline void setValue(Holder<TValue * const, Tristate> & me, TValue * const & value_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(875)
+template <typename TValue, typename TValue2> inline void setValue(Holder<TValue, Tristate> & me, TValue2 & value_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(931)
+template <typename TValue, typename TValue2> inline void setValue(Holder<TValue, Tristate> & me, TValue2 const & value_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(940)
+template <typename T, typename TValue> inline void setValue(T * & ptr, TValue & _value);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(352)
+template <typename T, typename TValue> inline void setValue(T const * & ptr, TValue const & _value);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(362)
+template <typename T_, unsigned _size, typename tmpS, typename TPos> inline void setValue(Tuple<T_, _size, void> & me, TPos k, tmpS const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(309)
+template <typename T_, unsigned _size, typename tmpS, typename TPos> inline tmpS const setValue(Tuple<T_, _size, Compressed> & me, TPos k, tmpS const source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_bit_compressed.h"(313)
+template <typename T_, typename tmpS, typename Spec_, unsigned _size, typename TPos> inline SimpleType<tmpS, Spec_> const & setValue(Tuple<T_, _size, Compressed> & me, TPos k, SimpleType<tmpS, Spec_> const & source);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_bit_compressed.h"(322)
 
 //____________________________________________________________________________
 // setValueI1
 
-template <typename T1, typename T2, typename TSpec, typename T> inline void setValueI1(Pair<T1, T2, TSpec> & pair, T const & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_base.h"(259)
-template <typename T1, typename T2, typename T, unsigned BITSIZE1, unsigned BITSIZE2> inline void setValueI1(Pair<T1, T2, BitCompressed<BITSIZE1, BITSIZE2> > & pair, T const & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_bit_compressed.h"(142)
-template <typename T1, typename T2, typename T> inline void setValueI1(Pair<T1, T2, Compressed> & pair, T const & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_packed.h"(154)
-template <typename T1, typename T2, typename T3, typename TSpec, typename T> inline void setValueI1(Triple<T1, T2, T3, TSpec> & triple, T const & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_base.h"(260)
-template <typename T1, typename T2, typename T3, typename T> inline void setValueI1(Triple<T1, T2, T3, Compressed> & triple, T const & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_packed.h"(152)
+template <typename T1, typename T2, typename TSpec, typename T> inline void setValueI1(Pair<T1, T2, TSpec> & pair, T const & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_base.h"(259)
+template <typename T1, typename T2, typename T, unsigned BITSIZE1, unsigned BITSIZE2> inline void setValueI1(Pair<T1, T2, BitCompressed<BITSIZE1, BITSIZE2> > & pair, T const & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_bit_compressed.h"(142)
+template <typename T1, typename T2, typename T> inline void setValueI1(Pair<T1, T2, Compressed> & pair, T const & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_packed.h"(154)
+template <typename T1, typename T2, typename T3, typename TSpec, typename T> inline void setValueI1(Triple<T1, T2, T3, TSpec> & triple, T const & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_base.h"(260)
+template <typename T1, typename T2, typename T3, typename T> inline void setValueI1(Triple<T1, T2, T3, Compressed> & triple, T const & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_packed.h"(152)
 
 //____________________________________________________________________________
 // setValueI2
 
-template <typename T1, typename T2, typename TSpec, typename T> inline void setValueI2(Pair<T1, T2, TSpec> & pair, T const & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_base.h"(265)
-template <typename T1, typename T2, typename T, unsigned BITSIZE1, unsigned BITSIZE2> inline void setValueI2(Pair<T1, T2, BitCompressed<BITSIZE1, BITSIZE2> > & pair, T const & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_bit_compressed.h"(148)
-template <typename T1, typename T2, typename T> inline void setValueI2(Pair<T1, T2, Compressed> & pair, T const & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/pair_packed.h"(160)
-template <typename T1, typename T2, typename T3, typename TSpec, typename T> inline void setValueI2(Triple<T1, T2, T3, TSpec> & triple, T const & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_base.h"(266)
-template <typename T1, typename T2, typename T3, typename T> inline void setValueI2(Triple<T1, T2, T3, Compressed> & triple, T const & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_packed.h"(158)
+template <typename T1, typename T2, typename TSpec, typename T> inline void setValueI2(Pair<T1, T2, TSpec> & pair, T const & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_base.h"(265)
+template <typename T1, typename T2, typename T, unsigned BITSIZE1, unsigned BITSIZE2> inline void setValueI2(Pair<T1, T2, BitCompressed<BITSIZE1, BITSIZE2> > & pair, T const & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_bit_compressed.h"(148)
+template <typename T1, typename T2, typename T> inline void setValueI2(Pair<T1, T2, Compressed> & pair, T const & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/pair_packed.h"(160)
+template <typename T1, typename T2, typename T3, typename TSpec, typename T> inline void setValueI2(Triple<T1, T2, T3, TSpec> & triple, T const & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_base.h"(266)
+template <typename T1, typename T2, typename T3, typename T> inline void setValueI2(Triple<T1, T2, T3, Compressed> & triple, T const & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_packed.h"(158)
 
 //____________________________________________________________________________
 // setValueI3
 
-template <typename T1, typename T2, typename T3, typename TSpec, typename T> inline void setValueI3(Triple<T1, T2, T3, TSpec> & triple, T const & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_base.h"(272)
-template <typename T1, typename T2, typename T3, typename T> inline void setValueI3(Triple<T1, T2, T3, Compressed> & triple, T const & _i);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/triple_packed.h"(164)
+template <typename T1, typename T2, typename T3, typename TSpec, typename T> inline void setValueI3(Triple<T1, T2, T3, TSpec> & triple, T const & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_base.h"(272)
+template <typename T1, typename T2, typename T3, typename T> inline void setValueI3(Triple<T1, T2, T3, Compressed> & triple, T const & _i);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/triple_packed.h"(164)
 
 //____________________________________________________________________________
 // shiftLeft
 
-template <typename T_, unsigned _size, typename TSpec> inline void shiftLeft(Tuple<T_, _size, TSpec> &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(343)
-template <typename T_, unsigned _size> inline void shiftLeft(Tuple<T_, _size, Compressed> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(355)
+template <typename T_, unsigned _size, typename TSpec> inline void shiftLeft(Tuple<T_, _size, TSpec> &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(343)
+template <typename T_, unsigned _size> inline void shiftLeft(Tuple<T_, _size, Compressed> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_bit_compressed.h"(355)
 
 //____________________________________________________________________________
 // shiftRight
 
-template <typename T_, unsigned _size, typename TSpec> inline void shiftRight(Tuple<T_, _size, TSpec> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_base.h"(364)
-template <typename T_, unsigned _size> inline void shiftRight(Tuple<T_, _size, Compressed> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/tuple_bit_compressed.h"(365)
+template <typename T_, unsigned _size, typename TSpec> inline void shiftRight(Tuple<T_, _size, TSpec> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_base.h"(364)
+template <typename T_, unsigned _size> inline void shiftRight(Tuple<T_, _size, Compressed> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/tuple_bit_compressed.h"(365)
 
 //____________________________________________________________________________
 // supremumValueImpl
 
-template <typename T> inline T const & supremumValueImpl(T *);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_adapt_builtins.h"(169)
-inline long double const & supremumValueImpl(long double *);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_adapt_builtins.h"(176)
-inline double const & supremumValueImpl(double *);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_adapt_builtins.h"(187)
-inline float const & supremumValueImpl(float *);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_adapt_builtins.h"(197)
-template <typename TValue, typename TSpec> inline SimpleType<TValue, TSpec> const & supremumValueImpl(SimpleType<TValue, TSpec> *);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_simple_type.h"(278)
+template <typename T> inline T const & supremumValueImpl(T *);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_adapt_builtins.h"(169)
+inline long double const & supremumValueImpl(long double *);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_adapt_builtins.h"(176)
+inline double const & supremumValueImpl(double *);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_adapt_builtins.h"(187)
+inline float const & supremumValueImpl(float *);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_adapt_builtins.h"(197)
+template <typename TValue, typename TSpec> inline SimpleType<TValue, TSpec> const & supremumValueImpl(SimpleType<TValue, TSpec> *);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_simple_type.h"(278)
 
 //____________________________________________________________________________
 // unknownValue
 
-template <typename T> inline T unknownValue();       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_bio.h"(94)
+template <typename T> inline T unknownValue();       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_bio.h"(94)
 
 //____________________________________________________________________________
 // unknownValueImpl
 
-inline char const & unknownValueImpl(char *);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_adapt_builtins.h"(150)
-inline char const & unknownValueImpl(char const *);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_adapt_builtins.h"(157)
-inline Dna5 unknownValueImpl(Dna5 *);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(150)
-inline Dna5Q unknownValueImpl(Dna5Q *);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(310)
-inline Rna5 unknownValueImpl(Rna5 *);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(449)
-inline Iupac unknownValueImpl(Iupac *);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(493)
-inline AminoAcid unknownValueImpl(AminoAcid *);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_residue.h"(539)
-template <typename T> inline T unknownValueImpl(T *);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/basic_tangle.h"(144)
+inline char const & unknownValueImpl(char *);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_adapt_builtins.h"(150)
+inline char const & unknownValueImpl(char const *);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_adapt_builtins.h"(157)
+inline Dna5 unknownValueImpl(Dna5 *);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(150)
+inline Dna5Q unknownValueImpl(Dna5Q *);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(310)
+inline Rna5 unknownValueImpl(Rna5 *);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(449)
+inline Iupac unknownValueImpl(Iupac *);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(493)
+inline AminoAcid unknownValueImpl(AminoAcid *);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_residue.h"(539)
+template <typename T> inline T unknownValueImpl(T *);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/basic_tangle.h"(144)
 
 //____________________________________________________________________________
 // value
 
-template <typename T> inline T & value(T * me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(196)
-template <typename TValue> inline typename Reference<Holder<TValue, Simple> >::Type value(Holder<TValue, Simple> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_simple.h"(251)
-template <typename TValue> inline typename Reference<Holder<TValue, Simple> const>::Type value(Holder<TValue, Simple> const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_simple.h"(259)
-template <typename TValue> inline typename Reference<Holder<TValue, Tristate> >::Type value(Holder<TValue, Tristate> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(954)
-template <typename TValue> inline typename Reference<Holder<TValue, Tristate> const>::Type value(Holder<TValue, Tristate> const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/holder_tristate.h"(969)
-template <typename TContainer> inline typename Reference<Iter<TContainer, StdIteratorAdaptor> >::Type value(Iter<TContainer, StdIteratorAdaptor> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(280)
-template <typename TContainer> inline typename Reference<Iter<TContainer, StdIteratorAdaptor> const>::Type value(Iter<TContainer, StdIteratorAdaptor> const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adapt_std.h"(287)
-template <typename TContainer, typename TIterator, typename TSpec> inline typename Reference<Iter<TContainer, AdaptorIterator<TIterator, TSpec> > >::Type value(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(315)
-template <typename TContainer, typename TIterator, typename TSpec> inline typename Reference<Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const>::Type value(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_adaptor.h"(323)
-template <typename T> inline typename Reference<T>::Type value(T & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(212)
-template <typename T> inline typename Reference<T const>::Type value(T const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_interface.h"(220)
-template <typename TContainer> inline typename Reference<Iter<TContainer, PositionIterator> >::Type value(Iter<TContainer, PositionIterator> & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(244)
-template <typename TContainer> inline typename Reference<Iter<TContainer, PositionIterator> >::Type value(Iter<TContainer, PositionIterator> const & me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/iterator_position.h"(252)
+template <typename T> inline T & value(T * me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(196)
+template <typename TValue> inline typename Reference<Holder<TValue, Simple> >::Type value(Holder<TValue, Simple> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_simple.h"(251)
+template <typename TValue> inline typename Reference<Holder<TValue, Simple> const>::Type value(Holder<TValue, Simple> const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_simple.h"(259)
+template <typename TValue> inline typename Reference<Holder<TValue, Tristate> >::Type value(Holder<TValue, Tristate> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(954)
+template <typename TValue> inline typename Reference<Holder<TValue, Tristate> const>::Type value(Holder<TValue, Tristate> const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/holder_tristate.h"(969)
+template <typename TContainer> inline typename Reference<Iter<TContainer, StdIteratorAdaptor> >::Type value(Iter<TContainer, StdIteratorAdaptor> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(280)
+template <typename TContainer> inline typename Reference<Iter<TContainer, StdIteratorAdaptor> const>::Type value(Iter<TContainer, StdIteratorAdaptor> const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adapt_std.h"(287)
+template <typename TContainer, typename TIterator, typename TSpec> inline typename Reference<Iter<TContainer, AdaptorIterator<TIterator, TSpec> > >::Type value(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(315)
+template <typename TContainer, typename TIterator, typename TSpec> inline typename Reference<Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const>::Type value(Iter<TContainer, AdaptorIterator<TIterator, TSpec> > const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_adaptor.h"(323)
+template <typename T> inline typename Reference<T>::Type value(T & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(212)
+template <typename T> inline typename Reference<T const>::Type value(T const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_interface.h"(220)
+template <typename TContainer> inline typename Reference<Iter<TContainer, PositionIterator> >::Type value(Iter<TContainer, PositionIterator> & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(244)
+template <typename TContainer> inline typename Reference<Iter<TContainer, PositionIterator> >::Type value(Iter<TContainer, PositionIterator> const & me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/iterator_position.h"(252)
 
 //____________________________________________________________________________
 // valueConstruct
 
-template <typename TIterator> inline void valueConstruct(TIterator it);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(291)
-template <typename TIterator, typename TParam> inline void valueConstruct(TIterator it, TParam const & param_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(311)
-template <typename TIterator, typename TParam> inline void valueConstruct(TIterator it, TParam & param_, Move const & tag);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(332)
+template <typename TIterator> inline void valueConstruct(TIterator it);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(291)
+template <typename TIterator, typename TParam> inline void valueConstruct(TIterator it, TParam const & param_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(311)
+template <typename TIterator, typename TParam> inline void valueConstruct(TIterator it, TParam & param_, Move const & tag);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(332)
 
 //____________________________________________________________________________
 // valueDestruct
 
-template <typename TIterator> inline void valueDestruct(TIterator it);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/array_construct_destruct.h"(395)
+template <typename TIterator> inline void valueDestruct(TIterator it);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/array_construct_destruct.h"(395)
 
 //____________________________________________________________________________
 // valueSize
 
-template <typename T> inline typename ValueSize<T>::Type valueSize();       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/basic/alphabet_storage.h"(258)
+template <typename T> inline typename ValueSize<T>::Type valueSize();       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/basic/alphabet_storage.h"(258)
 
 } //namespace seqan
 

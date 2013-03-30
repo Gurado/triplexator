@@ -49,363 +49,363 @@ namespace SEQAN_NAMESPACE_MAIN {
 //____________________________________________________________________________
 // AbstractSource
 
-template <typename TValue, typename TSize > struct AbstractSource;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(231)
+template <typename TValue, typename TSize > struct AbstractSource;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(231)
 
 //____________________________________________________________________________
 // AdapterSpec
 
-struct AdapterSpec;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(594)
+struct AdapterSpec;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(594)
 
 //____________________________________________________________________________
 // AdaptorCompare2Less
 
-template <typename TCompare > struct AdaptorCompare2Less;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_sorter.h"(61)
+template <typename TCompare > struct AdaptorCompare2Less;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_sorter.h"(61)
 
 //____________________________________________________________________________
 // BufReadHandler
 
-template <typename TInput > struct BufReadHandler;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(585)
+template <typename TInput > struct BufReadHandler;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(585)
 
 //____________________________________________________________________________
 // BufWriteHandler
 
-template <typename TOutput > struct BufWriteHandler;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(588)
+template <typename TOutput > struct BufWriteHandler;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(588)
 
 //____________________________________________________________________________
 // BufferHandler
 
-template <typename TObject, typename TSpec > struct BufferHandler;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(578)
+template <typename TObject, typename TSpec > struct BufferHandler;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(578)
 
 //____________________________________________________________________________
 // Bundle2
 
-template <typename TInput1, typename TInput2 > struct Bundle2;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(94)
+template <typename TInput1, typename TInput2 > struct Bundle2;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(94)
 
 //____________________________________________________________________________
 // Bundle3
 
-template <typename TInput1, typename TInput2, typename TInput3 > struct Bundle3;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(141)
+template <typename TInput1, typename TInput2, typename TInput3 > struct Bundle3;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(141)
 
 //____________________________________________________________________________
 // Bundle5
 
-template <typename TIn1, typename TIn2, typename TIn3, typename TIn4, typename TIn5 > struct Bundle5;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(199)
+template <typename TIn1, typename TIn2, typename TIn3, typename TIn4, typename TIn5 > struct Bundle5;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(199)
 
 //____________________________________________________________________________
 // Caster
 
-template <typename TValue, typename TSpec > struct Caster;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_caster.h"(48)
+template <typename TValue, typename TSpec > struct Caster;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_caster.h"(48)
 
 //____________________________________________________________________________
 // CasterConvert
 
-struct CasterConvert;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_caster.h"(45)
+struct CasterConvert;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_caster.h"(45)
 
 //____________________________________________________________________________
 // CasterReinterpret
 
-struct CasterReinterpret;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_caster.h"(44)
+struct CasterReinterpret;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_caster.h"(44)
 
 //____________________________________________________________________________
 // ContainerBuffer
 
-template <typename TContainer > struct ContainerBuffer;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_source.h"(107)
+template <typename TContainer > struct ContainerBuffer;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_source.h"(107)
 
 //____________________________________________________________________________
 // ControlBeginRead_
 
-struct ControlBeginRead_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(431)
+struct ControlBeginRead_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(431)
 
 //____________________________________________________________________________
 // ControlClear_
 
-struct ControlClear_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(430)
+struct ControlClear_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(430)
 
 //____________________________________________________________________________
 // ControlEndRead_
 
-struct ControlEndRead_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(432)
+struct ControlEndRead_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(432)
 
 //____________________________________________________________________________
 // ControlEof_
 
-struct ControlEof_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(428)
+struct ControlEof_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(428)
 
 //____________________________________________________________________________
 // ControlEos_
 
-struct ControlEos_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(429)
+struct ControlEos_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(429)
 
 //____________________________________________________________________________
 // Counter
 
-struct Counter;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_counter.h"(44)
+struct Counter;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_counter.h"(44)
 
 //____________________________________________________________________________
 // Echoer
 
-template <unsigned echoRepeats, bool omitFirst > struct Echoer;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_echoer.h"(69)
+template <unsigned echoRepeats, bool omitFirst > struct Echoer;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_echoer.h"(69)
 
 //____________________________________________________________________________
 // EchoerClearWorker_
 
-struct EchoerClearWorker_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_echoer.h"(53)
+struct EchoerClearWorker_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_echoer.h"(53)
 
 //____________________________________________________________________________
 // EchoerFillWorker_
 
-struct EchoerFillWorker_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_echoer.h"(46)
+struct EchoerFillWorker_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_echoer.h"(46)
 
 //____________________________________________________________________________
 // EchoerShiftWorker_
 
-struct EchoerShiftWorker_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_echoer.h"(60)
+struct EchoerShiftWorker_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_echoer.h"(60)
 
 //____________________________________________________________________________
 // EditEnvironment
 
-template <typename TDistanceSpec, unsigned STEP_SIZE > struct EditEnvironment;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_edit_environment.h"(45)
+template <typename TDistanceSpec, unsigned STEP_SIZE > struct EditEnvironment;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_edit_environment.h"(45)
 
 //____________________________________________________________________________
 // ExtStringSourceCachingSpec_
 
-struct ExtStringSourceCachingSpec_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_source.h"(282)
+struct ExtStringSourceCachingSpec_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_source.h"(282)
 
 //____________________________________________________________________________
 // Filter
 
-template <typename TFunctor > struct Filter;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_filter.h"(61)
+template <typename TFunctor > struct Filter;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_filter.h"(61)
 
 //____________________________________________________________________________
 // Handler
 
-template <typename TObject, typename TSpec > struct Handler;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(581)
+template <typename TObject, typename TSpec > struct Handler;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(581)
 
 //____________________________________________________________________________
 // HandlerArgs
 
-template <typename TPool > struct HandlerArgs;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(623)
+template <typename TPool > struct HandlerArgs;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(623)
 
 //____________________________________________________________________________
 // IPipeIterator
 
-template <typename TInput> struct IPipeIterator;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_iterator.h"(50)
+template <typename TInput> struct IPipeIterator;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_iterator.h"(50)
 
 //____________________________________________________________________________
 // IteratorBuffer
 
-template <typename TIterator > struct IteratorBuffer;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_source.h"(147)
+template <typename TIterator > struct IteratorBuffer;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_source.h"(147)
 
 //____________________________________________________________________________
 // Joiner
 
-struct Joiner;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_joiner.h"(44)
+struct Joiner;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_joiner.h"(44)
 
 //____________________________________________________________________________
 // MapperAsyncWriter
 
-struct MapperAsyncWriter;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_mapper.h"(410)
+struct MapperAsyncWriter;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_mapper.h"(410)
 
 //____________________________________________________________________________
 // MapperConfig
 
-template <typename TMap, typename TFile > struct MapperConfig;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_mapper.h"(86)
+template <typename TMap, typename TFile > struct MapperConfig;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_mapper.h"(86)
 
 //____________________________________________________________________________
 // MapperConfigSize
 
-template <typename TMap, typename TSize, typename TFile > struct MapperConfigSize;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_mapper.h"(62)
+template <typename TMap, typename TSize, typename TFile > struct MapperConfigSize;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_mapper.h"(62)
 
 //____________________________________________________________________________
 // MapperMemAdapter
 
-struct MapperMemAdapter;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_mapper.h"(273)
+struct MapperMemAdapter;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_mapper.h"(273)
 
 //____________________________________________________________________________
 // MapperSpec
 
-template <typename TConfig > struct MapperSpec;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_mapper.h"(107)
+template <typename TConfig > struct MapperSpec;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_mapper.h"(107)
 
 //____________________________________________________________________________
 // MapperSyncWriter
 
-struct MapperSyncWriter;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_mapper.h"(320)
+struct MapperSyncWriter;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_mapper.h"(320)
 
 //____________________________________________________________________________
 // MemorySpec_
 
-struct MemorySpec_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(188)
+struct MemorySpec_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(188)
 
 //____________________________________________________________________________
 // MergeStreamComparer
 
-template <typename TValue, typename Compare > struct MergeStreamComparer;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_sorter.h"(45)
+template <typename TValue, typename Compare > struct MergeStreamComparer;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_sorter.h"(45)
 
 //____________________________________________________________________________
 // Multi
 
-template <typename TSpec, typename TPair, typename TLimitsString> struct Multi;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(74)
+template <typename TSpec, typename TPair, typename TLimitsString> struct Multi;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(74)
 
 //____________________________________________________________________________
 // MultiplexSpec_
 
-struct MultiplexSpec_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(463)
+struct MultiplexSpec_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(463)
 
 //____________________________________________________________________________
 // Namer
 
-template <typename TCompare > struct Namer;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_namer.h"(45)
+template <typename TCompare > struct Namer;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_namer.h"(45)
 
 //____________________________________________________________________________
 // OPipeIterator
 
-template <typename TOutput> struct OPipeIterator;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_iterator.h"(136)
+template <typename TOutput> struct OPipeIterator;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_iterator.h"(136)
 
 //____________________________________________________________________________
 // PairDecrementer_
 
-template <typename TPair, typename TLimits, unsigned m > struct PairDecrementer_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(742)
+template <typename TPair, typename TLimits, unsigned m > struct PairDecrementer_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(742)
 
 //____________________________________________________________________________
 // PairIncrementer_
 
-template <typename TPair, typename TLimits> struct PairIncrementer_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(678)
+template <typename TPair, typename TLimits> struct PairIncrementer_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(678)
 
 //____________________________________________________________________________
 // Pipe
 
-template <typename TInput, typename TSpec > struct Pipe;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(65)
+template <typename TInput, typename TSpec > struct Pipe;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(65)
 
 //____________________________________________________________________________
 // Pool
 
-template <typename TValue, typename TSpec > struct Pool;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(114)
-template <typename TValue, typename TSpec > struct Pool;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(634)
+template <typename TValue, typename TSpec > struct Pool;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(114)
+template <typename TValue, typename TSpec > struct Pool;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(634)
 
 //____________________________________________________________________________
 // PoolConfig
 
-template <typename TFile > struct PoolConfig;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(75)
+template <typename TFile > struct PoolConfig;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(75)
 
 //____________________________________________________________________________
 // PoolConfigSize
 
-template <typename TSize, typename TFile > struct PoolConfigSize;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(56)
+template <typename TSize, typename TFile > struct PoolConfigSize;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(56)
 
 //____________________________________________________________________________
 // PoolParameters
 
-struct PoolParameters;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(118)
+struct PoolParameters;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(118)
 
 //____________________________________________________________________________
 // PoolSpec
 
-template <typename TConfig > struct PoolSpec;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(95)
+template <typename TConfig > struct PoolSpec;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(95)
 
 //____________________________________________________________________________
 // ReadFileSpec_
 
-struct ReadFileSpec_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(228)
+struct ReadFileSpec_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(228)
 
 //____________________________________________________________________________
 // ReadHandler
 
-template <typename TInput > struct ReadHandler;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(660)
+template <typename TInput > struct ReadHandler;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(660)
 
 //____________________________________________________________________________
 // ReadMapperSpec_
 
-struct ReadMapperSpec_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_mapper.h"(118)
+struct ReadMapperSpec_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_mapper.h"(118)
 
 //____________________________________________________________________________
 // ReadSorterSpec_
 
-struct ReadSorterSpec_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_sorter.h"(150)
+struct ReadSorterSpec_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_sorter.h"(150)
 
 //____________________________________________________________________________
 // Sampler
 
-template <unsigned m, typename TCompression > struct Sampler;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_sampler.h"(50)
+template <unsigned m, typename TCompression > struct Sampler;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_sampler.h"(50)
 
 //____________________________________________________________________________
 // ShiftLeftWorker_
 
-struct ShiftLeftWorker_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_tupler.h"(84)
+struct ShiftLeftWorker_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_tupler.h"(84)
 
 //____________________________________________________________________________
 // Shifter
 
-template <int delta, bool omitBlank , bool _echoing > struct Shifter;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_shifter.h"(47)
+template <int delta, bool omitBlank , bool _echoing > struct Shifter;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_shifter.h"(47)
 
 //____________________________________________________________________________
 // SkewDC_
 
-template <int I, typename T > struct SkewDC_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_sampler.h"(45)
+template <int I, typename T > struct SkewDC_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_sampler.h"(45)
 
 //____________________________________________________________________________
 // SorterConfig
 
-template <typename TCompare, typename TFile > struct SorterConfig;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_sorter.h"(114)
+template <typename TCompare, typename TFile > struct SorterConfig;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_sorter.h"(114)
 
 //____________________________________________________________________________
 // SorterConfigSize
 
-template <typename TCompare, typename TSize, typename TFile > struct SorterConfigSize;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_sorter.h"(90)
+template <typename TCompare, typename TSize, typename TFile > struct SorterConfigSize;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_sorter.h"(90)
 
 //____________________________________________________________________________
 // SorterSpec
 
-template <typename TConfig > struct SorterSpec;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_sorter.h"(136)
+template <typename TConfig > struct SorterSpec;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_sorter.h"(136)
 
 //____________________________________________________________________________
 // Source
 
-template <typename T> struct Source;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(290)
+template <typename T> struct Source;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(290)
 
 //____________________________________________________________________________
 // SourceCachingSpec_
 
-struct SourceCachingSpec_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_source.h"(223)
+struct SourceCachingSpec_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_source.h"(223)
 
 //____________________________________________________________________________
 // SourceNonCachingSpec_
 
-struct SourceNonCachingSpec_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_source.h"(184)
+struct SourceNonCachingSpec_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_source.h"(184)
 
 //____________________________________________________________________________
 // Tupler
 
-template <unsigned tupleLen, bool omitLast , typename TCompression > struct Tupler;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_tupler.h"(47)
+template <unsigned tupleLen, bool omitLast , typename TCompression > struct Tupler;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_tupler.h"(47)
 
 //____________________________________________________________________________
 // TuplerLastTuples_
 
-template <typename TTupler > struct TuplerLastTuples_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_tupler.h"(74)
+template <typename TTupler > struct TuplerLastTuples_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_tupler.h"(74)
 
 //____________________________________________________________________________
 // WriteFileSpec_
 
-struct WriteFileSpec_;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(347)
+struct WriteFileSpec_;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(347)
 
 //____________________________________________________________________________
 // WriteHandler
 
-template <typename TOutput > struct WriteHandler;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(666)
+template <typename TOutput > struct WriteHandler;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(666)
 
 //____________________________________________________________________________
 // filterI1
 
-template <typename InType, typename Result > struct filterI1;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_filter.h"(45)
+template <typename InType, typename Result > struct filterI1;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_filter.h"(45)
 
 //____________________________________________________________________________
 // filterI2
 
-template <typename InType, typename Result > struct filterI2;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_filter.h"(50)
+template <typename InType, typename Result > struct filterI2;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_filter.h"(50)
 
 //____________________________________________________________________________
 // filterI3
 
-template <typename InType, typename Result > struct filterI3;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_filter.h"(55)
+template <typename InType, typename Result > struct filterI3;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_filter.h"(55)
 
 } //namespace SEQAN_NAMESPACE_MAIN
 
@@ -419,72 +419,72 @@ namespace SEQAN_NAMESPACE_MAIN {
 //____________________________________________________________________________
 // ControlBeginRead
 
-typedef Tag<ControlBeginRead_> ControlBeginRead;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(437)
+typedef Tag<ControlBeginRead_> ControlBeginRead;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(437)
 
 //____________________________________________________________________________
 // ControlClear
 
-typedef Tag<ControlClear_> ControlClear;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(436)
+typedef Tag<ControlClear_> ControlClear;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(436)
 
 //____________________________________________________________________________
 // ControlEndRead
 
-typedef Tag<ControlEndRead_> ControlEndRead;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(438)
+typedef Tag<ControlEndRead_> ControlEndRead;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(438)
 
 //____________________________________________________________________________
 // ControlEof
 
-typedef Tag<ControlEof_> ControlEof;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(434)
+typedef Tag<ControlEof_> ControlEof;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(434)
 
 //____________________________________________________________________________
 // ControlEos
 
-typedef Tag<ControlEos_> ControlEos;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(435)
+typedef Tag<ControlEos_> ControlEos;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(435)
 
 //____________________________________________________________________________
 // ExtStringSourceCachingSpec
 
-typedef Tag<ExtStringSourceCachingSpec_> ExtStringSourceCachingSpec;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_source.h"(283)
+typedef Tag<ExtStringSourceCachingSpec_> ExtStringSourceCachingSpec;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_source.h"(283)
 
 //____________________________________________________________________________
 // MemorySpec
 
-typedef Tag<MemorySpec_> MemorySpec;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(189)
+typedef Tag<MemorySpec_> MemorySpec;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(189)
 
 //____________________________________________________________________________
 // MultiplexSpec
 
-typedef Tag<MultiplexSpec_> MultiplexSpec;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(464)
+typedef Tag<MultiplexSpec_> MultiplexSpec;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(464)
 
 //____________________________________________________________________________
 // ReadFileSpec
 
-typedef Tag<ReadFileSpec_> ReadFileSpec;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(230)
+typedef Tag<ReadFileSpec_> ReadFileSpec;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(230)
 
 //____________________________________________________________________________
 // ReadMapperSpec
 
-typedef Tag<ReadMapperSpec_> ReadMapperSpec;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_mapper.h"(119)
+typedef Tag<ReadMapperSpec_> ReadMapperSpec;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_mapper.h"(119)
 
 //____________________________________________________________________________
 // ReadSorterSpec
 
-typedef Tag<ReadSorterSpec_> ReadSorterSpec;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_sorter.h"(151)
+typedef Tag<ReadSorterSpec_> ReadSorterSpec;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_sorter.h"(151)
 
 //____________________________________________________________________________
 // SourceCachingSpec
 
-typedef Tag<SourceCachingSpec_> SourceCachingSpec;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_source.h"(224)
+typedef Tag<SourceCachingSpec_> SourceCachingSpec;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_source.h"(224)
 
 //____________________________________________________________________________
 // SourceNonCachingSpec
 
-typedef Tag<SourceNonCachingSpec_> SourceNonCachingSpec;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_source.h"(185)
+typedef Tag<SourceNonCachingSpec_> SourceNonCachingSpec;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_source.h"(185)
 
 //____________________________________________________________________________
 // WriteFileSpec
 
-typedef Tag<WriteFileSpec_> WriteFileSpec;       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(349)
+typedef Tag<WriteFileSpec_> WriteFileSpec;       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(349)
 
 } //namespace SEQAN_NAMESPACE_MAIN
 
@@ -498,239 +498,239 @@ namespace SEQAN_NAMESPACE_MAIN {
 //____________________________________________________________________________
 // append
 
-template <typename TValue, typename TSpec, typename TSource > inline bool append(Pool<TValue, TSpec> &dest, TSource &src);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(1185)
-template <typename TValue, typename TSpec, typename TStringSpec > inline bool append(Pool<TValue, TSpec> &dest, String<TValue, TStringSpec> &src);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(1201)
+template <typename TValue, typename TSpec, typename TSource > inline bool append(Pool<TValue, TSpec> &dest, TSource &src);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(1185)
+template <typename TValue, typename TSpec, typename TStringSpec > inline bool append(Pool<TValue, TSpec> &dest, String<TValue, TStringSpec> &src);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(1201)
 
 //____________________________________________________________________________
 // assign
 
-template <typename TValue, typename TStringSpec, typename TInput, typename TSpec > inline bool assign(String<TValue, TStringSpec> &dest, Pipe<TInput, TSpec> &src);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(540)
-template <typename TValue, typename TSpec, typename TSource > inline bool assign(Pool<TValue, TSpec> &dest, TSource &src);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(1217)
-template <typename TValue1, typename TStringSpec, typename TValue2, typename TSpec > inline bool assign(String<TValue1, TStringSpec> &dest, Pool<TValue2, TSpec> &src);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(1239)
+template <typename TValue, typename TStringSpec, typename TInput, typename TSpec > inline bool assign(String<TValue, TStringSpec> &dest, Pipe<TInput, TSpec> &src);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(540)
+template <typename TValue, typename TSpec, typename TSource > inline bool assign(Pool<TValue, TSpec> &dest, TSource &src);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(1217)
+template <typename TValue1, typename TStringSpec, typename TValue2, typename TSpec > inline bool assign(String<TValue1, TStringSpec> &dest, Pool<TValue2, TSpec> &src);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(1239)
 
 //____________________________________________________________________________
 // begin
 
-template <typename TInput, typename TSpec > IPipeIterator< Pipe< TInput, TSpec > > begin(Pipe< TInput, TSpec > &pipe);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_iterator.h"(237)
-template <typename TInput, typename TSpec, typename TTag > inline typename Iterator< Pipe< TInput, Source<TSpec> >, Tag<TTag> const >::Type begin(Pipe< TInput, Source<TSpec> > &pipe, Tag<TTag> const);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_source.h"(91)
-template <typename TValue, typename TSpec > OPipeIterator< Pool< TValue, TSpec > > begin(Pool< TValue, TSpec > &pool);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(936)
+template <typename TInput, typename TSpec > IPipeIterator< Pipe< TInput, TSpec > > begin(Pipe< TInput, TSpec > &pipe);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_iterator.h"(237)
+template <typename TInput, typename TSpec, typename TTag > inline typename Iterator< Pipe< TInput, Source<TSpec> >, Tag<TTag> const >::Type begin(Pipe< TInput, Source<TSpec> > &pipe, Tag<TTag> const);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_source.h"(91)
+template <typename TValue, typename TSpec > OPipeIterator< Pool< TValue, TSpec > > begin(Pool< TValue, TSpec > &pool);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(936)
 
 //____________________________________________________________________________
 // beginRead
 
-template <typename TInput, typename TSpec > inline bool beginRead(Pipe<TInput, TSpec> &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(480)
-template <typename TValue, typename TSpec > inline bool beginRead(Pool< TValue, TSpec > &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(1168)
+template <typename TInput, typename TSpec > inline bool beginRead(Pipe<TInput, TSpec> &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(480)
+template <typename TValue, typename TSpec > inline bool beginRead(Pool< TValue, TSpec > &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(1168)
 
 //____________________________________________________________________________
 // beginWrite
 
-template <typename TValue, typename TSpec > inline bool beginWrite(Pool< TValue, TSpec > &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(1135)
+template <typename TValue, typename TSpec > inline bool beginWrite(Pool< TValue, TSpec > &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(1135)
 
 //____________________________________________________________________________
 // bundle2
 
-template <typename TInput1, typename TInput2 > inline Bundle2< TInput1, TInput2 > bundle2(TInput1 &_in1, TInput2 &_in2);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(115)
+template <typename TInput1, typename TInput2 > inline Bundle2< TInput1, TInput2 > bundle2(TInput1 &_in1, TInput2 &_in2);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(115)
 
 //____________________________________________________________________________
 // bundle3
 
-template <typename TInput1, typename TInput2, typename TInput3 > inline Bundle3< TInput1, TInput2, TInput3 > bundle3(TInput1 &_in1, TInput2 &_in2, TInput3 &_in3);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(165)
+template <typename TInput1, typename TInput2, typename TInput3 > inline Bundle3< TInput1, TInput2, TInput3 > bundle3(TInput1 &_in1, TInput2 &_in2, TInput3 &_in3);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(165)
 
 //____________________________________________________________________________
 // bundle5
 
-template <typename TIn1, typename TIn2, typename TIn3, typename TIn4, typename TIn5 > inline Bundle5< TIn1, TIn2, TIn3, TIn4, TIn5 > bundle5(TIn1 &_in1, TIn2 &_in2, TIn3 &_in3, TIn4 &_in4, TIn5 &_in5);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(226)
+template <typename TIn1, typename TIn2, typename TIn3, typename TIn4, typename TIn5 > inline Bundle5< TIn1, TIn2, TIn3, TIn4, TIn5 > bundle5(TIn1 &_in1, TIn2 &_in2, TIn3 &_in3, TIn4 &_in4, TIn5 &_in5);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(226)
 
 //____________________________________________________________________________
 // clear
 
-template <typename TInput, typename TSpec > inline bool clear(Pipe<TInput, TSpec> &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(459)
-template <typename TValue, typename TSpec > inline void clear(Pool<TValue, TSpec> &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(1001)
+template <typename TInput, typename TSpec > inline bool clear(Pipe<TInput, TSpec> &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(459)
+template <typename TValue, typename TSpec > inline void clear(Pool<TValue, TSpec> &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(1001)
 
 //____________________________________________________________________________
 // control
 
-template <typename TInput, typename TSpec, typename TCommand > inline bool control(Pipe<TInput, TSpec> &me, TCommand const &command);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(441)
-template <typename TInput1, typename TInput2, typename TCommand > inline bool control(Bundle2<TInput1, TInput2> &me, TCommand const &command);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(507)
-template <typename TInput1, typename TInput2, typename TInput3, typename TCommand > inline bool control(Bundle3<TInput1, TInput2, TInput3> &me, TCommand const &command);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(515)
-template <typename TIn1, typename TIn2, typename TIn3, typename TIn4, typename TIn5, typename TCommand > inline bool control(Bundle5<TIn1, TIn2, TIn3, TIn4, TIn5 > &me, TCommand const &command);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(524)
-template <typename TInput > inline bool control(Pipe< TInput, Counter > &me, ControlBeginRead const &command);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_counter.h"(96)
-template <typename TInput, unsigned echoRepeats, bool omitFirst > inline bool control(Pipe< TInput, Echoer< echoRepeats, omitFirst > > &me, ControlBeginRead const &command);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_echoer.h"(127)
-template <typename TInput, unsigned echoRepeats > inline bool control(Pipe< TInput, Echoer< echoRepeats, true > > &me, ControlBeginRead const &command);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_echoer.h"(136)
-template <typename TInput, unsigned STEP_SIZE > inline bool control( Pipe< TInput, EditEnvironment< Tag<HammingDistance_>, STEP_SIZE > > &me, ControlBeginRead const &command);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_edit_environment.h"(256)
-template <typename TInput, unsigned STEP_SIZE > inline bool control( Pipe< TInput, EditEnvironment< Tag<LevenshteinDistance_>, STEP_SIZE > > &me, ControlBeginRead const &command);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_edit_environment.h"(271)
-template <typename TInput, unsigned STEP_SIZE > inline bool control( Pipe< TInput, EditEnvironment< Tag<LevenshteinDistance_>, STEP_SIZE > > &me, ControlEof const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_edit_environment.h"(300)
-template <typename TInput, unsigned STEP_SIZE > inline bool control( Pipe< TInput, EditEnvironment< Tag<LevenshteinDistance_>, STEP_SIZE > > &me, ControlEos const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_edit_environment.h"(309)
-template <typename TInput, typename TCompare > inline bool control(Pipe< TInput, Namer<TCompare> > &me, ControlBeginRead const &command);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_namer.h"(124)
-template <typename TInput, unsigned m, typename TCompression > inline bool control(Pipe< TInput, Sampler<m, TCompression> > &me, ControlBeginRead const &command);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_sampler.h"(276)
-template <typename TInput, unsigned m, typename TCompression > inline bool control(Pipe< TInput, Sampler<m, TCompression> > &me, ControlEof const & );       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_sampler.h"(283)
-template <typename TInput, unsigned m, typename TCompression, typename TPair, typename TLimitsString > inline bool control(Pipe< TInput, Multi<Sampler<m, TCompression>, TPair, TLimitsString> > &me, ControlBeginRead const &command);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_sampler.h"(497)
-template <typename TInput, unsigned m, typename TCompression, typename TPair, typename TLimitsString > inline bool control(Pipe< TInput, Multi<Sampler<m, TCompression>, TPair, TLimitsString> > &me, ControlEof const & );       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_sampler.h"(504)
-template <typename TInput, unsigned m, typename TCompression, typename TPair, typename TLimitsString > inline bool control(Pipe< TInput, Multi<Sampler<m, TCompression>, TPair, TLimitsString> > &me, ControlEos const & );       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_sampler.h"(509)
-template <typename TInput, int delta, bool omitBlank > inline bool control(Pipe< TInput, Shifter< delta, omitBlank, false > > &me, ControlBeginRead const &command);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_shifter.h"(127)
-template <typename TInput, int delta, bool omitBlank > inline bool control(Pipe< TInput, Shifter< delta, omitBlank, true > > &me, ControlBeginRead const &command);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_shifter.h"(137)
-template <typename TInput, int delta, bool omitBlank, bool _echoing > inline bool control(Pipe< TInput, Shifter< delta, omitBlank, _echoing > > &me, ControlEof const & );       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_shifter.h"(154)
-template <typename TInput, int delta, bool omitBlank, bool _echoing > inline bool control(Pipe< TInput, Shifter< delta, omitBlank, _echoing > > &me, ControlEos const & );       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_shifter.h"(159)
-template <typename TInput, typename TSpec, typename TCommand > inline bool control(Pipe< TInput, Source<TSpec> > & , TCommand const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_source.h"(374)
-template <typename TInput, typename TSpec > inline bool control(Pipe< TInput, Source<TSpec> > &me, ControlBeginRead const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_source.h"(379)
-template <typename TInput, typename TSpec > inline bool control(Pipe< TInput, Source<TSpec> > &me, ControlEndRead const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_source.h"(385)
-template <typename TInput, typename TSpec > inline bool control(Pipe< TInput, Source<TSpec> > &me, ControlEof const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_source.h"(391)
-template <typename TInput, typename TSpec > inline bool control(Pipe< TInput, Source<TSpec> > &me, ControlEos const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_source.h"(396)
-template <typename TInput, unsigned tupleLen, bool omitLast, typename TCompression > inline bool control( Pipe< TInput, Tupler< tupleLen, omitLast, TCompression > > &me, ControlBeginRead const &command);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_tupler.h"(382)
-template <typename TInput, unsigned tupleLen, bool omitLast, typename TCompression, typename TPair, typename TLimitsString > inline bool control( Pipe< TInput, Multi<Tupler< tupleLen, omitLast, TCompression >, TPair, TLimitsString> > &me, ControlBeginRead const &command);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_tupler.h"(399)
-template <typename TInput, unsigned tupleLen, bool omitLast, typename TCompression > inline bool control( Pipe< TInput, Tupler< tupleLen, omitLast, TCompression > > &me, ControlEof const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_tupler.h"(412)
-template <typename TInput, unsigned tupleLen, bool omitLast, typename TCompression, typename TPair, typename TLimitsString > inline bool control( Pipe< TInput, Multi<Tupler< tupleLen, omitLast, TCompression >, TPair, TLimitsString> > &me, ControlEof const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_tupler.h"(427)
-template <typename TInput, unsigned tupleLen, bool omitLast, typename TCompression > inline bool control( Pipe< TInput, Tupler< tupleLen, omitLast, TCompression > > &me, ControlEos const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_tupler.h"(436)
-template <typename TInput, unsigned tupleLen, bool omitLast, typename TCompression, typename TPair, typename TLimitsString > inline bool control( Pipe< TInput, Multi<Tupler< tupleLen, omitLast, TCompression >, TPair, TLimitsString> > &me, ControlEos const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_tupler.h"(451)
-template <typename TValue, typename TSpec > inline bool control(Pool< TValue, TSpec > &me, ControlEof const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(1095)
-template <typename TValue, typename TSpec > inline bool control(Pool< TValue, TSpec > &me, ControlEos const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(1100)
-template <typename TValue, typename TSpec > inline bool control(Pool< TValue, TSpec > &me, ControlClear const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(1105)
-template <typename TValue, typename TSpec > inline bool control(Pool< TValue, TSpec > &me, ControlBeginRead const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(1111)
-template <typename TValue, typename TSpec > inline bool control(Pool< TValue, TSpec > &me, ControlEndRead const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(1116)
+template <typename TInput, typename TSpec, typename TCommand > inline bool control(Pipe<TInput, TSpec> &me, TCommand const &command);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(441)
+template <typename TInput1, typename TInput2, typename TCommand > inline bool control(Bundle2<TInput1, TInput2> &me, TCommand const &command);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(507)
+template <typename TInput1, typename TInput2, typename TInput3, typename TCommand > inline bool control(Bundle3<TInput1, TInput2, TInput3> &me, TCommand const &command);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(515)
+template <typename TIn1, typename TIn2, typename TIn3, typename TIn4, typename TIn5, typename TCommand > inline bool control(Bundle5<TIn1, TIn2, TIn3, TIn4, TIn5 > &me, TCommand const &command);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(524)
+template <typename TInput > inline bool control(Pipe< TInput, Counter > &me, ControlBeginRead const &command);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_counter.h"(96)
+template <typename TInput, unsigned echoRepeats, bool omitFirst > inline bool control(Pipe< TInput, Echoer< echoRepeats, omitFirst > > &me, ControlBeginRead const &command);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_echoer.h"(127)
+template <typename TInput, unsigned echoRepeats > inline bool control(Pipe< TInput, Echoer< echoRepeats, true > > &me, ControlBeginRead const &command);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_echoer.h"(136)
+template <typename TInput, unsigned STEP_SIZE > inline bool control( Pipe< TInput, EditEnvironment< Tag<HammingDistance_>, STEP_SIZE > > &me, ControlBeginRead const &command);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_edit_environment.h"(256)
+template <typename TInput, unsigned STEP_SIZE > inline bool control( Pipe< TInput, EditEnvironment< Tag<LevenshteinDistance_>, STEP_SIZE > > &me, ControlBeginRead const &command);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_edit_environment.h"(271)
+template <typename TInput, unsigned STEP_SIZE > inline bool control( Pipe< TInput, EditEnvironment< Tag<LevenshteinDistance_>, STEP_SIZE > > &me, ControlEof const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_edit_environment.h"(300)
+template <typename TInput, unsigned STEP_SIZE > inline bool control( Pipe< TInput, EditEnvironment< Tag<LevenshteinDistance_>, STEP_SIZE > > &me, ControlEos const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_edit_environment.h"(309)
+template <typename TInput, typename TCompare > inline bool control(Pipe< TInput, Namer<TCompare> > &me, ControlBeginRead const &command);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_namer.h"(124)
+template <typename TInput, unsigned m, typename TCompression > inline bool control(Pipe< TInput, Sampler<m, TCompression> > &me, ControlBeginRead const &command);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_sampler.h"(276)
+template <typename TInput, unsigned m, typename TCompression > inline bool control(Pipe< TInput, Sampler<m, TCompression> > &me, ControlEof const & );       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_sampler.h"(283)
+template <typename TInput, unsigned m, typename TCompression, typename TPair, typename TLimitsString > inline bool control(Pipe< TInput, Multi<Sampler<m, TCompression>, TPair, TLimitsString> > &me, ControlBeginRead const &command);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_sampler.h"(497)
+template <typename TInput, unsigned m, typename TCompression, typename TPair, typename TLimitsString > inline bool control(Pipe< TInput, Multi<Sampler<m, TCompression>, TPair, TLimitsString> > &me, ControlEof const & );       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_sampler.h"(504)
+template <typename TInput, unsigned m, typename TCompression, typename TPair, typename TLimitsString > inline bool control(Pipe< TInput, Multi<Sampler<m, TCompression>, TPair, TLimitsString> > &me, ControlEos const & );       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_sampler.h"(509)
+template <typename TInput, int delta, bool omitBlank > inline bool control(Pipe< TInput, Shifter< delta, omitBlank, false > > &me, ControlBeginRead const &command);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_shifter.h"(127)
+template <typename TInput, int delta, bool omitBlank > inline bool control(Pipe< TInput, Shifter< delta, omitBlank, true > > &me, ControlBeginRead const &command);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_shifter.h"(137)
+template <typename TInput, int delta, bool omitBlank, bool _echoing > inline bool control(Pipe< TInput, Shifter< delta, omitBlank, _echoing > > &me, ControlEof const & );       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_shifter.h"(154)
+template <typename TInput, int delta, bool omitBlank, bool _echoing > inline bool control(Pipe< TInput, Shifter< delta, omitBlank, _echoing > > &me, ControlEos const & );       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_shifter.h"(159)
+template <typename TInput, typename TSpec, typename TCommand > inline bool control(Pipe< TInput, Source<TSpec> > & , TCommand const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_source.h"(374)
+template <typename TInput, typename TSpec > inline bool control(Pipe< TInput, Source<TSpec> > &me, ControlBeginRead const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_source.h"(379)
+template <typename TInput, typename TSpec > inline bool control(Pipe< TInput, Source<TSpec> > &me, ControlEndRead const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_source.h"(385)
+template <typename TInput, typename TSpec > inline bool control(Pipe< TInput, Source<TSpec> > &me, ControlEof const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_source.h"(391)
+template <typename TInput, typename TSpec > inline bool control(Pipe< TInput, Source<TSpec> > &me, ControlEos const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_source.h"(396)
+template <typename TInput, unsigned tupleLen, bool omitLast, typename TCompression > inline bool control( Pipe< TInput, Tupler< tupleLen, omitLast, TCompression > > &me, ControlBeginRead const &command);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_tupler.h"(382)
+template <typename TInput, unsigned tupleLen, bool omitLast, typename TCompression, typename TPair, typename TLimitsString > inline bool control( Pipe< TInput, Multi<Tupler< tupleLen, omitLast, TCompression >, TPair, TLimitsString> > &me, ControlBeginRead const &command);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_tupler.h"(399)
+template <typename TInput, unsigned tupleLen, bool omitLast, typename TCompression > inline bool control( Pipe< TInput, Tupler< tupleLen, omitLast, TCompression > > &me, ControlEof const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_tupler.h"(412)
+template <typename TInput, unsigned tupleLen, bool omitLast, typename TCompression, typename TPair, typename TLimitsString > inline bool control( Pipe< TInput, Multi<Tupler< tupleLen, omitLast, TCompression >, TPair, TLimitsString> > &me, ControlEof const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_tupler.h"(427)
+template <typename TInput, unsigned tupleLen, bool omitLast, typename TCompression > inline bool control( Pipe< TInput, Tupler< tupleLen, omitLast, TCompression > > &me, ControlEos const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_tupler.h"(436)
+template <typename TInput, unsigned tupleLen, bool omitLast, typename TCompression, typename TPair, typename TLimitsString > inline bool control( Pipe< TInput, Multi<Tupler< tupleLen, omitLast, TCompression >, TPair, TLimitsString> > &me, ControlEos const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_tupler.h"(451)
+template <typename TValue, typename TSpec > inline bool control(Pool< TValue, TSpec > &me, ControlEof const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(1095)
+template <typename TValue, typename TSpec > inline bool control(Pool< TValue, TSpec > &me, ControlEos const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(1100)
+template <typename TValue, typename TSpec > inline bool control(Pool< TValue, TSpec > &me, ControlClear const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(1105)
+template <typename TValue, typename TSpec > inline bool control(Pool< TValue, TSpec > &me, ControlBeginRead const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(1111)
+template <typename TValue, typename TSpec > inline bool control(Pool< TValue, TSpec > &me, ControlEndRead const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(1116)
 
 //____________________________________________________________________________
 // countSequences
 
-template <typename TInput, typename TSpec > inline typename Size< Pipe<TInput, TSpec> >::Type countSequences(Pipe<TInput, TSpec> const &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(348)
-template <typename TInput1, typename TInput2 > inline typename Size< Bundle2<TInput1, TInput2> >::Type countSequences(Bundle2<TInput1, TInput2> const &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(355)
-template <typename TInput1, typename TInput2, typename TInput3 > inline typename Size< Bundle3<TInput1, TInput2, TInput3> >::Type countSequences(Bundle3<TInput1, TInput2, TInput3> const &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(362)
-template <typename TIn1, typename TIn2, typename TIn3, typename TIn4, typename TIn5 > inline typename Size< Bundle5<TIn1, TIn2, TIn3, TIn4, TIn5> >::Type countSequences(Bundle5<TIn1, TIn2, TIn3, TIn4, TIn5> const &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(369)
-template <typename TInput, unsigned tupleLen, bool omitLast, typename TCompression > inline unsigned countSequences(Pipe< TInput, Tupler< tupleLen, omitLast, TCompression > > const &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_tupler.h"(487)
-template <typename TInput, unsigned tupleLen, bool omitLast, typename TCompression, typename TPair, typename TLimitsString > inline unsigned countSequences(Pipe< TInput, Multi<Tupler< tupleLen, omitLast, TCompression >, TPair, TLimitsString> > const &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_tupler.h"(499)
+template <typename TInput, typename TSpec > inline typename Size< Pipe<TInput, TSpec> >::Type countSequences(Pipe<TInput, TSpec> const &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(348)
+template <typename TInput1, typename TInput2 > inline typename Size< Bundle2<TInput1, TInput2> >::Type countSequences(Bundle2<TInput1, TInput2> const &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(355)
+template <typename TInput1, typename TInput2, typename TInput3 > inline typename Size< Bundle3<TInput1, TInput2, TInput3> >::Type countSequences(Bundle3<TInput1, TInput2, TInput3> const &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(362)
+template <typename TIn1, typename TIn2, typename TIn3, typename TIn4, typename TIn5 > inline typename Size< Bundle5<TIn1, TIn2, TIn3, TIn4, TIn5> >::Type countSequences(Bundle5<TIn1, TIn2, TIn3, TIn4, TIn5> const &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(369)
+template <typename TInput, unsigned tupleLen, bool omitLast, typename TCompression > inline unsigned countSequences(Pipe< TInput, Tupler< tupleLen, omitLast, TCompression > > const &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_tupler.h"(487)
+template <typename TInput, unsigned tupleLen, bool omitLast, typename TCompression, typename TPair, typename TLimitsString > inline unsigned countSequences(Pipe< TInput, Multi<Tupler< tupleLen, omitLast, TCompression >, TPair, TLimitsString> > const &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_tupler.h"(499)
 
 //____________________________________________________________________________
 // difference
 
-template <typename TInput > inline typename Difference<TInput>::Type difference(IPipeIterator<TInput> first, IPipeIterator<TInput> last);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_iterator.h"(250)
-template <typename TOutput > inline typename Difference<TOutput>::Type difference(OPipeIterator<TOutput> first, OPipeIterator<TOutput> last);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_iterator.h"(256)
+template <typename TInput > inline typename Difference<TInput>::Type difference(IPipeIterator<TInput> first, IPipeIterator<TInput> last);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_iterator.h"(250)
+template <typename TOutput > inline typename Difference<TOutput>::Type difference(OPipeIterator<TOutput> first, OPipeIterator<TOutput> last);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_iterator.h"(256)
 
 //____________________________________________________________________________
 // end
 
-template <typename TInput, typename TSpec > IPipeIterator< Pipe< TInput, TSpec > > end(Pipe< TInput, TSpec > & );       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_iterator.h"(243)
-template <typename TInput, typename TSpec, typename TTag > inline typename Iterator< Pipe< TInput, Source<TSpec> >, Tag<TTag> const >::Type end(Pipe< TInput, Source<TSpec> > &pipe, Tag<TTag> const);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_source.h"(97)
-template <typename TValue, typename TSpec > OPipeIterator< Pool< TValue, TSpec > > end(Pool< TValue, TSpec > & );       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(942)
+template <typename TInput, typename TSpec > IPipeIterator< Pipe< TInput, TSpec > > end(Pipe< TInput, TSpec > & );       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_iterator.h"(243)
+template <typename TInput, typename TSpec, typename TTag > inline typename Iterator< Pipe< TInput, Source<TSpec> >, Tag<TTag> const >::Type end(Pipe< TInput, Source<TSpec> > &pipe, Tag<TTag> const);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_source.h"(97)
+template <typename TValue, typename TSpec > OPipeIterator< Pool< TValue, TSpec > > end(Pool< TValue, TSpec > & );       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(942)
 
 //____________________________________________________________________________
 // endRead
 
-template <typename TInput, typename TSpec > inline bool endRead(Pipe<TInput, TSpec> &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(499)
-template <typename TValue, typename TSpec > inline bool endRead(Pool< TValue, TSpec > &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(1174)
+template <typename TInput, typename TSpec > inline bool endRead(Pipe<TInput, TSpec> &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(499)
+template <typename TValue, typename TSpec > inline bool endRead(Pool< TValue, TSpec > &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(1174)
 
 //____________________________________________________________________________
 // endWrite
 
-template <typename TValue, typename TSpec > inline bool endWrite(Pool< TValue, TSpec > &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(1154)
+template <typename TValue, typename TSpec > inline bool endWrite(Pool< TValue, TSpec > &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(1154)
 
 //____________________________________________________________________________
 // eof
 
-template <typename TInput, typename TSpec > inline bool eof(Pipe<TInput, TSpec> &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(447)
-template <typename TValue, typename TSpec > inline bool eof(Pool< TValue, TSpec > &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(1162)
+template <typename TInput, typename TSpec > inline bool eof(Pipe<TInput, TSpec> &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(447)
+template <typename TValue, typename TSpec > inline bool eof(Pool< TValue, TSpec > &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(1162)
 
 //____________________________________________________________________________
 // eos
 
-template <typename TInput, typename TSpec > inline bool eos(Pipe<TInput, TSpec> &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(453)
+template <typename TInput, typename TSpec > inline bool eos(Pipe<TInput, TSpec> &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(453)
 
 //____________________________________________________________________________
 // front
 
-template <typename TInput, typename TSpec, typename TValue > inline Value< Pipe<TInput, TSpec> > const & front(Pipe<TInput, TSpec> &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(389)
-template <typename TValue, typename TSpec > inline typename Value< Pool<TValue, TSpec> >::Type const & front(Pool<TValue, TSpec> &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(1034)
+template <typename TInput, typename TSpec, typename TValue > inline Value< Pipe<TInput, TSpec> > const & front(Pipe<TInput, TSpec> &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(389)
+template <typename TValue, typename TSpec > inline typename Value< Pool<TValue, TSpec> >::Type const & front(Pool<TValue, TSpec> &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(1034)
 
 //____________________________________________________________________________
 // length
 
-template <typename TInput, typename TSpec > inline typename Size< Pipe<TInput, TSpec> >::Type length(Pipe<TInput, TSpec> const &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(317)
-template <typename TInput1, typename TInput2 > inline typename Size< Bundle2<TInput1, TInput2> >::Type length(Bundle2<TInput1, TInput2> const &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(324)
-template <typename TInput1, typename TInput2, typename TInput3 > inline typename Size< Bundle3<TInput1, TInput2, TInput3> >::Type length(Bundle3<TInput1, TInput2, TInput3> const &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(331)
-template <typename TIn1, typename TIn2, typename TIn3, typename TIn4, typename TIn5 > inline typename Size< Bundle5<TIn1, TIn2, TIn3, TIn4, TIn5> >::Type length(Bundle5<TIn1, TIn2, TIn3, TIn4, TIn5> const &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(338)
-template <typename TInput, unsigned echoRepeats > inline Size< Pipe< TInput, Echoer< echoRepeats, true > > > length(Pipe< TInput, Echoer< echoRepeats, true > > const &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_echoer.h"(146)
-template <typename TInput, unsigned STEP_SIZE > inline typename Size< Pipe< TInput, Pipe< TInput, EditEnvironment< Tag<HammingDistance_>, STEP_SIZE > > > >::Type length(Pipe< TInput, EditEnvironment< Tag<HammingDistance_>, STEP_SIZE > > const &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_edit_environment.h"(315)
-template <typename TInput, unsigned STEP_SIZE > inline typename Size< Pipe< TInput, Pipe< TInput, EditEnvironment< Tag<LevenshteinDistance_>, STEP_SIZE > > > >::Type length(Pipe< TInput, EditEnvironment< Tag<LevenshteinDistance_>, STEP_SIZE > > const &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_edit_environment.h"(330)
-template <typename TInput, unsigned m, typename TCompression > inline typename Size< Pipe< TInput, Sampler<m, TCompression> > >::Type length(Pipe< TInput, Sampler<m, TCompression> > const &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_sampler.h"(289)
-template <typename TInput, unsigned m, typename TCompression, typename TPair, typename TLimitsString > inline typename Size< Pipe< TInput, Multi<Sampler<m, TCompression>, TPair, TLimitsString> > >::Type length(Pipe< TInput, Multi<Sampler<m, TCompression>, TPair, TLimitsString> > const &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_sampler.h"(516)
-template <typename TInput, int delta, bool _echoing > inline Size< Pipe< TInput, Shifter< delta, true, _echoing > > > length(Pipe< TInput, Shifter< delta, true, _echoing > > const &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_shifter.h"(149)
-template <typename TContainer > inline typename Size< ContainerBuffer<TContainer> >::Type length(ContainerBuffer<TContainer> const &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_source.h"(135)
-template <typename TIterator > inline typename Size< IteratorBuffer<TIterator> >::Type length(IteratorBuffer<TIterator> const &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_source.h"(177)
-template <typename TInput, typename TSpec > inline typename Size< Pipe< TInput, Source<TSpec> > >::Type length(Pipe< TInput, Source<TSpec> > const &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_source.h"(402)
-template <typename TInput, unsigned tupleLen, bool omitLast, typename TCompression > inline typename Size< Pipe< TInput, Tupler< tupleLen, omitLast, TCompression > > >::Type length(Pipe< TInput, Tupler< tupleLen, omitLast, TCompression > > const &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_tupler.h"(458)
-template <typename TInput, unsigned tupleLen, bool omitLast, typename TCompression, typename TPair, typename TLimitsString > inline typename Size< Pipe< TInput, Multi<Tupler< tupleLen, omitLast, TCompression >, TPair, TLimitsString> > >::Type length(Pipe< TInput, Multi<Tupler< tupleLen, omitLast, TCompression >, TPair, TLimitsString> > const &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_tupler.h"(475)
-template <typename TValue, typename TSpec > inline typename Size< Pool<TValue, TSpec> >::Type length(Pool<TValue, TSpec> const &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(1018)
+template <typename TInput, typename TSpec > inline typename Size< Pipe<TInput, TSpec> >::Type length(Pipe<TInput, TSpec> const &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(317)
+template <typename TInput1, typename TInput2 > inline typename Size< Bundle2<TInput1, TInput2> >::Type length(Bundle2<TInput1, TInput2> const &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(324)
+template <typename TInput1, typename TInput2, typename TInput3 > inline typename Size< Bundle3<TInput1, TInput2, TInput3> >::Type length(Bundle3<TInput1, TInput2, TInput3> const &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(331)
+template <typename TIn1, typename TIn2, typename TIn3, typename TIn4, typename TIn5 > inline typename Size< Bundle5<TIn1, TIn2, TIn3, TIn4, TIn5> >::Type length(Bundle5<TIn1, TIn2, TIn3, TIn4, TIn5> const &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(338)
+template <typename TInput, unsigned echoRepeats > inline Size< Pipe< TInput, Echoer< echoRepeats, true > > > length(Pipe< TInput, Echoer< echoRepeats, true > > const &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_echoer.h"(146)
+template <typename TInput, unsigned STEP_SIZE > inline typename Size< Pipe< TInput, Pipe< TInput, EditEnvironment< Tag<HammingDistance_>, STEP_SIZE > > > >::Type length(Pipe< TInput, EditEnvironment< Tag<HammingDistance_>, STEP_SIZE > > const &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_edit_environment.h"(315)
+template <typename TInput, unsigned STEP_SIZE > inline typename Size< Pipe< TInput, Pipe< TInput, EditEnvironment< Tag<LevenshteinDistance_>, STEP_SIZE > > > >::Type length(Pipe< TInput, EditEnvironment< Tag<LevenshteinDistance_>, STEP_SIZE > > const &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_edit_environment.h"(330)
+template <typename TInput, unsigned m, typename TCompression > inline typename Size< Pipe< TInput, Sampler<m, TCompression> > >::Type length(Pipe< TInput, Sampler<m, TCompression> > const &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_sampler.h"(289)
+template <typename TInput, unsigned m, typename TCompression, typename TPair, typename TLimitsString > inline typename Size< Pipe< TInput, Multi<Sampler<m, TCompression>, TPair, TLimitsString> > >::Type length(Pipe< TInput, Multi<Sampler<m, TCompression>, TPair, TLimitsString> > const &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_sampler.h"(516)
+template <typename TInput, int delta, bool _echoing > inline Size< Pipe< TInput, Shifter< delta, true, _echoing > > > length(Pipe< TInput, Shifter< delta, true, _echoing > > const &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_shifter.h"(149)
+template <typename TContainer > inline typename Size< ContainerBuffer<TContainer> >::Type length(ContainerBuffer<TContainer> const &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_source.h"(135)
+template <typename TIterator > inline typename Size< IteratorBuffer<TIterator> >::Type length(IteratorBuffer<TIterator> const &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_source.h"(177)
+template <typename TInput, typename TSpec > inline typename Size< Pipe< TInput, Source<TSpec> > >::Type length(Pipe< TInput, Source<TSpec> > const &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_source.h"(402)
+template <typename TInput, unsigned tupleLen, bool omitLast, typename TCompression > inline typename Size< Pipe< TInput, Tupler< tupleLen, omitLast, TCompression > > >::Type length(Pipe< TInput, Tupler< tupleLen, omitLast, TCompression > > const &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_tupler.h"(458)
+template <typename TInput, unsigned tupleLen, bool omitLast, typename TCompression, typename TPair, typename TLimitsString > inline typename Size< Pipe< TInput, Multi<Tupler< tupleLen, omitLast, TCompression >, TPair, TLimitsString> > >::Type length(Pipe< TInput, Multi<Tupler< tupleLen, omitLast, TCompression >, TPair, TLimitsString> > const &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_tupler.h"(475)
+template <typename TValue, typename TSpec > inline typename Size< Pool<TValue, TSpec> >::Type length(Pool<TValue, TSpec> const &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(1018)
 
 //____________________________________________________________________________
 // operator!=
 
-template <typename TInput> bool operator!=(const IPipeIterator<TInput>& _Left, const IPipeIterator<TInput>& Right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_iterator.h"(124)
-template <typename TOutput> bool operator!=(const OPipeIterator<TOutput>& _Left, const OPipeIterator<TOutput>& Right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_iterator.h"(204)
+template <typename TInput> bool operator!=(const IPipeIterator<TInput>& _Left, const IPipeIterator<TInput>& Right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_iterator.h"(124)
+template <typename TOutput> bool operator!=(const OPipeIterator<TOutput>& _Left, const OPipeIterator<TOutput>& Right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_iterator.h"(204)
 
 //____________________________________________________________________________
 // operator<<
 
-template <typename TValue, typename TStringSpec, typename TInput, typename TSpec > inline bool operator<<(String<TValue, TStringSpec> &dest, Pipe<TInput, TSpec> &src);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(559)
-template <typename TInput, typename TSpec > std::ostream& operator<<(std::ostream &out, Pipe<TInput, TSpec> &p);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(566)
-template <typename TValue, typename TSpec > ::std::ostream& operator<<(::std::ostream &out, Pool<TValue, TSpec> &p);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(1068)
-template <typename TValue, typename TSpec, typename TSource > inline bool operator<<(Pool<TValue, TSpec> &dest, TSource &src);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(1226)
-template <typename TValue1, typename TStringSpec, typename TValue2, typename TSpec > inline bool operator<<(String<TValue1, TStringSpec> &dest, Pool<TValue2, TSpec> &src);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(1259)
+template <typename TValue, typename TStringSpec, typename TInput, typename TSpec > inline bool operator<<(String<TValue, TStringSpec> &dest, Pipe<TInput, TSpec> &src);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(559)
+template <typename TInput, typename TSpec > std::ostream& operator<<(std::ostream &out, Pipe<TInput, TSpec> &p);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(566)
+template <typename TValue, typename TSpec > ::std::ostream& operator<<(::std::ostream &out, Pool<TValue, TSpec> &p);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(1068)
+template <typename TValue, typename TSpec, typename TSource > inline bool operator<<(Pool<TValue, TSpec> &dest, TSource &src);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(1226)
+template <typename TValue1, typename TStringSpec, typename TValue2, typename TSpec > inline bool operator<<(String<TValue1, TStringSpec> &dest, Pool<TValue2, TSpec> &src);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(1259)
 
 //____________________________________________________________________________
 // operator==
 
-template <typename TInput> bool operator==(const IPipeIterator<TInput>& _Left, const IPipeIterator<TInput>& Right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_iterator.h"(118)
-template <typename TOutput> bool operator==(const OPipeIterator<TOutput>& _Left, const OPipeIterator<TOutput>& Right_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_iterator.h"(198)
+template <typename TInput> bool operator==(const IPipeIterator<TInput>& _Left, const IPipeIterator<TInput>& Right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_iterator.h"(118)
+template <typename TOutput> bool operator==(const OPipeIterator<TOutput>& _Left, const OPipeIterator<TOutput>& Right_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_iterator.h"(198)
 
 //____________________________________________________________________________
 // pop
 
-template <typename TInput, typename TSpec, typename TValue > inline void pop(Pipe<TInput, TSpec> &me, TValue &Ref_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(410)
-template <typename TInput, typename TSpec > inline void pop(Pipe<TInput, TSpec> &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(417)
-template <typename TValue, typename TSpec > inline void pop(Pool<TValue, TSpec> &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(1041)
-template <typename TValue, typename TSpec > inline void pop(Pool<TValue, TSpec> &me, TValue &Ref_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(1046)
+template <typename TInput, typename TSpec, typename TValue > inline void pop(Pipe<TInput, TSpec> &me, TValue &Ref_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(410)
+template <typename TInput, typename TSpec > inline void pop(Pipe<TInput, TSpec> &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(417)
+template <typename TValue, typename TSpec > inline void pop(Pool<TValue, TSpec> &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(1041)
+template <typename TValue, typename TSpec > inline void pop(Pool<TValue, TSpec> &me, TValue &Ref_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(1046)
 
 //____________________________________________________________________________
 // processBuffer
 
-template <typename TBuffer, typename THandler > inline TBuffer& processBuffer(TBuffer &h, THandler &);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(181)
-template <typename TValue, typename TConfig > inline SimpleBuffer< TValue > & processBuffer( PageFrame< TValue, typename TConfig::File, Dynamic<> > &buf, BufferHandler< Pool< TValue, MapperSpec<TConfig> >, ReadFileSpec > &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_mapper.h"(158)
-template <typename TValue, typename TConfig > inline PageFrame< TValue, typename TConfig::File, Dynamic<> > & processBuffer( PageFrame< TValue, typename TConfig::File, Dynamic<> > &buf, BufferHandler< Pool< TValue, SorterSpec<TConfig> >, WriteFileSpec > &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_sorter.h"(397)
-template <typename TValue, typename TConfig > inline SimpleBuffer<TValue> & processBuffer( SimpleBuffer< TValue > &buf, BufferHandler< Pool< TValue, SorterSpec<TConfig> >, MemorySpec > &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_sorter.h"(411)
+template <typename TBuffer, typename THandler > inline TBuffer& processBuffer(TBuffer &h, THandler &);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(181)
+template <typename TValue, typename TConfig > inline SimpleBuffer< TValue > & processBuffer( PageFrame< TValue, typename TConfig::File, Dynamic<> > &buf, BufferHandler< Pool< TValue, MapperSpec<TConfig> >, ReadFileSpec > &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_mapper.h"(158)
+template <typename TValue, typename TConfig > inline PageFrame< TValue, typename TConfig::File, Dynamic<> > & processBuffer( PageFrame< TValue, typename TConfig::File, Dynamic<> > &buf, BufferHandler< Pool< TValue, SorterSpec<TConfig> >, WriteFileSpec > &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_sorter.h"(397)
+template <typename TValue, typename TConfig > inline SimpleBuffer<TValue> & processBuffer( SimpleBuffer< TValue > &buf, BufferHandler< Pool< TValue, SorterSpec<TConfig> >, MemorySpec > &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_sorter.h"(411)
 
 //____________________________________________________________________________
 // push
 
-template <typename TValue, typename TSpec > inline void push(Pool<TValue, TSpec> &me, TValue const &Val_);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(1063)
+template <typename TValue, typename TSpec > inline void push(Pool<TValue, TSpec> &me, TValue const &Val_);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(1063)
 
 //____________________________________________________________________________
 // resize
 
-template <typename TValue, typename TSpec, typename TSize > inline TSize resize(Pool<TValue, TSpec> &me, TSize new_length);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(1026)
+template <typename TValue, typename TSpec, typename TSize > inline TSize resize(Pool<TValue, TSpec> &me, TSize new_length);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(1026)
 
 //____________________________________________________________________________
 // setHost
 
-template <typename TPair, typename TLimits> void setHost(PairIncrementer_<TPair, TLimits> &me, TLimits const &limits);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(709)
-template <typename TPair, typename TLimits, unsigned m, typename TLimits2> void setHost(PairDecrementer_<TPair, TLimits, m> &me, TLimits2 const &limits);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(781)
-template <typename TPair, typename TLimits, typename TLimits2> void setHost(PairDecrementer_<TPair, TLimits, 0> &me, TLimits2 const &limits);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(831)
+template <typename TPair, typename TLimits> void setHost(PairIncrementer_<TPair, TLimits> &me, TLimits const &limits);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(709)
+template <typename TPair, typename TLimits, unsigned m, typename TLimits2> void setHost(PairDecrementer_<TPair, TLimits, m> &me, TLimits2 const &limits);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(781)
+template <typename TPair, typename TLimits, typename TLimits2> void setHost(PairDecrementer_<TPair, TLimits, 0> &me, TLimits2 const &limits);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(831)
 
 //____________________________________________________________________________
 // size
 
-template <typename TValue, typename TSpec > inline typename Size< Pool<TValue, TSpec> >::Type size(Pool<TValue, TSpec> const &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pool_base.h"(1009)
+template <typename TValue, typename TSpec > inline typename Size< Pool<TValue, TSpec> >::Type size(Pool<TValue, TSpec> const &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pool_base.h"(1009)
 
 //____________________________________________________________________________
 // source
 
-template <typename TInput, typename TSpec > inline TInput const & source(Pipe<TInput, TSpec> const &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(300)
-template <typename TInput, typename TSpec > inline TInput & source(Pipe<TInput, TSpec> &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(307)
+template <typename TInput, typename TSpec > inline TInput const & source(Pipe<TInput, TSpec> const &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(300)
+template <typename TInput, typename TSpec > inline TInput & source(Pipe<TInput, TSpec> &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(307)
 
 //____________________________________________________________________________
 // value
 
-template <typename TPair, typename TLimits> TPair const & value(PairIncrementer_<TPair, TLimits> const &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(725)
-template <typename TPair, typename TLimits> TPair & value(PairIncrementer_<TPair, TLimits> &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(730)
-template <typename TPair, typename TLimits, unsigned m> TPair const & value(PairDecrementer_<TPair, TLimits, m> const &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(846)
-template <typename TPair, typename TLimits, unsigned m> TPair & value(PairDecrementer_<TPair, TLimits, m> &me);       	// "/Users/fbuske/Documents/triplexes/progs/seqan/core/include/seqan/pipe/pipe_base.h"(851)
+template <typename TPair, typename TLimits> TPair const & value(PairIncrementer_<TPair, TLimits> const &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(725)
+template <typename TPair, typename TLimits> TPair & value(PairIncrementer_<TPair, TLimits> &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(730)
+template <typename TPair, typename TLimits, unsigned m> TPair const & value(PairDecrementer_<TPair, TLimits, m> const &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(846)
+template <typename TPair, typename TLimits, unsigned m> TPair & value(PairDecrementer_<TPair, TLimits, m> &me);       	// "/Users/fabianbuske/Documents/research/triplex/seqan_old/core/include/seqan/pipe/pipe_base.h"(851)
 
 } //namespace SEQAN_NAMESPACE_MAIN
 

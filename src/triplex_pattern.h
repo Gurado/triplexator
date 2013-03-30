@@ -743,7 +743,7 @@ SEQAN_CHECKPOINT
 	}
 	
 	template <typename THost, typename TString>
-	inline double const
+	inline double 
 	guanineRate(ModStringTriplex<THost, TString> const & me)
 	{
 		SEQAN_CHECKPOINT

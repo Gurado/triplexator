@@ -36,7 +36,6 @@
 #define FBUSKE_APPS_TRIPLEXATOR_TRIPLEXATOR_H_
 
 #include <seqan/misc/misc_cmdparser.h>
-#include <seqan/parallel.h> 
 #include <seqan/modifier/modifier_view.h>
 #include <seqan/sequence.h>
 #include <seqan/basic.h>  // Includes testing infrastructure.

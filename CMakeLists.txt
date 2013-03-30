@@ -5,7 +5,7 @@ project (triplexator)
 # The version number.
 set (triplexator_VERSION_MAJOR 1)
 set (triplexator_VERSION_MINOR 3)
-set (triplexator_VERSION_PATCH 1)
+set (triplexator_VERSION_PATCH 2)
 
 # does this system provide the required dependencies?
 include (${CMAKE_ROOT}/Modules/CheckFunctionExists.cmake)
@@ -32,11 +32,11 @@ SET(CPACK_PACKAGE_INSTALL_DIRECTORY "triplexator ${CMake_VERSION_MAJOR}.${CMake_
 IF(WIN32 AND NOT UNIX)
   # There is a bug in NSI that does not handle full unix paths properly. Make
   # sure there is at least one set of four (4) backlasshes.
-#  SET(CPACK_PACKAGE_ICON "${CMake_SOURCE_DIR}/Utilities/Release\\\\InstallIcon.bmp")
-  SET(CPACK_NSIS_INSTALLED_ICON_NAME "bin\\\\triplexator.exe")
+#  SET(CPACK_PACKAGE_ICON "${CMake_SOURCE_DIR}/Utilities/Release\\InstallIcon.bmp")
+  SET(CPACK_NSIS_INSTALLED_ICON_NAME "bin\\triplexator.exe")
   SET(CPACK_NSIS_DISPLAY_NAME "${CPACK_PACKAGE_INSTALL_DIRECTORY} triplexator")
-  SET(CPACK_NSIS_HELP_LINK "http:\\\\\\\\www.bioinformatics.org.au/triplexator")
-  SET(CPACK_NSIS_URL_INFO_ABOUT "http:\\\\\\\\www.bioinformatics.org.au/triplexator")
+  SET(CPACK_NSIS_HELP_LINK "http:\\\\www.bioinformatics.org.au/triplexator")
+  SET(CPACK_NSIS_URL_INFO_ABOUT "http:\\\\www.bioinformatics.org.au/triplexator")
   SET(CPACK_NSIS_CONTACT "f.buske@uq.edu.au")
   SET(CPACK_NSIS_MODIFY_PATH ON)
 ELSE(NOT WIN32 AND UNIX)
@@ -45,5 +45,8 @@ ELSE(NOT WIN32 AND UNIX)
 ENDIF(WIN32 AND NOT UNIX)
 SET(CPACK_PACKAGE_EXECUTABLES "triplexator" "triplexator")
 INCLUDE(CPack)
+
+
+DE(CPack)
 
 

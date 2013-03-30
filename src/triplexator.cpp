@@ -35,9 +35,9 @@
 #define SEQAN_PROFILE					// enable time measuring
 //#define TRIPLEX_DEBUG					// print verification regions
 
-#ifndef SEQAN_ENABLE_PARALLELISM
-#define SEQAN_ENABLE_PARALLELISM 1		// disable parallelism on default
-#endif
+//#ifndef SEQAN_ENABLE_PARALLELISM
+//#define SEQAN_ENABLE_PARALLELISM 1		// disable parallelism on default
+//#endif
 
 #include <seqan/platform.h>
 #ifdef PLATFORM_WINDOWS
@@ -46,9 +46,12 @@
 	#define SEQAN_DEFAULT_TMPDIR "./"
 #endif
 
+#if SEQAN_ENABLE_PARALLELISM
+#include <seqan/parallel.h>
+#include <seqan/parallel/parallel_macros.h>
+#endif  // #if SEQAN_ENABLE_PARALLELISM
+
 #include <seqan/misc/misc_cmdparser.h>
-#include <seqan/parallel.h> 
-#include <seqan/parallel/parallel_macros.h> 
 #include <seqan/sequence.h>
 #include <seqan/file.h>
 #include "triplexator.h"
@@ -65,8 +68,8 @@ namespace SEQAN_NAMESPACE_MAIN
 
 	void _setupCommandLineParser(CommandLineParser & parser, Options & options){
 		::std::string rev = "$Revision: 12251 $";
-		addVersionLine(parser, "Version 1.3.1 (12/11/2012) SeqAn Revision: " + rev.substr(11, 4) + "");
-		append(options.version, "Version 1.3.1 (12/11/2012) SeqAn Revision: " + rev.substr(11, 4) + "");
+		addVersionLine(parser, "Version 1.3.2 (30/03/2012) SeqAn Revision: " + rev.substr(11, 4) + "");
+		append(options.version, "Version 1.3.2 (30/03/2012) SeqAn Revision: " + rev.substr(11, 4) + "");
 		
 		addTitleLine(parser, "***********************************************************************************");
 		addTitleLine(parser, "*** Triplexator - Finding nucleic acid triple helices with approximate matching ***");
@@ -230,13 +233,15 @@ namespace SEQAN_NAMESPACE_MAIN
 			options.applyMaximumLengthConstraint = true;
 		}
 		
-#if SEQAN_ENABLE_PARALLELISM	
+#if SEQAN_ENABLE_PARALLELISM
 		getOptionValueLong(parser, "processors", options.processors);
 		if (options.processors < 1){
 			options.processors = omp_get_max_threads();
 		}
 		getOptionValueLong(parser, "runtime-mode", options.runtimeMode);
-		if (options.runtimeMode == RUN_SERIAL){
+		if (options.processors == 1){
+            options.runtimeMode = RUN_SERIAL;
+        } else if(options.runtimeMode == RUN_SERIAL){
 			options.processors = 1;
 		} else {
 			options.processors = min(options.processors, omp_get_max_threads());
@@ -244,6 +249,7 @@ namespace SEQAN_NAMESPACE_MAIN
 		}
 #else
 		options.processors = 1;
+        options.runtimeMode = RUN_SERIAL;
 #endif 
 		
 		getOptionValueLong(parser, "filtering-mode", options.filterMode);
@@ -668,7 +674,8 @@ namespace SEQAN_NAMESPACE_MAIN
 				
 				errorCode = startTriplexSearchParallelDuplex(tfoMotifSet, tfoNames, pattern, outputfile, duplexSeqNo, options, TGardener());
 			} else {
-				errorCode = startTriplexSearchParallelDuplex(tfoMotifSet, tfoNames, NULL, outputfile, duplexSeqNo, options, BruteForce());			
+                TQGramIndex pattern;
+				errorCode = startTriplexSearchParallelDuplex(tfoMotifSet, tfoNames, pattern, outputfile, duplexSeqNo, options, BruteForce());
 			}
 		} else {
 		// otherwise go for serial processing
@@ -688,7 +695,8 @@ namespace SEQAN_NAMESPACE_MAIN
 				
 				errorCode = startTriplexSearchSerial(tfoMotifSet, tfoNames, pattern, outputfile, duplexSeqNo, options, TGardener());
 			} else {
-				errorCode = startTriplexSearchSerial(tfoMotifSet, tfoNames, NULL, outputfile, duplexSeqNo, options, BruteForce());
+                TQGramIndex pattern;
+				errorCode = startTriplexSearchSerial(tfoMotifSet, tfoNames, pattern, outputfile, duplexSeqNo, options, BruteForce());
 			}	
 	#if SEQAN_ENABLE_PARALLELISM	
 		}

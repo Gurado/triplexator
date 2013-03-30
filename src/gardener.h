@@ -35,9 +35,20 @@
 #ifndef FBUSKE_APPS_TRIPLEXATOR_HEADER_GARDENER_H
 #define FBUSKE_APPS_TRIPLEXATOR_HEADER_GARDENER_H
 
-//#ifdef _OPENMP
-//#	include <omp.h>
-//#endif
+#include <limits>
+#include "find_index_qgrams.h"
+#include "triplex_alphabet.h"
+#include "helper.h"
+#include <seqan/seeds2.h>  // Include module under test.
+#include <seqan/sequence/adapt_std_list.h>
+#include <seqan/misc/priority_type_base.h>
+#include <seqan/misc/priority_type_heap.h>
+#include <seqan/misc/misc_dequeue.h>
+
+#if SEQAN_ENABLE_PARALLELISM
+#include <seqan/parallel.h>
+#endif  // #if SEQAN_ENABLE_PARALLELISM
+
 #ifndef SEQAN_PRAGMA_IF_PARALLEL
 #if SEQAN_ENABLE_PARALLELISM
 #define STRINGIFY(a) #a
@@ -48,19 +59,9 @@ _Pragma(STRINGIFY(code))
 #endif // SEQAN_ENABLE_PARALLELISM
 #endif // SEQAN_PRAGMA_IF_PARALLEL
 
-#include <limits>
-#include "find_index_qgrams.h"
-#include "triplex_alphabet.h"
-#include <seqan/seeds2.h>  // Include module under test.
-#include <seqan/sequence/adapt_std_list.h>
-#include <seqan/misc/priority_type_base.h>
-#include <seqan/misc/priority_type_heap.h>
-#include <seqan/misc/misc_dequeue.h>
-#include <seqan/parallel.h> 
-
 using namespace seqan;
 namespace SEQAN_NAMESPACE_MAIN
-{	
+{    
 	// ============================================================================
 	// Tags, Classes, Enums
 	// ============================================================================
@@ -70,7 +71,6 @@ namespace SEQAN_NAMESPACE_MAIN
 	
 	struct _SINGLE_WORKER;
 	typedef Tag<_SINGLE_WORKER> SINGLE_WORKER; // tag for serial execution
-
 	
 	/**
 	 * Class that holds a hit between a needle and a haystack
@@ -156,7 +156,6 @@ namespace SEQAN_NAMESPACE_MAIN
 			return hitLength;
 		}
 	};
-	
 	
 	//____________________________________________________________________________
 	
