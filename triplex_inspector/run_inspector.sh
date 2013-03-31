@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-USAGEMSG="usage: $(basename $0) -l \"localConstraints\" -o \"offTargetConstraints\" -c chromatinData -f chromatinFormat -g genome -s genomeSize -1 lociOfInterest.bed -2 alternativeLoci.bed -T TRIPLEXATOR -B BEDtools -C Circos -v <outputdirectory>
+USAGEMSG="usage: $(basename $0) -l \"localConstraints\" -o \"offTargetConstraints\" -c chromatinData -f chromatinFormat -g genome -s genomeSize -1 lociOfInterest.bed -2 alternativeLoci.bed -T TRIPLEXATOR -B BEDtools -C Circos -v <OUTPUT DIRECTORY>
 
 Starts the triplex target analysis workflow on the given dataset. 
 
@@ -21,6 +21,7 @@ Requirements (in PATH environment or specified):
 * -f chromatinFormat - the file format of the chromatin data (bam or bigwig) .
 * -g genome - The full path to a fasta file containing the genomic sequence data.
 * -s genomeSize - The full path to a file the chromosome sizes in tab-separated format, e.g. 'chr1    249250621'.
+* -m maximalTargets - maximal number of primary target clusters to be checked for off-target occurences
 * -P python - path to python executable.
 * -T triplexator - path to triplexator executable.
 * -B BEDtools - path to BEDtools executables with terminal directory delimiter (i.e. "/"), if no path is given BEDtool binaries are expected to be found in the PATH variable.
@@ -51,7 +52,7 @@ PYTHON="python"
 BEDTOOLS=""
 CIRCOS="circos"
 ANNOTATION="NONE"
-MAXIMALSITES=50 		# threshold for the number of primary target regions to be tested for off-targets 
+MAXIMALTARGETS=50 		# threshold for the number of primary target regions to be tested for off-targets
 SKIPIFEXISTS="FALSE"
 VERBOSE="--quiet"
 JSON="primary_targets.json"
@@ -73,6 +74,7 @@ do
 	B) BEDTOOLS="$OPTARG";;
 	C) CIRCOS="$OPTARG";;
 	a) ANNOTATION="$OPTARG";;
+    m) MAXIMALTARGETS="$OPTARG";;
 	x) SKIPIFEXISTS="TRUE";;
 	v) VERBOSE="--verbose";;
 	\?) print >&2 "$0: error - unrecognized option $1" 
@@ -113,31 +115,43 @@ CHROMATINSHORT=${CHROMATINSHORT%.*}
 # check pre-conditions
 #---------------------------
 echo "-------     " >> ${LOGFILE}
+echo "testing triplexator executable - ${TRIPLEXATOR} " >> ${DEBUGFILE}
 if [ "${TRIPLEXATOR}" != "triplexator" ]; then
 	[ ! -x ${TRIPLEXATOR} ]  && echo "[ERROR] Triplexator executables not found (parameter -T)" >> ${DEBUGFILE} 2>&1 && exit 1
 else
 	[ "which ${TRIPLEXATOR}" = "" ] && echo "[ERROR] Triplexator executables not found (parameter -T)" >> ${DEBUGFILE} 2>&1 && exit 1
 fi
+
+echo "testing python executable - ${PYTHON} " >> ${DEBUGFILE}
 if [ "${PYTHON}" != "python" ]; then
 	[ ! -x ${PYTHON} ]  && echo "[ERROR] Python executables not found (parameter -P)" >> ${DEBUGFILE} 2>&1 && exit 1
 else
 	[ "which ${PYTHON}" = "" ] && echo "[ERROR] Python executables not found (parameter -P)" >> ${DEBUGFILE} 2>&1 && exit 1
 fi
+
+echo "testing BEDtools executable - ${BEDTOOLS}fastaFromBed " >> ${DEBUGFILE}
 if [ "${BEDTOOLS}" != "" ]; then
 	[ ! -x ${BEDTOOLS}fastaFromBed ]  && echo "[ERROR] BEDtools executables not found (parameter -B)" >> ${DEBUGFILE} 2>&1 && exit 1
 else
 	[ "which fastaFromBed" = "" ] && echo "[ERROR] BEDtools executable not in path (parameter -B)" >> ${DEBUGFILE} 2>&1 && exit 1
-fi 
+fi
+
+echo "testing Circos executable - ${CIRCOS} " >> ${DEBUGFILE}
 if [ "${CIRCOS}" != "circos" ]; then
 	[ ! -x ${CIRCOS} ]  && echo "[NOTICE] Circos not found in path (parameter -C), no circos plots will be generated" >> ${DEBUGFILE} 2>&1
 else
 	[ "which ${CIRCOS}" = "" ] && echo "[ERROR] Circos executable not found (parameter -C)" >> ${DEBUGFILE} 2>&1 && exit 1
 fi
+
+echo "testing genome file - ${GENOME} " >> ${DEBUGFILE}
 [ ! -f ${GENOME} ] && echo "[ERROR] genome file does not exist (parameter -g)" >> ${DEBUGFILE} 2>&1 && exit 1
+
+echo "testing target file - ${LOI} " >> ${DEBUGFILE}
 [ ! -f ${LOI} ]  && echo "[ERROR] input file 1 (loci of interest) does not exist (parameter -1)" >> ${DEBUGFILE} 2>&1  && exit 1
 [ "${ANNOTATION}" != "NONE" ] && [ ! -f ${ANNOTATION} ] && echo "[ERROR] specified annotation file does not exist (parameter -a)" >> ${DEBUGFILE} 2>&1 && exit 1
 
-[ "${LOC}" = "NONE" ] && echo "[NOTICE] input file 2 (alternative loci to consider) does not exist (parameter -2) using complete genome instead" >> ${LOGFILE} 2>> ${DEBUGFILE} 
+[ "${LOC}" = "NONE" ] && echo "[NOTICE] input file 2 (alternative loci to consider) does not exist (parameter -2) using complete genome instead" >> ${LOGFILE} 2>> ${DEBUGFILE}
+
 [ "${TPXOPTIONS}" = "NONE" ] && TPXOPTIONS=${TTSOPTIONS} && echo "[NOTICE] Using localConstraints as collateralConstraints as well: TPXOPTIONS=TTSOPTIONS" >> ${LOGFILE} 2>> ${DEBUGFILE}
 
 # add specific options the off-target scan crucial for this pipeline (screening with a pyrimidine TFO with errors corresponding to the TFO position)
@@ -177,6 +191,7 @@ echo "CHROMATIN:        "${CHROMATIN} >> ${LOGFILE} 2>> ${DEBUGFILE}
 echo "CHROMATINFORMAT:  "${CHROMATINFORMAT} >> ${LOGFILE} 2>> ${DEBUGFILE}
 echo "OUTPUT:           "${OUTPUT} >> ${LOGFILE} 2>> ${DEBUGFILE}
 echo "ANNOTATION:       "${ANNOTATION} >> ${LOGFILE} 2>> ${DEBUGFILE}
+echo "MAXIMALTARGETS:   "${MAXIMALTARGETS} >> ${LOGFILE} 2>> ${DEBUGFILE}
 echo "SKIPIFEXISTS:     "${SKIPIFEXISTS} >> ${LOGFILE} 2>> ${DEBUGFILE}
 echo "VERBOSE:          "${VERBOSE} >> ${LOGFILE} 2>> ${DEBUGFILE}
 
@@ -220,18 +235,22 @@ echo "LOCSEQ:     "${LOCSEQ} >> ${LOGFILE} 2>> ${DEBUGFILE}
 echo "*** "`date +%H:%M:%S`" done     " >> ${LOGFILE} 2>> ${DEBUGFILE}
 
 #---------------------------
-# prepare annotation data (split into individual files grouped by column 2 entries)
+# prepare annotation data (split into individual files grouped by column 3 entries)
 #---------------------------
 if [ "$ANNOTATION" != "NONE" ]; then
 	echo "-------     " >> ${LOGFILE}
 	echo "*** "`date +%H:%M:%S`" prepare annotation data" >> ${LOGFILE} 
 	echo "*** PREPARE ANNOTATION " >> ${DEBUGFILE}
-	echo "... convert annotation into BED files" >> ${LOGFILE} 
-	[ ! -d ${OUTPUT}/annotation ] && mkdir ${OUTPUT}/annotation
-	for ANNO in $(cat ${ANNOTATION} | grep -v '^#' | awk -F\\t '{print $2}' | sort -u); do
-		echo "... processing annotation" ${ANNO} >> ${LOGFILE} 2>> ${DEBUGFILE} 	
+	echo "... convert gtf annotation into BED files grouped by column 3 (feature)" >> ${LOGFILE}
+    if [ -d  ${OUTPUT}/annotation ]; then
+        echo "[WARN] Annotation folder already exists, containing bed files will be overwritten" >> ${LOGFILE}
+    else
+        mkdir -p ${OUTPUT}/annotation
+    fi
+	for ANNO in $(cat ${ANNOTATION} | grep -v '^#' | awk -F\\t '{print $3}' | sort -u); do
+		echo "... processing annotation" ${ANNO} >> ${LOGFILE} 2>> ${DEBUGFILE}
 		if [ ! -f ${OUTPUT}/annotation/${ANNO}.bed ] || [ ! ${SKIPIFEXISTS} = "TRUE" ]; then
-			cat ${ANNOTATION} | awk -F\\t -v d1="${ANNO}" '$2==d1 {print $1"\t"$4"\t"$5"\t"$3"\t"$6"\t"$7}' > ${OUTPUT}/annotation/${ANNO}.bed 2>> ${DEBUGFILE}
+			cat ${ANNOTATION} | awk -F\\t -v d1="${ANNO}" '$3==d1 {print $1"\t"$4"\t"$5"\t"$3"\t"$6"\t"$7}' > ${OUTPUT}/annotation/${ANNO}.bed 2>> ${DEBUGFILE}
 		fi
 	done
 	echo "*** "`date +%H:%M:%S`" done     " >> ${LOGFILE}
@@ -245,7 +264,7 @@ if [ ! -f ${OUTPUT}/tts${LOISHORT}.TTS ] || [ ! ${SKIPIFEXISTS} = "TRUE" ]; then
 	echo "-------     " >> ${LOGFILE}
 	echo "*** "`date +%H:%M:%S`" search primary targets (TTSs)" >> ${LOGFILE}
 	echo "*** PRIMARY TARGET SCREEN " >> ${DEBUGFILE}
-	${TRIPLEXATOR} ${TTSOPTIONS} --merge-features -od ${OUTPUT}/tts -o ${LOISHORT}.TTS -ds ${LOISEQ}
+	${TRIPLEXATOR} ${TTSOPTIONS} --merge-features -od ${OUTPUT}/tts -o ${LOISHORT}.TTS -ds ${LOISEQ} 2>> ${DEBUGFILE}
 	echo "*** "`date +%H:%M:%S`" done     " >> ${LOGFILE} 2>> ${DEBUGFILE}
 else
 	echo "... skipping primary target region detection due to pre-existing results" >> ${LOGFILE}
@@ -257,8 +276,8 @@ test ${FOUNDTTS} -eq 0 && \
 	&& exit 1
 
 # are there more targets that we want to process at a time?
-test ${FOUNDTTS} -gt ${MAXIMALSITES} && \
-	( echo "[WARNING] Number of potential targets exceeds threshold MAXIMALSITES \n Either increase the MAXIMALSITES threshold or reduce the number of primary targets by applying more stringent constraints (parameter localConstraints) " >> ${LOGFILE} 2>> ${DEBUGFILE} ) \
+test ${FOUNDTTS} -gt ${MAXIMALTARGETS} && \
+	( echo "[WARNING] Number of potential targets exceeds threshold MAXIMALTARGETS \n Either increase the MAXIMALTARGETS threshold or reduce the number of primary targets by applying more stringent constraints (parameter localConstraints) " >> ${LOGFILE} 2>> ${DEBUGFILE} ) \
 	&& exit 1
 
 #---------------------------
@@ -291,7 +310,7 @@ if [ ! -f ${OUTPUT}/tpx/${TFOSHORT}.TPX ] || [ ! ${SKIPIFEXISTS} = "TRUE" ]; the
 	echo "-------     " >> ${LOGFILE}
 	echo "*** "`date +%H:%M:%S`" processing ${TFOSHORT}" >> ${LOGFILE}
 	echo "*** ANNOTATIONS " >> ${DEBUGFILE}
-	${TRIPLEXATOR} ${TPXOPTIONS} -od ${OUTPUT}/tpx -o ${TFOSHORT}.TPX -ss ${TFO} -ds ${LOCSEQ} 
+	${TRIPLEXATOR} ${TPXOPTIONS} -od ${OUTPUT}/tpx -o ${TFOSHORT}.TPX -ss ${TFO} -ds ${LOCSEQ}  2>> ${DEBUGFILE}
 
 	# remove overlap with primary target
 	echo "... removing primary target entries from off-target list" >> ${LOGFILE} 2>> ${DEBUGFILE} 
@@ -317,9 +336,9 @@ if [ ! -f ${OUTPUT}/tpx/${TFOSHORT}.TPX ] || [ ! ${SKIPIFEXISTS} = "TRUE" ]; the
 			# intersect with each annotation file
 			for ANNO in $(cat ${ANNOTATION} | awk -F\\t '{print $2}' | sort -u); do
 				echo "... intersecting with ${ANNO}" >> ${LOGFILE} 2>> ${DEBUGFILE}
-				${BEDTOOLS}intersectBed -wo -a ${OUTPUT}/tpx/${TFOSHORT}.bed -b ${OUTPUT}/annotation/${ANNO}.bed | sort -k4,4n > ${OUTPUT}/tpx/${TFOSHORT}.${ANNO}
+				${BEDTOOLS}intersectBed -wo -a ${OUTPUT}/tpx/${TFOSHORT}.bed -b ${OUTPUT}/annotation/${ANNO}.bed | sort -k4,4n > ${OUTPUT}/tpx/${TFOSHORT}.${ANNO} 2>> ${DEBUGFILE}
 				# append annotation to tpx file (additional columns, multiple entries are comma separated)
-				${PYTHON} ${DIR}/scripts/_annotationTPX.py ${OUTPUT}/tpx/${TFOSHORT}.TPX ${OUTPUT}/tpx/${TFOSHORT}.${ANNO} ${ANNO} > ${OUTPUT}/tpx/${TFOSHORT}.TPXanno
+				${PYTHON} ${DIR}/scripts/_annotationTPX.py ${OUTPUT}/tpx/${TFOSHORT}.TPX ${OUTPUT}/tpx/${TFOSHORT}.${ANNO} ${ANNO} > ${OUTPUT}/tpx/${TFOSHORT}.TPXanno 2>> ${DEBUGFILE}
 				mv ${OUTPUT}/tpx/${TFOSHORT}.TPXanno ${OUTPUT}/tpx/${TFOSHORT}.TPX
 				rm ${OUTPUT}/tpx/${TFOSHORT}.${ANNO}
 			done	
@@ -340,11 +359,11 @@ if [ ! -f ${OUTPUT}/json/${JSON} ] || [ ! ${SKIPIFEXISTS} = "TRUE" ]; then
 	echo "*** "`date +%H:%M:%S`" find optimal primary targets" >> ${LOGFILE} 
 	echo "*** OPTIMAL PRIMARY TARGET " >> ${DEBUGFILE}
 	echo "... get all eligible primary targets" >> ${LOGFILE} 
-	cat ${OUTPUT}/tts/${LOISHORT}.TTSpool | awk -F\\t '{print  $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6}' > ${OUTPUT}/tts/${LOISHORT}.TTSpool.bed
-	${BEDTOOLS}fastaFromBed -name -s -fi ${GENOME} -bed ${OUTPUT}/tts/${LOISHORT}.TTSpool.bed -fo ${OUTPUT}/tts/${LOISHORT}.submatches
+	cat ${OUTPUT}/tts/${LOISHORT}.TTSpool | awk -F\\t '{print  $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6}' > ${OUTPUT}/tts/${LOISHORT}.TTSpool.bed 2>> ${DEBUGFILE}
+	${BEDTOOLS}fastaFromBed -name -s -fi ${GENOME} -bed ${OUTPUT}/tts/${LOISHORT}.TTSpool.bed -fo ${OUTPUT}/tts/${LOISHORT}.submatches 2>> ${DEBUGFILE}
 	if [ ! -f ${OUTPUT}/tts/${LOISHORT}.submatches.TTS ] || [ ! ${SKIPIFEXISTS} = "TRUE" ]; then
 		echo "... collect all primary targets"  >> ${LOGFILE} 
-		${TRIPLEXATOR} ${TTSOPTIONS} --all-matches -od ${OUTPUT}/tts -o ${LOISHORT}.submatches.TTS -ds ${OUTPUT}/tts/${LOISHORT}.submatches
+		${TRIPLEXATOR} ${TTSOPTIONS} --runtime-mode 1 --all-matches -od ${OUTPUT}/tts -o ${LOISHORT}.submatches.TTS -ds ${OUTPUT}/tts/${LOISHORT}.submatches 2>> ${DEBUGFILE}
 	fi
 	echo "... intersect primary targets with previously obtained off-targets"  >> ${LOGFILE} 	
 	${PYTHON} ${DIR}/scripts/_submatches.py --verbose ${OUTPUT}/tts/${LOISHORT}.TTSpool ${OUTPUT}/tts/${LOISHORT}.submatches.TTS ${OUTPUT}/tpx/${LOISHORT}.TPX ${OUTPUT}/tpx/${LOISHORT}.TPX.log > ${OUTPUT}/json/${JSON} 2>> ${DEBUGFILE}

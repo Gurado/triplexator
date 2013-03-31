@@ -470,7 +470,7 @@ namespace SEQAN_NAMESPACE_MAIN
 		bool 		showVersion;
    		unsigned 	hashsize;			// mod used for hashing
 		unsigned	runmode;			// mode in which Triplexator is run
-		unsigned	filterMode;			// what kind of filtering should be used ... or whether brut force the the mode of choice
+		unsigned	filterMode;			// what kind of filtering should be used ... or whether brute force the the mode of choice
 		// 0..undetermined
 		// 1..TRIPLEX_TTS_SEARCH
 		// 2..TRIPLEX_TFO_SEARCH
@@ -584,7 +584,7 @@ namespace SEQAN_NAMESPACE_MAIN
 			_debugLevel = 0;
 			printVersion = false;
 			runtimeMode = RUN_SERIAL;
-			filterMode = FILTERING_GRAMS;
+			filterMode = BRUTE_FORCE;
 			processors= -1;
 			minLength = 16;
 			maxLength = 30;

@@ -38,7 +38,7 @@ RESULTS=${DIR}/results
 # setting for primary targets
 TTSOPTIONS="--lower-length-bound 12 --consecutive-errors 1 --error-rate 10 --runtime-mode 2 --output-format 0 --filter-repeats off --filtering-mode 0"
 # setting for off-targets (relaxed constraints)
-TPXOPTIONS="--lower-length-bound 10 --consecutive-errors 1 --error-rate 10 --runtime-mode 2 --output-format 0 --filter-repeats off --filtering-mode 0"
+TPXOPTIONS="--lower-length-bound 10 --consecutive-errors 1 --error-rate 10 --runtime-mode 1 --output-format 0 --filter-repeats off --filtering-mode 0"
 
 # -----------------------------------------------------
 # test-related preparations

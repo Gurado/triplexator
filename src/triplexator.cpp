@@ -73,22 +73,18 @@ namespace SEQAN_NAMESPACE_MAIN
 		
 		addTitleLine(parser, "***********************************************************************************");
 		addTitleLine(parser, "*** Triplexator - Finding nucleic acid triple helices with approximate matching ***");
-		addTitleLine(parser, "***                  (c) Copyright 2011, 2012 by Fabian Buske                   ***");
+		addTitleLine(parser, "***              (c) Copyright 2011, 2012, 2013 by Fabian Buske                 ***");
 		addTitleLine(parser, "***                 Comments, Bugs, Feedback: f.buske@uq.edu.au                 ***");
 		addTitleLine(parser, "***********************************************************************************");
 		addUsageLine(parser, "[OPTIONS] -ss <FASTA FILE> -ds <FASTA FILE>");
 		addSection(parser, "Input:");
-		addHelpLine(parser, "Depending on the input files supplied Triplexator will run in different modes. Providing:");
-		addHelpLine(parser, "1) only the third strand (-ss) triggers a search for putative triplex-forming oligonucleotides (TFO)");
-		addHelpLine(parser, "2) only the duplex (-ds) triggers a search for putative triplex target sites (TTS)");
-		addHelpLine(parser, "3) both input types triggers a search for triplexes (matching TFO-TTS pairs)");
+		addHelpLine(parser, "Triplexator will run in different modes Ddpending on the input. Providing:");
+		addHelpLine(parser, "1) only the third strand (-ss) - search for putative triplex-forming oligonucleotides (TFO)");
+		addHelpLine(parser, "2) only the duplex (-ds) - search for putative triplex target sites (TTS)");
+		addHelpLine(parser, "3) both - search for triplexes (matching TFO-TTS pairs)");
 		addHelpLine(parser, "");
-		addOption(parser, addArgumentText(CommandLineOption("ss",  "single-strand-file",    "File in FASTA format that is searched for Triplex-forming capability (e.g. RNA or DNA)", OptionType::String), "<FILE>"));
-		addHelpLine(parser, "If only this file is supplied, Triplexator will search and output");
-		addHelpLine(parser, "Triplex Forming Oligonucleotides (TFOs) only");
-		addOption(parser, addArgumentText(CommandLineOption("ds", "duplex-file", 			"File in FASTA format that is searched for triplex-forming capability (e.g. DNA)", OptionType::String), "<FILE>"));
-		addHelpLine(parser, "If only these files are supplied Triplexator will search and output");
-		addHelpLine(parser, "Triplex Target Sites (TTSs) only");
+		addOption(parser, addArgumentText(CommandLineOption("ss",  "single-strand-file",    "File in FASTA format that is searched for TFOs (e.g. RNA or DNA)", OptionType::String), "<FILE>"));
+		addOption(parser, addArgumentText(CommandLineOption("ds", "duplex-file", 			"File in FASTA format that is searched for TTSs (e.g. DNA)", OptionType::String), "<FILE>"));
 		addSection(parser, "Main Options:");
 		addOption(parser, CommandLineOption("l",  "lower-length-bound",						"minimum triplex feature length required", OptionType::Int| OptionType::Label, options.minLength));
 		addOption(parser, CommandLineOption("L",  "upper-length-bound",						"maximum triplex feature length permitted, -1 = unrestricted ", OptionType::Int | OptionType::Label, options.maxLength ));
@@ -98,16 +94,20 @@ namespace SEQAN_NAMESPACE_MAIN
 		addOption(parser, CommandLineOption("g",  "min-guanine",							"set the minimal guanine proportion required in %", OptionType::Double | OptionType::Label, 100.0 * options.minGuanineRate));
 		addOption(parser, CommandLineOption("G",  "max-guanine",							"set the maximal guanine proportion allowed in %", OptionType::Double | OptionType::Label, 100.0 * options.maxGuanineRate));
 		addOption(parser, addArgumentText(CommandLineOption("m", "triplex-motifs", 			"Triplex motifs allowed [R,Y,M,P,A] (default all)", OptionType::String), "MOTIF1,MOTIF2,..."));
-		addHelpLine(parser, "R = purine (G and A), Y = pyrimidine (C and T), M = mixed (G and T), P = parallel (Hoogsteen bonds), A = anti-parallel (reverse Hoogsteen bonds)");
+		addHelpLine(parser, "R = purine (G and A)");
+		addHelpLine(parser, "Y = pyrimidine (C and T)");
+		addHelpLine(parser, "M = mixed (G and T)");
+		addHelpLine(parser, "P = parallel (Hoogsteen bonds)");
+		addHelpLine(parser, "A = anti-parallel (reverse Hoogsteen bonds)");
 		addOption(parser, CommandLineOption("mpmg",  "mixed-parallel-max-guanine",			"maximum guanine content (%) in mixed-motif (GT) to consider parallel binding", OptionType::Double | OptionType::Label, (100.0 * options.mixed_parallel_max_guanine)));
 		addOption(parser, CommandLineOption("mamg",  "mixed-antiparallel-min-guanine",		"minimum guanine content (%) in mixed-motif (GT) to consider anti-parallel binding", OptionType::Double | OptionType::Label, (100.0 * options.mixed_antiparallel_min_guanine)));
 		
-		addOption(parser, CommandLineOption("b",  "minimum-block-run",						"required number of consecutive matches", OptionType::Int | OptionType::Label, options.minBlockRun));
+		addOption(parser, CommandLineOption("b",  "minimum-block-run",						"required number of consecutive matches, disable with -1", OptionType::Int | OptionType::Label, options.minBlockRun));
 		addOption(parser, CommandLineOption("a",  "all-matches",							"process and report all sub-matches in addition to the longest match", OptionType::Boolean));
 		addHelpLine(parser, "Careful! This can result in hugh output files when searching for TFO-TTS pairs.");
 		addOption(parser, CommandLineOption("dd", "detect-duplicates",						"indicates whether and how duplicates should be detected", OptionType::Int | OptionType::Label, options.detectDuplicates));
 		addHelpLine(parser, "0 = off         do not detect duplicates");
-		addHelpLine(parser, "1 = permissive  detect duplicates in feature space, e.g. AGGGAcGAGGA != AGGGAtGAGGA");	
+		addHelpLine(parser, "1 = permissive  detect duplicates in sequence space, e.g. AGGGAcGAGGA != AGGGAtGAGGA");	
 		addHelpLine(parser, "2 = strict      detect duplicates in target space, e.g. AGGGAcGAGGA == AGGGAtGAGGA == AGGGAnGAGGA");
 		addOption(parser, addArgumentText(CommandLineOption("ssd", "same-sequence-duplicates",	"whether to count a feature copy in the same sequence as duplicates or not.", OptionType::String | OptionType::Label, (options.sameSequenceDuplicates?"on":"off")), "[on|off]"));
 		addOption(parser, CommandLineOption("v",  "verbose",			"verbose mode", OptionType::Boolean));
@@ -115,43 +115,42 @@ namespace SEQAN_NAMESPACE_MAIN
 		addSection(parser, "Filtration Options:");
 		addOption(parser, CommandLineOption("fm", "filtering-mode",		"filtering mode - method to quickly discard non-hits", OptionType::Int | OptionType::Label, options.filterMode));
 		addHelpLine(parser, "0 = brute-force approach      use no filtering, go the extra mile");
-		addHelpLine(parser, "1 = q-gram filtering          filter hits using qgrams");
+		addHelpLine(parser, "1 = q-gram filtering          filter hits using qgrams (benefical for features > 20 nt)");
 		addOption(parser, CommandLineOption("t", "qgram-threshold",		"number of q-grams (must be > 0)", OptionType::Int | OptionType::Label, options.qgramThreshold));
 		addHelpLine(parser, "A higher threshold means more stringent filtering therefore requiring fewer validations but also leads to shorter qgrams, which increases the number of lookups.");
 		addOption(parser, addArgumentText(CommandLineOption("fr",  "filter-repeats",         "if enabled, disregards repeat and low-complex regions ", OptionType::String | OptionType::Label, (options.filterRepeats?"on":"off")), "[on|off]"));
 		addOption(parser, CommandLineOption("mrl",  "minimum-repeat-length","minimum length requirement for low-complex regions to be filtered", OptionType::Int | OptionType::Label, options.minRepeatLength));
 		addOption(parser, CommandLineOption("mrp",  "maximum-repeat-period","maximum repeat period for low-complex regions to be filtered", OptionType::Int | OptionType::Label, options.maxRepeatPeriod));
-		addOption(parser, CommandLineOption("dc",   "duplicate-cutoff",		"disregard feature if it occurs more often than this cutoff. Disable with -1.", OptionType::Int | OptionType::Label, options.duplicatesCutoff));
+		addOption(parser, CommandLineOption("dc",   "duplicate-cutoff",		"disregard feature if it occurs more often than this cutoff, disable with -1.", OptionType::Int | OptionType::Label, options.duplicatesCutoff));
 		addSection(parser, "Output Options:");
 #ifdef BOOST
 		addOption(parser, CommandLineOption("z", "zip",					"compress output with gzip (requires gzip & boost)", OptionType::Boolean));
 #endif
 		addOption(parser, CommandLineOption("mf", "merge-features","merge overlapping features into a cluster and report the spanning region", OptionType::Boolean));
-		addHelpLine(parser, "Only supported for TFO and TTS detection, respectively. Merge is performed before duplicate detection.");
+		addHelpLine(parser, "Supported for TFO and TTS detection only. Merge is performed before duplicate detection.");
 		addOption(parser, CommandLineOption("dl", "duplicate-locations","Report the location of duplicates", OptionType::Boolean));
 		addHelpLine(parser, "Only works when duplicate cutoff is set to greater than 0.");
 		addOption(parser, addArgumentText(CommandLineOption("o", "output",	"output filename (default standard out)", OptionType::String), "FILE"));
-		addOption(parser, addArgumentText(CommandLineOption("od", "output-directory", 	"directory where all the output will be directed to", OptionType::String), "FILEDIR"));
+		addOption(parser, addArgumentText(CommandLineOption("od", "output-directory", 	"output will be written to this location", OptionType::String), "FILEDIR"));
 		addOption(parser, CommandLineOption("of", "output-format",     "set output format", OptionType::Int | OptionType::Label, options.outputFormat));
 		addHelpLine(parser, "0 = Tab-separated");
 		addHelpLine(parser, "1 = Triplexator format (contains sequence/alignment)");
 		addHelpLine(parser, "2 = Summary only");
 		addOption(parser, CommandLineOption("po", "pretty-output",		"indicate matching/mismatching characters with upper/lower case", OptionType::Boolean));
-		addOption(parser, CommandLineOption("er", "error-reference",	"sets the reference to which the error should correspond", OptionType::Int | OptionType::Label, options.errorReference));
-		addHelpLine(parser, "0 = the Watson strand of the target (TTS)");
-		addHelpLine(parser, "1 = the purine strand of the target (TTS)");
-		addHelpLine(parser, "2 = the third strand (TFO)");
+		addOption(parser, CommandLineOption("er", "error-reference",	"reference to which the error should correspond", OptionType::Int | OptionType::Label, options.errorReference));
+		addHelpLine(parser, "0 = the Watson strand of the target");
+		addHelpLine(parser, "1 = the purine strand of the target");
+		addHelpLine(parser, "2 = the third strand");
 
 #if SEQAN_ENABLE_PARALLELISM
 		addSection(parser, "Performance Options:");
-		addOption(parser, CommandLineOption("rm", "runtime-mode",		"execution mode - any parallel runtime mode requires OpenMP support during compilation", OptionType::Int | OptionType::Label, options.runtimeMode));
+		addOption(parser, CommandLineOption("rm", "runtime-mode",		"execution mode - parallel modes require OpenMP support during compilation", OptionType::Int | OptionType::Label, options.runtimeMode));
 		addHelpLine(parser, "0 = Serial               process in serial (most memory efficient)");
-		addHelpLine(parser, "1 = Parallelize TTSs     process triplex-matching for all targets in a duplex in parallel (for long duplex sequences)");	
-		addHelpLine(parser, "2 = Parallelize duplex   process duplex sequences in parallel (for short duplex sequences)");
-		//		addHelpLine(parser, "3 = Parallelize strands  process duplex strands in parallel (for average-sized duplex sequences)");
+		addHelpLine(parser, "1 = Parallelize TTSs     process targets per duplex in parallel (for long duplex sequences)");	
+		addHelpLine(parser, "2 = Parallelize duplex   process duplexes in parallel (for short duplex sequences)");
 		addHelpLine(parser, "Note: potential runtime speedup is at the cost of higher memory usage. ");
-		addHelpLine(parser, "Option 2 is particular prone to consume lots of memory especially with heaps of duplex sequence.");
-		addOption(parser, CommandLineOption("p", "processors",			"number of processors to use when executed in parallel mode. -1 = detect automatically.", OptionType::Int | OptionType::Label, options.processors));
+		addHelpLine(parser, "Option 2 is prone to consume lots of memory especially with heaps of duplex sequence.");
+		addOption(parser, CommandLineOption("p", "processors",			"number of processors used in parallel mode. -1 = detect automatically.", OptionType::Int | OptionType::Label, options.processors));
 #endif
 		requiredArguments(parser, 0);
 	}
@@ -594,7 +593,7 @@ namespace SEQAN_NAMESPACE_MAIN
 				int minSeedsThreshold = static_cast<int>(options.minLength+1-(min(static_cast<int>(ceil(options.errorRate*options.minLength)), options.maximalError)+1)*length(options.shape));
 				options.logFileHandle << "- min. threshold actual: " << minSeedsThreshold << ::std::endl;			
 			} else {
-				options.logFileHandle << "- filtering : none - greedy algorithm" << ::std::endl;
+				options.logFileHandle << "- filtering : none - brute force" << ::std::endl;
 			}
 		}
 		options.logFileHandle << "*************************************************************" << ::std::endl;

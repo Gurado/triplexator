@@ -2,10 +2,13 @@
 * Changelog
 *******************
 
-2013-03-30 Fabian Buske		v1.3.2
+2013-03-31 Fabian Buske		v1.3.2
+	Help messages shortened
+	Parameters Change: Filtering set to Brute-Force by default
 	Bugfix: Detection of parallel environments
-	Warnings during compiling resolved
+	Compiler warnings resolved
 	Switch to serial processing in case number of processors is 1
+	GCC 4.7 support added
 
 2012-11-12 Fabian Buske		v1.3.1
 	Bugfix: Variable initialization
