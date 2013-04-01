@@ -405,7 +405,7 @@ def process():
 						
 			else: # contribute workload
 				# load up work queue
-				work_queue = multiprocessing.JoinableQueue()
+				work_queue = multiprocessing.JoinableQueue(processors*3)
 				
 				# create a queue to pass to workers to store the results
 				result_queue = multiprocessing.Queue()
@@ -609,8 +609,8 @@ incorporating chromatin data on demand.
 					help="directory where the output files will be saved into")
 	parser.add_option("-t", "--threshold", type="int", dest="threshold", default=100, 
 					help="maximum number of off-targets to display for a target")
-	parser.add_option("-p", "--processors", type="int", dest="processors", default=0, 
-					help="number of processors to use; 0 = determine automatically; default 0")
+	parser.add_option("-p", "--processors", type="int", dest="processors", default=1,
+					help="number of processors to use; 0 = determine automatically; default 1")
 
 	(options, args) = parser.parse_args()
 	if (len(args) != 4):
