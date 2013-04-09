@@ -580,7 +580,7 @@ def writeNuclotidePositionData(loi, targetid, chrom, tstart, tstop, tsize, cstra
 			max_v = sumdist
 		
 		for dpos in range(len(dist)):
-			dist[dpos] = math.ceil(100*dist[dpos]/sumdist)/100.
+			dist[dpos] = math.ceil(dist[dpos]/float(sumdist))
 		
 		f_ontarget_positions_rel.write("%s\n" % (",".join(["%.2f" % el for el in dist])))
 	
@@ -592,7 +592,7 @@ def writeNuclotidePositionData(loi, targetid, chrom, tstart, tstop, tsize, cstra
 			dist += [positions[pos][t]]
 			
 		for dpos in range(len(dist)):
-			dist[dpos] = math.ceil(100* dist[dpos] /max_v )/100.
+			dist[dpos] = math.ceil(dist[dpos]/float(max_v))
 		
 		f_ontarget_positions_abs.write("%s\n" % (",".join(["%.2f" % el for el in dist])))
 

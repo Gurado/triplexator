@@ -221,7 +221,7 @@ echo "2) regions to consider for off-targets" >> ${LOGFILE}
 if  [ "${LOC}" = "NONE" ]; then
 	echo "... consider whole genome for alternative regions" >> ${LOGFILE} 
 	LOCSEQ=${GENOME}
-	cat ${GENOMESIZE} | awk '{print $1"\t"0"\t"$2"\t"$1"\t0\t+"}' > ${OUTPUT}/${GENOMESHORT}.bed
+	awk '{print $1"\t"0"\t"$2"\t"$1"\t0\t+"}' ${GENOMESIZE} > ${OUTPUT}/${GENOMESHORT}.bed
 	LOC=${OUTPUT}/${GENOMESHORT}.bed
 else
 	if	[ -f ${LOC} ]  && ([ ! -f ${OUTPUT}/${LOCSHORT}.fasta ] || [ ! ${SKIPIFEXISTS} = "TRUE" ]); then
@@ -247,12 +247,15 @@ if [ "$ANNOTATION" != "NONE" ]; then
     else
         mkdir -p ${OUTPUT}/annotation
     fi
-	for ANNO in $(cat ${ANNOTATION} | grep -v '^#' | awk -F\\t '{print $3}' | sort -u); do
+    grep -v '^#' ${ANNOTATION} | awk -F\\t '{print $3}' | sort -u > ${OUTPUT}/annotation/types.txt
+	while read ANNO
+	do
 		echo "... processing annotation" ${ANNO} >> ${LOGFILE} 2>> ${DEBUGFILE}
 		if [ ! -f ${OUTPUT}/annotation/${ANNO}.bed ] || [ ! ${SKIPIFEXISTS} = "TRUE" ]; then
-			cat ${ANNOTATION} | awk -F\\t -v d1="${ANNO}" '$3==d1 {print $1"\t"$4"\t"$5"\t"$3"\t"$6"\t"$7}' > ${OUTPUT}/annotation/${ANNO}.bed 2>> ${DEBUGFILE}
+			# use first value of attribute list as (gene) name
+			awk -F'[\\t;= ]' -v d1="${ANNO}" '$3==d1 {print $1"\t"$4"\t"$5"\t"$10"\t"$6"\t"$7}' ${ANNOTATION} | tr -d '"' > ${OUTPUT}/annotation/${ANNO}.bed 2>> ${DEBUGFILE}
 		fi
-	done
+	done < ${OUTPUT}/annotation/types.txt
 	echo "*** "`date +%H:%M:%S`" done     " >> ${LOGFILE}
 fi
 
@@ -270,7 +273,7 @@ else
 	echo "... skipping primary target region detection due to pre-existing results" >> ${LOGFILE}
 fi
 # have we found any region that could be a putative primary target at all?
-FOUNDTTS=$(cat ${OUTPUT}/tts/${LOISHORT}.TTS | awk '{if (NR!=1) {print $0}}' | awk '/./{n++}; END {print n+0}') 
+FOUNDTTS=$(awk '{if (NR!=1) {print $0}}' ${OUTPUT}/tts/${LOISHORT}.TTS | awk '/./{n++}; END {print n+0}') 
 test ${FOUNDTTS} -eq 0 && \
 	( echo "[WARNING] No primary targets found. \nEither increase the loci of interest or relax the constraints for finding primary targets" >> ${LOGFILE} 2>> ${DEBUGFILE} ) \
 	&& exit 1
@@ -296,7 +299,7 @@ cat ${OUTPUT}/tts/${LOISHORT}.TTS \
 	> ${OUTPUT}/tts/${LOISHORT}.TTSpool
 
 echo "... design TFOs against primary targets" >> ${LOGFILE} 
-cat ${OUTPUT}/tts/${LOISHORT}.TTSpool | awk -F\\t '{print ">"$4"\n"$8}' > ${OUTPUT}/tts/${LOISHORT}.TTSpool.fa
+awk -F\\t '{print ">"$4"\n"$8}' ${OUTPUT}/tts/${LOISHORT}.TTSpool > ${OUTPUT}/tts/${LOISHORT}.TTSpool.fa
 cat ${OUTPUT}/tts/${LOISHORT}.TTSpool.fa | ${PYTHON} ${DIR}/scripts/translateTTStoTFO.py ${VERBOSE} --is-fasta 1> ${OUTPUT}/tfo/${LOISHORT}.TFO 2>> ${DEBUGFILE}
 
 echo "... find alternative targets for all TFOs" >> ${LOGFILE} 
@@ -328,20 +331,21 @@ if [ ! -f ${OUTPUT}/tpx/${TFOSHORT}.TPX ] || [ ! ${SKIPIFEXISTS} = "TRUE" ]; the
 		mv ${OUTPUT}/tpx/${TFOSHORT}.TPXreset ${OUTPUT}/tpx/${TFOSHORT}.TPX
 		
 		# get number of off-targets and extract their coordinates
-		cat ${OUTPUT}/tpx/${TFOSHORT}.TPX | awk -F\\t '{if (NR!=1) {print  $4"\t"$5"\t"$6"\t"NR"\t"$7"\t"$11}}' > ${OUTPUT}/tpx/${TFOSHORT}.bed
-		FOUNDOFFS=$(cat ${OUTPUT}/tpx/${TFOSHORT}.bed | awk '/./{n++}; END {print n+0}')
+		awk -F\\t '{if (NR!=1) {print  $4"\t"$5"\t"$6"\t"NR"\t"$7"\t"$11}}' ${OUTPUT}/tpx/${TFOSHORT}.TPX > ${OUTPUT}/tpx/${TFOSHORT}.bed
+		FOUNDOFFS=$(awk '/./{n++}; END {print n+0}' ${OUTPUT}/tpx/${TFOSHORT}.bed)
 		echo "... Number of off-targets found: ${FOUNDOFFS}" >> ${LOGFILE} 2>> ${DEBUGFILE}
 	
 		if [ ! "${FOUNDOFFS}" = "0" ]; then
 			# intersect with each annotation file
-			for ANNO in $(cat ${ANNOTATION} | awk -F\\t '{print $2}' | sort -u); do
+			while read ANNO
+			do
 				echo "... intersecting with ${ANNO}" >> ${LOGFILE} 2>> ${DEBUGFILE}
 				${BEDTOOLS}intersectBed -wo -a ${OUTPUT}/tpx/${TFOSHORT}.bed -b ${OUTPUT}/annotation/${ANNO}.bed | sort -k4,4n > ${OUTPUT}/tpx/${TFOSHORT}.${ANNO} 2>> ${DEBUGFILE}
 				# append annotation to tpx file (additional columns, multiple entries are comma separated)
 				${PYTHON} ${DIR}/scripts/_annotationTPX.py ${OUTPUT}/tpx/${TFOSHORT}.TPX ${OUTPUT}/tpx/${TFOSHORT}.${ANNO} ${ANNO} > ${OUTPUT}/tpx/${TFOSHORT}.TPXanno 2>> ${DEBUGFILE}
 				mv ${OUTPUT}/tpx/${TFOSHORT}.TPXanno ${OUTPUT}/tpx/${TFOSHORT}.TPX
 				rm ${OUTPUT}/tpx/${TFOSHORT}.${ANNO}
-			done	
+			done < ${OUTPUT}/annotation/types.txt
 		fi	
 	fi
 	echo "*** "`date +%H:%M:%S`" done     " >> ${LOGFILE} 
@@ -359,7 +363,7 @@ if [ ! -f ${OUTPUT}/json/${JSON} ] || [ ! ${SKIPIFEXISTS} = "TRUE" ]; then
 	echo "*** "`date +%H:%M:%S`" find optimal primary targets" >> ${LOGFILE} 
 	echo "*** OPTIMAL PRIMARY TARGET " >> ${DEBUGFILE}
 	echo "... get all eligible primary targets" >> ${LOGFILE} 
-	cat ${OUTPUT}/tts/${LOISHORT}.TTSpool | awk -F\\t '{print  $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6}' > ${OUTPUT}/tts/${LOISHORT}.TTSpool.bed 2>> ${DEBUGFILE}
+	awk -F\\t '{print  $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6}' ${OUTPUT}/tts/${LOISHORT}.TTSpool > ${OUTPUT}/tts/${LOISHORT}.TTSpool.bed 2>> ${DEBUGFILE}
 	${BEDTOOLS}fastaFromBed -name -s -fi ${GENOME} -bed ${OUTPUT}/tts/${LOISHORT}.TTSpool.bed -fo ${OUTPUT}/tts/${LOISHORT}.submatches 2>> ${DEBUGFILE}
 	if [ ! -f ${OUTPUT}/tts/${LOISHORT}.submatches.TTS ] || [ ! ${SKIPIFEXISTS} = "TRUE" ]; then
 		echo "... collect all primary targets"  >> ${LOGFILE} 
@@ -418,12 +422,13 @@ if hash ${CIRCOS} 2>&- ; then
 	fi
 	
 	ORIGINDIR=$(pwd) # save current directory
-	cat /dev/null > ${OUTPUT}/circos/log.txt
 	# make one circos plot for each target
 	for FOLDER in $(ls -d ${OUTPUT}/circos/t*/); do
-		cd ${FOLDER} 
-		${CIRCOS} -conf ./circos.conf >> ${ORIGINDIR}/${DEBUGFILE} 2>&1
-		cd ${ORIGINDIR}
+        if [ -d ${FOLDER} ]; then
+            cd ${FOLDER}
+            ${CIRCOS} -conf ./circos.conf >> ${DEBUGFILE} 2>&1
+            cd ${ORIGINDIR}
+        fi
 	done
 
 	# augment html	
