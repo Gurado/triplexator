@@ -18,7 +18,22 @@ def readdata():
 			continue
 		cols = line.strip().split("\t")
 		lois[cols[3]] = {}
-		lois[cols[3]] = {'chrom':cols[0], 'start':int(cols[1]), 'end':int(cols[2]), 'targets':[]}
+		# get strand infoq
+		strand =""
+		if (len(cols)>=6):
+			strand = cols[5]
+
+		# get exons
+		exons = []
+		if (len(cols)>=11):
+			sizes = cols[10].split(",")
+			starts = cols[11].split(",")
+			for exon in xrange(int(cols[9])):
+				exons += [tuple([int(cols[1])+int(starts[exon]), int(cols[1])+int(starts[exon])+int(sizes[exon])])]
+
+		# save data
+		lois[cols[3]] = {'chrom':cols[0], 'start':int(cols[1]), 'end':int(cols[2]), 'targets':[], 'strand':strand, 'exons':exons, 'gid': cols[4]}
+		
 	if (options.verbose):
 		print >> sys.stderr, "LOI BED: read %d entries"  % (len(lois))
 	
@@ -219,7 +234,10 @@ def write_html(signature, tpx, tts, lois, parameters):
 		loi_chrom = loi_entry['chrom']
 		loi_start = loi_entry['start']
 		loi_end = loi_entry['end']
+		loi_strand = loi_entry['strand']
+		loi_exons = loi_entry['exons']
 		loi_size = float(loi_end - loi_start)
+		loi_gid = loi_entry['gid']
 		
 		# calculate maximum stacking
 		step = 1
@@ -244,11 +262,19 @@ def write_html(signature, tpx, tts, lois, parameters):
 		# print sequence block container
 		report_body += '''
 		<tr id='%s_blocks'>
-			<td>%s:%d-%d<br/><span class="small">%s</span></td>
+			<td>%s:%d-%d (%s)<br/><span class="small">%s</span></td>
 			<td>
 				<div id='%s_block_container' class='block_container' style='height:%dpx'>
 				<div class='block_rule' style='width:100%%'></div>
-		''' % (loi, loi_chrom, loi_start, loi_end, loi, loi, maxstep*13+13)
+		''' % (loi, loi_chrom, loi_start, loi_end, loi_strand, loi, loi, maxstep*13+13)
+	
+		# print exon blocks
+		for exon_i in xrange(len(loi_exons)):
+			exon = loi_exons[exon_i]
+			exon_nm = "e_"+str(exon_i)
+			if (loi_strand == '-'):
+				exon_nm = "e_"+str(len(loi_exons)-exon_i)
+			report_body += '''		<div class='block_exon' id="%s_exon" title='%s %s:%d-%d' style='left:%.2f%%; top:%dpx; width:%.2f%%; border: 1px dotted black;'></div>''' % (exon_nm, exon_nm, loi_chrom, exon[0], exon[1], (exon[0]-loi_start)*100./loi_size, 8*step, (exon[1]-exon[0])*100./loi_size+0.1)  # block
 		
 		# print motif blocks
 		step = 1

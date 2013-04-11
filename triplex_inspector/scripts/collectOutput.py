@@ -561,7 +561,7 @@ def process():
 		{ "sTitle": "end", "sType": "numeric", "sToolTip":"chromosomal end position of this region" },
 		{ "sTitle": "length", "sType": "numeric", "sToolTip":"number of nucleotides spanned by this target region" },
 		{ "sTitle": "chromatin", "bVisible": '''+withChromatin+''', "sToolTip":"chromatin score averaged over the shown region" },
-		{ "sTitle": "interruptions", "sType": "numeric", "sToolTip":"number of pyrimdine interruptions in the polypurine/polypyrimidine tract of the region" },
+		{ "sTitle": "Y-interruptions", "sType": "numeric", "sToolTip":"number of pyrimdine interruptions in the polypurine/polypyrimidine tract of the region" },
 		{ "sTitle": "on-target region", "bSortable": false, "sClass": "left", "sToolTip":"sequence of the region (plus additional flanking positions if specified)"  },
 		{ "sTitle": "off-targets", "bSearchable": false, "bVisible": false, "sToolTip":"total number of off-targets accumulated over all putative primary targets in this region" },
 		{ "sTitle": "strand", "bSearchable": false, "bVisible": false, "sToolTip":"strand on which the purine tract is located" },
