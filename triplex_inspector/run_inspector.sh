@@ -312,6 +312,14 @@ TFOSHORT=${TFO##*/}
 TFOSHORT=${TFOSHORT%.*}
 echo "*** "`date +%H:%M:%S`" done     " >> ${LOGFILE} 
 
+# unzip or remove old files
+if [ -f ${OUTPUT}/tpx/${LOISHORT}.TPX.gz ] && [ ${SKIPIFEXISTS} = "TRUE" ] ; then 
+	gunzip ${OUTPUT}/tpx/${LOISHORT}.TPX.gz
+	gunzip ${OUTPUT}/tpx/${LOISHORT}.bed.gz
+else
+	rm -f ${OUTPUT}/tpx/*.gz
+fi
+	
 if [ ! -f ${OUTPUT}/tpx/${TFOSHORT}.TPX ] || [ ! ${SKIPIFEXISTS} = "TRUE" ]; then
 	echo "-------     " >> ${LOGFILE}
 	echo "*** "`date +%H:%M:%S`" processing ${TFOSHORT}" >> ${LOGFILE}
@@ -367,6 +375,7 @@ if [ ! -f ${OUTPUT}/json/${JSON} ] || [ ! ${SKIPIFEXISTS} = "TRUE" ]; then
 	echo "... get all eligible primary targets" >> ${LOGFILE} 
 	awk -F\\t '{print  $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6}' ${OUTPUT}/tts/${LOISHORT}.TTSpool > ${OUTPUT}/tts/${LOISHORT}.TTSpool.bed 2>> ${DEBUGFILE}
 	${BEDTOOLS}fastaFromBed -name -s -fi ${GENOME} -bed ${OUTPUT}/tts/${LOISHORT}.TTSpool.bed -fo ${OUTPUT}/tts/${LOISHORT}.submatches 2>> ${DEBUGFILE}
+	
 	if [ ! -f ${OUTPUT}/tts/${LOISHORT}.submatches.TTS ] || [ ! ${SKIPIFEXISTS} = "TRUE" ]; then
 		echo "... collect all primary targets"  >> ${LOGFILE} 
 		${TRIPLEXATOR} ${TTSOPTIONS} --runtime-mode 1 --all-matches -od ${OUTPUT}/tts -o ${LOISHORT}.submatches.TTS -ds ${OUTPUT}/tts/${LOISHORT}.submatches 2>> ${DEBUGFILE}
@@ -456,6 +465,13 @@ if hash ${CIRCOS} 2>&- ; then
 	echo '</body></html>' >> ${OUTPUT}/inspector_circos.html
 	echo "*** "`date +%H:%M:%S`" done     " >> ${LOGFILE} 
 fi
+
+#---------------------------
+# zip potentially big files
+#---------------------------
+
+gzip -9 ${OUTPUT}/tpx/*.TPX
+gzip -9 ${OUTPUT}/tpx/*.bed
 
 #---------------------------
 # finish
