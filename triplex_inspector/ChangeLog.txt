@@ -3,6 +3,7 @@
 *******************
 
 2013-03-29  Fabian Buske	v0.1.3
+	- parameter option for links to UCSC genome browser added
 	- specification of MAXIMALTARGETS enabled via parameter
 	- default parameter setting for inspector adjusted to improve runtime
 	- visual guide for exon locations added to block view in target cluster overview

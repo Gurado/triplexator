@@ -291,10 +291,21 @@ def processOfftarget(off_targets, targetid, tfo_region, tfo_error, lflank, rflan
 		off_targets[jsonOffset][encoding]["copies"] += 1
 		# skip display of off-targets > specified threshold
 		if (len(off_targets[jsonOffset][encoding]["data"]) <= options.threshold):
+#			if (off_chromatin_features == '-'):
+#				off_targets[jsonOffset][encoding]["data"] += [(locChr, locStart, locStop, off_chromatin_features,'"'+'" "'.join(offtarget_entry[3:]).replace(',',' ').replace('" "','","')+'"')] 
+#			else: # convert chromatin entry to string
+#				off_targets[jsonOffset][encoding]["data"] += [(locChr, locStart, locStop, "%.3f" % (off_chromatin_features),'"'+'" "'.join(offtarget_entry[3:]).replace(',',' ').replace('" "','","')+'"')]
+			anno_overlap = []
+			for ai in offtarget_entry[3:]:
+				astr = '-';
+				if (ai != '-'):
+					astr = str(len(ai.split(',')))
+				anno_overlap += [astr]
+
 			if (off_chromatin_features == '-'):
-				off_targets[jsonOffset][encoding]["data"] += [(locChr, locStart, locStop, off_chromatin_features,'"'+'" "'.join(offtarget_entry[3:]).replace(',',' ').replace('" "','","')+'"')] 
+				off_targets[jsonOffset][encoding]["data"] += [(locChr, locStart, locStop, off_chromatin_features, '"'+'","'.join(anno_overlap)+'"' )]
 			else: # convert chromatin entry to string
-				off_targets[jsonOffset][encoding]["data"] += [(locChr, locStart, locStop, "%.3f" % (off_chromatin_features),'"'+'" "'.join(offtarget_entry[3:]).replace(',',' ').replace('" "','","')+'"')] 
+				off_targets[jsonOffset][encoding]["data"] += [(locChr, locStart, locStop, "%.3f" % (off_chromatin_features),'"'+'","'.join(anno_overlap)+'"' )]
 
 		counter += 1 
 
@@ -607,7 +618,7 @@ incorporating chromatin data on demand.
 					help="flanking sequence shown around primary target sites")
 	parser.add_option("-o", "--output-dir", type="string", dest="output_dir", default="", 
 					help="directory where the output files will be saved into")
-	parser.add_option("-t", "--threshold", type="int", dest="threshold", default=100, 
+	parser.add_option("-t", "--threshold", type="int", dest="threshold", default=25,
 					help="maximum number of off-targets to display for a target")
 	parser.add_option("-p", "--processors", type="int", dest="processors", default=1,
 					help="number of processors to use; 0 = determine automatically; default 1")

@@ -111,10 +111,17 @@ function fnFormatDetails ( dTable, nTr ){
 	sOut +=	'</tr></thead>'
 
 	for (i=0;i<aData[8].length;++i){
-		sOut +=	'<tr><td align="left">'+aData[8][i][0]+' : '+aData[8][i][1]+' - '+aData[8][i][2]+'</td>';
-			for (j=3;j<aData[8][i].length;++j){
-				sOut +=	'<td>'+aData[8][i][j]+'</td>';
-			}
+		if (hasUCSCgenome){
+			sOut +=	'<tr><td align="left"><a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db='+UCSCgenome+'&position='+aData[8][i][0]+':'+aData[8][i][1]+'-'+aData[8][i][2]+'" target="ucsc">'+aData[8][i][0]+':'+aData[8][i][1]+'-'+aData[8][i][2]+'</a></td>';
+				for (j=3;j<aData[8][i].length;++j){
+					sOut +=	'<td>'+aData[8][i][j]+'</td>';
+				}
+		} else {
+			sOut +=	'<tr><td align="left">'+aData[8][i][0]+':'+aData[8][i][1]+'-'+aData[8][i][2]+'</td>';
+				for (j=3;j<aData[8][i].length;++j){
+					sOut +=	'<td>'+aData[8][i][j]+'</td>';
+				}
+		}
 		sOut +=	'</tr>';
 	}
 	var copies = aData[5]
@@ -360,6 +367,7 @@ $(document).ready(function(){
 function loadOfftargets(){
 		
 	var tid_details = onTargetRegion[1] +':'+ onTargetRegion[2] +'-'+ onTargetRegion[3] + ' ('+ $.getUrlVar('rId')+')';
+	
 	if ($.getUrlVar('region') != ""){
 		tid_details += "; subregion "+$.getUrlVar('region');
 	}
@@ -367,6 +375,9 @@ function loadOfftargets(){
 		tid_details += "; annotation "+$.getUrlVar('annotation');
 	}
 	$("#target_details").text(tid_details);
+	if (hasUCSCgenome){
+		$("#target_details").append(' (<a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db='+UCSCgenome+'&position='+onTargetRegion[1]+':'+onTargetRegion[2]+'-'+onTargetRegion[3]+'" target="ucsc" style="color:#fff">UCSC</a>)');
+	}
 			
 	// submatches_file needs to be set prior to execution
 	$.ajax({

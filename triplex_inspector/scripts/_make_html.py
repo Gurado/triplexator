@@ -199,11 +199,13 @@ def write_html(signature, tpx, tts, lois, parameters):
 	
 	<!-- triplex inspector specific scripts -->
 	<script type="text/javascript">
-		var hasChromatin = %d ;
+		var hasChromatin = %d;
+		var hasUCSCgenome = %d;
+		var UCSCgenome = "%s";
 		var submatches_file = "%s";
 		var parameters = {"minLength": %d, "errorRate": %d, "maxError": %d, "minGuanineRate": %d, "maxGuanineRate": %d, "matchBlock": %d}
     </script>
-   	<script type="text/javascript" src="includes/js/inspector.js"></script>''' % (options.chromatin!="NONE", args[3], parameters["minLength"], parameters["errorRate"], parameters["maxError"], parameters["minGuanineRate"], parameters["maxGuanineRate"], parameters["matchBlock"])
+   	<script type="text/javascript" src="includes/js/inspector.js"></script>''' % (options.chromatin!="NONE", options.ucsc!="NONE", options.ucsc, args[3], parameters["minLength"], parameters["errorRate"], parameters["maxError"], parameters["minGuanineRate"], parameters["maxGuanineRate"], parameters["matchBlock"])
 	
 	report_body = '''
 	<script type="text/javascript" src="includes/js/inspector_report.js"></script>
@@ -536,6 +538,8 @@ and generates a report in html format.
 					help="location of the workflow log file w/r/t the output (default: log.txt)")
 	parser.add_option("-c", "--with-chromatin", type="string", dest="chromatin", default="NONE", 
 					help="whether to incorporate chromatin data")
+	parser.add_option("-u", "--with-ucsc", type="string", dest="ucsc", default="NONE", 
+					help="genome assembly to generate links to the UCSC genome browser")
 	
 	(options, args) = parser.parse_args()
 	if (len(args) != 4):

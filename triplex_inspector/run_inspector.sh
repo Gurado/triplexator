@@ -20,6 +20,7 @@ Requirements (in PATH environment or specified):
 * -c chromatinData - The full path to the file containing the chromatin organization data (e.g. DNase I cutsites).
 * -f chromatinFormat - the file format of the chromatin data (bam or bigwig) .
 * -g genome - The full path to a fasta file containing the genomic sequence data.
+* -u ucsc - The UCSC genome assembly used
 * -s genomeSize - The full path to a file the chromosome sizes in tab-separated format, e.g. 'chr1    249250621'.
 * -m maximalTargets - maximal number of primary target clusters to be checked for off-target occurences
 * -P python - path to python executable.
@@ -41,6 +42,7 @@ TTSOPTIONS="--lower-length-bound 17 --consecutive-errors 1 --error-rate 8 --runt
 TPXOPTIONS="NONE"
 OUTPUT="NONE"
 GENOME="NONE"
+UCSCGENOME="NONE"
 GENOMESIZE="NONE"
 LOC="NONE"
 LOISEQ="NONE"
@@ -58,7 +60,7 @@ VERBOSE="--quiet"
 JSON="primary_targets.json"
 FLANKS=0 # length of flanking sequence shown
 
-while getopts "1:2:g:s:c:f:l:o:P:T:a:m:B:C:xv" opt;
+while getopts "1:2:g:s:c:f:l:o:P:T:a:m:u:B:C:xv" opt;
 do
 	case ${opt} in
 	1) LOI="$OPTARG";;
@@ -75,6 +77,7 @@ do
 	C) CIRCOS="$OPTARG";;
 	a) ANNOTATION="$OPTARG";;
 	m) MAXIMALTARGETS="$OPTARG";;
+	u) UCSCGENOME="$OPTARG";;
 	x) SKIPIFEXISTS="TRUE";;
 	v) VERBOSE="--verbose";;
 	\?) print >&2 "$0: error - unrecognized option $1" 
@@ -192,6 +195,7 @@ echo "CHROMATINFORMAT:  "${CHROMATINFORMAT} >> ${LOGFILE} 2>> ${DEBUGFILE}
 echo "OUTPUT:           "${OUTPUT} >> ${LOGFILE} 2>> ${DEBUGFILE}
 echo "ANNOTATION:       "${ANNOTATION} >> ${LOGFILE} 2>> ${DEBUGFILE}
 echo "MAXIMALTARGETS:   "${MAXIMALTARGETS} >> ${LOGFILE} 2>> ${DEBUGFILE}
+echo "UCSCGENOME:		"${UCSCGENOME} >> ${LOGFILE} 2>> ${DEBUGFILE}
 echo "SKIPIFEXISTS:     "${SKIPIFEXISTS} >> ${LOGFILE} 2>> ${DEBUGFILE}
 echo "VERBOSE:          "${VERBOSE} >> ${LOGFILE} 2>> ${DEBUGFILE}
 
@@ -333,7 +337,7 @@ if [ ! -f ${OUTPUT}/tpx/${TFOSHORT}.TPX ] || [ ! ${SKIPIFEXISTS} = "TRUE" ]; the
 		awk -F\\t '{if (NR!=1) {print  $4"\t"$5"\t"$6"\t"NR"\t"$7"\t"$11}}' ${OUTPUT}/tpx/${TFOSHORT}.TPX > ${OUTPUT}/tpx/${TFOSHORT}.bed
 		FOUNDOFFS=$(awk '/./{n++}; END {print n+0}' ${OUTPUT}/tpx/${TFOSHORT}.bed)
 		echo "... Number of off-targets found: ${FOUNDOFFS}" >> ${LOGFILE} 2>> ${DEBUGFILE}
-	
+
 		if [ ! "${FOUNDOFFS}" = "0" ]; then
 			# intersect with each annotation file
 			while read ANNO; do
@@ -344,11 +348,11 @@ if [ ! -f ${OUTPUT}/tpx/${TFOSHORT}.TPX ] || [ ! ${SKIPIFEXISTS} = "TRUE" ]; the
 				mv ${OUTPUT}/tpx/${TFOSHORT}.TPXanno ${OUTPUT}/tpx/${TFOSHORT}.TPX
 				rm ${OUTPUT}/tpx/${TFOSHORT}.${ANNO}
 			done < ${OUTPUT}/annotation/types.txt
-		fi	
+		fi
 	fi
-	echo "*** "`date +%H:%M:%S`" done     " >> ${LOGFILE} 
+	echo "*** "`date +%H:%M:%S`" done     " >> ${LOGFILE}
 else
-	echo "... skipping off-target detection due to pre-existing results" >> ${LOGFILE} 
+	echo "... skipping off-target detection due to pre-existing results" >> ${LOGFILE}
 fi
 
 #---------------------------
@@ -400,7 +404,7 @@ echo "*** "`date +%H:%M:%S`" generate HTML file" >> ${LOGFILE}
 echo "*** HTML " >> ${DEBUGFILE}
 [ ! -d ${OUTPUT}/includes/ ] && mkdir ${OUTPUT}/includes/
 cp -r ${DIR}/includes/* ${OUTPUT}/includes/
-${PYTHON} ${DIR}/scripts/_make_html.py ${VERBOSE} --with-chromatin ${CHROMATIN} --output ${OUTPUT}/ ${LOI} ${OUTPUT}/tts/${LOISHORT}.TTSpool ${OUTPUT}/tpx/${LOISHORT}.TPX ${JSON} 1>> ${LOGFILE} 2>> ${DEBUGFILE}
+${PYTHON} ${DIR}/scripts/_make_html.py ${VERBOSE} --with-chromatin ${CHROMATIN} --with-ucsc ${UCSCGENOME} --output ${OUTPUT}/ ${LOI} ${OUTPUT}/tts/${LOISHORT}.TTSpool ${OUTPUT}/tpx/${LOISHORT}.TPX ${JSON} 1>> ${LOGFILE} 2>> ${DEBUGFILE}
 cp ${DIR}/FAQs.txt ${OUTPUT}/FAQs.txt
 echo "*** "`date +%H:%M:%S`" done     " >> ${LOGFILE} 
 
