@@ -37,7 +37,7 @@ VERSION="0.1.3"
 
 [ $# -lt 4 ] && echo "$USAGEMSG" >&2 && exit 1
 
-TTSOPTIONS="--lower-length-bound 17 --consecutive-errors 1 --error-rate 8 --runtime-mode 2 --output-format 0 --min-guanine 30 --filter-repeats off --filtering-mode 0"
+TTSOPTIONS="--lower-length-bound 17 --consecutive-errors 1 --error-rate 8 --runtime-mode 1 --output-format 0 --min-guanine 45 --filter-repeats off --filtering-mode 0"
 TPXOPTIONS="NONE"
 OUTPUT="NONE"
 GENOME="NONE"
@@ -58,7 +58,7 @@ VERBOSE="--quiet"
 JSON="primary_targets.json"
 FLANKS=0 # length of flanking sequence shown
 
-while getopts "1:2:g:s:c:f:l:o:P:T:a:B:C:xv" opt;
+while getopts "1:2:g:s:c:f:l:o:P:T:a:m:B:C:xv" opt;
 do
 	case ${opt} in
 	1) LOI="$OPTARG";;
@@ -66,7 +66,7 @@ do
 	g) GENOME="$OPTARG";;
 	s) GENOMESIZE="$OPTARG";;
 	c) CHROMATIN="$OPTARG";;
-    f) CHROMATINFORMAT="$OPTARG";;
+	f) CHROMATINFORMAT="$OPTARG";;
 	l) TTSOPTIONS="$OPTARG";;
 	o) TPXOPTIONS="$OPTARG";;
 	P) PYTHON="$OPTARG";;
@@ -74,7 +74,7 @@ do
 	B) BEDTOOLS="$OPTARG";;
 	C) CIRCOS="$OPTARG";;
 	a) ANNOTATION="$OPTARG";;
-    m) MAXIMALTARGETS="$OPTARG";;
+	m) MAXIMALTARGETS="$OPTARG";;
 	x) SKIPIFEXISTS="TRUE";;
 	v) VERBOSE="--verbose";;
 	\?) print >&2 "$0: error - unrecognized option $1" 
@@ -248,8 +248,7 @@ if [ "$ANNOTATION" != "NONE" ]; then
         mkdir -p ${OUTPUT}/annotation
     fi
     grep -v '^#' ${ANNOTATION} | awk -F\\t '{print $3}' | sort -u > ${OUTPUT}/annotation/types.txt
-	while read ANNO
-	do
+	while read ANNO; do
 		echo "... processing annotation" ${ANNO} >> ${LOGFILE} 2>> ${DEBUGFILE}
 		if [ ! -f ${OUTPUT}/annotation/${ANNO}.bed ] || [ ! ${SKIPIFEXISTS} = "TRUE" ]; then
 			# use first value of attribute list as (gene) name
@@ -275,12 +274,12 @@ fi
 # have we found any region that could be a putative primary target at all?
 FOUNDTTS=$(awk '{if (NR!=1) {print $0}}' ${OUTPUT}/tts/${LOISHORT}.TTS | awk '/./{n++}; END {print n+0}') 
 test ${FOUNDTTS} -eq 0 && \
-	( echo "[WARNING] No primary targets found. \nEither increase the loci of interest or relax the constraints for finding primary targets" >> ${LOGFILE} 2>> ${DEBUGFILE} ) \
+	( echo "[WARN] No primary targets found. Either increase the loci of interest or relax the constraints for finding primary targets" >> ${LOGFILE} 2>> ${DEBUGFILE} ) \
 	&& exit 1
 
 # are there more targets that we want to process at a time?
 test ${FOUNDTTS} -gt ${MAXIMALTARGETS} && \
-	( echo "[WARNING] Number of potential targets exceeds threshold MAXIMALTARGETS \n Either increase the MAXIMALTARGETS threshold or reduce the number of primary targets by applying more stringent constraints (parameter localConstraints) " >> ${LOGFILE} 2>> ${DEBUGFILE} ) \
+	( echo "[WARN] Number of potential targets exceeds threshold MAXIMALTARGETS=${MAXIMALTARGETS}. Either increase the MAXIMALTARGETS threshold or reduce the number of primary targets by applying more stringent constraints (parameter localConstraints) " >> ${LOGFILE} 2>> ${DEBUGFILE} ) \
 	&& exit 1
 
 #---------------------------
@@ -337,8 +336,7 @@ if [ ! -f ${OUTPUT}/tpx/${TFOSHORT}.TPX ] || [ ! ${SKIPIFEXISTS} = "TRUE" ]; the
 	
 		if [ ! "${FOUNDOFFS}" = "0" ]; then
 			# intersect with each annotation file
-			while read ANNO
-			do
+			while read ANNO; do
 				echo "... intersecting with ${ANNO}" >> ${LOGFILE} 2>> ${DEBUGFILE}
 				${BEDTOOLS}intersectBed -wo -a ${OUTPUT}/tpx/${TFOSHORT}.bed -b ${OUTPUT}/annotation/${ANNO}.bed | sort -k4,4n > ${OUTPUT}/tpx/${TFOSHORT}.${ANNO} 2>> ${DEBUGFILE}
 				# append annotation to tpx file (additional columns, multiple entries are comma separated)
@@ -357,7 +355,7 @@ fi
 # find optimal primary targets
 #---------------------------
 
-[ ! -d ${OUTPUT}/json ] && mkdir -p ${OUTPUT}/json
+mkdir -p ${OUTPUT}/json
 if [ ! -f ${OUTPUT}/json/${JSON} ] || [ ! ${SKIPIFEXISTS} = "TRUE" ]; then
 	echo "-------     " >> ${LOGFILE}
 	echo "*** "`date +%H:%M:%S`" find optimal primary targets" >> ${LOGFILE} 
