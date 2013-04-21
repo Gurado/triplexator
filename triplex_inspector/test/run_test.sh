@@ -10,9 +10,9 @@ INSPECTOR=${DIR}/../
 # triplexator executable
 TRIPLEXATOR=${DIR}/../../bin/triplexator
 # cicos executable
-CIRCOS=/Users/Shared/circos-0.62-1/bin/circos
+CIRCOS=/opt/circos-0.62-1/bin/circos
 # BEDtools folder containing the executables
-BEDTOOLS=/Users/Shared/BEDTools_v2.16.2/bin/
+BEDTOOLS=/opt/bedools-2.17.0/bin/
 
 # -----------------------------------------------------
 # Location of the data
