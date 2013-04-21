@@ -261,14 +261,25 @@ def write_html(signature, tpx, tts, lois, parameters):
 			pre_tts_end = tts_end
 			maxstep = max(maxstep, step)
 		
-		# print sequence block container
-		report_body += '''
-		<tr id='%s_blocks'>
-			<td>%s:%d-%d (%s)<br/><span class="small">%s</span></td>
-			<td>
-				<div id='%s_block_container' class='block_container' style='height:%dpx'>
-				<div class='block_rule' style='width:100%%'></div>
-		''' % (loi, loi_chrom, loi_start, loi_end, loi_strand, loi, loi, maxstep*13+13)
+		if (options.ucsc!="NONE"):
+			# print sequence block container
+			report_body += '''
+			<tr id='%s_blocks'>
+				<td><a href='http://genome.ucsc.edu/cgi-bin/hgTracks?db=%s&position=%s:%d-%d' target='ucsc'>%s:%d-%d (%s)</a><br/><span class="small">%s</span></td>
+				<td>
+					<div id='%s_block_container' class='block_container' style='height:%dpx'>
+					<div class='block_rule' style='width:100%%'></div>
+			''' % (loi, options.ucsc, loi_chrom, loi_start, loi_end, loi_chrom, loi_start, loi_end, loi_strand, loi, loi, maxstep*13+13)
+		
+		else:
+			# print sequence block container
+			report_body += '''
+			<tr id='%s_blocks'>
+				<td>%s:%d-%d (%s)<br/><span class="small">%s</span></td>
+				<td>
+					<div id='%s_block_container' class='block_container' style='height:%dpx'>
+					<div class='block_rule' style='width:100%%'></div>
+			''' % (loi, loi_chrom, loi_start, loi_end, loi_strand, loi, loi, maxstep*13+13)
 	
 		# print exon blocks
 		for exon_i in xrange(len(loi_exons)):
