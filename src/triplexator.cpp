@@ -78,7 +78,7 @@ namespace SEQAN_NAMESPACE_MAIN
 		addTitleLine(parser, "***********************************************************************************");
 		addUsageLine(parser, "[OPTIONS] -ss <FASTA FILE> -ds <FASTA FILE>");
 		addSection(parser, "Input:");
-		addHelpLine(parser, "Triplexator will run in different modes Ddpending on the input. Providing:");
+		addHelpLine(parser, "Triplexator will run in different modes depending on the input. Providing:");
 		addHelpLine(parser, "1) only the third strand (-ss) - search for putative triplex-forming oligonucleotides (TFO)");
 		addHelpLine(parser, "2) only the duplex (-ds) - search for putative triplex target sites (TTS)");
 		addHelpLine(parser, "3) both - search for triplexes (matching TFO-TTS pairs)");
