@@ -12,7 +12,7 @@ TRIPLEXATOR=${DIR}/../../bin/triplexator
 # cicos executable
 CIRCOS=/opt/circos-0.62-1/bin/circos
 # BEDtools folder containing the executables
-BEDTOOLS=/opt/bedools-2.17.0/bin/
+BEDTOOLS=/opt/bedtools-2.17.0/bin/
 
 # -----------------------------------------------------
 # Location of the data
