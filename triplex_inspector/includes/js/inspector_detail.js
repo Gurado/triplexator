@@ -92,7 +92,7 @@ function tfo_motifs() {
 	$('#tfo').css('visibility','visible');
 	
 	var Gn = 73.0-1.1*(onEnd-onStart); //according to Vekhoff et al. 
-	var Gr = numberGuanines/(onEnd-onStart);
+	var Gr = 100*numberGuanines/(onEnd-onStart);
 	if (Gr <= Gn){
 		$('#TMmotif_preferred').html('&#10004;');
 	} else {
