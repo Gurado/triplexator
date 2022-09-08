@@ -917,7 +917,7 @@ namespace SEQAN_NAMESPACE_MAIN
 			appendValue(duplexNames, id, Generous());
 			
 			read(file, duplexString, Fasta());			// read Fasta sequence
-			ttsnoToFileMap.insert(::std::make_pair<unsigned,::std::pair< ::std::string,unsigned> >(seqNo,::std::make_pair< ::std::string,unsigned>(filename,seqNoWithinFile)));
+			ttsnoToFileMap.insert(::std::make_pair<unsigned,::std::pair< ::std::string,unsigned> >(::std::move(seqNo),::std::make_pair< ::std::string,unsigned>(::std::move(filename),::std::move(seqNoWithinFile))));
 			
 			if (options._debugLevel > 1 )
 				options.logFileHandle << _getTimeStamp() << "   ... Finished reading next duplex sequence" << ::std::endl;
@@ -1040,7 +1040,7 @@ namespace SEQAN_NAMESPACE_MAIN
 			readShortID(file, id, Fasta());			// read Fasta id up to first whitespace
 			appendValue(duplexNames, id, Generous());
 			read(file, duplexString, Fasta());		// read Fasta sequence
-			ttsnoToFileMap.insert(::std::make_pair<unsigned,::std::pair< ::std::string,unsigned> >(seqNo,::std::make_pair< ::std::string,unsigned>(filename,seqNoWithinFile)));
+			ttsnoToFileMap.insert(::std::make_pair<unsigned,::std::pair< ::std::string,unsigned> >(::std::move(seqNo),::std::make_pair< ::std::string,unsigned>(::std::move(filename),::std::move(seqNoWithinFile))));
 			appendValue(duplexSet, duplexString);	
 			
 			if (options._debugLevel > 1 )

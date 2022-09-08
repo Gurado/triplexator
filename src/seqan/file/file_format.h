@@ -205,27 +205,27 @@ public:
 	~FileFormat() {}
 	FileFormat const & operator =(FileFormat const &) { return *this; }
 
-	virtual void *
-	formatID_() const = 0;
+	void *
+	formatID_();
 
-	virtual void
-	read_(TFile & file, TData & data) const = 0;
-	virtual void
-	read_(TFile & file, TData & data, TSize limit) const = 0;
+	void
+	read_(TFile & file, TData & data);
+	void
+	read_(TFile & file, TData & data, TSize limit);
 
-	virtual void
-	readMeta_(TFile & file, TMeta & meta) const = 0;
+	void
+	readMeta_(TFile & file, TMeta & meta);
 
-	virtual void
-	goNext_(TFile & file) const = 0;
+	void
+	goNext_(TFile & file);
 
-	virtual TSize
-	length_(TFile & file) const = 0;
+	TSize
+	length_(TFile & file);
 
-	virtual void
-	write_(TFile & file, TData & data) const = 0;
-	virtual void
-	write_(TFile & file, TData & data, TMeta & meta) const = 0;
+	void
+	write_(TFile & file, TData & data);
+	void
+	write_(TFile & file, TData & data, TMeta & meta);
 
 };
 
